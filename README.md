@@ -19,10 +19,10 @@ and fill in your data.
 
 ### Send a message
 ```
-	long peer_id = 2000000001;
+long peer_id = 2000000001;
 	
-	vk::messages messages;
-	messages.send(peer_id, "Hello, World!");
+vk::messages messages;
+messages.send(peer_id, "Hello, World!");
 ```
 
 ### Get and listen to Long Poll server
