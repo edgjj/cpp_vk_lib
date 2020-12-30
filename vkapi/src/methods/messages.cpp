@@ -4,39 +4,39 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/messages.hpp"
 
-void vk::messages::send(long peer_id, std::string_view text)
+static void append_attachments(std::map<std::string, std::string>& parameters, const vk::attachment::attachment_list& list)
 {
-  std::map<std::string, std::string> parameters = {
-    { "message",      text.data()  },
-    { "peer_id",      std::to_string(peer_id) },
-    { "random_id",    "0"          },
-    { "access_token", access_token },
-    { "v",            api_v        },
-    { "disable_mentions", "1"      }
-  };
-  network->request(append_url("messages.send"), parameters);
-}
-
-void vk::messages::send(long peer_id, std::string_view text, const vk::attachment::attachment_list& list)
-{
-  std::map<std::string, std::string> parameters = {
-    { "message",      text.data()  },
-    { "peer_id",      std::to_string(peer_id) },
-    { "random_id",    "0"          },
-    { "access_token", access_token },
-    { "v",            api_v        },
-    { "disable_mentions", "1"      }
-  };
   std::string attachments;
   for (auto&& attachment : list)
   {
     attachments += attachment->value() + ',';
   }
   parameters.insert({{"attachment", attachments}});
+}
+
+void vk::messages::send(long peer_id, std::string_view text, const vk::attachment::attachment_list& list) const
+{
+  std::map<std::string, std::string> parameters = {
+    { "message",      text.data()  },
+    { "peer_id",      std::to_string(peer_id) },
+    { "random_id",    "0"          },
+    { "access_token", access_token },
+    { "v",            api_v        },
+    { "disable_mentions", "1"      }
+  };
+  if (not list.empty())
+  {
+    append_attachments(parameters, list);
+  }
   network->request(append_url("messages.send"), parameters);
 }
 
-void vk::messages::remove_chat_user(long chat_id, long user_id)
+void vk::messages::send(long peer_id, std::string_view text) const
+{
+  send(peer_id, text, {});
+}
+
+void vk::messages::remove_chat_user(long chat_id, long user_id) const
 {
   std::string response
   = network->request(append_url("messages.removeChatUser"), {
@@ -51,15 +51,15 @@ void vk::messages::remove_chat_user(long chat_id, long user_id)
 
   if (not parsed["error"].is_null() && static_cast<long>(parsed["error"]["error_code"]) == 100)
   {
-    throw lib::common_error(__FILE__, __LINE__, 100, "Can't kick this user/group.");
+    throw vk::common_error(__FILE__, __LINE__, 100, "Can't kick this user/group.");
   }
   if (not parsed["error"].is_null() && static_cast<long>(parsed["error"]["error_code"]) == 15)
   {
-    throw lib::common_error(__FILE__, __LINE__, 15, "Access denied.");
+    throw vk::common_error(__FILE__, __LINE__, 15, "Access denied.");
   }
 }
 
-void vk::messages::edit_chat(long chat_id, std::string_view new_title)
+void vk::messages::edit_chat(long chat_id, std::string_view new_title) const
 {
   network->request(append_url("messages.editChat"), {
     { "chat_id",      std::to_string(chat_id - 2000000000) },
@@ -70,7 +70,7 @@ void vk::messages::edit_chat(long chat_id, std::string_view new_title)
    });
 }
 
-void vk::messages::set_chat_photo(std::string_view filename, std::string_view raw_server)
+void vk::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const
 {
   std::string upload_url = static_cast<std::string>(parser->parse(raw_server)["response"]["upload_url"]);
 
@@ -85,9 +85,3 @@ void vk::messages::set_chat_photo(std::string_view filename, std::string_view ra
       { "file",          static_cast<std::string>(upload_response["response"])}
     });
 }
-
-
-
-
-
-

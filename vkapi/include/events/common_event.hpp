@@ -1,10 +1,10 @@
 #pragma once
 
-#include "vkapi/include/updates/message_new.hpp"
-//#include "vkapi/include/updates/wall_post_new.hpp"
+#include "vkapi/include/events/message_new.hpp"
+#include "vkapi/include/events/wall_post_new.hpp"
 
 
-namespace vk::update
+namespace vk::event
 {
 class common
 {
@@ -13,9 +13,10 @@ public:
 
   std::string type() const noexcept;
   std::string ts() const noexcept;
+  std::string dump() const noexcept;
 
-  message_new get_message_update() const;
-//  wall_post_new get_wall_post_update() const;
+  message_new get_message_event() const;
+  wall_post_new get_wall_post_event() const;
 
 private:
   std::string _ts;

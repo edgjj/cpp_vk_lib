@@ -36,7 +36,7 @@ vk::base_object::base_object() noexcept
 
 vk::base_object::~base_object() = default;
 
-std::string vk::base_object::append_url(std::string_view method)
+std::string vk::base_object::append_url(std::string_view method) const
 {
   return "https://api.vk.com/method/" + std::string { method } + '?';
 }

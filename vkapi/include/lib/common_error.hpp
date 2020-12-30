@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-namespace vk::lib
+namespace vk
 {
 class common_error : public std::exception
 {

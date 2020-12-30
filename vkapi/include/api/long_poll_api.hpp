@@ -2,7 +2,7 @@
 
 #include <list>
 #include "vkapi/include/api/base_object.hpp"
-#include "vkapi/include/updates/common_update.hpp"
+#include "vkapi/include/events/common_event.hpp"
 
 namespace vk
 {
@@ -16,7 +16,7 @@ struct long_poll_data
 class long_poll_api : private base_object
 {
 public:
-  long_poll_data get_server();
-  std::list<update::common> listen(const long_poll_data& data);
+  long_poll_data get_server() const;
+  std::list<event::common> listen(const long_poll_data& data) const;
 };
 }

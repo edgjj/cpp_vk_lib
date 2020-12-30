@@ -3,7 +3,7 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/audio.hpp"
 
-std::string vk::audio::get_upload_server()
+std::string vk::audio::get_upload_server() const
 {
   return network->request(append_url("audio.getUploadServer"), {
     {"access_token",  user_token },

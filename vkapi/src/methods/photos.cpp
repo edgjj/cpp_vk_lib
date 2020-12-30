@@ -3,12 +3,12 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/photos.hpp"
 
-vk::attachment::attachment_list vk::photos::search(std::string_view query, long count)
+vk::attachment::attachment_list vk::photos::search(std::string_view query, long count) const
 {
   return common_search("photos.search", query, count);
 }
 
-std::string vk::photos::get_messages_upload_server(long peer_id)
+std::string vk::photos::get_messages_upload_server(long peer_id) const
 {
   return network->request(append_url("photos.getMessagesUploadServer"), {
     {"access_token",  access_token  },
@@ -17,22 +17,22 @@ std::string vk::photos::get_messages_upload_server(long peer_id)
   });
 }
 
-std::string vk::photos::get_chat_upload_server(long chat_id)
+std::string vk::photos::get_chat_upload_server(long chat_id) const
 {
   return network->request(append_url("photos.getChatUploadServer"), {
     {"access_token",  access_token  },
     {"v",             api_v         },
     {"crop_x",        "512"         },
     {"crop_y",        "512"         },
-    {"chat_id",       std::to_string(chat_id)}
+    {"chat_id",       std::to_string(chat_id - 2000000000)}
   });
 }
 
-std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_photo(std::string_view file, std::string_view raw_server)
+std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) const
 {
   std::string upload_url = static_cast<std::string>(parser->parse(raw_server)["response"]["upload_url"]);
 
-  std::string raw_upload_response = network->upload("file1", file, upload_url);
+  std::string raw_upload_response = network->upload("file1", filename, upload_url);
 
   simdjson::dom::object upload_response = parser->parse(raw_upload_response);
 

@@ -10,7 +10,7 @@ class object;
 class array;
 }
 
-namespace vk::update
+namespace vk::event
 {
 class message_new
 {

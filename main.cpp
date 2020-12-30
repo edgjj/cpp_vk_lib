@@ -1,18 +1,37 @@
 #include <iostream>
 
-#include "vkapi/include/methods/messages.hpp"
+#include "vkapi/include/lib/network.hpp"
+
 #include "vkapi/include/methods/audio.hpp"
 #include "vkapi/include/methods/docs.hpp"
+#include "vkapi/include/methods/messages.hpp"
 #include "vkapi/include/methods/photos.hpp"
 #include "vkapi/include/methods/video.hpp"
 #include "vkapi/include/api/long_poll_api.hpp"
 
 
+void download_voice_message(const vk::event::message_new& message_event, vk::messages& messages)
+{
+  vk::lib::network network;
+  for (auto&& attachment : message_event.attachments())
+  {
+    if (attachment->type() == "audio_message")
+    {
+      auto audio_message = vk::attachment::audio_message_cast(attachment);
+
+      messages.send(message_event.peer_id(), "downloading...");
+      (network.download("/home/machen/voice.mp3", audio_message->raw_mp3()) == 0)
+        ? messages.send(message_event.peer_id(), "downloaded")
+        : messages.send(message_event.peer_id(), "error");
+    }
+  }
+}
+
 void photo_upload(vk::photos& photos, vk::messages& messages)
 {
   std::string raw_json = photos.get_messages_upload_server(2000000008);
   std::shared_ptr<vk::attachment::photo_attachment> attachment = photos.save_messages_photo("/home/machen/cat.jpg", raw_json);
-  messages.send(2000000008, "at", { attachment });
+  messages.send(2000000008, "attachment: ", { attachment });
 }
 
 
@@ -26,57 +45,91 @@ void docs_upload(vk::docs& docs)
 void upload_audio_to_user_playlist(vk::audio& audio)
 {
   std::string raw_json = audio.get_upload_server();
-  audio.save("`Maxwell", "`Balla balla", "/home/machen/balla.mp3", raw_json);
+  audio.save("`LX & `Maxwell", "`Diese `Beiden", "/home/machen/Diese Beiden.mp3", raw_json);
 }
 
 
 void chat_photo_upload(vk::photos& photos, vk::messages& messages)
 {
-  std::string raw_json = photos.get_chat_upload_server(8);
+  std::string raw_json = photos.get_chat_upload_server(2000000008);
   messages.set_chat_photo("/home/machen/PICS/govnokod.jpg", raw_json);
 }
 
 
-void test_uploader()
+void search_docs(const vk::event::message_new& update, vk::messages& messages)
+{
+  vk::docs docs;
+  vk::attachment::attachment_list media = docs.search(update.text(), 10);
+
+  (media.empty())
+    ? messages.send(update.peer_id(), "no docs")
+    : messages.send(update.peer_id(), "docs: ", media);
+}
+
+
+void search_videos(const vk::event::message_new& update, vk::messages& messages)
+{
+  vk::video video;
+  vk::attachment::attachment_list media = video.search(update.text(), 10);
+
+  (media.empty())
+    ? messages.send(update.peer_id(), "no videos")
+    : messages.send(update.peer_id(), "videos: ", media);
+}
+
+
+void search_photos(const vk::event::message_new& update, vk::messages& messages)
 {
   vk::photos photos;
-  vk::docs docs;
-  vk::audio audio;
-  vk::messages messages;
+  vk::attachment::attachment_list media = photos.search(update.text(), 10);
 
-  photo_upload(photos, messages);
-//  docs_upload(docs);
-  upload_audio_to_user_playlist(audio);
-  chat_photo_upload(photos, messages);
+  (media.empty())
+    ? messages.send(update.peer_id(), "no photos")
+    : messages.send(update.peer_id(), "photos: ", media);
 }
 
 
-void search_attachments(const vk::update::message_new& update, vk::messages& messages)
+void search_attachments(const vk::event::message_new& update, vk::messages& messages)
 {
-  vk::docs docs;
-  vk::attachment::attachment_list list = docs.search(update.text(), 10);
-
-  if (list.empty()) { messages.send(update.peer_id(), "no documents found"); return; }
-
-  std::string urls;
-  for (auto&& it : list)
-  {
-    auto doc = vk::attachment::document_cast(it);
-    urls += "url: " + doc->raw_url() + '\n';
-  }
-  messages.send(update.peer_id(), urls, list);
+  search_docs(update, messages);
+  search_photos(update, messages);
+  search_videos(update, messages);
 }
 
 
-void get_user_attachments(const vk::update::message_new& update, vk::messages& messages)
+void send_wall_post(const vk::event::common& update, vk::messages& messages)
+{
+  vk::event::wall_post_new wall_post = update.get_wall_post_event();
+
+  auto attachment =
+  std::make_shared<vk::attachment::wall_attachment>(
+    wall_post.from_id(),
+    wall_post.id()
+  );
+
+  messages.send(2000000008, "post: ", { attachment });
+}
+
+
+void get_user_attachments(const vk::event::message_new& update, vk::messages& messages)
 {
   vk::attachment::attachment_list list = update.attachments();
+
+  for (const std::shared_ptr<vk::attachment::base_attachment>& attachment : list)
+  {
+    if (attachment->type() == "photo")
+    {
+      std::shared_ptr<vk::attachment::photo_attachment> photo = vk::attachment::photo_cast(attachment);
+
+      messages.send(update.peer_id(), "photo: ", { photo });
+    }
+  }
 
   messages.send(update.peer_id(), "attachments count: " + std::to_string(list.size()), list);
 }
 
 
-void check_reply_message(const vk::update::message_new& update, vk::messages& messages)
+void check_reply_message(const vk::event::message_new& update, vk::messages& messages)
 {
   (update.has_reply())
   ? messages.send(update.peer_id(), update.reply().text())
@@ -84,7 +137,7 @@ void check_reply_message(const vk::update::message_new& update, vk::messages& me
 }
 
 
-void process_messages(const vk::update::message_new& update, vk::messages& messages)
+void process_messages(const vk::event::message_new& update, vk::messages& messages)
 {
   search_attachments(update, messages);
 }
@@ -92,33 +145,35 @@ void process_messages(const vk::update::message_new& update, vk::messages& messa
 
 void process_updates(vk::long_poll_data& data, vk::long_poll_api& lp_api, vk::messages& messages)
 {
-  for (const vk::update::common& common : lp_api.listen(data))
+  for (const vk::event::common& common_update : lp_api.listen(data))
   {
-    if (common.type() == "message_new")
+    if (common_update.type() == "message_new")
     {
-      process_messages(common.get_message_update(), messages);
-      data.ts = common.ts();
+//      get_user_attachments(common_update.get_message_event(), messages);
+//      search_attachments(common_update.get_message_event(), messages);
+//      process_messages(common_update.get_message_event(), messages);
+//      check_reply_message(common_update.get_message_event(), messages);
+      download_voice_message(common_update.get_message_event(), messages);
     }
+    if (common_update.type() == "wall_post_new")
+    {
+//      send_wall_post(common_update, messages);
+    }
+    data.ts = common_update.ts();
   }
 }
 
-
 int main(void)
 {
-  test_uploader();
+  vk::long_poll_api lp_api;
+  vk::long_poll_data lp_data;
+  vk::messages messages;
+
+  lp_data = lp_api.get_server();
+
+  while (true)
+  {
+    process_updates(lp_data, lp_api, messages);
+  }
 }
-
-//int main(void)
-//{
-//  vk::long_poll_api lp_api;
-//  vk::long_poll_data lp_data;
-//  vk::messages messages;
-
-//  lp_data = lp_api.get_server();
-
-//  while (true)
-//  {
-//    process_updates(lp_data, lp_api, messages);
-//  }
-//}
 
