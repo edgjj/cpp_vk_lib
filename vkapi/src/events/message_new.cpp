@@ -2,11 +2,14 @@
 
 #include "vkapi/include/events/message_new.hpp"
 
-vk::event::message_new::message_new(long peer_id, long from_id, std::string_view text)
+vk::event::message_new::message_new(long peer_id, long from_id, std::string_view text, std::string raw_json, const simdjson::dom::array& attachments)
 {
-  this->_peer_id = peer_id;
-  this->_from_id = from_id;
-  this->_text    = text;
+  this->_peer_id  = peer_id;
+  this->_from_id  = from_id;
+  this->_text     = text;
+  this->_raw_json = raw_json;
+
+  get_attachments(attachments);
 }
 
 vk::event::message_new::message_new(std::string_view raw_json)
@@ -14,6 +17,7 @@ vk::event::message_new::message_new(std::string_view raw_json)
   static simdjson::dom::parser parser;
   simdjson::dom::object object = parser.parse(raw_json)["object"]["message"];
 
+  _raw_json  = raw_json;
   _from_id   = object["from_id"].get_int64();
   _peer_id   = object["peer_id"].get_int64();
   _text      = object["text"].get_c_str();
@@ -33,7 +37,9 @@ void vk::event::message_new::get_reply(const simdjson::dom::object& object)
   _reply = new message_new(
     static_cast<long>(object["from_id"]),
     static_cast<long>(object["peer_id"]),
-    static_cast<std::string_view>(object["text"])
+    static_cast<std::string_view>(object["text"]),
+    simdjson::to_string(object),
+    object["attachments"].get_array()
   );
   _is_reply = true;
 }
@@ -94,7 +100,6 @@ static inline std::shared_ptr<vk::attachment::wall_attachment> get_wall(const si
   );
 }
 
-/// ... Насчёт полезности этого метода ничего сказать не могу.
 void vk::event::message_new::get_attachments(const simdjson::dom::array& attachments)
 {
   for (const simdjson::dom::object& attachment : attachments)
@@ -132,6 +137,11 @@ long vk::event::message_new::peer_id() const noexcept
 bool vk::event::message_new::has_reply() const noexcept
 {
   return _is_reply;
+}
+
+std::string vk::event::message_new::dump() const noexcept
+{
+  return _raw_json;
 }
 
 vk::event::message_new vk::event::message_new::reply() const

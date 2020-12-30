@@ -5,7 +5,7 @@ CONFIG  -= qt
 LIBS    += -lcurlpp -lcurl -lsimdjson
 
 SOURCES += \
-        main.cpp                                      \
+		main.cpp                                      \
         vkapi/src/api/long_poll_api.cpp               \
         vkapi/src/api/base_object.cpp                 \
         vkapi/src/attachment/attachment.cpp           \

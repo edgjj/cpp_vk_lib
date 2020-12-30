@@ -13,6 +13,7 @@ public:
   base_attachment (long id, long owner_id)
     : id(id), owner_id(owner_id)
   { }
+  virtual ~base_attachment() = default;
   virtual std::string value() const noexcept = 0;
   virtual std::string type()  const noexcept = 0;
   virtual bool empty()        const noexcept { return true; }
@@ -112,4 +113,5 @@ std::shared_ptr<audio_message_attachment> audio_message_cast(const std::shared_p
 std::shared_ptr<wall_attachment> wall_cast(const std::shared_ptr<wall_attachment>& pointer) noexcept;
 
 using attachment_list = std::list<std::shared_ptr<attachment::base_attachment>>;
+const attachment_list undefined_attachment = { std::make_shared<vk::attachment::photo_attachment>(-1, -1) };
 } // namespace vk::attachment
