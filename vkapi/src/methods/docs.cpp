@@ -3,12 +3,12 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/docs.hpp"
 
-vk::attachment::attachment_list vk::docs::search(std::string_view query, long count) const
+vk::attachment::attachment_list vk::docs::search(std::string_view query, std::int64_t count) const
 {
   return common_search("docs.search", query, count);
 }
 
-std::string vk::docs::get_upload_server(long group_id) const
+std::string vk::docs::get_upload_server(std::int64_t group_id) const
 {
   return network->request(append_url("docs.getUploadServer"), {
     {"access_token",  user_token    },

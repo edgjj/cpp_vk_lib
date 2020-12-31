@@ -9,8 +9,8 @@ static void photos_search(vk::attachment::attachment_list& documents, const simd
   {
     std::size_t index = rand() % items.size();
     documents.push_back(std::make_shared<vk::attachment::photo_attachment>(
-      static_cast<long>(items.at(index)["owner_id"]),
-      static_cast<long>(items.at(index)["id"])
+      static_cast<std::int64_t>(items.at(index)["owner_id"]),
+      static_cast<std::int64_t>(items.at(index)["id"])
     ));
   }
 }
@@ -21,8 +21,8 @@ static void video_search(vk::attachment::attachment_list& documents, const simdj
   {
     std::size_t index = rand() % items.size();
     documents.push_back(std::make_shared<vk::attachment::video_attachment>(
-      static_cast<long>(items.at(index)["owner_id"]),
-      static_cast<long>(items.at(index)["id"])
+      static_cast<std::int64_t>(items.at(index)["owner_id"]),
+      static_cast<std::int64_t>(items.at(index)["id"])
     ));
   }
 }
@@ -33,14 +33,14 @@ static void docs_search(vk::attachment::attachment_list& documents, const simdjs
   {
     std::size_t index = rand() % items.size();
     documents.push_back(std::make_shared<vk::attachment::document_attachment>(
-      static_cast<long>(items.at(index)["owner_id"]),
-      static_cast<long>(items.at(index)["id"]),
-      static_cast<std::string_view>(items.at(index)["url"]) ///< static_cast to std::string causes UB!
+      static_cast<std::int64_t>(items.at(index)["owner_id"]),
+      static_cast<std::int64_t>(items.at(index)["id"]),
+      static_cast<std::string_view>(items.at(index)["url"])
     ));
   }
 }
 
-vk::attachment::attachment_list vk::document::common::common_search(std::string_view type, std::string_view query, long count) const
+vk::attachment::attachment_list vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count) const
 {
   vk::attachment::attachment_list documents;
 

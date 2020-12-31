@@ -13,7 +13,7 @@ public:
   common_error& operator=(const common_error&)  = delete;
   common_error& operator=(common_error&&)       = delete;
 
-  common_error(const char* file, long line, long id, const char* message)
+  common_error(const char* file, std::int32_t line, std::int32_t id, const char* message)
     : file    (file)
     , msg     (message)
     , line    (std::to_string(line))

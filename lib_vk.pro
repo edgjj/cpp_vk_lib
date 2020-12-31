@@ -3,9 +3,17 @@ CONFIG  += console c++17
 CONFIG  -= app_bundle
 CONFIG  -= qt
 LIBS    += -lcurlpp -lcurl -lsimdjson
+QMAKE_CXXFLAGS += \
+        -Wall -Wextra -pedantic -Wcast-align                              \
+        -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization           \
+        -Winit-self -Wold-style-cast -Wundef -Wno-unused                  \
+        -Wformat=2 -Winit-self -Wmissing-include-dirs                     \
+        -Wold-style-cast -Woverloaded-virtual -Wredundant-decls           \
+        -Wshadow -Wsign-promo -Wstrict-overflow=5 -Wundef -Wno-unused     \
+        -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option   \
 
 SOURCES += \
-		main.cpp                                      \
+        main.cpp                                      \
         vkapi/src/api/long_poll_api.cpp               \
         vkapi/src/api/base_object.cpp                 \
         vkapi/src/attachment/attachment.cpp           \

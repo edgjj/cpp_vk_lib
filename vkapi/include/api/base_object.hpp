@@ -3,7 +3,7 @@
 #include <string>
 #include <memory>
 
-#define vk_always_inline inline __attribute__((always_inline))
+#define vk_always_inline [[gnu::always_inline]]
 
 namespace vk::lib       { class network; }
 namespace simdjson::dom { class parser; }

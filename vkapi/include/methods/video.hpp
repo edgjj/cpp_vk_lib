@@ -7,6 +7,6 @@ namespace vk
 class video : private document::common
 {
 public:
-  vk::attachment::attachment_list search(std::string_view query, long count) const;
+  vk::attachment::attachment_list search(std::string_view query, std::int64_t count) const;
 };
 }

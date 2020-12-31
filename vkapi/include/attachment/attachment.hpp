@@ -10,7 +10,7 @@ class base_attachment
 {
 public:
   explicit
-  base_attachment (long id, long owner_id)
+  base_attachment (std::int32_t id, std::int32_t owner_id)
     : id(id), owner_id(owner_id)
   { }
   virtual ~base_attachment() = default;
@@ -19,15 +19,15 @@ public:
   virtual bool empty()        const noexcept { return true; }
 
 protected:
-  long id;
-  long owner_id;
+  std::int32_t id;
+  std::int32_t owner_id;
 };
 
 class photo_attachment : public base_attachment
 {
 public:
   explicit
-  photo_attachment(long id, long owner_id)
+  photo_attachment(std::int32_t id, std::int32_t owner_id)
     : base_attachment (id, owner_id)
   { }
   std::string value() const noexcept override { return "photo" + std::to_string(id) + '_' + std::to_string(owner_id); }
@@ -39,7 +39,7 @@ class video_attachment : public base_attachment
 {
 public:
   explicit
-  video_attachment(long id, long owner_id)
+  video_attachment(std::int32_t id, std::int32_t owner_id)
     : base_attachment (id, owner_id)
   { }
   std::string value() const noexcept override { return "video" + std::to_string(id) + '_' + std::to_string(owner_id); }
@@ -51,7 +51,7 @@ class audio_attachment : public base_attachment
 {
 public:
   explicit
-  audio_attachment(long id, long owner_id)
+  audio_attachment(std::int32_t id, std::int32_t owner_id)
     : base_attachment (id, owner_id)
   { }
   std::string value() const noexcept override { return "audio" + std::to_string(id) + '_' + std::to_string(owner_id); }
@@ -63,7 +63,7 @@ class document_attachment : public base_attachment
 {
 public:
   explicit
-  document_attachment(long id, long owner_id, std::string_view url)
+  document_attachment(std::int32_t id, std::int32_t owner_id, std::string_view url)
     : base_attachment (id, owner_id), _raw_url(url.data())
   { }
   std::string value()   const noexcept override { return "doc" + std::to_string(id) + '_' + std::to_string(owner_id); }
@@ -79,7 +79,7 @@ class audio_message_attachment : public base_attachment
 {
 public:
   explicit
-  audio_message_attachment(long id, long owner_id, std::string_view raw_ogg, std::string_view raw_mp3)
+  audio_message_attachment(std::int32_t id, std::int32_t owner_id, std::string_view raw_ogg, std::string_view raw_mp3)
     : base_attachment (id, owner_id), _raw_ogg(raw_ogg.data()), _raw_mp3(raw_mp3.data())
   { }
   std::string value()   const noexcept override { return "audio_message" + std::to_string(id) + '_' + std::to_string(owner_id); }
@@ -97,7 +97,7 @@ class wall_attachment : public base_attachment
 {
 public:
   explicit
-  wall_attachment(long id, long from_id)
+  wall_attachment(std::int32_t id, std::int32_t from_id)
     : base_attachment(id, from_id)
   { }
   std::string value()   const noexcept override { return "wall" + std::to_string(id) + '_' + std::to_string(owner_id); }

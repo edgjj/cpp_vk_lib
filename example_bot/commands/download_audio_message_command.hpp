@@ -15,16 +15,14 @@ public:
       return;
     }
 
-    vk::event::message_new reply = event.reply();
-
-    for (auto&& attachment : reply.attachments())
+    for (auto&& attachment : event.reply().attachments())
     {
       if (attachment->type() == "audio_message")
       {
         auto audio_message = vk::attachment::audio_message_cast(attachment);
 
         _messages.send(event.peer_id(), "downloading...");
-        (_network.download("/home/gentoo/voice.mp3", audio_message->raw_mp3()) == 0)
+        (_network.download("/home/machen/voice.mp3", audio_message->raw_mp3()) == 0)
           ? _messages.send(event.peer_id(), "downloaded")
           : _messages.send(event.peer_id(), "error");
 

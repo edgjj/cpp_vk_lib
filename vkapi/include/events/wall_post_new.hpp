@@ -9,11 +9,11 @@ class wall_post_new
 public:
   wall_post_new(std::string_view raw_json);
 
-  long id()      const noexcept;
-  long from_id() const noexcept;
+  std::int64_t id()      const noexcept;
+  std::int64_t from_id() const noexcept;
 
 private:
-  long _id;
-  long _from_id;
+  std::int64_t _id;
+  std::int64_t _from_id;
 };
 }

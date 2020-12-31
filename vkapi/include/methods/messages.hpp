@@ -9,10 +9,10 @@ namespace vk
 class messages : private base_object
 {
 public:
-  void send(long peer_id, std::string_view text) const;
-  void send(long peer_id, std::string_view text, const attachment::attachment_list& list) const;
-  void remove_chat_user(long chat_id, long user_id) const;
-  void edit_chat(long chat_id, std::string_view new_title) const;
+  void send(std::int64_t peer_id, std::string_view text) const;
+  void send(std::int64_t peer_id, std::string_view text, const attachment::attachment_list& list) const;
+  void remove_chat_user(std::int64_t chat_id, std::int64_t user_id) const;
+  void edit_chat(std::int64_t chat_id, std::string_view new_title) const;
   void set_chat_photo(std::string_view filename, std::string_view raw_server) const;
 };
 }

@@ -3,12 +3,12 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/photos.hpp"
 
-vk::attachment::attachment_list vk::photos::search(std::string_view query, long count) const
+vk::attachment::attachment_list vk::photos::search(std::string_view query, std::int64_t count) const
 {
   return common_search("photos.search", query, count);
 }
 
-std::string vk::photos::get_messages_upload_server(long peer_id) const
+std::string vk::photos::get_messages_upload_server(std::int64_t peer_id) const
 {
   return network->request(append_url("photos.getMessagesUploadServer"), {
     {"access_token",  access_token  },
@@ -17,7 +17,7 @@ std::string vk::photos::get_messages_upload_server(long peer_id) const
   });
 }
 
-std::string vk::photos::get_chat_upload_server(long chat_id) const
+std::string vk::photos::get_chat_upload_server(std::int64_t chat_id) const
 {
   return network->request(append_url("photos.getChatUploadServer"), {
     {"access_token",  access_token  },
@@ -42,15 +42,15 @@ std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_phot
   network->request(append_url("photos.saveMessagesPhoto"), {
     { "photo",         static_cast<std::string>(upload_response["photo"])},
     { "hash",          static_cast<std::string>(upload_response["hash"])},
-    { "server",        std::to_string(static_cast<long>(upload_response["server"]))},
+    { "server",        std::to_string(static_cast<std::int64_t>(upload_response["server"]))},
     { "access_token",  access_token },
     { "v",             api_v        }
   });
 
   simdjson::dom::object uploaded_attachment = parser->parse(raw_vk_response)["response"].at(0);
 
-  long owner_id = static_cast<long>(uploaded_attachment["id"]);
-  long id       = static_cast<long>(uploaded_attachment["owner_id"]);
+  std::int64_t owner_id = static_cast<std::int64_t>(uploaded_attachment["id"]);
+  std::int64_t id       = static_cast<std::int64_t>(uploaded_attachment["owner_id"]);
 
   return std::make_shared<vk::attachment::photo_attachment>(id, owner_id);
 }

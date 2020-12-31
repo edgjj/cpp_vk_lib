@@ -10,7 +10,7 @@ INCLUDEPATH += ../
 
 HEADERS     += \
             commands/base_command.hpp                 \
-  commands/download_audio_message_command.hpp \
+            commands/download_audio_message_command.hpp \
             commands/search_pics_command.hpp          \
             event_handler/long_poll_api.hpp           \
             event_handler/message_event_handler.hpp   \

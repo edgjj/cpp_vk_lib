@@ -14,11 +14,11 @@ private:
   simdjson::dom::element element;
   simdjson::dom::parser parser;
 
-  vk_always_inline _config(std::string_view file)        noexcept {   element = parser.load(file.data()); }
-  vk_always_inline std::string load_access_token() const noexcept { return static_cast<std::string>(element["token"]["access_token"]); }
-  vk_always_inline std::string load_user_token()   const noexcept { return static_cast<std::string>(element["token"]["user_token"]); }
-  vk_always_inline std::string load_api_v()        const noexcept { return static_cast<std::string>(element["api_v"]); }
-  vk_always_inline std::string load_group_id()     const noexcept { return static_cast<std::string>(element["group_id"]); }
+  vk_always_inline _config(std::string_view file)             noexcept { element = parser.load(file.data()); }
+  vk_always_inline std::string_view load_access_token() const noexcept { return static_cast<std::string_view>(element["token"]["access_token"]); }
+  vk_always_inline std::string_view load_user_token()   const noexcept { return static_cast<std::string_view>(element["token"]["user_token"]); }
+  vk_always_inline std::string_view load_api_v()        const noexcept { return static_cast<std::string_view>(element["api_v"]); }
+  vk_always_inline std::string_view load_group_id()     const noexcept { return static_cast<std::string_view>(element["group_id"]); }
 };
 }
 

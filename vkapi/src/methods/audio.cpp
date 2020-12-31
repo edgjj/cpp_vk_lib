@@ -19,7 +19,7 @@ void vk::audio::save(std::string_view artist, std::string_view title, std::strin
   simdjson::dom::object upload_response = parser->parse(raw_upload_response);
 
   network->request(append_url("audio.save"), {
-    { "server",        std::to_string(static_cast<long>(upload_response["server"]))},
+    { "server",        std::to_string(static_cast<std::int64_t>(upload_response["server"]))},
     { "audio",         static_cast<std::string>(upload_response["audio"])},
     { "hash",          static_cast<std::string>(upload_response["hash"])},
     { "artist",        artist.data()},
