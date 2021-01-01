@@ -102,13 +102,13 @@ public:
   		auto photos_list = _photos.search(event.text(), 100);
 
 		if (photos_list.empty())
-	{
-		_messages.send(event.peer_id(), "No photos found");
-    	}
-    	else
-    	{
-      		_messages.send(event.peer_id(), "", photos_list);
-    	}
+		{
+			_messages.send(event.peer_id(), "No photos found");
+    		}
+    		else
+    		{
+      			_messages.send(event.peer_id(), "", photos_list);
+    		}
 }
 
 private:
