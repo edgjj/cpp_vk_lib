@@ -69,11 +69,12 @@ public:
 	{
 		std::string trigger = event.text().substr(0, event.text().find(' '));
 
-		if (_command_collection.find(trigger) != _command_collection.end())
-		{
-			_command_collection[trigger]->execute(event);
-		}
-	}
+    	if (_command_collection.find(trigger) != _command_collection.end())
+    	{
+        	_command_collection[trigger]->execute(event);
+    	}
+  	}
+}
 
 private:
 	std::unordered_map<std::string_view, std::unique_ptr<base_command>> _command_collection;
@@ -97,18 +98,18 @@ class base_command
 class search_pics_command : public base_command
 {
 public:
- 	void execute(const vk::event::message_new& event) const override
- 	{
-  		auto photos_list = _photos.search(event.text(), 100);
+  void execute(const vk::event::message_new& event) const override
+  {
+    auto photos_list = _photos.search(event.text(), 100);
 
-		if (photos_list.empty())
-		{
-			_messages.send(event.peer_id(), "No photos found");
-    		}
-    		else
-    		{
-      			_messages.send(event.peer_id(), "", photos_list);
-    		}
+    if (photos_list.empty())
+    {
+      _messages.send(event.peer_id(), "No photos found");
+    }
+    else
+    {
+      _messages.send(event.peer_id(), "", photos_list);
+    }
 }
 
 private:

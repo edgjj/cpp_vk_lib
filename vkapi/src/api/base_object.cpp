@@ -24,7 +24,7 @@ vk::base_object::base_object() noexcept
   : network(std::make_unique<lib::network>())
   , parser(std::make_unique<simdjson::dom::parser>())
 {
-  static _config config("./init.json");
+  static _config config("./config.json");
 
   access_token = config.load_access_token();
   user_token   = config.load_user_token();
