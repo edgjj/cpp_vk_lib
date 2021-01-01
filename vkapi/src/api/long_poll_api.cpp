@@ -3,11 +3,21 @@
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/api/long_poll_api.hpp"
 
+vk::long_poll_api::long_poll_api()
+{
+  std::string response =
+  network->request(append_url("groups.getById"), {
+    { "access_token", access_token }, { "v", api_v }
+  });
+
+  _group_id = std::to_string(static_cast<long>(parser->parse(response)["response"].at(0)["id"]));
+}
+
 vk::long_poll_data vk::long_poll_api::get_server() const
 {
   std::string response =
     network->request(append_url("groups.getLongPollServer"),
-     {{ "group_id",     group_id      },
+     {{ "group_id",     _group_id     },
       { "random_id",    "0"           },
       { "access_token", access_token  },
       { "v",            api_v         }});
@@ -23,7 +33,7 @@ vk::long_poll_data vk::long_poll_api::get_server() const
 
 std::list<vk::event::common> vk::long_poll_api::listen(const long_poll_data& data) const
 {
-  std::string raw_json = network->request(data.server + '?', {{"act", "a_check"}, {"key", data.key}, {"ts", data.ts}, {"wait", "90"}});
+  std::string raw_json = network->request(data.server + '?', {{"act", "a_check"}, {"key", data.key}, {"ts", data.ts}, {"wait", "1"}});
 
   simdjson::dom::array raw_updates = parser->parse(raw_json)["updates"].get_array();
 

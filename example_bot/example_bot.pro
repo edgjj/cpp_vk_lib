@@ -9,11 +9,12 @@ LIBS        += ../lib_vk.so -lcurlpp -lsimdjson
 INCLUDEPATH += ../
 
 HEADERS     += \
-            commands/base_command.hpp                 \
-            commands/download_audio_message_command.hpp \
-            commands/search_pics_command.hpp          \
-            event_handler/long_poll_api.hpp           \
-            event_handler/message_event_handler.hpp   \
+            bot/long_poll_api/long_poll_api.hpp               \
+            bot/event_handler/message_event_handler.hpp       \
+            bot/commands/base_command.hpp                     \
+            bot/commands/download_audio_message_command.hpp   \
+            bot/commands/search_pics_command.hpp              \
+            bot/3rd_party/logger.hpp                          \
 
 SOURCES     += \
             main.cpp

@@ -1,8 +1,9 @@
 #pragma once
 
-#include "commands/base_command.hpp"
 #include "vkapi/include/lib/network.hpp"
 #include "vkapi/include/methods/messages.hpp"
+
+#include "bot/commands/base_command.hpp"
 
 class download_audio_message_command : public base_command
 {
@@ -11,7 +12,7 @@ public:
   {
     if (not event.has_reply())
     {
-      _messages.send(event.peer_id(), "Please, resend audio message");
+      _messages.send(event.peer_id(), "Please, resend audio message.");
       return;
     }
 

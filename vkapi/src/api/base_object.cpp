@@ -15,10 +15,8 @@ private:
   simdjson::dom::parser parser;
 
   vk_always_inline _config(std::string_view file)             noexcept { element = parser.load(file.data()); }
-  vk_always_inline std::string_view load_access_token() const noexcept { return static_cast<std::string_view>(element["token"]["access_token"]); }
-  vk_always_inline std::string_view load_user_token()   const noexcept { return static_cast<std::string_view>(element["token"]["user_token"]); }
-  vk_always_inline std::string_view load_api_v()        const noexcept { return static_cast<std::string_view>(element["api_v"]); }
-  vk_always_inline std::string_view load_group_id()     const noexcept { return static_cast<std::string_view>(element["group_id"]); }
+  vk_always_inline std::string_view load_access_token() const noexcept { return static_cast<std::string_view>(element["access_token"]); }
+  vk_always_inline std::string_view load_user_token()   const noexcept { return static_cast<std::string_view>(element["user_token"]); }
 };
 }
 
@@ -30,8 +28,6 @@ vk::base_object::base_object() noexcept
 
   access_token = config.load_access_token();
   user_token   = config.load_user_token();
-  api_v        = config.load_api_v();
-  group_id     = config.load_group_id();
 }
 
 vk::base_object::~base_object() = default;

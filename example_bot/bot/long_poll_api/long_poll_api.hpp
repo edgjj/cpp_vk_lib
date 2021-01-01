@@ -3,7 +3,7 @@
 #include "vkapi/include/events/common_event.hpp"
 #include "vkapi/include/api/long_poll_api.hpp"
 
-#include "message_event_handler.hpp"
+#include "bot/event_handler/message_event_handler.hpp"
 
 class long_poll_handler
 {
@@ -14,7 +14,11 @@ public:
 
     while(true)
     {
-      for (const vk::event::common& event : _lp_api.listen(_lp_data))
+      auto events = _lp_api.listen(_lp_data);
+
+      if (events.size() == 0) _lp_data = _lp_api.get_server();
+
+      for (auto&& event : events)
       {
         if (event.type() == "message_new") _message_handler.process(event.get_message_event());
 

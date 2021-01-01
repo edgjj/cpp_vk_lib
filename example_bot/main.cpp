@@ -1,4 +1,4 @@
-#include "event_handler/long_poll_api.hpp"
+#include "bot/long_poll_api/long_poll_api.hpp"
 
 int main()
 {

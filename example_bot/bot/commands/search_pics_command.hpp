@@ -1,8 +1,9 @@
 #pragma once
 
-#include "commands/base_command.hpp"
 #include "vkapi/include/methods/messages.hpp"
 #include "vkapi/include/methods/photos.hpp"
+
+#include "bot/commands/base_command.hpp"
 
 class search_pics_command : public base_command
 {

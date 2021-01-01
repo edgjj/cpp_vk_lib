@@ -16,7 +16,11 @@ struct long_poll_data
 class long_poll_api : private base_object
 {
 public:
+  long_poll_api();
   long_poll_data get_server() const;
   std::list<event::common> listen(const long_poll_data& data) const;
+
+private:
+  std::string _group_id;
 };
 }

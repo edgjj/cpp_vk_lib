@@ -17,10 +17,10 @@ protected:
   virtual ~base_object();
   std::string append_url(std::string_view method) const;
 
+  static inline constexpr const char api_v[] = "5.124";
+
   std::string access_token;
   std::string user_token;
-  std::string api_v;
-  std::string group_id;
 
   std::unique_ptr<lib::network> network;
   std::unique_ptr<simdjson::dom::parser> parser;
