@@ -5,7 +5,7 @@ CONFIG -= qt
 
 QMAKE_CXXFLAGS += -Wall -O2 -pedantic
 
-LIBS        += ../lib_vk.so -lcurlpp -lsimdjson
+LIBS        += ../lib.so -lcurlpp -lsimdjson
 INCLUDEPATH += ../
 
 HEADERS     += \

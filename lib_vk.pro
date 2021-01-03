@@ -13,33 +13,33 @@ QMAKE_CXXFLAGS += \
         -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option   \
 
 SOURCES += \
-        main.cpp                                      \
-        vkapi/src/api/long_poll_api.cpp               \
-        vkapi/src/api/base_object.cpp                 \
-        vkapi/src/attachment/attachment.cpp           \
-        vkapi/src/document/common_document.cpp        \
-        vkapi/src/events/common_event.cpp             \
-        vkapi/src/lib/network.cpp                     \
-        vkapi/src/methods/audio.cpp                   \
-        vkapi/src/methods/docs.cpp                    \
-        vkapi/src/methods/photos.cpp                  \
-        vkapi/src/methods/video.cpp                   \
-        vkapi/src/methods/messages.cpp                \
-        vkapi/src/events/message_new.cpp              \
-        vkapi/src/events/wall_post_new.cpp            \
+        main.cpp                                    \
+        lib/src/api/long_poll_api.cpp               \
+        lib/src/api/base_object.cpp                 \
+        lib/src/attachment/attachment.cpp           \
+        lib/src/document/common_document.cpp        \
+        lib/src/events/common_event.cpp             \
+        lib/src/lib/network.cpp                     \
+        lib/src/methods/audio.cpp                   \
+        lib/src/methods/docs.cpp                    \
+        lib/src/methods/photos.cpp                  \
+        lib/src/methods/video.cpp                   \
+        lib/src/methods/messages.cpp                \
+        lib/src/events/message_new.cpp              \
+        lib/src/events/wall_post_new.cpp            \
 
 HEADERS += \
-        vkapi/include/api/base_object.hpp             \
-        vkapi/include/api/long_poll_api.hpp           \
-        vkapi/include/attachment/attachment.hpp       \
-        vkapi/include/document/common_document.hpp    \
-        vkapi/include/events/common_event.hpp         \
-        vkapi/include/lib/common_error.hpp            \
-        vkapi/include/lib/network.hpp                 \
-        vkapi/include/methods/audio.hpp               \
-        vkapi/include/methods/docs.hpp                \
-        vkapi/include/methods/photos.hpp              \
-        vkapi/include/methods/video.hpp               \
-        vkapi/include/methods/messages.hpp            \
-        vkapi/include/events/message_new.hpp          \
-        vkapi/include/events/wall_post_new.hpp
+        lib/include/api/base_object.hpp             \
+        lib/include/api/long_poll_api.hpp           \
+        lib/include/attachment/attachment.hpp       \
+        lib/include/document/common_document.hpp    \
+        lib/include/events/common_event.hpp         \
+        lib/include/lib/common_error.hpp            \
+        lib/include/lib/network.hpp                 \
+        lib/include/methods/audio.hpp               \
+        lib/include/methods/docs.hpp                \
+        lib/include/methods/photos.hpp              \
+        lib/include/methods/video.hpp               \
+        lib/include/methods/messages.hpp            \
+        lib/include/events/message_new.hpp          \
+        lib/include/events/wall_post_new.hpp

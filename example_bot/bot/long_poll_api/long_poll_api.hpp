@@ -1,7 +1,7 @@
 #pragma once
 
-#include "vkapi/include/events/common_event.hpp"
-#include "vkapi/include/api/long_poll_api.hpp"
+#include "lib/include/events/common_event.hpp"
+#include "lib/include/api/long_poll_api.hpp"
 
 #include "bot/event_handler/message_event_handler.hpp"
 

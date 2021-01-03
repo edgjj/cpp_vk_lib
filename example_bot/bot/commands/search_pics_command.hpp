@@ -1,7 +1,7 @@
 #pragma once
 
-#include "vkapi/include/methods/messages.hpp"
-#include "vkapi/include/methods/photos.hpp"
+#include "lib/include/methods/messages.hpp"
+#include "lib/include/methods/photos.hpp"
 
 #include "bot/commands/base_command.hpp"
 

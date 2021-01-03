@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "vkapi/include/events/common_event.hpp"
+#include "lib/include/events/common_event.hpp"
 
 class base_command
 {
