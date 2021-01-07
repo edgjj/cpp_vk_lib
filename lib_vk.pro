@@ -3,6 +3,7 @@ CONFIG  += console c++17
 CONFIG  -= app_bundle
 CONFIG  -= qt
 LIBS    += -lcurlpp -lcurl -lsimdjson
+
 QMAKE_CXXFLAGS += \
         -Wall -Wextra -pedantic -Wcast-align                              \
         -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization           \
@@ -27,6 +28,7 @@ SOURCES += \
         lib/src/methods/messages.cpp                \
         lib/src/events/message_new.cpp              \
         lib/src/events/wall_post_new.cpp            \
+        logger/logger.cpp                           \
 
 HEADERS += \
         lib/include/api/base_object.hpp             \
@@ -42,4 +44,5 @@ HEADERS += \
         lib/include/methods/video.hpp               \
         lib/include/methods/messages.hpp            \
         lib/include/events/message_new.hpp          \
-        lib/include/events/wall_post_new.hpp
+        lib/include/events/wall_post_new.hpp        \
+        logger/logger.hpp                           \
