@@ -1,62 +1,62 @@
 #include <simdjson.h>
 
-#include "lib/include/lib/network.hpp"
 #include "lib/include/document/common_document.hpp"
 
-static void photos_search(vk::attachment::attachments_t& documents, const simdjson::dom::array& items)
+
+template <typename Function>
+static void search_attachments(const simdjson::dom::array& items, Function&& function)
 {
-  for (std::size_t i = 0; i < items.size() && i < 10; i++)
-  {
-    std::size_t index = rand() % items.size();
-    documents.push_back(std::make_shared<vk::attachment::photo_attachment>(
-      static_cast<std::int64_t>(items.at(index)["owner_id"]),
-      static_cast<std::int64_t>(items.at(index)["id"])
-    ));
-  }
+    for (std::size_t i = 0; i < items.size() && i < 10; i++)
+    {
+        std::size_t index = rand() % items.size();
+        function(index);
+    }
 }
 
-static void video_search(vk::attachment::attachments_t& documents, const simdjson::dom::array& items)
+vk::attachment::attachments_t vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count)
 {
-  for (std::size_t i = 0; i < items.size() && i < 10; i++)
-  {
-    std::size_t index = rand() % items.size();
-    documents.push_back(std::make_shared<vk::attachment::video_attachment>(
-      static_cast<std::int64_t>(items.at(index)["owner_id"]),
-      static_cast<std::int64_t>(items.at(index)["id"])
-    ));
-  }
+    vk::attachment::attachments_t documents;
+    std::string raw_json = call(type, user_params({{"q", query.data()}, {"count", std::to_string(count)}}));
+    simdjson::dom::array items = parser.parse(raw_json)["response"]["items"].get_array();
+
+    if (items.size() == 0) { return documents; }
+
+    if (type == "photos.search") search_attachments(items, [&documents, &items](std::size_t index){
+        documents.push_back(std::make_shared<vk::attachment::photo_attachment>(
+            static_cast<std::int64_t>(items.at(index)["owner_id"]),
+            static_cast<std::int64_t>(items.at(index)["id"])
+        ));
+    });
+    else if (type == "video.search") search_attachments(items, [&documents, &items](std::size_t index){
+        documents.push_back(std::make_shared<vk::attachment::video_attachment>(
+            static_cast<std::int64_t>(items.at(index)["owner_id"]),
+            static_cast<std::int64_t>(items.at(index)["id"])
+        ));
+    });
+    else if (type == "docs.search") search_attachments(items, [&documents, &items](std::size_t index){
+        documents.push_back(std::make_shared<vk::attachment::document_attachment>(
+            static_cast<std::int64_t>(items.at(index)["owner_id"]),
+            static_cast<std::int64_t>(items.at(index)["id"]),
+            static_cast<std::string_view>(items.at(index)["url"])
+        ));
+    });
+
+    return documents;
 }
 
-static void docs_search(vk::attachment::attachments_t& documents, const simdjson::dom::array& items)
+simdjson::dom::object vk::document::common::common_upload(
+    simdjson::dom::parser& parser,
+    const vk::lib::network_client& network_client,
+    std::string_view filename,
+    std::string_view server,
+    std::string_view field_name)
 {
-  for (std::size_t i = 0; i < items.size() && i < 10; i++)
-  {
-    std::size_t index = rand() % items.size();
-    documents.push_back(std::make_shared<vk::attachment::document_attachment>(
-      static_cast<std::int64_t>(items.at(index)["owner_id"]),
-      static_cast<std::int64_t>(items.at(index)["id"]),
-      static_cast<std::string_view>(items.at(index)["url"])
-    ));
-  }
-}
-
-vk::attachment::attachments_t vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count) const
-{
-  vk::attachment::attachments_t documents;
-
-  std::string raw_json =
-  call(type, user_params({
-    { "q",     query.data()  },
-    { "count", std::to_string(count)}
-  }));
-
-  simdjson::dom::array items = parser->parse(raw_json)["response"]["items"].get_array();
-
-  if (items.size() == 0) return documents;
-
-  if (type == "photos.search") photos_search(documents, items);
-  if (type == "video.search")  video_search(documents, items);
-  if (type == "docs.search")   docs_search(documents, items);
-
-  return documents;
+    return
+    parser.parse(
+        network_client.upload(
+            field_name,
+            filename,
+            static_cast<std::string_view>(parser.parse(server)["response"]["upload_url"])
+        )
+    );
 }
