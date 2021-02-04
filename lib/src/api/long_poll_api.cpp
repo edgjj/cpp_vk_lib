@@ -1,10 +1,8 @@
-#include <simdjson.h>
+#include "utility/exception.hpp"
+#include "net/network_client.hpp"
+#include "api/long_poll_api.hpp"
 
-#include "lib/include/utility/exception.hpp"
-#include "lib/include/net/network_client.hpp"
-#include "lib/include/api/long_poll_api.hpp"
-
-#include "logger/logger.hpp"
+#include "../../logger/logger.hpp"
 
 
 static void token_assertation(const simdjson::dom::object& obj)
@@ -63,7 +61,7 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(const long_poll_data& data
     std::vector<std::unique_ptr<vk::event::common>> updates_list;
     updates_list.reserve(raw_updates["updates"].get_array().size());
 
-    for (simdjson::dom::object&& update : raw_updates["updates"].get_array())
+    for (simdjson::dom::element&& update : raw_updates["updates"].get_array())
     {
         updates_list.push_back(std::make_unique<vk::event::common>(
             static_cast<std::string>(raw_updates["ts"]),

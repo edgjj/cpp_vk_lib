@@ -1,10 +1,8 @@
-#include <simdjson.h>
+#include "simdjson.h"
 
-#include "lib/include/utility/exception.hpp"
-#include "lib/include/net/network_client.hpp"
-#include "lib/include/methods/audio.hpp"
-
-#include "logger/logger.hpp"
+#include "utility/exception.hpp"
+#include "net/network_client.hpp"
+#include "methods/audio.hpp"
 
 
 std::string vk::audio::get_upload_server() const

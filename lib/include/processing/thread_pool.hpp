@@ -6,7 +6,7 @@
 #include <deque>
 #include <vector>
 
-#include "lib/include/misc/cppdefs.hpp"
+#include "misc/cppdefs.hpp"
 
 
 namespace vk::processing

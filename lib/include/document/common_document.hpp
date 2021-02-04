@@ -1,8 +1,8 @@
 #ifndef VK_COMMON_DOCUMENT_H
 #define VK_COMMON_DOCUMENT_H
 
-#include "lib/include/attachment/attachment.hpp"
-#include "lib/include/api/base_object.hpp"
+#include "attachment/attachment.hpp"
+#include "api/base_object.hpp"
 
 
 namespace simdjson::dom

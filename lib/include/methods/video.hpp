@@ -1,7 +1,7 @@
 #ifndef VK_VIDEO_H
 #define VK_VIDEO_H
 
-#include "lib/include/document/common_document.hpp"
+#include "document/common_document.hpp"
 
 
 namespace vk

@@ -1,8 +1,13 @@
-#include "lib/include/net/network_client.hpp"
-#include "lib/include/api/base_object.hpp"
+#include "net/network_client.hpp"
+#include "api/base_object.hpp"
 
-#include "logger/logger.hpp"
+#include "../../logger/logger.hpp"
 
+
+namespace vk
+{
+class base_object;
+}
 
 namespace
 {

@@ -1,8 +1,8 @@
 #include <simdjson.h>
 
-#include "lib/include/utility/exception.hpp"
-#include "lib/include/net/network_client.hpp"
-#include "lib/include/methods/docs.hpp"
+#include "utility/exception.hpp"
+#include "net/network_client.hpp"
+#include "methods/docs.hpp"
 
 
 vk::attachment::attachments_t vk::docs::search(std::string_view query, std::int64_t count)

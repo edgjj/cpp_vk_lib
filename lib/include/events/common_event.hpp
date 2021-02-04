@@ -1,8 +1,8 @@
 #ifndef VK_COMMON_EVENT_H
 #define VK_COMMON_EVENT_H
 
-#include "lib/include/events/message_new.hpp"
-#include "lib/include/events/wall_post_new.hpp"
+#include "events/message_new.hpp"
+#include "events/wall_post_new.hpp"
 
 
 namespace vk::event

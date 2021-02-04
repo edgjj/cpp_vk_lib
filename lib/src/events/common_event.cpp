@@ -1,4 +1,4 @@
-#include "lib/include/events/common_event.hpp"
+#include "events/common_event.hpp"
 
 
 vk::event::common::common(std::string_view ts, std::string_view update_type, std::string_view raw_json)

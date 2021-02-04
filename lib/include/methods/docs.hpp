@@ -1,7 +1,7 @@
 #ifndef VK_DOCS_H
 #define VK_DOCS_H
 
-#include "lib/include/document/common_document.hpp"
+#include "document/common_document.hpp"
 
 
 namespace vk

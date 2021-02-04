@@ -1,6 +1,6 @@
-#include <simdjson.h>
+#include "simdjson.h"
 
-#include "lib/include/events/wall_post_new.hpp"
+#include "events/wall_post_new.hpp"
 
 
 vk::event::wall_post_new::wall_post_new(std::string_view raw_json)

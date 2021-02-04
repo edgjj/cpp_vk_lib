@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <unordered_map>
 
-#include "lib/include/api/long_poll_api.hpp"
-#include "lib/include/methods/messages.hpp"
-#include "lib/include/methods/photos.hpp"
+#include "api/long_poll_api.hpp"
+#include "methods/messages.hpp"
+#include "methods/photos.hpp"
 
-#include "logger/logger.hpp"
+#include "../logger/logger.hpp"
 
 
 class base_command

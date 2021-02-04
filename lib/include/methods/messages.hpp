@@ -2,8 +2,8 @@
 #define VK_MESSAGES_H
 
 #include <map>
-#include "lib/include/api/base_object.hpp"
-#include "lib/include/attachment/attachment.hpp"
+#include "api/base_object.hpp"
+#include "attachment/attachment.hpp"
 
 
 namespace vk

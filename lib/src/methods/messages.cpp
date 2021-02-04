@@ -1,8 +1,8 @@
 #include <simdjson.h>
 
-#include "lib/include/utility/exception.hpp"
-#include "lib/include/net/network_client.hpp"
-#include "lib/include/methods/messages.hpp"
+#include "utility/exception.hpp"
+#include "net/network_client.hpp"
+#include "methods/messages.hpp"
 
 
 static void append_attachments(std::map<std::string, std::string>& parameters, const vk::attachment::attachments_t& list)

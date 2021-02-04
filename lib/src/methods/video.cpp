@@ -1,4 +1,4 @@
-#include "lib/include/methods/video.hpp"
+#include "methods/video.hpp"
 
 
 vk::attachment::attachments_t vk::video::search(std::string_view query, std::int64_t count)

@@ -1,7 +1,7 @@
 #ifndef VK_MESSAGE_NEW_H
 #define VK_MESSAGE_NEW_H
 
-#include "lib/include/attachment/attachment.hpp"
+#include "attachment/attachment.hpp"
 
 
 namespace simdjson::dom

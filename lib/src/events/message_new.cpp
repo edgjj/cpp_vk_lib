@@ -1,6 +1,6 @@
-#include <simdjson.h>
+#include "simdjson.h"
 
-#include "lib/include/events/message_new.hpp"
+#include "events/message_new.hpp"
 
 
 vk::event::message_new::message_new(std::int64_t peer_id, std::int64_t from_id, std::string_view text, std::string_view raw_json, const simdjson::dom::array& attachments)
@@ -66,7 +66,7 @@ void vk::event::message_new::try_get_reply(const simdjson::dom::object& object)
     _has_reply = true;
 }
 
-static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::photo_attachment>(
@@ -75,7 +75,7 @@ static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjso
     );
 }
 
-static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::video_attachment>(
@@ -84,7 +84,7 @@ static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjso
     );
 }
 
-static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::document_attachment>(
@@ -94,7 +94,7 @@ static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjs
     );
 }
 
-static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::audio_attachment>(
@@ -103,7 +103,7 @@ static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjso
     );
 }
 
-static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_message(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_message(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::audio_message_attachment>(
@@ -114,7 +114,7 @@ static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_messa
     );
 }
 
-static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson::dom::object& attachment)
+static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson::dom::element& attachment)
 {
     return
     std::make_shared<vk::attachment::wall_attachment>(
@@ -125,7 +125,7 @@ static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson:
 
 void vk::event::message_new::try_get_attachments(const simdjson::dom::array& attachments)
 {
-    for (const simdjson::dom::object& attachment : attachments)
+    for (const simdjson::dom::element& attachment : attachments)
     {
         std::string type = static_cast<std::string>(attachment["type"]);
         if (type == "photo")         _attachments.push_back(get_photo(attachment));

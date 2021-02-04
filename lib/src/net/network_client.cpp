@@ -4,7 +4,7 @@
 
 #include <sstream>
 
-#include "lib/include/net/network_client.hpp"
+#include "net/network_client.hpp"
 
 
 static std::string escape(std::string_view url)

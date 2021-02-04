@@ -1,7 +1,7 @@
-#include <simdjson.h>
+#include "simdjson.h"
 
-#include "lib/include/utility/exception.hpp"
-#include "lib/include/methods/photos.hpp"
+#include "utility/exception.hpp"
+#include "methods/photos.hpp"
 
 
 vk::attachment::attachments_t vk::photos::search(std::string_view query, std::int64_t count)

@@ -1,13 +1,14 @@
 #ifndef VK_BASE_OBJECT_H
 #define VK_BASE_OBJECT_H
 
-#include <simdjson.h>
-
 #include <map>
 #include <string>
 #include <memory>
 
-#include "lib/include/net/network_client.hpp"
+#include "simdjson.h"
+#include "simdjson/portability.h"
+
+#include "net/network_client.hpp"
 
 
 namespace vk

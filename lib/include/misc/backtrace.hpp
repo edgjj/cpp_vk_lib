@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-#include "lib/include/misc/cppdefs.hpp"
+#include "misc/cppdefs.hpp"
 
 
 namespace vk

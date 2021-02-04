@@ -1,6 +1,6 @@
-#include <simdjson.h>
+#include "simdjson.h"
 
-#include "lib/include/document/common_document.hpp"
+#include "document/common_document.hpp"
 
 
 template <typename Function>

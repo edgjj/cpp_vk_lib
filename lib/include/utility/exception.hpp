@@ -1,8 +1,8 @@
 #ifndef VK_EXCEPTION_H
 #define VK_EXCEPTION_H
 
-#include "lib/include/misc/backtrace.hpp"
-#include "lib/include/misc/cppdefs.hpp"
+#include "misc/backtrace.hpp"
+#include "misc/cppdefs.hpp"
 
 namespace vk::exception
 {

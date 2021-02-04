@@ -5,7 +5,7 @@
 #include <memory>
 #include <list>
 
-#include "lib/include/misc/cppdefs.hpp"
+#include "misc/cppdefs.hpp"
 
 
 namespace vk::attachment

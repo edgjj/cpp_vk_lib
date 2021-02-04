@@ -1,7 +1,7 @@
 #ifndef VK_AUDIO_H
 #define VK_AUDIO_H
 
-#include "lib/include/document/common_document.hpp"
+#include "document/common_document.hpp"
 
 
 namespace vk

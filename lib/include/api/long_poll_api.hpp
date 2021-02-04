@@ -1,9 +1,9 @@
 #ifndef VK_LONG_POLL_API_H
 #define VK_LONG_POLL_API_H
 
-#include "lib/include/api/base_object.hpp"
-#include "lib/include/events/common_event.hpp"
-#include "lib/include/processing/thread_pool.hpp"
+#include "api/base_object.hpp"
+#include "events/common_event.hpp"
+#include "processing/thread_pool.hpp"
 
 
 namespace vk

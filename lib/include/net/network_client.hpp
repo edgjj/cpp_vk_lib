@@ -5,7 +5,7 @@
 #include <memory>
 #include <map>
 
-#include "lib/include/misc/cppdefs.hpp"
+#include "misc/cppdefs.hpp"
 
 #if defined VK_CURL_DEBUG
 #include "logger/logger.hpp"
