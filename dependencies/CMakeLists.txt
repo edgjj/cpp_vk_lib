@@ -11,5 +11,6 @@ function(initialize_submodule DIRECTORY)
   endif()
 endfunction(initialize_submodule)
 initialize_submodule(simdjson)
+initialize_submodule(logger)
 
 add_subdirectory(simdjson EXCLUDE_FROM_ALL)

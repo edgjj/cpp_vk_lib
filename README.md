@@ -4,6 +4,12 @@ Small and simple C++ library to facilitate work with Vkontakte API
 ## Dependencies
 	- curlpp
 
+## Initialize submodules
+In `cpp_vk_lib` directory:
+```
+cd dependencies
+cmake .
+```
 ## Build shared object
 
 In `cpp_vk_lib` directory:
