@@ -5,7 +5,7 @@
 #include "methods/messages.hpp"
 #include "methods/photos.hpp"
 
-#include "../logger/logger.hpp"
+#include "../dependencies/logger/logger.hpp"
 
 
 class base_command

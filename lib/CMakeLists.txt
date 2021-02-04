@@ -1,4 +1,5 @@
 include_directories(include)
+include_directories(../dependencies)
 
 add_library(
     cpp_vk_lib
@@ -18,7 +19,7 @@ add_library(
     src/methods/messages.cpp
     src/net/network_client.cpp
     src/processing/thread_pool.cpp
-    ../logger/logger.cpp
+    ../dependencies/logger/logger.cpp
 )
 target_link_libraries(
     cpp_vk_lib

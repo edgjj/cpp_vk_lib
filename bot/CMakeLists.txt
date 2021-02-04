@@ -1,5 +1,6 @@
 include_directories(../lib/include)
 include_directories(../dependencies/simdjson/include)
+include_directories(../dependencies)
 
 add_executable(
     worker main.cpp

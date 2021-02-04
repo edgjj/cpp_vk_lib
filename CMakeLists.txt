@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(simdjson
-  DESCRIPTION "simdjson demo"
-  LANGUAGES CXX 
+project(cpp_vk_lib
+    DESCRIPTION "C++ vk library"
+    LANGUAGES CXX
 )
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../shared)

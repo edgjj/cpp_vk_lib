@@ -1,7 +1,7 @@
 #include "net/network_client.hpp"
 #include "api/base_object.hpp"
 
-#include "../../logger/logger.hpp"
+#include "logger/logger.hpp"
 
 
 namespace vk
@@ -22,7 +22,7 @@ private:
     VK_ALWAYS_INLINE _config(std::string_view path) noexcept
     {
         element = parser.load(path.data());
-        logger(logflag::info | logflag::flush) << "config successfully loaded (./config.json)";
+        logger(logflag::info | logflag::flush) << std::string("config successfully loaded (") + path.data() + std::string(")");
     }
     VK_ALWAYS_INLINE std::string_view load_access_token() const noexcept { return static_cast<std::string_view>(element["access_token"]); }
     VK_ALWAYS_INLINE std::string_view load_user_token()   const noexcept { return static_cast<std::string_view>(element["user_token"]); }

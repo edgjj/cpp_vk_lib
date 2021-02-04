@@ -2,7 +2,7 @@
 #include "net/network_client.hpp"
 #include "api/long_poll_api.hpp"
 
-#include "../../logger/logger.hpp"
+#include "../../dependencies/logger/logger.hpp"
 
 
 static void token_assertation(const simdjson::dom::object& obj)
