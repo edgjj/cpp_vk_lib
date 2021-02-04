@@ -1,6 +1,8 @@
 include_directories(include)
 include_directories(../dependencies)
 
+add_definitions(-DVK_CURL_DEBUG)
+
 add_library(
     cpp_vk_lib
     SHARED
