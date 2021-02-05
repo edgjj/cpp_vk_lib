@@ -12,7 +12,7 @@ class base_command
 {
 public:
     virtual std::string_view trigger() const noexcept = 0;
-    virtual void execute(long peer_id, std::string_view text) = 0;
+    virtual void execute(const vk::event::message_new& event) = 0;
     virtual ~base_command() = default;
 };
 
@@ -23,9 +23,9 @@ public:
     {
         return "repeat";
     }
-    void execute(long peer_id, std::string_view text) override
+    void execute(const vk::event::message_new& event) override
     {
-        messages.send(peer_id, "first cmd with arg: " + std::string(text));
+        messages.send(event.peer_id(), "first cmd with arg: " + std::string(event.text()));
     }
 
 private:
@@ -39,14 +39,14 @@ public:
     {
         return "pic";
     }
-    void execute(long peer_id, std::string_view text) override
+    void execute(const vk::event::message_new& event) override
     {
         vk::photos photos;
-        vk::attachment::attachments_t media = photos.search(text, 10);
+        vk::attachment::attachments_t media = photos.search(event.text(), 10);
 
         (media.empty())
-            ? messages.send(peer_id, "no docs")
-            : messages.send(peer_id, "docs: ", media);
+            ? messages.send(event.peer_id(), "no docs")
+            : messages.send(event.peer_id(), "docs: ", media);
     }
 
 private:
@@ -86,7 +86,7 @@ void init_commands(std::vector<std::unique_ptr<base_command>>&& commands, messag
     {
         message_handler.on_command(command->trigger(), [&](const vk::event::message_new& event){
             logger(logflag::info | logflag::purple) << "message " << event.text();
-            command->execute(event.peer_id(), event.text());
+            command->execute(event);
         });
     }
 }
