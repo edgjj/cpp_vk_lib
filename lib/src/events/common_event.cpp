@@ -1,9 +1,16 @@
+#include "simdjson.h"
+
 #include "events/common_event.hpp"
 
 
-vk::event::common::common(std::string_view ts, std::string_view update_type, std::string_view raw_json)
-    : _ts(ts), _update_type(update_type), _raw_json(raw_json)
-{ }
+vk::event::common::common(std::string_view ts, std::string_view raw_json)
+{
+    static simdjson::dom::parser parser;
+
+    _ts = ts;
+    _raw_json = raw_json;
+    _update_type = static_cast<std::string_view>(parser.parse(raw_json)["type"]);
+}
 
 bool vk::event::common::on_type(std::string_view type) const noexcept
 {

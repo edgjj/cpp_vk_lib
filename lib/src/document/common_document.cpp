@@ -21,21 +21,21 @@ vk::attachment::attachments_t vk::document::common::common_search(std::string_vi
 
     if (type == "photos.search") search_attachments(items, [&documents, &items](std::size_t index){
         documents.push_back(std::make_shared<vk::attachment::photo_attachment>(
-            static_cast<std::int64_t>(items.at(index)["owner_id"]),
-            static_cast<std::int64_t>(items.at(index)["id"])
+            items.at(index)["owner_id"].get_int64(),
+            items.at(index)["id"].get_int64()
         ));
     });
     else if (type == "video.search") search_attachments(items, [&documents, &items](std::size_t index){
         documents.push_back(std::make_shared<vk::attachment::video_attachment>(
-            static_cast<std::int64_t>(items.at(index)["owner_id"]),
-            static_cast<std::int64_t>(items.at(index)["id"])
+            items.at(index)["owner_id"].get_int64(),
+            items.at(index)["id"].get_int64()
         ));
     });
     else if (type == "docs.search") search_attachments(items, [&documents, &items](std::size_t index){
         documents.push_back(std::make_shared<vk::attachment::document_attachment>(
-            static_cast<std::int64_t>(items.at(index)["owner_id"]),
-            static_cast<std::int64_t>(items.at(index)["id"]),
-            static_cast<std::string_view>(items.at(index)["url"])
+            items.at(index)["owner_id"].get_int64(),
+            items.at(index)["id"].get_int64(),
+            items.at(index)["url"].get_string()
         ));
     });
 
@@ -54,7 +54,7 @@ simdjson::dom::object vk::document::common::common_upload(
         network_client.upload(
             field_name,
             filename,
-            static_cast<std::string_view>(parser.parse(server)["response"]["upload_url"])
+            parser.parse(server)["response"]["upload_url"].get_string()
         )
     );
 }

@@ -19,21 +19,21 @@ vk::event::message_new::message_new(std::string_view raw_json)
     simdjson::dom::object message = parser.parse(raw_json)["object"]["message"];
 
     _raw_json  = raw_json;
-    _from_id   = static_cast<std::int64_t>(message["from_id"]);
-    _peer_id   = static_cast<std::int64_t>(message["peer_id"]);
-    _text      = static_cast<std::string_view>(message["text"]);
+    _from_id   = message["from_id"].get_int64();
+    _peer_id   = message["peer_id"].get_int64();
+    _text      = message["text"].get_c_str();
 
     if (message["reply_message"].is_object())
     {
-        try_get_reply(static_cast<simdjson::dom::object>(message["reply_message"]));
+        try_get_reply(message["reply_message"].get_object());
     }
     if (message["attachments"].is_array())
     {
-        try_get_attachments(static_cast<simdjson::dom::array>(message["attachments"]));
+        try_get_attachments(message["attachments"].get_array());
     }
-    if (static_cast<simdjson::dom::array>(message["fwd_messages"]).size() != 0)
+    if (message["fwd_messages"].get_array().size() != 0)
     {
-        try_get_fwd_messages(static_cast<simdjson::dom::array>(message["fwd_messages"]));
+        try_get_fwd_messages(message["fwd_messages"].get_array());
     }
 }
 
@@ -43,11 +43,11 @@ void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& me
     {
         _fwd_messages.push_back(
             std::make_shared<message_new>(
-                static_cast<std::int64_t>(fwd_message["peer_id"]),
-                static_cast<std::int64_t>(fwd_message["from_id"]),
-                static_cast<std::string_view>(fwd_message["text"]),
+                fwd_message["peer_id"].get_int64(),
+                fwd_message["from_id"].get_int64(),
+                fwd_message["text"].get_string(),
                 simdjson::to_string(fwd_message),
-                static_cast<simdjson::dom::array>(fwd_message["attachments"])
+                fwd_message["attachments"].get_array()
             )
         );
     }
@@ -57,9 +57,9 @@ void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& me
 void vk::event::message_new::try_get_reply(const simdjson::dom::object& object)
 {
     _reply = std::make_shared<message_new>(
-        static_cast<std::int64_t>(object["peer_id"]),
-        static_cast<std::int64_t>(object["from_id"]),
-        static_cast<std::string_view>(object["text"]),
+        object["peer_id"].get_int64(),
+        object["from_id"].get_int64(),
+        object["text"].get_string(),
         simdjson::to_string(object),
         object["attachments"].get_array()
     );
@@ -69,51 +69,51 @@ void vk::event::message_new::try_get_reply(const simdjson::dom::object& object)
 static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::photo_attachment>(
-        static_cast<std::int64_t>(attachment["photo"]["id"]),
-        static_cast<std::int64_t>(attachment["photo"]["owner_id"])
+        attachment["photo"]["id"].get_int64(),
+        attachment["photo"]["owner_id"].get_int64()
     );
 }
 
 static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::video_attachment>(
-        static_cast<std::int64_t>(attachment["video"]["id"]),
-        static_cast<std::int64_t>(attachment["video"]["owner_id"])
+        attachment["video"]["id"].get_int64(),
+        attachment["video"]["owner_id"].get_int64()
     );
 }
 
 static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::document_attachment>(
-        static_cast<std::int64_t>(attachment["doc"]["id"]),
-        static_cast<std::int64_t>(attachment["doc"]["owner_id"]),
-        static_cast<std::string_view>(attachment["doc"]["url"])
+        attachment["doc"]["id"].get_int64(),
+        attachment["doc"]["owner_id"].get_int64(),
+        attachment["doc"]["url"].get_string()
     );
 }
 
 static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::audio_attachment>(
-        static_cast<std::int64_t>(attachment["audio"]["id"]),
-        static_cast<std::int64_t>(attachment["audio"]["owner_id"])
+       attachment["audio"]["id"].get_int64(),
+       attachment["audio"]["owner_id"].get_int64()
     );
 }
 
 static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_message(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::audio_message_attachment>(
-        static_cast<std::int64_t>(attachment["audio_message"]["id"]),
-        static_cast<std::int64_t>(attachment["audio_message"]["owner_id"]),
-        static_cast<std::string_view>(attachment["audio_message"]["link_ogg"]),
-        static_cast<std::string_view>(attachment["audio_message"]["link_mp3"])
+        attachment["audio_message"]["id"].get_int64(),
+        attachment["audio_message"]["owner_id"].get_int64(),
+        attachment["audio_message"]["link_ogg"].get_string(),
+        attachment["audio_message"]["link_mp3"].get_string()
     );
 }
 
 static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::wall_attachment>(
-        static_cast<std::int64_t>(attachment["wall"]["from_id"]),
-        static_cast<std::int64_t>(attachment["wall"]["id"])
+        attachment["wall"]["from_id"].get_int64(),
+        attachment["wall"]["id"].get_int64()
     );
 }
 
@@ -121,7 +121,7 @@ void vk::event::message_new::try_get_attachments(const simdjson::dom::array& att
 {
     for (const simdjson::dom::element& attachment : attachments)
     {
-        std::string type = static_cast<std::string>(attachment["type"]);
+        std::string type = attachment["type"].get_string().take_value().data();
         if (type == "photo")         _attachments.push_back(get_photo(attachment));
         if (type == "video")         _attachments.push_back(get_video(attachment));
         if (type == "doc")           _attachments.push_back(get_doc(attachment));

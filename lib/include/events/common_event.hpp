@@ -10,7 +10,7 @@ namespace vk::event
 class VK_EXPORT common
 {
 public:
-    common(std::string_view ts, std::string_view update_type, std::string_view raw_json);
+    common(std::string_view ts, std::string_view raw_json);
 
     std::string type() const noexcept;
     std::string ts()   const noexcept;

@@ -37,8 +37,8 @@ private:
     }; \
 
 GENERATE_EXCEPTION_CLASS(upload_error)
-GENERATE_EXCEPTION_CLASS(bad_gate_error)
 GENERATE_EXCEPTION_CLASS(access_error)
+GENERATE_EXCEPTION_CLASS(invalid_parameter_error)
 } // namespace vk::exception
 
 #define VK_THROW(EXCEPTION, ID, MESSAGE) \

@@ -24,6 +24,9 @@ protected:
     std::map<std::string, std::string> group_params(std::map<std::string, std::string>&& params) const;
 
     std::string call(std::string_view method, const std::map<std::string, std::string>& params) const;
+    simdjson::dom::object call_and_parse(std::string_view method, const std::map<std::string, std::string>& params);
+
+    bool error_returned(const simdjson::dom::object& response, std::int64_t error_code);
 
     static inline constexpr const char api_v[] = "5.124";
 

@@ -14,17 +14,17 @@ void vk::audio::save(std::string_view artist, std::string_view title, std::strin
         network_client.upload(
             "file",
             filename,
-            static_cast<std::string_view>(parser.parse(raw_server)["response"]["upload_url"])
+            parser.parse(raw_server)["response"]["upload_url"].get_string()
         )
     );
 
-    if (response.at_key("error").is_object())
+    if (response.begin().key() == "error")
         VK_THROW(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
 
     call("audio.save", user_params({
-        {"server",   std::to_string(static_cast<std::int64_t>(response["server"]))},
-        {"audio",    static_cast<std::string>(response["audio"])},
-        {"hash",     static_cast<std::string>(response["hash"])},
+        {"server",   std::to_string(response["server"].get_int64())},
+        {"audio",    std::string(response["audio"].get_c_str())},
+        {"hash",     std::string(response["hash"].get_c_str())},
         {"artist",   artist.data()},
         {"title",    title.data()}
     }));
