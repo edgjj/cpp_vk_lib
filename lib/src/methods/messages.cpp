@@ -29,9 +29,16 @@ void vk::messages::send(std::int64_t peer_id, std::string_view text, const vk::a
     call("messages.send", parameters);
 }
 
+void vk::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters)
+{
+    auto parameters = group_params(std::move(raw_parameters));
+    parameters.insert({{"random_id","0"}, {"disable_mentions","1"}, {"peer_id",std::to_string(peer_id)}, {"message",text.data()}});
+    call("messages.send", group_params(std::move(parameters)));
+}
+
 void vk::messages::send(std::int64_t peer_id, std::string_view text)
 {
-    send(peer_id, text, {});
+    send(peer_id, text, vk::attachment::attachments_t());
 }
 
 void vk::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id)

@@ -2,7 +2,7 @@
 #define VK_EXCEPTION_H
 
 #include "misc/backtrace.hpp"
-#include "misc/cppdefs.hpp"
+
 
 namespace vk::exception
 {
