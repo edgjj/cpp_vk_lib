@@ -1,5 +1,4 @@
 #include "utility/exception.hpp"
-#include "net/network_client.hpp"
 #include "api/long_poll_api.hpp"
 
 #include "../../dependencies/logger/logger.hpp"

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <memory>
-#include <list>
+#include <vector>
 
 #include "misc/cppdefs.hpp"
 
@@ -20,7 +20,6 @@ public:
     virtual ~base_attachment() = default;
     virtual std::string value() const noexcept = 0;
     virtual std::string type()  const noexcept = 0;
-    virtual bool empty()        const noexcept { return true; }
 
 protected:
     std::int32_t id;
@@ -36,7 +35,6 @@ public:
     { }
     std::string value() const noexcept override { return "photo" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()  const noexcept override { return "photo"; }
-    bool empty()        const noexcept override { return false; }
 };
 
 class VK_EXPORT video_attachment : public base_attachment
@@ -48,7 +46,6 @@ public:
     { }
     std::string value() const noexcept override { return "video" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()  const noexcept override { return "video"; }
-    bool empty()        const noexcept override { return false; }
 };
 
 class VK_EXPORT audio_attachment : public base_attachment
@@ -60,7 +57,6 @@ public:
     { }
     std::string value() const noexcept override { return "audio" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()  const noexcept override { return "audio"; }
-    bool empty()        const noexcept override { return false; }
 };
 
 class VK_EXPORT document_attachment : public base_attachment
@@ -72,7 +68,6 @@ public:
     { }
     std::string value()   const noexcept override { return "doc" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()    const noexcept override { return "doc"; }
-    bool empty()          const noexcept override { return false; }
     std::string raw_url() const noexcept { return _raw_url; }
 
 private:
@@ -88,7 +83,6 @@ public:
     { }
     std::string value()   const noexcept override { return "audio_message" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()    const noexcept override { return "audio_message"; }
-    bool empty()          const noexcept override { return false; }
     std::string raw_ogg() const noexcept { return _raw_ogg; }
     std::string raw_mp3() const noexcept { return _raw_mp3; }
 
@@ -106,7 +100,6 @@ public:
     { }
     std::string value()   const noexcept override { return "wall" + std::to_string(id) + '_' + std::to_string(owner_id); }
     std::string type()    const noexcept override { return "wall"; }
-    bool empty()          const noexcept override { return false; }
 };
 
 std::shared_ptr<photo_attachment> photo_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
@@ -116,7 +109,7 @@ std::shared_ptr<document_attachment> document_cast(const std::shared_ptr<base_at
 std::shared_ptr<audio_message_attachment> audio_message_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
 std::shared_ptr<wall_attachment> wall_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
 
-using attachments_t = std::list<std::shared_ptr<attachment::base_attachment>>;
+using attachments_t = std::vector<std::shared_ptr<attachment::base_attachment>>;
 const inline std::shared_ptr<vk::attachment::base_attachment> undefined_attachment = std::make_shared<vk::attachment::photo_attachment>(-1, -1);
 } // namespace vk::attachment
 

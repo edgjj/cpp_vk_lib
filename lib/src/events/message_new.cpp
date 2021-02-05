@@ -68,8 +68,7 @@ void vk::event::message_new::try_get_reply(const simdjson::dom::object& object)
 
 static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::photo_attachment>(
+    return std::make_shared<vk::attachment::photo_attachment>(
         static_cast<std::int64_t>(attachment["photo"]["id"]),
         static_cast<std::int64_t>(attachment["photo"]["owner_id"])
     );
@@ -77,8 +76,7 @@ static std::shared_ptr<vk::attachment::photo_attachment> get_photo(const simdjso
 
 static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::video_attachment>(
+    return std::make_shared<vk::attachment::video_attachment>(
         static_cast<std::int64_t>(attachment["video"]["id"]),
         static_cast<std::int64_t>(attachment["video"]["owner_id"])
     );
@@ -86,8 +84,7 @@ static std::shared_ptr<vk::attachment::video_attachment> get_video(const simdjso
 
 static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::document_attachment>(
+    return std::make_shared<vk::attachment::document_attachment>(
         static_cast<std::int64_t>(attachment["doc"]["id"]),
         static_cast<std::int64_t>(attachment["doc"]["owner_id"]),
         static_cast<std::string_view>(attachment["doc"]["url"])
@@ -96,8 +93,7 @@ static std::shared_ptr<vk::attachment::document_attachment> get_doc(const simdjs
 
 static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::audio_attachment>(
+    return std::make_shared<vk::attachment::audio_attachment>(
         static_cast<std::int64_t>(attachment["audio"]["id"]),
         static_cast<std::int64_t>(attachment["audio"]["owner_id"])
     );
@@ -105,8 +101,7 @@ static std::shared_ptr<vk::attachment::audio_attachment> get_audio(const simdjso
 
 static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_message(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::audio_message_attachment>(
+    return std::make_shared<vk::attachment::audio_message_attachment>(
         static_cast<std::int64_t>(attachment["audio_message"]["id"]),
         static_cast<std::int64_t>(attachment["audio_message"]["owner_id"]),
         static_cast<std::string_view>(attachment["audio_message"]["link_ogg"]),
@@ -116,8 +111,7 @@ static std::shared_ptr<vk::attachment::audio_message_attachment> get_audio_messa
 
 static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson::dom::element& attachment)
 {
-    return
-    std::make_shared<vk::attachment::wall_attachment>(
+    return std::make_shared<vk::attachment::wall_attachment>(
         static_cast<std::int64_t>(attachment["wall"]["from_id"]),
         static_cast<std::int64_t>(attachment["wall"]["id"])
     );
@@ -172,7 +166,7 @@ std::string vk::event::message_new::dump() const noexcept
     return _raw_json;
 }
 
-std::list<std::shared_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const
+std::vector<std::shared_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const
 {
     if (_has_fwd_messages) return _fwd_messages;
     else throw std::runtime_error("Attempting accessing empty forward message list");

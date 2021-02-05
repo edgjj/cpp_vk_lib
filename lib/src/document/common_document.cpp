@@ -1,5 +1,3 @@
-#include "simdjson.h"
-
 #include "document/common_document.hpp"
 
 

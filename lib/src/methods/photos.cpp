@@ -1,5 +1,3 @@
-#include "simdjson.h"
-
 #include "utility/exception.hpp"
 #include "methods/photos.hpp"
 

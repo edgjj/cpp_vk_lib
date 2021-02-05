@@ -17,6 +17,8 @@ class VK_EXPORT base_object
 {
 protected:
     explicit base_object() noexcept;
+    virtual ~base_object() = default;
+
     std::string append_url(std::string_view method) const;
     std::map<std::string, std::string> user_params(std::map<std::string, std::string>&& params) const;
     std::map<std::string, std::string> group_params(std::map<std::string, std::string>&& params) const;

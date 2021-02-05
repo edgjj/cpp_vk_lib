@@ -15,7 +15,7 @@ struct VK_EXPORT conversation_member
     std::int64_t id;
     bool online;
 };
-using conversation_member_list = std::list<conversation_member>;
+using conversation_member_list = std::vector<conversation_member>;
 
 class VK_EXPORT messages : private base_object
 {

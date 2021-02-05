@@ -5,19 +5,13 @@
 #include "api/base_object.hpp"
 
 
-namespace simdjson::dom
-{
-class parser;
-class object;
-}
-
 namespace vk::document
 {
 class VK_HIDDEN common : public base_object
 {
-public:
+protected:
     vk::attachment::attachments_t common_search(std::string_view type, std::string_view query, std::int64_t count);
-    static simdjson::dom::object common_upload(
+    simdjson::dom::object common_upload(
         simdjson::dom::parser& parser,
         const vk::lib::network_client& network_client,
         std::string_view filename,

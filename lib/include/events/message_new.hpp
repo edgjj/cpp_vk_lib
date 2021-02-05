@@ -19,7 +19,7 @@ public:
     message_new(std::int64_t peer_id, std::int64_t from_id, std::string_view text, std::string_view raw_json, const simdjson::dom::array& attachments);
 
     message_new reply() const;
-    std::list<std::shared_ptr<message_new>> fwd_messages() const;
+    std::vector<std::shared_ptr<message_new>> fwd_messages() const;
 
     std::string text()      const noexcept;
     std::string dump()      const noexcept;
@@ -39,7 +39,7 @@ private:
     std::string _text;
     std::string _raw_json;
     std::shared_ptr<message_new> _reply;
-    std::list<std::shared_ptr<message_new>> _fwd_messages;
+    std::vector<std::shared_ptr<message_new>> _fwd_messages;
     attachment::attachments_t _attachments;
     bool _has_reply = false;
     bool _has_fwd_messages = false;
