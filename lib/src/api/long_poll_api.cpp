@@ -6,27 +6,13 @@
 
 vk::long_poll_api::long_poll_api()
 {
-    simdjson::dom::object response(call_and_parse("groups.getById", group_params({ })));
-
-    if (error_returned(response, 5))
-    {
-        VK_THROW(vk::exception::access_error, 5,
-            "Failed to retrieve group id. Maybe, wrong access token was passed.");
-    }
-    _group_id = std::to_string(response["response"].at(0)["id"].get_int64());
-
+    _group_id = std::to_string(groups.get_by_id());
     logger(logflag::info) << "long polling started";
 }
 
 vk::long_poll_data vk::long_poll_api::server()
 {
-    simdjson::dom::object server(
-        call_and_parse("groups.getLongPollServer", group_params({
-            {"group_id",   _group_id},
-            {"random_id",  "0"}
-        })
-        )["response"].get_object()
-    );
+    simdjson::dom::object server(groups.get_long_poll_server(_group_id));
 
     return {
         server["key"].get_string().take_value().data(),
@@ -51,7 +37,7 @@ static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::si
     );
 }
 
-vk::long_poll_api::events_t vk::long_poll_api::listen(const long_poll_data& data, std::size_t timeout) const
+vk::long_poll_api::events_t vk::long_poll_api::listen(const long_poll_data& data, std::int8_t timeout) const
 {
     simdjson::dom::object raw_updates(get_updates(data, timeout));
     std::vector<std::unique_ptr<vk::event::common>> event_list;
@@ -66,7 +52,7 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(const long_poll_data& data
     return event_list;
 }
 
-void vk::long_poll_api::run(const std::size_t num_threads)
+void vk::long_poll_api::run(const std::int8_t num_threads)
 {
     thread_pool.start(num_threads);
 }

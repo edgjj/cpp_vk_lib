@@ -30,9 +30,9 @@ public:
     attachment::attachments_t attachments() const noexcept;
 
 private:
-    void try_get_reply(const simdjson::dom::object& object);
-    void try_get_attachments(const simdjson::dom::array& attachments);
-    void try_get_fwd_messages(const simdjson::dom::array& messages);
+    void try_get_reply          (const simdjson::dom::object& object);
+    void try_get_attachments    (const simdjson::dom::array& attachments);
+    void try_get_fwd_messages   (const simdjson::dom::array& messages);
 
     std::int64_t _peer_id;
     std::int64_t _from_id;

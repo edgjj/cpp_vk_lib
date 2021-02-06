@@ -25,7 +25,9 @@ public:
     }
     void execute(const vk::event::message_new& event) override
     {
-        messages.send(event.peer_id(), "first cmd with arg: " + std::string(event.text()));
+        messages.send(event.peer_id(), "first cmd with arg: " + std::string(event.text()), {
+            {"attachment", "photo1_278184324"}
+        });
     }
 
 private:
@@ -42,7 +44,7 @@ public:
     void execute(const vk::event::message_new& event) override
     {
         vk::photos photos;
-        vk::attachment::attachments_t media = photos.search(event.text(), 10);
+        vk::attachment::attachments_t media = photos.search(event.text(), 25);
 
         (media.empty())
             ? messages.send(event.peer_id(), "no docs")
@@ -96,6 +98,7 @@ int main()
     vk::long_poll_api long_poll;
     vk::long_poll_data long_poll_data = long_poll.server();
     vk::messages messages;
+    vk::photos photos;
     message_new_handler message_handler;
     std::vector<std::unique_ptr<base_command>> commands;
 
@@ -105,7 +108,6 @@ int main()
     init_commands(std::move(commands), message_handler);
     message_handler.see_contents();
 
-    // waiting for coroutines...
     while (true)
     {
         auto events = long_poll.listen(long_poll_data);
@@ -114,12 +116,6 @@ int main()
             {
                 long_poll.queue([e = common_event->get_message_event(), &message_handler]{
                     message_handler.try_execute(e.text(), e);
-                });
-            }
-            if (common_event->on_type("wall_post_new"))
-            {
-                long_poll.queue([e = common_event->get_wall_post_event(), &messages]{
-                    messages.send(2000000008, "wall post event");
                 });
             }
             long_poll_data.ts = common_event->ts();

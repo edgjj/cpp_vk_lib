@@ -3,11 +3,6 @@
 #include "logger/logger.hpp"
 
 
-namespace vk
-{
-class base_object;
-}
-
 namespace
 {
 class VK_HIDDEN config
@@ -26,7 +21,7 @@ private:
     std::string_view load_access_token() const noexcept { return element["access_token"].get_string(); }
     std::string_view load_user_token()   const noexcept { return element["user_token"].get_string(); }
 };
-}
+} // local namespace
 
 vk::base_object::base_object() noexcept
 {
@@ -53,7 +48,7 @@ std::map<std::string, std::string> vk::base_object::group_params(std::map<std::s
     return std::move(params);
 }
 
-simdjson::dom::object vk::base_object::call_and_parse(std::string_view method, const std::map<std::string, std::string>& params)
+simdjson::dom::object vk::base_object::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params)
 {
     return parser.parse(call(method, std::move(params)));
 }

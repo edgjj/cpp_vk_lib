@@ -3,6 +3,7 @@
 
 #include "api/base_object.hpp"
 #include "events/common_event.hpp"
+#include "methods/groups.hpp"
 #include "processing/thread_pool.hpp"
 
 
@@ -22,14 +23,15 @@ public:
 
     long_poll_api();
     long_poll_data server();
-    events_t listen(const long_poll_data& data, std::size_t timeout = 60) const;
+    events_t listen(const long_poll_data& data, std::int8_t timeout = 60) const;
 
     template <typename Function>
     void queue(Function&& function);
-    void run(const std::size_t num_threads = std::thread::hardware_concurrency());
+    void run(const std::int8_t num_threads = std::thread::hardware_concurrency());
 
 private:
     std::string _group_id;
+    vk::groups groups;
     processing::thread_pool thread_pool;
 };
 } // namespace vk

@@ -18,7 +18,6 @@ protected:
         std::string_view server,
         std::string_view field_name
     );
-    virtual ~common() = default;
 };
 } // namespace vk::document
 

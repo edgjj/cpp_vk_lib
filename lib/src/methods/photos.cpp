@@ -43,8 +43,8 @@ std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_phot
 
     simdjson::dom::object uploaded_attachment(parser.parse(raw_vk_response)["response"].at(0));
 
-    std::int64_t owner_id(uploaded_attachment["id"].get_int64());
-    std::int64_t id(uploaded_attachment["owner_id"].get_int64());
+    std::int64_t owner_id(uploaded_attachment["owner_id"].get_int64());
+    std::int64_t id(uploaded_attachment["id"].get_int64());
 
-    return std::make_shared<vk::attachment::photo_attachment>(id, owner_id);
+    return std::make_shared<vk::attachment::photo_attachment>(owner_id, id);
 }

@@ -24,6 +24,7 @@ add_library(
     src/events/wall_post_new.cpp
     src/methods/audio.cpp
     src/methods/docs.cpp
+    src/methods/groups.cpp
     src/methods/photos.cpp
     src/methods/video.cpp
     src/methods/messages.cpp

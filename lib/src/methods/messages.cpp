@@ -6,7 +6,10 @@
 
 static inline void append_params(std::map<std::string, std::string>& parameters, std::int64_t peer_id, std::string_view text)
 {
-    parameters.insert({{"random_id","0"}, {"disable_mentions","1"}, {"peer_id",std::to_string(peer_id)}, {"message",text.data()}});
+    parameters.insert(
+        {{"random_id","0"}, {"disable_mentions","1"},
+        {"peer_id",std::to_string(peer_id)}, {"message",text.data()}}
+    );
 }
 
 static inline void append_attachments(std::map<std::string, std::string>& parameters, const vk::attachment::attachments_t& list)
@@ -23,7 +26,7 @@ void vk::messages::send(std::int64_t peer_id, std::string_view text, const vk::a
 {
     std::map<std::string, std::string> parameters;
     append_params(parameters, peer_id, text);
-    if (!list.empty()) append_attachments(parameters, list);
+    append_attachments(parameters, list);
     call("messages.send", group_params(std::move(parameters)));
 }
 

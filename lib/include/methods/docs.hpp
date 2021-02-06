@@ -9,9 +9,9 @@ namespace vk
 class VK_EXPORT docs : private document::common
 {
 public:
-    vk::attachment::attachments_t search(std::string_view query, std::int64_t count);
-    std::string get_upload_server(std::int64_t group_id) const;
-    std::string get_messages_upload_server(std::string_view type, std::int64_t peer_id) const;
+    std::string get_upload_server           (std::int64_t group_id) const;
+    std::string get_messages_upload_server  (std::string_view type, std::int64_t peer_id) const;
+    vk::attachment::attachments_t search    (std::string_view query, std::int64_t count);
     std::shared_ptr<vk::attachment::audio_message_attachment> save_audio_message(std::string_view file, std::string_view raw_server);
 };
 } // namespace vk
