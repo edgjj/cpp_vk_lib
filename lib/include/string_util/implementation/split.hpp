@@ -1,9 +1,10 @@
-#ifndef SPLIT_IMPL_H
-#define SPLIT_IMPL_H
+#ifndef STRING_UTIL_SPLIT_IMPL_H
+#define STRING_UTIL_SPLIT_IMPL_H
 
 #include <vector>
 #include <string_view>
 
+#include "misc/cppdefs.hpp"
 
 namespace vk
 {
@@ -17,7 +18,7 @@ namespace vk
 {
 namespace string_util
 {
-struct split_implementation
+struct VK_HIDDEN split_implementation
 {
 private:
     static std::vector<std::string_view> create(std::string_view text, char delimiter) noexcept
@@ -44,4 +45,4 @@ private:
 } // namespace string_util
 } // namespace vk
 
-#endif // SPLIT_IMPL_H
+#endif // STRING_UTIL_SPLIT_IMPL_H

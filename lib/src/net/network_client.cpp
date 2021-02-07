@@ -32,9 +32,10 @@ std::string vk::network_client::request(std::string_view method, const std::map<
     std::ostringstream response;
     curlpp::Easy curl_easy;
 
-    debug("HTTP POST:", method.data(), genparams(params));
+    std::string url = method.data() + genparams(params);
+    debug("HTTP POST:", url);
 
-    curl_easy.setOpt(new curlpp::options::Url(method.data() + genparams(params)));
+    curl_easy.setOpt(new curlpp::options::Url(url));
     curl_easy.setOpt(new curlpp::options::WriteStream(&response));
     curl_easy.perform();
 

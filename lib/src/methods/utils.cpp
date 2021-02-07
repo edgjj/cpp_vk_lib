@@ -31,9 +31,7 @@ std::string vk::utils::get_short_link(std::string_view url)
 std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name)
 {
     if (screen_name.empty())
-    {
         VK_THROW(exception::invalid_parameter_error, -1, "Empty argument passed.");
-    }
 
     simdjson::dom::object response(
         call_and_parse("utils.resolveScreenName", group_params({

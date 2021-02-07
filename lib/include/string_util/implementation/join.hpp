@@ -1,8 +1,10 @@
-#ifndef SEPARATED_LIST_IMPL_H
-#define SEPARATED_LIST_IMPL_H
+#ifndef STRING_UTIL_JOIN_IMPL_H
+#define STRING_UTIL_JOIN_IMPL_H
 
 #include <numeric>
 #include <string>
+
+#include "misc/cppdefs.hpp"
 
 
 namespace vk
@@ -10,7 +12,7 @@ namespace vk
 namespace string_util
 {
 template <typename T>
-std::string separated_list(std::initializer_list<T>&& elements, char delimiter = ',');
+std::string join(std::initializer_list<T>&& elements, char delimiter = ',');
 } // namespace string_util
 } // namespace vk
 
@@ -18,7 +20,7 @@ namespace vk
 {
 namespace string_util
 {
-template <typename T> struct separated_list_implementation
+template <typename T> struct VK_HIDDEN join_implementation
 {
 private:
     using is_integral = std::true_type;
@@ -52,9 +54,9 @@ private:
         );
     }
 
-    friend std::string vk::string_util::separated_list(std::initializer_list<T>&& elements, char delimiter);
+    friend std::string vk::string_util::join(std::initializer_list<T>&& elements, char delimiter);
 };
 } // namespace string_util
 } // namespace vk
 
-#endif // SEPARATED_LIST_IMPL_H
+#endif // STRING_UTIL_JOIN_IMPL_H

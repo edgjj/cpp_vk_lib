@@ -1,7 +1,7 @@
 include_directories(include)
 include_directories(../dependencies)
 
-# add_definitions(-DVK_CURL_DEBUG)
+ add_definitions(-DVK_CURL_DEBUG)
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
     set(CMAKE_CXX_FLAGS "-O3 -msse3 -march=native -mtune=generic")

@@ -25,25 +25,25 @@ public:
     static std::string unescape(std::string_view text);
 
 private:
-    #if defined VK_CURL_DEBUG
-        template <typename... Args>
-        void debug(Args&&... args) const noexcept
-        {
-            logger(logflag::debug | logflag::spaces).print_pack(args...);
-        }
-        template <typename... Args>
-        void debug_error(Args&&... args) const noexcept
-        {
-            logger(logflag::error | logflag::spaces).print_pack(args...);
-        }
-    #else
-        template <typename... Args>
-        constexpr void debug(Args&&...) const noexcept
-        { }
-        template <typename... Args>
-        constexpr void debug_error(Args&&...) const noexcept
-        { }
-    #endif // VK_CURL_DEBUG
+#if defined VK_CURL_DEBUG
+    template <typename... Args>
+    void debug(Args&&... args) const noexcept
+    {
+        logger(logflag::debug | logflag::spaces).print_pack(args...);
+    }
+    template <typename... Args>
+    void debug_error(Args&&... args) const noexcept
+    {
+        logger(logflag::error | logflag::spaces).print_pack(args...);
+    }
+#else
+    template <typename... Args>
+    constexpr void debug(Args&&...) const noexcept
+    { }
+    template <typename... Args>
+    constexpr void debug_error(Args&&...) const noexcept
+    { }
+#endif // VK_CURL_DEBUG
 };
 } // namespace vk
 
