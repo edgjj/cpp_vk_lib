@@ -1,0 +1,6 @@
+[submodule "dependencies/logger"]
+	path = dependencies/logger
+	url = https://github.com/fragmichwarum/logger.git
+[submodule "dependencies/simdjson"]
+	path = dependencies/simdjson
+	url = https://github.com/simdjson/simdjson.git
