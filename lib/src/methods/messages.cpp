@@ -1,6 +1,6 @@
 #include <numeric>
 
-#include "utility/exception.hpp"
+#include "processing/exception.hpp"
 #include "methods/messages.hpp"
 
 
@@ -57,19 +57,16 @@ void vk::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id)
         return;
     }
     if (error_returned(parsed, 100))
-    {
         VK_THROW(exception::access_error, 100, "Can't kick this user/group.");
-    }
+
     if (error_returned(parsed, 15))
-    {
         VK_THROW(exception::access_error, 15, "Access denied.");
-    }
 }
 
 void vk::messages::edit_chat(std::int64_t chat_id, std::string_view new_title)
 {
     call("messages.editChat", group_params({
-        {"chat_id",   std::to_string(chat_id - 2000000000)},
+        {"chat_id",   std::to_string(chat_id - chat_id_constant)},
         {"title",     new_title.data()},
         {"random_id", "0"}
     }));
@@ -79,15 +76,13 @@ void vk::messages::delete_chat_photo(int64_t chat_id, int64_t group_id)
 {
     simdjson::dom::object response(
         call_and_parse("messages.deleteChatPhoto", group_params({
-            {"chat_id",  std::to_string(chat_id - 2000000000)},
+            {"chat_id",  std::to_string(chat_id - chat_id_constant)},
             {"group_id", std::to_string(group_id)}})
         )
     );
 
     if (error_returned(response, 15))
-    {
         VK_THROW(vk::exception::upload_error, 15, "Can't delete chat photo. Maybe it already deleted?");
-    }
 }
 
 void vk::messages::set_chat_photo(std::string_view filename, std::string_view raw_server)
@@ -117,9 +112,7 @@ vk::conversation_member_list vk::messages::get_conversation_members(int64_t peer
     );
 
     if (error_returned(response, 917))
-    {
         VK_THROW(exception::access_error, 917, "Access denied.");
-    }
 
     conversation_member_list members;
     for (auto&& profile : response["response"]["profiles"].get_array())

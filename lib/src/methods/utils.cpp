@@ -1,5 +1,4 @@
-#include "utility/exception.hpp"
-
+#include "processing/exception.hpp"
 #include "methods/utils.hpp"
 
 
@@ -11,9 +10,7 @@ bool vk::utils::check_link(std::string_view url)
         }))
     );
     if (error_returned(response, 100))
-    {
         VK_THROW(exception::invalid_parameter_error, 100, "Invalid URL.");
-    }
 
     return response["response"]["status"].get_string().take_value() == "not_banned";
 }
@@ -26,9 +23,7 @@ std::string vk::utils::get_short_link(std::string_view url)
         }))
     );
     if (error_returned(response, 100))
-    {
         VK_THROW(exception::invalid_parameter_error, 100, "Invalid URL.");
-    }
 
     return response["response"]["short_url"].get_string().take_value().data();
 }
@@ -46,8 +41,7 @@ std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name)
         }))
     );
     if (response["response"].get_array().size() == 0)
-    {
         VK_THROW(exception::access_error, -1, "No such user");
-    }
+
     return response["response"]["object_id"].get_int64();
 }

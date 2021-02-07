@@ -25,9 +25,7 @@ public:
     }
     void execute(const vk::event::message_new& event) override
     {
-        messages.send(event.peer_id(), "first cmd with arg: " + std::string(event.text()), {
-            {"attachment", "photo1_278184324"}
-        });
+        messages.send(event.peer_id(), "first cmd with arg: " + std::string(event.text()));
     }
 
 private:

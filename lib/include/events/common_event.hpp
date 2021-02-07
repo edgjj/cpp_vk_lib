@@ -5,7 +5,9 @@
 #include "events/wall_post_new.hpp"
 
 
-namespace vk::event
+namespace vk
+{
+namespace event
 {
 class VK_EXPORT common
 {
@@ -25,6 +27,7 @@ private:
     std::string _update_type;
     std::string _raw_json;
 };
-} // namespace vk::event
+} // namespace event
+} // namespace vk
 
 #endif // VK_COMMON_EVENT_H

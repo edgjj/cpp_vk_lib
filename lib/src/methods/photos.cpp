@@ -1,4 +1,4 @@
-#include "utility/exception.hpp"
+#include "processing/exception.hpp"
 #include "methods/photos.hpp"
 
 
@@ -19,7 +19,7 @@ std::string vk::photos::get_chat_upload_server(std::int64_t chat_id)
     return call("photos.getChatUploadServer", group_params({
         {"crop_x",     "512"},
         {"crop_y",     "512"},
-        {"chat_id",    std::to_string(chat_id - 2000000000)}
+        {"chat_id",    std::to_string(chat_id - chat_id_constant)}
     }));
 }
 

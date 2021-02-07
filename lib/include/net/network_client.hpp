@@ -12,7 +12,7 @@
 #endif // VK_CURL_DEBUG
 
 
-namespace vk::lib
+namespace vk
 {
 class VK_EXPORT network_client
 {
@@ -45,6 +45,6 @@ private:
         { }
     #endif // VK_CURL_DEBUG
 };
-} // namespace vk::lib
+} // namespace vk
 
 #endif // VK_NETWORK_CLIENT_H

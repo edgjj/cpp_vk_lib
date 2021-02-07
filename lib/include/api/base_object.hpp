@@ -19,18 +19,19 @@ protected:
     explicit base_object() noexcept;
     virtual ~base_object() = default;
 
-    std::string append_url  (std::string_view method) const;
-    std::string call        (std::string_view method, const std::map<std::string, std::string>& params) const;
-    bool error_returned     (const simdjson::dom::object& response, std::int64_t error_code);
     std::map<std::string, std::string> user_params(std::map<std::string, std::string>&& params) const;
     std::map<std::string, std::string> group_params(std::map<std::string, std::string>&& params) const;
     simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params);
+    std::string call        (std::string_view method, const std::map<std::string, std::string>& params) const;
+    std::string append_url  (std::string_view method) const;
+    bool error_returned     (const simdjson::dom::object& response, std::int64_t error_code);
 
+    static inline std::int64_t chat_id_constant = 2000000000;
     static inline constexpr const char api_v[] = "5.124";
-    std::string access_token;
-    std::string user_token;
+    static inline std::string access_token;
+    static inline std::string user_token;
 
-    lib::network_client network_client;
+    network_client network_client;
     simdjson::dom::parser parser;
 };
 } // namespace vk

@@ -8,7 +8,9 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk::attachment
+namespace vk
+{
+namespace attachment
 {
 class VK_EXPORT base_attachment
 {
@@ -111,6 +113,6 @@ std::shared_ptr<wall_attachment> wall_cast(const std::shared_ptr<base_attachment
 
 using attachments_t = std::vector<std::shared_ptr<attachment::base_attachment>>;
 const inline std::shared_ptr<vk::attachment::base_attachment> undefined_attachment = std::make_shared<vk::attachment::photo_attachment>(-1, -1);
-} // namespace vk::attachment
-
+} // namespace attachment
+} // namespace vk
 #endif // VK_ATTACHMENT_H

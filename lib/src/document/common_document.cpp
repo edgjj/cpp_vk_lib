@@ -44,7 +44,7 @@ vk::attachment::attachments_t vk::document::common::common_search(std::string_vi
 
 simdjson::dom::object vk::document::common::common_upload(
     simdjson::dom::parser& parser,
-    const vk::lib::network_client& network_client,
+    const vk::network_client& network_client,
     std::string_view filename,
     std::string_view server,
     std::string_view field_name)

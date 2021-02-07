@@ -6,7 +6,9 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk::event
+namespace vk
+{
+namespace event
 {
 class VK_EXPORT wall_post_new
 {
@@ -20,6 +22,7 @@ private:
     std::int64_t _id;
     std::int64_t _from_id;
 };
-} // namespace vk::event
+} // namespace event
+} // namespace vk
 
 #endif // VK_WALL_POST_NEW_H

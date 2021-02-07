@@ -10,13 +10,19 @@ class object;
 class array;
 }
 
-namespace vk::event
+namespace vk
+{
+namespace event
 {
 class VK_EXPORT message_new
 {
 public:
     message_new(std::string_view raw_json);
-    message_new(std::int64_t peer_id, std::int64_t from_id, std::string_view text, std::string_view raw_json, const simdjson::dom::array& attachments);
+    message_new(
+        std::int64_t peer_id, std::int64_t from_id,
+        std::string_view text, std::string_view raw_json,
+        const simdjson::dom::array& attachments
+    );
 
     message_new reply() const;
     std::vector<std::shared_ptr<message_new>> fwd_messages() const;
@@ -44,6 +50,7 @@ private:
     bool _has_reply = false;
     bool _has_fwd_messages = false;
 };
-} // namespace vk::event
+} // namespace event
+} // namespace vk
 
 #endif // VK_MESSAGE_NEW_H

@@ -24,17 +24,13 @@ vk::event::message_new::message_new(std::string_view raw_json)
     _text      = message["text"].get_c_str();
 
     if (message["reply_message"].is_object())
-    {
         try_get_reply(message["reply_message"].get_object());
-    }
+
     if (message["attachments"].is_array())
-    {
         try_get_attachments(message["attachments"].get_array());
-    }
+
     if (message["fwd_messages"].get_array().size() != 0)
-    {
         try_get_fwd_messages(message["fwd_messages"].get_array());
-    }
 }
 
 void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& messages)
@@ -122,12 +118,12 @@ void vk::event::message_new::try_get_attachments(const simdjson::dom::array& att
     for (const simdjson::dom::element& attachment : attachments)
     {
         std::string type = attachment["type"].get_string().take_value().data();
-        if (type == "photo")         _attachments.push_back(get_photo(attachment));
-        if (type == "video")         _attachments.push_back(get_video(attachment));
-        if (type == "doc")           _attachments.push_back(get_doc(attachment));
-        if (type == "audio")         _attachments.push_back(get_audio(attachment));
-        if (type == "wall")          _attachments.push_back(get_wall(attachment));
-        if (type == "audio_message") _attachments.push_back(get_audio_message(attachment));
+        if (type == "photo")        { _attachments.push_back(get_photo(attachment)); }
+        if (type == "video")        { _attachments.push_back(get_video(attachment)); }
+        if (type == "doc")          { _attachments.push_back(get_doc(attachment)); }
+        if (type == "audio")        { _attachments.push_back(get_audio(attachment)); }
+        if (type == "wall")         { _attachments.push_back(get_wall(attachment)); }
+        if (type == "audio_message") { _attachments.push_back(get_audio_message(attachment)); }
     }
 }
 

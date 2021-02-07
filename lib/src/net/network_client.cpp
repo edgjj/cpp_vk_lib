@@ -27,7 +27,7 @@ static std::string genparams(const std::map<std::string, std::string>& body)
     return result;
 }
 
-std::string vk::lib::network_client::request(std::string_view method, const std::map<std::string, std::string>& params) const
+std::string vk::network_client::request(std::string_view method, const std::map<std::string, std::string>& params) const
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -41,7 +41,7 @@ std::string vk::lib::network_client::request(std::string_view method, const std:
     return response.str();
 }
 
-std::string vk::lib::network_client::request_data(std::string_view method, std::string_view data) const
+std::string vk::network_client::request_data(std::string_view method, std::string_view data) const
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -59,12 +59,12 @@ std::string vk::lib::network_client::request_data(std::string_view method, std::
     return response.str();
 }
 
-std::string vk::lib::network_client::unescape(std::string_view text)
+std::string vk::network_client::unescape(std::string_view text)
 {
     return curlpp::unescape(text.data());
 }
 
-std::size_t vk::lib::network_client::download(std::string_view filename, std::string_view server) const
+std::size_t vk::network_client::download(std::string_view filename, std::string_view server) const
 {
     FILE* fp = fopen(filename.data(), "w");
     if (not fp)
@@ -92,7 +92,7 @@ std::size_t vk::lib::network_client::download(std::string_view filename, std::st
     return 0;
 }
 
-std::string vk::lib::network_client::upload(std::string_view field_name, std::string_view filename, std::string_view server) const
+std::string vk::network_client::upload(std::string_view field_name, std::string_view filename, std::string_view server) const
 {
     std::ostringstream response;
     curlpp::Forms formParts;

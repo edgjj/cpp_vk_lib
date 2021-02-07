@@ -1,4 +1,4 @@
-#include "utility/exception.hpp"
+#include "processing/exception.hpp"
 #include "api/long_poll_api.hpp"
 
 #include "../../dependencies/logger/logger.hpp"
@@ -23,7 +23,7 @@ vk::long_poll_data vk::long_poll_api::server()
 
 static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::size_t timeout)
 {
-    static vk::lib::network_client network_client;
+    static vk::network_client network_client;
     static simdjson::dom::parser parser;
 
     return

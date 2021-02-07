@@ -9,7 +9,9 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk::processing
+namespace vk
+{
+namespace processing
 {
 class VK_EXPORT thread_pool
 {
@@ -38,7 +40,8 @@ private:
     std::vector<std::future<void>> finished;
 
 };
-} // namespace vk::processing
+} // namespace processing
+} // namespace vk
 
 template <typename _Function, typename _Result_of>
 std::future<_Result_of> vk::processing::thread_pool::queue(_Function&& f)
