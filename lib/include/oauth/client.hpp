@@ -47,7 +47,7 @@ private:
     const std::string username;
     const std::string password;
     simdjson::dom::parser parser;
-    network_client network_client;
+    network_client net_client;
 };
 } // namespace oauth
 } // namespace vk

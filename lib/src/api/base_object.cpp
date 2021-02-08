@@ -55,7 +55,7 @@ simdjson::dom::object vk::base_object::call_and_parse(std::string_view method, s
 
 std::string vk::base_object::call(std::string_view method, const std::map<std::string, std::string>& params) const
 {
-    return network_client.request(append_url(method), params);
+    return net_client.request(append_url(method), params);
 }
 
 bool vk::base_object::error_returned(const simdjson::dom::object& response, std::int64_t error_code)

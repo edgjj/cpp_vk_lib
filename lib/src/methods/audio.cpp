@@ -11,7 +11,7 @@ void vk::audio::save(std::string_view artist, std::string_view title, std::strin
 {
     simdjson::dom::object response =
     parser.parse(
-        network_client.upload(
+        net_client.upload(
             "file",
             filename,
             parser.parse(raw_server)["response"]["upload_url"].get_string()

@@ -4,6 +4,8 @@
 #include "string_util/implementation/join.hpp"
 #include "string_util/implementation/split.hpp"
 
+#include "simdjson/singleheader/simdjson.h"
+
 
 namespace vk
 {

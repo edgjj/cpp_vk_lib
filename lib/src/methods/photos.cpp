@@ -25,7 +25,7 @@ std::string vk::photos::get_chat_upload_server(std::int64_t chat_id)
 
 std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_photo(std::string_view filename, std::string_view raw_server)
 {
-    simdjson::dom::object upload_response(common_upload(parser, network_client, filename, raw_server, "file"));
+    simdjson::dom::object upload_response(common_upload(parser, net_client, filename, raw_server, "file"));
 
     if (upload_response["photo"].get_string().take_value() == "[]" ||
         upload_response["photo"].get_string().take_value() == "")

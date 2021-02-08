@@ -23,6 +23,23 @@
 #endif
 #   define VK_HIDDEN _DECL_VK_HIDDEN
 
+#define VK_PRAGMA(P) _Pragma(#P)
+#define VK_PUSH_DISABLE_WARNINGS _Pragma("GCC diagnostic push")
+#define VK_POP_DISABLE_WARNINGS _Pragma("GCC diagnostic pop")
+#define VK_DISABLE_GCC_WARNING(WARNING) VK_PRAGMA(GCC diagnostic ignored #WARNING)
+#define VK_PUSH_DISABLE_ALL_WARNINGS VK_PUSH_DISABLE_WARNINGS \
+   VK_DISABLE_GCC_WARNING(-Weffc++) \
+   VK_DISABLE_GCC_WARNING(-Wall) \
+   VK_DISABLE_GCC_WARNING(-Wconversion) \
+   VK_DISABLE_GCC_WARNING(-Wextra) \
+   VK_DISABLE_GCC_WARNING(-Wattributes) \
+   VK_DISABLE_GCC_WARNING(-Wimplicit-fallthrough) \
+   VK_DISABLE_GCC_WARNING(-Wnon-virtual-dtor) \
+   VK_DISABLE_GCC_WARNING(-Wreturn-type) \
+   VK_DISABLE_GCC_WARNING(-Wshadow) \
+   VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
+   VK_DISABLE_GCC_WARNING(-Wunused-variable)
+
 #define DISABLE_COPY(type)                      \
     type(const type&) = delete;                 \
     type& operator = (const type&) = delete;    \

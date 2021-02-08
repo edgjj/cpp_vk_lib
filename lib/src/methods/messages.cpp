@@ -89,7 +89,7 @@ void vk::messages::set_chat_photo(std::string_view filename, std::string_view ra
 {
     simdjson::dom::object response(
         parser.parse(
-            network_client.upload(
+            net_client.upload(
                 "file",
                 filename,
                 parser.parse(raw_server)["response"]["upload_url"].get_string()

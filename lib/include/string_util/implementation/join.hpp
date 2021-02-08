@@ -54,7 +54,8 @@ private:
         );
     }
 
-    friend std::string vk::string_util::join(std::initializer_list<T>&& elements, char delimiter);
+    template <typename _T>
+    friend std::string vk::string_util::join(std::initializer_list<_T>&& elements, char delimiter);
 };
 } // namespace string_util
 } // namespace vk

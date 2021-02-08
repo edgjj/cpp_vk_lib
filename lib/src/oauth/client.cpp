@@ -24,7 +24,7 @@ vk::oauth::client::client(std::string_view username_, std::string_view password_
 std::pair<std::string_view, int64_t> vk::oauth::client::pull()
 {
     simdjson::dom::object response =
-    parser.parse(network_client.request(std::string(oauth_link) + "token?", {
+    parser.parse(net_client.request(std::string(oauth_link) + "token?", {
         {"grant_type", "password"},
         {"client_id",   std::to_string(target_client_id)},
         {"client_secret", target_client_secret},

@@ -31,7 +31,7 @@ protected:
     static inline std::string access_token;
     static inline std::string user_token;
 
-    network_client network_client;
+    network_client net_client;
     simdjson::dom::parser parser;
 };
 } // namespace vk

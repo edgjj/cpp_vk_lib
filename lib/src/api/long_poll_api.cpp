@@ -23,12 +23,12 @@ vk::long_poll_data vk::long_poll_api::server()
 
 static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::size_t timeout)
 {
-    static vk::network_client network_client;
+    static vk::network_client net_client;
     static simdjson::dom::parser parser;
 
     return
     parser.parse(
-        network_client.request(data.server + '?', {
+        net_client.request(data.server + '?', {
             {"act",     "a_check"},
             {"key",     data.key},
             {"ts",      data.ts},
