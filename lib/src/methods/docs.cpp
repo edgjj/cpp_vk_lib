@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "string_util/string_util.hpp"
+//#include "string_util/string_util.hpp"
 #include "processing/exception.hpp"
 #include "methods/docs.hpp"
 
@@ -12,22 +12,22 @@ vk::attachment::attachments_t vk::docs::search(std::string_view query, std::int6
 
 void vk::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags)
 {
-    simdjson::dom::object response =
-    call_and_parse("docs.edit", user_params({
-        {"owner_id",    std::to_string(owner_id)},
-        {"doc_id",      std::to_string(doc_id)},
-        {"title",       title.data()},
-        {"tags",        string_util::join(std::move(tags)).data()}
-    }));
+//    simdjson::dom::object response =
+//    call_and_parse("docs.edit", user_params({
+//        {"owner_id",    std::to_string(owner_id)},
+//        {"doc_id",      std::to_string(doc_id)},
+//        {"title",       title.data()},
+//        {"tags",        string_util::join(std::move(tags)).data()}
+//    }));
 
-    if (error_returned(response, 1150))
-        VK_THROW(exception::invalid_parameter_error, 1150, "Invalid document id.");
+//    if (error_returned(response, 1150))
+//        VK_THROW(exception::invalid_parameter_error, 1150, "Invalid document id.");
 
-    if (error_returned(response, 1152))
-        VK_THROW(exception::invalid_parameter_error, 1152, "Invalid document title.");
+//    if (error_returned(response, 1152))
+//        VK_THROW(exception::invalid_parameter_error, 1152, "Invalid document title.");
 
-    if (error_returned(response, 1153))
-        VK_THROW(exception::access_error, 1153, "Access to document restricted.");
+//    if (error_returned(response, 1153))
+//        VK_THROW(exception::access_error, 1153, "Access to document restricted.");
 }
 
 void vk::docs::remove(int64_t owner_id, int64_t doc_id)

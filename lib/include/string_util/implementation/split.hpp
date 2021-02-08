@@ -6,11 +6,12 @@
 
 #include "misc/cppdefs.hpp"
 
+
 namespace vk
 {
 namespace string_util
 {
-std::vector<std::string_view> split(std::string_view text, char delimiter = ' ') noexcept;
+std::vector<std::string_view> split(std::string_view text, char delimiter) noexcept;
 } // namespace string_util
 } // namespace vk
 

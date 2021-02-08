@@ -18,8 +18,8 @@
 #include "methods/utils.hpp"
 #include "methods/video.hpp"
 #include "misc/backtrace.hpp"
-#include "misc/cppdefs.hpp"
 #include "processing/thread_pool.hpp"
-#include "utility/exception.hpp"
+#include "processing/exception.hpp"
+#include "string_util/string_util.hpp"
 
 #endif // VK_COMMON_H

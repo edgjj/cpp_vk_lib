@@ -30,6 +30,7 @@ add_library(
     src/methods/messages.cpp
     src/methods/utils.cpp
     src/net/network_client.cpp
+    src/oauth/client.cpp
     src/processing/thread_pool.cpp
     ../dependencies/logger/logger.cpp
 )
