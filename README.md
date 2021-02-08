@@ -1,6 +1,14 @@
 # cpp_vk_lib
 Small and simple C++ library to facilitate work with Vkontakte API
 
+## Overview
+
+* Convenient work with API methods
+* Attachment handling system
+* Built-in multithreading
+* Logging
+* OAuth-authorization support
+
 ## Dependencies
 	- curlpp
 
