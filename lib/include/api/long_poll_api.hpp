@@ -7,17 +7,14 @@
 #include "processing/thread_pool.hpp"
 
 
-namespace vk
-{
-struct VK_EXPORT long_poll_data
-{
+namespace vk {
+struct VK_EXPORT long_poll_data {
     std::string key;
     std::string server;
     std::string ts;
 };
 
-class VK_EXPORT long_poll_api : private base_object
-{
+class VK_EXPORT long_poll_api : private base_object {
 public:
     using events_t = std::vector<std::unique_ptr<event::common>>;
 

@@ -1,28 +1,26 @@
 #include "oauth/client.hpp"
 
 
-vk::oauth::client::client(std::string_view username_, std::string_view password_, vk::oauth::device client_type_)
-    : client_type(client_type_), username(username_), password(password_)
+vk::oauth::client::client(std::string_view username_, std::string_view password_, vk::oauth::target_client client_type_)
+    : client_type(client_type_), username(username_.data()), password(password_.data())
 {
-    switch (client_type)
-    {
-    case device::android:
+    switch (client_type) {
+    case target_client::android:
         target_client_id = android_app_client_id;
         target_client_secret = android_app_client_secret;
         break;
-    case device::iphone:
+    case target_client::iphone:
         target_client_id = iphone_app_client_id;
         target_client_secret = iphone_app_client_secret;
         break;
-    case device::windows:
+    case target_client::windows:
         target_client_id = windows_app_client_id;
         target_client_secret = windows_app_client_secret;
         break;
     }
 }
 
-std::pair<std::string_view, int64_t> vk::oauth::client::pull()
-{
+void vk::oauth::client::pull() {
     simdjson::dom::object response =
     parser.parse(net_client.request(std::string(oauth_link) + "token?", {
         {"grant_type", "password"},
@@ -32,16 +30,22 @@ std::pair<std::string_view, int64_t> vk::oauth::client::pull()
         {"password",    password.data()}
     }));
 
-    if (error_returned(response, "invalid_client"))
-        VK_THROW(vk::exception::access_error, -1, response["error_description"].get_string().take_value().data());
+    if (error_returned(response, "invalid_client")  ||
+        error_returned(response, "invalid_request") ||
+        error_returned(response, "invalid_grant"))
+            VK_THROW(
+                vk::exception::access_error, -1,
+                response["error_description"].get_string().take_value().data()
+            );
 
-    if (error_returned(response, "invalid_request"))
-        VK_THROW(vk::exception::access_error, -1, response["error_description"].get_string().take_value().data());
+    pulled_token = response["access_token"].get_string().take_value().data();
+    pulled_user_id = response["user_id"].get_int64();
+}
 
-    if (error_returned(response, "invalid_grant"))
-        VK_THROW(vk::exception::access_error, -1, response["error_description"].get_string().take_value().data());
+std::string vk::oauth::client::token() const {
+    return pulled_token;
+}
 
-    return {
-        response["access_token"].get_string(), response["user_id"].get_int64()
-    };
+std::int64_t vk::oauth::client::user_id() const {
+    return pulled_user_id;
 }

@@ -5,12 +5,9 @@
 #include "events/wall_post_new.hpp"
 
 
-namespace vk
-{
-namespace event
-{
-class VK_EXPORT common
-{
+namespace vk {
+namespace event {
+class VK_EXPORT common {
 public:
     common(std::string_view ts, std::string_view raw_json);
 

@@ -2,17 +2,14 @@
 
 
 template <typename Function>
-static void search_attachments(const simdjson::dom::array& items, Function&& function)
-{
-    for (std::size_t i = 0; i < items.size() && i < 10; i++)
-    {
+static void search_attachments(const simdjson::dom::array& items, Function&& function) {
+    for (std::size_t i = 0; i < items.size() && i < 10; i++) {
         std::size_t index = rand() % items.size();
         function(index);
     }
 }
 
-vk::attachment::attachments_t vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count)
-{
+vk::attachment::attachments_t vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count) {
     vk::attachment::attachments_t documents;
     std::string raw_json = call(type, user_params({{"q", query.data()}, {"count", std::to_string(count)}}));
     simdjson::dom::array items = parser.parse(raw_json)["response"]["items"].get_array();
@@ -52,8 +49,7 @@ simdjson::dom::object vk::document::common::common_upload(
     return
     parser.parse(
         network_client.upload(
-            field_name,
-            filename,
+            field_name, filename,
             parser.parse(server)["response"]["upload_url"].get_string()
         )
     );

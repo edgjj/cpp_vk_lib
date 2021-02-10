@@ -6,12 +6,9 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk
-{
-namespace event
-{
-class VK_EXPORT wall_post_new
-{
+namespace vk {
+namespace event {
+class VK_EXPORT wall_post_new {
 public:
     wall_post_new(std::string_view raw_json);
 

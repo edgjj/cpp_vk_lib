@@ -4,24 +4,19 @@
 #include "misc/backtrace.hpp"
 
 
-namespace vk
-{
-namespace exception
-{
-class VK_EXPORT common_exception : public std::exception
-{
+namespace vk {
+namespace exception {
+class VK_EXPORT common_exception : public std::exception {
 protected:
     explicit common_exception(const char* what_arg, unsigned int line)
         : error(what_arg)
     {
         backtrace_view{line};
     }
-    virtual const char* what() const noexcept override
-    {
+    virtual const char* what() const noexcept override {
         return error.what();
     }
-    std::string create(const std::string& ename, const int id) const
-    {
+    std::string create(const std::string& ename, const int id) const {
         return "[vk.exception." + ename + '.' + std::to_string(id) + "]: ";
     }
 
@@ -30,8 +25,7 @@ private:
 };
 
 #define GENERATE_EXCEPTION_CLASS(EXCEPTION) \
-    class VK_EXPORT EXCEPTION : public common_exception \
-    { \
+    class VK_EXPORT EXCEPTION : public common_exception { \
     public: \
         explicit EXCEPTION(int id, const char* what_arg, unsigned int line) \
             : common_exception(std::string(create(#EXCEPTION, id) + what_arg).c_str(), line) \

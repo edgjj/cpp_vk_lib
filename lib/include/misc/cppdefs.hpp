@@ -28,32 +28,33 @@
 #define VK_POP_DISABLE_WARNINGS _Pragma("GCC diagnostic pop")
 #define VK_DISABLE_GCC_WARNING(WARNING) VK_PRAGMA(GCC diagnostic ignored #WARNING)
 #define VK_PUSH_DISABLE_ALL_WARNINGS VK_PUSH_DISABLE_WARNINGS \
-   VK_DISABLE_GCC_WARNING(-Weffc++) \
-   VK_DISABLE_GCC_WARNING(-Wall) \
-   VK_DISABLE_GCC_WARNING(-Wconversion) \
-   VK_DISABLE_GCC_WARNING(-Wextra) \
-   VK_DISABLE_GCC_WARNING(-Wattributes) \
-   VK_DISABLE_GCC_WARNING(-Wimplicit-fallthrough) \
-   VK_DISABLE_GCC_WARNING(-Wnon-virtual-dtor) \
-   VK_DISABLE_GCC_WARNING(-Wreturn-type) \
-   VK_DISABLE_GCC_WARNING(-Wshadow) \
-   VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
-   VK_DISABLE_GCC_WARNING(-Wunused-variable)
+    VK_DISABLE_GCC_WARNING(-Weffc++) \
+    VK_DISABLE_GCC_WARNING(-Wall) \
+    VK_DISABLE_GCC_WARNING(-Wconversion) \
+    VK_DISABLE_GCC_WARNING(-Wold-style-cast) \
+    VK_DISABLE_GCC_WARNING(-Wextra) \
+    VK_DISABLE_GCC_WARNING(-Wattributes) \
+    VK_DISABLE_GCC_WARNING(-Wimplicit-fallthrough) \
+    VK_DISABLE_GCC_WARNING(-Wnon-virtual-dtor) \
+    VK_DISABLE_GCC_WARNING(-Wreturn-type) \
+    VK_DISABLE_GCC_WARNING(-Wshadow) \
+    VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
+    VK_DISABLE_GCC_WARNING(-Wunused-variable)
 
-#define DISABLE_COPY(type)                      \
+#define disable_copy(type)                      \
     type(const type&) = delete;                 \
     type& operator = (const type&) = delete;    \
 
-#define DISABLE_MOVE(type)                      \
+#define disable_move(type)                      \
     type(type&&) = delete;                      \
     type& operator = (type&&) = delete;         \
 
-#define DEBUG_WATCH(LABEL, EXPR) \
+#define debug_watch(LABEL, EXPR) \
     std::cerr << #LABEL << ": " << EXPR << std::endl;
 
-#define DEBUG_TRACE(expr) \
+#define debug_trace(expr) \
     std::cerr << __FILE__ << ':' << __LINE__ << ": <" << __FUNCTION__ << "> " << #expr << " = " << expr << std::endl;
 
-#define VK_ALWAYS_INLINE [[gnu::always_inline]]
+#define vk_always_inline [[gnu::always_inline]]
 
 #endif // VK_CPPDEFS_H

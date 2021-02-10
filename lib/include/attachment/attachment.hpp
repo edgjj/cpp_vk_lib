@@ -8,12 +8,9 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk
-{
-namespace attachment
-{
-class VK_EXPORT base_attachment
-{
+namespace vk {
+namespace attachment {
+class VK_EXPORT base_attachment {
 public:
     explicit
     base_attachment (std::int32_t owner_id_, std::int32_t id_)
@@ -28,8 +25,7 @@ protected:
     std::int32_t id;
 };
 
-class VK_EXPORT photo_attachment : public base_attachment
-{
+class VK_EXPORT photo_attachment : public base_attachment {
 public:
     explicit
     photo_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -39,8 +35,7 @@ public:
     std::string type()  const noexcept override { return "photo"; }
 };
 
-class VK_EXPORT video_attachment : public base_attachment
-{
+class VK_EXPORT video_attachment : public base_attachment {
 public:
     explicit
     video_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -50,8 +45,7 @@ public:
     std::string type()  const noexcept override { return "video"; }
 };
 
-class VK_EXPORT audio_attachment : public base_attachment
-{
+class VK_EXPORT audio_attachment : public base_attachment {
 public:
     explicit
     audio_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -61,8 +55,7 @@ public:
     std::string type()  const noexcept override { return "audio"; }
 };
 
-class VK_EXPORT document_attachment : public base_attachment
-{
+class VK_EXPORT document_attachment : public base_attachment {
 public:
     explicit
     document_attachment(std::int32_t owner_id_, std::int32_t id_, std::string_view url)
@@ -76,8 +69,7 @@ private:
     const char* _raw_url;
 };
 
-class VK_EXPORT audio_message_attachment : public base_attachment
-{
+class VK_EXPORT audio_message_attachment : public base_attachment {
 public:
     explicit
     audio_message_attachment(std::int32_t owner_id_, std::int32_t id_, std::string_view raw_ogg, std::string_view raw_mp3)
@@ -93,8 +85,7 @@ private:
     const char* _raw_mp3;
 };
 
-class VK_EXPORT wall_attachment : public base_attachment
-{
+class VK_EXPORT wall_attachment : public base_attachment {
 public:
     explicit
     wall_attachment(std::int32_t id_, std::int32_t from_id_)
@@ -104,12 +95,12 @@ public:
     std::string type()    const noexcept override { return "wall"; }
 };
 
-std::shared_ptr<photo_attachment> photo_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<audio_attachment> audio_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<video_attachment> video_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<document_attachment> document_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<audio_message_attachment> audio_message_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<wall_attachment> wall_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<photo_attachment> static_photo_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<audio_attachment> static_audio_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<video_attachment> static_video_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<document_attachment> static_document_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<audio_message_attachment> static_audio_message_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+std::shared_ptr<wall_attachment> static_wall_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
 
 using attachments_t = std::vector<std::shared_ptr<attachment::base_attachment>>;
 const inline std::shared_ptr<vk::attachment::base_attachment> undefined_attachment = std::make_shared<vk::attachment::photo_attachment>(-1, -1);

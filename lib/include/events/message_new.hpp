@@ -4,18 +4,14 @@
 #include "attachment/attachment.hpp"
 
 
-namespace simdjson::dom
-{
+namespace simdjson::dom {
 class object;
 class array;
-}
+} // namespace simdjson::dom
 
-namespace vk
-{
-namespace event
-{
-class VK_EXPORT message_new
-{
+namespace vk {
+namespace event {
+class VK_EXPORT message_new {
 public:
     message_new(std::string_view raw_json);
     message_new(

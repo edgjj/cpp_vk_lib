@@ -7,33 +7,26 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk
-{
-namespace string_util
-{
+namespace vk {
+namespace string_util {
 template <typename T>
 std::string join(std::initializer_list<T>&& elements, char delimiter = ',');
 } // namespace string_util
 } // namespace vk
 
-namespace vk
-{
-namespace string_util
-{
-template <typename T> struct VK_HIDDEN join_implementation
-{
+namespace vk {
+namespace string_util {
+template <typename T> struct VK_HIDDEN join_implementation {
 private:
     using is_integral = std::true_type;
     using is_not_integral = std::false_type;
 
-    template <typename Binary_operation>
-    static std::string common_implementation(std::initializer_list<T> elements, Binary_operation operation)
-    {
+    template <typename binary_operation>
+    static std::string common_implementation(std::initializer_list<T> elements, binary_operation operation) {
         return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
     }
 
-    static std::string create(std::initializer_list<T> elements, char delimiter, is_integral)
-    {
+    static std::string create(std::initializer_list<T> elements, char delimiter, is_integral) {
         return common_implementation(
             elements, [&delimiter](std::string& accumlator, T element){
                 return accumlator.empty()
@@ -43,8 +36,7 @@ private:
         );
     }
 
-    static std::string create(std::initializer_list<T> elements, char delimiter, is_not_integral)
-    {
+    static std::string create(std::initializer_list<T> elements, char delimiter, is_not_integral) {
         return common_implementation(
             elements, [&delimiter](std::string& accumlator, T element){
                 return accumlator.empty()

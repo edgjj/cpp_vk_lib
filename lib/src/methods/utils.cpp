@@ -2,8 +2,7 @@
 #include "methods/utils.hpp"
 
 
-bool vk::utils::check_link(std::string_view url)
-{
+bool vk::utils::check_link(std::string_view url) {
     simdjson::dom::object response(
         call_and_parse("utils.checkLink", group_params({
             {"url", url.data()}
@@ -15,8 +14,7 @@ bool vk::utils::check_link(std::string_view url)
     return response["response"]["status"].get_string().take_value() == "not_banned";
 }
 
-std::string vk::utils::get_short_link(std::string_view url)
-{
+std::string vk::utils::get_short_link(std::string_view url) {
     simdjson::dom::object response(
         call_and_parse("utils.getShortLink", group_params({
             {"url", url.data()}
@@ -28,8 +26,7 @@ std::string vk::utils::get_short_link(std::string_view url)
     return response["response"]["short_url"].get_string().take_value().data();
 }
 
-std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name)
-{
+std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name) {
     if (screen_name.empty())
         VK_THROW(exception::invalid_parameter_error, -1, "Empty argument passed.");
 

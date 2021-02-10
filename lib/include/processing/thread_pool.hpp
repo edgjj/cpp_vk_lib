@@ -9,20 +9,14 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk
-{
-namespace processing
-{
-class VK_EXPORT thread_pool
-{
+namespace vk {
+namespace processing {
+class VK_EXPORT thread_pool {
 public:
-    DISABLE_COPY(thread_pool)
-    DISABLE_MOVE(thread_pool)
+    disable_copy(thread_pool)
+    disable_move(thread_pool)
     thread_pool() = default;
-    ~thread_pool()
-    {
-        finish();
-    }
+    ~thread_pool() { finish(); }
 
     template <typename _Function, typename _Result_of = std::result_of_t<_Function&()>>
     std::future<_Result_of> queue(_Function&& f);
@@ -44,11 +38,9 @@ private:
 } // namespace vk
 
 template <typename _Function, typename _Result_of>
-std::future<_Result_of> vk::processing::thread_pool::queue(_Function&& f)
-{
+std::future<_Result_of> vk::processing::thread_pool::queue(_Function&& f) {
     std::packaged_task<_Result_of()> task(std::forward<_Function>(f));
-    auto future = task.get_future();
-    {
+    auto future = task.get_future(); {
         std::unique_lock<std::mutex> l(locker);
         worker.emplace_back(std::move(task));
     }

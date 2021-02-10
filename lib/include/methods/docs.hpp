@@ -4,11 +4,13 @@
 #include "document/common_document.hpp"
 
 
-namespace vk
-{
-class VK_EXPORT docs : private document::common
-{
+namespace vk {
+class VK_EXPORT docs : private document::common {
 public:
+    explicit docs(std::string_view user_token_) : document::common(user_token_) { };
+    explicit docs() = default;
+    ~docs() = default;
+
     void edit                               (std::int64_t owner_id, std::int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags = { });
     void remove                             (std::int64_t owner_id, std::int64_t doc_id);
     std::string get_upload_server           (std::int64_t group_id) const;

@@ -7,28 +7,22 @@
 #include "misc/cppdefs.hpp"
 
 
-namespace vk
-{
-namespace string_util
-{
+namespace vk {
+namespace string_util {
 std::vector<std::string_view> split(std::string_view text, char delimiter) noexcept;
 } // namespace string_util
 } // namespace vk
 
-namespace vk
-{
-namespace string_util
-{
-struct VK_HIDDEN split_implementation
-{
+namespace vk {
+namespace string_util {
+struct VK_HIDDEN split_implementation {
 private:
-    static std::vector<std::string_view> create(std::string_view text, char delimiter) noexcept
-    {
+    static std::vector<std::string_view> create(std::string_view text, char delimiter) noexcept {
         std::vector<std::string_view> splitted;
         splitted.reserve(text.length() / 4);
         std::size_t pos = 0;
-        while (pos != std::string_view::npos)
-        {
+
+        while (pos != std::string_view::npos) {
             pos = text.find_first_not_of(delimiter);
             if (pos == std::string_view::npos)
                 return splitted;

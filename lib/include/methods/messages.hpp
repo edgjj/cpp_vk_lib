@@ -6,10 +6,8 @@
 #include "attachment/attachment.hpp"
 
 
-namespace vk
-{
-struct VK_EXPORT conversation_member
-{
+namespace vk {
+struct VK_EXPORT conversation_member {
     std::string first_name;
     std::string last_name;
     std::int64_t id;
@@ -18,9 +16,12 @@ struct VK_EXPORT conversation_member
 
 using conversation_member_list = std::vector<conversation_member>;
 
-class VK_EXPORT messages : private base_object
-{
+class VK_EXPORT messages : private base_object {
 public:
+    explicit messages(std::string_view user_token_) : base_object(user_token_) { };
+    explicit messages() = default;
+    ~messages() = default;
+
     void send               (std::int64_t peer_id, std::string_view text);
     void send               (std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list);
     void send               (std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters);
