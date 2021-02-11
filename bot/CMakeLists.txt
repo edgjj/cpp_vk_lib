@@ -4,4 +4,4 @@ include_directories(../dependencies)
 
 add_executable(worker main.cpp)
 
-target_link_libraries(worker -Lshared cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)
+target_link_libraries(worker -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)
