@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT utils : private base_object {
+class vk_export utils : private base_object {
 public:
     explicit utils(std::string_view user_token_) : base_object(user_token_) { };
     explicit utils() = default;

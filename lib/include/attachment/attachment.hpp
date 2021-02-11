@@ -10,7 +10,7 @@
 
 namespace vk {
 namespace attachment {
-class VK_EXPORT base_attachment {
+class vk_export base_attachment {
 public:
     explicit
     base_attachment (std::int32_t owner_id_, std::int32_t id_)
@@ -25,7 +25,7 @@ protected:
     std::int32_t id;
 };
 
-class VK_EXPORT photo_attachment : public base_attachment {
+class vk_export photo_attachment : public base_attachment {
 public:
     explicit
     photo_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -35,7 +35,7 @@ public:
     std::string type()  const noexcept override { return "photo"; }
 };
 
-class VK_EXPORT video_attachment : public base_attachment {
+class vk_export video_attachment : public base_attachment {
 public:
     explicit
     video_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -45,7 +45,7 @@ public:
     std::string type()  const noexcept override { return "video"; }
 };
 
-class VK_EXPORT audio_attachment : public base_attachment {
+class vk_export audio_attachment : public base_attachment {
 public:
     explicit
     audio_attachment(std::int32_t owner_id_, std::int32_t id_)
@@ -55,7 +55,7 @@ public:
     std::string type()  const noexcept override { return "audio"; }
 };
 
-class VK_EXPORT document_attachment : public base_attachment {
+class vk_export document_attachment : public base_attachment {
 public:
     explicit
     document_attachment(std::int32_t owner_id_, std::int32_t id_, std::string_view url)
@@ -69,7 +69,7 @@ private:
     const char* _raw_url;
 };
 
-class VK_EXPORT audio_message_attachment : public base_attachment {
+class vk_export audio_message_attachment : public base_attachment {
 public:
     explicit
     audio_message_attachment(std::int32_t owner_id_, std::int32_t id_, std::string_view raw_ogg, std::string_view raw_mp3)
@@ -85,7 +85,7 @@ private:
     const char* _raw_mp3;
 };
 
-class VK_EXPORT wall_attachment : public base_attachment {
+class vk_export wall_attachment : public base_attachment {
 public:
     explicit
     wall_attachment(std::int32_t id_, std::int32_t from_id_)

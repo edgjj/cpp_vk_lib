@@ -7,7 +7,7 @@
 
 
 namespace vk {
-struct VK_EXPORT conversation_member {
+struct vk_export conversation_member {
     std::string first_name;
     std::string last_name;
     std::int64_t id;
@@ -16,7 +16,7 @@ struct VK_EXPORT conversation_member {
 
 using conversation_member_list = std::vector<conversation_member>;
 
-class VK_EXPORT messages : private base_object {
+class vk_export messages : private base_object {
 public:
     explicit messages(std::string_view user_token_) : base_object(user_token_) { };
     explicit messages() = default;

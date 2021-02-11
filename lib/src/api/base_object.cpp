@@ -4,7 +4,7 @@
 
 
 namespace {
-class VK_HIDDEN config {
+class vk_hidden config {
 public:
     friend class vk::base_object;
 
@@ -22,7 +22,6 @@ private:
 
 vk::base_object::base_object() noexcept {
     static config config("./config.json");
-
     access_token = config.load_access_token();
     user_token   = config.load_user_token();
 }
@@ -30,13 +29,13 @@ vk::base_object::base_object(std::string_view user_token_) {
     user_token = user_token_;
 }
 std::string vk::base_object::append_url(std::string_view method) const {
-    return "https://api.vk.com/method/" + std::string { method } + '?';
+    return "https://api.vk.com/method/" + std::string(method) + '?';
 }
-std::map<std::string, std::string> vk::base_object::user_params(std::map<std::string, std::string>&& params) const {
+std::map<std::string, std::string> vk::base_object::user_args(std::map<std::string, std::string>&& params) const {
     params.insert({{"access_token", user_token}, {"v", api_v}});
     return std::move(params);
 }
-std::map<std::string, std::string> vk::base_object::group_params(std::map<std::string, std::string>&& params) const {
+std::map<std::string, std::string> vk::base_object::group_args(std::map<std::string, std::string>&& params) const {
     params.insert({{"access_token", access_token}, {"v", api_v}});
     return std::move(params);
 }

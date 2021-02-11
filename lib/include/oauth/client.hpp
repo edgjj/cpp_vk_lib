@@ -15,7 +15,7 @@ enum class target_client : std::uint8_t {
     windows = (1 << 2)
 };
 
-class VK_EXPORT client {
+class vk_export client {
 public:
     explicit client(std::string_view username_, std::string_view password_, target_client client_type_);
     void pull();

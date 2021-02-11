@@ -6,7 +6,7 @@
 
 namespace vk {
 namespace exception {
-class VK_EXPORT common_exception : public std::exception {
+class vk_export common_exception : public std::exception {
 protected:
     explicit common_exception(const char* what_arg, unsigned int line)
         : error(what_arg)
@@ -25,7 +25,7 @@ private:
 };
 
 #define GENERATE_EXCEPTION_CLASS(EXCEPTION) \
-    class VK_EXPORT EXCEPTION : public common_exception { \
+    class vk_export EXCEPTION : public common_exception { \
     public: \
         explicit EXCEPTION(int id, const char* what_arg, unsigned int line) \
             : common_exception(std::string(create(#EXCEPTION, id) + what_arg).c_str(), line) \

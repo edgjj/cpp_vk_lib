@@ -11,7 +11,7 @@
 
 namespace vk {
 namespace processing {
-class VK_EXPORT thread_pool {
+class vk_export thread_pool {
 public:
     disable_copy(thread_pool)
     disable_move(thread_pool)
@@ -32,7 +32,6 @@ private:
     std::condition_variable condition;
     std::deque<std::packaged_task<void()>> worker;
     std::vector<std::future<void>> finished;
-
 };
 } // namespace processing
 } // namespace vk

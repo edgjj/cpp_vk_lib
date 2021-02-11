@@ -1,18 +1,19 @@
 #include "document/common_document.hpp"
 
 
-template <typename Function>
-static void search_attachments(const simdjson::dom::array& items, Function&& function) {
+template <typename function>
+static void search_attachments(const simdjson::dom::array& items, function&& fun) {
     for (std::size_t i = 0; i < items.size() && i < 10; i++) {
         std::size_t index = rand() % items.size();
-        function(index);
+        fun(index);
     }
 }
 
 vk::attachment::attachments_t vk::document::common::common_search(std::string_view type, std::string_view query, std::int64_t count) {
     vk::attachment::attachments_t documents;
-    std::string raw_json = call(type, user_params({{"q", query.data()}, {"count", std::to_string(count)}}));
+    std::string raw_json = call(type, user_args({{"q", query.data()}, {"count", std::to_string(count)}}));
     simdjson::dom::array items = parser.parse(raw_json)["response"]["items"].get_array();
+    documents.reserve(items.size());
 
     if (items.size() == 0) { return documents; }
 

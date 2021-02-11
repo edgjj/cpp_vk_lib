@@ -13,8 +13,7 @@ namespace vk {
 namespace string_util {
 struct end_split_iterator { };
 
-template <typename string_type>
-class split_iterator {
+template <typename string_type> class vk_export split_iterator {
 public:
     split_iterator(string_type source, string_type delim)
         : src(source), delimiter(delim), first(0), last(src.find(delimiter))
@@ -45,7 +44,7 @@ private:
 };
 
 template <typename string_type>
-class split_range {
+class vk_export split_range {
 public:
     split_range(string_type source, string_type delim) noexcept
         : src(source), delimiter(delim)

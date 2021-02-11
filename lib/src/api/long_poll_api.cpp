@@ -32,11 +32,13 @@ static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::si
     );
 }
 
-vk::long_poll_api::events_t vk::long_poll_api::listen(const long_poll_data& data, std::int8_t timeout) const {
+vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std::int8_t timeout) {
     events_t event_list;
     simdjson::dom::object raw_updates(get_updates(data, timeout));
+    simdjson::dom::array raw_updates_array = raw_updates["updates"].get_array();
+    if (raw_updates_array.size() == 0) { data = server(); }
 
-    for (const simdjson::dom::element& update : raw_updates["updates"].get_array()) {
+    for (const simdjson::dom::element& update : raw_updates_array) {
         event_list.push_back(std::make_unique<vk::event::common>(
             raw_updates["ts"].get_string(),
             simdjson::to_string(update)

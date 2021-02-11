@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT groups : private base_object {
+class vk_export groups : private base_object {
 public:
     explicit groups(std::string_view user_token_) : base_object(user_token_) { };
     explicit groups() = default;

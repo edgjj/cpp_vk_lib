@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT docs : private document::common {
+class vk_export docs : private document::common {
 public:
     explicit docs(std::string_view user_token_) : document::common(user_token_) { };
     explicit docs() = default;

@@ -16,7 +16,7 @@ std::string join(std::initializer_list<T>&& elements, char delimiter = ',');
 
 namespace vk {
 namespace string_util {
-template <typename T> struct VK_HIDDEN join_implementation {
+template <typename T> struct vk_hidden join_implementation {
 private:
     using is_integral = std::true_type;
     using is_not_integral = std::false_type;
@@ -26,24 +26,18 @@ private:
         return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
     }
 
-    static std::string create(std::initializer_list<T> elements, char delimiter, is_integral) {
-        return common_implementation(
-            elements, [&delimiter](std::string& accumlator, T element){
+    static std::string create(std::initializer_list<T> elements, char delimiter) {
+        return common_implementation(elements, [&delimiter](std::string& accumlator, T element){
+            if constexpr (std::is_integral<T>()) {
                 return accumlator.empty()
                     ? std::to_string(element)
                     : std::move(accumlator) + delimiter + std::to_string(element);
-            }
-        );
-    }
-
-    static std::string create(std::initializer_list<T> elements, char delimiter, is_not_integral) {
-        return common_implementation(
-            elements, [&delimiter](std::string& accumlator, T element){
+            } else {
                 return accumlator.empty()
                     ? std::string(element)
                     : std::move(accumlator) + delimiter + std::string(element);
             }
-        );
+        });
     }
 
     template <typename _T>

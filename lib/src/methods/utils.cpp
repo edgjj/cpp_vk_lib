@@ -4,7 +4,7 @@
 
 bool vk::utils::check_link(std::string_view url) {
     simdjson::dom::object response(
-        call_and_parse("utils.checkLink", group_params({
+        call_and_parse("utils.checkLink", group_args({
             {"url", url.data()}
         }))
     );
@@ -16,7 +16,7 @@ bool vk::utils::check_link(std::string_view url) {
 
 std::string vk::utils::get_short_link(std::string_view url) {
     simdjson::dom::object response(
-        call_and_parse("utils.getShortLink", group_params({
+        call_and_parse("utils.getShortLink", group_args({
             {"url", url.data()}
         }))
     );
@@ -31,7 +31,7 @@ std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name) {
         VK_THROW(exception::invalid_parameter_error, -1, "Empty argument passed.");
 
     simdjson::dom::object response(
-        call_and_parse("utils.resolveScreenName", group_params({
+        call_and_parse("utils.resolveScreenName", group_args({
             {"screen_name", screen_name.data()}
         }))
     );

@@ -8,10 +8,9 @@
 
 namespace vk {
 namespace event {
-class VK_EXPORT wall_post_new {
+class vk_export wall_post_new {
 public:
     wall_post_new(std::string_view raw_json);
-
     std::int64_t id()      const noexcept;
     std::int64_t from_id() const noexcept;
 

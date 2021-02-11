@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT audio : private base_object {
+class vk_export audio : private base_object {
 public:
     explicit audio(std::string_view user_token_) : base_object(user_token_) { };
     explicit audio() = default;

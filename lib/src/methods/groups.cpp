@@ -3,7 +3,7 @@
 
 
 std::int64_t vk::groups::get_by_id() {
-    simdjson::dom::object response(call_and_parse("groups.getById", group_params({ })));
+    simdjson::dom::object response(call_and_parse("groups.getById", group_args({ })));
 
     if (error_returned(response, 5))
         VK_THROW(vk::exception::access_error, 5,
@@ -14,7 +14,7 @@ std::int64_t vk::groups::get_by_id() {
 
 simdjson::dom::object vk::groups::get_long_poll_server(std::string_view group_id) {
     return
-    call_and_parse("groups.getLongPollServer", group_params({
+    call_and_parse("groups.getLongPollServer", group_args({
         {"group_id",   group_id.data()},
         {"random_id",  "0"}
     }))["response"].get_object();

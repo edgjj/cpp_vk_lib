@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT video : private document::common {
+class vk_export video : private document::common {
 public:
     explicit video(std::string_view user_token_) : document::common(user_token_) { };
     explicit video() = default;

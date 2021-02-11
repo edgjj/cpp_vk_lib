@@ -7,7 +7,7 @@
 
 namespace vk {
 namespace document {
-class VK_HIDDEN common : public base_object {
+class vk_hidden common : public base_object {
 protected:
     explicit common(std::string_view user_token_) : base_object(user_token_) { };
     explicit common() = default;

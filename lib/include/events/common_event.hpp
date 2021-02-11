@@ -7,7 +7,7 @@
 
 namespace vk {
 namespace event {
-class VK_EXPORT common {
+class vk_export common {
 public:
     common(std::string_view ts, std::string_view raw_json);
 

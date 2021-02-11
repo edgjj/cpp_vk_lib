@@ -17,11 +17,11 @@
 #endif
 
 #if defined(VK_CPPDEFS_H)
-#   define VK_EXPORT _DECL_VK_EXPORT
+#   define vk_export _DECL_VK_EXPORT
 #else
-#   define VK_EXPORT _DECL_VK_IMPORT
+#   define vk_export _DECL_VK_IMPORT
 #endif
-#   define VK_HIDDEN _DECL_VK_HIDDEN
+#   define vk_hidden _DECL_VK_HIDDEN
 
 #define VK_PRAGMA(P) _Pragma(#P)
 #define VK_PUSH_DISABLE_WARNINGS _Pragma("GCC diagnostic push")

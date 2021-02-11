@@ -12,7 +12,7 @@
 
 
 namespace vk {
-class VK_HIDDEN backtrace_view {
+class vk_hidden backtrace_view {
 public:
     explicit backtrace_view(size_t lineno) noexcept
         : line(lineno)

@@ -12,15 +12,15 @@
 
 
 namespace vk {
-class VK_EXPORT base_object
+class vk_export base_object
 {
 protected:
     explicit base_object() noexcept;
     explicit base_object(std::string_view user_token_);
     virtual ~base_object() = default;
 
-    std::map<std::string, std::string> user_params(std::map<std::string, std::string>&& params) const;
-    std::map<std::string, std::string> group_params(std::map<std::string, std::string>&& params) const;
+    std::map<std::string, std::string> user_args(std::map<std::string, std::string>&& params) const;
+    std::map<std::string, std::string> group_args(std::map<std::string, std::string>&& params) const;
     simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params);
     std::string call      (std::string_view method, const std::map<std::string, std::string>& params) const;
     std::string append_url(std::string_view method) const;

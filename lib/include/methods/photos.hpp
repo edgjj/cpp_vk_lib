@@ -5,7 +5,7 @@
 
 
 namespace vk {
-class VK_EXPORT photos : private document::common {
+class vk_export photos : private document::common {
 public:
     explicit photos(std::string_view user_token_) : document::common(user_token_) { };
     explicit photos() = default;
