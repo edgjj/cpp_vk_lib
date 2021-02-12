@@ -34,7 +34,7 @@ std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_phot
     if (upload_response["photo"].get_string().take_value() == "[]" ||
         upload_response["photo"].get_string().take_value() == "")
     {
-        VK_THROW(exception::upload_error, -1, "Can't upload file. Maybe is not an image?");
+        vk_throw(exception::upload_error, -1, "Can't upload file. Maybe is not an image?");
     }
 
     std::string raw_vk_response(

@@ -33,7 +33,7 @@ void vk::oauth::client::pull() {
     if (error_returned(response, "invalid_client")  ||
         error_returned(response, "invalid_request") ||
         error_returned(response, "invalid_grant"))
-            VK_THROW(
+            vk_throw(
                 vk::exception::access_error, -1,
                 response["error_description"].get_string().take_value().data()
             );

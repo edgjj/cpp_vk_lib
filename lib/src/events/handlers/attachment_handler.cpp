@@ -43,7 +43,7 @@ static std::shared_ptr<vk::attachment::wall_attachment> get_wall(const simdjson:
     );
 }
 
-vk::attachment::attachments_t vk::event::attachment_handler::try_get(const simdjson::dom::array& attachments) {
+vk::attachment::attachments_t vk::event::attachment_handler::try_get(const simdjson::dom::array& attachments) const {
     attachment::attachments_t attachment_list;
     for (const simdjson::dom::element& attachment : attachments) {
         std::string type = attachment["type"].get_string().take_value().data();

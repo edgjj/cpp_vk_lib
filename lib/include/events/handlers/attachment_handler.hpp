@@ -23,7 +23,7 @@ namespace vk {
 namespace event {
 struct vk_hidden attachment_handler {
 private:
-    attachment::attachments_t try_get(const simdjson::dom::array& attachments);
+    attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
 
     friend class message_new;
     friend class wall_reply_new;

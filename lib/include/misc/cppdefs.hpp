@@ -41,6 +41,11 @@
     VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
     VK_DISABLE_GCC_WARNING(-Wunused-variable)
 
+#define vk_always_inline [[gnu::always_inline]]
+
+#define vk_likely(expr) __builtin_expect(!!(expr), 1)
+#define vk_unlikely(expr) __builtin_expect(!!(expr), 0)
+
 #define disable_copy(type)                      \
     type(const type&) = delete;                 \
     type& operator = (const type&) = delete;    \
@@ -49,12 +54,5 @@
     type(type&&) = delete;                      \
     type& operator = (type&&) = delete;         \
 
-#define debug_watch(LABEL, EXPR) \
-    std::cerr << #LABEL << ": " << EXPR << std::endl;
-
-#define debug_trace(expr) \
-    std::cerr << __FILE__ << ':' << __LINE__ << ": <" << __FUNCTION__ << "> " << #expr << " = " << expr << std::endl;
-
-#define vk_always_inline [[gnu::always_inline]]
 
 #endif // VK_CPPDEFS_H

@@ -19,13 +19,13 @@ void vk::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, st
     }));
 
     if (error_returned(response, 1150))
-        VK_THROW(exception::invalid_parameter_error, 1150, "Invalid document id.");
+        vk_throw(exception::invalid_parameter_error, 1150, "Invalid document id.");
 
     if (error_returned(response, 1152))
-        VK_THROW(exception::invalid_parameter_error, 1152, "Invalid document title.");
+        vk_throw(exception::invalid_parameter_error, 1152, "Invalid document title.");
 
     if (error_returned(response, 1153))
-        VK_THROW(exception::access_error, 1153, "Access to document restricted.");
+        vk_throw(exception::access_error, 1153, "Access to document restricted.");
 }
 
 void vk::docs::remove(int64_t owner_id, int64_t doc_id) {
@@ -36,10 +36,10 @@ void vk::docs::remove(int64_t owner_id, int64_t doc_id) {
     }));
 
     if (error_returned(response, 1150))
-        VK_THROW(exception::invalid_parameter_error, 1150, "Invalid document id.");
+        vk_throw(exception::invalid_parameter_error, 1150, "Invalid document id.");
 
     if (error_returned(response, 1151))
-        VK_THROW(exception::invalid_parameter_error, 1151, "Access to document restricted.");
+        vk_throw(exception::invalid_parameter_error, 1151, "Access to document restricted.");
 }
 
 std::string vk::docs::get_upload_server(std::int64_t group_id) const {
@@ -64,7 +64,7 @@ std::string vk::docs::get_messages_upload_server(std::string_view type, int64_t 
 std::shared_ptr<vk::attachment::audio_message_attachment> vk::docs::save_audio_message(std::string_view filename, std::string_view raw_server) {
     simdjson::dom::object upload_response(common_upload(parser, net_client, filename, raw_server, "file"));
     if (upload_response.begin().key() != "file")
-        VK_THROW(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
+        vk_throw(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
 
     std::string file(upload_response["file"].get_c_str());
     if (file == "") { return { }; }

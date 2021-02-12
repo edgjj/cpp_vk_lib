@@ -38,7 +38,7 @@ GENERATE_EXCEPTION_CLASS(invalid_parameter_error)
 } // namespace exception
 } // namespace vk
 
-#define VK_THROW(EXCEPTION, ID, MESSAGE) \
+#define vk_throw(EXCEPTION, ID, MESSAGE) \
     throw EXCEPTION(ID, MESSAGE, __LINE__)
 
 #undef GENERATE_EXCEPTION_CLASS

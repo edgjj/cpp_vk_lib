@@ -17,21 +17,9 @@ vk::event::wall_reply_new::wall_reply_new(std::string_view raw_json) {
         _attachments = att_handler.try_get(event["attachments"].get_array());
 }
 
-std::int32_t vk::event::wall_reply_new::id() const noexcept {
-    return _id;
-}
-std::int64_t vk::event::wall_reply_new::from_id() const noexcept {
-    return _from_id;
-}
-std::int32_t vk::event::wall_reply_new::post_id() const noexcept {
-    return _post_id;
-}
-std::int64_t vk::event::wall_reply_new::owner_id() const noexcept {
-    return _owner_id;
-}
-std::string vk::event::wall_reply_new::text() const noexcept {
-    return _text;
-}
-vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const noexcept {
-    return _attachments;
-}
+std::int32_t vk::event::wall_reply_new::id() const noexcept { return _id; }
+std::int64_t vk::event::wall_reply_new::from_id() const noexcept { return _from_id; }
+std::int32_t vk::event::wall_reply_new::post_id() const noexcept { return _post_id; }
+std::int64_t vk::event::wall_reply_new::owner_id() const noexcept { return _owner_id; }
+std::string  vk::event::wall_reply_new::text() const noexcept { return _text; }
+vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const noexcept { return _attachments; }

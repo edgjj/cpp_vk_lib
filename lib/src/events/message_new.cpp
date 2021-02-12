@@ -1,5 +1,6 @@
 #include "simdjson.h"
 
+#include "processing/exception.hpp"
 #include "events/message_new.hpp"
 
 
@@ -29,6 +30,47 @@ vk::event::message_new::message_new(std::string_view raw_json) {
 
     if (message["fwd_messages"].get_array().size() != 0)
         try_get_fwd_messages(message["fwd_messages"].get_array());
+
+    if (message["action"].is_object())
+        try_get_actions(message["action"].get_object());
+}
+
+void vk::event::message_new::try_get_actions(const simdjson::dom::object& action) {
+    std::string action_name = action["type"].get_string().take_value().data();
+    if (action_name == "chat_invite_user") {
+        _action = std::make_shared<action::action_chat_invite_user>(
+            action["member_id"].get_int64()
+        );
+    }
+    if (action_name == "chat_kick_user") {
+        _action = std::make_shared<action::action_chat_kick_user>(
+            action["member_id"].get_int64()
+        );
+    }
+    if (action_name == "chat_pin_message") {
+        _action = std::make_shared<action::action_chat_pin_message>(
+            action["member_id"].get_int64(),
+            action["conversation_message_id"].get_int64(),
+            action["message"].get_string()
+        );
+    }
+    if (action_name == "chat_unpin_message") {
+        _action = std::make_shared<action::action_chat_unpin_message>(
+            action["member_id"].get_int64(),
+            action["conversation_message_id"].get_int64()
+        );
+    }
+    if (action_name == "chat_photo_update") {
+        _action = std::make_shared<action::action_chat_photo_update>(
+            // empty
+        );
+    }
+    if (action_name == "chat_title_update") {
+        _action = std::make_shared<action::action_chat_title_update>(
+            action["text"].get_string()
+        );
+    }
+    _has_action = true;
 }
 
 void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& messages) {
@@ -57,32 +99,26 @@ void vk::event::message_new::try_get_reply(const simdjson::dom::object& object) 
     _has_reply = true;
 }
 
-vk::attachment::attachments_t vk::event::message_new::attachments() const noexcept {
+vk::attachment::attachments_t vk::event::message_new::attachments() const {
     return _attachments;
 }
-std::string vk::event::message_new::text() const noexcept {
-    return _text;
-}
-std::int64_t vk::event::message_new::from_id() const noexcept {
-    return _from_id;
-}
-std::int64_t vk::event::message_new::peer_id() const noexcept {
-    return _peer_id;
-}
-bool vk::event::message_new::has_reply() const noexcept {
-    return _has_reply;
-}
-bool vk::event::message_new::has_fwd_messages() const noexcept {
-    return _has_fwd_messages;
-}
-std::string vk::event::message_new::dump() const noexcept {
-    return _raw_json;
+std::string vk::event::message_new::text()      const noexcept { return _text; }
+std::int64_t vk::event::message_new::from_id()  const noexcept { return _from_id; }
+std::int64_t vk::event::message_new::peer_id()  const noexcept { return _peer_id; }
+bool vk::event::message_new::has_action()       const noexcept { return _has_action; }
+bool vk::event::message_new::has_reply()        const noexcept { return _has_reply; }
+bool vk::event::message_new::has_fwd_messages() const noexcept { return _has_fwd_messages; }
+std::string vk::event::message_new::dump()      const noexcept { return _raw_json; }
+
+vk::event::message_new::any_action vk::event::message_new::action() const {
+    if (vk_likely(_has_action)) return _action;
+    else vk_throw(exception::access_error, -1, "Attempting accessing empty action.");
 }
 std::vector<std::shared_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const {
-    if (_has_fwd_messages) return _fwd_messages;
-    else throw std::runtime_error("Attempting accessing empty forward message list.");
+    if (vk_likely(_has_fwd_messages)) return _fwd_messages;
+    else vk_throw(exception::access_error, -1, "Attempting accessing empty forward message list.");
 }
 vk::event::message_new vk::event::message_new::reply() const {
-    if (_has_reply) return *_reply;
-    else throw std::runtime_error("Attempting accessing empty reply.");
+    if (vk_likely(_has_reply)) return *_reply;
+    else vk_throw(exception::access_error, -1, "Attempting accessing empty reply.");
 }

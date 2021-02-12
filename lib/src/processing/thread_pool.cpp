@@ -43,10 +43,7 @@ void vk::processing::thread_pool::thread_task() {
             task = std::move(worker.front());
             worker.pop_front();
         }
-        if (!task.valid())
-        {
-            return;
-        }
+        if (!task.valid()) { return; }
         task();
     }
 }

@@ -17,7 +17,7 @@ void vk::audio::save(std::string_view artist, std::string_view title, std::strin
     );
 
     if (response.begin().key() == "error")
-        VK_THROW(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
+        vk_throw(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
 
     call("audio.save", user_args({
         {"server",   std::to_string(response["server"].get_int64())},
