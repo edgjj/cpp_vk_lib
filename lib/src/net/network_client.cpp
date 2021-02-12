@@ -34,6 +34,8 @@ std::string vk::network_client::request(std::string_view method, const std::map<
     curl_easy.setOpt(new curlpp::options::WriteStream(&response));
     curl_easy.perform();
 
+    debug("HTTP RESPONSE: ", response.str());
+
     return response.str();
 }
 

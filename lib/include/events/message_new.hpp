@@ -1,6 +1,7 @@
 #ifndef VK_MESSAGE_NEW_H
 #define VK_MESSAGE_NEW_H
 
+#include "events/handlers/attachment_handler.hpp"
 #include "attachment/attachment.hpp"
 
 
@@ -33,7 +34,6 @@ public:
 
 private:
     void try_get_reply          (const simdjson::dom::object& object);
-    void try_get_attachments    (const simdjson::dom::array& attachments);
     void try_get_fwd_messages   (const simdjson::dom::array& messages);
 
     std::int64_t _peer_id;
@@ -45,6 +45,8 @@ private:
     attachment::attachments_t _attachments;
     bool _has_reply = false;
     bool _has_fwd_messages = false;
+
+    attachment_handler att_handler;
 };
 } // namespace event
 } // namespace vk

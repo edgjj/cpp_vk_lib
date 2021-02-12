@@ -23,6 +23,8 @@ add_library(
     src/events/common_event.cpp
     src/events/message_new.cpp
     src/events/wall_post_new.cpp
+    src/events/wall_reply_new.cpp
+    src/events/handlers/attachment_handler.cpp
     src/methods/audio.cpp
     src/methods/docs.cpp
     src/methods/groups.cpp

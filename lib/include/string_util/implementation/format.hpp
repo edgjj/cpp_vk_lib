@@ -21,15 +21,17 @@ namespace string_util {
 template <typename... Args> struct vk_hidden format_implementation {
 private:
     static std::string create(std::string_view str, Args&&... args) {
+        if (str.empty())
+            return {};
         std::string formatted;
         std::ostringstream ss;
-        auto packOne = [&ss](auto&& arg) {
+        auto pack_one = [&ss](auto&& arg) {
             ss.str("");
             ss.clear();
             ss << std::forward<decltype(arg)>(arg);
             return ss.str();
         };
-        std::array<std::string, sizeof...(Args)> elements{packOne(args)...};
+        std::array<std::string, sizeof...(Args)> elements{pack_one(args)...};
         std::size_t curr = 0;
         for (std::size_t i = 0; i < str.size(); i++) {
             if (str[i] == '{' && str[i + 1] == '}') {

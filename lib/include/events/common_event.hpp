@@ -3,6 +3,7 @@
 
 #include "events/message_new.hpp"
 #include "events/wall_post_new.hpp"
+#include "events/wall_reply_new.hpp"
 
 
 namespace vk {
@@ -18,6 +19,7 @@ public:
     bool on_type(std::string_view type) const noexcept;
     message_new get_message_event() const;
     wall_post_new get_wall_post_event() const;
+    wall_reply_new get_wall_reply_event() const;
 
 private:
     std::string _ts;
