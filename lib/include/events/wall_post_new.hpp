@@ -17,17 +17,17 @@ namespace vk {
 namespace event {
 class vk_export wall_post_new {
 public:
-    wall_post_new(std::string_view raw_json);
+    wall_post_new(simdjson::dom::object&& event);
     std::int64_t id()           const noexcept;
     std::int64_t from_id()      const noexcept;
     std::int64_t owner_id()     const noexcept;
     std::int64_t created_by()   const noexcept;
     std::string text()          const noexcept;
-    attachment::attachments_t attachments() const noexcept;
-    std::shared_ptr<wall_post_new> repost() const;
     bool can_edit()             const noexcept;
     bool can_delete()           const noexcept;
     bool marked_as_ads()        const noexcept;
+    std::shared_ptr<wall_post_new> repost() const;
+    attachment::attachments_t attachments() const noexcept;
 
 private:
     wall_post_new(const simdjson::dom::object& event);

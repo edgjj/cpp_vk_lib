@@ -1,7 +1,6 @@
 #ifndef VK_LONG_POLL_API_H
 #define VK_LONG_POLL_API_H
 
-#include "api/base_object.hpp"
 #include "events/common_event.hpp"
 #include "methods/groups.hpp"
 #include "processing/thread_pool.hpp"
@@ -14,7 +13,7 @@ struct vk_export long_poll_data {
     std::string ts;
 };
 
-class vk_export long_poll_api : private base_object {
+class vk_export long_poll_api {
 public:
     using events_t = std::vector<std::unique_ptr<event::common>>;
 
@@ -36,7 +35,7 @@ private:
 template <typename Function>
 void vk::long_poll_api::queue(Function&& function)
 {
-    thread_pool.queue(std::move(function));
+    thread_pool.queue(function);
 }
 
 #endif // VK_LONG_POLL_API_H

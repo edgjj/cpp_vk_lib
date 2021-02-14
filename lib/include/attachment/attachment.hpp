@@ -95,12 +95,24 @@ public:
     std::string type()    const noexcept override { return "wall"; }
 };
 
-std::shared_ptr<photo_attachment> static_photo_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<audio_attachment> static_audio_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<video_attachment> static_video_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<document_attachment> static_document_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<audio_message_attachment> static_audio_message_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
-std::shared_ptr<wall_attachment> static_wall_cast(const std::shared_ptr<base_attachment>& pointer) noexcept;
+inline std::shared_ptr<photo_attachment> static_photo_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<photo_attachment>(pointer);
+}
+inline std::shared_ptr<audio_attachment> static_audio_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<audio_attachment>(pointer);
+}
+inline std::shared_ptr<video_attachment> static_video_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<video_attachment>(pointer);
+}
+inline std::shared_ptr<document_attachment> static_document_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<document_attachment>(pointer);
+}
+inline std::shared_ptr<audio_message_attachment> static_audio_message_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<audio_message_attachment>(pointer);
+}
+inline std::shared_ptr<wall_attachment> static_wall_cast(const std::shared_ptr<base_attachment>& pointer) noexcept {
+    return std::static_pointer_cast<wall_attachment>(pointer);
+}
 
 using attachments_t = std::vector<std::shared_ptr<attachment::base_attachment>>;
 const inline std::shared_ptr<vk::attachment::base_attachment> undefined_attachment = std::make_shared<vk::attachment::photo_attachment>(-1, -1);

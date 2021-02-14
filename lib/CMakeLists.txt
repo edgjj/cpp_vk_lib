@@ -18,7 +18,6 @@ add_library(
     main.cpp
     src/api/long_poll_api.cpp
     src/api/base_object.cpp
-    src/attachment/attachment.cpp
     src/document/common_document.cpp
     src/events/common_event.cpp
     src/events/message_new.cpp

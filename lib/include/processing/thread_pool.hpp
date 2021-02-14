@@ -18,8 +18,8 @@ public:
     thread_pool() = default;
     ~thread_pool() { finish(); }
 
-    template <typename _Function, typename _Result_of = std::result_of_t<_Function&()>>
-    std::future<_Result_of> queue(_Function&& f);
+    template <typename function, typename result_of = std::result_of_t<function&()>>
+    std::future<result_of> queue(function&& f);
     void start(std::size_t num_threads = 1);
     void abort();
     void cancel_pending();
@@ -36,9 +36,9 @@ private:
 } // namespace processing
 } // namespace vk
 
-template <typename _Function, typename _Result_of>
-std::future<_Result_of> vk::processing::thread_pool::queue(_Function&& f) {
-    std::packaged_task<_Result_of()> task(std::forward<_Function>(f));
+template <typename function, typename result_of>
+std::future<result_of> vk::processing::thread_pool::queue(function&& f) {
+    std::packaged_task<result_of()> task(std::forward<function>(f));
     auto future = task.get_future(); {
         std::unique_lock<std::mutex> l(locker);
         worker.emplace_back(std::move(task));

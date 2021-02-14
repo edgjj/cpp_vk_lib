@@ -22,16 +22,15 @@ vk::event::wall_post_new::wall_post_new(const simdjson::dom::object& event) {
     construct(event, is_reply);
 }
 
-vk::event::wall_post_new::wall_post_new(std::string_view raw_json) {
-    simdjson::dom::parser parser;
-    simdjson::dom::object event = parser.parse(raw_json)["object"];
-    construct(event, is_not_reply);
+vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event) {
+    simdjson::dom::object wall_post_event = event["object"];
+    construct(wall_post_event, is_not_reply);
 
-    if (event["attachments"].is_array())
-        _attachments = _attachment_handler.try_get(event["attachments"].get_array());
+    if (wall_post_event["attachments"].is_array())
+        _attachments = _attachment_handler.try_get(wall_post_event["attachments"].get_array());
 
-    if (event["copy_history"].is_array())
-        _repost = std::make_shared<wall_post_new>(wall_post_new(event["copy_history"].get_array().at(0).get_object()));
+    if (wall_post_event["copy_history"].is_array())
+        _repost = std::make_shared<wall_post_new>(wall_post_new(wall_post_event["copy_history"].get_array().at(0).get_object()));
 }
 
 std::int64_t vk::event::wall_post_new::id()         const noexcept { return _id; }
@@ -39,10 +38,10 @@ std::int64_t vk::event::wall_post_new::from_id()    const noexcept { return _fro
 int64_t      vk::event::wall_post_new::owner_id()   const noexcept { return _owner_id; }
 int64_t      vk::event::wall_post_new::created_by() const noexcept { return _created_by; }
 std::string  vk::event::wall_post_new::text()       const noexcept { return _text; }
-vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noexcept { return _attachments; }
 bool vk::event::wall_post_new::can_edit()           const noexcept { return _can_edit; }
 bool vk::event::wall_post_new::can_delete()         const noexcept { return _can_delete; }
 bool vk::event::wall_post_new::marked_as_ads()      const noexcept { return _marked_as_ads; }
+vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noexcept { return _attachments; }
 
 std::shared_ptr<vk::event::wall_post_new> vk::event::wall_post_new::repost() const {
     if (vk_likely(_repost)) return _repost;

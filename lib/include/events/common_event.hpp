@@ -6,11 +6,17 @@
 #include "events/wall_reply_new.hpp"
 
 
+namespace simdjson {
+namespace dom {
+class object;
+} // namespace dom
+} // namespace simdjson
+
 namespace vk {
 namespace event {
 class vk_export common {
 public:
-    common(std::string_view ts, std::string_view raw_json);
+    common(std::string_view ts, simdjson::dom::object&& event);
 
     std::string type() const noexcept;
     std::string ts()   const noexcept;
@@ -24,7 +30,7 @@ public:
 private:
     std::string _ts;
     std::string _update_type;
-    std::string _raw_json;
+    std::unique_ptr<simdjson::dom::object> _event;
 };
 } // namespace event
 } // namespace vk
