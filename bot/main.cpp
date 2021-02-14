@@ -1,61 +1,35 @@
-#include <algorithm>
 #include <unordered_map>
 
-#include "cpp_vk_lib/common.hpp"
-#include "../../dependencies/logger/logger.hpp"
+#include "commands/docs_search_command.hpp"
+#include "commands/on_message_pin_command.hpp"
+#include "commands/on_chat_invite_user_command.hpp"
+#include "long_poller/long_poller.hpp"
 
 
-class message_new_handler {
+class bot {
 public:
-    using event_wrapper = std::function<void(const vk::event::message_new&)>;
-    void on_command(std::string_view trigger, event_wrapper function) {
-        commands.emplace(trigger, function);
+    void setup() {
+        setup_commands();
+        setup_event_reactions();
     }
-    void try_execute(std::string_view trigger, const vk::event::message_new& event) {
-        commands.at(trigger)(event);
-    }
-    void see_contents() {
-        for (auto&& command : commands)
-            logger(logflag::debug | logflag::green) << "loaded command: " << command.first;
-        logger(logflag::debug | logflag::green) << "total commands: " << commands.size();
+    int run() {
+        return poller.run();
     }
 private:
-    std::unordered_map<std::string_view, event_wrapper> commands;
-};
-
-class long_poller {
-public:
-    explicit long_poller() : data(api.server()) { }
-    using message_event_wrapper = std::function<void(const vk::event::message_new&)>;
-    void on_message_event(std::string_view trigger, message_event_wrapper function) {
-        handler.on_command(trigger, function);
+    void setup_commands() {
+        poller.get_message_handler().on_command("doc", std::make_unique<docs_search_command>());
+        // Other commands...
     }
-    void loop() {
-        while (true) {
-            auto events = api.listen(data);
-            std::for_each(events.begin(), events.end(), [this](auto& event){
-                if (event->on_type("message_new")) {
-                    api.queue([this, e = event->get_message_event()]{
-                        handler.try_execute(e.text(), e);
-                    });
-                }
-                data.ts = event->ts();
-            });
-            api.run();
-        }
+    void setup_event_reactions() {
+        poller.get_message_handler().on_message_pin(std::make_unique<on_message_pin_command>());
+        poller.get_message_handler().on_chat_invite_user(std::make_unique<on_chat_invite_user_command>());
+        // Other event reaactions...
     }
-private:
-    message_new_handler handler;
-    vk::long_poll_api api;
-    vk::long_poll_data data;
+    long_poller poller;
 };
 
 int main() {
-    long_poller poller;
-    vk::messages messages;
-    poller.on_message_event("text", [&messages](const vk::event::message_new& event){
-        messages.send(event.peer_id(), vk::string_util::format("Message: {}.", event.text()));
-    });
-    poller.loop();
-    return 0;
+    bot example;
+    example.setup();
+    return example.run();
 }
