@@ -28,31 +28,31 @@
 #define VK_POP_DISABLE_WARNINGS _Pragma("GCC diagnostic pop")
 #define VK_DISABLE_GCC_WARNING(WARNING) VK_PRAGMA(GCC diagnostic ignored #WARNING)
 #define VK_PUSH_DISABLE_ALL_WARNINGS VK_PUSH_DISABLE_WARNINGS \
-    VK_DISABLE_GCC_WARNING(-Weffc++) \
-    VK_DISABLE_GCC_WARNING(-Wall) \
-    VK_DISABLE_GCC_WARNING(-Wconversion) \
-    VK_DISABLE_GCC_WARNING(-Wold-style-cast) \
-    VK_DISABLE_GCC_WARNING(-Wextra) \
-    VK_DISABLE_GCC_WARNING(-Wattributes) \
-    VK_DISABLE_GCC_WARNING(-Wimplicit-fallthrough) \
-    VK_DISABLE_GCC_WARNING(-Wnon-virtual-dtor) \
-    VK_DISABLE_GCC_WARNING(-Wreturn-type) \
-    VK_DISABLE_GCC_WARNING(-Wshadow) \
-    VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
-    VK_DISABLE_GCC_WARNING(-Wunused-variable)
+  VK_DISABLE_GCC_WARNING(-Weffc++) \
+  VK_DISABLE_GCC_WARNING(-Wall) \
+  VK_DISABLE_GCC_WARNING(-Wconversion) \
+  VK_DISABLE_GCC_WARNING(-Wold-style-cast) \
+  VK_DISABLE_GCC_WARNING(-Wextra) \
+  VK_DISABLE_GCC_WARNING(-Wattributes) \
+  VK_DISABLE_GCC_WARNING(-Wimplicit-fallthrough) \
+  VK_DISABLE_GCC_WARNING(-Wnon-virtual-dtor) \
+  VK_DISABLE_GCC_WARNING(-Wreturn-type) \
+  VK_DISABLE_GCC_WARNING(-Wshadow) \
+  VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
+  VK_DISABLE_GCC_WARNING(-Wunused-variable)
 
 #define vk_always_inline [[gnu::always_inline]]
 
 #define vk_likely(expr) __builtin_expect(!!(expr), 1)
 #define vk_unlikely(expr) __builtin_expect(!!(expr), 0)
 
-#define disable_copy(type)                      \
-    type(const type&) = delete;                 \
-    type& operator = (const type&) = delete;    \
+#define disable_copy(type)                  \
+  type(const type&) = delete;               \
+  type& operator = (const type&) = delete;  \
 
-#define disable_move(type)                      \
-    type(type&&) = delete;                      \
-    type& operator = (type&&) = delete;         \
+#define disable_move(type)                  \
+  type(type&&) = delete;                    \
+  type& operator = (type&&) = delete;       \
 
 
 #endif // VK_CPPDEFS_H

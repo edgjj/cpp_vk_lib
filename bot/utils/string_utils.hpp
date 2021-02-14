@@ -6,11 +6,11 @@
 
 namespace string_util {
 std::string cut_first(std::string_view str) {
-    return (str.find(' ') == std::string::npos) ? "" : str.substr(str.find_first_of(' ') + 1).data();
+  return (str.find(' ') == std::string::npos) ? "" : str.substr(str.find_first_of(' ') + 1).data();
 }
 
 std::string get_first(std::string_view str) {
-    return (str.find(' ') == std::string::npos) ? "" : std::string(str.substr(0, str.find(' ')));
+  return (str.find(' ') == std::string::npos) ? "" : std::string(str.substr(0, str.find(' ')));
 }
 } // namespace string_util
 

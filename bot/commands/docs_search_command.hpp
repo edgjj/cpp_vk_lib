@@ -11,12 +11,12 @@
 
 class docs_search_command final : public base_command {
 public:
-    void execute(const vk::event::message_new& event) override {
-        messages.send(event.peer_id(), "Docs: ", { docs.search(string_util::cut_first(event.text()), 50) });
-    }
+  void execute(const vk::event::message_new& event) override {
+    messages.send(event.peer_id(), "Docs: ", { docs.search(string_util::cut_first(event.text()), 50) });
+  }
 private:
-    vk::messages messages;
-    vk::docs docs;
+  vk::messages messages;
+  vk::docs docs;
 };
 
 #endif // BOT_CONCRETE_COMMAND_H

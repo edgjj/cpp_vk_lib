@@ -3,40 +3,40 @@
 
 
 bool vk::utils::check_link(std::string_view url) {
-    simdjson::dom::object response(
-        call_and_parse("utils.checkLink", group_args({
-            {"url", url.data()}
-        }))
-    );
-    if (error_returned(response, 100))
-        vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
+  simdjson::dom::object response(
+    call_and_parse("utils.checkLink", group_args({
+      {"url", url.data()}
+    }))
+  );
+  if (error_returned(response, 100))
+    vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
 
-    return response["response"]["status"].get_string().take_value() == "not_banned";
+  return response["response"]["status"].get_string().take_value() == "not_banned";
 }
 
 std::string vk::utils::get_short_link(std::string_view url) {
-    simdjson::dom::object response(
-        call_and_parse("utils.getShortLink", group_args({
-            {"url", url.data()}
-        }))
-    );
-    if (error_returned(response, 100))
-        vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
+  simdjson::dom::object response(
+    call_and_parse("utils.getShortLink", group_args({
+      {"url", url.data()}
+    }))
+  );
+  if (error_returned(response, 100))
+    vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
 
-    return response["response"]["short_url"].get_string().take_value().data();
+  return response["response"]["short_url"].get_string().take_value().data();
 }
 
 std::int64_t vk::utils::resolve_screen_name(std::string_view screen_name) {
-    if (screen_name.empty())
-        vk_throw(exception::invalid_parameter_error, -1, "Empty argument passed.");
+  if (screen_name.empty())
+    vk_throw(exception::invalid_parameter_error, -1, "Empty argument passed.");
 
-    simdjson::dom::object response(
-        call_and_parse("utils.resolveScreenName", group_args({
-            {"screen_name", screen_name.data()}
-        }))
-    );
-    if (response["response"].get_array().size() == 0)
-        vk_throw(exception::access_error, -1, "No such user");
+  simdjson::dom::object response(
+    call_and_parse("utils.resolveScreenName", group_args({
+      {"screen_name", screen_name.data()}
+    }))
+  );
+  if (response["response"].get_array().size() == 0)
+    vk_throw(exception::access_error, -1, "No such user");
 
-    return response["response"]["object_id"].get_int64();
+  return response["response"]["object_id"].get_int64();
 }

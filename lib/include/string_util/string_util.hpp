@@ -11,17 +11,17 @@ namespace vk {
 namespace string_util {
 template <typename T>
 std::string join(std::initializer_list<T>&& elements, char delimiter) {
-    return join_implementation<T>::create(elements, delimiter);
+  return join_implementation<T>::create(elements, delimiter);
 }
 template <typename... Args>
-std::string format(std::string_view str, Args&&... args) {
-    return format_implementation<Args...>::create(str, std::forward<Args>(args)...);
+std::string format(std::string_view data, Args&&... args) {
+  return format_implementation<Args...>::create(data, std::forward<Args>(args)...);
 }
-std::vector<std::string_view> split(std::string_view text, char delimiter) noexcept {
-    return split_implementation::create(text, delimiter);
+std::vector<std::string_view> split(std::string_view data, char delimiter) {
+  return split_implementation::create(data, delimiter);
 }
-auto lazy_split(std::string_view text, std::string_view delimiter) {
-    return split_range<std::string_view>(text, delimiter);
+auto lazy_split(std::string_view data, std::string_view delimiter) {
+  return split_range<std::string_view>(data, delimiter);
 }
 } // namespace string_util
 } // namespace vk

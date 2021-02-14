@@ -1,7 +1,6 @@
 #ifndef VK_EVENT_ATTACHMENT_HANDLER_H
 #define VK_EVENT_ATTACHMENT_HANDLER_H
 
-#include "misc/cppdefs.hpp"
 #include "attachment/attachment.hpp"
 
 
@@ -23,11 +22,11 @@ namespace vk {
 namespace event {
 struct vk_hidden attachment_handler {
 private:
-    attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
+  attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
 
-    friend class message_new;
-    friend class wall_reply_new;
-    friend class wall_post_new;
+  friend class message_new;
+  friend class wall_reply_new;
+  friend class wall_post_new;
 };
 } // namespace event
 } // namespace vk

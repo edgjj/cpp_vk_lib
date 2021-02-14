@@ -3,7 +3,8 @@
 
 #include "events/handlers/attachment_handler.hpp"
 #include "events/handlers/message_action_handler.hpp"
-#include "attachment/attachment.hpp"
+
+#include "events/handlers/message_new_data.hpp"
 
 
 namespace simdjson {
@@ -15,51 +16,72 @@ class array;
 
 namespace vk {
 namespace event {
-struct message_new_data {
-    message_new_data(std::int64_t peer_id_, std::int64_t from_id_, std::string_view text_)
-        : peer_id(peer_id_), from_id(from_id_), text(text_) { }
-    std::int64_t peer_id;
-    std::int64_t from_id;
-    std::string text;
-};
-
+/*!
+ * @brief The `message_new` event representation.
+ */
 class vk_export message_new {
 public:
-    message_new(simdjson::dom::object&& event);
-    message_new(
-        std::int64_t peer_id, std::int64_t from_id, std::string_view text,
-        simdjson::dom::array&& attachments
-    );
+  /*!
+   * @brief Construct event from JSON.
+   */
+  message_new(simdjson::dom::object&& event);
+  /*!
+   * @brief Construct reply or forwarded message.ы
+   */
+  message_new(
+    std::int64_t peer_id, std::int64_t from_id, std::string_view text,
+    simdjson::dom::array&& attachments
+  );
 
-    message_new reply() const;
-    std::vector<std::shared_ptr<message_new>> fwd_messages() const;
+  /*!
+   * @brief Try get reply.
+   * @throws vk::exception::access_error in case, when reply pointer is not set.
+   */
+  message_new reply() const;
+  /*!
+   * @brief Try get reply.
+   * @throws vk::exception::access_error in case, when forward messages vector is empty.
+   */
+  std::vector<std::shared_ptr<message_new>> fwd_messages() const;
 
-    bool on_action(std::string_view action_name) const noexcept;
+  /*!
+   * @brief Check if message has requested action type.
+   */
+  bool on_action(std::string_view action_name) const noexcept;
 
-    std::string text()      const noexcept;
-    std::int64_t from_id()  const noexcept;
-    std::int64_t peer_id()  const noexcept;
-    bool has_reply()        const noexcept;
-    bool has_fwd_messages() const noexcept;
-    bool has_action()       const noexcept;
-    action::any_action action() const;
-    attachment::attachments_t attachments() const;
+  std::string text()      const noexcept;
+  std::int64_t from_id()  const noexcept;
+  std::int64_t peer_id()  const noexcept;
+  bool has_reply()        const noexcept;
+  bool has_fwd_messages() const noexcept;
+  bool has_action()       const noexcept;
+  /*!
+   * @brief Try get action.
+   * @throws vk::exception::access error in case, when there's no actions setted.
+   */
+  action::any_action action() const;
+  /*!
+   * @brief Get attachments vector.
+   *
+   * In case, when no attachments were provided, empty vector returned.
+   */
+  attachment::attachments_t attachments() const;
 
 private:
-    void try_get_reply          (const simdjson::dom::object& reply);
-    void try_get_fwd_messages   (const simdjson::dom::array& messages);
-    void try_get_actions        (const simdjson::dom::object& action);
+  void try_get_reply          (const simdjson::dom::object& reply);
+  void try_get_fwd_messages   (const simdjson::dom::array& messages);
+  void try_get_actions        (const simdjson::dom::object& action);
 
-    std::shared_ptr<message_new_data> _message_obj;
-    std::shared_ptr<message_new> _reply;
-    action::any_action _action;
-    std::vector<std::shared_ptr<message_new>> _fwd_messages;
-    attachment::attachments_t _attachments;
-    bool _has_action = false;
-    bool _has_reply = false;
-    bool _has_fwd_messages = false;
+  std::shared_ptr<message_new_data> _message_obj;
+  std::shared_ptr<message_new> _reply;
+  action::any_action _action;
+  std::vector<std::shared_ptr<message_new>> _fwd_messages;
+  attachment::attachments_t _attachments;
+  bool _has_action = false;
+  bool _has_reply = false;
+  bool _has_fwd_messages = false;
 
-    attachment_handler att_handler;
+  attachment_handler att_handler;
 };
 } // namespace event
 } // namespace vk

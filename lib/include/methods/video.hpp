@@ -5,14 +5,19 @@
 
 
 namespace vk {
-class vk_export video : private document::common {
+/*!
+ * @brief The video methods representation.
+ *
+ * Please, inherit this class to add new methods.
+ */
+class vk_export video : protected document::common {
 public:
-    explicit video(std::string_view user_token_) : document::common(user_token_) { };
-    explicit video() = default;
-    ~video() = default;
+  explicit video(std::string_view user_token_) : document::common(user_token_) { }
+  explicit video() = default;
+  ~video() = default;
 
-    vk::attachment::attachments_t search(std::string_view query, std::int64_t count);
-    void save_by_link(std::string_view url);
+  vk::attachment::attachments_t search(std::string_view query, std::int64_t count);
+  void save_by_link(std::string_view url);
 };
 } // namespace vk
 

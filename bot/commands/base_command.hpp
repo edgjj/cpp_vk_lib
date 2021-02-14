@@ -10,8 +10,8 @@ class message_new;
 
 class base_command {
 public:
-    virtual void execute(const vk::event::message_new& event) = 0;
-    virtual ~base_command() = default;
+  virtual void execute(const vk::event::message_new& event) = 0;
+  virtual ~base_command() = default;
 };
 
 

@@ -4,16 +4,16 @@
 
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event) {
-    simdjson::dom::object wall_reply = event["object"];
+  simdjson::dom::object wall_reply = event["object"];
 
-    _id         = wall_reply["id"].get_int64();
-    _from_id    = wall_reply["from_id"].get_int64();
-    _post_id    = wall_reply["post_id"].get_int64();
-    _owner_id   = wall_reply["owner_id"].get_int64();
-    _text       = wall_reply["text"].get_string().take_value().data();
+  _id         = wall_reply["id"].get_int64();
+  _from_id    = wall_reply["from_id"].get_int64();
+  _post_id    = wall_reply["post_id"].get_int64();
+  _owner_id   = wall_reply["owner_id"].get_int64();
+  _text       = wall_reply["text"].get_string().take_value().data();
 
-    if (wall_reply["attachments"].is_array())
-        _attachments = att_handler.try_get(wall_reply["attachments"].get_array());
+  if (wall_reply["attachments"].is_array())
+    _attachments = att_handler.try_get(wall_reply["attachments"].get_array());
 }
 
 std::int64_t vk::event::wall_reply_new::id() const noexcept { return _id; }

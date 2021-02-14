@@ -1,7 +1,7 @@
 include_directories(include)
 include_directories(../dependencies)
 
-add_definitions(-DVK_CURL_DEBUG)
+#add_definitions(-DVK_CURL_DEBUG)
 
 message(${CMAKE_CURRENT_BINARY_DIR})
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
@@ -37,6 +37,5 @@ add_library(
     ../dependencies/logger/logger.cpp
 )
 target_link_libraries(
-    cpp_vk_lib
-    avformat simdjson
+    cpp_vk_lib simdjson
 )

@@ -4,10 +4,9 @@
 
 
 vk::event::common::common(std::string_view ts, simdjson::dom::object&& event) {
-    _ts = ts;
-    _event = std::make_unique<simdjson::dom::object>(event);
-    _update_type = event["type"].get_string().take_value().data();
-
+  _ts = ts;
+  _event = std::make_unique<simdjson::dom::object>(event);
+  _update_type = event["type"].get_string().take_value().data();
 }
 
 bool vk::event::common::on_type(std::string_view type)              const noexcept { return _update_type == type; }

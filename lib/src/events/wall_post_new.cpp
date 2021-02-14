@@ -6,31 +6,31 @@
 
 void vk::event::wall_post_new::construct(const simdjson::dom::object& event, bool is_reply)
 {
-    _id             = event["id"].get_int64();
-    _from_id        = event["from_id"].get_int64();
-    _owner_id       = event["owner_id"].get_int64();
-    _text           = event["text"].get_string().take_value().data();
-    if (!is_reply) {
-        _created_by     = event["created_by"].get_int64();
-        _can_edit       = event["can_edit"].get_int64();
-        _can_delete     = event["can_delete"].get_int64();
-        _marked_as_ads  = event["marked_as_ads"].get_int64();
-    }
+  _id             = event["id"].get_int64();
+  _from_id        = event["from_id"].get_int64();
+  _owner_id       = event["owner_id"].get_int64();
+  _text           = event["text"].get_string().take_value().data();
+  if (!is_reply) {
+    _created_by     = event["created_by"].get_int64();
+    _can_edit       = event["can_edit"].get_int64();
+    _can_delete     = event["can_delete"].get_int64();
+    _marked_as_ads  = event["marked_as_ads"].get_int64();
+  }
 }
 
 vk::event::wall_post_new::wall_post_new(const simdjson::dom::object& event) {
-    construct(event, is_reply);
+  construct(event, is_reply);
 }
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event) {
-    simdjson::dom::object wall_post_event = event["object"];
-    construct(wall_post_event, is_not_reply);
+  simdjson::dom::object wall_post_event = event["object"];
+  construct(wall_post_event, is_not_reply);
 
-    if (wall_post_event["attachments"].is_array())
-        _attachments = _attachment_handler.try_get(wall_post_event["attachments"].get_array());
+  if (wall_post_event["attachments"].is_array())
+    _attachments = _attachment_handler.try_get(wall_post_event["attachments"].get_array());
 
-    if (wall_post_event["copy_history"].is_array())
-        _repost = std::make_shared<wall_post_new>(wall_post_new(wall_post_event["copy_history"].get_array().at(0).get_object()));
+  if (wall_post_event["copy_history"].is_array())
+    _repost = std::make_shared<wall_post_new>(wall_post_new(wall_post_event["copy_history"].get_array().at(0).get_object()));
 }
 
 std::int64_t vk::event::wall_post_new::id()         const noexcept { return _id; }
