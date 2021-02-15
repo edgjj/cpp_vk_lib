@@ -1,7 +1,5 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/fragmichwarum/cpp_vk_lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fragmichwarum/cpp_vk_lib/alerts/)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/fragmichwarum/cpp_vk_lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fragmichwarum/cpp_vk_lib/context:cpp)
-[![Coverage Status](https://coveralls.io/repos/github/fragmichwarum/cpp_vk_lib/badge.svg?branch=main)](https://coveralls.io/github/fragmichwarum/cpp_vk_lib?branch=main)
-
 
 # cpp_vk_lib
 Small and simple C++ library to facilitate work with Vkontakte API
