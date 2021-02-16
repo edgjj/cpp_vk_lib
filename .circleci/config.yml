@@ -6,7 +6,7 @@ machine:
 
 jobs:
   build:
-    executor: exectr
+    executor: machine
     steps:
       - checkout
       - run:
@@ -23,7 +23,7 @@ jobs:
           root: .
           paths: build
   test:
-    executor: exectr
+    executor: machine
     steps:
       - attach_workspace:
           at: .
