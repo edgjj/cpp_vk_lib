@@ -22,18 +22,18 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: build
-  test:
-    executor: machine
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Execute Tests
-          command: |
-            cd build
-            ./tests
-      - store_test_results:
-          path: build
+ # test:
+ #   executor: machine
+ #   steps:
+ #     - attach_workspace:
+ #         at: .
+ #     - run:
+ #         name: Execute Tests
+ #         command: |
+ #           cd build
+ #           ./tests
+ #     - store_test_results:
+ #         path: build
 workflows:
   version: 2
   build-and-test:
