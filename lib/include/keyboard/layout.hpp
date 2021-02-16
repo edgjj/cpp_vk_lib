@@ -1,10 +1,11 @@
 #ifndef VK_KEYBOARD_LAYOUT_H
 #define VK_KEYBOARD_LAYOUT_H
 
-#include <vector>
 #include <variant>
-#include <initializer_list>
 
+#include "keyboard/flags.hpp"
+
+#include "keyboard/location_button.hpp"
 #include "keyboard/open_app_button.hpp"
 #include "keyboard/text_button.hpp"
 #include "keyboard/vk_pay_button.hpp"
@@ -16,48 +17,44 @@ namespace keyboard {
 using any_button = std::variant<
   text_button,
   vk_pay_button,
-  open_app_button
+  open_app_button,
+  location_button
 >;
 
+/*!
+ * @brief The buttons grid representation.
+ */
 class layout {
 public:
-  void add_row(const std::vector<any_button>& row) {
-    buttons.push_back(row);
-  }
-  std::string serialize() const {
-    std::string serialized;
+  explicit layout() = default;
+  explicit layout(flag flags_);
+  explicit layout(const layout&) = default;
+  explicit layout(layout&&) = default;
 
-    serialized.append(R"json("buttons":)json");
-    serialized.push_back('[');
+  /*!
+   * @brief Add row by passing `std::vector`.
+   */
+  void add_row(const std::vector<any_button>& row);
+  /*!
+   * @brief Convert buttons data to JSON schema.
+   * @return JSON representation.
+   */
+  std::string serialize() const;
 
-    std::vector<std::string> serialized_buttons;
-    std::vector<std::string> serialized_rows;
-
-    for (auto&& row : buttons) {
-      for (auto&& any_button : row) {
-        if (has_type<text_button>(any_button)) {
-          auto button = std::get<text_button>(any_button);
-          serialized_buttons.push_back(button.serialize());
-          printf("%s\n", button.serialize().c_str());
-        }
-      }
-
-      serialized_rows.push_back('[' + string_util::join(serialized_buttons) + ']');
-      serialized_buttons.clear();
-    }
-
-    serialized += string_util::join(serialized_rows);
-
-    serialized.push_back(']');
-    return '{' + serialized + '}';
-  }
   template <typename button_type>
-  bool has_type(any_button button) const noexcept {
+  bool has_type(const any_button& button) const noexcept {
     return std::holds_alternative<button_type>(button);
   }
+  bool is_flag_set(flag flag_) const noexcept;
 
 private:
+  /*!
+   * @brief Button grid container.
+   *
+   * Example: for 2x2 layout: [[button1,button2],[button3,button4]].
+   */
   std::vector<std::vector<any_button>> buttons;
+  flag flags = vk::keyboard::flag::one_time;
 };
 
 } // namespace keyboard

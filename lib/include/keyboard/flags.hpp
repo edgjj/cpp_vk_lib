@@ -6,8 +6,8 @@ namespace vk {
 namespace keyboard {
 
 enum flag : unsigned char {
-  in_line,
-  one_time
+  in_line   = (1 << 0),
+  one_time  = (1 << 1)
 };
 } // namespace keyboard
 } // namespace vk

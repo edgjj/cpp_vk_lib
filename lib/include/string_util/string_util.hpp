@@ -9,12 +9,12 @@
 
 namespace vk {
 namespace string_util {
-template <typename T>
-std::string join(std::initializer_list<T> elements, char delimiter) {
+template <typename T, typename container>
+std::string join(container&& elements, char delimiter) {
   return join_implementation<T>::create(elements, delimiter);
 }
 template <typename T>
-std::string join(const std::vector<T>& elements, char delimiter) {
+std::string join(std::initializer_list<T> elements, char delimiter) {
   return join_implementation<T>::create(elements, delimiter);
 }
 template <typename... Args>

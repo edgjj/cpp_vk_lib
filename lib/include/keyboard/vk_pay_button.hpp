@@ -16,11 +16,10 @@ public:
   std::string serialize() {
     return
     string_util::format(
-      R"({"action":{"type":"vkpay","hash":{}}})",
+      R"({"action":{"type":"vkpay","hash":"{}"}})",
       hash
     );
   }
-
 private:
   const char* hash;
 };

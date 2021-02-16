@@ -25,9 +25,6 @@ add_library(
     src/events/wall_reply_new.cpp
     src/events/handlers/attachment_handler.cpp
     src/keyboard/layout.cpp
-    src/keyboard/open_app_button.cpp
-    src/keyboard/text_button.cpp
-    src/keyboard/vk_pay_button.cpp
     src/methods/audio.cpp
     src/methods/docs.cpp
     src/methods/groups.cpp

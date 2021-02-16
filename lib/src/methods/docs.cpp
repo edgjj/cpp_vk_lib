@@ -15,7 +15,7 @@ void vk::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, st
     {"owner_id",    std::to_string(owner_id)},
     {"doc_id",      std::to_string(doc_id)},
     {"title",       title.data()},
-    {"tags",        string_util::join(std::move(tags)).data()}
+    {"tags",        string_util::join<std::string>(std::move(tags)).data()}
   }));
 
   if (error_returned(response, 1150))
