@@ -19,12 +19,3 @@ workflows:
               command: |
                 cmake .
                 make
-
-workflows:
-  version: 2
-  build-and-test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
