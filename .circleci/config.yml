@@ -14,12 +14,11 @@ jobs:
           command: |
             cd dependencies
             cmake .
-            cd ..
       - run:
           name: Setup cmake and build artifacts
           command: |
             cmake .
-            make
+            make -j8
       - persist_to_workspace:
           root: .
           paths: build
