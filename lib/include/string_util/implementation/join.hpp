@@ -3,6 +3,7 @@
 
 #include <numeric>
 #include <string>
+#include <vector>
 
 #include "misc/cppdefs.hpp"
 
@@ -10,23 +11,26 @@
 namespace vk {
 namespace string_util {
 template <typename T>
-std::string join(std::initializer_list<T>&& elements, char delimiter = ',');
+std::string join(std::initializer_list<T> elements, char delimiter = ',');
+template <typename T>
+std::string join(const std::vector<T>& elements, char delimiter = ',');
 } // namespace string_util
 } // namespace vk
 
 namespace vk {
 namespace string_util {
-template <typename T> struct vk_hidden join_implementation {
-private:
+template <typename T>
+struct join_implementation {
   using is_integral = std::true_type;
   using is_not_integral = std::false_type;
 
-  template <typename binary_operation>
-  static std::string common_implementation(std::initializer_list<T> elements, binary_operation operation) {
+  template <typename container, typename binary_operation>
+  static std::string common_implementation(container&& elements, binary_operation operation) {
     return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
   }
 
-  static std::string create(std::initializer_list<T> elements, char delimiter) {
+  template <typename container>
+  static std::string common_create(container&& elements, char delimiter) {
     return common_implementation(elements, [&delimiter](std::string& accumlator, T element){
       if constexpr (std::is_integral<T>()) {
         return accumlator.empty()
@@ -39,9 +43,10 @@ private:
       }
     });
   }
-
-  template <typename _T>
-  friend std::string vk::string_util::join(std::initializer_list<_T>&& elements, char delimiter);
+  template <typename container>
+  static std::string create(container&& elements, char delimiter) {
+    return common_create<container&&>(elements, delimiter);
+  }
 };
 } // namespace string_util
 } // namespace vk

@@ -1,7 +1,8 @@
 #include <numeric>
 
-#include "processing/exception.hpp"
+#include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
+#include "processing/exception.hpp"
 
 
 static inline void append_params(std::map<std::string, std::string>& parameters, std::int64_t peer_id, std::string_view text) {
@@ -30,6 +31,13 @@ void vk::messages::send(std::int64_t peer_id, std::string_view text, const vk::a
 void vk::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) {
   auto parameters = raw_parameters;
   append_params(parameters, peer_id, text);
+  call("messages.send", group_args(std::move(parameters)));
+}
+
+void vk::messages::send(int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) {
+  std::map<std::string, std::string> parameters;
+  append_params(parameters, peer_id, text);
+  parameters.insert({{"keyboard", layout.serialize()}});
   call("messages.send", group_args(std::move(parameters)));
 }
 

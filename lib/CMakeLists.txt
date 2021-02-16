@@ -1,7 +1,7 @@
 include_directories(include)
 include_directories(../dependencies)
 
-#add_definitions(-DVK_CURL_DEBUG)
+add_definitions(-DVK_CURL_DEBUG)
 
 message(${CMAKE_CURRENT_BINARY_DIR})
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
@@ -24,6 +24,10 @@ add_library(
     src/events/wall_post_new.cpp
     src/events/wall_reply_new.cpp
     src/events/handlers/attachment_handler.cpp
+    src/keyboard/layout.cpp
+    src/keyboard/open_app_button.cpp
+    src/keyboard/text_button.cpp
+    src/keyboard/vk_pay_button.cpp
     src/methods/audio.cpp
     src/methods/docs.cpp
     src/methods/groups.cpp
