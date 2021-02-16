@@ -14,6 +14,7 @@ jobs:
           command: |
             cd dependencies
             cmake .
+            cd ..
       - run:
           name: Setup cmake and build artifacts
           command: |
