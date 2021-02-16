@@ -21,7 +21,7 @@ jobs:
             make -j8
       - persist_to_workspace:
           root: .
-          paths: build
+          paths: .
   test:
     executor: machine
     steps:
