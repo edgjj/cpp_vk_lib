@@ -1,8 +1,8 @@
-machine:
-  timezone:
-    Europe/London
-  environment:
-    PATH: "/home/ubuntu/cmake-3.6.2-Linux-x86_64/bin:$PATH"
+#machine:
+#  timezone:
+#    Europe/London
+#  environment:
+#    PATH: "/home/ubuntu/cmake-3.6.2-Linux-x86_64/bin:$PATH"
 
 jobs:
   build:
@@ -22,18 +22,18 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: build
- # test:
- #   executor: machine
- #   steps:
- #     - attach_workspace:
- #         at: .
- #     - run:
- #         name: Execute Tests
- #         command: |
- #           cd build
- #           ./tests
- #     - store_test_results:
- #         path: build
+  test:
+    executor: machine
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Execute Tests
+          command: |
+            cd build
+            ./tests
+      - store_test_results:
+          path: build
 workflows:
   version: 2
   build-and-test:
