@@ -15,8 +15,8 @@ public:
     messages.send(event.peer_id(), "Docs: ", { docs.search(string_util::cut_first(event.text()), 50) });
   }
 private:
-  vk::messages messages;
-  vk::docs docs;
+  vk::method::messages messages;
+  vk::method::docs docs;
 };
 
 #endif // BOT_CONCRETE_COMMAND_H

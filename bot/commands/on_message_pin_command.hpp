@@ -16,7 +16,7 @@ public:
       vk::string_util::format("Message was pinned with text: {}.", pinned->message()));
   }
 private:
-  vk::messages messages;
+  vk::method::messages messages;
 };
 
 #endif // BOT_ON_MESSAGE_PIN_COMMAND_H

@@ -1,11 +1,11 @@
 #ifndef BOT_LONG_POLLER_H
 #define BOT_LONG_POLLER_H
 
-#include "api/long_poll_api.hpp"
+#include "long_poll/long_poll_api.hpp"
 
 #include "../handlers/message_handler.hpp"
 
-
+// Class to handle incoming events.
 class long_poller {
 public:
   explicit long_poller() : data(api.server()) { }
@@ -20,6 +20,7 @@ public:
           api.queue([this, &event](){
             msg_handler.process(event->get_message_event());
           });
+          // Other types...
         }
         data.ts = event->ts();
       }

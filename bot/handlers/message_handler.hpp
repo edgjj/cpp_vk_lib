@@ -9,12 +9,13 @@
 #include "../commands/base_command.hpp"
 #include "../utils/string_utils.hpp"
 
-
+// Class to handle needed events.
+// Analogically, you can create classes for other event types.
 class message_handler {
 public:
   void process(vk::event::message_new&& event) {
     if (!event.has_action()) {
-      commands.at(string_util::get_first(event.text()))->execute(std::move(event));
+      commands.at(event.text())->execute(std::move(event));
     } else {
       if (event.on_action("chat_pin_message")) {
         message_pin_command->execute(event);

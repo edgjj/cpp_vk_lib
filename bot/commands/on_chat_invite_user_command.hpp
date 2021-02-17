@@ -16,7 +16,7 @@ public:
       vk::string_util::format("Hello, {}.", invited_user->member_id()));
   }
 private:
-  vk::messages messages;
+  vk::method::messages messages;
 };
 
 #endif // BOT_ON_CHAT_INVITE_USER_COMMAND_H

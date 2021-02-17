@@ -5,6 +5,8 @@ include_directories(../dependencies)
 set(SOURCES
     commands/base_command.hpp
     commands/docs_search_command.hpp
+    commands/keyboard_command.hpp
+    commands/hide_keyboard_command.hpp
     commands/on_message_pin_command.hpp
     commands/on_chat_invite_user_command.hpp
     handlers/message_handler.hpp
@@ -12,6 +14,6 @@ set(SOURCES
     utils/string_utils.hpp
     main.cpp
 )
-add_executable(worker ${SOURCES})
+add_executable(test ${SOURCES})
 
-target_link_libraries(worker -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)
+target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)
