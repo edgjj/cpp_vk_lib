@@ -5,6 +5,8 @@ project(cpp_vk_lib
     LANGUAGES CXX
 )
 
+message(${CMAKE_CURRENT_BINARY_DIR})
+
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../build)
 set(EXECUTABLE_OUTPUT_PATH ../build)
 
@@ -21,5 +23,5 @@ set(PROJECT_VERSION_MINOR 0)
 set(PROJECT_VERSION_PATCH 1)
 add_subdirectory(dependencies)
 add_subdirectory(lib)
-#add_subdirectory(bot)
-add_subdirectory(test)
+add_subdirectory(bot)
+#add_subdirectory(test)

@@ -3,7 +3,7 @@
 #ifndef VK_COMMON_H
 #define VK_COMMON_H
 
-#include "api/base_object.hpp"
+#include "api/service.hpp"
 #include "api/long_poll_api.hpp"
 
 #include "attachment/attachment.hpp"

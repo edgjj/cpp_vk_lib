@@ -17,6 +17,8 @@ namespace event {
  */
 class vk_export wall_post_new {
 public:
+  wall_post_new(const wall_post_new&) = default;
+  wall_post_new(wall_post_new&&) = default;
   /*!
    * @brief Construct event from JSON.
    */

@@ -11,11 +11,11 @@ namespace vk {
 /*!
  * @brief The container of common functions and constants needed by various methods.
  */
-class vk_export base_object {
+class vk_export service {
 protected:
-  explicit base_object() noexcept;
-  explicit base_object(std::string_view user_token_);
-  virtual ~base_object() = default;
+  explicit service() noexcept;
+  explicit service(std::string_view user_token_);
+  virtual ~service() = default;
 
   std::map<std::string, std::string> user_args(std::map<std::string, std::string>&& params) const;
   std::map<std::string, std::string> group_args(std::map<std::string, std::string>&& params) const;

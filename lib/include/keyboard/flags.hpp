@@ -5,10 +5,14 @@
 namespace vk {
 namespace keyboard {
 
-enum flag : unsigned char {
+enum class flag : unsigned char {
   in_line   = (1 << 0),
   one_time  = (1 << 1)
 };
+
+constexpr unsigned char operator & (flag lhs, flag rhs) noexcept {
+  return static_cast<unsigned char>(lhs) & static_cast<unsigned char>(rhs);
+}
 } // namespace keyboard
 } // namespace vk
 

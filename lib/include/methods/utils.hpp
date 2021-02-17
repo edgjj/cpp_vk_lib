@@ -1,7 +1,7 @@
 #ifndef VK_UTILS_H
 #define VK_UTILS_H
 
-#include "api/base_object.hpp"
+#include "api/service.hpp"
 
 
 namespace vk {
@@ -10,9 +10,9 @@ namespace vk {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export utils : protected base_object {
+class vk_export utils : protected service {
 public:
-  explicit utils(std::string_view user_token_) : base_object(user_token_) { };
+  explicit utils(std::string_view user_token_) : service(user_token_) { };
   explicit utils() = default;
   ~utils() = default;
 

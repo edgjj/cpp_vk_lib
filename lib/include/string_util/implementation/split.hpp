@@ -15,6 +15,7 @@ std::vector<std::string_view> split(std::string_view text, char delimiter);
 
 namespace vk {
 namespace string_util {
+
 struct vk_hidden split_implementation {
 private:
   static std::vector<std::string_view> create(std::string_view data, char delimiter) {

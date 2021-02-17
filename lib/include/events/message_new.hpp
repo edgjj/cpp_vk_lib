@@ -21,6 +21,9 @@ namespace event {
  */
 class vk_export message_new {
 public:
+  message_new(const message_new&) = default;
+  message_new(message_new&&) = default;
+
   /*!
    * @brief Construct event from JSON.
    */

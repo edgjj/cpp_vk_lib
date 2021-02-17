@@ -6,6 +6,7 @@
 
 namespace vk {
 namespace exception {
+
 class vk_export common_exception : public std::exception {
 protected:
   explicit common_exception(const char* what_arg, unsigned int line)

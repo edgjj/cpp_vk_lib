@@ -11,6 +11,7 @@
 
 namespace vk {
 namespace processing {
+
 class vk_export thread_pool {
 public:
   disable_copy(thread_pool)

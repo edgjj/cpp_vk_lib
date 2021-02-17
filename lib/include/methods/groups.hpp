@@ -1,7 +1,7 @@
 #ifndef VK_GROUPS_H
 #define VK_GROUPS_H
 
-#include "api/base_object.hpp"
+#include "api/service.hpp"
 
 
 namespace vk {
@@ -10,9 +10,9 @@ namespace vk {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export groups : protected base_object {
+class vk_export groups : protected service {
 public:
-  explicit groups(std::string_view user_token_) : base_object(user_token_) { };
+  explicit groups(std::string_view user_token_) : service(user_token_) { };
   explicit groups() = default;
   ~groups() = default;
 

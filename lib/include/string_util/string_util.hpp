@@ -9,6 +9,7 @@
 
 namespace vk {
 namespace string_util {
+
 template <typename T, typename container>
 std::string join(container&& elements, char delimiter) {
   return join_implementation<T>::create(elements, delimiter);

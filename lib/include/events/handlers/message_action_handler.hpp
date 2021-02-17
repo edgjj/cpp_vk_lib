@@ -10,6 +10,7 @@
 
 namespace vk {
 namespace action {
+
 class vk_export chat_invite_user {
 public:
   explicit chat_invite_user(std::int64_t member_id)

@@ -41,10 +41,6 @@ public:
    */
   std::string serialize() const;
 
-  template <typename button_type>
-  bool has_type(const any_button& button) const noexcept {
-    return std::holds_alternative<button_type>(button);
-  }
   bool is_flag_set(flag flag_) const noexcept;
 
 private:

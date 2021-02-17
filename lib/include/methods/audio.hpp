@@ -10,9 +10,9 @@ namespace vk {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export audio : protected base_object {
+class vk_export audio : protected service {
 public:
-  explicit audio(std::string_view user_token_) : base_object(user_token_) { };
+  explicit audio(std::string_view user_token_) : service(user_token_) { };
   explicit audio() = default;
   ~audio() = default;
 

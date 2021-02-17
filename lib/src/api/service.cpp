@@ -1,4 +1,4 @@
-#include "api/base_object.hpp"
+#include "api/service.hpp"
 
 #include "logger/logger.hpp"
 
@@ -6,7 +6,7 @@
 namespace {
 class vk_hidden config {
 public:
-  friend class vk::base_object;
+  friend class vk::service;
 
 private:
   simdjson::dom::element element;
@@ -20,31 +20,31 @@ private:
 };
 } // local namespace
 
-vk::base_object::base_object() noexcept {
+vk::service::service() noexcept {
   static config config("./config.json");
   access_token = config.load_access_token();
   user_token   = config.load_user_token();
 }
-vk::base_object::base_object(std::string_view user_token_) {
+vk::service::service(std::string_view user_token_) {
   user_token = user_token_;
 }
-std::string vk::base_object::append_url(std::string_view method) const {
+std::string vk::service::append_url(std::string_view method) const {
   return "https://api.vk.com/method/" + std::string(method) + '?';
 }
-std::map<std::string, std::string> vk::base_object::user_args(std::map<std::string, std::string>&& params) const {
+std::map<std::string, std::string> vk::service::user_args(std::map<std::string, std::string>&& params) const {
   params.insert({{"access_token", user_token}, {"v", api_v}});
   return std::move(params);
 }
-std::map<std::string, std::string> vk::base_object::group_args(std::map<std::string, std::string>&& params) const {
+std::map<std::string, std::string> vk::service::group_args(std::map<std::string, std::string>&& params) const {
   params.insert({{"access_token", access_token}, {"v", api_v}});
   return std::move(params);
 }
-simdjson::dom::object vk::base_object::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) {
+simdjson::dom::object vk::service::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) {
   return parser.parse(call(method, std::move(params)));
 }
-std::string vk::base_object::call(std::string_view method, std::map<std::string, std::string>&& params) const {
+std::string vk::service::call(std::string_view method, std::map<std::string, std::string>&& params) const {
   return net_client.request(append_url(method), std::move(params));
 }
-bool vk::base_object::error_returned(const simdjson::dom::object& response, std::int64_t error_code) {
+bool vk::service::error_returned(const simdjson::dom::object& response, std::int64_t error_code) {
   return response.begin().key() == "error" && response["error"]["error_code"].get_int64() == error_code;
 }

@@ -18,6 +18,7 @@ std::string format(std::string_view data, Args&&... args);
 
 namespace vk {
 namespace string_util {
+
 template <typename... Args> struct vk_hidden format_implementation {
 private:
   static std::string create(std::string_view data, Args&&... args) {

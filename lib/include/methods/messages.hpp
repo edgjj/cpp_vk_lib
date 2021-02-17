@@ -1,7 +1,7 @@
 #ifndef VK_MESSAGES_H
 #define VK_MESSAGES_H
 
-#include "api/base_object.hpp"
+#include "api/service.hpp"
 #include "attachment/attachment.hpp"
 
 
@@ -26,9 +26,9 @@ using conversation_member_list = std::vector<conversation_member>;
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export messages : protected base_object {
+class vk_export messages : protected service {
 public:
-  explicit messages(std::string_view user_token_) : base_object(user_token_) { };
+  explicit messages(std::string_view user_token_) : service(user_token_) { };
   explicit messages() = default;
   ~messages() = default;
 

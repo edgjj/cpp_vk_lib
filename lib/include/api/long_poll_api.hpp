@@ -21,6 +21,9 @@ struct vk_export long_poll_data {
  */
 class vk_export long_poll_api {
 public:
+  disable_copy(long_poll_api)
+  disable_move(long_poll_api)
+
   using events_t = std::vector<std::unique_ptr<event::common>>;
 
   explicit long_poll_api();

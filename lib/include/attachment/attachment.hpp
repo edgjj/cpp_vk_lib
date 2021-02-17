@@ -10,6 +10,7 @@
 
 namespace vk {
 namespace attachment {
+
 class vk_export base_attachment {
 public:
   explicit

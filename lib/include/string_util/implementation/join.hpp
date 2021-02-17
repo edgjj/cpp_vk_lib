@@ -18,6 +18,7 @@ std::string join(std::initializer_list<T> elements, char delimiter = ',');
 
 namespace vk {
 namespace string_util {
+
 template <typename T>
 struct join_implementation {
 private:

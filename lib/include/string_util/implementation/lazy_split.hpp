@@ -11,6 +11,7 @@
 
 namespace vk {
 namespace string_util {
+
 struct end_split_iterator { };
 
 template <typename string_type> class vk_export split_iterator {
