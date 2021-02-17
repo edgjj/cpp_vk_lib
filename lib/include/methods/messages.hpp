@@ -21,6 +21,7 @@ struct vk_export conversation_member {
 
 using conversation_member_list = std::vector<conversation_member>;
 
+namespace method {
 /*!
  * @brief The messages methods representation.
  *
@@ -43,6 +44,7 @@ public:
   void pin                  (std::int64_t peer_id, std::int64_t message_id);
   conversation_member_list get_conversation_members(std::int64_t peer_id);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_MESSAGES_H

@@ -50,7 +50,7 @@ private:
    * Example: for 2x2 layout: [[button1,button2],[button3,button4]].
    */
   std::vector<std::vector<any_button>> buttons;
-  flag flags = vk::keyboard::flag::one_time;
+  flag flags = vk::keyboard::flag::none;
 };
 
 } // namespace keyboard

@@ -5,6 +5,7 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The groups methods representation.
  *
@@ -19,6 +20,7 @@ public:
   std::int64_t get_by_id();
   simdjson::dom::object get_long_poll_server(std::string_view group_id);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_GROUPS_H

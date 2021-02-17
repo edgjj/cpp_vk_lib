@@ -5,6 +5,7 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The audio methods representation.
  *
@@ -19,6 +20,7 @@ public:
   std::string get_upload_server() const;
   void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_AUDIO_H

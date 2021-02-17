@@ -5,6 +5,7 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The docs methods representation.
  *
@@ -24,6 +25,7 @@ public:
   vk::attachment::attachments_t search    (std::string_view query, std::int64_t count);
   std::shared_ptr<vk::attachment::audio_message_attachment> save_audio_message(std::string_view file, std::string_view raw_server);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_DOCS_H

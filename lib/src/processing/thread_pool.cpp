@@ -12,11 +12,6 @@ void vk::processing::thread_pool::start(std::size_t num_threads) {
   }
 }
 
-void vk::processing::thread_pool::abort() {
-  cancel_pending();
-  finish();
-}
-
 void vk::processing::thread_pool::cancel_pending() {
   std::unique_lock<decltype(locker)> lock(locker);
   worker.clear();

@@ -1,12 +1,16 @@
 #ifndef VK_EXCEPTION_H
 #define VK_EXCEPTION_H
 
-#include "misc/backtrace.hpp"
+#include "processing/backtrace.hpp"
 
+#include "json.hpp"
 
 namespace vk {
 namespace exception {
 
+/*!
+ * @brief General exception of VK method classes.
+ */
 class vk_export common_exception : public std::exception {
 protected:
   explicit common_exception(const char* what_arg, unsigned int line)

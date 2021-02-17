@@ -5,6 +5,7 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The video methods representation.
  *
@@ -19,6 +20,7 @@ public:
   vk::attachment::attachments_t search(std::string_view query, std::int64_t count);
   void save_by_link(std::string_view url);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_VIDEO_H

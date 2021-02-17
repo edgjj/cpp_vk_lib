@@ -15,7 +15,6 @@ endif()
 
 set(HEADERS
   include/api/service.hpp
-  include/api/long_poll_api.hpp
 
   include/attachment/attachment.hpp
 
@@ -39,6 +38,9 @@ set(HEADERS
   include/keyboard/text_button.hpp
   include/keyboard/vk_pay_button.hpp
 
+  include/long_poll/long_poll_api.hpp
+  include/long_poll/long_poll_data.hpp
+
   include/methods/audio.hpp
   include/methods/docs.hpp
   include/methods/groups.hpp
@@ -47,13 +49,13 @@ set(HEADERS
   include/methods/utils.hpp
   include/methods/video.hpp
 
-  include/misc/backtrace.hpp
   include/misc/cppdefs.hpp
 
   include/net/network_client.hpp
 
   include/oauth/client.hpp
 
+  include/processing/backtrace.hpp
   include/processing/exception.hpp
   include/processing/thread_pool.hpp
 
@@ -66,7 +68,6 @@ set(HEADERS
 )
 
 set(SOURCES
-  src/api/long_poll_api.cpp
   src/api/service.cpp
 
   src/document/common_document.cpp
@@ -78,6 +79,8 @@ set(SOURCES
   src/events/handlers/attachment_handler.cpp
 
   src/keyboard/layout.cpp
+
+  src/long_poll/long_poll_api.cpp
 
   src/methods/audio.cpp
   src/methods/docs.cpp

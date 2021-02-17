@@ -21,31 +21,31 @@ static inline void append_attachments(std::map<std::string, std::string>& parame
   }});
 }
 
-void vk::messages::send(std::int64_t peer_id, std::string_view text, const vk::attachment::attachments_t& list) {
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const vk::attachment::attachments_t& list) {
   std::map<std::string, std::string> parameters;
   append_params(parameters, peer_id, text);
   append_attachments(parameters, list);
   call("messages.send", group_args(std::move(parameters)));
 }
 
-void vk::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) {
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) {
   auto parameters = raw_parameters;
   append_params(parameters, peer_id, text);
   call("messages.send", group_args(std::move(parameters)));
 }
 
-void vk::messages::send(int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) {
+void vk::method::messages::send(int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) {
   std::map<std::string, std::string> parameters;
   append_params(parameters, peer_id, text);
   parameters.insert({{"keyboard", layout.serialize()}});
   call("messages.send", group_args(std::move(parameters)));
 }
 
-void vk::messages::send(std::int64_t peer_id, std::string_view text) {
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
   send(peer_id, text, vk::attachment::attachments_t());
 }
 
-void vk::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
+void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
   simdjson::dom::object parsed(
     call_and_parse("messages.removeChatUser", group_args({
       {"chat_id",    std::to_string(chat_id)},
@@ -64,7 +64,7 @@ void vk::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) 
     vk_throw(exception::access_error, 15, "Access denied.");
 }
 
-void vk::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) {
+void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) {
   call("messages.editChat", group_args({
     {"chat_id",     std::to_string(chat_id - chat_id_constant)},
     {"title",       new_title.data()},
@@ -72,7 +72,7 @@ void vk::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) {
   }));
 }
 
-void vk::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) {
+void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) {
   simdjson::dom::object response(
     call_and_parse("messages.deleteChatPhoto", group_args({
       {"chat_id",  std::to_string(chat_id - chat_id_constant)},
@@ -84,7 +84,7 @@ void vk::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) {
     vk_throw(vk::exception::upload_error, 15, "Can't delete chat photo. Maybe it already deleted?");
 }
 
-void vk::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
+void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
   simdjson::dom::object response(
     parser.parse(
       net_client.upload(
@@ -100,7 +100,7 @@ void vk::messages::set_chat_photo(std::string_view filename, std::string_view ra
   }));
 }
 
-vk::conversation_member_list vk::messages::get_conversation_members(int64_t peer_id) {
+vk::conversation_member_list vk::method::messages::get_conversation_members(int64_t peer_id) {
   simdjson::dom::object response(
     call_and_parse(
       "messages.getConversationMembers",

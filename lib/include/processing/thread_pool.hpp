@@ -22,7 +22,6 @@ public:
   template <typename function, typename result_of = std::result_of_t<function&()>>
   std::future<result_of> queue(function&& f);
   void start(std::size_t num_threads = std::thread::hardware_concurrency());
-  void abort();
   void cancel_pending();
   void finish();
 

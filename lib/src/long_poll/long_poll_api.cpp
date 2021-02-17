@@ -1,5 +1,5 @@
 #include "processing/exception.hpp"
-#include "api/long_poll_api.hpp"
+#include "long_poll/long_poll_api.hpp"
 
 #include "../../dependencies/logger/logger.hpp"
 

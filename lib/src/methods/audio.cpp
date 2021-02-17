@@ -2,11 +2,11 @@
 #include "processing/exception.hpp"
 
 
-std::string vk::audio::get_upload_server() const {
+std::string vk::method::audio::get_upload_server() const {
   return call("audio.getUploadServer", user_args({ }));
 }
 
-void vk::audio::save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) {
+void vk::method::audio::save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) {
   simdjson::dom::object response =
   parser.parse(
     net_client.upload(

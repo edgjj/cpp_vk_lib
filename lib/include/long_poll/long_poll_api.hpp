@@ -5,17 +5,10 @@
 #include "methods/groups.hpp"
 #include "processing/thread_pool.hpp"
 
+#include "long_poll/long_poll_data.hpp"
+
 
 namespace vk {
-/*!
- * @brief Wrapper for data returned by group long poll.
- */
-struct vk_export long_poll_data {
-  std::string key;
-  std::string server;
-  std::string ts;
-};
-
 /*!
  * @brief Class to interact with long poll mechanism.
  */
@@ -56,7 +49,7 @@ private:
   /*!
    * @brief Class with group long poll methods.
    */
-  vk::groups groups;
+  method::groups groups;
   processing::thread_pool thread_pool;
 };
 } // namespace vk

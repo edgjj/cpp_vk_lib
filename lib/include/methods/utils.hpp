@@ -5,6 +5,7 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The utils methods representation.
  *
@@ -20,6 +21,7 @@ public:
   std::string get_short_link        (std::string_view url);
   std::int64_t resolve_screen_name  (std::string_view screen_name);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_UTILS_H

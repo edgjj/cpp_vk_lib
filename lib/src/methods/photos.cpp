@@ -2,17 +2,17 @@
 #include "methods/photos.hpp"
 
 
-vk::attachment::attachments_t vk::photos::search(std::string_view query, std::int64_t count) {
+vk::attachment::attachments_t vk::method::photos::search(std::string_view query, std::int64_t count) {
   return common_search("photos.search", query, count);
 }
 
-std::string vk::photos::get_messages_upload_server(std::int64_t peer_id) {
+std::string vk::method::photos::get_messages_upload_server(std::int64_t peer_id) {
   return call("photos.getMessagesUploadServer", group_args({
     {"peer_id", std::to_string(peer_id)}
   }));
 }
 
-std::string vk::photos::get_chat_upload_server(std::int64_t chat_id, std::int64_t crop) {
+std::string vk::method::photos::get_chat_upload_server(std::int64_t chat_id, std::int64_t crop) {
   return call("photos.getChatUploadServer", group_args({
     {"crop_x",  std::to_string(crop)},
     {"crop_y",  std::to_string(crop)},
@@ -28,7 +28,7 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
   };
 }
 
-std::shared_ptr<vk::attachment::photo_attachment> vk::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
+std::shared_ptr<vk::attachment::photo_attachment> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
   simdjson::dom::object upload_response(common_upload(parser, net_client, filename, raw_server, "file"));
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||

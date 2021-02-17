@@ -12,9 +12,9 @@ class array;
 
 namespace vk {
 namespace event {
-class vk_export message_new;
-class vk_export wall_reply_new;
-class vk_export wall_post_new;
+class message_new;
+class wall_reply_new;
+class wall_post_new;
 } // namespace event
 } // namespace vk
 

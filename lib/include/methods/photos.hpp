@@ -5,12 +5,13 @@
 
 
 namespace vk {
+namespace method {
 /*!
  * @brief The photos methods representation.
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export photos : private document::common {
+class vk_export photos : protected document::common {
 public:
   explicit photos(std::string_view user_token_) : document::common(user_token_) { };
   explicit photos() = default;
@@ -21,6 +22,7 @@ public:
   vk::attachment::attachments_t search      (std::string_view query, std::int64_t count);
   std::shared_ptr<vk::attachment::photo_attachment> save_messages_photo(std::string_view filename, std::string_view raw_server);
 };
+} // namespace method
 } // namespace vk
 
 #endif // VK_PHOTOS_H
