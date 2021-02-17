@@ -1,6 +1,6 @@
-#include "../dependencies/curlpp/include/curlpp/cURLpp.hpp"
-#include "../dependencies/curlpp/include/curlpp/Easy.hpp"
-#include "../dependencies/curlpp/include/curlpp/Options.hpp"
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
 
 #include <sstream>
 
