@@ -4,3 +4,6 @@
 [submodule "dependencies/simdjson"]
 	path = dependencies/simdjson
 	url = https://github.com/simdjson/simdjson.git
+[submodule "dependencies/curlpp"]
+	path = dependencies/curlpp
+	url = https://github.com/jpbarrette/curlpp.git
