@@ -1,7 +1,7 @@
-rm -rf CMakeCache.txt
-rm -rf CMakeFiles
-rm -rf CPackConfig.cmake
-rm -rf cmake_install.cmake
-rm -rf CPackSourceConfig.cmake
-rm -rf Makefile
-rm -rf CMakeLists.txt.user
+rm -rf $1/CMakeCache.txt
+rm -rf $1/CMakeFiles
+rm -rf $1/CPackConfig.cmake
+rm -rf $1/cmake_install.cmake
+rm -rf $1/CPackSourceConfig.cmake
+rm -rf $1/Makefile
+rm -rf $1/CMakeLists.txt.user
