@@ -12,6 +12,5 @@ function(initialize_submodule DIRECTORY)
 endfunction(initialize_submodule)
 initialize_submodule(simdjson)
 initialize_submodule(logger)
-initialize_submodule(curlpp)
 
 add_subdirectory(simdjson EXCLUDE_FROM_ALL)
