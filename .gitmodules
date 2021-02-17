@@ -7,3 +7,6 @@
 [submodule "dependencies/curlpp"]
 	path = dependencies/curlpp
 	url = https://github.com/jpbarrette/curlpp.git
+[submodule "dependencies/curl"]
+	path = dependencies/curl
+	url = https://github.com/curl/curl.git
