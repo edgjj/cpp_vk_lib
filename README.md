@@ -3,7 +3,7 @@
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/fragmichwarum/cpp_vk_lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fragmichwarum/cpp_vk_lib/context:cpp)
 
 # cpp_vk_lib
-Small and simple C++ library to facilitate work with Vkontakte API
+High performance VK API library
 
 ## Overview
 
@@ -17,31 +17,30 @@ Small and simple C++ library to facilitate work with Vkontakte API
 ## Dependencies
 	- curlpp
 
-## Initialize submodules
-In `cpp_vk_lib` directory:
-```
-cd dependencies
-cmake .
-```
 ## Build shared object
 
 In `cpp_vk_lib` directory:
 ```
 cmake .
-make
+cmake --build .
 ```
 After that, `.so` library will be available in `build` directory.
 
-## Note
+## Demo bot
 
 To compile demo bot, please, uncomment this line in `CMakeLists.txt`:
 ```
 add_subdirectory(bot)
 ```
-, and build it from `cpp_vk_lib` directory. Next, place to `build` directory `config.json` with the following content:
+, and build it from `cpp_vk_lib` directory.
+Next, place to `build` directory `config.json` with the following content:
 ```
 {
 	"access_token": "",
-	"user_token": ""
+	"user_token": "",
+	"num_threads": 8
 }
 ```
+## Note
+
+Constructive crticism is welcomed, pull requests are welcomed.
