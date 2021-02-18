@@ -34,6 +34,7 @@ private:
 };
 
 int main() {
+  [[maybe_unused]] vk::config::loader* l = vk::config::load("/home/machen/config.json");
   bot example;
   example.setup();
   return example.run();

@@ -4,7 +4,6 @@
 #include "events/message_new.hpp"
 #include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
-#include "string_util/string_util.hpp"
 
 #include "../commands/base_command.hpp"
 

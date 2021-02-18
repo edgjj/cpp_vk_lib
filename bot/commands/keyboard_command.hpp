@@ -5,7 +5,6 @@
 #include "keyboard/layout.hpp"
 #include "keyboard/flags.hpp"
 #include "methods/messages.hpp"
-#include "string_util/string_util.hpp"
 
 #include "../commands/base_command.hpp"
 
