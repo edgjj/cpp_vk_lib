@@ -2,7 +2,7 @@
 #define VK_TEXT_BUTTON_H
 
 #include "keyboard/colors.hpp"
-#include "string_util/string_util.hpp"
+#include "string_utils/string_utils.hpp"
 
 
 namespace vk {
@@ -15,7 +15,7 @@ public:
   std::string serialize() {
     const char* color(keyboard::get_color(selected_color));
     return
-    string_util::format(
+    string_utils::format(
       R"({"action":{"type":"text","payload":"{\"button\":\"1\"}","label":"{}"},"color":"{}"})",
       text, color
     );

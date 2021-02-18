@@ -8,13 +8,13 @@
 
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 std::vector<std::string_view> split(std::string_view text, char delimiter);
 } // namespace string_util
 } // namespace vk
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 
 struct vk_hidden split_implementation {
 private:
@@ -35,7 +35,7 @@ private:
     return splitted;
   }
 
-  friend std::vector<std::string_view> vk::string_util::split(std::string_view text, char delimiter);
+  friend std::vector<std::string_view> vk::string_utils::split(std::string_view text, char delimiter);
 };
 } // namespace string_util
 } // namespace vk

@@ -8,7 +8,7 @@
 
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 template <typename T, typename container>
 std::string join(container&& elements, char delimiter = ',');
 template <typename T>
@@ -17,7 +17,7 @@ std::string join(std::initializer_list<T> elements, char delimiter = ',');
 } // namespace vk
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 
 template <typename T>
 struct join_implementation {
@@ -49,9 +49,9 @@ private:
     return common_create<container&&>(elements, delimiter);
   }
   template <typename _T, typename _container>
-  friend std::string vk::string_util::join(_container&& elements, char delimiter);
+  friend std::string vk::string_utils::join(_container&& elements, char delimiter);
   template <typename _T>
-  friend std::string vk::string_util::join(std::initializer_list<_T> elements, char delimiter);
+  friend std::string vk::string_utils::join(std::initializer_list<_T> elements, char delimiter);
 };
 } // namespace string_util
 } // namespace vk

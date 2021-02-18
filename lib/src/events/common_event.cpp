@@ -3,6 +3,8 @@
 #include "events/common_event.hpp"
 
 
+vk::event::common::~common() = default;
+
 vk::event::common::common(std::string_view ts, simdjson::dom::object&& event) {
   _ts = ts;
   _event = std::make_unique<simdjson::dom::object>(event);

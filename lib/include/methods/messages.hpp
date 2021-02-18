@@ -1,8 +1,8 @@
 #ifndef VK_MESSAGES_H
 #define VK_MESSAGES_H
 
-#include "api/service.hpp"
 #include "attachment/attachment.hpp"
+#include "method_utils/method_utils.hpp"
 
 
 namespace vk {
@@ -27,11 +27,10 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export messages : protected service {
+class vk_export messages {
 public:
-  explicit messages(std::string_view user_token_) : service(user_token_) { };
-  explicit messages() = default;
-  ~messages() = default;
+  explicit messages();
+  ~messages();
 
   void send                 (std::int64_t peer_id, std::string_view text);
   void send                 (std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list);
@@ -43,6 +42,10 @@ public:
   void set_chat_photo       (std::string_view filename, std::string_view raw_server);
   void pin                  (std::int64_t peer_id, std::int64_t message_id);
   conversation_member_list get_conversation_members(std::int64_t peer_id);
+private:
+  method_utils method_util;
+  std::unique_ptr<simdjson::dom::parser> parser;
+  network_client net_client;
 };
 } // namespace method
 } // namespace vk

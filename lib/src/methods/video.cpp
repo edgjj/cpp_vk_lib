@@ -6,5 +6,5 @@ vk::attachment::attachments_t vk::method::video::search(std::string_view query, 
 }
 
 void vk::method::video::save_by_link(std::string_view url) {
-  std::string response = call("video.save", user_args({{"link", url.data()}}));
+  std::string response = method_util.call("video.save", method_util.user_args({{"link", url.data()}}));
 }

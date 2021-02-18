@@ -1,6 +1,7 @@
 #ifndef VK_LONG_POLL_API_H
 #define VK_LONG_POLL_API_H
 
+#include "config/loader.hpp"
 #include "events/common_event.hpp"
 #include "methods/groups.hpp"
 #include "processing/thread_pool.hpp"
@@ -42,7 +43,7 @@ public:
    * @brief Pop and execute task from thread pool queue.
    * @param Number of threads (default - maximum threads available on the computer).
    */
-  void run(const std::int8_t num_threads = std::thread::hardware_concurrency());
+  void run(const std::int8_t num_threads = vk::config::num_threads());
 
 private:
   std::string _group_id;

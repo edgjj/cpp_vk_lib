@@ -1,14 +1,14 @@
 #ifndef STRING_UTIL_H
 #define STRING_UTIL_H
 
-#include "string_util/implementation/format.hpp"
-#include "string_util/implementation/join.hpp"
-#include "string_util/implementation/split.hpp"
-#include "string_util/implementation/lazy_split.hpp"
+#include "string_utils/implementation/format.hpp"
+#include "string_utils/implementation/join.hpp"
+#include "string_utils/implementation/split.hpp"
+#include "string_utils/implementation/lazy_split.hpp"
 
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 
 template <typename T, typename container>
 std::string join(container&& elements, char delimiter) {

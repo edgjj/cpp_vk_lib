@@ -3,7 +3,7 @@
 
 #include <string_view>
 
-#include "string_util/string_util.hpp"
+#include "string_utils/string_utils.hpp"
 
 
 namespace vk {
@@ -15,7 +15,7 @@ public:
     : hash(hash_.data()) { }
   std::string serialize() {
     return
-    string_util::format(
+    string_utils::format(
       R"({"action":{"type":"vkpay","hash":"{}"}})",
       hash
     );

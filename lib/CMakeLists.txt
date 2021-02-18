@@ -14,7 +14,7 @@ else()
 endif()
 
 set(HEADERS
-  include/api/service.hpp
+  include/method_utils/method_utils.hpp
 
   include/attachment/attachment.hpp
 
@@ -61,16 +61,16 @@ set(HEADERS
   include/processing/exception.hpp
   include/processing/thread_pool.hpp
 
-  include/string_util/implementation/format.hpp
-  include/string_util/implementation/join.hpp
-  include/string_util/implementation/lazy_split.hpp
-  include/string_util/implementation/split.hpp
-  include/string_util/string_util.hpp
-  include/string_util/unicode/ostream.hpp
+  include/string_utils/implementation/format.hpp
+  include/string_utils/implementation/join.hpp
+  include/string_utils/implementation/lazy_split.hpp
+  include/string_utils/implementation/split.hpp
+  include/string_utils/string_utils.hpp
+  include/string_utils/unicode/ostream.hpp
 )
 
 set(SOURCES
-  src/api/service.cpp
+  src/method_utils/method_utils.cpp
 
   src/config/loader.cpp
 

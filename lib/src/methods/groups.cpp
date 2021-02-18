@@ -1,11 +1,19 @@
+#include "simdjson.h"
+
 #include "processing/exception.hpp"
 #include "methods/groups.hpp"
 
 
-std::int64_t vk::method::groups::get_by_id() {
-  simdjson::dom::object response(call_and_parse("groups.getById", group_args({ })));
+vk::method::groups::groups()
+  : parser(std::make_unique<simdjson::dom::parser>())
+{ }
 
-  if (error_returned(response, 5))
+vk::method::groups::~groups() = default;
+
+std::int64_t vk::method::groups::get_by_id() {
+  simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
+
+  if (method_util.error_returned(response, 5))
     vk_throw(vk::exception::access_error, 5,
       "Failed to retrieve group id. Maybe, wrong access token was passed.");
 
@@ -14,7 +22,7 @@ std::int64_t vk::method::groups::get_by_id() {
 
 simdjson::dom::object vk::method::groups::get_long_poll_server(std::string_view group_id) {
   return
-  call_and_parse("groups.getLongPollServer", group_args({
+  method_util.call_and_parse("groups.getLongPollServer", method_util.group_args({
     {"group_id",   group_id.data()},
     {"random_id",  "0"}
   }))["response"].get_object();

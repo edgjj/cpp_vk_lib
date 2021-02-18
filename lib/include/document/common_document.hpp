@@ -2,18 +2,24 @@
 #define VK_COMMON_DOCUMENT_H
 
 #include "attachment/attachment.hpp"
-#include "api/service.hpp"
+#include "method_utils/method_utils.hpp"
 
+
+namespace simdjson {
+namespace dom {
+class parser;
+} // namespace dom
+} // namespace simdjson
 
 namespace vk {
 namespace document {
 /*!
  * @brief The base class for @ref vk::docs, @ref vk::photos and @ref vk::video.
  */
-class vk_hidden common : public service {
+class vk_hidden common {
 protected:
-  explicit common(std::string_view user_token_) : service(user_token_) { };
-  explicit common() = default;
+  explicit common();
+  ~common();
   /*!
    * @brief Search attachments of requested type.
    * @param method    - method name (photos.search, video.search or docs.search)
@@ -33,6 +39,9 @@ protected:
     std::string_view server,
     std::string_view field_name
   );
+
+  std::unique_ptr<simdjson::dom::parser> parser;
+  method_utils method_util;
 };
 } // namespace document
 } // namespace vk

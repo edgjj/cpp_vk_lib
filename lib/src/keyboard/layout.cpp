@@ -45,11 +45,11 @@ std::string vk::keyboard::layout::serialize() const {
       try_push_button<location_button>(any_button, serialized_buttons);
     }
 
-    serialized_rows.push_back('[' + string_util::join<std::string>(serialized_buttons) + ']');
+    serialized_rows.push_back('[' + string_utils::join<std::string>(serialized_buttons) + ']');
     serialized_buttons.clear();
   }
 
-  serialized += string_util::join<std::string>(serialized_rows);
+  serialized += string_utils::join<std::string>(serialized_rows);
 
   serialized.push_back(']');
   serialized.push_back('}');

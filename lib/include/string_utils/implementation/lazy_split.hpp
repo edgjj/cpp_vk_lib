@@ -10,7 +10,7 @@
 
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 
 struct end_split_iterator { };
 

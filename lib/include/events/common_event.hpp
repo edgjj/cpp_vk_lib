@@ -20,6 +20,7 @@ namespace event {
 class vk_export common {
 public:
   common(std::string_view ts, simdjson::dom::object&& event);
+  ~common();
 
   /*!
    * @brief Get generated update type.

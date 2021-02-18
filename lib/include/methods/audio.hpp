@@ -11,14 +11,17 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export audio : protected service {
+class vk_export audio {
 public:
-  explicit audio(std::string_view user_token_) : service(user_token_) { };
-  explicit audio() = default;
-  ~audio() = default;
+  explicit audio();
+  ~audio();
 
   std::string get_upload_server() const;
   void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server);
+private:
+  method_utils method_util;
+  std::unique_ptr<simdjson::dom::parser> parser;
+  network_client net_client;
 };
 } // namespace method
 } // namespace vk

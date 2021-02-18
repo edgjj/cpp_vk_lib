@@ -10,14 +10,14 @@
 
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 template <typename... Args>
 std::string format(std::string_view data, Args&&... args);
 } // namespace string_util
 } // namespace vk
 
 namespace vk {
-namespace string_util {
+namespace string_utils {
 
 template <typename... Args> struct vk_hidden format_implementation {
 private:
@@ -47,7 +47,7 @@ private:
   }
 
   template <typename... _Args>
-  friend std::string vk::string_util::format(std::string_view data, _Args&&... args);
+  friend std::string vk::string_utils::format(std::string_view data, _Args&&... args);
 };
 } // namespace string_util
 } // namespace vk

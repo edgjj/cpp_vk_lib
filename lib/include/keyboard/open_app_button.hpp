@@ -1,7 +1,7 @@
 #ifndef VK_OPEN_APP_BUTTON_H
 #define VK_OPEN_APP_BUTTON_H
 
-#include "string_util/string_util.hpp"
+#include "string_utils/string_utils.hpp"
 
 
 namespace vk {
@@ -13,7 +13,7 @@ public:
     : app_id(app_id_), owner_id(owner_id_), hash(hash_.data()), label(label_.data()) { }
   std::string serialize() {
     return
-    string_util::format(
+    string_utils::format(
       R"({"action":{"type":"open_app","app_id":{},"owner_id":{},"hash":"{}","label":"{}"}})",
       app_id, owner_id, hash, label
     );

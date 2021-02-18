@@ -1,7 +1,7 @@
 #ifndef VK_LOCATION_BUTTON_H
 #define VK_LOCATION_BUTTON_H
 
-#include "string_util/string_util.hpp"
+#include <string>
 
 
 namespace vk {
