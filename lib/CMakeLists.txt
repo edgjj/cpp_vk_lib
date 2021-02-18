@@ -18,6 +18,8 @@ set(HEADERS
 
   include/attachment/attachment.hpp
 
+  include/config/loader.hpp
+
   include/cpp_vk_lib/common.hpp
 
   include/document/common_document.hpp
@@ -69,6 +71,8 @@ set(HEADERS
 
 set(SOURCES
   src/api/service.cpp
+
+  src/config/loader.cpp
 
   src/document/common_document.cpp
 
