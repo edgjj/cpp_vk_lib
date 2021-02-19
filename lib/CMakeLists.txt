@@ -6,11 +6,11 @@ add_definitions(-DVK_CURL_DEBUG)
 
 message(${CMAKE_CURRENT_BINARY_DIR})
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
-    set(CMAKE_CXX_FLAGS "-O3 -msse3 -march=native -mtune=generic")
+    set(CMAKE_CXX_FLAGS "-O2 -msse3 -march=native -mtune=generic")
 elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
-    set(CMAKE_CXX_FLAGS "-O3 -msse3 -m32 -march=i686 -mtune=generic")
+    set(CMAKE_CXX_FLAGS "-O2 -msse3 -m32 -march=i686 -mtune=generic")
 else()
-    set(CMAKE_CXX_FLAGS "-O3 -march=native")
+    set(CMAKE_CXX_FLAGS "-O2 -march=native")
 endif()
 
 set(HEADERS
@@ -30,7 +30,6 @@ set(HEADERS
   include/events/wall_reply_new.hpp
   include/events/handlers/attachment_handler.hpp
   include/events/handlers/message_action_handler.hpp
-  include/events/handlers/message_new_data.hpp
 
   include/keyboard/colors.hpp
   include/keyboard/flags.hpp

@@ -14,9 +14,9 @@ vk::long_poll_api::long_poll_api() {
 vk::long_poll_data vk::long_poll_api::server() {
   simdjson::dom::object server(groups.get_long_poll_server(_group_id));
   return {
-    server["key"].get_string().take_value().data(),
-    server["server"].get_string().take_value().data(),
-    server["ts"].get_string().take_value().data()
+    server["key"].get_c_str().take_value(),
+    server["server"].get_c_str().take_value(),
+    server["ts"].get_c_str().take_value()
   };
 }
 
