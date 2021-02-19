@@ -4,12 +4,6 @@
 #include "methods/photos.hpp"
 
 
-vk::method::photos::photos()
-  : parser(std::make_unique<simdjson::dom::parser>())
-{ }
-
-vk::method::photos::~photos() = default;
-
 vk::attachment::attachments_t vk::method::photos::search(std::string_view query, std::int64_t count) {
   return common_search("photos.search", query, count);
 }

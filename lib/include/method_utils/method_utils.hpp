@@ -11,7 +11,6 @@ class parser;
 } // namespace dom
 } // namespace simdjson
 
-
 namespace vk {
 /*!
  * @brief The container of common functions and constants needed by various methods.
