@@ -6,11 +6,12 @@
 
 
 vk::event::message_new::message_new(
-  std::int64_t peer_id, std::int64_t from_id, std::string_view text,
+  std::int64_t conversation_message_id, std::int64_t peer_id,
+  std::int64_t from_id, std::string_view text,
   simdjson::dom::array&& attachments
 ) {
   _message_obj = std::make_shared<message_new_data>(message_new_data{
-    peer_id, from_id, text.data()
+    conversation_message_id, peer_id, from_id, text.data()
   });
   _attachments = att_handler.try_get(attachments);
 }
@@ -19,6 +20,7 @@ vk::event::message_new::message_new(simdjson::dom::object&& event) {
   simdjson::dom::object message = event["object"]["message"];
 
   _message_obj = std::make_shared<message_new_data>(message_new_data{
+    message["conversation_message_id"].get_int64(),
     message["peer_id"].get_int64(),
     message["from_id"].get_int64(),
     message["text"].get_string().take_value().data()
@@ -89,6 +91,7 @@ void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& me
   for (const simdjson::dom::element& fwd_message : messages) {
     _fwd_messages.push_back(
       std::make_shared<message_new>(
+        fwd_message["conversation_message_id"].get_int64(),
         fwd_message["peer_id"].get_int64(),
         fwd_message["from_id"].get_int64(),
         fwd_message["text"].get_string(),
@@ -101,6 +104,7 @@ void vk::event::message_new::try_get_fwd_messages(const simdjson::dom::array& me
 
 void vk::event::message_new::try_get_reply(const simdjson::dom::object& reply) {
   _reply = std::make_shared<message_new>(
+    reply["conversation_message_id"].get_int64(),
     reply["peer_id"].get_int64(),
     reply["from_id"].get_int64(),
     reply["text"].get_string(),
@@ -111,6 +115,9 @@ void vk::event::message_new::try_get_reply(const simdjson::dom::object& reply) {
 
 vk::attachment::attachments_t vk::event::message_new::attachments() const {
   return _attachments;
+}
+std::int64_t vk::event::message_new::conversation_message_id() const noexcept {
+  return _message_obj->conversation_message_id;
 }
 std::string vk::event::message_new::text()      const noexcept { return _message_obj->text; }
 std::int64_t vk::event::message_new::from_id()  const noexcept { return _message_obj->from_id; }

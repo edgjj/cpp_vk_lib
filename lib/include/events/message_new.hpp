@@ -32,7 +32,8 @@ public:
    * @brief Construct reply or forwarded message.ы
    */
   message_new(
-    std::int64_t peer_id, std::int64_t from_id, std::string_view text,
+    std::int64_t conversation_message_id, std::int64_t peer_id,
+    std::int64_t from_id, std::string_view text,
     simdjson::dom::array&& attachments
   );
 
@@ -52,6 +53,7 @@ public:
    */
   bool on_action(std::string_view action_name) const noexcept;
 
+  std::int64_t conversation_message_id() const noexcept;
   std::string text()      const noexcept;
   std::int64_t from_id()  const noexcept;
   std::int64_t peer_id()  const noexcept;

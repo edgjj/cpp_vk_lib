@@ -12,6 +12,7 @@ namespace event {
  * @brief Wrapper to avoid meaningless and expensive copying by creating smart pointer to it.
  */
 struct vk_hidden message_new_data {
+  std::int64_t conversation_message_id;
   std::int64_t peer_id;
   std::int64_t from_id;
   std::string text;

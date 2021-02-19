@@ -10,6 +10,8 @@ vk::method_utils::method_utils()
   : parser(std::make_unique<simdjson::dom::parser>())
 { }
 
+vk::method_utils::~method_utils() = default;
+
 std::string vk::method_utils::append_url(std::string_view method) const {
   return "https://api.vk.com/method/" + std::string(method) + '?';
 }

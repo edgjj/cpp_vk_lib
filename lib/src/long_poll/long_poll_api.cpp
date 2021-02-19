@@ -49,6 +49,6 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std:
   return event_list;
 }
 
-void vk::long_poll_api::run(const std::int8_t num_threads) {
-  thread_pool.start(num_threads);
+void vk::long_poll_api::run() {
+  thread_pool.start();
 }

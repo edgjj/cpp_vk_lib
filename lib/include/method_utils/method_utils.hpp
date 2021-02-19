@@ -18,6 +18,7 @@ namespace vk {
 class vk_export method_utils {
 public:
   explicit method_utils();
+  ~method_utils();
   std::map<std::string, std::string> user_args(std::map<std::string, std::string>&& params) const;
   std::map<std::string, std::string> group_args(std::map<std::string, std::string>&& params) const;
   simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params);
