@@ -36,8 +36,14 @@ add_subdirectory(bot)
 Next, place to `build` directory `config.json` with the following content:
 ```
 {
-	"access_token": "",
-	"user_token": "",
+	"api_keys": {
+		"access_token": "",
+		"user_token": ""
+	},
+	"environment": {
+		"error_logpath": "/tmp/errors.log",
+		"event_logpath": "/tmp/events.log"
+	},
 	"num_threads": 8
 }
 ```
