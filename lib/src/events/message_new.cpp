@@ -5,9 +5,9 @@
 #include "../dependencies/logger/logger.hpp"
 
 
-vk::event::message_new::message_new(simdjson::dom::object&& event) {
-  _message_json = std::make_shared<simdjson::dom::object>(event);
-
+vk::event::message_new::message_new(simdjson::dom::object&& event)
+  : _message_json(std::make_shared<simdjson::dom::object>(event))
+{
   if (event["reply_message"].is_object())
     _has_reply = true;
 
@@ -17,8 +17,10 @@ vk::event::message_new::message_new(simdjson::dom::object&& event) {
   if (event["fwd_messages"].is_array() && event["fwd_messages"].get_array().size() != 0)
     _has_fwd_messages = true;
 
-  if (event["action"].is_object())
+  if (event["action"].is_object()) {
     _has_action = true;
+    try_get_actions();
+  }
 }
 
 void vk::event::message_new::try_get_actions() {
@@ -92,8 +94,7 @@ bool vk::event::message_new::has_fwd_messages() const noexcept {
 }
 vk::action::any_action vk::event::message_new::action() {
   if (_has_action) {
-    try_get_actions();
-    return std::move(_action);
+    return _action;
   } else {
     vk_throw(exception::access_error, -1, "Attempting accessing empty action.");
   }
@@ -109,7 +110,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
   if (_has_fwd_messages) {
     std::vector<std::unique_ptr<message_new>> fwd_messages;
     for (simdjson::dom::element&& fwd_message : (*_message_json)["fwd_messages"].get_array()) {
-      fwd_messages.push_back(
+      fwd_messages.emplace_back(
         std::make_unique<message_new>(fwd_message)
       );
     }
