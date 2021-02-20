@@ -27,7 +27,6 @@ public:
   bool error_returned   (const simdjson::dom::object& response, std::int64_t error_code);
 
   static inline const std::int64_t chat_id_constant = 2000000000;
-  static inline const char api_v[] = "5.124";
 
   std::unique_ptr<simdjson::dom::parser> parser;
   vk::network_client net_client;

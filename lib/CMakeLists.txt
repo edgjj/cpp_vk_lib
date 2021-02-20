@@ -3,6 +3,7 @@ include_directories(../dependencies)
 include_directories(../dependencies/curl/include/curl)
 
 add_definitions(-DVK_CURL_DEBUG)
+add_definitions(-DAPI_V="5.130")
 
 message(${CMAKE_CURRENT_BINARY_DIR})
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
