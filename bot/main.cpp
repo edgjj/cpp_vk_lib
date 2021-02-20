@@ -20,7 +20,7 @@ public:
   }
 private:
   void setup_commands() {
-    poller.get_message_handler().on_command("doc", std::make_unique<docs_search_command>());
+    poller.get_message_handler().on_command("c", std::make_unique<docs_search_command>());
     poller.get_message_handler().on_command("show", std::make_unique<keyboard_command>());
     poller.get_message_handler().on_command("hide", std::make_unique<hide_keyboard_command>());
     // Other commands...
@@ -34,7 +34,7 @@ private:
 };
 
 int main() {
-  [[maybe_unused]] vk::config::loader* l = vk::config::load("/home/machen/config.json");
+  vk::config::load("/home/machen/config.json");
   bot example;
   example.setup();
   return example.run();

@@ -17,7 +17,7 @@ public:
   {
     setup_keyboard();
   }
-  void execute(const vk::event::message_new& event) override {
+  void execute(vk::event::message_new& event) override {
     messages.send(event.peer_id(), "Here is keyboard: ", *layout);
   }
 private:

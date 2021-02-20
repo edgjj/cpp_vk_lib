@@ -10,7 +10,7 @@
 
 class on_chat_invite_user_command final : public base_command {
 public:
-  void execute(const vk::event::message_new& event) override {
+  void execute(vk::event::message_new& event) override {
     auto invited_user = vk::action::get_chat_invite_user_action(event.action());
     messages.send(event.peer_id(),
       vk::string_utils::format("Hello, {}.", invited_user->member_id()));

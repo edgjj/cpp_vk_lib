@@ -20,8 +20,8 @@ public:
           api.queue([this, &event](){
             msg_handler.process(event->get_message_event());
           });
-          // Other types...
         }
+        // Other types...
         data.ts = event->ts();
       }
       api.run();

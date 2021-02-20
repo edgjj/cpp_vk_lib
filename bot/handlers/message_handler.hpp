@@ -15,7 +15,7 @@ class message_handler {
 public:
   void process(vk::event::message_new&& event) {
     if (!event.has_action()) {
-      commands.at(event.text())->execute(std::move(event));
+      commands.at(event.text())->execute(event);
     } else {
       if (event.on_action("chat_pin_message")) {
         message_pin_command->execute(event);
