@@ -5,7 +5,6 @@
 #include "keyboard/layout.hpp"
 #include "keyboard/flags.hpp"
 #include "methods/messages.hpp"
-#include "string_util/string_util.hpp"
 
 #include "../commands/base_command.hpp"
 
@@ -18,7 +17,7 @@ public:
   {
     setup_keyboard();
   }
-  void execute(const vk::event::message_new& event) override {
+  void execute(vk::event::message_new& event) override {
     messages.send(event.peer_id(), "Here is keyboard: ", *layout);
   }
 private:

@@ -39,7 +39,8 @@ private:
 template <typename function, typename result_of>
 std::future<result_of> vk::processing::thread_pool::queue(function&& f) {
   std::packaged_task<result_of()> task(std::forward<function>(f));
-  auto future = task.get_future(); {
+  auto future = task.get_future();
+  {
     std::unique_lock<std::mutex> l(locker);
     worker.emplace_back(std::move(task));
   }

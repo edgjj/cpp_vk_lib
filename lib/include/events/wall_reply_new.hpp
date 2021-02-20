@@ -14,6 +14,8 @@ namespace vk {
 namespace event {
 /*!
  * @brief The `wall_post_new` event representation.
+ *
+ * Internal information accessed in a "lazy way".
  */
 class vk_export wall_reply_new {
 public:
@@ -34,15 +36,11 @@ public:
    *
    * In case, when no attachments were provided, empty vector returned.
    */
-  attachment::attachments_t attachments() const noexcept;
+  attachment::attachments_t attachments() const;
 
 private:
-  std::int64_t _id;
-  std::int64_t _post_id;
-  std::int64_t _from_id;
-  std::int64_t _owner_id;
-  std::string _text;
-  attachment::attachments_t _attachments;
+  std::shared_ptr<simdjson::dom::object> _event_json;
+  bool _has_attachments;
 
   attachment_handler att_handler;
 };

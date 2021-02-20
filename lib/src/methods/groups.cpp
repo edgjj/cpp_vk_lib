@@ -4,12 +4,6 @@
 #include "methods/groups.hpp"
 
 
-vk::method::groups::groups()
-  : parser(std::make_unique<simdjson::dom::parser>())
-{ }
-
-vk::method::groups::~groups() = default;
-
 std::int64_t vk::method::groups::get_by_id() {
   simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
 

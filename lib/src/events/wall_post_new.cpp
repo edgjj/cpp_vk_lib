@@ -23,14 +23,13 @@ vk::event::wall_post_new::wall_post_new(const simdjson::dom::object& event) {
 }
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event) {
-  simdjson::dom::object wall_post_event = event["object"];
-  construct(wall_post_event, is_not_reply);
+  construct(event, is_not_reply);
 
-  if (wall_post_event["attachments"].is_array())
-    _attachments = _attachment_handler.try_get(wall_post_event["attachments"].get_array());
+  if (event["attachments"].is_array())
+    _attachments = _attachment_handler.try_get(event["attachments"].get_array());
 
-  if (wall_post_event["copy_history"].is_array())
-    _repost = std::make_shared<wall_post_new>(wall_post_new(wall_post_event["copy_history"].get_array().at(0).get_object()));
+  if (event["copy_history"].is_array())
+    _repost = std::make_shared<wall_post_new>(wall_post_new(event["copy_history"].get_array().at(0).get_object()));
 }
 
 std::int64_t vk::event::wall_post_new::id()         const noexcept { return _id; }

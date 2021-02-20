@@ -43,7 +43,7 @@ public:
    * @brief Pop and execute task from thread pool queue.
    * @param Number of threads (default - maximum threads available on the computer).
    */
-  void run(const std::int8_t num_threads = vk::config::num_threads());
+  void run();
 
 private:
   std::string _group_id;

@@ -4,12 +4,6 @@
 #include "methods/utils.hpp"
 
 
-vk::method::utils::utils()
-  : parser(std::make_unique<simdjson::dom::parser>())
-{ }
-
-vk::method::utils::~utils() = default;
-
 bool vk::method::utils::check_link(std::string_view url) {
   simdjson::dom::object response(
     method_util.call_and_parse("utils.checkLink", method_util.group_args({
