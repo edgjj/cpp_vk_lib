@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 #include "methods/photos.hpp"
 
 
@@ -36,7 +36,7 @@ std::shared_ptr<vk::attachment::photo_attachment> vk::method::photos::save_messa
   if (upload_response["photo"].get_string().take_value() == "[]" ||
       upload_response["photo"].get_string().take_value() == "")
   {
-    vk_throw(exception::upload_error, -1, "Can't upload file. Maybe is not an image?");
+    processing::process_error("photos", exception::upload_error(-1, "Can't upload file. Maybe is not an image?"));
   }
 
   std::string raw_vk_response(

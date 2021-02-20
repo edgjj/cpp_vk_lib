@@ -58,7 +58,7 @@ public:
    * @brief Try get action.
    * @throws vk::exception::access error in case, when there's no actions setted.
    */
-  action::any_action action();
+  action::any_action action() const;
   /*!
    * @brief Get attachments vector.
    *

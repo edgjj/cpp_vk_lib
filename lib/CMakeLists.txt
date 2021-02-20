@@ -58,6 +58,7 @@ set(HEADERS
   include/oauth/client.hpp
 
   include/processing/backtrace.hpp
+  include/processing/error_handler.hpp
   include/processing/exception.hpp
   include/processing/thread_pool.hpp
 

@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 #include "methods/groups.hpp"
 
 
@@ -8,8 +8,9 @@ std::int64_t vk::method::groups::get_by_id() {
   simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
 
   if (method_util.error_returned(response, 5))
-    vk_throw(vk::exception::access_error, 5,
-      "Failed to retrieve group id. Maybe, wrong access token was passed.");
+    processing::process_error("groups", exception::access_error(5,
+      "Failed to retrieve group id. Maybe, wrong access token was passed.")
+    );
 
   return response["response"].at(0)["id"].get_int64();
 }

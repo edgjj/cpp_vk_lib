@@ -1,4 +1,4 @@
-#include "simdjson.h"
+﻿#include "simdjson.h"
 
 #include "processing/exception.hpp"
 #include "events/message_new.hpp"
@@ -92,7 +92,7 @@ bool vk::event::message_new::has_reply() const noexcept {
 bool vk::event::message_new::has_fwd_messages() const noexcept {
   return _has_fwd_messages;
 }
-vk::action::any_action vk::event::message_new::action() {
+vk::action::any_action vk::event::message_new::action() const {
   if (_has_action) {
     return _action;
   } else {

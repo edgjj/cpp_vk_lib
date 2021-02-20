@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "methods/audio.hpp"
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 
 
 vk::method::audio::audio()
@@ -24,8 +24,9 @@ void vk::method::audio::save(std::string_view artist, std::string_view title, st
     )
   );
 
-  if (response.begin().key() == "error")
-    vk_throw(exception::upload_error, -1, "Can't upload file. Maybe is not an mp3 track?");
+  if (response.begin().key() == "error") {
+    processing::process_error("audio", exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?"));
+  }
 
   method_util.call("audio.save", method_util.user_args({
     {"server",   std::to_string(response["server"].get_int64())},

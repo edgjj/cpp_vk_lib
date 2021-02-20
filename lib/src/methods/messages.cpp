@@ -2,7 +2,7 @@
 
 #include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 
 
 static inline void append_params(std::map<std::string, std::string>& parameters, std::int64_t peer_id, std::string_view text) {
@@ -63,11 +63,13 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
   if (parsed.begin().key() == "response" && parsed["response"].get_int64() == 1)
     return;
 
-  if (method_util.error_returned(parsed, 100))
-    vk_throw(exception::access_error, 100, "Can't kick this user/group.");
+  if (method_util.error_returned(parsed, 100)) {
+    processing::process_error("messages", exception::access_error(1488, "Can't kick this user/group."));
+  }
 
-  if (method_util.error_returned(parsed, 15))
-    vk_throw(exception::access_error, 15, "Access denied.");
+  if (method_util.error_returned(parsed, 15)) {
+    processing::process_error("messages", exception::access_error(15, "Access denied."));
+  }
 }
 
 void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) {
@@ -87,7 +89,7 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
   );
 
   if (method_util.error_returned(response, 15))
-    vk_throw(vk::exception::upload_error, 15, "Can't delete chat photo. Maybe it already deleted?");
+    processing::process_error("messages", exception::upload_error(15, "Can't delete chat photo. Maybe it already deleted?"));
 }
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
@@ -115,7 +117,7 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
   );
 
   if (method_util.error_returned(response, 917))
-    vk_throw(exception::access_error, 917, "Access denied.");
+    processing::process_error("messages", exception::access_error(917, "Access denied."));
 
   conversation_member_list members;
   for (auto&& profile : response["response"]["profiles"].get_array()) {

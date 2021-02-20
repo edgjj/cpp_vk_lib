@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 #include "methods/utils.hpp"
 
 
@@ -11,7 +11,7 @@ bool vk::method::utils::check_link(std::string_view url) {
     }))
   );
   if (method_util.error_returned(response, 100))
-    vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
+    processing::process_error("utils", exception::invalid_parameter_error(100, "Invalid URL."));
 
   return response["response"]["status"].get_string().take_value() == "not_banned";
 }
@@ -23,14 +23,14 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
     }))
   );
   if (method_util.error_returned(response, 100))
-    vk_throw(exception::invalid_parameter_error, 100, "Invalid URL.");
+    processing::process_error("utils", exception::invalid_parameter_error(100, "Invalid URL."));
 
   return response["response"]["short_url"].get_string().take_value().data();
 }
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) {
   if (screen_name.empty())
-    vk_throw(exception::invalid_parameter_error, -1, "Empty argument passed.");
+    processing::process_error("utils", exception::invalid_parameter_error(-1, "Empty argument provided."));
 
   simdjson::dom::object response(
     method_util.call_and_parse("utils.resolveScreenName", method_util.group_args({
@@ -38,7 +38,7 @@ std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name
     }))
   );
   if (response["response"].get_array().size() == 0)
-    vk_throw(exception::access_error, -1, "No such user");
+    processing::process_error("utils", exception::access_error(-1, "No such user."));
 
   return response["response"]["object_id"].get_int64();
 }
