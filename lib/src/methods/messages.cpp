@@ -125,7 +125,7 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
       profile["first_name"].get_string().take_value().data(),
       profile["last_name"].get_string().take_value().data(),
       profile["id"].get_int64(),
-       (profile["online"].get_int64() == 1) ? true : false
+     (profile["online"].get_int64() == 1) ? true : false
     });
   }
 

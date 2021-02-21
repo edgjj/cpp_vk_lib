@@ -63,7 +63,7 @@ private:
 
 class vk_export chat_photo_update {
 public:
-  explicit chat_photo_update() { }
+  explicit chat_photo_update() = default;
 };
 
 class vk_export chat_title_update {

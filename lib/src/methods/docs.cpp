@@ -68,7 +68,7 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
 }
 
 std::shared_ptr<vk::attachment::audio_message_attachment> vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) {
-  simdjson::dom::object upload_response(common_upload(*parser, net_client, filename, raw_server, "file"));
+  simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
   if (upload_response.begin().key() != "file")
     processing::process_error("docs", exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?"));
 

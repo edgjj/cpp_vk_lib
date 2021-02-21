@@ -33,8 +33,6 @@ protected:
    * \return parsed JSON response.
    */
   simdjson::dom::object common_upload(
-    simdjson::dom::parser& parser,
-    const vk::network_client& network_client,
     std::string_view filename,
     std::string_view server,
     std::string_view field_name

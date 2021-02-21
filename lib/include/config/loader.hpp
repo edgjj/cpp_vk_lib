@@ -11,6 +11,9 @@ namespace config {
 
 class vk_export loader {
 public:
+  disable_copy(loader);
+  disable_move(loader);
+
   static loader* load(std::string_view path) noexcept(false);
   static loader* get() noexcept(false);
   std::string& user_token_instance() noexcept { return user_token_; }

@@ -3,8 +3,6 @@
 #include "method_utils/method_utils.hpp"
 #include "config/loader.hpp"
 
-#include "logger/logger.hpp"
-
 
 vk::method_utils::method_utils()
   : parser(std::make_unique<simdjson::dom::parser>())

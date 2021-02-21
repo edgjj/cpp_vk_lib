@@ -25,7 +25,6 @@ inline const char* get_color(color c) noexcept {
     case color::red:    return color_data::red; break;
     case color::green:  return color_data::green; break;
     case color::blue:   return color_data::blue; break;
-    case color::white:  return color_data::white; break;
     default:
       return color_data::white; break;
   }

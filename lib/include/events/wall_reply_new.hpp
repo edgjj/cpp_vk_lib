@@ -16,6 +16,7 @@ namespace event {
  * @brief The `wall_post_new` event representation.
  *
  * Internal information accessed in a "lazy way".
+ * It means, that no data is extracted from JSON until the user wants to access it.
  */
 class vk_export wall_reply_new {
 public:
@@ -26,15 +27,29 @@ public:
    * @brief Construct event from JSON.
    */
   explicit wall_reply_new(simdjson::dom::object&& event);
+  /*!
+   * @returns id field from _event_json;
+   */
   std::int64_t id() const noexcept;
+  /*!
+   * @returns from_id field from _event_json;
+   */
   std::int64_t from_id() const noexcept;
+  /*!
+   * @returns post_id field from _event_json;
+   */
   std::int64_t post_id() const noexcept;
+  /*!
+   * @returns owner_id field from _event_json;
+   */
   std::int64_t owner_id() const noexcept;
+  /*!
+   * @returns text field from _event_json;
+   */
   std::string text() const noexcept;
   /*!
    * @brief Get attachments vector.
-   *
-   * In case, when no attachments were provided, empty vector returned.
+   * @throws vk::exception::access_error in case, when object hasn't attachments.
    */
   attachment::attachments_t attachments() const;
 

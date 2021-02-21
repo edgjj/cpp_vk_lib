@@ -31,7 +31,7 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
 }
 
 std::shared_ptr<vk::attachment::photo_attachment> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
-  simdjson::dom::object upload_response(common_upload(*parser, net_client, filename, raw_server, "file"));
+  simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||
       upload_response["photo"].get_string().take_value() == "")

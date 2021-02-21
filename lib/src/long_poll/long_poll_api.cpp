@@ -1,6 +1,5 @@
 #include "simdjson.h"
 
-#include "processing/exception.hpp"
 #include "long_poll/long_poll_api.hpp"
 
 #include "../../dependencies/logger/logger.hpp"

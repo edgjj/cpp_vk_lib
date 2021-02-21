@@ -6,7 +6,7 @@
 
 
 vk::event::message_new::message_new(simdjson::dom::object&& event)
-  : _message_json(std::make_shared<simdjson::dom::object>(event))
+  : _event_json(std::make_shared<simdjson::dom::object>(event))
 {
   if (event["reply_message"].is_object())
     _has_reply = true;
@@ -24,7 +24,7 @@ vk::event::message_new::message_new(simdjson::dom::object&& event)
 }
 
 void vk::event::message_new::try_get_actions() {
-  simdjson::dom::object action_object = (*_message_json)["action"].get_object();
+  simdjson::dom::object action_object = (*_event_json)["action"].get_object();
   std::string action_name = action_object["type"].get_string().take_value().data();
   if (action_name == "chat_invite_user") {
     _action = std::make_shared<action::chat_invite_user>(
@@ -61,27 +61,27 @@ void vk::event::message_new::try_get_actions() {
   }
 }
 
-bool vk::event::message_new::on_action(std::string_view action_name) const noexcept {
-  if (action_name == "chat_invite_user")   { return std::holds_alternative<action::chat_invite_user_ptr>(_action); }
-  if (action_name == "chat_kick_user")     { return std::holds_alternative<action::chat_kick_user_ptr>(_action); }
-  if (action_name == "chat_pin_message")   { return std::holds_alternative<action::chat_pin_message_ptr>(_action); }
-  if (action_name == "chat_unpin_message") { return std::holds_alternative<action::chat_unpin_message_ptr>(_action); }
-  if (action_name == "chat_photo_update")  { return std::holds_alternative<action::chat_photo_update_ptr>(_action); }
-  if (action_name == "chat_title_update")  { return std::holds_alternative<action::chat_title_update_ptr>(_action); }
+bool vk::event::message_new::on_action(std::string_view action_type) const noexcept {
+  if (action_type == "chat_invite_user")   { return std::holds_alternative<action::chat_invite_user_ptr>(_action); }
+  if (action_type == "chat_kick_user")     { return std::holds_alternative<action::chat_kick_user_ptr>(_action); }
+  if (action_type == "chat_pin_message")   { return std::holds_alternative<action::chat_pin_message_ptr>(_action); }
+  if (action_type == "chat_unpin_message") { return std::holds_alternative<action::chat_unpin_message_ptr>(_action); }
+  if (action_type == "chat_photo_update")  { return std::holds_alternative<action::chat_photo_update_ptr>(_action); }
+  if (action_type == "chat_title_update")  { return std::holds_alternative<action::chat_title_update_ptr>(_action); }
   return false;
 }
 
 std::int64_t vk::event::message_new::conversation_message_id() const noexcept {
-  return (*_message_json)["conversation_message_id"].get_int64();
+  return (*_event_json)["conversation_message_id"].get_int64();
 }
 std::int64_t vk::event::message_new::peer_id() const noexcept {
-  return (*_message_json)["peer_id"].get_int64();
+  return (*_event_json)["peer_id"].get_int64();
 }
 std::int64_t vk::event::message_new::from_id() const noexcept {
-  return (*_message_json)["from_id"].get_int64();
+  return (*_event_json)["from_id"].get_int64();
 }
 std::string vk::event::message_new::text() const noexcept {
-  return (*_message_json)["text"].get_c_str().take_value();
+  return (*_event_json)["text"].get_c_str().take_value();
 }
 bool vk::event::message_new::has_action() const noexcept {
   return _has_action;
@@ -101,7 +101,7 @@ vk::action::any_action vk::event::message_new::action() const {
 }
 vk::attachment::attachments_t vk::event::message_new::attachments() const {
   if (_has_attachments) {
-    return att_handler.try_get((*_message_json)["attachments"].get_array());
+    return att_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     vk_throw(exception::access_error, -1, "Attempting accessing empty attachment list");
   }
@@ -109,7 +109,7 @@ vk::attachment::attachments_t vk::event::message_new::attachments() const {
 std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const {
   if (_has_fwd_messages) {
     std::vector<std::unique_ptr<message_new>> fwd_messages;
-    for (simdjson::dom::element&& fwd_message : (*_message_json)["fwd_messages"].get_array()) {
+    for (simdjson::dom::element&& fwd_message : (*_event_json)["fwd_messages"].get_array()) {
       fwd_messages.emplace_back(
         std::make_unique<message_new>(fwd_message)
       );
@@ -119,9 +119,9 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     vk_throw(exception::access_error, -1, "Attempting accessing empty forward message list.");
   }
 }
-std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() {
+std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const {
   if (_has_reply) {
-    return std::make_unique<message_new>((*_message_json)["reply_message"].get_object());
+    return std::make_unique<message_new>((*_event_json)["reply_message"].get_object());
   } else {
     vk_throw(exception::access_error, -1, "Attempting accessing empty reply.");
   }

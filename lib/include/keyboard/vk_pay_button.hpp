@@ -1,8 +1,6 @@
 #ifndef VK_PAY_BUTTON_H
 #define VK_PAY_BUTTON_H
 
-#include <string_view>
-
 #include "string_utils/string_utils.hpp"
 
 

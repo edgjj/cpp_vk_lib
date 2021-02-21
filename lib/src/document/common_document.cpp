@@ -49,17 +49,15 @@ vk::attachment::attachments_t vk::document::common::common_search(std::string_vi
 }
 
 simdjson::dom::object vk::document::common::common_upload(
-  simdjson::dom::parser& parser,
-  const vk::network_client& network_client,
   std::string_view filename,
   std::string_view server,
   std::string_view field_name)
 {
   return
-  parser.parse(
-    network_client.upload(
+  parser->parse(
+    method_util.net_client.upload(
       field_name, filename,
-      parser.parse(server)["response"]["upload_url"].get_string()
+      parser->parse(server)["response"]["upload_url"].get_string()
     )
   );
 }
