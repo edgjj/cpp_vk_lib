@@ -31,19 +31,21 @@ public:
 private:
   void generate() noexcept {
     std::cerr << "<backtrace>" << std::endl;
+    int backtrace_size =
 #ifdef __linux__
-    int backtrace_size = ::backtrace(address_list, sizeof(address_list) / sizeof(void*));
+      ::backtrace(address_list, sizeof(address_list) / sizeof(void*));
 #else
-    int backtrace_size = 0;
+      0;
 #endif
     if (backtrace_size == 0) {
       std::cerr << indent << "<empty>" << std::endl;
       return;
     }
+    symbol_list =
 #ifdef __linux__
-    symbol_list = ::backtrace_symbols(address_list, backtrace_size);
+      ::backtrace_symbols(address_list, backtrace_size);
 #else
-    symbol_list = nullptr;
+      nullptr;
 #endif
     address_loop(backtrace_size);
   }
@@ -56,9 +58,9 @@ private:
   void get_address_info(size_t i) noexcept {
     for (char *p = symbol_list[i]; *p; ++p) {
       switch (*p) {
-        case '(': begin_name  = p; break;
+        case '(': begin_name    = p; break;
         case '+': begin_offset  = p; break;
-        case ')': end_offset  = p; return;
+        case ')': end_offset    = p; return;
       }
     }
   }
@@ -73,13 +75,14 @@ private:
     else std::cerr << indent << symbol_list[i] << std::endl;
   }
   void print_impl(char* func_name, size_t i) noexcept {
-    int status;
+    int status = 0;
+    char* ret =
 #ifdef __linux__
-    char* ret = abi::__cxa_demangle(begin_name, func_name, &max_func_length, &status);
+      abi::__cxa_demangle(begin_name, func_name, &max_func_length, &status);
 #else
-    char* ret = "";
+      nullptr;
 #endif
-     if (status == 0) {
+    if (status == 0) {
       func_name = ret;
       std::cerr << indent << symbol_list[i] << ':' << line << ' ' << func_name << '+' << begin_offset << std::endl;
     } else {
@@ -92,8 +95,9 @@ private:
   static constexpr const char* indent = "  ";
   static constexpr size_t max_frames = 16;
   size_t max_func_length = 256;
+#ifdef __linux__
   void* address_list[max_frames];
-
+#endif
   char** symbol_list    = nullptr;
   char*  begin_name     = nullptr;
   char*  begin_offset   = nullptr;
