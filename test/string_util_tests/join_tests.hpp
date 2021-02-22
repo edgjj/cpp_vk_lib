@@ -7,10 +7,10 @@
 #include <deque>
 
 #include <gtest/gtest.h>
-#include "string_util/string_util.hpp"
+#include "string_utils/string_utils.hpp"
 
 
-namespace util = vk::string_util;
+namespace util = vk::string_utils;
 
 TEST(join, initializer_list) {
   ASSERT_EQ(util::join({1,2,3}), "1,2,3");

@@ -2,10 +2,10 @@
 #define VK_FORMAT_TEST_H
 
 #include <gtest/gtest.h>
-#include "string_util/string_util.hpp"
+#include "string_utils/string_utils.hpp"
 
 
-namespace util = vk::string_util;
+namespace util = vk::string_utils;
 
 TEST(format, format) {
   ASSERT_EQ(util::format("text"), "text");

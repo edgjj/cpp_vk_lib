@@ -13,21 +13,11 @@ TEST(keyboard, location_button) {
   });
 
   ASSERT_EQ(l.serialize(),
-    R"({"one_time":true,"buttons":[[{"action":{"type":"location","payload":"{\"button\":\"1\"}"}}]]})");
-}
-
-TEST(keyboard, location_layout) {
-  keyboard::layout l;
-  l.add_row({
-    keyboard::location_button()
-  });
-
-  ASSERT_EQ(l.serialize(),
-    R"({"one_time":true,"buttons":[[{"action":{"type":"location","payload":"{\"button\":\"1\"}"}}]]})");
+    R"({"buttons":[[{"action":{"type":"location","payload":"{\"button\":\"1\"}"}}]]})");
 }
 
 TEST(keyboard, open_app_layout) {
-  keyboard::layout l;
+  keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
     keyboard::open_app_button(100, 200, "hash", "label")
   });
@@ -37,7 +27,7 @@ TEST(keyboard, open_app_layout) {
 }
 
 TEST(keyboard, text_layout) {
-  keyboard::layout l;
+  keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
     keyboard::text_button(keyboard::color::blue, "1"),
     keyboard::text_button(keyboard::color::blue, "2")
@@ -48,7 +38,7 @@ TEST(keyboard, text_layout) {
 }
 
 TEST(keyboard, vk_pay_button) {
-  keyboard::layout l;
+  keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
     keyboard::vk_pay_button("hash")
   });
