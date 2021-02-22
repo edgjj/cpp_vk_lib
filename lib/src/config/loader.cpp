@@ -25,7 +25,9 @@ vk::config::loader::loader(std::string_view path)
   simdjson::dom::parser parser;
   simdjson::dom::element element = parser.load(path.data());
 
-  user_token_ = element["user_token"].get_string().take_value().data();
-  access_token_ = element["access_token"].get_string().take_value().data();
+  user_token_ = element["api_keys"]["user_token"].get_c_str().take_value();
+  access_token_ = element["api_keys"]["access_token"].get_c_str().take_value();
+  error_logpath_ = element["environment"]["error_logpath"].get_c_str().take_value();
+  event_logpath_ = element["environment"]["event_logpath"].get_c_str().take_value();
   num_threads_ = element["num_threads"].get_int64();
 }

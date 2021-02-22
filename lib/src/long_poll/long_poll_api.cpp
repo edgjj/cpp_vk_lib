@@ -1,6 +1,5 @@
 #include "simdjson.h"
 
-#include "processing/exception.hpp"
 #include "long_poll/long_poll_api.hpp"
 
 #include "../../dependencies/logger/logger.hpp"
@@ -9,6 +8,7 @@
 vk::long_poll_api::long_poll_api() {
   _group_id = std::to_string(groups.get_by_id());
   logger(logflag::info) << "long polling started";
+  logger(logflag::info) << "group id: " << _group_id;
 }
 
 vk::long_poll_data vk::long_poll_api::server() {
@@ -40,7 +40,7 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std:
   simdjson::dom::array raw_updates_array(raw_updates["updates"].get_array());
   if (raw_updates_array.size() == 0) { data = server(); }
 
-  for (const simdjson::dom::element& update : raw_updates_array) {
+  for (simdjson::dom::element&& update : raw_updates_array) {
     event_list.push_back(std::make_unique<vk::event::common>(
       raw_updates["ts"].get_string(),
       std::move(update)

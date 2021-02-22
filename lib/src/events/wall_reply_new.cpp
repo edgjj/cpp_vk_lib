@@ -1,13 +1,13 @@
 #include "simdjson.h"
 
 #include "events/wall_reply_new.hpp"
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
   : _event_json(std::make_shared<simdjson::dom::object>(event))
 {
-  if (event["attachments"].is_array())
+  if (event["attachments"].is_array() && event["attachments"].get_array().size() > 0)
     _has_attachments = true;
 }
 
@@ -30,6 +30,8 @@ vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const {
   if (_has_attachments) {
     return att_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
-    vk_throw(exception::access_error, -1, "Attempting accessing empty attachment list");
+    // Exception thrown there, hence final return will never executed.
+    processing::process_error("wall_reply_new", exception::access_error(-1, "Attempting accessing empty attachment list"));
   }
+  return { };
 }

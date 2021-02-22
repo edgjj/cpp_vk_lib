@@ -2,6 +2,7 @@
 #define VK_WALL_POST_NEW_H
 
 #include "events/handlers/attachment_handler.hpp"
+#include "events/wall_repost.hpp"
 
 
 namespace simdjson {
@@ -14,6 +15,8 @@ namespace vk {
 namespace event {
 /*!
  * @brief The `wall_post_new` event representation.
+ * Internal information accessed in a "lazy way".
+ * It means, that no data is extracted from JSON until the user wants to access it.
  */
 class vk_export wall_post_new {
 public:
@@ -23,19 +26,43 @@ public:
    * @brief Construct event from JSON.
    */
   wall_post_new(simdjson::dom::object&& event);
-  std::int64_t id()           const noexcept;
-  std::int64_t from_id()      const noexcept;
-  std::int64_t owner_id()     const noexcept;
-  std::int64_t created_by()   const noexcept;
-  std::string text()          const noexcept;
-  bool can_edit()             const noexcept;
-  bool can_delete()           const noexcept;
-  bool marked_as_ads()        const noexcept;
+  /*!
+   * @returns id field from _event_json;
+   */
+  std::int64_t id() const noexcept;
+  /*!
+   * @returns from_id field from _event_json;
+   */
+  std::int64_t from_id() const noexcept;
+  /*!
+   * @returns owner_id field from _event_json;
+   */
+  std::int64_t owner_id() const noexcept;
+  /*!
+   * @returns created_by field from _event_json;
+   */
+  std::int64_t created_by() const noexcept;
+  /*!
+   * @returns text field from _event_json;
+   */
+  std::string text() const noexcept;
+  /*!
+   * @returns can_edit field from _event_json;
+   */
+  bool can_edit() const noexcept;
+  /*!
+   * @returns can_delete field from _event_json;
+   */
+  bool can_delete() const noexcept;
+  /*!
+   * @returns marked_as_ads field from _event_json;
+   */
+  bool marked_as_ads() const noexcept;
   /*!
    * @brief Try get repost.
    * @throws vk::exception::access_error in case, when _repost pointer is not set.
    */
-  std::shared_ptr<wall_post_new> repost() const;
+  std::shared_ptr<wall_repost> repost() const;
   /*!
    * @brief Get attachments vector.
    *
@@ -44,30 +71,10 @@ public:
   attachment::attachments_t attachments() const noexcept;
 
 private:
-  /*!
-   * @brief Construct reply event.
-   */
-  wall_post_new(const simdjson::dom::object& event);
-  /*!
-   * @brief Common construct function.
-   */
-  void construct(const simdjson::dom::object& event, bool is_reply);
-
-  static inline bool is_reply = true;
-  static inline bool is_not_reply = false;
-
-  std::int64_t _id;
-  std::int64_t _from_id;
-  std::int64_t _owner_id;
-  std::int64_t _created_by;
-  std::string _text;
-  bool _can_edit;
-  bool _can_delete;
-  bool _marked_as_ads;
-  std::shared_ptr<wall_post_new> _repost;
-  attachment::attachments_t _attachments;
-
+  std::shared_ptr<simdjson::dom::object> _event_json;
   attachment_handler _attachment_handler;
+  bool _has_attachments = false;
+  bool _has_repost = false;
 };
 } // namespace event
 } // namespace vk

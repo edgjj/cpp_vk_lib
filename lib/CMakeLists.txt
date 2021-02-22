@@ -2,7 +2,7 @@ include_directories(include)
 include_directories(../dependencies)
 include_directories(../dependencies/curl/include/curl)
 
-add_definitions(-DVK_CURL_DEBUG)
+#add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
 message(${CMAKE_CURRENT_BINARY_DIR})
@@ -29,6 +29,7 @@ set(HEADERS
   include/events/message_new.hpp
   include/events/wall_post_new.hpp
   include/events/wall_reply_new.hpp
+  include/events/wall_repost.hpp
   include/events/handlers/attachment_handler.hpp
   include/events/handlers/message_action_handler.hpp
 
@@ -58,6 +59,7 @@ set(HEADERS
   include/oauth/client.hpp
 
   include/processing/backtrace.hpp
+  include/processing/error_handler.hpp
   include/processing/exception.hpp
   include/processing/thread_pool.hpp
 

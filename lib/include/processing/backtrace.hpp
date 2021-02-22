@@ -1,10 +1,10 @@
 #ifndef BACKTRACE_H
 #define BACKTRACE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <execinfo.h>
-#include <cxxabi.h>
+#ifdef __linux__
+# include <execinfo.h>
+# include <cxxabi.h>
+#endif
 
 #include <iostream>
 
@@ -25,12 +25,20 @@ public:
 private:
   void generate() noexcept {
     std::cerr << "<backtrace>" << std::endl;
+#ifdef __linux__
     int backtrace_size = ::backtrace(address_list, sizeof(address_list) / sizeof(void*));
+#else
+    int backtrace_size = 0;
+#endif
     if (backtrace_size == 0) {
       std::cerr << indent << "<empty>" << std::endl;
       return;
     }
+#ifdef __linux__
     symbol_list = ::backtrace_symbols(address_list, backtrace_size);
+#else
+    symbol_list = nullptr;
+#endif
     address_loop(backtrace_size);
   }
   void address_loop(size_t backtrace_size) noexcept {
@@ -60,8 +68,12 @@ private:
   }
   void print_impl(char* func_name, size_t i) noexcept {
     int status;
+#ifdef __linux__
     char* ret = abi::__cxa_demangle(begin_name, func_name, &max_func_length, &status);
-    if (status == 0) {
+#else
+    char* ret = "";
+#endif
+     if (status == 0) {
       func_name = ret;
       std::cerr << indent << symbol_list[i] << ':' << line << ' ' << func_name << '+' << begin_offset << std::endl;
     } else {
