@@ -1,6 +1,7 @@
 ![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/CMake/badge.svg)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/fragmichwarum/cpp_vk_lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fragmichwarum/cpp_vk_lib/alerts/)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/fragmichwarum/cpp_vk_lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fragmichwarum/cpp_vk_lib/context:cpp)
+[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://duonumerouno.github.io/cpp_vk_lib/index.html)
 
 # cpp_vk_lib
 High performance VK API library
