@@ -1,9 +1,9 @@
-<map id="include/events/wall_post_new.hpp" name="include/events/wall_post_new.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="123,5,271,47"/>
-<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,273,148,315"/>
-<area shape="rect" id="node3" href="$common__event_8hpp.html" title=" " alt="" coords="107,95,286,136"/>
-<area shape="rect" id="node7" href="$wall__post__new_8cpp.html" title=" " alt="" coords="310,95,465,136"/>
-<area shape="rect" id="node4" href="$long__poll__api_8hpp.html" title=" " alt="" coords="137,184,301,225"/>
-<area shape="rect" id="node6" href="$common__event_8cpp.html" title=" " alt="" coords="326,191,547,218"/>
-<area shape="rect" id="node5" href="$long__poll__api_8cpp.html" title=" " alt="" coords="173,273,309,315"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/events/wall_post_new.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/events/wall_post_new.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="122,5,309,61"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,317,172,373"/>
+<area shape="rect" id="node3" href="$common__event_8hpp.html" title=" " alt="" coords="122,109,309,165"/>
+<area shape="rect" id="node7" href="$wall__post__new_8cpp.html" title=" " alt="" coords="333,109,500,165"/>
+<area shape="rect" id="node4" href="$long__poll__api_8hpp.html" title=" " alt="" coords="151,213,322,269"/>
+<area shape="rect" id="node6" href="$common__event_8cpp.html" title=" " alt="" coords="347,213,513,269"/>
+<area shape="rect" id="node5" href="$long__poll__api_8cpp.html" title=" " alt="" coords="197,317,367,373"/>
 </map>

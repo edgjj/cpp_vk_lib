@@ -1,8 +1,0 @@
-<map id="include/oauth" name="include/oauth">
-<area shape="rect" id="node1" href="dir_2fa1ed3146d6c2b96c5cfe4341985326.html" title="net" alt="" coords="27,148,99,196"/>
-<area shape="rect" id="node2" href="dir_2ff494ddda6bb3129c4b2b37426f3b00.html" title="processing" alt="" coords="123,148,215,196"/>
-<area shape="rect" id="node3" href="dir_cc408c80c6a57a4a4e52d2700d8a0f35.html" title="oauth" alt="" coords="80,52,152,100"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000013_000012.html" title="1" alt="" coords="87,129,97,144"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000013_000014.html" title="1" alt="" coords="150,121,159,135"/>
-<area shape="rect" id="clust1" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="16,16,227,207"/>
-</map>

@@ -1,13 +1,13 @@
-<map id="include/document/common_document.hpp" name="include/document/common_document.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="429,5,628,47"/>
-<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="387,184,529,225"/>
-<area shape="rect" id="node3" href="$audio_8hpp.html" title=" " alt="" coords="5,102,204,129"/>
-<area shape="rect" id="node5" href="$docs_8hpp.html" title=" " alt="" coords="229,102,421,129"/>
-<area shape="rect" id="node7" href="$photos_8hpp.html" title=" " alt="" coords="496,102,703,129"/>
-<area shape="rect" id="node9" href="$video_8hpp.html" title=" " alt="" coords="727,102,925,129"/>
-<area shape="rect" id="node11" href="$common__document_8cpp.html" title=" " alt="" coords="950,95,1121,136"/>
-<area shape="rect" id="node4" href="$audio_8cpp.html" title=" " alt="" coords="5,191,175,218"/>
-<area shape="rect" id="node6" href="$docs_8cpp.html" title=" " alt="" coords="199,191,362,218"/>
-<area shape="rect" id="node8" href="$photos_8cpp.html" title=" " alt="" coords="553,191,731,218"/>
-<area shape="rect" id="node10" href="$video_8cpp.html" title=" " alt="" coords="755,191,924,218"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/document/common_document.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/document/common_document.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="445,5,653,61"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="397,213,564,269"/>
+<area shape="rect" id="node3" href="$audio_8hpp.html" title=" " alt="" coords="19,109,219,165"/>
+<area shape="rect" id="node5" href="$docs_8hpp.html" title=" " alt="" coords="243,109,443,165"/>
+<area shape="rect" id="node7" href="$photos_8hpp.html" title=" " alt="" coords="518,109,718,165"/>
+<area shape="rect" id="node9" href="$video_8hpp.html" title=" " alt="" coords="742,109,942,165"/>
+<area shape="rect" id="node11" href="$common__document_8cpp.html" title=" " alt="" coords="967,109,1149,165"/>
+<area shape="rect" id="node4" href="$audio_8cpp.html" title=" " alt="" coords="5,213,177,269"/>
+<area shape="rect" id="node6" href="$docs_8cpp.html" title=" " alt="" coords="201,213,373,269"/>
+<area shape="rect" id="node8" href="$photos_8cpp.html" title=" " alt="" coords="588,213,760,269"/>
+<area shape="rect" id="node10" href="$video_8cpp.html" title=" " alt="" coords="784,213,956,269"/>
 </map>

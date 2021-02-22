@@ -1,9 +1,9 @@
-<map id="include/methods/groups.hpp" name="include/methods/groups.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="107,5,313,32"/>
-<area shape="rect" id="node2" href="$method__utils_8hpp.html" title=" " alt="" coords="129,80,291,121"/>
-<area shape="rect" id="node3" href="$network__client_8hpp.html" title=" " alt="" coords="125,169,295,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,103,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="127,244,205,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="229,244,279,271"/>
-<area shape="rect" id="node7" href="$cppdefs_8hpp.html" title=" " alt="" coords="303,244,439,271"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/methods/groups.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/methods/groups.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="110,5,310,61"/>
+<area shape="rect" id="node2" href="$method__utils_8hpp.html" title=" " alt="" coords="129,109,291,151"/>
+<area shape="rect" id="node3" href="$network__client_8hpp.html" title=" " alt="" coords="125,199,295,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,273,103,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="127,273,205,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="229,273,279,300"/>
+<area shape="rect" id="node7" href="$cppdefs_8hpp.html" title=" " alt="" coords="303,273,439,300"/>
 </map>

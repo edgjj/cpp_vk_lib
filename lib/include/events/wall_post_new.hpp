@@ -15,6 +15,7 @@ namespace vk {
 namespace event {
 /*!
  * @brief The `wall_post_new` event representation.
+ *
  * Internal information accessed in a "lazy way".
  * It means, that no data is extracted from JSON until the user wants to access it.
  */

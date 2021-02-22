@@ -1,14 +1,14 @@
-<map id="src/document/common_document.cpp" name="src/document/common_document.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="108,5,279,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="49,95,143,121"/>
-<area shape="rect" id="node3" href="$common__document_8hpp.html" title=" " alt="" coords="167,95,415,121"/>
-<area shape="rect" id="node4" href="$attachment_8hpp.html" title=" " alt="" coords="71,259,275,285"/>
-<area shape="rect" id="node9" href="$method__utils_8hpp.html" title=" " alt="" coords="281,169,442,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,333,64,360"/>
-<area shape="rect" id="node6" title=" " alt="" coords="176,333,253,360"/>
-<area shape="rect" id="node7" title=" " alt="" coords="89,333,151,360"/>
-<area shape="rect" id="node8" href="$cppdefs_8hpp.html" title=" " alt="" coords="277,333,413,360"/>
-<area shape="rect" id="node10" href="$network__client_8hpp.html" title=" " alt="" coords="300,259,471,285"/>
-<area shape="rect" id="node11" title=" " alt="" coords="438,333,535,360"/>
-<area shape="rect" id="node12" title=" " alt="" coords="560,333,611,360"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/src/document/common_document.cpp" name="/home/machen/git/cpp_vk_lib/lib/src/document/common_document.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="102,5,285,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="49,109,143,136"/>
+<area shape="rect" id="node3" href="$common__document_8hpp.html" title=" " alt="" coords="167,109,415,136"/>
+<area shape="rect" id="node4" href="$attachment_8hpp.html" title=" " alt="" coords="71,273,275,300"/>
+<area shape="rect" id="node9" href="$method__utils_8hpp.html" title=" " alt="" coords="281,184,442,225"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,348,64,375"/>
+<area shape="rect" id="node6" title=" " alt="" coords="176,348,253,375"/>
+<area shape="rect" id="node7" title=" " alt="" coords="89,348,151,375"/>
+<area shape="rect" id="node8" href="$cppdefs_8hpp.html" title=" " alt="" coords="277,348,413,375"/>
+<area shape="rect" id="node10" href="$network__client_8hpp.html" title=" " alt="" coords="300,273,471,300"/>
+<area shape="rect" id="node11" title=" " alt="" coords="438,348,535,375"/>
+<area shape="rect" id="node12" title=" " alt="" coords="560,348,611,375"/>
 </map>

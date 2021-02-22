@@ -1,12 +1,12 @@
-<map id="include/string_utils/implementation/split.hpp" name="include/string_utils/implementation/split.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="231,5,421,47"/>
-<area shape="rect" id="node2" href="$string__utils_8hpp.html" title=" " alt="" coords="253,95,399,136"/>
-<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="5,348,148,389"/>
-<area shape="rect" id="node4" href="$open__app__button_8hpp.html" title=" " alt="" coords="51,184,220,225"/>
-<area shape="rect" id="node8" href="$text__button_8hpp.html" title=" " alt="" coords="245,184,407,225"/>
-<area shape="rect" id="node9" href="$vk__pay__button_8hpp.html" title=" " alt="" coords="432,184,585,225"/>
-<area shape="rect" id="node10" href="$docs_8cpp.html" title=" " alt="" coords="610,191,773,218"/>
-<area shape="rect" id="node5" href="$layout_8hpp.html" title=" " alt="" coords="205,273,412,300"/>
-<area shape="rect" id="node6" href="$layout_8cpp.html" title=" " alt="" coords="204,355,381,382"/>
-<area shape="rect" id="node7" href="$messages_8cpp.html" title=" " alt="" coords="405,355,604,382"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/string_utils/implementation/split.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/string_utils/implementation/split.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="256,5,481,61"/>
+<area shape="rect" id="node2" href="$string__utils_8hpp.html" title=" " alt="" coords="279,109,459,165"/>
+<area shape="rect" id="node3" href="$common_8hpp.html" title=" " alt="" coords="5,421,172,477"/>
+<area shape="rect" id="node4" href="$open__app__button_8hpp.html" title=" " alt="" coords="41,213,243,269"/>
+<area shape="rect" id="node8" href="$text__button_8hpp.html" title=" " alt="" coords="267,213,470,269"/>
+<area shape="rect" id="node9" href="$vk__pay__button_8hpp.html" title=" " alt="" coords="494,213,697,269"/>
+<area shape="rect" id="node10" href="$docs_8cpp.html" title=" " alt="" coords="721,213,893,269"/>
+<area shape="rect" id="node5" href="$layout_8hpp.html" title=" " alt="" coords="246,317,449,373"/>
+<area shape="rect" id="node6" href="$layout_8cpp.html" title=" " alt="" coords="239,421,413,477"/>
+<area shape="rect" id="node7" href="$messages_8cpp.html" title=" " alt="" coords="437,421,609,477"/>
 </map>

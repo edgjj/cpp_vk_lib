@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['different_350',['Different',['../namespace_different.html',1,'']]]
+  ['different_350',['Different',['../namespaceDifferent.html',1,'']]]
 ];

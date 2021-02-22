@@ -1,12 +1,12 @@
-<map id="include/oauth/client.hpp" name="include/oauth/client.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="155,5,334,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="42,80,135,107"/>
-<area shape="rect" id="node3" href="$network__client_8hpp.html" title=" " alt="" coords="159,80,330,107"/>
-<area shape="rect" id="node8" href="$exception_8hpp.html" title=" " alt="" coords="355,80,543,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,155,103,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="127,155,205,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="229,155,279,181"/>
-<area shape="rect" id="node7" href="$cppdefs_8hpp.html" title=" " alt="" coords="249,229,385,256"/>
-<area shape="rect" id="node9" href="$backtrace_8hpp.html" title=" " alt="" coords="355,155,543,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="409,229,489,256"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/oauth/client.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/oauth/client.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="155,5,335,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="42,109,135,136"/>
+<area shape="rect" id="node3" href="$network__client_8hpp.html" title=" " alt="" coords="159,109,330,136"/>
+<area shape="rect" id="node8" href="$exception_8hpp.html" title=" " alt="" coords="355,109,543,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,184,103,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="127,184,205,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="229,184,279,211"/>
+<area shape="rect" id="node7" href="$cppdefs_8hpp.html" title=" " alt="" coords="249,259,385,285"/>
+<area shape="rect" id="node9" href="$backtrace_8hpp.html" title=" " alt="" coords="355,184,543,211"/>
+<area shape="rect" id="node10" title=" " alt="" coords="409,259,489,285"/>
 </map>
