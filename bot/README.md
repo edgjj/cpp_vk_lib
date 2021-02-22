@@ -65,5 +65,5 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../build)
 set(EXECUTABLE_OUTPUT_PATH ../build)
 
 add_subdirectory(cpp_vk_lib)
-add_subdirectory(bot)
+add_subdirectory(example_bot)
 ```
