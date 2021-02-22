@@ -1,0 +1,6 @@
+<map id="vk::processing::process_error" name="vk::processing::process_error">
+<area shape="rect" id="node1" title="Write information about error to logfile and throw it." alt="" coords="5,35,180,76"/>
+<area shape="rect" id="node2" href="$namespacevk_1_1config.html#aac0c0b4b8a9d8b34a128225b5a98dc0f" title=" " alt="" coords="228,42,408,69"/>
+<area shape="rect" id="node3" href="$classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="470,5,605,47"/>
+<area shape="rect" id="node4" href="$classvk_1_1config_1_1loader.html#a192d69d5eef67e09e2ffc1df5e4c2af9" title=" " alt="" coords="456,71,619,98"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="vk::document::common" name="vk::document::common">
+<area shape="rect" id="node1" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="150,5,326,32"/>
+<area shape="rect" id="node2" href="$classvk_1_1method_1_1docs.html" title="The docs methods representation." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="$classvk_1_1method_1_1photos.html" title="The photos methods representation." alt="" coords="164,80,312,107"/>
+<area shape="rect" id="node4" href="$classvk_1_1method_1_1video.html" title="The video methods representation." alt="" coords="336,80,476,107"/>
+</map>

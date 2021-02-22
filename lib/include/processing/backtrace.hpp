@@ -12,7 +12,13 @@
 
 
 namespace vk {
-
+/*!
+ * @brief Backtrace viewer, used in exception classes.
+ *
+ * @code{.cpp}
+ *  backtrace_view{0};
+ * @endcode
+ */
 class vk_hidden backtrace_view {
 public:
   explicit backtrace_view(size_t lineno) noexcept

@@ -1,0 +1,6 @@
+<map id="vk::method::photos" name="vk::method::photos">
+<area shape="rect" id="node1" title="The photos methods representation." alt="" coords="19,260,167,287"/>
+<area shape="rect" id="node2" href="$classvk_1_1document_1_1common.html" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="5,184,181,211"/>
+<area shape="rect" id="node3" href="$classvk_1_1method__utils.html" title="The container of common functions and constants needed by various methods." alt="" coords="28,95,159,121"/>
+<area shape="rect" id="node4" href="$classvk_1_1network__client.html" title="The HTTPS client." alt="" coords="22,5,165,32"/>
+</map>

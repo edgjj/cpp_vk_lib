@@ -8,7 +8,12 @@
 
 namespace vk {
 namespace config {
-
+/*!
+ * @brief Config class with its helper functions.
+ *
+ * Implemented as singleton to avoid multiply and senseless JSON file read.
+ * Please, don't try to use this class directly, use non-member functions instead.
+ */
 class vk_export loader {
 public:
   disable_copy(loader);

@@ -9,6 +9,9 @@
 
 
 namespace vk {
+/*!
+ * @namespace Different attachment types and cast functions to it.
+ */
 namespace attachment {
 
 class vk_export base_attachment {
@@ -116,7 +119,6 @@ inline std::shared_ptr<wall_attachment> static_wall_cast(const std::shared_ptr<b
 }
 
 using attachments_t = std::vector<std::shared_ptr<attachment::base_attachment>>;
-const inline std::shared_ptr<vk::attachment::base_attachment> undefined_attachment = std::make_shared<vk::attachment::photo_attachment>(-1, -1);
 } // namespace attachment
 } // namespace vk
 #endif // VK_ATTACHMENT_H

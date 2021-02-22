@@ -1,45 +1,51 @@
-//#ifndef VK_COMMON_H
-//#define VK_COMMON_H
+/*!
+ * @mainpage C++ VK library
+ *
+ * Please, check the [README.md](https://github.com/duonumerouno/cpp_vk_lib/tree/feature).
+ */
 
-//#include "attachment/attachment.hpp"
+#ifndef VK_COMMON_H
+#define VK_COMMON_H
 
-//#include "config/loader.hpp"
+#include "attachment/attachment.hpp"
 
-//#include "document/common_document.hpp"
+#include "config/loader.hpp"
 
-//#include "events/handlers/attachment_handler.hpp"
-//#include "events/handlers/message_action_handler.hpp"
-//#include "events/common_event.hpp"
-//#include "events/message_new.hpp"
-//#include "events/wall_post_new.hpp"
-//#include "events/wall_reply_new.hpp"
+#include "document/common_document.hpp"
 
-//#include "keyboard/colors.hpp"
-//#include "keyboard/flags.hpp"
-//#include "keyboard/layout.hpp"
+#include "events/handlers/attachment_handler.hpp"
+#include "events/handlers/message_action_handler.hpp"
+#include "events/common_event.hpp"
+#include "events/message_new.hpp"
+#include "events/wall_post_new.hpp"
+#include "events/wall_reply_new.hpp"
 
-//#include "long_poll/long_poll_api.hpp"
+#include "keyboard/colors.hpp"
+#include "keyboard/flags.hpp"
+#include "keyboard/layout.hpp"
 
-//#include "method_utils/method_utils.hpp"
+#include "long_poll/long_poll_api.hpp"
 
-//#include "methods/audio.hpp"
-//#include "methods/docs.hpp"
-//#include "methods/groups.hpp"
-//#include "methods/messages.hpp"
-//#include "methods/photos.hpp"
-//#include "methods/utils.hpp"
-//#include "methods/video.hpp"
+#include "method_utils/method_utils.hpp"
 
-//#include "misc/cppdefs.hpp"
+#include "methods/audio.hpp"
+#include "methods/docs.hpp"
+#include "methods/groups.hpp"
+#include "methods/messages.hpp"
+#include "methods/photos.hpp"
+#include "methods/utils.hpp"
+#include "methods/video.hpp"
 
-//#include "net/network_client.hpp"
+#include "misc/cppdefs.hpp"
 
-//#include "oauth/client.hpp"
+#include "net/network_client.hpp"
 
-//#include "processing/backtrace.hpp"
-//#include "processing/error_handler.hpp"
-//#include "processing/thread_pool.hpp"
+#include "oauth/client.hpp"
 
-//#include "string_utils/string_utils.hpp"
+#include "processing/backtrace.hpp"
+#include "processing/error_handler.hpp"
+#include "processing/thread_pool.hpp"
 
-//#endif // VK_COMMON_H
+#include "string_utils/string_utils.hpp"
+
+#endif // VK_COMMON_H
