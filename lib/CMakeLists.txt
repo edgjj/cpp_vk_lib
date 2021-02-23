@@ -61,7 +61,7 @@ set(HEADERS
   include/processing/backtrace.hpp
   include/processing/error_handler.hpp
   include/processing/exception.hpp
-  include/processing/thread_pool.hpp
+  include/processing/task_queue.hpp
 
   include/string_utils/implementation/format.hpp
   include/string_utils/implementation/join.hpp
@@ -100,7 +100,7 @@ set(SOURCES
 
   src/oauth/client.cpp
 
-  src/processing/thread_pool.cpp
+  src/processing/task_queue.cpp
 )
 
 add_library(

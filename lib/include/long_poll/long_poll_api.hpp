@@ -4,7 +4,7 @@
 #include "config/loader.hpp"
 #include "events/common_event.hpp"
 #include "methods/groups.hpp"
-#include "processing/thread_pool.hpp"
+#include "processing/task_queue.hpp"
 
 #include "long_poll/long_poll_data.hpp"
 
@@ -51,14 +51,14 @@ private:
    * @brief Class with group long poll methods.
    */
   method::groups groups;
-  processing::thread_pool thread_pool;
+  processing::task_queue task_queue;
 };
 } // namespace vk
 
 template <typename Function>
 void vk::long_poll_api::queue(Function&& function)
 {
-  thread_pool.queue(function);
+  task_queue.queue(function);
 }
 
 #endif // VK_LONG_POLL_API_H
