@@ -13,7 +13,7 @@ static inline void append_params(std::map<std::string, std::string>& parameters,
 }
 
 static inline void append_attachments(std::map<std::string, std::string>& parameters, const vk::attachment::attachments_t& list) {
-  auto lambda = [](std::string& res, std::shared_ptr<vk::attachment::base_attachment> att) mutable {
+  auto lambda = [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
     return res += att->value() + ',';
   };
   parameters.insert({{

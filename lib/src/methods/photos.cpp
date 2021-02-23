@@ -30,7 +30,7 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
   };
 }
 
-std::shared_ptr<vk::attachment::photo_attachment> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
+std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
   simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||
@@ -43,9 +43,9 @@ std::shared_ptr<vk::attachment::photo_attachment> vk::method::photos::save_messa
     method_util.call("photos.saveMessagesPhoto", method_util.group_args(save_messages_photo_args(std::move(upload_response))))
   );
 
-  simdjson::dom::object uploaded_attachment(parser->parse(raw_vk_response)["response"].at(0));
-  std::int64_t owner_id(uploaded_attachment["owner_id"].get_int64());
-  std::int64_t id(uploaded_attachment["id"].get_int64());
+  simdjson::dom::object uploaded(parser->parse(raw_vk_response)["response"].at(0));
+  std::int64_t owner_id(uploaded["owner_id"].get_int64());
+  std::int64_t id(uploaded["id"].get_int64());
 
-  return std::make_shared<vk::attachment::photo_attachment>(owner_id, id);
+  return std::make_shared<vk::attachment::photo>(owner_id, id);
 }
