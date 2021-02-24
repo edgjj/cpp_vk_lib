@@ -1,6 +1,8 @@
 #ifndef VK_METHOD_UTILS_H
 #define VK_METHOD_UTILS_H
 
+#include <string>
+
 #include "net/network_client.hpp"
 
 
@@ -28,8 +30,11 @@ public:
 
   static inline const std::int64_t chat_id_constant = 2000000000;
 
+private:
   std::unique_ptr<simdjson::dom::parser> parser;
   vk::network_client net_client;
+  const std::string access_token;
+  const std::string user_token;
 };
 } // namespace vk
 
