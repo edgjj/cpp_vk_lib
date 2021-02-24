@@ -55,7 +55,7 @@ simdjson::dom::object vk::document::common::common_upload(
 {
   return
   parser->parse(
-    method_util.net_client.upload(
+    net_client.upload(
       field_name, filename,
       parser->parse(server)["response"]["upload_url"].get_string()
     )

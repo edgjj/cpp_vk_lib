@@ -6,6 +6,8 @@
 
 vk::method_utils::method_utils()
   : parser(std::make_unique<simdjson::dom::parser>())
+  , access_token(config::access_token())
+  , user_token(config::user_token())
 { }
 
 vk::method_utils::~method_utils() = default;
@@ -14,11 +16,11 @@ std::string vk::method_utils::append_url(std::string_view method) const {
   return "https://api.vk.com/method/" + std::string(method) + '?';
 }
 std::map<std::string, std::string> vk::method_utils::user_args(std::map<std::string, std::string>&& params) const {
-  params.insert({{"access_token", vk::config::access_token()}, {"v", API_V}});
+  params.insert({{"access_token", user_token}, {"v", API_V}});
   return std::move(params);
 }
 std::map<std::string, std::string> vk::method_utils::group_args(std::map<std::string, std::string>&& params) const {
-  params.insert({{"access_token", vk::config::access_token()}, {"v", API_V}});
+  params.insert({{"access_token", access_token}, {"v", API_V}});
   return std::move(params);
 }
 simdjson::dom::object vk::method_utils::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) {

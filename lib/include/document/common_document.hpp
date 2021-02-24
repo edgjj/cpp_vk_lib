@@ -40,6 +40,7 @@ protected:
 
   std::unique_ptr<simdjson::dom::parser> parser;
   method_utils method_util;
+  network_client net_client;
 };
 } // namespace document
 } // namespace vk
