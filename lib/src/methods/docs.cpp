@@ -67,7 +67,7 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
   }));
 }
 
-std::shared_ptr<vk::attachment::audio_message_attachment> vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) {
+std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) {
   simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
   if (upload_response.begin().key() != "file")
     processing::process_error("docs", exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?"));
@@ -78,7 +78,7 @@ std::shared_ptr<vk::attachment::audio_message_attachment> vk::method::docs::save
   simdjson::dom::object uploaded_doc(parser->parse(raw_save_response)["response"]["audio_message"]);
 
   return
-  std::make_shared<vk::attachment::audio_message_attachment>(
+  std::make_shared<vk::attachment::audio_message>(
     uploaded_doc["owner_id"].get_int64(),
     uploaded_doc["id"].get_int64(),
     uploaded_doc["link_ogg"].get_string(),

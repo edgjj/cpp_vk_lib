@@ -26,19 +26,19 @@ vk::attachment::attachments_t vk::document::common::common_search(std::string_vi
   if (items.size() == 0) { return documents; }
 
   if (method == "photos.search") search_attachments(items, [&documents, &items](std::size_t index){
-    documents.push_back(std::make_shared<vk::attachment::photo_attachment>(
+    documents.push_back(std::make_shared<vk::attachment::photo>(
       items.at(index)["owner_id"].get_int64(),
       items.at(index)["id"].get_int64()
     ));
   });
   else if (method == "video.search") search_attachments(items, [&documents, &items](std::size_t index){
-    documents.push_back(std::make_shared<vk::attachment::video_attachment>(
+    documents.push_back(std::make_shared<vk::attachment::video>(
       items.at(index)["owner_id"].get_int64(),
       items.at(index)["id"].get_int64()
     ));
   });
   else if (method == "docs.search") search_attachments(items, [&documents, &items](std::size_t index){
-    documents.push_back(std::make_shared<vk::attachment::document_attachment>(
+    documents.push_back(std::make_shared<vk::attachment::document>(
       items.at(index)["owner_id"].get_int64(),
       items.at(index)["id"].get_int64(),
       items.at(index)["url"].get_string()
