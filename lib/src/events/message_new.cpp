@@ -1,6 +1,6 @@
 ﻿#include "simdjson.h"
 
-#include "processing/exception.hpp"
+#include "processing/error_handler.hpp"
 #include "events/message_new.hpp"
 #include "../dependencies/logger/logger.hpp"
 
@@ -96,15 +96,21 @@ vk::action::any_action vk::event::message_new::action() const {
   if (_has_action) {
     return _action;
   } else {
-    vk_throw(exception::access_error, -1, "Attempting accessing empty action.");
+    // Exception thrown there, hence final return will never executed.
+    processing::process_error("message_new_event", exception::access_error(
+      -1, "Attempting accessing empty action."));
   }
+  return { };
 }
 vk::attachment::attachments_t vk::event::message_new::attachments() const {
   if (_has_attachments) {
     return att_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
-    vk_throw(exception::access_error, -1, "Attempting accessing empty attachment list");
+    // Exception thrown there, hence final return will never executed.
+    processing::process_error("message_new_event", exception::access_error(
+      -1, "Attempting accessing empty attachment list."));
   }
+  return { };
 }
 std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const {
   if (_has_fwd_messages) {
@@ -116,13 +122,19 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     }
     return fwd_messages;
   } else {
-    vk_throw(exception::access_error, -1, "Attempting accessing empty forward message list.");
+    // Exception thrown there, hence final return will never executed.
+    processing::process_error("message_new_event", exception::access_error(
+      -1, "Attempting accessing empty forward messages list."));
   }
+  return { };
 }
 std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const {
   if (_has_reply) {
     return std::make_unique<message_new>((*_event_json)["reply_message"].get_object());
   } else {
-    vk_throw(exception::access_error, -1, "Attempting accessing empty reply.");
+    // Exception thrown there, hence final return will never executed.
+    processing::process_error("message_new_event", exception::access_error(
+      -1, "Attempting accessing empty reply."));
   }
+  return { };
 }

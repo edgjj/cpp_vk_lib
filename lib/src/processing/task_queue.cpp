@@ -14,6 +14,7 @@ void vk::processing::task_queue::start(std::size_t num_threads) {
       )
     );
   }
+  finish();
 }
 
 void vk::processing::task_queue::cancel_pending() {

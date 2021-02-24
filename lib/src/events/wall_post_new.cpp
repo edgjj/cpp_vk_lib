@@ -43,7 +43,8 @@ vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noex
     return _attachment_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("wall_post_new", exception::access_error(-1, "Attempting accessing empty attachment list."));
+    processing::process_error("wall_post_new", exception::access_error(
+      -1, "Attempting accessing empty attachment list."));
   }
   return { };
 }
@@ -65,7 +66,8 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
     return repost;
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("wall_post_new", exception::access_error(-1, "Attempting accessing empty repost."));
+    processing::process_error("wall_post_new", exception::access_error(
+      -1, "Attempting accessing empty repost."));
   }
   return { };
 }
