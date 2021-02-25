@@ -6,6 +6,10 @@
 
 #include "button_tests/button_tests.hpp"
 
+#include "event_tests/message_new_tests.hpp"
+#include "event_tests/wall_post_new_tests.hpp"
+#include "event_tests/wall_reply_new_tests.hpp"
+
 
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);
