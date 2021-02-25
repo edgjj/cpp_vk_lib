@@ -39,7 +39,7 @@ jobs:
       working-directory: ${{github.workspace}}
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake . && make
+      run: cmake . && make -j8
 
     - name: Test
       working-directory: ${{github.workspace}}
