@@ -16,7 +16,7 @@ namespace document {
 /*!
  * @brief The base class for @ref vk::docs, @ref vk::photos and @ref vk::video.
  */
-class vk_hidden common {
+class vk_export common {
 protected:
   explicit common();
   ~common();
@@ -29,8 +29,8 @@ protected:
    */
   vk::attachment::attachments_t common_search(std::string_view method, std::string_view query, std::int64_t count);
   /*!
-   * \brief Upload file to server.
-   * \return parsed JSON response.
+   * @brief Upload file to server.
+   * @return parsed JSON response.
    */
   simdjson::dom::object common_upload(
     std::string_view filename,
