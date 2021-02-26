@@ -48,7 +48,9 @@ void vk::method::messages::send(int64_t peer_id, std::string_view text, const vk
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
-  send(peer_id, text, vk::attachment::attachments_t());
+  std::map<std::string, std::string> parameters;
+  append_params(parameters, peer_id, text);
+  method_util.call("messages.send", method_util.group_args(std::move(parameters)));
 }
 
 void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
@@ -89,7 +91,8 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
   );
 
   if (method_util.error_returned(response, 15))
-    processing::process_error("messages", exception::upload_error(15, "Can't delete chat photo. Maybe it already deleted?"));
+    processing::process_error("messages", exception::upload_error(
+      15, "Can't delete chat photo. Maybe it already deleted?"));
 }
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {

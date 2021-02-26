@@ -1,4 +1,4 @@
-#ifndef VK_MESSAGE_NEW_H
+  #ifndef VK_MESSAGE_NEW_H
 #define VK_MESSAGE_NEW_H
 
 #include "events/handlers/attachment_handler.hpp"

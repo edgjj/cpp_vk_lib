@@ -4,7 +4,6 @@
 #include "simdjson.h"
 
 #include "net/network_client.hpp"
-#include "processing/exception.hpp"
 
 
 namespace vk {
@@ -35,8 +34,8 @@ public:
    * @throws vk::exception::access_error with detailed description in case, when wrong data were provided.
    */
   void pull();
-  std::string token() const;
-  std::int64_t user_id() const;
+  std::string token() const noexcept;
+  std::int64_t user_id() const noexcept;
 
 private:
   bool error_returned(const simdjson::dom::object& response, std::string_view error_desc) {

@@ -1,3 +1,4 @@
+#include "processing/error_handler.hpp"
 #include "oauth/client.hpp"
 
 
@@ -31,21 +32,20 @@ void vk::oauth::client::pull() {
   }));
 
   if (error_returned(response, "invalid_client")  ||
-    error_returned(response, "invalid_request") ||
-    error_returned(response, "invalid_grant"))
-      vk_throw(
-        vk::exception::access_error, -1,
-        response["error_description"].get_string().take_value().data()
-      );
+      error_returned(response, "invalid_request") ||
+      error_returned(response, "invalid_grant")
+  )
+    processing::process_error("oauth", exception::access_error(
+      -1, response["error_description"].get_c_str().take_value()));
 
-  pulled_token = response["access_token"].get_string().take_value().data();
+  pulled_token = response["access_token"].get_c_str().take_value();
   pulled_user_id = response["user_id"].get_int64();
 }
 
-std::string vk::oauth::client::token() const {
+std::string vk::oauth::client::token() const  noexcept {
   return pulled_token;
 }
 
-std::int64_t vk::oauth::client::user_id() const {
+std::int64_t vk::oauth::client::user_id() const  noexcept {
   return pulled_user_id;
 }
