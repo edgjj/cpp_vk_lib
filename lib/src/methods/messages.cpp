@@ -2,24 +2,45 @@
 
 #include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 
 
-static inline void append_params(std::map<std::string, std::string>& parameters, std::int64_t peer_id, std::string_view text) {
-  parameters.insert(
-    {{"random_id","0"}, {"disable_mentions","1"},
-    {"peer_id",std::to_string(peer_id)}, {"message",text.data()}}
-  );
-}
-
-static inline void append_attachments(std::map<std::string, std::string>& parameters, const vk::attachment::attachments_t& list) {
-  auto lambda = [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
-    return res += att->value() + ',';
-  };
-  parameters.insert({{
-    "attachment", std::accumulate(list.begin(), list.end(), std::string(), lambda)
-  }});
-}
+namespace {
+struct message_constructor {
+public:
+  using parameter_t = std::map<std::string, std::string>;
+  explicit message_constructor() {
+    params.emplace("random_id",        "0");
+    params.emplace("disable_mentions", "1");
+  }
+  void append(std::pair<std::string, std::string>&& pair) {
+    params.emplace(std::move(pair));
+  }
+  void append_map(parameter_t&& additional_params) {
+    params.merge(std::move(additional_params));
+  }
+  void append_attachments(const vk::attachment::attachments_t& attachments) {
+    params.emplace("attachment", append_attachments_impl(attachments).data());
+  }
+  parameter_t&& consume_map() noexcept {
+    return std::move(params);
+  }
+  parameter_t map() const noexcept {
+    return params;
+  }
+private:
+  std::string append_attachments_impl(const vk::attachment::attachments_t& attachments) {
+    return
+    std::accumulate(
+      attachments.begin(), attachments.end(), std::string(),
+        [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
+            return res += att->value() + ',';
+        }
+    );
+  }
+  parameter_t params;
+};
+} // namespace
 
 vk::method::messages::messages()
   : parser(std::make_unique<simdjson::dom::parser>())
@@ -27,30 +48,63 @@ vk::method::messages::messages()
 
 vk::method::messages::~messages() = default;
 
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const vk::attachment::attachments_t& list) {
-  std::map<std::string, std::string> parameters;
-  append_params(parameters, peer_id, text);
-  append_attachments(parameters, list);
-  method_util.call("messages.send", method_util.group_args(std::move(parameters)));
+void vk::method::messages::send(
+    std::int64_t peer_id,
+    std::string_view text,
+    const vk::attachment::attachments_t& list
+) {
+  message_constructor constructor;
+  constructor.append({
+    "peer_id", std::to_string(peer_id)
+  });
+  constructor.append({
+    "message", text.data()
+  });
+  constructor.append_attachments(list);
+  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) {
-  auto parameters = raw_parameters;
-  append_params(parameters, peer_id, text);
-  method_util.call("messages.send", method_util.group_args(std::move(parameters)));
+void vk::method::messages::send(
+    std::int64_t peer_id,
+    std::string_view text,
+    std::map<std::string, std::string>&& raw_parameters
+) {
+  message_constructor constructor;
+  constructor.append({
+    "peer_id", std::to_string(peer_id)
+  });
+  constructor.append({
+    "message", text.data()
+  });
+  constructor.append_map(
+    std::move(raw_parameters)
+  );
+  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::send(int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) {
-  std::map<std::string, std::string> parameters;
-  append_params(parameters, peer_id, text);
-  parameters.insert({{"keyboard", layout.serialize()}});
-  method_util.call("messages.send", method_util.group_args(std::move(parameters)));
+  message_constructor constructor;
+  constructor.append({
+    "peer_id", std::to_string(peer_id)
+  });
+  constructor.append({
+    "message", text.data()
+  });
+  constructor.append({
+    "keyboard", layout.serialize()
+  });
+  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
-  std::map<std::string, std::string> parameters;
-  append_params(parameters, peer_id, text);
-  method_util.call("messages.send", method_util.group_args(std::move(parameters)));
+  message_constructor constructor;
+  constructor.append({
+    "peer_id", std::to_string(peer_id)
+  });
+  constructor.append({
+    "message", text.data()
+  });
+  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
@@ -99,8 +153,7 @@ void vk::method::messages::set_chat_photo(std::string_view filename, std::string
   simdjson::dom::object response(
     parser->parse(
       net_client.upload(
-        "file",
-        filename,
+        "file", filename,
         parser->parse(raw_server)["response"]["upload_url"].get_string()
       )
     )
