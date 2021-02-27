@@ -3,8 +3,6 @@
 
 #include "processing/backtrace.hpp"
 
-#include "json.hpp"
-
 namespace vk {
 namespace exception {
 
