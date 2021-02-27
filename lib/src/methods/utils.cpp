@@ -10,9 +10,11 @@ bool vk::method::utils::check_link(std::string_view url) {
       {"url", url.data()}
     }))
   );
-  if (method_util.error_returned(response, 100))
-    processing::process_error("utils", exception::invalid_parameter_error(100, "Invalid URL."));
-
+  if (response.begin().key() == "error") {
+    processing::process_error("messages", exception::invalid_parameter_error(
+      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
+    ));
+  }
   return response["response"]["status"].get_string().take_value() == "not_banned";
 }
 
@@ -22,10 +24,12 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
       {"url", url.data()}
     }))
   );
-  if (method_util.error_returned(response, 100))
-    processing::process_error("utils", exception::invalid_parameter_error(100, "Invalid URL."));
-
-  return response["response"]["short_url"].get_string().take_value().data();
+  if (response.begin().key() == "error") {
+    processing::process_error("messages", exception::invalid_parameter_error(
+      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
+    ));
+  }
+  return response["response"]["short_url"].get_c_str().take_value();
 }
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) {

@@ -3,6 +3,7 @@
 
 #include "processing/backtrace.hpp"
 
+#include "json.hpp"
 
 namespace vk {
 namespace exception {
@@ -15,43 +16,42 @@ public:
   virtual const char* what() const noexcept override {
     return error.what();
   }
-  std::int64_t id() const noexcept {
-    return error_id;
-  }
 protected:
-  explicit common_exception(std::int32_t id, const char* what_arg)
-    : error_id(id), error(what_arg)
+  explicit common_exception(std::string_view what_arg)
+    : error(what_arg.data())
   {
     backtrace_view{0};
   }
-  std::string create(std::int32_t id, const std::string& ename) const {
-    return "[vk.exception." + ename + '.' + std::to_string(id) + "]: ";
+  std::string create(std::int32_t id, std::string ename, std::string arg) const {
+    return "[vk.exception." + ename + '.' + std::to_string(id) + "]: " + arg;
   }
 
 private:
-  std::int32_t error_id;
   std::runtime_error error;
 };
 
-#define GENERATE_EXCEPTION_CLASS(EXCEPTION) \
-  class vk_export EXCEPTION : public common_exception { \
-  public: \
-    explicit EXCEPTION(int id_, const char* what_arg_) \
-      : common_exception(id_, std::string(create(id_, #EXCEPTION) + what_arg_).c_str()) \
-    { } \
-  }; \
+class vk_export upload_error : public common_exception {
+public:
+  explicit upload_error(int id_, const char* what_arg_)
+    : common_exception(create(id_, "upload_error", what_arg_))
+  { }
+};
 
-GENERATE_EXCEPTION_CLASS(upload_error)
-GENERATE_EXCEPTION_CLASS(access_error)
-GENERATE_EXCEPTION_CLASS(invalid_parameter_error)
+class vk_export access_error : public common_exception {
+public:
+  explicit access_error(int id_, const char* what_arg_)
+    : common_exception(create(id_, "access_error", what_arg_))
+  { }
+};
+
+class vk_export invalid_parameter_error : public common_exception {
+public:
+  explicit invalid_parameter_error(int id_, const char* what_arg_)
+    : common_exception(create(id_, "invalid_parameter_error", what_arg_))
+  { }
+};
 
 } // namespace exception
 } // namespace vk
-
-#define vk_throw(EXCEPTION, ID, MESSAGE) \
-  throw EXCEPTION(ID, MESSAGE)
-
-
-#undef GENERATE_EXCEPTION_CLASS
 
 #endif // VK_EXCEPTION_H

@@ -54,7 +54,7 @@ void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
 }
 
 void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
-  simdjson::dom::object parsed(
+  simdjson::dom::object response(
     method_util.call_and_parse("messages.removeChatUser", method_util.group_args({
       {"chat_id",    std::to_string(chat_id)},
       {"user_id",    std::to_string(user_id)},
@@ -62,15 +62,13 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
     }))
   );
 
-  if (parsed.begin().key() == "response" && parsed["response"].get_int64() == 1)
+  if (response.begin().key() == "response" && response["response"].get_int64() == 1)
     return;
 
-  if (method_util.error_returned(parsed, 100)) {
-    processing::process_error("messages", exception::access_error(1488, "Can't kick this user/group."));
-  }
-
-  if (method_util.error_returned(parsed, 15)) {
-    processing::process_error("messages", exception::access_error(15, "Access denied."));
+  if (response.begin().key() == "error") {
+    processing::process_error("messages", exception::access_error(
+      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
+    ));
   }
 }
 
@@ -90,9 +88,11 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
     )
   );
 
-  if (method_util.error_returned(response, 15))
-    processing::process_error("messages", exception::upload_error(
-      15, "Can't delete chat photo. Maybe it already deleted?"));
+  if (response.begin().key() == "error") {
+    processing::process_error("messages", exception::access_error(
+      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
+    ));
+  }
 }
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
@@ -119,8 +119,11 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
     )
   );
 
-  if (method_util.error_returned(response, 917))
-    processing::process_error("messages", exception::access_error(917, "Access denied."));
+  if (response.begin().key() == "error") {
+    processing::process_error("messages", exception::access_error(
+      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
+    ));
+  }
 
   conversation_member_list members;
   for (auto&& profile : response["response"]["profiles"].get_array()) {

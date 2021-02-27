@@ -26,7 +26,6 @@ public:
   simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params);
   std::string call      (std::string_view method, std::map<std::string, std::string>&& params) const;
   std::string append_url(std::string_view method) const;
-  bool error_returned   (const simdjson::dom::object& response, std::int64_t error_code);
 
   static inline const std::int64_t chat_id_constant = 2000000000;
 

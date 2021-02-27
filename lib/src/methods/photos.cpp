@@ -36,11 +36,13 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(s
   if (upload_response["photo"].get_string().take_value() == "[]" ||
       upload_response["photo"].get_string().take_value() == "")
   {
-    processing::process_error("photos", exception::upload_error(-1, "Can't upload file. Maybe is not an image?"));
+    processing::process_error("photos", exception::upload_error(
+      -1, "Can't upload file. Maybe is not an image?"));
   }
 
   std::string raw_vk_response(
-    method_util.call("photos.saveMessagesPhoto", method_util.group_args(save_messages_photo_args(std::move(upload_response))))
+    method_util.call("photos.saveMessagesPhoto", method_util.group_args(
+      save_messages_photo_args(std::move(upload_response))))
   );
 
   simdjson::dom::object uploaded(parser->parse(raw_vk_response)["response"].at(0));
