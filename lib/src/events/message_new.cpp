@@ -1,8 +1,7 @@
 ﻿#include "simdjson.h"
 
-#include "processing/error_handler.hpp"
 #include "events/message_new.hpp"
-#include "../dependencies/logger/logger.hpp"
+#include "processing/process_error.hpp"
 
 
 vk::event::message_new::message_new(simdjson::dom::object&& event)

@@ -1,8 +1,12 @@
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 #include "oauth/client.hpp"
 
 
-vk::oauth::client::client(std::string_view username_, std::string_view password_, vk::oauth::target_client client_type_)
+vk::oauth::client::client(
+    std::string_view username_,
+    std::string_view password_,
+    vk::oauth::target_client client_type_
+)
   : client_type(client_type_), username(username_.data()), password(password_.data())
 {
   switch (client_type) {

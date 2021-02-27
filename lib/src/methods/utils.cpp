@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 #include "methods/utils.hpp"
 
 
@@ -34,7 +34,8 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) {
   if (screen_name.empty())
-    processing::process_error("utils", exception::invalid_parameter_error(-1, "Empty argument provided."));
+    processing::process_error("utils", exception::invalid_parameter_error(
+      -1, "Empty argument provided."));
 
   simdjson::dom::object response(
     method_util.call_and_parse("utils.resolveScreenName", method_util.group_args({

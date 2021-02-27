@@ -17,7 +17,12 @@ public:
   ~audio();
 
   std::string get_upload_server() const;
-  void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server);
+  void save(
+    std::string_view artist,
+    std::string_view title,
+    std::string_view filename,
+    std::string_view raw_server
+  );
 private:
   method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;

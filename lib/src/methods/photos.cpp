@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 #include "methods/photos.hpp"
 
 
@@ -30,7 +30,10 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
   };
 }
 
-std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) {
+std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(
+    std::string_view filename,
+    std::string_view raw_server
+) {
   simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||

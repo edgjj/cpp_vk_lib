@@ -28,7 +28,11 @@ enum class target_client : std::uint8_t {
  */
 class vk_export client {
 public:
-  explicit client(std::string_view username_, std::string_view password_, target_client client_type_);
+  explicit client(
+    std::string_view username_,
+    std::string_view password_,
+    target_client client_type_
+  );
   /*!
    * @brief Try get user data.
    * @throws vk::exception::access_error with detailed description in case, when wrong data were provided.

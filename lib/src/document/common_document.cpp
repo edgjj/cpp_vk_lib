@@ -17,9 +17,15 @@ static void search_attachments(const simdjson::dom::array& items, function&& fun
   }
 }
 
-vk::attachment::attachments_t vk::document::common::common_search(std::string_view method, std::string_view query, std::int64_t count) {
+vk::attachment::attachments_t vk::document::common::common_search(
+    std::string_view method,
+    std::string_view query,
+    std::int64_t count
+) {
   vk::attachment::attachments_t documents;
-  std::string raw_json = method_util.call(method, method_util.user_args({{"q", query.data()}, {"count", std::to_string(count)}}));
+  std::string raw_json = method_util.call(
+    method, method_util.user_args({{"q", query.data()}, {"count", std::to_string(count)}})
+  );
   simdjson::dom::array items = parser->parse(raw_json)["response"]["items"].get_array();
   documents.reserve(items.size());
 

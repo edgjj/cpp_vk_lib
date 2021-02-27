@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "string_utils/string_utils.hpp"
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 #include "methods/docs.hpp"
 
 
@@ -15,7 +15,12 @@ vk::attachment::attachments_t vk::method::docs::search(std::string_view query, s
   return common_search("docs.search", query, count);
 }
 
-void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags) {
+void vk::method::docs::edit(
+    int64_t owner_id,
+    int64_t doc_id,
+    std::string_view title,
+    std::initializer_list<std::string>&& tags
+) {
   simdjson::dom::object response =
   method_util.call_and_parse("docs.edit", method_util.user_args({
     {"owner_id",    std::to_string(owner_id)},
@@ -64,7 +69,10 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
   }));
 }
 
-std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) {
+std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_message(
+    std::string_view filename,
+    std::string_view raw_server
+) {
   simdjson::dom::object upload_response(common_upload(filename, raw_server, "file"));
   if (upload_response.begin().key() != "file")
     processing::process_error("docs", exception::upload_error(
@@ -72,7 +80,9 @@ std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_mess
 
   std::string file(upload_response["file"].get_c_str());
   if (file == "") { return { }; }
-  std::string raw_save_response(method_util.call("docs.save", method_util.group_args({{"file", file}, {"title", "voice"}})));
+  std::string raw_save_response(
+    method_util.call("docs.save", method_util.group_args({{"file", file}, {"title", "voice"}}))
+  );
   simdjson::dom::object uploaded_doc(parser->parse(raw_save_response)["response"]["audio_message"]);
 
   return

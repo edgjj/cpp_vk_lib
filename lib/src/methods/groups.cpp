@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 #include "methods/groups.hpp"
 
 

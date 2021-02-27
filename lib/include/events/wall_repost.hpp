@@ -2,7 +2,7 @@
 #define VK_WALL_REPOST_H
 
 #include "attachment/attachment.hpp"
-#include "processing/error_handler.hpp"
+#include "processing/process_error.hpp"
 
 
 namespace vk {
