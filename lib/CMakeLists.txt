@@ -15,9 +15,8 @@ else()
 endif()
 
 set(HEADERS
-  include/method_utils/method_utils.hpp
-
   include/attachment/attachment.hpp
+
 
   include/config/loader.hpp
 
@@ -43,6 +42,9 @@ set(HEADERS
 
   include/long_poll/long_poll_api.hpp
   include/long_poll/long_poll_data.hpp
+
+  include/method_utils/method_utils.hpp
+  include/method_utils/message_constructor.hpp
 
   include/methods/audio.hpp
   include/methods/docs.hpp

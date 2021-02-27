@@ -34,7 +34,7 @@ public:
   ~messages();
 
   void send                 (std::int64_t peer_id, std::string_view text);
-  void send                 (std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list);
+  void send                 (std::int64_t peer_id, std::string_view text, attachment::attachments_t&& list);
   void send                 (std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters);
   void send                 (std::int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout);
   void remove_chat_user     (std::int64_t chat_id, std::int64_t user_id);

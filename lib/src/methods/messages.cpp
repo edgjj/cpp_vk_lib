@@ -2,50 +2,9 @@
 
 #include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
+#include "method_utils/message_constructor.hpp"
 #include "processing/process_error.hpp"
 
-
-namespace {
-struct message_constructor {
-public:
-  message_constructor(const message_constructor&) = default;
-  message_constructor(message_constructor&&) = default;
-  message_constructor& operator=(const message_constructor&) = default;
-  message_constructor& operator=(message_constructor&&) = default;
- ~message_constructor() = default;
-  using parameter_t = std::map <std::string, std::string>;
-
-  explicit message_constructor() {
-    params.emplace("random_id",        "0");
-    params.emplace("disable_mentions", "1");
-  }
-  void append(std::pair<std::string, std::string>&& pair) {
-    params.emplace(std::move(pair));
-  }
-  void append_map(parameter_t&& additional_params) {
-    params.merge(std::move(additional_params));
-  }
-  void append_attachments(const vk::attachment::attachments_t& attachments) {
-    params.emplace("attachment", append_attachments_impl(attachments).data());
-  }
-  parameter_t&& consume_map() noexcept {
-    return std::move(params);
-  }
-  parameter_t map() const noexcept {
-    return params;
-  }
-private:
-  std::string append_attachments_impl(const vk::attachment::attachments_t& attachments) {
-    return std::accumulate(
-      attachments.begin(), attachments.end(), std::string(),
-        [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
-            return res += att->value() + ',';
-        }
-    );
-  }
-  parameter_t params;
-};
-} // namespace
 
 vk::method::messages::messages()
   : parser(std::make_unique<simdjson::dom::parser>())
@@ -56,7 +15,7 @@ vk::method::messages::~messages() = default;
 void vk::method::messages::send(
     std::int64_t peer_id,
     std::string_view text,
-    const vk::attachment::attachments_t& list
+    attachment::attachments_t&& list
 ) {
   message_constructor constructor;
   constructor.append({
@@ -65,7 +24,7 @@ void vk::method::messages::send(
   constructor.append({
     "message", text.data()
   });
-  constructor.append_attachments(list);
+  constructor.append_attachments(std::move(list));
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
