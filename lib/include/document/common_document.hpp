@@ -17,17 +17,9 @@ namespace document {
  * @brief The base class for @ref vk::docs, @ref vk::photos and @ref vk::video.
  */
 class vk_export common {
-protected:
+public:
   explicit common();
   ~common();
-  /*!
-   * @brief Search attachments of requested type.
-   * @param method    - method name (photos.search, video.search or docs.search)
-   * @param query     - search query
-   * @param count     - maximum count of documents to search
-   * @return vector of attachments.
-   */
-  vk::attachment::attachments_t common_search(std::string_view method, std::string_view query, std::int64_t count);
   /*!
    * @brief Upload file to server.
    * @return parsed JSON response.
@@ -37,6 +29,15 @@ protected:
     std::string_view server,
     std::string_view field_name
   );
+protected:
+  /*!
+   * @brief Search attachments of requested type.
+   * @param method    - method name (photos.search, video.search or docs.search)
+   * @param query     - search query
+   * @param count     - maximum count of documents to search
+   * @return vector of attachments.
+   */
+  vk::attachment::attachments_t common_search(std::string_view method, std::string_view query, std::int64_t count);
 
   std::unique_ptr<simdjson::dom::parser> parser;
   method_utils method_util;

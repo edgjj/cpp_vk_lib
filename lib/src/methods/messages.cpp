@@ -8,7 +8,13 @@
 namespace {
 struct message_constructor {
 public:
-  using parameter_t = std::map<std::string, std::string>;
+  message_constructor(const message_constructor&) = default;
+  message_constructor(message_constructor&&) = default;
+  message_constructor& operator=(const message_constructor&) = default;
+  message_constructor& operator=(message_constructor&&) = default;
+ ~message_constructor() = default;
+  using parameter_t = std::map <std::string, std::string>;
+
   explicit message_constructor() {
     params.emplace("random_id",        "0");
     params.emplace("disable_mentions", "1");
@@ -30,8 +36,7 @@ public:
   }
 private:
   std::string append_attachments_impl(const vk::attachment::attachments_t& attachments) {
-    return
-    std::accumulate(
+    return std::accumulate(
       attachments.begin(), attachments.end(), std::string(),
         [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
             return res += att->value() + ',';
@@ -150,17 +155,10 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
 }
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
-  simdjson::dom::object response(
-    parser->parse(
-      net_client.upload(
-        "file", filename,
-        parser->parse(raw_server)["response"]["upload_url"].get_string()
-      )
-    )
-  );
-
+  simdjson::dom::object response =
+    common_document.common_upload(filename, raw_server, "file");
   method_util.call("messages.setChatPhoto", method_util.group_args({
-    {"file", response["response"].get_string().take_value().data()}
+    {"file", response["response"].get_c_str().take_value()}
   }));
 }
 

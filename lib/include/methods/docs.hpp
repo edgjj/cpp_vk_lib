@@ -26,7 +26,6 @@ public:
 private:
   method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;
-  network_client net_client;
 };
 } // namespace method
 } // namespace vk

@@ -2,6 +2,7 @@
 #define VK_MESSAGES_H
 
 #include "attachment/attachment.hpp"
+#include "document/common_document.hpp"
 #include "method_utils/method_utils.hpp"
 
 
@@ -45,7 +46,7 @@ public:
 private:
   method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;
-  network_client net_client;
+  document::common common_document;
 };
 } // namespace method
 } // namespace vk

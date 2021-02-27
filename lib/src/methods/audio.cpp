@@ -21,12 +21,7 @@ void vk::method::audio::save(
     std::string_view raw_server
 ) {
   simdjson::dom::object response =
-  parser->parse(
-    net_client.upload(
-      "file", filename,
-      parser->parse(raw_server)["response"]["upload_url"].get_string()
-    )
-  );
+    common_document.common_upload(filename, raw_server, "file");
 
   if (response.begin().key() == "error") {
     processing::process_error("audio", exception::upload_error(
