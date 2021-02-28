@@ -25,12 +25,12 @@ private:
     if (data.empty())
       return {};
     std::string formatted;
-    std::ostringstream output_stream;
-    auto pack_one = [&output_stream](auto&& argument) {
-      output_stream.str("");
-      output_stream.clear();
-      output_stream << std::forward<decltype(argument)>(argument);
-      return output_stream.rdbuf()->str();
+    auto pack_one = [](auto&& argument) {
+      if constexpr (std::is_integral_v<std::decay_t<decltype(argument)>>) {
+        return std::to_string(argument);
+      } else {
+        return std::string(argument);
+      }
     };
     std::array<std::string, sizeof...(Args)> elements{pack_one(args)...};
     std::size_t curr = 0;
