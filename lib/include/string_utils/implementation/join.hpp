@@ -22,9 +22,6 @@ namespace string_utils {
 template <typename T>
 struct join_implementation {
 private:
-  using is_integral = std::true_type;
-  using is_not_integral = std::false_type;
-
   template <typename container, typename binary_operation>
   static std::string common_implementation(container&& elements, binary_operation operation) {
     return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
@@ -32,7 +29,7 @@ private:
   template <typename container>
   static std::string common_create(container&& elements, char delimiter) {
     return common_implementation(elements, [&delimiter](std::string& accumlator, T element){
-      if constexpr (std::is_integral<T>()) {
+      if constexpr (std::is_integral_v<T>) {
         return accumlator.empty()
           ? std::to_string(element)
           : std::move(accumlator) + delimiter + std::to_string(element);
