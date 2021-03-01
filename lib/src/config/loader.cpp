@@ -19,6 +19,11 @@ vk::config::loader* vk::config::loader::get() {
   return instance;
 }
 
+void vk::config::loader::deallocate() {
+  if (instance)
+    delete instance;
+}
+
 vk::config::loader::loader(std::string_view path)
   : path_(path)
 {

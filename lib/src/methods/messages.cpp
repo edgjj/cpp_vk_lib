@@ -46,7 +46,11 @@ void vk::method::messages::send(
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
-void vk::method::messages::send(int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) {
+void vk::method::messages::send(
+    int64_t peer_id,
+    std::string_view text,
+    const vk::keyboard::layout& layout
+) {
   message_constructor constructor;
   constructor.append({
     "peer_id", std::to_string(peer_id)
@@ -118,6 +122,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
       {"message_id",                std::to_string(message_id)},
       {"conversation_message_id",   std::to_string(conversation_message_id)}
     }));
+
   if (response.begin().key() == "error") {
     processing::process_error("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()

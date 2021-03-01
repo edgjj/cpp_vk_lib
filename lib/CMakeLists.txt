@@ -5,7 +5,6 @@ include_directories(../dependencies/curl/include/curl)
 add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
-message(${CMAKE_CURRENT_BINARY_DIR})
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
     set(CMAKE_CXX_FLAGS "-O2 -msse3 -march=native -mtune=generic")
 elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
@@ -60,6 +59,7 @@ set(HEADERS
 
   include/oauth/client.hpp
 
+  include/processing/at_program_exit.hpp
   include/processing/backtrace.hpp
   include/processing/process_error.hpp
   include/processing/exception.hpp

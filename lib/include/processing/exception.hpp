@@ -18,7 +18,7 @@ protected:
   explicit common_exception(std::string_view what_arg)
     : error(what_arg.data())
   {
-    backtrace_view{0};
+    processing::backtrace_view{0};
   }
   std::string create(std::int32_t id, std::string ename, std::string arg) const {
     return "[vk.exception." + ename + '.' + std::to_string(id) + "]: " + arg;

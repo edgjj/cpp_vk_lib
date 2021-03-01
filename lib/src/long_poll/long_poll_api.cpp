@@ -38,7 +38,8 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std:
   events_t event_list;
   simdjson::dom::object raw_updates(get_updates(data, timeout));
   simdjson::dom::array raw_updates_array(raw_updates["updates"].get_array());
-  if (raw_updates_array.size() == 0) { data = server(); }
+  if (raw_updates_array.size() == 0)
+    data = server();
 
   for (simdjson::dom::element&& update : raw_updates_array) {
     event_list.push_back(std::make_unique<vk::event::common>(

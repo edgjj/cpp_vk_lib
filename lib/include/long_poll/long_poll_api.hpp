@@ -15,9 +15,10 @@ namespace vk {
  */
 class vk_export long_poll_api {
 public:
-  disable_copy(long_poll_api)
-  disable_move(long_poll_api)
-
+  long_poll_api(const long_poll_api&) = delete;
+  long_poll_api(long_poll_api&&) = delete;
+  long_poll_api& operator=(const long_poll_api&) = delete;
+  long_poll_api& operator=(long_poll_api&&) = delete;
   using events_t = std::vector<std::unique_ptr<event::common>>;
 
   explicit long_poll_api();
@@ -41,7 +42,6 @@ public:
   void queue(Function&& function);
   /*!
    * @brief Pop and execute task from thread pool queue.
-   * @param Number of threads (default - maximum threads available on the computer).
    */
   void run();
 
@@ -56,8 +56,7 @@ private:
 } // namespace vk
 
 template <typename Function>
-void vk::long_poll_api::queue(Function&& function)
-{
+void vk::long_poll_api::queue(Function&& function) {
   task_queue.queue(function);
 }
 

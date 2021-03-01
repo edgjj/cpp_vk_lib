@@ -12,12 +12,9 @@
 
 
 namespace vk {
+namespace processing {
 /*!
  * @brief Backtrace viewer, used in exception classes.
- *
- * @code{.cpp}
- *  backtrace_view{0};
- * @endcode
  */
 class vk_hidden backtrace_view {
 public:
@@ -103,6 +100,7 @@ private:
   char*  begin_offset   = nullptr;
   char*  end_offset     = nullptr;
 };
-}  // namespace vk
+} // namespace processing
+} // namespace vk
 
 #endif // BACKTRACE_H
