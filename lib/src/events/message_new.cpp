@@ -1,7 +1,7 @@
 ﻿#include "simdjson.h"
 
 #include "events/message_new.hpp"
-#include "processing/process_error.hpp"
+#include "processing/error_processor.hpp"
 
 
 vk::event::message_new::message_new(simdjson::dom::object&& event)
@@ -96,7 +96,7 @@ vk::action::any_action vk::event::message_new::action() const {
     return _action;
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("message_new_event", exception::access_error(
+    processing::error_log_and_throw("message_new_event", exception::access_error(
       -1, "Attempting accessing empty action."));
   }
   return { };
@@ -106,7 +106,7 @@ vk::attachment::attachments_t vk::event::message_new::attachments() const {
     return att_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("message_new_event", exception::access_error(
+    processing::error_log_and_throw("message_new_event", exception::access_error(
       -1, "Attempting accessing empty attachment list."));
   }
   return { };
@@ -122,7 +122,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     return fwd_messages;
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("message_new_event", exception::access_error(
+    processing::error_log_and_throw("message_new_event", exception::access_error(
       -1, "Attempting accessing empty forward messages list."));
   }
   return { };
@@ -132,7 +132,7 @@ std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const {
     return std::make_unique<message_new>((*_event_json)["reply_message"].get_object());
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::process_error("message_new_event", exception::access_error(
+    processing::error_log_and_throw("message_new_event", exception::access_error(
       -1, "Attempting accessing empty reply."));
   }
   return { };

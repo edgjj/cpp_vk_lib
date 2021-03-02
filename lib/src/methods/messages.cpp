@@ -3,7 +3,7 @@
 #include "keyboard/layout.hpp"
 #include "methods/messages.hpp"
 #include "method_utils/message_constructor.hpp"
-#include "processing/process_error.hpp"
+#include "processing/error_processor.hpp"
 
 
 vk::method::messages::messages()
@@ -87,7 +87,7 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
     return;
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::access_error(
+    processing::error_log_and_throw("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }
@@ -109,7 +109,7 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
     );
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::access_error(
+    processing::error_log_and_throw("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }
@@ -124,7 +124,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
     }));
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::access_error(
+    processing::error_log_and_throw("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }
@@ -146,7 +146,7 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
     );
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::access_error(
+    processing::error_log_and_throw("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }

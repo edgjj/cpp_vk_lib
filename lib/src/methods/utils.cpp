@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
-#include "processing/process_error.hpp"
 #include "methods/utils.hpp"
+#include "processing/error_processor.hpp"
 
 
 bool vk::method::utils::check_link(std::string_view url) {
@@ -11,7 +11,7 @@ bool vk::method::utils::check_link(std::string_view url) {
     }));
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::invalid_parameter_error(
+    processing::error_log_and_throw("messages", exception::invalid_parameter_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }
@@ -25,7 +25,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
     }));
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::invalid_parameter_error(
+    processing::error_log_and_throw("messages", exception::invalid_parameter_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }
@@ -34,7 +34,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) {
   if (screen_name.empty())
-    processing::process_error("utils", exception::invalid_parameter_error(
+    processing::error_log_and_throw("utils", exception::invalid_parameter_error(
       -1, "Empty argument provided."));
 
   simdjson::dom::object response =
@@ -43,7 +43,7 @@ std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name
     }));
 
   if (response["response"].get_array().size() == 0)
-    processing::process_error("utils", exception::access_error(-1, "No such user."));
+    processing::error_log_and_throw("utils", exception::access_error(-1, "No such user."));
 
   return response["response"]["object_id"].get_int64();
 }

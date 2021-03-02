@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "processing/process_error.hpp"
+#include "processing/error_processor.hpp"
 #include "methods/groups.hpp"
 
 
@@ -8,7 +8,7 @@ std::int64_t vk::method::groups::get_by_id() {
   simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
 
   if (response.begin().key() == "error") {
-    processing::process_error("messages", exception::access_error(
+    processing::error_log_and_throw("messages", exception::access_error(
       response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
     ));
   }

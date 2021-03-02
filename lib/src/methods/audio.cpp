@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "methods/audio.hpp"
-#include "processing/process_error.hpp"
+#include "processing/error_processor.hpp"
 
 
 vk::method::audio::audio()
@@ -24,7 +24,7 @@ void vk::method::audio::save(
     common_document.common_upload(filename, raw_server, "file");
 
   if (response.begin().key() == "error") {
-    processing::process_error("audio", exception::upload_error(
+    processing::error_log_and_throw("audio", exception::upload_error(
       -1, "Can't upload file. Maybe is not an mp3 track?"));
   }
 

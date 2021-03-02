@@ -61,7 +61,7 @@ set(HEADERS
 
   include/processing/at_program_exit.hpp
   include/processing/backtrace.hpp
-  include/processing/process_error.hpp
+  include/processing/error_processor.hpp
   include/processing/exception.hpp
   include/processing/task_queue.hpp
 

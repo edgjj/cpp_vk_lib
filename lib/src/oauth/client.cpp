@@ -1,4 +1,4 @@
-#include "processing/process_error.hpp"
+#include "processing/error_processor.hpp"
 #include "oauth/client.hpp"
 
 
@@ -39,7 +39,7 @@ void vk::oauth::client::pull() {
       error_returned(response, "invalid_request") ||
       error_returned(response, "invalid_grant")
   )
-    processing::process_error("oauth", exception::access_error(
+    processing::error_log_and_throw("oauth", exception::access_error(
       -1, response["error_description"].get_c_str().take_value()));
 
   pulled_token = response["access_token"].get_c_str().take_value();
