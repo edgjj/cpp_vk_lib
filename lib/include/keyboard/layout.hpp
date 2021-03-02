@@ -40,7 +40,6 @@ public:
    * @return JSON representation.
    */
   std::string serialize() const;
-
   bool is_flag_set(flag flag_) const noexcept;
 
 private:

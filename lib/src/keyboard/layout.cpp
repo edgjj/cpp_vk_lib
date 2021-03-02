@@ -9,7 +9,7 @@ void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& 
 }
 
 template <typename button_type>
-bool has_type(vk::keyboard::any_button button) noexcept {
+static bool has_type(vk::keyboard::any_button button) noexcept {
   return std::holds_alternative<button_type>(button);
 }
 
@@ -26,11 +26,8 @@ std::string vk::keyboard::layout::serialize() const {
   serialized.reserve(1024);
   serialized.push_back('{');
 
-  if (is_flag_set(flag::in_line))
-    serialized.append(R"("inline":true,)");
-
-  if (is_flag_set(flag::one_time))
-    serialized.append(R"("one_time":true,)");
+  if (is_flag_set(flag::in_line))  { serialized.append(R"("inline":true,)"); }
+  if (is_flag_set(flag::one_time)) { serialized.append(R"("one_time":true,)"); }
 
   serialized.append(R"("buttons":[)");
 
@@ -44,7 +41,6 @@ std::string vk::keyboard::layout::serialize() const {
       try_push_button<open_app_button>(any_button, serialized_buttons);
       try_push_button<location_button>(any_button, serialized_buttons);
     }
-
     serialized_rows.push_back('[' + string_utils::join<std::string>(serialized_buttons) + ']');
     serialized_buttons.clear();
   }
