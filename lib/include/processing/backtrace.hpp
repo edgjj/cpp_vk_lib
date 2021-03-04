@@ -7,6 +7,7 @@
 #endif
 
 #include <iostream>
+#include <vector>
 
 #include "misc/cppdefs.hpp"
 
@@ -14,38 +15,37 @@
 namespace vk {
 namespace processing {
 /*!
- * @brief Backtrace viewer, used in exception classes.
+ * @brief Backtrace viewer, used in exceptions.
  */
 class vk_hidden backtrace_view {
 public:
-  explicit backtrace_view(size_t lineno) noexcept
-    : line(lineno)
+  explicit backtrace_view() noexcept
   {
     generate();
     std::cerr << std::endl;
   }
-  ~backtrace_view() { free(symbol_list); }
+  ~backtrace_view() {
+    free(symbol_list);
+  }
+
 private:
-  void generate() noexcept {
+#if defined __linux__
+  void generate() {
     std::cerr << "<backtrace>" << std::endl;
-    int backtrace_size =
-#ifdef __linux__
-      ::backtrace(address_list, sizeof(address_list) / sizeof(void*));
-#else
-      0;
-#endif
+    int backtrace_size = ::backtrace(address_list, sizeof(address_list) / sizeof(void*));
     if (backtrace_size == 0) {
       std::cerr << indent << "<empty>" << std::endl;
       return;
     }
-    symbol_list =
-#ifdef __linux__
-      ::backtrace_symbols(address_list, backtrace_size);
-#else
-      nullptr;
-#endif
+    symbol_list = ::backtrace_symbols(address_list, backtrace_size);
     address_loop(backtrace_size);
   }
+#else
+  void generate() {
+    std::cerr << "<backtrace>" << std::endl;
+    std::cerr << indent << "<empty>" << std::endl;
+  }
+#endif
   void address_loop(size_t backtrace_size) noexcept {
     for (size_t i = 1; i < backtrace_size; i++) {
       get_address_info(i);
@@ -69,26 +69,30 @@ private:
       *end_offset++   = '\0';
       print_impl(func_name, i);
     }
-    else std::cerr << indent << symbol_list[i] << std::endl;
+    else {
+      std::cerr << indent << symbol_list[i] << std::endl;
+    }
   }
+#if defined __linux__
   void print_impl(char* func_name, size_t i) noexcept {
     int status = 0;
-    char* ret =
-#ifdef __linux__
-      abi::__cxa_demangle(begin_name, func_name, &max_func_length, &status);
-#else
-      nullptr;
-#endif
+    char* ret = abi::__cxa_demangle(begin_name, func_name, &max_func_length, &status);
+    std::cerr << indent << symbol_list[i] << ": ";
     if (status == 0) {
-      func_name = ret;
-      std::cerr << indent << symbol_list[i] << ':' << line << ' ' << func_name << '+' << begin_offset << std::endl;
+      std::cerr << ret << '+';
     } else {
-      std::cerr << indent << symbol_list[i] << ':' << line << ' ' << begin_name << "()+" << begin_offset << std::endl;
+      std::cerr << begin_name << "()+";
     }
+    std::cerr << begin_offset << std::endl;
     delete[] func_name;
   }
+#else
+  constexpr void print_impl(char* func_name, size_t i) noexcept {
+    (void)func_name;
+    (void)i;
+  }
+#endif
 
-  const size_t line;
   static constexpr const char* indent = "  ";
   static constexpr size_t max_frames = 16;
   size_t max_func_length = 256;

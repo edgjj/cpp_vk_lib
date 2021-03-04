@@ -2,6 +2,11 @@
 #define VK_EXCEPTION_H
 
 #include "processing/backtrace.hpp"
+#include <stdexcept>
+#include <string>
+
+#include "misc/cppdefs.hpp"
+
 
 namespace vk {
 namespace exception {
@@ -18,7 +23,7 @@ protected:
   explicit common_exception(std::string_view what_arg)
     : error(what_arg.data())
   {
-    processing::backtrace_view{0};
+    processing::backtrace_view{};
   }
   std::string create(std::int32_t id, std::string ename, std::string arg) const {
     return "[vk.exception." + ename + '.' + std::to_string(id) + "]: " + arg;
