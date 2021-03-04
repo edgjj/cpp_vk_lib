@@ -9,11 +9,11 @@ vk::document::common::common()
 
 vk::document::common::~common() = default;
 
-template <typename function>
-static void search_attachments(const simdjson::dom::array& items, function&& fun) {
+template <typename _Execution_Policy>
+static void search_attachments(const simdjson::dom::array& items, _Execution_Policy&& policy) {
   for (std::size_t i = 0; i < items.size() && i < 10; i++) {
     std::size_t index = rand() % items.size();
-    fun(index);
+    policy(index);
   }
 }
 
