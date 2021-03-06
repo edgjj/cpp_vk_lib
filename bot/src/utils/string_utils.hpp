@@ -4,14 +4,17 @@
 #include <string>
 
 
+namespace bot {
 namespace string_util {
-std::string cut_first(std::string_view str) {
+
+inline std::string cut_first(std::string_view str) {
   return (str.find(' ') == std::string::npos) ? "" : str.substr(str.find_first_of(' ') + 1).data();
 }
 
-std::string get_first(std::string_view str) {
-  return (str.find(' ') == std::string::npos) ? "" : std::string(str.substr(0, str.find(' ')));
+inline std::string get_first(std::string_view str) {
+  return (str.find(' ') == std::string::npos) ? str.data() : std::string(str.substr(0, str.find(' ')));
 }
 } // namespace string_util
+} // namespace bot
 
 #endif // BOT_STRING_UTILS_H

@@ -8,11 +8,16 @@ class message_new;
 } // namespace event
 } // namespace vk
 
+namespace bot {
+namespace command {
+
 class base_command {
 public:
-  virtual void execute(vk::event::message_new& event) = 0;
+  virtual void execute(const vk::event::message_new& event) const = 0;
   virtual ~base_command() = default;
 };
 
+} // namespace command
+} // namespace bot
 
 #endif // BOT_BASE_COMMAND_H

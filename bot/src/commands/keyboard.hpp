@@ -3,21 +3,23 @@
 
 #include "events/message_new.hpp"
 #include "keyboard/layout.hpp"
-#include "keyboard/flags.hpp"
 #include "methods/messages.hpp"
 
-#include "../commands/base_command.hpp"
+#include "../commands/base.hpp"
 
+
+namespace bot {
+namespace command {
 
 class keyboard_command final : public base_command {
 public:
-  // vk::keyboard::layout has `none` flag by default, which corresponds to white.
+  // vk::keyboard::layout has `none` flag by default, which corresponds to white color.
   explicit keyboard_command()
     : layout(std::make_unique<vk::keyboard::layout>(vk::keyboard::flag::in_line))
   {
     setup_keyboard();
   }
-  void execute(vk::event::message_new& event) override {
+  void execute(const vk::event::message_new& event) const override {
     messages.send(event.peer_id(), "Here is keyboard: ", *layout);
   }
 private:
@@ -35,7 +37,10 @@ private:
   }
 
   std::unique_ptr<vk::keyboard::layout> layout;
-  vk::method::messages messages;
+  vk::method::messages messages{vk::method::messages::disable_mentions};
 };
+
+} // namespace command
+} // namespace bot
 
 #endif // BOT_KEYBOARD_COMMAND_H

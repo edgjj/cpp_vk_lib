@@ -3,16 +3,16 @@ include_directories(../dependencies/simdjson/include)
 include_directories(../dependencies)
 
 set(SOURCES
-    commands/base_command.hpp
-    commands/docs_search_command.hpp
-    commands/keyboard_command.hpp
-    commands/hide_keyboard_command.hpp
-    commands/on_message_pin_command.hpp
-    commands/on_chat_invite_user_command.hpp
-    handlers/message_handler.hpp
-    long_poller/long_poller.hpp
-    utils/string_utils.hpp
-    main.cpp
+    src/commands/base.hpp
+    src/commands/docs_search.hpp
+    src/commands/keyboard.hpp
+    src/commands/hide_keyboard.hpp
+    src/events/on_message_pin.hpp
+    src/events/on_chat_invite_user.hpp
+    src/handlers/message_handler.hpp
+    src/long_poller/long_poller.hpp
+    src/utils/string_utils.hpp
+    src/main.cpp
 )
 add_executable(test ${SOURCES})
 
