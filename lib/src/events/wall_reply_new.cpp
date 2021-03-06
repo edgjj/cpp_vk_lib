@@ -26,6 +26,9 @@ std::int64_t vk::event::wall_reply_new::owner_id() const noexcept {
 std::string  vk::event::wall_reply_new::text() const noexcept {
   return (*_event_json)["text"].get_c_str().take_value();
 }
+bool vk::event::wall_reply_new::has_attachments() const noexcept {
+  return _has_attachments;
+}
 vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const {
   if (_has_attachments) {
     return att_handler.try_get((*_event_json)["attachments"].get_array());
@@ -36,4 +39,22 @@ vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const {
     );
   }
   return { };
+}
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply) {
+  ostream << "wall_reply_new:" << std::endl;
+  ostream << "  " << "id:               " << reply.id() << std::endl;
+  ostream << "  " << "from_id:          " << reply.from_id() << std::endl;
+  ostream << "  " << "post_id:          " << reply.post_id() << std::endl;
+  ostream << "  " << "owner_id:         " << reply.owner_id() << std::endl;
+  ostream << "  " << "text:             " << reply.text() << std::endl;
+  ostream << "  " << "has_attachments?  " << reply.has_attachments() << std::endl;
+  if (reply.has_attachments()) {
+    for (auto& attachment : reply.attachments()) {
+      ostream << "    " << "attachment:       ";
+      ostream << attachment->value();
+      ostream << std::endl;
+    }
+  }
+  return ostream;
 }

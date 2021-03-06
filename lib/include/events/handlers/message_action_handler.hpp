@@ -96,7 +96,7 @@ using any_action = std::variant<
 inline chat_invite_user_ptr get_chat_invite_user_action(const any_action& action) {
   return std::get<chat_invite_user_ptr>(action);
 }
-inline chat_kick_user_ptr chat_kick_user_action(const any_action& action) {
+inline chat_kick_user_ptr get_chat_kick_user_action(const any_action& action) {
   return std::get<chat_kick_user_ptr>(action);
 }
 inline chat_photo_update_ptr get_chat_photo_update_action(const any_action& action) {

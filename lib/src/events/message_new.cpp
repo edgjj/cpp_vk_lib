@@ -140,3 +140,62 @@ std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const {
   }
   return { };
 }
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event) {
+  ostream << "message_new:" << std::endl;
+  ostream << "  " << "conversation_message_id:   " << event.conversation_message_id() << std::endl;
+  ostream << "  " << "peer_id:                   " << event.peer_id() << std::endl;
+  ostream << "  " << "from_id:                   " << event.from_id() << std::endl;
+  ostream << "  " << "text:                      " << event.text() << std::endl;
+  ostream << "  " << "has_action:                " << event.has_action() << std::endl;
+  ostream << "  " << "has_reply:                 " << event.has_reply() << std::endl;
+  ostream << "  " << "has_fwd_messages:          " << event.has_fwd_messages() << std::endl;
+  if (event.has_reply()) {
+    ostream << "  " << "reply:                     " << event.reply() << std::endl;
+  }
+  if (event.has_action()) {
+    if (event.on_action("chat_invite_user")) {
+      ostream << "  " << "chat_invite_user action:   ";
+      ostream << vk::action::get_chat_invite_user_action(event.action())->member_id();
+      ostream << std::endl;
+    }
+    if (event.on_action("chat_kick_user")) {
+      ostream << "  " << "chat_kick_user action:     ";
+      ostream << vk::action::get_chat_kick_user_action(event.action())->member_id();
+      ostream << std::endl;
+    }
+    if (event.on_action("chat_pin_message")) {
+      ostream << "  " << "chat_pin_message action:   ";
+      ostream << vk::action::get_chat_pin_message_action(event.action())->member_id();
+      ostream << std::endl;
+    }
+    if (event.on_action("chat_unpin_message")) {
+      ostream << "  " << "chat_unpin_message action: ";
+      ostream << vk::action::get_chat_unpin_message_action(event.action())->member_id();
+      ostream << std::endl;
+    }
+    if (event.on_action("chat_photo_update")) {
+      ostream << "  " << "chat_photo_update action:  ";
+      ostream << "<empty>";
+      ostream << std::endl;
+    }
+    if (event.on_action("chat_title_update")) {
+      ostream << "  " << "chat_title_update action:  ";
+      ostream << vk::action::get_chat_title_update_action(event.action())->text();
+      ostream << std::endl;
+    }
+  }
+  for (auto& attachment : event.attachments()) {
+    ostream << "  " << "attachment:                ";
+    ostream << attachment->value();
+    ostream << std::endl;
+  }
+  if (event.has_fwd_messages()) {
+    for (auto& message : event.fwd_messages()) {
+      ostream << "  " << "fwd_message:               ";
+      ostream << message.get();
+      ostream << std::endl;
+    }
+  }
+  return ostream;
+}

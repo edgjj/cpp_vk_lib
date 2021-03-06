@@ -2,7 +2,7 @@ include_directories(include)
 include_directories(../dependencies)
 include_directories(../dependencies/curl/include/curl)
 
-add_definitions(-DVK_CURL_DEBUG)
+#add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")

@@ -1,4 +1,4 @@
-  #ifndef VK_MESSAGE_NEW_H
+#ifndef VK_MESSAGE_NEW_H
 #define VK_MESSAGE_NEW_H
 
 #include "events/handlers/attachment_handler.hpp"
@@ -103,4 +103,6 @@ private:
 } // namespace event
 } // namespace vk
 
-#endif // VK_MESSAGE_NEW_H
+std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event);
+
+#endif  // VK_MESSAGE_NEW_H

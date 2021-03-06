@@ -48,6 +48,10 @@ public:
    */
   std::string text() const noexcept;
   /*!
+   * @returns true if event has attachments;
+   */
+  bool has_attachments() const noexcept;
+  /*!
    * @brief Get attachments vector.
    * @throws vk::exception::access_error in case, when object hasn't attachments.
    */
@@ -55,11 +59,13 @@ public:
 
 private:
   std::shared_ptr<simdjson::dom::object> _event_json;
-  bool _has_attachments;
+  bool _has_attachments = false;
 
   attachment_handler att_handler;
 };
 } // namespace event
 } // namespace vk
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply);
 
 #endif // VK_WALL_REPLY_NEW_H

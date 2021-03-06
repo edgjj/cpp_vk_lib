@@ -60,6 +60,14 @@ public:
    */
   bool marked_as_ads() const noexcept;
   /*!
+   * @returns true if event has attachments;
+   */
+  bool has_attachments() const noexcept;
+  /*!
+   * @returns true if event has repost;
+   */
+  bool has_repost() const noexcept;
+  /*!
    * @brief Try get repost.
    * @throws vk::exception::access_error in case, when _repost pointer is not set.
    */
@@ -79,5 +87,7 @@ private:
 };
 } // namespace event
 } // namespace vk
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event);
 
 #endif // VK_WALL_POST_NEW_H

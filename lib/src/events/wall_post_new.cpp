@@ -38,6 +38,12 @@ bool vk::event::wall_post_new::can_delete() const noexcept {
 bool vk::event::wall_post_new::marked_as_ads() const noexcept {
   return (*_event_json)["marked_as_ads"].get_int64();
 }
+bool vk::event::wall_post_new::has_attachments() const noexcept {
+  return _has_attachments;
+}
+bool vk::event::wall_post_new::has_repost() const noexcept {
+  return _has_repost;
+}
 vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noexcept {
   if (vk_likely(_has_attachments)) {
     return _attachment_handler.try_get((*_event_json)["attachments"].get_array());
@@ -72,4 +78,37 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
     );
   }
   return { };
+}
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event) {
+  ostream << "wall_post_new:" << std::endl;
+  ostream << "  " << "id:             " << event.id() << std::endl;
+  ostream << "  " << "from_id:        " << event.from_id() << std::endl;
+  ostream << "  " << "owner_id:       " << event.owner_id() << std::endl;
+  ostream << "  " << "created_by:     " << event.created_by() << std::endl;
+  ostream << "  " << "text:           " << event.text() << std::endl;
+  ostream << "  " << "can_edit?       " << std::boolalpha << event.can_edit() << std::endl;
+  ostream << "  " << "can_delete?     " << std::boolalpha << event.can_delete() << std::endl;
+  ostream << "  " << "marked_as_ads?  " << std::boolalpha << event.marked_as_ads() << std::endl;
+  auto append_attachments = [&ostream](const auto& attachments){
+    for (auto& attachment : attachments) {
+      ostream << '\t' << "attachment:                ";
+      ostream << attachment->value();
+      ostream << std::endl;
+    }
+  };
+  if (event.has_attachments()) {
+    append_attachments(event.attachments());
+  }
+  if (event.has_repost()) {
+    ostream << "  " << "repost:" << std::endl;
+    ostream << "  " << "  " << "from_id:    " <<  event.repost()->from_id() << std::endl;
+    ostream << "  " << "  " << "id:         " <<  event.repost()->id() << std::endl;
+    ostream << "  " << "  " << "owner_id:   " <<  event.repost()->owner_id() << std::endl;
+    ostream << "  " << "  " << "text:       " <<  event.repost()->text() << std::endl;
+    if (!event.repost()->attachments().empty()) {
+      append_attachments(event.repost()->attachments());
+    }
+  }
+  return ostream;
 }
