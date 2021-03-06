@@ -11,7 +11,7 @@ class vk_pay_button {
 public:
   vk_pay_button(std::string_view hash_)
     : hash(hash_.data()) { }
-  std::string serialize() {
+  std::string serialize() const {
     return
     string_utils::format(
       R"({"action":{"type":"vkpay","hash":"{}"}})",

@@ -9,8 +9,8 @@
 
 namespace vk {
 namespace string_utils {
-template <typename T, typename container>
-std::string join(container&& elements, char delimiter = ',');
+template <typename T, typename _Container>
+std::string join(_Container&& elements, char delimiter = ',');
 template <typename T>
 std::string join(std::initializer_list<T> elements, char delimiter = ',');
 } // namespace string_util
@@ -22,12 +22,12 @@ namespace string_utils {
 template <typename T>
 struct join_implementation {
 private:
-  template <typename container, typename binary_operation>
-  static std::string common_implementation(container&& elements, binary_operation operation) {
+  template <typename _Container, typename _Binary_operation>
+  static std::string common_implementation(_Container&& elements, _Binary_operation operation) {
     return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
   }
-  template <typename container>
-  static std::string common_create(container&& elements, char delimiter) {
+  template <typename _Container>
+  static std::string common_create(_Container&& elements, char delimiter) {
     return common_implementation(elements, [&delimiter](std::string& accumlator, T element){
       if constexpr (std::is_integral_v<T>) {
         return accumlator.empty()
@@ -41,12 +41,12 @@ private:
     });
   }
 
-  template <typename container>
-  static std::string create(container&& elements, char delimiter) {
-    return common_create<container&&>(elements, delimiter);
+  template <typename _Container>
+  static std::string create(_Container&& elements, char delimiter) {
+    return common_create<_Container&&>(elements, delimiter);
   }
-  template <typename _T, typename _container>
-  friend std::string vk::string_utils::join(_container&& elements, char delimiter);
+  template <typename _T, typename _Container>
+  friend std::string vk::string_utils::join(_Container&& elements, char delimiter);
   template <typename _T>
   friend std::string vk::string_utils::join(std::initializer_list<_T> elements, char delimiter);
 };

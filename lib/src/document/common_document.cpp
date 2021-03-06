@@ -21,7 +21,7 @@ vk::attachment::attachments_t vk::document::common::common_search(
     std::string_view method,
     std::string_view query,
     std::int64_t count
-) {
+) const {
   vk::attachment::attachments_t documents;
   std::string raw_json = method_util.call(
     method, method_util.user_args({{"q", query.data()}, {"count", std::to_string(count)}})
@@ -57,8 +57,8 @@ vk::attachment::attachments_t vk::document::common::common_search(
 simdjson::dom::object vk::document::common::common_upload(
   std::string_view filename,
   std::string_view server,
-  std::string_view field_name)
-{
+  std::string_view field_name
+) const {
   return
   parser->parse(
     net_client.upload(

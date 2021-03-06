@@ -11,7 +11,10 @@ vk::method::docs::docs()
 
 vk::method::docs::~docs() = default;
 
-vk::attachment::attachments_t vk::method::docs::search(std::string_view query, std::int64_t count) {
+vk::attachment::attachments_t vk::method::docs::search(
+    std::string_view query,
+    std::int64_t count
+) const {
   return common_search("docs.search", query, count);
 }
 
@@ -20,7 +23,7 @@ void vk::method::docs::edit(
     int64_t doc_id,
     std::string_view title,
     std::initializer_list<std::string>&& tags
-) {
+) const {
   simdjson::dom::object response =
   method_util.call_and_parse("docs.edit", method_util.user_args({
     {"owner_id",    std::to_string(owner_id)},
@@ -36,7 +39,7 @@ void vk::method::docs::edit(
   }
 }
 
-void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) {
+void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const {
   simdjson::dom::object response =
   method_util.call_and_parse("docs.delete", method_util.user_args({
     {"owner_id", std::to_string(owner_id)},
@@ -72,7 +75,7 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
 std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_message(
     std::string_view filename,
     std::string_view raw_server
-) {
+) const {
   simdjson::dom::object upload_response = common_upload(filename, raw_server, "file");
 
   if (upload_response.begin().key() != "file") {

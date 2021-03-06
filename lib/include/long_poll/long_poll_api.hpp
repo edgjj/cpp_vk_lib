@@ -19,6 +19,7 @@ public:
   long_poll_api(long_poll_api&&) = delete;
   long_poll_api& operator=(const long_poll_api&) = delete;
   long_poll_api& operator=(long_poll_api&&) = delete;
+
   using events_t = std::vector<std::unique_ptr<event::common>>;
 
   explicit long_poll_api();
@@ -26,14 +27,14 @@ public:
    * @brief Get long poll server.
    * @return parsed data.
    */
-  long_poll_data server();
+  long_poll_data server() const;
   /*!
    * @brief Try get updates.
    * @return vector with `common` update objects.
    *
    * In the case, when no updates were returned, the request is executed again.
    */
-  events_t listen(long_poll_data& data, std::int8_t timeout = 60);
+  events_t listen(long_poll_data& data, std::int8_t timeout = 60) const;
 
   /*!
    * @brief Push task to thread pool queue.

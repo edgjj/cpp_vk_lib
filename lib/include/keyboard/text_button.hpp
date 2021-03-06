@@ -12,7 +12,7 @@ class text_button {
 public:
   text_button(color selected_color_, std::string_view text_)
     : selected_color(selected_color_), text(text_.data()) { }
-  std::string serialize() {
+  std::string serialize() const {
     const char* color(keyboard::get_color(selected_color));
     return
     string_utils::format(

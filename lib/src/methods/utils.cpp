@@ -4,7 +4,7 @@
 #include "processing/error_processor.hpp"
 
 
-bool vk::method::utils::check_link(std::string_view url) {
+bool vk::method::utils::check_link(std::string_view url) const {
   simdjson::dom::object response =
     method_util.call_and_parse("utils.checkLink", method_util.group_args({
       {"url", url.data()}
@@ -18,7 +18,7 @@ bool vk::method::utils::check_link(std::string_view url) {
   return response["response"]["status"].get_string().take_value() == "not_banned";
 }
 
-std::string vk::method::utils::get_short_link(std::string_view url) {
+std::string vk::method::utils::get_short_link(std::string_view url) const {
   simdjson::dom::object response =
     method_util.call_and_parse("utils.getShortLink", method_util.group_args({
       {"url", url.data()}
@@ -32,7 +32,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) {
   return response["response"]["short_url"].get_c_str().take_value();
 }
 
-std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) {
+std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) const {
   if (screen_name.empty())
     processing::error_log_and_throw("utils", exception::invalid_parameter_error(
       -1, "Empty argument provided."));

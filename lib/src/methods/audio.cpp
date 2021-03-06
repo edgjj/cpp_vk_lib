@@ -19,7 +19,7 @@ void vk::method::audio::save(
     std::string_view title,
     std::string_view filename,
     std::string_view raw_server
-) {
+) const {
   simdjson::dom::object response =
     common_document.common_upload(filename, raw_server, "file");
 

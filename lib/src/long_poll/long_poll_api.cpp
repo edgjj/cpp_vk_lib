@@ -11,7 +11,7 @@ vk::long_poll_api::long_poll_api() {
   logger(logflag::info) << "group id: " << _group_id;
 }
 
-vk::long_poll_data vk::long_poll_api::server() {
+vk::long_poll_data vk::long_poll_api::server() const {
   simdjson::dom::object server(groups.get_long_poll_server(_group_id));
   return {
     server["key"].get_c_str().take_value(),
@@ -34,7 +34,7 @@ static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::si
   );
 }
 
-vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std::int8_t timeout) {
+vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std::int8_t timeout) const {
   events_t event_list;
   simdjson::dom::object raw_updates(get_updates(data, timeout));
   simdjson::dom::array raw_updates_array(raw_updates["updates"].get_array());
@@ -47,6 +47,7 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std:
       std::move(update)
     ));
   }
+  data.ts = raw_updates["ts"].get_c_str();
   return event_list;
 }
 

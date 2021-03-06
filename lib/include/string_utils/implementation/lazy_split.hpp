@@ -14,9 +14,9 @@ namespace string_utils {
 
 struct end_split_iterator { };
 
-template <typename string_type> class vk_export split_iterator {
+template <typename _String_type> class vk_export split_iterator {
 public:
-  split_iterator(string_type source, string_type delim)
+  split_iterator(_String_type source, _String_type delim)
     : src(source), delimiter(delim), first(0), last(src.find(delimiter))
    { }
   split_iterator& operator++() noexcept {
@@ -24,8 +24,8 @@ public:
     last = src.find(delimiter, first);
     return *this;
   }
-  string_type operator*() const noexcept {
-    if (last != string_type::npos) { return src.substr(first, last - first); }
+  _String_type operator*() const noexcept {
+    if (last != _String_type::npos) { return src.substr(first, last - first); }
     finished = true;
     return src.substr(first, src.size() - first);
   }
@@ -37,25 +37,25 @@ public:
   }
 
 private:
-  string_type src;
-  string_type delimiter;
+  _String_type src;
+  _String_type delimiter;
   std::size_t first;
   std::size_t last;
   mutable bool finished = false;
 };
 
-template <typename string_type>
+template <typename _String_type>
 class vk_export split_range {
 public:
-  split_range(string_type source, string_type delim) noexcept
+  split_range(_String_type source, _String_type delim) noexcept
     : src(source), delimiter(delim)
   { }
-  auto begin() const noexcept { return split_iterator<string_type>(src, delimiter); }
+  auto begin() const noexcept { return split_iterator<_String_type>(src, delimiter); }
   auto end() const noexcept { return end_split_iterator(); }
 
 private:
-  string_type src;
-  string_type delimiter;
+  _String_type src;
+  _String_type delimiter;
 };
 } // namespace string_util
 } // namespace vk

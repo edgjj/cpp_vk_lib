@@ -22,7 +22,7 @@ public:
     std::string_view title,
     std::string_view filename,
     std::string_view raw_server
-  );
+  ) const;
 private:
   method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;

@@ -23,7 +23,7 @@ std::map<std::string, std::string> vk::method_utils::group_args(std::map<std::st
   params.insert({{"access_token", access_token}, {"v", API_V}});
   return std::move(params);
 }
-simdjson::dom::object vk::method_utils::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) {
+simdjson::dom::object vk::method_utils::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) const noexcept {
   return parser->parse(call(method, std::move(params)));
 }
 std::string vk::method_utils::call(std::string_view method, std::map<std::string, std::string>&& params) const {

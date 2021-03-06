@@ -4,17 +4,23 @@
 #include "processing/error_processor.hpp"
 
 
-vk::attachment::attachments_t vk::method::photos::search(std::string_view query, std::int64_t count) {
+vk::attachment::attachments_t vk::method::photos::search(
+    std::string_view query,
+    std::int64_t count
+) const {
   return common_search("photos.search", query, count);
 }
 
-std::string vk::method::photos::get_messages_upload_server(std::int64_t peer_id) {
+std::string vk::method::photos::get_messages_upload_server(std::int64_t peer_id) const {
   return method_util.call("photos.getMessagesUploadServer", method_util.group_args({
     {"peer_id", std::to_string(peer_id)}
   }));
 }
 
-std::string vk::method::photos::get_chat_upload_server(std::int64_t chat_id, std::int64_t crop) {
+std::string vk::method::photos::get_chat_upload_server(
+    std::int64_t chat_id,
+    std::int64_t crop
+) const {
   return method_util.call("photos.getChatUploadServer", method_util.group_args({
     {"crop_x",  std::to_string(crop)},
     {"crop_y",  std::to_string(crop)},
@@ -22,7 +28,9 @@ std::string vk::method::photos::get_chat_upload_server(std::int64_t chat_id, std
   }));
 }
 
-static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom::object&& upload_response) {
+static std::map<std::string, std::string> save_messages_photo_args(
+    simdjson::dom::object&& upload_response
+) {
   return {
     {"photo",   upload_response["photo"].get_c_str().take_value()},
     {"hash",    upload_response["hash"].get_c_str().take_value()},
@@ -33,7 +41,7 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
 std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(
     std::string_view filename,
     std::string_view raw_server
-) {
+) const {
   simdjson::dom::object upload_response = common_upload(filename, raw_server, "file");
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||

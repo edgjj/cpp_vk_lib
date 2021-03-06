@@ -6,8 +6,9 @@
 #include "processing/error_processor.hpp"
 
 
-vk::method::messages::messages()
+vk::method::messages::messages(bool disable_mentions_flag_)
   : parser(std::make_unique<simdjson::dom::parser>())
+  , disable_mentions_flag(disable_mentions_flag_)
 { }
 
 vk::method::messages::~messages() = default;
@@ -16,8 +17,8 @@ void vk::method::messages::send(
     std::int64_t peer_id,
     std::string_view text,
     attachment::attachments_t&& list
-) {
-  message_constructor constructor;
+) const {
+  message_constructor constructor(disable_mentions_flag);
   constructor.append({
     "peer_id", std::to_string(peer_id)
   });
@@ -32,8 +33,8 @@ void vk::method::messages::send(
     std::int64_t peer_id,
     std::string_view text,
     std::map<std::string, std::string>&& raw_parameters
-) {
-  message_constructor constructor;
+) const {
+  message_constructor constructor(disable_mentions_flag);
   constructor.append({
     "peer_id", std::to_string(peer_id)
   });
@@ -50,8 +51,8 @@ void vk::method::messages::send(
     int64_t peer_id,
     std::string_view text,
     const vk::keyboard::layout& layout
-) {
-  message_constructor constructor;
+) const {
+  message_constructor constructor(disable_mentions_flag);
   constructor.append({
     "peer_id", std::to_string(peer_id)
   });
@@ -64,8 +65,8 @@ void vk::method::messages::send(
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
-  message_constructor constructor;
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text) const {
+  message_constructor constructor(disable_mentions_flag);
   constructor.append({
     "peer_id", std::to_string(peer_id)
   });
@@ -75,7 +76,7 @@ void vk::method::messages::send(std::int64_t peer_id, std::string_view text) {
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
-void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) {
+void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse("messages.removeChatUser", method_util.group_args({
       {"chat_id",    std::to_string(chat_id)},
@@ -93,7 +94,7 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
   }
 }
 
-void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) {
+void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) const {
   method_util.call("messages.editChat", method_util.group_args({
     {"chat_id",     std::to_string(chat_id - method_util.chat_id_constant)},
     {"title",       new_title.data()},
@@ -101,7 +102,7 @@ void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_
   }));
 }
 
-void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) {
+void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse("messages.deleteChatPhoto", method_util.group_args({
       {"chat_id",  std::to_string(chat_id - method_util.chat_id_constant)},
@@ -115,7 +116,7 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
   }
 }
 
-void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t conversation_message_id) {
+void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t conversation_message_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse("messages.pin", method_util.group_args({
       {"peer_id",                   std::to_string(peer_id)},
@@ -130,7 +131,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
   }
 }
 
-void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) {
+void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const {
   simdjson::dom::object response =
     common_document.common_upload(filename, raw_server, "file");
   method_util.call("messages.setChatPhoto", method_util.group_args({
@@ -138,7 +139,7 @@ void vk::method::messages::set_chat_photo(std::string_view filename, std::string
   }));
 }
 
-vk::conversation_member_list vk::method::messages::get_conversation_members(int64_t peer_id) {
+vk::conversation_member_list vk::method::messages::get_conversation_members(int64_t peer_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse(
       "messages.getConversationMembers",

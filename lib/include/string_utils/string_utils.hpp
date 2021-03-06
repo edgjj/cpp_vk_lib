@@ -10,17 +10,17 @@
 namespace vk {
 namespace string_utils {
 
-template <typename T, typename container>
-std::string join(container&& elements, char delimiter) {
+template <typename T, typename _Container>
+std::string join(_Container&& elements, char delimiter) {
   return join_implementation<T>::create(elements, delimiter);
 }
 template <typename T>
 std::string join(std::initializer_list<T> elements, char delimiter) {
   return join_implementation<T>::create(elements, delimiter);
 }
-template <typename... Args>
-std::string format(std::string_view data, Args&&... args) {
-  return format_implementation<Args...>::create(data, std::forward<Args>(args)...);
+template <typename... _Args>
+std::string format(std::string_view data, _Args&&... args) {
+  return format_implementation<_Args...>::create(data, std::forward<_Args>(args)...);
 }
 inline std::vector<std::string_view> split(std::string_view data, char delimiter) {
   return split_implementation::create(data, delimiter);

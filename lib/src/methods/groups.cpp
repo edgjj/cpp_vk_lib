@@ -4,7 +4,7 @@
 #include "methods/groups.hpp"
 
 
-std::int64_t vk::method::groups::get_by_id() {
+std::int64_t vk::method::groups::get_by_id() const {
   simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
 
   if (response.begin().key() == "error") {
@@ -15,7 +15,7 @@ std::int64_t vk::method::groups::get_by_id() {
   return response["response"].at(0)["id"].get_int64();
 }
 
-simdjson::dom::object vk::method::groups::get_long_poll_server(std::string_view group_id) {
+simdjson::dom::object vk::method::groups::get_long_poll_server(std::string_view group_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse("groups.getLongPollServer", method_util.group_args({
       {"group_id",   group_id.data()},

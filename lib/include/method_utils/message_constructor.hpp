@@ -9,19 +9,31 @@
 
 
 namespace vk {
-struct message_constructor {
+class message_constructor {
 public:
   message_constructor(const message_constructor&) = default;
   message_constructor(message_constructor&&) = default;
   message_constructor& operator=(const message_constructor&) = default;
   message_constructor& operator=(message_constructor&&) = default;
  ~message_constructor() = default;
+
   using parameter_t = std::map <std::string, std::string>;
 
-  explicit message_constructor() {
-    params.emplace("random_id",        "0");
-    params.emplace("disable_mentions", "1");
+  static inline bool disable_mentions = true;
+  static inline bool enable_mentions = false;
+
+  message_constructor(bool disable_mentions_flag) {
+    params.emplace("random_id", "0");
+    if (disable_mentions_flag) {
+      params.emplace("disable_mentions", "1");
+    } else {
+      params.emplace("disable_mentions", "0");
+    }
   }
+//  message_constructor() {
+//    params.emplace("random_id",        "0");
+//    params.emplace("disable_mentions", "0");
+//  }
   void append(std::pair<std::string, std::string>&& pair) {
     params.emplace(std::move(pair));
   }

@@ -13,9 +13,9 @@ namespace method {
  */
 class vk_export utils {
 public:
-  bool check_link                   (std::string_view url);
-  std::string get_short_link        (std::string_view url);
-  std::int64_t resolve_screen_name  (std::string_view screen_name);
+  bool check_link                   (std::string_view url) const;
+  std::string get_short_link        (std::string_view url) const;
+  std::int64_t resolve_screen_name  (std::string_view screen_name) const;
 private:
   method_utils method_util;
 };

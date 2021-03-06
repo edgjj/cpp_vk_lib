@@ -28,7 +28,7 @@ public:
     std::string_view filename,
     std::string_view server,
     std::string_view field_name
-  );
+  ) const;
 protected:
   /*!
    * @brief Search attachments of requested type.
@@ -37,7 +37,11 @@ protected:
    * @param count     - maximum count of documents to search
    * @return vector of attachments.
    */
-  vk::attachment::attachments_t common_search(std::string_view method, std::string_view query, std::int64_t count);
+  vk::attachment::attachments_t common_search(
+    std::string_view method,
+    std::string_view query,
+    std::int64_t count
+  ) const;
 
   std::unique_ptr<simdjson::dom::parser> parser;
   method_utils method_util;
