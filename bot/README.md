@@ -28,17 +28,24 @@ target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../cpp_vk_li
 ```
 ├── CMakeLists.txt
 ├── commands
-│   ├── base_command.hpp
-│   ├── docs_search_command.hpp
-│   ├── // Other commands.
+│   ├── base.hpp
+│   ├── cmd1.hpp
+│   ├── cmd2.hpp
+│   └── cmd3.hpp
+|   └── // ...
+├── events
+│   ├── on_chat_invite_user.hpp
+│   └── on_message_pin.hpp
+|   └── // ...
 ├── handlers
 │   └── message_handler.hpp
-|   └── // Other event handlers.
+|   └── // ...
 ├── long_poller
 │   └── long_poller.hpp
-|── utils
-|   └── string_utils.hpp
 ├── main.cpp
+└── utils
+    └── string_utils.hpp
+    └── // ...
 ```
 
 # Creating CMakeLists
