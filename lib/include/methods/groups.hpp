@@ -14,7 +14,7 @@ namespace method {
 class vk_export groups {
 public:
   std::int64_t get_by_id() const;
-  simdjson::dom::object get_long_poll_server(std::string_view group_id) const;
+  simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
 private:
   method_utils method_util;
 };

@@ -47,7 +47,7 @@ public:
   void run();
 
 private:
-  std::string _group_id;
+  std::int64_t group_id;
   /*!
    * @brief Class with group long poll methods.
    */

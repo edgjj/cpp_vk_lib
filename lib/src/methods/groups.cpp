@@ -5,21 +5,27 @@
 
 
 std::int64_t vk::method::groups::get_by_id() const {
-  simdjson::dom::object response(method_util.call_and_parse("groups.getById", method_util.group_args({ })));
+  simdjson::dom::object response =
+    method_util.call_and_parse("groups.getById", method_util.group_args({ }));
 
   if (response.begin().key() == "error") {
-    processing::error_log_and_throw("messages", exception::access_error(
-      response["error"]["error_code"].get_int64(), response["error"]["error_msg"].get_c_str()
-    ));
+    processing::log_and_throw(
+      "groups", processing::error_type::access_error, response
+    );
   }
-  return response["response"].at(0)["id"].get_int64();
+  return response["response"].at(0)["id"];
 }
 
-simdjson::dom::object vk::method::groups::get_long_poll_server(std::string_view group_id) const {
+simdjson::dom::object vk::method::groups::get_long_poll_server(std::int64_t group_id) const {
   simdjson::dom::object response =
     method_util.call_and_parse("groups.getLongPollServer", method_util.group_args({
-      {"group_id",   group_id.data()},
-      {"random_id",  "0"}
+      {"group_id",    std::to_string(group_id)},
+      {"random_id",   "0"}
     }));
-  return response["response"].get_object();
+  if (response.begin().key() == "error") {
+    processing::log_and_throw(
+      "groups", processing::error_type::access_error, response
+    );
+  }
+  return response["response"];
 }

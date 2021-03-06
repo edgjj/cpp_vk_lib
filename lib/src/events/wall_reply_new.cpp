@@ -31,8 +31,9 @@ vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const {
     return att_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     // Exception thrown there, hence final return will never executed.
-    processing::error_log_and_throw("wall_reply_new", exception::access_error(
-      -1, "Attempting accessing empty attachment list"));
+    processing::log_and_throw(
+      "wall_reply_new", processing::error_type::access_error, "Attempting accessing empty attachment list"
+    );
   }
   return { };
 }

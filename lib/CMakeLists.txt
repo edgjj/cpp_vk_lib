@@ -103,6 +103,7 @@ set(SOURCES
   src/oauth/client.cpp
 
   src/processing/task_queue.cpp
+  src/processing/error_processor.cpp
 )
 
 add_library(

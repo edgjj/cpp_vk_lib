@@ -6,13 +6,13 @@
 
 
 vk::long_poll_api::long_poll_api() {
-  _group_id = std::to_string(groups.get_by_id());
+  group_id = groups.get_by_id();
   logger(logflag::info) << "long polling started";
-  logger(logflag::info) << "group id: " << _group_id;
+  logger(logflag::info) << "group id: " << group_id;
 }
 
 vk::long_poll_data vk::long_poll_api::server() const {
-  simdjson::dom::object server(groups.get_long_poll_server(_group_id));
+  simdjson::dom::object server(groups.get_long_poll_server(group_id));
   return {
     server["key"].get_c_str().take_value(),
     server["server"].get_c_str().take_value(),
