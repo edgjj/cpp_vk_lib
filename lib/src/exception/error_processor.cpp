@@ -14,7 +14,7 @@ std::pair<int64_t, std::string> vk::processing::extract_from_json(
   };
 }
 
-void vk::processing::rethrow_and_log(
+void vk::processing::log_and_rethrow(
     std::string_view label, std::exception_ptr exception_ptr
 ) {
   try {

@@ -19,7 +19,6 @@ public:
   std::shared_ptr<vk::attachment::photo> save_messages_photo(std::string_view filename, std::string_view raw_server) const;
 private:
   method_utils method_util;
-  network_client net_client;
 };
 } // namespace method
 } // namespace vk

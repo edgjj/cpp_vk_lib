@@ -89,6 +89,9 @@ public:
   bool has_action() const noexcept;
 
 private:
+  /*!
+   * Action dispatcher.
+   */
   void try_get_actions();
 
   std::shared_ptr<simdjson::dom::object> _event_json;

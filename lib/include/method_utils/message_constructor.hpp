@@ -30,10 +30,6 @@ public:
       params.emplace("disable_mentions", "0");
     }
   }
-//  message_constructor() {
-//    params.emplace("random_id",        "0");
-//    params.emplace("disable_mentions", "0");
-//  }
   void append(std::pair<std::string, std::string>&& pair) {
     params.emplace(std::move(pair));
   }

@@ -11,7 +11,7 @@
 
 #include "config/loader.hpp"
 
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 
 #include "events/handlers/attachment_handler.hpp"
 #include "events/handlers/message_action_handler.hpp"
@@ -20,11 +20,13 @@
 #include "events/wall_post_new.hpp"
 #include "events/wall_reply_new.hpp"
 
+#include "exception/error_processor.hpp"
+
 #include "keyboard/colors.hpp"
 #include "keyboard/flags.hpp"
 #include "keyboard/layout.hpp"
 
-#include "long_poll/long_poll_api.hpp"
+#include "long_poll/api.hpp"
 
 #include "method_utils/method_utils.hpp"
 
@@ -38,12 +40,11 @@
 
 #include "misc/cppdefs.hpp"
 
-#include "net/network_client.hpp"
+#include "net/client.hpp"
 
 #include "oauth/client.hpp"
 
 #include "processing/backtrace.hpp"
-#include "processing/error_processor.hpp"
 #include "processing/task_queue.hpp"
 
 #include "string_utils/string_utils.hpp"

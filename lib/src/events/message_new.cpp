@@ -26,47 +26,47 @@ void vk::event::message_new::try_get_actions() {
   simdjson::dom::object action_object = (*_event_json)["action"].get_object();
   std::string action_name = action_object["type"].get_string().take_value().data();
   if (action_name == "chat_invite_user") {
-    _action = std::make_shared<action::chat_invite_user>(
+    _action = action::chat_invite_user{
       action_object["member_id"].get_int64()
-    );
+    };
   }
   if (action_name == "chat_kick_user") {
-    _action = std::make_shared<action::chat_kick_user>(
+    _action = action::chat_kick_user{
       action_object["member_id"].get_int64()
-    );
+    };
   }
   if (action_name == "chat_pin_message") {
-    _action = std::make_shared<action::chat_pin_message>(
+    _action = action::chat_pin_message{
       action_object["member_id"].get_int64(),
       action_object["conversation_message_id"].get_int64(),
-      action_object["message"].get_string()
-    );
+      action_object["message"].get_c_str().take_value()
+    };
   }
   if (action_name == "chat_unpin_message") {
-    _action = std::make_shared<action::chat_unpin_message>(
+    _action = action::chat_unpin_message{
       action_object["member_id"].get_int64(),
       action_object["conversation_message_id"].get_int64()
-    );
+    };
   }
   if (action_name == "chat_photo_update") {
-    _action = std::make_shared<action::chat_photo_update>(
+    _action = action::chat_photo_update{
       // empty
-    );
+    };
   }
   if (action_name == "chat_title_update") {
-    _action = std::make_shared<action::chat_title_update>(
-      action_object["text"].get_string()
-    );
+    _action = action::chat_title_update{
+      action_object["text"].get_c_str().take_value()
+    };
   }
 }
 
 bool vk::event::message_new::on_action(std::string_view action_type) const noexcept {
-  if (action_type == "chat_invite_user")   { return std::holds_alternative<action::chat_invite_user_ptr>(_action); }
-  if (action_type == "chat_kick_user")     { return std::holds_alternative<action::chat_kick_user_ptr>(_action); }
-  if (action_type == "chat_pin_message")   { return std::holds_alternative<action::chat_pin_message_ptr>(_action); }
-  if (action_type == "chat_unpin_message") { return std::holds_alternative<action::chat_unpin_message_ptr>(_action); }
-  if (action_type == "chat_photo_update")  { return std::holds_alternative<action::chat_photo_update_ptr>(_action); }
-  if (action_type == "chat_title_update")  { return std::holds_alternative<action::chat_title_update_ptr>(_action); }
+  if (action_type == "chat_invite_user")   { return std::holds_alternative<action::chat_invite_user>(_action); }
+  if (action_type == "chat_kick_user")     { return std::holds_alternative<action::chat_kick_user>(_action); }
+  if (action_type == "chat_pin_message")   { return std::holds_alternative<action::chat_pin_message>(_action); }
+  if (action_type == "chat_unpin_message") { return std::holds_alternative<action::chat_unpin_message>(_action); }
+  if (action_type == "chat_photo_update")  { return std::holds_alternative<action::chat_photo_update>(_action); }
+  if (action_type == "chat_title_update")  { return std::holds_alternative<action::chat_title_update>(_action); }
   return false;
 }
 
@@ -156,22 +156,22 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
   if (event.has_action()) {
     if (event.on_action("chat_invite_user")) {
       ostream << "  " << "chat_invite_user action:   ";
-      ostream << vk::action::get_chat_invite_user_action(event.action())->member_id();
+      ostream << vk::action::get<vk::action::chat_invite_user>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_kick_user")) {
       ostream << "  " << "chat_kick_user action:     ";
-      ostream << vk::action::get_chat_kick_user_action(event.action())->member_id();
+      ostream << vk::action::get<vk::action::chat_kick_user>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_pin_message")) {
       ostream << "  " << "chat_pin_message action:   ";
-      ostream << vk::action::get_chat_pin_message_action(event.action())->member_id();
+      ostream << vk::action::get<vk::action::chat_pin_message>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_unpin_message")) {
       ostream << "  " << "chat_unpin_message action: ";
-      ostream << vk::action::get_chat_unpin_message_action(event.action())->member_id();
+      ostream << vk::action::get<vk::action::chat_unpin_message>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_photo_update")) {
@@ -181,7 +181,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
     }
     if (event.on_action("chat_title_update")) {
       ostream << "  " << "chat_title_update action:  ";
-      ostream << vk::action::get_chat_title_update_action(event.action())->text();
+      ostream << vk::action::get<vk::action::chat_title_update>(event.action()).text;
       ostream << std::endl;
     }
   }
