@@ -43,7 +43,7 @@
 #include "oauth/client.hpp"
 
 #include "processing/backtrace.hpp"
-#include "processing/error_handler.hpp"
+#include "processing/error_processor.hpp"
 #include "processing/task_queue.hpp"
 
 #include "string_utils/string_utils.hpp"

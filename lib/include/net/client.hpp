@@ -16,7 +16,7 @@ namespace vk {
 /*!
  * @brief The HTTPS client.
  */
-class vk_export network_client {
+class network_client {
 public:
   /*!
    * @brief Execute HTTP POST request.

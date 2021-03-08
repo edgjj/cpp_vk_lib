@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "methods/photos.hpp"
-#include "processing/error_processor.hpp"
+#include "exception/error_processor.hpp"
 
 
 vk::attachment::attachments_t vk::method::photos::search(

@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "methods/utils.hpp"
-#include "processing/error_processor.hpp"
+#include "exception/error_processor.hpp"
 
 
 bool vk::method::utils::check_link(std::string_view url) const {

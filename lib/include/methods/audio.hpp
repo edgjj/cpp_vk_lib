@@ -1,7 +1,7 @@
 #ifndef VK_AUDIO_H
 #define VK_AUDIO_H
 
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 
 
 namespace vk {
@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export audio {
+class audio {
 public:
   explicit audio();
   ~audio();

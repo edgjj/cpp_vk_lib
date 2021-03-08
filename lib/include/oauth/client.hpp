@@ -3,7 +3,7 @@
 
 #include "simdjson.h"
 
-#include "net/network_client.hpp"
+#include "net/client.hpp"
 
 
 namespace vk {
@@ -26,7 +26,7 @@ enum class target_client : std::uint8_t {
  *   vk::messages messages(client.token());
 }
  */
-class vk_export client {
+class client {
 public:
   explicit client(
     std::string_view username_,

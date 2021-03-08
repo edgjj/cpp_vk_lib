@@ -6,14 +6,14 @@
 #include "methods/groups.hpp"
 #include "processing/task_queue.hpp"
 
-#include "long_poll/long_poll_data.hpp"
+#include "long_poll/data.hpp"
 
 
 namespace vk {
 /*!
  * @brief Class to interact with long poll mechanism.
  */
-class vk_export long_poll_api {
+class long_poll_api {
 public:
   long_poll_api(const long_poll_api&) = delete;
   long_poll_api(long_poll_api&&) = delete;

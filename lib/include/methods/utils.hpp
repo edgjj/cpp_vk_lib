@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export utils {
+class utils {
 public:
   bool check_link                   (std::string_view url) const;
   std::string get_short_link        (std::string_view url) const;

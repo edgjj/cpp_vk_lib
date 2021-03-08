@@ -10,7 +10,7 @@ namespace keyboard {
 class vk_pay_button {
 public:
   vk_pay_button(std::string_view hash_)
-    : hash(hash_.data()) { }
+    : hash(hash_) { }
   std::string serialize() const {
     return
     string_utils::format(
@@ -19,7 +19,7 @@ public:
     );
   }
 private:
-  const char* hash;
+  std::string hash;
 };
 } // namespace keyboard
 } // namespace vk

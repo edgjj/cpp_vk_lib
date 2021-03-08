@@ -25,7 +25,6 @@ void vk::config::loader::deallocate() {
 }
 
 vk::config::loader::loader(std::string_view path)
-  : path_(path)
 {
   simdjson::dom::parser parser;
   simdjson::dom::element element = parser.load(path.data());

@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "string_utils/string_utils.hpp"
-#include "processing/error_processor.hpp"
+#include "exception/error_processor.hpp"
 #include "methods/docs.hpp"
 
 

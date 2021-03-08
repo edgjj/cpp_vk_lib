@@ -1,7 +1,7 @@
 #ifndef VK_PHOTOS_H
 #define VK_PHOTOS_H
 
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 
 
 namespace vk {
@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export photos : protected document::common {
+class photos : protected document::common {
 public:
   std::string get_messages_upload_server    (std::int64_t peer_id) const;
   std::string get_chat_upload_server        (std::int64_t chat_id, std::int64_t crop = 512) const;

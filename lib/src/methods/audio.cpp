@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "methods/audio.hpp"
-#include "processing/error_processor.hpp"
+#include "exception/error_processor.hpp"
 
 
 vk::method::audio::audio()

@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "net/network_client.hpp"
+#include "net/client.hpp"
 
 
 namespace simdjson {
@@ -17,7 +17,7 @@ namespace vk {
 /*!
  * @brief The container of common functions and constants needed by various methods.
  */
-class vk_export method_utils {
+class method_utils {
 public:
   explicit method_utils();
   ~method_utils();

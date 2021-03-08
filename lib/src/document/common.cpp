@@ -1,6 +1,6 @@
 #include "simdjson.h"
 
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 
 
 vk::document::common::common()

@@ -10,7 +10,7 @@ namespace vk {
 /*!
  * @brief Wrapper for data returned by group long poll.
  */
-struct vk_export long_poll_data {
+struct long_poll_data {
   std::string key;
   std::string server;
   std::string ts;

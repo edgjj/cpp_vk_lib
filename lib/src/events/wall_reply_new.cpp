@@ -1,7 +1,7 @@
 #include "simdjson.h"
 
 #include "events/wall_reply_new.hpp"
-#include "processing/error_processor.hpp"
+#include "exception/error_processor.hpp"
 
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)

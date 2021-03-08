@@ -1,9 +1,9 @@
 #include "simdjson.h"
 
 #include "config/loader.hpp"
-#include "processing/exception.hpp"
-#include "processing/error_processor.hpp"
-#include "../dependencies/logger/logger.hpp"
+#include "exception/exception.hpp"
+#include "exception/error_processor.hpp"
+#include "logger/logger.hpp"
 
 
 static std::exception_ptr try_construct_exception_ptr(

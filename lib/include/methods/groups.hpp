@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export groups {
+class groups {
 public:
   std::int64_t get_by_id() const;
   simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;

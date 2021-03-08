@@ -1,6 +1,5 @@
 include_directories(include)
 include_directories(../dependencies)
-include_directories(../dependencies/curl/include/curl)
 
 #add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
@@ -16,12 +15,11 @@ endif()
 set(HEADERS
   include/attachment/attachment.hpp
 
-
   include/config/loader.hpp
 
   include/cpp_vk_lib/common.hpp
 
-  include/document/common_document.hpp
+  include/document/common.hpp
 
   include/events/common_event.hpp
   include/events/message_new.hpp
@@ -31,16 +29,19 @@ set(HEADERS
   include/events/handlers/attachment_handler.hpp
   include/events/handlers/message_action_handler.hpp
 
+  include/exception/error_processor.hpp
+  include/exception/exception.hpp
+
   include/keyboard/colors.hpp
   include/keyboard/flags.hpp
   include/keyboard/layout.hpp
-  include/keyboard/location_button.hpp
-  include/keyboard/open_app_button.hpp
-  include/keyboard/text_button.hpp
-  include/keyboard/vk_pay_button.hpp
+  include/keyboard/buttons/location.hpp
+  include/keyboard/buttons/open_app.hpp
+  include/keyboard/buttons/text.hpp
+  include/keyboard/buttons/vk_pay.hpp
 
-  include/long_poll/long_poll_api.hpp
-  include/long_poll/long_poll_data.hpp
+  include/long_poll/api.hpp
+  include/long_poll/data.hpp
 
   include/method_utils/method_utils.hpp
   include/method_utils/message_constructor.hpp
@@ -55,14 +56,12 @@ set(HEADERS
 
   include/misc/cppdefs.hpp
 
-  include/net/network_client.hpp
+  include/net/client.hpp
 
   include/oauth/client.hpp
 
   include/processing/at_program_exit.hpp
   include/processing/backtrace.hpp
-  include/processing/error_processor.hpp
-  include/processing/exception.hpp
   include/processing/task_queue.hpp
 
   include/string_utils/implementation/format.hpp
@@ -71,6 +70,8 @@ set(HEADERS
   include/string_utils/implementation/split.hpp
   include/string_utils/string_utils.hpp
   include/string_utils/unicode/ostream.hpp
+
+  ../dependencies/logger/logger.cpp
 )
 
 set(SOURCES
@@ -78,7 +79,9 @@ set(SOURCES
 
   src/config/loader.cpp
 
-  src/document/common_document.cpp
+  src/document/common.cpp
+
+  src/exception/error_processor.cpp
 
   src/events/common_event.cpp
   src/events/message_new.cpp
@@ -88,7 +91,7 @@ set(SOURCES
 
   src/keyboard/layout.cpp
 
-  src/long_poll/long_poll_api.cpp
+  src/long_poll/api.cpp
 
   src/methods/audio.cpp
   src/methods/docs.cpp
@@ -98,22 +101,12 @@ set(SOURCES
   src/methods/messages.cpp
   src/methods/utils.cpp
 
-  src/net/network_client.cpp
+  src/net/client.cpp
 
   src/oauth/client.cpp
 
   src/processing/task_queue.cpp
-  src/processing/error_processor.cpp
 )
 
-add_library(
-    cpp_vk_lib
-    SHARED
-    ${HEADERS}
-    ${SOURCES}
-    main.cpp
-    ../dependencies/logger/logger.cpp
-)
-target_link_libraries(
-    cpp_vk_lib simdjson
-)
+add_library(cpp_vk_lib SHARED ${HEADERS} ${SOURCES} main.cpp)
+target_link_libraries(cpp_vk_lib simdjson)

@@ -10,7 +10,7 @@ namespace keyboard {
 class open_app_button {
 public:
   open_app_button(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)
-    : app_id(app_id_), owner_id(owner_id_), hash(hash_.data()), label(label_.data()) { }
+    : app_id(app_id_), owner_id(owner_id_), hash(hash_), label(label_) { }
   std::string serialize() const {
     return
     string_utils::format(
@@ -21,8 +21,8 @@ public:
 private:
   std::int64_t app_id;
   std::int64_t owner_id;
-  const char* hash;
-  const char* label;
+  std::string hash;
+  std::string label;
 };
 } // namespace keyboard
 } // namespace vk

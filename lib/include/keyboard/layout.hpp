@@ -5,10 +5,10 @@
 
 #include "keyboard/flags.hpp"
 
-#include "keyboard/location_button.hpp"
-#include "keyboard/open_app_button.hpp"
-#include "keyboard/text_button.hpp"
-#include "keyboard/vk_pay_button.hpp"
+#include "keyboard/buttons/location.hpp"
+#include "keyboard/buttons/open_app.hpp"
+#include "keyboard/buttons/text.hpp"
+#include "keyboard/buttons/vk_pay.hpp"
 
 
 namespace vk {

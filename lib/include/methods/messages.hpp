@@ -2,7 +2,7 @@
 #define VK_MESSAGES_H
 
 #include "attachment/attachment.hpp"
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 #include "method_utils/method_utils.hpp"
 
 
@@ -13,7 +13,7 @@ class layout;
 } // namespace vk
 
 namespace vk {
-struct vk_export conversation_member {
+struct conversation_member {
   std::string first_name;
   std::string last_name;
   std::int64_t id;
@@ -28,7 +28,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export messages {
+class messages {
 public:
 
   messages(bool disable_mentions_flag_);

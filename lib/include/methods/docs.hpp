@@ -1,7 +1,7 @@
 #ifndef VK_DOCS_H
 #define VK_DOCS_H
 
-#include "document/common_document.hpp"
+#include "document/common.hpp"
 
 
 namespace vk {
@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class vk_export docs : protected document::common {
+class docs : protected document::common {
 public:
   explicit docs();
   ~docs();
