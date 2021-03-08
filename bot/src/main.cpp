@@ -40,8 +40,7 @@ private:
 
 int main() {
   vk::config::load("/home/machen/config.json");
-  vk::processing::try_construct_exception_ptr<vk::exception::access_error>({0, "1"});
-//  bot::bot_object example;
-//  example.setup();
-//  return example.run();
+  bot::bot_object example;
+  example.setup();
+  return example.run();
 }
