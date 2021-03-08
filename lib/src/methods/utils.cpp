@@ -11,8 +11,8 @@ bool vk::method::utils::check_link(std::string_view url) const {
     }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "utils", processing::error_type::invalid_parameter_error, response
+    processing::log_and_throw<exception::invalid_parameter_error>(
+      "utils", response
     );
   }
   std::string_view status = response["response"]["status"];
@@ -26,8 +26,8 @@ std::string vk::method::utils::get_short_link(std::string_view url) const {
     }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "utils", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "utils", response
     );
   }
 
@@ -43,8 +43,8 @@ std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name
     }));
 
   if (response["response"].get_array().size() == 0)
-    processing::log_and_throw(
-      "utils", processing::error_type::access_error, "No such user."
+    processing::log_and_throw<exception::access_error>(
+      "utils", "No such user."
     );
 
   return response["response"]["object_id"].get_int64();

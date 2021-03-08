@@ -24,9 +24,12 @@ void vk::method::audio::save(
     common_document.common_upload(filename, raw_server, "file");
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "audio", processing::error_type::upload_error, "Can't upload file. Maybe is not an mp3 track?"
+    processing::log_and_throw<exception::upload_error>(
+      "audio", "Can't upload file. Maybe is not an mp3 track?"
     );
+//    processing::log_and_throw(
+//      "audio", processing::error_type::upload_error, "Can't upload file. Maybe is not an mp3 track?"
+//    );
   }
 
   method_util.call("audio.save", method_util.user_args({

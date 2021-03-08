@@ -88,8 +88,8 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
     return;
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 }
@@ -110,8 +110,8 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
     );
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 }
@@ -125,8 +125,8 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
     }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 }
@@ -147,8 +147,8 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
     );
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 

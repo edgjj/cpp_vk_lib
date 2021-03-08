@@ -9,8 +9,8 @@ std::int64_t vk::method::groups::get_by_id() const {
     method_util.call_and_parse("groups.getById", method_util.group_args({ }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "groups", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "groups", response
     );
   }
   return response["response"].at(0)["id"];
@@ -23,8 +23,8 @@ simdjson::dom::object vk::method::groups::get_long_poll_server(std::int64_t grou
       {"random_id",   "0"}
     }));
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "groups", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "groups", response
     );
   }
   return response["response"];

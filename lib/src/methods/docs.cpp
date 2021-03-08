@@ -33,8 +33,8 @@ void vk::method::docs::edit(
   }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 }
@@ -47,8 +47,8 @@ void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const {
   }));
 
   if (response.begin().key() == "error") {
-    processing::log_and_throw(
-      "messages", processing::error_type::access_error, response
+    processing::log_and_throw<exception::access_error>(
+      "messages", response
     );
   }
 }
@@ -79,8 +79,8 @@ std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_mess
   simdjson::dom::object upload_response = common_upload(filename, raw_server, "file");
 
   if (upload_response.begin().key() != "file") {
-    processing::log_and_throw(
-      "docs", processing::error_type::upload_error, "Can't upload file. Maybe is not an mp3 track?"
+    processing::log_and_throw<exception::upload_error>(
+      "docs", "Can't upload file. Maybe is not an mp3 track?"
     );
   }
 

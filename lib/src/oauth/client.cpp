@@ -39,8 +39,8 @@ void vk::oauth::client::pull() {
       error_returned(response, "invalid_request") ||
       error_returned(response, "invalid_grant")
   )
-    processing::log_and_throw(
-      "oauth", processing::error_type::access_error, response["error_description"].get_c_str().take_value()
+    processing::log_and_throw<exception::access_error>(
+      "oauth", response["error_description"].get_c_str().take_value()
     );
 
   pulled_token = response["access_token"].get_c_str().take_value();

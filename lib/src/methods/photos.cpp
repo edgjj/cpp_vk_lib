@@ -47,8 +47,8 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(
   if (upload_response["photo"].get_string().take_value() == "[]" ||
       upload_response["photo"].get_string().take_value() == "")
   {
-    processing::log_and_throw(
-      "photos", processing::error_type::upload_error, upload_response
+    processing::log_and_throw<exception::upload_error>(
+      "photos", upload_response
     );
   }
 
