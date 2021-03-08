@@ -1,7 +1,7 @@
 #ifndef BOT_LONG_POLLER_H
 #define BOT_LONG_POLLER_H
 
-#include "long_poll/long_poll_api.hpp"
+#include "long_poll/api.hpp"
 
 #include "../handlers/message_handler.hpp"
 

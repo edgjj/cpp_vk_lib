@@ -1,5 +1,7 @@
 #include <unordered_map>
 
+#include "config/loader.hpp"
+
 #include "commands/docs_search.hpp"
 #include "commands/keyboard.hpp"
 #include "commands/hide_keyboard.hpp"
@@ -37,8 +39,9 @@ private:
 } // namespace bot
 
 int main() {
-  vk::config::load("/path/to/config.json");
-  bot::bot_object example;
-  example.setup();
-  return example.run();
+  vk::config::load("/home/machen/config.json");
+  vk::processing::try_construct_exception_ptr<vk::exception::access_error>({0, "1"});
+//  bot::bot_object example;
+//  example.setup();
+//  return example.run();
 }
