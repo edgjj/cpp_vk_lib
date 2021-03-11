@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ts_604',['ts',['../structvk_1_1long__poll__data.html#aa9547ad108aa16ef5805b955660d9317',1,'vk::long_poll_data']]]
+  ['parser_613',['parser',['../classvk_1_1document_1_1common.html#a1536487eca404dbc054d9f964d84ba3c',1,'vk::document::common']]]
 ];

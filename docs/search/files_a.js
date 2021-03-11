@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['network_5fclient_2ecpp_407',['network_client.cpp',['../network__client_8cpp.html',1,'']]],
-  ['network_5fclient_2ehpp_408',['network_client.hpp',['../network__client_8hpp.html',1,'']]]
+  ['open_5fapp_2ehpp_417',['open_app.hpp',['../open__app_8hpp.html',1,'']]],
+  ['ostream_2ehpp_418',['ostream.hpp',['../ostream_8hpp.html',1,'']]]
 ];

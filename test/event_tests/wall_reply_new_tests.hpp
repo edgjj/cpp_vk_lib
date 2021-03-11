@@ -5,7 +5,7 @@
 
 #include "simdjson.h"
 
-#include "events/wall_reply_new.hpp"
+#include "cpp_vk_lib/events/wall_reply_new.hpp"
 
 
 TEST(wall_reply_new, default_event) {

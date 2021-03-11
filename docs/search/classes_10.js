@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['video_343',['video',['../classvk_1_1method_1_1video.html',1,'vk::method']]],
-  ['video_5fattachment_344',['video_attachment',['../classvk_1_1attachment_1_1video__attachment.html',1,'vk::attachment']]],
-  ['vk_5fpay_5fbutton_345',['vk_pay_button',['../classvk_1_1keyboard_1_1vk__pay__button.html',1,'vk::keyboard']]]
+  ['upload_5ferror_348',['upload_error',['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception']]],
+  ['utils_349',['utils',['../classvk_1_1method_1_1utils.html',1,'vk::method']]]
 ];

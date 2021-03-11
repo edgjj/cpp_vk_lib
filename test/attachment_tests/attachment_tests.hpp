@@ -2,7 +2,7 @@
 #define VK_ATTACHMENT_TESTS_H
 
 #include <gtest/gtest.h>
-#include "attachment/attachment.hpp"
+#include "cpp_vk_lib/attachment/attachment.hpp"
 
 
 namespace att = vk::attachment;

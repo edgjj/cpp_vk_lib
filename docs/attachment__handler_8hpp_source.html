@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/events/handlers/attachment_handler.hpp Source File</title>
+<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/handlers/attachment_handler.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_96d6149f1944b1f19e912f2713259b66.html">events</a></li><li class="navelem"><a class="el" href="dir_cf22c9b4879f1cf68b9fd26a42affb5e.html">handlers</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_53544e70ef113b77a7d7180fbd3b440a.html">events</a></li><li class="navelem"><a class="el" href="dir_8db78b0b0b3560bf2d55c3b25210df46.html">handlers</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -92,27 +92,26 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>event {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structvk_1_1event_1_1attachment__handler.html">   24</a></span>&#160;<span class="keyword">struct </span><a class="code" href="cppdefs_8hpp.html#a038c2283266d71af221716822892baae">vk_hidden</a> <a class="code" href="structvk_1_1event_1_1attachment__handler.html">attachment_handler</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1attachment__handler.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1attachment__handler.html">attachment_handler</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="namespacevk_1_1attachment.html#a89a8bc9e79c333536b3a6397e5643e46">attachment::attachments_t</a> try_get(<span class="keyword">const</span> simdjson::dom::array&amp; attachments) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a> try_get(<span class="keyword">const</span> simdjson::dom::array&amp; attachments) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structvk_1_1event_1_1attachment__handler.html#a9fa11c10f6d0d595ee9e6fb6470362c8">   28</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structvk_1_1event_1_1attachment__handler.html#a8c6e664f86eb83df85f9ee0488d82d42">   29</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structvk_1_1event_1_1attachment__handler.html#afd415c2c297d41b6fc40cf9dc2db6812">   30</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1attachment__handler.html#a9fa11c10f6d0d595ee9e6fb6470362c8">   28</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1attachment__handler.html#a8c6e664f86eb83df85f9ee0488d82d42">   29</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1attachment__handler.html#afd415c2c297d41b6fc40cf9dc2db6812">   30</a></span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace event</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace vk</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_EVENT_ATTACHMENT_HANDLER_H</span></div>
 <div class="ttc" id="aattachment_8hpp_html"><div class="ttname"><a href="attachment_8hpp.html">attachment.hpp</a></div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="classvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:24</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1message__new_html"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a></div><div class="ttdoc">The message_new event representation.</div><div class="ttdef"><b>Definition:</b> message_new.hpp:25</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html">vk::event::wall_post_new</a></div><div class="ttdoc">The wall_post_new event representation.</div><div class="ttdef"><b>Definition:</b> wall_post_new.hpp:22</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__reply__new_html"><div class="ttname"><a href="classvk_1_1event_1_1wall__reply__new.html">vk::event::wall_reply_new</a></div><div class="ttdoc">The wall_reply_new event representation.</div><div class="ttdef"><b>Definition:</b> wall_reply_new.hpp:21</div></div>
-<div class="ttc" id="acppdefs_8hpp_html_a038c2283266d71af221716822892baae"><div class="ttname"><a href="cppdefs_8hpp.html#a038c2283266d71af221716822892baae">vk_hidden</a></div><div class="ttdeci">#define vk_hidden</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:24</div></div>
-<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> common_document.hpp:8</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_a89a8bc9e79c333536b3a6397e5643e46"><div class="ttname"><a href="namespacevk_1_1attachment.html#a89a8bc9e79c333536b3a6397e5643e46">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base_attachment &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:121</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
-<div class="ttc" id="astructvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="structvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:24</div></div>
+<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> common.hpp:8</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_a05588712dbb7751a10ec8296aaffc444"><div class="ttname"><a href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:94</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

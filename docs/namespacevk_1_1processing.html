@@ -67,7 +67,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">vk::processing Namespace Reference</div>  </div>
 </div><!--header-->
@@ -75,27 +76,80 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1thread__pool.html">thread_pool</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1backtrace__view.html">backtrace_view</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backtrace viewer, used in exceptions.  <a href="classvk_1_1processing_1_1backtrace__view.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab3e21d3cc1ce5218f1930d7a26e3d2c7"><td class="memTemplParams" colspan="2">template&lt;typename vk_exception_t &gt; </td></tr>
-<tr class="memitem:ab3e21d3cc1ce5218f1930d7a26e3d2c7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#ab3e21d3cc1ce5218f1930d7a26e3d2c7">process_error</a> (std::string_view label, vk_exception_t e)</td></tr>
-<tr class="memdesc:ab3e21d3cc1ce5218f1930d7a26e3d2c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write information about error to logfile and throw it.  <a href="namespacevk_1_1processing.html#ab3e21d3cc1ce5218f1930d7a26e3d2c7">More...</a><br /></td></tr>
-<tr class="separator:ab3e21d3cc1ce5218f1930d7a26e3d2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a52510d26de0fbca6bba69da453685"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::int64_t, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a65a52510d26de0fbca6bba69da453685">extract_from_json</a> (const simdjson::dom::object &amp;error_object)</td></tr>
+<tr class="separator:a65a52510d26de0fbca6bba69da453685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ae986bde0314b7c18f34a4f06613554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554">log_and_rethrow</a> (std::string_view label, std::exception_ptr exception_ptr)</td></tr>
+<tr class="separator:a4ae986bde0314b7c18f34a4f06613554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac118c501e91d3513a108f9ed7be4eaed"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </td></tr>
+<tr class="memitem:ac118c501e91d3513a108f9ed7be4eaed"><td class="memTemplItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#ac118c501e91d3513a108f9ed7be4eaed">try_construct_exception_ptr</a> (const std::pair&lt; std::int64_t, std::string &gt; &amp;error)</td></tr>
+<tr class="separator:ac118c501e91d3513a108f9ed7be4eaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e080ef119b0ac124ec27e4a170a939"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a99e080ef119b0ac124ec27e4a170a939"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a99e080ef119b0ac124ec27e4a170a939">log_and_throw</a> (std::string_view label, const simdjson::dom::object &amp;error_object)</td></tr>
+<tr class="separator:a99e080ef119b0ac124ec27e4a170a939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60407a58c787424c0d6d994fce78617a"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a60407a58c787424c0d6d994fce78617a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a60407a58c787424c0d6d994fce78617a">log_and_throw</a> (std::string_view label, std::string_view error_message)</td></tr>
+<tr class="separator:a60407a58c787424c0d6d994fce78617a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369c14f8d4bca321763ea6fe9e2e99cc"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a369c14f8d4bca321763ea6fe9e2e99cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a369c14f8d4bca321763ea6fe9e2e99cc">log_only</a> (std::string_view label, const simdjson::dom::object &amp;error_object)</td></tr>
+<tr class="separator:a369c14f8d4bca321763ea6fe9e2e99cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada96e1f11d985f59927942cf779adde8"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </td></tr>
+<tr class="memitem:ada96e1f11d985f59927942cf779adde8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#ada96e1f11d985f59927942cf779adde8">log_only</a> (std::string_view label, std::string_view error_message)</td></tr>
+<tr class="separator:ada96e1f11d985f59927942cf779adde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9a2bf3c6c978789a4a58ed114425d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a4b9a2bf3c6c978789a4a58ed114425d4">set_program_finalizer</a> ()</td></tr>
+<tr class="memdesc:a4b9a2bf3c6c978789a4a58ed114425d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizer.  <a href="namespacevk_1_1processing.html#a4b9a2bf3c6c978789a4a58ed114425d4">More...</a><br /></td></tr>
+<tr class="separator:a4b9a2bf3c6c978789a4a58ed114425d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t &gt; </td></tr>
+<tr class="memitem:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe">is_exception_inheritor_v</a></td></tr>
+<tr class="separator:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab3e21d3cc1ce5218f1930d7a26e3d2c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3e21d3cc1ce5218f1930d7a26e3d2c7">&#9670;&nbsp;</a></span>process_error()</h2>
+<a id="a65a52510d26de0fbca6bba69da453685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65a52510d26de0fbca6bba69da453685">&#9670;&nbsp;</a></span>extract_from_json()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename vk_exception_t &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void vk::processing::process_error </td>
+          <td class="memname">std::pair&lt; int64_t, std::string &gt; vk::processing::extract_from_json </td>
+          <td>(</td>
+          <td class="paramtype">const simdjson::dom::object &amp;&#160;</td>
+          <td class="paramname"><em>error_object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1processing_a65a52510d26de0fbca6bba69da453685_icgraph.png" border="0" usemap="#anamespacevk_1_1processing_a65a52510d26de0fbca6bba69da453685_icgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a65a52510d26de0fbca6bba69da453685_icgraph" id="anamespacevk_1_1processing_a65a52510d26de0fbca6bba69da453685_icgraph">
+<area shape="rect" title=" " alt="" coords="232,35,403,76"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a99e080ef119b0ac124ec27e4a170a939" title=" " alt="" coords="23,5,167,47"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a369c14f8d4bca321763ea6fe9e2e99cc" title=" " alt="" coords="5,71,184,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4ae986bde0314b7c18f34a4f06613554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ae986bde0314b7c18f34a4f06613554">&#9670;&nbsp;</a></span>log_and_rethrow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::log_and_rethrow </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>label</em>, </td>
@@ -103,8 +157,8 @@ template&lt;typename vk_exception_t &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vk_exception_t&#160;</td>
-          <td class="paramname"><em>e</em>&#160;</td>
+          <td class="paramtype">std::exception_ptr&#160;</td>
+          <td class="paramname"><em>exception_ptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -113,37 +167,265 @@ template&lt;typename vk_exception_t &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Write information about error to logfile and throw it. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_cgraph" alt=""/></div>
-<map name="anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_cgraph" id="anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_cgraph">
-<area shape="rect" title="Write information about error to logfile and throw it." alt="" coords="5,35,180,76"/>
-<area shape="rect" href="namespacevk_1_1config.html#aac0c0b4b8a9d8b34a128225b5a98dc0f" title=" " alt="" coords="228,42,408,69"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="470,5,605,47"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#a192d69d5eef67e09e2ffc1df5e4c2af9" title=" " alt="" coords="456,71,619,98"/>
+<div class="center"><img src="namespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_cgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_cgraph" id="anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_cgraph">
+<area shape="rect" title=" " alt="" coords="5,35,149,76"/>
+<area shape="rect" href="namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50" title=" " alt="" coords="197,42,377,69"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="439,5,574,47"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="425,71,588,98"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_icgraph.png" border="0" usemap="#anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_icgraph" alt=""/></div>
-<map name="anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_icgraph" id="anamespacevk_1_1processing_ab3e21d3cc1ce5218f1930d7a26e3d2c7_icgraph">
-<area shape="rect" title="Write information about error to logfile and throw it." alt="" coords="420,235,595,276"/>
-<area shape="rect" href="classvk_1_1event_1_1wall__reply__new.html#a872c6caaf96af58614fa387709b8d03e" title="Get attachments vector." alt="" coords="203,5,362,47"/>
-<area shape="rect" href="classvk_1_1event_1_1wall__post__new.html#a188f7bd6309c14cb38e1fc2d8b352a84" title="Get attachments vector." alt="" coords="206,71,359,112"/>
-<area shape="rect" href="classvk_1_1method_1_1groups.html#a4f2d699dcf9cde7c5075b37966af1596" title=" " alt="" coords="209,136,357,177"/>
-<area shape="rect" href="classvk_1_1event_1_1wall__post__new.html#ae841d14968b81c9e401a923e52c7c914" title="Try get repost." alt="" coords="206,201,359,243"/>
-<area shape="rect" href="classvk_1_1method_1_1utils.html#af65e4b891bba5692dcce415b93270ecc" title=" " alt="" coords="201,267,365,308"/>
-<area shape="rect" href="classvk_1_1method_1_1audio.html#a4f503cc487a18e8d038037d57f6adcdb" title=" " alt="" coords="193,333,372,359"/>
-<area shape="rect" href="classvk_1_1method_1_1docs.html#a7df9762060ac4c8e3afcc07d2097885c" title=" " alt="" coords="196,384,369,425"/>
-<area shape="rect" href="classvk_1_1method_1_1photos.html#a492a6b88e3d4bb2a327840d9fb07d5d5" title=" " alt="" coords="193,449,372,491"/>
-<area shape="rect" href="classvk_1_1long__poll__api.html#a957e422a061d300bbd9358012b87f8de" title=" " alt="" coords="5,136,145,177"/>
+<div class="center"><img src="namespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_icgraph.png" border="0" usemap="#anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_icgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_icgraph" id="anamespacevk_1_1processing_a4ae986bde0314b7c18f34a4f06613554_icgraph">
+<area shape="rect" title=" " alt="" coords="232,35,376,76"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a99e080ef119b0ac124ec27e4a170a939" title=" " alt="" coords="23,5,167,47"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a369c14f8d4bca321763ea6fe9e2e99cc" title=" " alt="" coords="5,71,184,98"/>
 </map>
 </div>
 
+</div>
+</div>
+<a id="a99e080ef119b0ac124ec27e4a170a939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e080ef119b0ac124ec27e4a170a939">&#9670;&nbsp;</a></span>log_and_throw() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::log_and_throw </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const simdjson::dom::object &amp;&#160;</td>
+          <td class="paramname"><em>error_object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1processing_a99e080ef119b0ac124ec27e4a170a939_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_a99e080ef119b0ac124ec27e4a170a939_cgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a99e080ef119b0ac124ec27e4a170a939_cgraph" id="anamespacevk_1_1processing_a99e080ef119b0ac124ec27e4a170a939_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,149,80"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a65a52510d26de0fbca6bba69da453685" title=" " alt="" coords="197,5,368,47"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554" title=" " alt="" coords="211,71,355,112"/>
+<area shape="rect" href="namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50" title=" " alt="" coords="416,78,596,105"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="658,41,793,83"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="644,107,807,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a60407a58c787424c0d6d994fce78617a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60407a58c787424c0d6d994fce78617a">&#9670;&nbsp;</a></span>log_and_throw() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::log_and_throw </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>error_message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1processing_a60407a58c787424c0d6d994fce78617a_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_a60407a58c787424c0d6d994fce78617a_cgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a60407a58c787424c0d6d994fce78617a_cgraph" id="anamespacevk_1_1processing_a60407a58c787424c0d6d994fce78617a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,35,149,76"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554" title=" " alt="" coords="197,35,341,76"/>
+<area shape="rect" href="namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50" title=" " alt="" coords="389,42,569,69"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="631,5,766,47"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="617,71,780,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a369c14f8d4bca321763ea6fe9e2e99cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369c14f8d4bca321763ea6fe9e2e99cc">&#9670;&nbsp;</a></span>log_only() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::log_only </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const simdjson::dom::object &amp;&#160;</td>
+          <td class="paramname"><em>error_object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1processing_a369c14f8d4bca321763ea6fe9e2e99cc_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_a369c14f8d4bca321763ea6fe9e2e99cc_cgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_a369c14f8d4bca321763ea6fe9e2e99cc_cgraph" id="anamespacevk_1_1processing_a369c14f8d4bca321763ea6fe9e2e99cc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,46,184,73"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a65a52510d26de0fbca6bba69da453685" title=" " alt="" coords="232,5,403,47"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554" title=" " alt="" coords="245,71,389,112"/>
+<area shape="rect" href="namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50" title=" " alt="" coords="451,78,631,105"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="693,41,827,83"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="679,107,841,134"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ada96e1f11d985f59927942cf779adde8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada96e1f11d985f59927942cf779adde8">&#9670;&nbsp;</a></span>log_only() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::log_only </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>error_message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1processing_ada96e1f11d985f59927942cf779adde8_cgraph.png" border="0" usemap="#anamespacevk_1_1processing_ada96e1f11d985f59927942cf779adde8_cgraph" alt=""/></div>
+<map name="anamespacevk_1_1processing_ada96e1f11d985f59927942cf779adde8_cgraph" id="anamespacevk_1_1processing_ada96e1f11d985f59927942cf779adde8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,42,184,69"/>
+<area shape="rect" href="namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554" title=" " alt="" coords="232,35,376,76"/>
+<area shape="rect" href="namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50" title=" " alt="" coords="424,42,604,69"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="666,5,801,47"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="652,71,815,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b9a2bf3c6c978789a4a58ed114425d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9a2bf3c6c978789a4a58ed114425d4">&#9670;&nbsp;</a></span>set_program_finalizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::set_program_finalizer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finalizer. </p>
+<p>Please, use in main function. </p>
+
+</div>
+</div>
+<a id="ac118c501e91d3513a108f9ed7be4eaed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac118c501e91d3513a108f9ed7be4eaed">&#9670;&nbsp;</a></span>try_construct_exception_ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t , typename  = std::enable_if_t&lt;is_exception_inheritor_v&lt;_Error_t&gt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::exception_ptr vk::processing::try_construct_exception_ptr </td>
+          <td>(</td>
+          <td class="paramtype">const std::pair&lt; std::int64_t, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a2ff2d2576f25ba3043fa69ede1e982fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff2d2576f25ba3043fa69ede1e982fe">&#9670;&nbsp;</a></span>is_exception_inheritor_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _Error_t &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool vk::processing::is_exception_inheritor_v</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">  std::is_base_of_v&lt;exception::common_exception, _Error_t&gt;</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

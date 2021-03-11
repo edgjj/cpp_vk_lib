@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['red_602',['red',['../namespacevk_1_1keyboard_1_1color__data.html#ad31678c8655ebc7f800d45e183a1d99a',1,'vk::keyboard::color_data']]]
+  ['net_5fclient_610',['net_client',['../classvk_1_1document_1_1common.html#ac4d5fb651a876ebc679acc1976f0139a',1,'vk::document::common']]]
 ];

@@ -71,17 +71,18 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="attachment_8hpp_source.html">attachment/attachment.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="loader_8hpp_source.html">config/loader.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="common__document_8hpp_source.html">document/common_document.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="document_2common_8hpp_source.html">document/common.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="attachment__handler_8hpp_source.html">events/handlers/attachment_handler.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message__action__handler_8hpp_source.html">events/handlers/message_action_handler.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common__event_8hpp_source.html">events/common_event.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="message__new_8hpp_source.html">events/message_new.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="wall__post__new_8hpp_source.html">events/wall_post_new.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="wall__reply__new_8hpp_source.html">events/wall_reply_new.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__processor_8hpp_source.html">exception/error_processor.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="colors_8hpp_source.html">keyboard/colors.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="flags_8hpp_source.html">keyboard/flags.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="layout_8hpp_source.html">keyboard/layout.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="long__poll__api_8hpp_source.html">long_poll/long_poll_api.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="api_8hpp_source.html">long_poll/api.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="method__utils_8hpp_source.html">method_utils/method_utils.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="audio_8hpp_source.html">methods/audio.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="docs_8hpp_source.html">methods/docs.hpp</a>&quot;</code><br />
@@ -91,67 +92,66 @@ $(function() {
 <code>#include &quot;<a class="el" href="utils_8hpp_source.html">methods/utils.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="video_8hpp_source.html">methods/video.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cppdefs_8hpp_source.html">misc/cppdefs.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="network__client_8hpp_source.html">net/network_client.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="client_8hpp_source.html">oauth/client.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="net_2client_8hpp_source.html">net/client.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="oauth_2client_8hpp_source.html">oauth/client.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="backtrace_8hpp_source.html">processing/backtrace.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="error__handler_8hpp_source.html">processing/error_handler.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="thread__pool_8hpp_source.html">processing/thread_pool.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="task__queue_8hpp_source.html">processing/task_queue.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="string__utils_8hpp_source.html">string_utils/string_utils.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for common.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="common_8hpp__incl.png" border="0" usemap="#a_2home_2machen_2git_2cpp__vk__lib_2lib_2include_2cpp__vk__lib_2common_8hpp" alt=""/></div>
 <map name="a_2home_2machen_2git_2cpp__vk__lib_2lib_2include_2cpp__vk__lib_2common_8hpp" id="a_2home_2machen_2git_2cpp__vk__lib_2lib_2include_2cpp__vk__lib_2common_8hpp">
-<area shape="rect" title=" " alt="" coords="1763,5,1930,61"/>
-<area shape="rect" href="attachment_8hpp.html" title=" " alt="" coords="1561,452,1765,479"/>
-<area shape="rect" href="cppdefs_8hpp.html" title=" " alt="" coords="1489,691,1625,717"/>
-<area shape="rect" href="loader_8hpp.html" title=" " alt="" coords="631,534,764,561"/>
-<area shape="rect" href="common__document_8hpp.html" title=" " alt="" coords="2071,199,2319,225"/>
-<area shape="rect" href="method__utils_8hpp.html" title=" " alt="" coords="2686,273,2847,315"/>
-<area shape="rect" href="network__client_8hpp.html" title=" " alt="" coords="2736,370,2907,397"/>
-<area shape="rect" href="attachment__handler_8hpp.html" title=" " alt="" coords="1709,363,1915,404"/>
-<area shape="rect" href="message__action__handler_8hpp.html" title=" " alt="" coords="459,363,648,404"/>
-<area shape="rect" href="common__event_8hpp.html" title=" " alt="" coords="1506,199,1705,225"/>
-<area shape="rect" href="message__new_8hpp.html" title=" " alt="" coords="1241,281,1431,307"/>
-<area shape="rect" href="wall__post__new_8hpp.html" title=" " alt="" coords="1507,281,1701,307"/>
-<area shape="rect" href="error__handler_8hpp.html" title=" " alt="" coords="784,452,995,479"/>
-<area shape="rect" href="backtrace_8hpp.html" title=" " alt="" coords="2930,616,3118,643"/>
-<area shape="rect" href="wall__reply__new_8hpp.html" title=" " alt="" coords="1725,281,1923,307"/>
-<area shape="rect" href="colors_8hpp.html" title=" " alt="" coords="1011,281,1165,307"/>
-<area shape="rect" href="flags_8hpp.html" title=" " alt="" coords="1083,199,1229,225"/>
-<area shape="rect" href="layout_8hpp.html" title=" " alt="" coords="604,117,759,143"/>
-<area shape="rect" href="string__utils_8hpp.html" title=" " alt="" coords="853,273,987,315"/>
-<area shape="rect" href="long__poll__api_8hpp.html" title=" " alt="" coords="1507,109,1651,151"/>
-<area shape="rect" href="groups_8hpp.html" title=" " alt="" coords="2647,199,2801,225"/>
-<area shape="rect" href="thread__pool_8hpp.html" title=" " alt="" coords="2135,370,2337,397"/>
-<area shape="rect" href="audio_8hpp.html" title=" " alt="" coords="2227,117,2373,143"/>
-<area shape="rect" href="docs_8hpp.html" title=" " alt="" coords="2397,117,2539,143"/>
-<area shape="rect" href="messages_8hpp.html" title=" " alt="" coords="2343,199,2521,225"/>
-<area shape="rect" href="photos_8hpp.html" title=" " alt="" coords="1827,117,1981,143"/>
-<area shape="rect" href="utils_8hpp.html" title=" " alt="" coords="2816,117,2955,143"/>
-<area shape="rect" href="video_8hpp.html" title=" " alt="" coords="2005,117,2152,143"/>
-<area shape="rect" href="client_8hpp.html" title=" " alt="" coords="2991,281,3118,307"/>
-<area shape="rect" title=" " alt="" coords="989,616,1048,643"/>
-<area shape="rect" title=" " alt="" coords="1624,534,1701,561"/>
-<area shape="rect" title=" " alt="" coords="1953,534,2015,561"/>
-<area shape="rect" title=" " alt="" coords="2682,452,2779,479"/>
-<area shape="rect" title=" " alt="" coords="2804,452,2855,479"/>
-<area shape="rect" title=" " alt="" coords="390,452,458,479"/>
-<area shape="rect" href="wall__repost_8hpp.html" title=" " alt="" coords="1512,370,1685,397"/>
-<area shape="rect" href="exception_8hpp.html" title=" " alt="" coords="2930,534,3118,561"/>
-<area shape="rect" title=" " alt="" coords="890,527,1059,568"/>
-<area shape="rect" title=" " alt="" coords="2984,691,3064,717"/>
-<area shape="rect" href="location__button_8hpp.html" title=" " alt="" coords="43,281,258,307"/>
-<area shape="rect" href="open__app__button_8hpp.html" title=" " alt="" coords="568,199,795,225"/>
-<area shape="rect" href="text__button_8hpp.html" title=" " alt="" coords="869,199,1059,225"/>
-<area shape="rect" href="vk__pay__button_8hpp.html" title=" " alt="" coords="333,199,544,225"/>
-<area shape="rect" href="format_8hpp.html" title=" " alt="" coords="963,363,1165,404"/>
-<area shape="rect" href="join_8hpp.html" title=" " alt="" coords="1084,527,1287,568"/>
-<area shape="rect" title=" " alt="" coords="1847,452,1910,479"/>
-<area shape="rect" href="long__poll__data_8hpp.html" title=" " alt="" coords="1397,527,1541,568"/>
-<area shape="rect" title=" " alt="" coords="1963,452,2106,479"/>
-<area shape="rect" title=" " alt="" coords="2131,452,2192,479"/>
-<area shape="rect" title=" " alt="" coords="2931,370,3024,397"/>
+<area shape="rect" title=" " alt="" coords="1325,5,1491,61"/>
+<area shape="rect" href="attachment_8hpp.html" title=" " alt="" coords="797,452,1001,479"/>
+<area shape="rect" href="loader_8hpp.html" title=" " alt="" coords="1616,191,1749,218"/>
+<area shape="rect" href="document_2common_8hpp.html" title=" " alt="" coords="351,191,527,218"/>
+<area shape="rect" href="method__utils_8hpp.html" title=" " alt="" coords="1286,273,1447,315"/>
+<area shape="rect" href="net_2client_8hpp.html" title=" " alt="" coords="1555,370,1666,397"/>
+<area shape="rect" href="cppdefs_8hpp.html" title=" " alt="" coords="2252,616,2388,643"/>
+<area shape="rect" href="attachment__handler_8hpp.html" title=" " alt="" coords="763,363,968,404"/>
+<area shape="rect" href="message__action__handler_8hpp.html" title=" " alt="" coords="992,363,1181,404"/>
+<area shape="rect" href="common__event_8hpp.html" title=" " alt="" coords="911,191,1110,218"/>
+<area shape="rect" href="message__new_8hpp.html" title=" " alt="" coords="802,281,993,307"/>
+<area shape="rect" href="wall__post__new_8hpp.html" title=" " alt="" coords="1017,281,1210,307"/>
+<area shape="rect" href="error__processor_8hpp.html" title=" " alt="" coords="1925,452,2144,479"/>
+<area shape="rect" href="backtrace_8hpp.html" title=" " alt="" coords="2751,616,2939,643"/>
+<area shape="rect" href="wall__reply__new_8hpp.html" title=" " alt="" coords="579,281,778,307"/>
+<area shape="rect" href="colors_8hpp.html" title=" " alt="" coords="2299,281,2453,307"/>
+<area shape="rect" href="flags_8hpp.html" title=" " alt="" coords="2942,191,3087,218"/>
+<area shape="rect" href="layout_8hpp.html" title=" " alt="" coords="2369,109,2524,136"/>
+<area shape="rect" href="string__utils_8hpp.html" title=" " alt="" coords="2586,273,2721,315"/>
+<area shape="rect" href="api_8hpp.html" title=" " alt="" coords="1667,109,1800,136"/>
+<area shape="rect" href="groups_8hpp.html" title=" " alt="" coords="1387,191,1541,218"/>
+<area shape="rect" href="task__queue_8hpp.html" title=" " alt="" coords="1925,191,2123,218"/>
+<area shape="rect" href="audio_8hpp.html" title=" " alt="" coords="365,109,512,136"/>
+<area shape="rect" href="docs_8hpp.html" title=" " alt="" coords="536,109,677,136"/>
+<area shape="rect" href="messages_8hpp.html" title=" " alt="" coords="881,109,1058,136"/>
+<area shape="rect" href="photos_8hpp.html" title=" " alt="" coords="701,109,856,136"/>
+<area shape="rect" href="utils_8hpp.html" title=" " alt="" coords="1285,109,1424,136"/>
+<area shape="rect" href="video_8hpp.html" title=" " alt="" coords="144,109,291,136"/>
+<area shape="rect" href="oauth_2client_8hpp.html" title=" " alt="" coords="1523,281,1650,307"/>
+<area shape="rect" title=" " alt="" coords="1539,616,1597,643"/>
+<area shape="rect" title=" " alt="" coords="1331,534,1408,561"/>
+<area shape="rect" title=" " alt="" coords="2621,691,2683,717"/>
+<area shape="rect" title=" " alt="" coords="2578,452,2675,479"/>
+<area shape="rect" title=" " alt="" coords="1565,452,1616,479"/>
+<area shape="rect" title=" " alt="" coords="1255,452,1323,479"/>
+<area shape="rect" href="wall__repost_8hpp.html" title=" " alt="" coords="1205,370,1379,397"/>
+<area shape="rect" href="exception_8hpp.html" title=" " alt="" coords="2294,534,2477,561"/>
+<area shape="rect" title=" " alt="" coords="2805,691,2885,717"/>
+<area shape="rect" href="location_8hpp.html" title=" " alt="" coords="1605,534,1824,561"/>
+<area shape="rect" href="open__app_8hpp.html" title=" " alt="" coords="2568,184,2739,225"/>
+<area shape="rect" href="text_8hpp.html" title=" " alt="" coords="2350,191,2543,218"/>
+<area shape="rect" href="vk__pay_8hpp.html" title=" " alt="" coords="2763,184,2917,225"/>
+<area shape="rect" href="join_8hpp.html" title=" " alt="" coords="2016,527,2219,568"/>
+<area shape="rect" href="format_8hpp.html" title=" " alt="" coords="2123,363,2325,404"/>
+<area shape="rect" href="split_8hpp.html" title=" " alt="" coords="2779,363,2981,404"/>
+<area shape="rect" href="lazy__split_8hpp.html" title=" " alt="" coords="2552,363,2755,404"/>
+<area shape="rect" title=" " alt="" coords="2181,452,2243,479"/>
+<area shape="rect" href="data_8hpp.html" title=" " alt="" coords="1849,534,1991,561"/>
+<area shape="rect" title=" " alt="" coords="1843,281,1986,307"/>
+<area shape="rect" title=" " alt="" coords="2011,281,2072,307"/>
 </map>
 </div>
 </div>

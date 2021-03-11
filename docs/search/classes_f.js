@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utils_342',['utils',['../classvk_1_1method_1_1utils.html',1,'vk::method']]]
+  ['task_5fqueue_347',['task_queue',['../classvk_1_1processing_1_1task__queue.html',1,'vk::processing']]]
 ];

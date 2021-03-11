@@ -2,7 +2,7 @@
 
 #include "long_poll/api.hpp"
 
-#include "../../dependencies/logger/logger.hpp"
+#include "logger/logger.hpp"
 
 
 vk::long_poll::api::api()

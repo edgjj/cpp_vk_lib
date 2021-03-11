@@ -67,7 +67,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classvk_1_1method__utils-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -79,15 +78,6 @@ $(function() {
  <a href="classvk_1_1method__utils.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="method__utils_8hpp_source.html">method_utils.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for vk::method_utils:</div>
-<div class="dyncontent">
-<div class="center"><img src="classvk_1_1method__utils__coll__graph.png" border="0" usemap="#avk_1_1method__utils_coll__map" alt="Collaboration graph"/></div>
-<map name="avk_1_1method__utils_coll__map" id="avk_1_1method__utils_coll__map">
-<area shape="rect" title="The container of common functions and constants needed by various methods." alt="" coords="11,95,142,121"/>
-<area shape="rect" href="classvk_1_1network__client.html" title="The HTTPS client." alt="" coords="5,5,148,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -99,21 +89,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7f4331e630c8abd168da68250141faed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a504b8ce12d33681134bd5fa844788114"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a504b8ce12d33681134bd5fa844788114">group_args</a> (std::map&lt; std::string, std::string &gt; &amp;&amp;params) const</td></tr>
 <tr class="separator:a504b8ce12d33681134bd5fa844788114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7997d92102f27e65950e30c8b8e1c2"><td class="memItemLeft" align="right" valign="top">simdjson::dom::object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a9a7997d92102f27e65950e30c8b8e1c2">call_and_parse</a> (std::string_view method, std::map&lt; std::string, std::string &gt; &amp;&amp;params)</td></tr>
-<tr class="separator:a9a7997d92102f27e65950e30c8b8e1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e75c3c331c05ff5d78f0564339c799"><td class="memItemLeft" align="right" valign="top">simdjson::dom::object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a62e75c3c331c05ff5d78f0564339c799">call_and_parse</a> (std::string_view method, std::map&lt; std::string, std::string &gt; &amp;&amp;params) const noexcept</td></tr>
+<tr class="separator:a62e75c3c331c05ff5d78f0564339c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b31efc2e3b87f9282853b4df7da552e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a8b31efc2e3b87f9282853b4df7da552e">call</a> (std::string_view method, std::map&lt; std::string, std::string &gt; &amp;&amp;params) const</td></tr>
 <tr class="separator:a8b31efc2e3b87f9282853b4df7da552e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd816bac3e0e2e835e9df158635eac5b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#acd816bac3e0e2e835e9df158635eac5b">append_url</a> (std::string_view method) const</td></tr>
 <tr class="separator:acd816bac3e0e2e835e9df158635eac5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eb9b18c75a9b7a2b0e53d1291d2948d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a8eb9b18c75a9b7a2b0e53d1291d2948d">error_returned</a> (const simdjson::dom::object &amp;response, std::int64_t error_code)</td></tr>
-<tr class="separator:a8eb9b18c75a9b7a2b0e53d1291d2948d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a69b7c097f538eb496cb3474aaf30492a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#a69b7c097f538eb496cb3474aaf30492a">parser</a></td></tr>
-<tr class="separator:a69b7c097f538eb496cb3474aaf30492a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab46c450dccdfae43728bb43795517394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1network__client.html">vk::network_client</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method__utils.html#ab46c450dccdfae43728bb43795517394">net_client</a></td></tr>
-<tr class="separator:ab46c450dccdfae43728bb43795517394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -220,11 +201,14 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9a7997d92102f27e65950e30c8b8e1c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a7997d92102f27e65950e30c8b8e1c2">&#9670;&nbsp;</a></span>call_and_parse()</h2>
+<a id="a62e75c3c331c05ff5d78f0564339c799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e75c3c331c05ff5d78f0564339c799">&#9670;&nbsp;</a></span>call_and_parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">simdjson::dom::object vk::method_utils::call_and_parse </td>
@@ -241,57 +225,24 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1method__utils_a9a7997d92102f27e65950e30c8b8e1c2_icgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a9a7997d92102f27e65950e30c8b8e1c2_icgraph" alt=""/></div>
-<map name="aclassvk_1_1method__utils_a9a7997d92102f27e65950e30c8b8e1c2_icgraph" id="aclassvk_1_1method__utils_a9a7997d92102f27e65950e30c8b8e1c2_icgraph">
-<area shape="rect" title=" " alt="" coords="389,39,552,80"/>
-<area shape="rect" href="classvk_1_1method_1_1utils.html#a11dad3b9cbfb34d659866bbde94be25c" title=" " alt="" coords="197,5,337,47"/>
-<area shape="rect" href="classvk_1_1method_1_1groups.html#a4f2d699dcf9cde7c5075b37966af1596" title=" " alt="" coords="193,71,341,112"/>
-<area shape="rect" href="classvk_1_1long__poll__api.html#a957e422a061d300bbd9358012b87f8de" title=" " alt="" coords="5,71,145,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a8eb9b18c75a9b7a2b0e53d1291d2948d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eb9b18c75a9b7a2b0e53d1291d2948d">&#9670;&nbsp;</a></span>error_returned()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vk::method_utils::error_returned </td>
-          <td>(</td>
-          <td class="paramtype">const simdjson::dom::object &amp;&#160;</td>
-          <td class="paramname"><em>response</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::int64_t&#160;</td>
-          <td class="paramname"><em>error_code</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classvk_1_1method__utils_a8eb9b18c75a9b7a2b0e53d1291d2948d_icgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a8eb9b18c75a9b7a2b0e53d1291d2948d_icgraph" alt=""/></div>
-<map name="aclassvk_1_1method__utils_a8eb9b18c75a9b7a2b0e53d1291d2948d_icgraph" id="aclassvk_1_1method__utils_a8eb9b18c75a9b7a2b0e53d1291d2948d_icgraph">
-<area shape="rect" title=" " alt="" coords="389,5,560,47"/>
-<area shape="rect" href="classvk_1_1method_1_1groups.html#a4f2d699dcf9cde7c5075b37966af1596" title=" " alt="" coords="193,5,341,47"/>
-<area shape="rect" href="classvk_1_1long__poll__api.html#a957e422a061d300bbd9358012b87f8de" title=" " alt="" coords="5,5,145,47"/>
+<div class="center"><img src="classvk_1_1method__utils_a62e75c3c331c05ff5d78f0564339c799_icgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a62e75c3c331c05ff5d78f0564339c799_icgraph" alt=""/></div>
+<map name="aclassvk_1_1method__utils_a62e75c3c331c05ff5d78f0564339c799_icgraph" id="aclassvk_1_1method__utils_a62e75c3c331c05ff5d78f0564339c799_icgraph">
+<area shape="rect" title=" " alt="" coords="411,39,573,80"/>
+<area shape="rect" href="classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac" title=" " alt="" coords="219,5,359,47"/>
+<area shape="rect" href="classvk_1_1method_1_1groups.html#ac79bb600a136d994a7f41e525f368ce6" title=" " alt="" coords="215,71,363,112"/>
+<area shape="rect" href="classvk_1_1long__poll_1_1api.html#a6ad4ccb989b973448489fe57b2ba5a7f" title=" " alt="" coords="5,78,167,105"/>
 </map>
 </div>
 
@@ -318,9 +269,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_cgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_cgraph" alt=""/></div>
 <map name="aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_cgraph" id="aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_cgraph">
 <area shape="rect" title=" " alt="" coords="5,42,216,69"/>
-<area shape="rect" href="namespacevk_1_1config.html#a299808f26c09ddb43d4813af0dbd4651" title=" " alt="" coords="264,35,401,76"/>
+<area shape="rect" href="namespacevk_1_1config.html#a4df2823eff8a1d20e6f439885598702a" title=" " alt="" coords="264,35,401,76"/>
 <area shape="rect" href="classvk_1_1config_1_1loader.html#aacb1948d8739f45c36f873eee4d32d14" title=" " alt="" coords="463,5,598,47"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#a192d69d5eef67e09e2ffc1df5e4c2af9" title=" " alt="" coords="449,71,612,98"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="449,71,612,98"/>
 </map>
 </div>
 <div class="dynheader">
@@ -328,10 +279,10 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_icgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_icgraph" alt=""/></div>
 <map name="aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_icgraph" id="aclassvk_1_1method__utils_a504b8ce12d33681134bd5fa844788114_icgraph">
-<area shape="rect" title=" " alt="" coords="389,46,600,73"/>
-<area shape="rect" href="classvk_1_1method_1_1utils.html#a11dad3b9cbfb34d659866bbde94be25c" title=" " alt="" coords="197,5,337,47"/>
-<area shape="rect" href="classvk_1_1method_1_1groups.html#a4f2d699dcf9cde7c5075b37966af1596" title=" " alt="" coords="193,71,341,112"/>
-<area shape="rect" href="classvk_1_1long__poll__api.html#a957e422a061d300bbd9358012b87f8de" title=" " alt="" coords="5,71,145,112"/>
+<area shape="rect" title=" " alt="" coords="411,46,621,73"/>
+<area shape="rect" href="classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac" title=" " alt="" coords="219,5,359,47"/>
+<area shape="rect" href="classvk_1_1method_1_1groups.html#ac79bb600a136d994a7f41e525f368ce6" title=" " alt="" coords="215,71,363,112"/>
+<area shape="rect" href="classvk_1_1long__poll_1_1api.html#a6ad4ccb989b973448489fe57b2ba5a7f" title=" " alt="" coords="5,78,167,105"/>
 </map>
 </div>
 
@@ -357,10 +308,10 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classvk_1_1method__utils_a7f4331e630c8abd168da68250141faed_cgraph.png" border="0" usemap="#aclassvk_1_1method__utils_a7f4331e630c8abd168da68250141faed_cgraph" alt=""/></div>
 <map name="aclassvk_1_1method__utils_a7f4331e630c8abd168da68250141faed_cgraph" id="aclassvk_1_1method__utils_a7f4331e630c8abd168da68250141faed_cgraph">
-<area shape="rect" title=" " alt="" coords="5,42,208,69"/>
-<area shape="rect" href="namespacevk_1_1config.html#a299808f26c09ddb43d4813af0dbd4651" title=" " alt="" coords="256,35,393,76"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#aacb1948d8739f45c36f873eee4d32d14" title=" " alt="" coords="455,5,590,47"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#a192d69d5eef67e09e2ffc1df5e4c2af9" title=" " alt="" coords="441,71,604,98"/>
+<area shape="rect" title=" " alt="" coords="5,35,208,61"/>
+<area shape="rect" href="namespacevk_1_1config.html#adde5d1c09f9a6b360a52c6d398a4d43d" title=" " alt="" coords="256,35,420,61"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="468,5,631,32"/>
+<area shape="rect" href="classvk_1_1config_1_1loader.html#a95726438fd7bde9dfe4457c5796ad886" title=" " alt="" coords="482,57,617,98"/>
 </map>
 </div>
 
@@ -389,36 +340,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ab46c450dccdfae43728bb43795517394"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab46c450dccdfae43728bb43795517394">&#9670;&nbsp;</a></span>net_client</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1network__client.html">vk::network_client</a> vk::method_utils::net_client</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a69b7c097f538eb496cb3474aaf30492a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b7c097f538eb496cb3474aaf30492a">&#9670;&nbsp;</a></span>parser</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;simdjson::dom::parser&gt; vk::method_utils::parser</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/machen/git/cpp_vk_lib/lib/include/method_utils/<a class="el" href="method__utils_8hpp_source.html">method_utils.hpp</a></li>
+<li>/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/method_utils/<a class="el" href="method__utils_8hpp_source.html">method_utils.hpp</a></li>
 <li>/home/machen/git/cpp_vk_lib/lib/src/method_utils/<a class="el" href="method__utils_8cpp.html">method_utils.cpp</a></li>
 </ul>
 </div><!-- contents -->

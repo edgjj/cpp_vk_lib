@@ -1,16 +1,15 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/events/wall_post_new.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/events/wall_post_new.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="172,5,358,61"/>
-<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="56,109,261,151"/>
-<area shape="rect" id="node8" href="$wall__repost_8hpp.html" title=" " alt="" coords="285,117,458,143"/>
-<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="56,199,260,225"/>
-<area shape="rect" id="node4" title=" " alt="" coords="217,363,276,389"/>
-<area shape="rect" id="node5" title=" " alt="" coords="25,281,102,307"/>
-<area shape="rect" id="node6" title=" " alt="" coords="127,281,190,307"/>
-<area shape="rect" id="node7" href="$cppdefs_8hpp.html" title=" " alt="" coords="264,437,400,464"/>
-<area shape="rect" id="node9" href="$error__handler_8hpp.html" title=" " alt="" coords="344,199,554,225"/>
-<area shape="rect" id="node10" href="$loader_8hpp.html" title=" " alt="" coords="265,281,398,307"/>
-<area shape="rect" id="node11" href="$exception_8hpp.html" title=" " alt="" coords="616,281,804,307"/>
-<area shape="rect" id="node14" title=" " alt="" coords="423,273,592,315"/>
-<area shape="rect" id="node12" href="$backtrace_8hpp.html" title=" " alt="" coords="492,363,680,389"/>
-<area shape="rect" id="node13" title=" " alt="" coords="546,437,626,464"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/wall_post_new.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/wall_post_new.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="135,5,318,76"/>
+<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="17,124,223,165"/>
+<area shape="rect" id="node7" href="$wall__repost_8hpp.html" title=" " alt="" coords="247,131,420,158"/>
+<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="18,213,222,240"/>
+<area shape="rect" id="node4" title=" " alt="" coords="157,363,216,389"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,288,83,315"/>
+<area shape="rect" id="node6" title=" " alt="" coords="229,437,291,464"/>
+<area shape="rect" id="node8" href="$error__processor_8hpp.html" title=" " alt="" coords="247,213,465,240"/>
+<area shape="rect" id="node9" href="$exception_8hpp.html" title=" " alt="" coords="265,288,447,315"/>
+<area shape="rect" id="node10" href="$backtrace_8hpp.html" title=" " alt="" coords="401,363,589,389"/>
+<area shape="rect" id="node12" title=" " alt="" coords="613,363,699,389"/>
+<area shape="rect" id="node13" href="$cppdefs_8hpp.html" title=" " alt="" coords="240,363,376,389"/>
+<area shape="rect" id="node11" title=" " alt="" coords="455,437,535,464"/>
 </map>

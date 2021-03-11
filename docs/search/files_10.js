@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['video_2ecpp_420',['video.cpp',['../video_8cpp.html',1,'']]],
-  ['video_2ehpp_421',['video.hpp',['../video_8hpp.html',1,'']]],
-  ['vk_5fpay_5fbutton_2ehpp_422',['vk_pay_button.hpp',['../vk__pay__button_8hpp.html',1,'']]]
+  ['wall_5fpost_5fnew_2ecpp_431',['wall_post_new.cpp',['../wall__post__new_8cpp.html',1,'']]],
+  ['wall_5fpost_5fnew_2ehpp_432',['wall_post_new.hpp',['../wall__post__new_8hpp.html',1,'']]],
+  ['wall_5freply_5fnew_2ecpp_433',['wall_reply_new.cpp',['../wall__reply__new_8cpp.html',1,'']]],
+  ['wall_5freply_5fnew_2ehpp_434',['wall_reply_new.hpp',['../wall__reply__new_8hpp.html',1,'']]],
+  ['wall_5frepost_2ehpp_435',['wall_repost.hpp',['../wall__repost_8hpp.html',1,'']]]
 ];

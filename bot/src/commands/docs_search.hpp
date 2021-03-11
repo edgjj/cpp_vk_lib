@@ -1,9 +1,9 @@
 #ifndef BOT_CONCRETE_COMMAND_H
 #define BOT_CONCRETE_COMMAND_H
 
-#include "events/message_new.hpp"
-#include "methods/messages.hpp"
-#include "methods/docs.hpp"
+#include "cpp_vk_lib/events/message_new.hpp"
+#include "cpp_vk_lib/methods/messages.hpp"
+#include "cpp_vk_lib/methods/docs.hpp"
 
 #include "../commands/base.hpp"
 #include "../utils/string_utils.hpp"

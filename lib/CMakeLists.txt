@@ -1,5 +1,5 @@
-include_directories(include)
 include_directories(../dependencies)
+include_directories(include/cpp_vk_lib)
 
 #add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")

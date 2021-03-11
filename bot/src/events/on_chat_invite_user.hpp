@@ -1,9 +1,9 @@
 #ifndef BOT_ON_CHAT_INVITE_USER_EVENT_H
 #define BOT_ON_CHAT_INVITE_USER_EVENT_H
 
-#include "events/message_new.hpp"
-#include "methods/messages.hpp"
-#include "string_utils/string_utils.hpp"
+#include "cpp_vk_lib/events/message_new.hpp"
+#include "cpp_vk_lib/methods/messages.hpp"
+#include "cpp_vk_lib/string_utils/string_utils.hpp"
 
 
 namespace bot {

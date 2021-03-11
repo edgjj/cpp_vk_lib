@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['net_5fclient_598',['net_client',['../classvk_1_1method__utils.html#ab46c450dccdfae43728bb43795517394',1,'vk::method_utils']]]
+  ['key_605',['key',['../structvk_1_1long__poll_1_1data.html#a6796ba33b8900a206f165e0c855c14af',1,'vk::long_poll::data']]]
 ];

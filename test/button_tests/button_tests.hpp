@@ -2,7 +2,7 @@
 #define VK_BUTTON_TESTS_H
 
 #include <gtest/gtest.h>
-#include "keyboard/layout.hpp"
+#include "cpp_vk_lib/keyboard/layout.hpp"
 
 namespace keyboard = vk::keyboard;
 

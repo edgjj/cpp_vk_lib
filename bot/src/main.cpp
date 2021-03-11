@@ -1,6 +1,6 @@
 #include <unordered_map>
 
-#include "config/loader.hpp"
+#include "cpp_vk_lib/config/loader.hpp"
 
 #include "commands/docs_search.hpp"
 #include "commands/keyboard.hpp"
@@ -8,8 +8,6 @@
 #include "events/on_message_pin.hpp"
 #include "events/on_chat_invite_user.hpp"
 #include "long_poller/long_poller.hpp"
-
-#include "simdjson.h"
 
 
 namespace bot {

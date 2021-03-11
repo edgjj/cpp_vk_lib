@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['join_5fimplementation_326',['join_implementation',['../structvk_1_1string__utils_1_1join__implementation.html',1,'vk::string_utils']]]
+  ['invalid_5fparameter_5ferror_332',['invalid_parameter_error',['../classvk_1_1exception_1_1invalid__parameter__error.html',1,'vk::exception']]]
 ];

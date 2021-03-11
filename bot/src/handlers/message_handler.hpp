@@ -2,6 +2,7 @@
 #define BOT_MESSAGE_HANDLER_H
 
 #include <unordered_map>
+#include <memory>
 
 #include "../commands/base.hpp"
 #include "../events/on_chat_invite_user.hpp"

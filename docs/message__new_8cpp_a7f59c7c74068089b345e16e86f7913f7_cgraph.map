@@ -1,0 +1,10 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node1" title=" " alt="" coords="5,209,104,235"/>
+<area shape="rect" id="node2" href="$classvk_1_1event_1_1message__new.html#a45362e76164274b8eac73c649416fde1" title="Try get action." alt="" coords="171,5,322,47"/>
+<area shape="rect" id="node3" href="$classvk_1_1event_1_1message__new.html#aecbaf001c49386810a482d2b6345cc08" title="Get attachments vector." alt="" coords="171,71,322,112"/>
+<area shape="rect" id="node4" href="$classvk_1_1event_1_1message__new.html#ac5da90e401ae4f946a867d9dc795e035" title="Try get reply." alt="" coords="167,136,326,177"/>
+<area shape="rect" id="node5" href="$classvk_1_1event_1_1message__new.html#a1b5c2d16241faa474a1d5c1aa66cadf4" title="Check, if object has actions." alt="" coords="171,201,322,243"/>
+<area shape="rect" id="node6" href="$classvk_1_1event_1_1message__new.html#a9f5b1b6ff772d3efb202ce948ac1bb5d" title="Check, if object contains forwarded messages." alt="" coords="152,267,341,308"/>
+<area shape="rect" id="node7" href="$classvk_1_1event_1_1message__new.html#a1dff1f6d7942903455faad4aa8343d0b" title="Check, if object contains reply." alt="" coords="171,332,322,373"/>
+<area shape="rect" id="node8" href="$classvk_1_1event_1_1message__new.html#abb43f3c812808c5a30a72e746d024743" title="Check if message has requested action type." alt="" coords="171,397,322,439"/>
+</map>

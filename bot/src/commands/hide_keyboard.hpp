@@ -1,9 +1,9 @@
 #ifndef BOT_HIDE_KEYBOARD_COMMAND_H
 #define BOT_HIDE_KEYBOARD_COMMAND_H
 
-#include "events/message_new.hpp"
-#include "keyboard/layout.hpp"
-#include "methods/messages.hpp"
+#include "cpp_vk_lib/events/message_new.hpp"
+#include "cpp_vk_lib/keyboard/layout.hpp"
+#include "cpp_vk_lib/methods/messages.hpp"
 
 #include "../commands/base.hpp"
 

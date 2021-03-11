@@ -1,9 +1,0 @@
-<map id="vk::attachment::base_attachment" name="vk::attachment::base_attachment">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,165,211"/>
-<area shape="rect" id="node2" href="$classvk_1_1attachment_1_1audio__attachment.html" title=" " alt="" coords="228,5,393,47"/>
-<area shape="rect" id="node3" href="$classvk_1_1attachment_1_1audio__message__attachment.html" title=" " alt="" coords="225,71,396,112"/>
-<area shape="rect" id="node4" href="$classvk_1_1attachment_1_1document__attachment.html" title=" " alt="" coords="213,136,408,177"/>
-<area shape="rect" id="node5" href="$classvk_1_1attachment_1_1photo__attachment.html" title=" " alt="" coords="227,201,394,243"/>
-<area shape="rect" id="node6" href="$classvk_1_1attachment_1_1video__attachment.html" title=" " alt="" coords="228,267,393,308"/>
-<area shape="rect" id="node7" href="$classvk_1_1attachment_1_1wall__attachment.html" title=" " alt="" coords="233,332,389,373"/>
-</map>

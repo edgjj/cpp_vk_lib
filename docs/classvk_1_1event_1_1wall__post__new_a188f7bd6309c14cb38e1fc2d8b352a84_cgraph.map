@@ -1,7 +1,0 @@
-<map id="vk::event::wall_post_new::attachments" name="vk::event::wall_post_new::attachments">
-<area shape="rect" id="node1" title="Get attachments vector." alt="" coords="5,35,159,76"/>
-<area shape="rect" id="node2" href="$namespacevk_1_1processing.html#ab3e21d3cc1ce5218f1930d7a26e3d2c7" title="Write information about error to logfile and throw it." alt="" coords="207,35,381,76"/>
-<area shape="rect" id="node3" href="$namespacevk_1_1config.html#aac0c0b4b8a9d8b34a128225b5a98dc0f" title=" " alt="" coords="429,42,609,69"/>
-<area shape="rect" id="node4" href="$classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc" title=" " alt="" coords="671,5,806,47"/>
-<area shape="rect" id="node5" href="$classvk_1_1config_1_1loader.html#a192d69d5eef67e09e2ffc1df5e4c2af9" title=" " alt="" coords="657,71,820,98"/>
-</map>

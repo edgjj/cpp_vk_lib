@@ -1,4 +1,7 @@
 <map id="vk::exception::common_exception" name="vk::exception::common_exception">
-<area shape="rect" id="node1" title="General exception of VK method classes." alt="" coords="5,80,180,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="35,5,150,32"/>
+<area shape="rect" id="node1" title="General exception of VK method classes." alt="" coords="168,71,343,112"/>
+<area shape="rect" id="node3" href="$classvk_1_1exception_1_1access__error.html" title=" " alt="" coords="391,5,553,47"/>
+<area shape="rect" id="node4" href="$classvk_1_1exception_1_1invalid__parameter__error.html" title=" " alt="" coords="391,71,553,112"/>
+<area shape="rect" id="node5" href="$classvk_1_1exception_1_1upload__error.html" title=" " alt="" coords="391,136,553,177"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,78,120,105"/>
 </map>

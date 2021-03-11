@@ -5,7 +5,7 @@
 
 #include "simdjson.h"
 
-#include "events/common_event.hpp"
+#include "cpp_vk_lib/events/common_event.hpp"
 
 
 TEST(message_new, default_event) {

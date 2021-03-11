@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['split_2ehpp_413',['split.hpp',['../split_8hpp.html',1,'']]],
-  ['string_5futils_2ehpp_414',['string_utils.hpp',['../string__utils_8hpp.html',1,'']]]
+  ['task_5fqueue_2ecpp_423',['task_queue.cpp',['../task__queue_8cpp.html',1,'']]],
+  ['task_5fqueue_2ehpp_424',['task_queue.hpp',['../task__queue_8hpp.html',1,'']]],
+  ['text_2ehpp_425',['text.hpp',['../text_8hpp.html',1,'']]]
 ];

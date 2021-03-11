@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dom_351',['dom',['../namespacesimdjson_1_1dom.html',1,'simdjson']]],
-  ['simdjson_352',['simdjson',['../namespacesimdjson.html',1,'']]]
+  ['dom_357',['dom',['../namespacesimdjson_1_1dom.html',1,'simdjson']]],
+  ['simdjson_358',['simdjson',['../namespacesimdjson.html',1,'']]]
 ];

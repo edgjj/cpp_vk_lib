@@ -1,10 +1,10 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/events/handlers/message_action_handler.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/events/handlers/message_action_handler.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="7,5,199,76"/>
-<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,436,172,492"/>
-<area shape="rect" id="node3" href="$message__new_8hpp.html" title=" " alt="" coords="101,124,287,180"/>
-<area shape="rect" id="node4" href="$common__event_8hpp.html" title=" " alt="" coords="126,228,313,284"/>
-<area shape="rect" id="node8" href="$message__new_8cpp.html" title=" " alt="" coords="337,228,504,284"/>
-<area shape="rect" id="node5" href="$long__poll__api_8hpp.html" title=" " alt="" coords="177,332,347,388"/>
-<area shape="rect" id="node7" href="$common__event_8cpp.html" title=" " alt="" coords="372,332,539,388"/>
-<area shape="rect" id="node6" href="$long__poll__api_8cpp.html" title=" " alt="" coords="197,436,367,492"/>
+<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/handlers/message_action_handler.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/handlers/message_action_handler.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,220,76"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="17,451,184,507"/>
+<area shape="rect" id="node3" href="$message__new_8hpp.html" title=" " alt="" coords="130,124,309,195"/>
+<area shape="rect" id="node4" href="$common__event_8hpp.html" title=" " alt="" coords="137,243,387,299"/>
+<area shape="rect" id="node8" href="$message__new_8cpp.html" title=" " alt="" coords="411,243,577,299"/>
+<area shape="rect" id="node5" href="$api_8hpp.html" title=" " alt="" coords="189,347,372,403"/>
+<area shape="rect" id="node7" href="$common__event_8cpp.html" title=" " alt="" coords="396,347,563,403"/>
+<area shape="rect" id="node6" href="$api_8cpp.html" title=" " alt="" coords="208,451,375,507"/>
 </map>

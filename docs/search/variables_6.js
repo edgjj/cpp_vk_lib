@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_5fname_596',['last_name',['../structvk_1_1conversation__member.html#ac6cf22456deb1b3859454106bcbbdad8',1,'vk::conversation_member']]]
+  ['green_602',['green',['../namespacevk_1_1keyboard_1_1color__data.html#a2f42352abdd940dbca75ca1d0015806a',1,'vk::keyboard::color_data']]]
 ];

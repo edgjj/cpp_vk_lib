@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/events/wall_post_new.hpp Source File</title>
+<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/wall_post_new.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_96d6149f1944b1f19e912f2713259b66.html">events</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_53544e70ef113b77a7d7180fbd3b440a.html">events</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,42 +84,57 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>event {</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__post__new.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a> <a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__post__new.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__post__new.html#a643439e7c11bb2c15e3e21ad59a929f4">   24</a></span>&#160;  <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a643439e7c11bb2c15e3e21ad59a929f4">wall_post_new</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__post__new.html#ade516c03d5d14381dbf67ae2bb35a0c1">   25</a></span>&#160;  <a class="code" href="classvk_1_1event_1_1wall__post__new.html#ade516c03d5d14381dbf67ae2bb35a0c1">wall_post_new</a>(<a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>(simdjson::dom::object&amp;&amp; event);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::int64_t id() const noexcept;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::int64_t from_id() const noexcept;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::int64_t owner_id() const noexcept;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  std::int64_t created_by() const noexcept;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  std::<span class="keywordtype">string</span> text() const noexcept;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">bool</span> can_edit() const noexcept;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">bool</span> can_delete() const noexcept;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> marked_as_ads() const noexcept;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  std::shared_ptr&lt;<a class="code" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a>&gt; repost() const;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  attachment::<a class="code" href="namespacevk_1_1attachment.html#a89a8bc9e79c333536b3a6397e5643e46">attachments_t</a> attachments() const noexcept;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;private:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  std::shared_ptr&lt;<a class="code" href="namespacesimdjson.html">simdjson</a>::dom::<span class="keywordtype">object</span>&gt; _event_json;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="structvk_1_1event_1_1attachment__handler.html">attachment_handler</a> _attachment_handler;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">bool</span> _has_attachments = false;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">bool</span> _has_repost = false;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">// namespace event</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_WALL_POST_NEW_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a643439e7c11bb2c15e3e21ad59a929f4">wall_post_new</a>(simdjson::dom::object&amp;&amp; event);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::int64_t <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a1c12c6c8ecfba43c7445dd82f5cb1edb">id</a>() const noexcept;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::int64_t <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a490d2ef2f7c86564541445a39f08d72f">from_id</a>() const noexcept;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::int64_t <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a88915627b2fb738fafc7127f8ad6e23c">owner_id</a>() const noexcept;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  std::int64_t <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a5334a9944d15da88da104d7f462b08c6">created_by</a>() const noexcept;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  std::<span class="keywordtype">string</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#ad4f4f8e7cf6d63f711990beebe6d6381">text</a>() const noexcept;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a2124eb9a51552c5d406706c1718f9338">can_edit</a>() const noexcept;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#aa9e9f94a0d2e15d3ce70c393034df460">can_delete</a>() const noexcept;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a080150420f2d87a840eab1e792850f3b">marked_as_ads</a>() const noexcept;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a28fc56faaf2750baf744d983ba1a6917">has_attachments</a>() const noexcept;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#ac870365959904c6108855c2b5da0ad6f">has_repost</a>() const noexcept;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  std::shared_ptr&lt;<a class="code" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a>&gt; <a class="code" href="classvk_1_1event_1_1wall__post__new.html#ae841d14968b81c9e401a923e52c7c914">repost</a>() const;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  attachment::<a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachments_t</a> <a class="code" href="classvk_1_1event_1_1wall__post__new.html#a188f7bd6309c14cb38e1fc2d8b352a84">attachments</a>() const noexcept;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;private:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  std::shared_ptr&lt;<a class="code" href="namespacesimdjson.html">simdjson</a>::dom::<span class="keywordtype">object</span>&gt; _event_json;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classvk_1_1event_1_1attachment__handler.html">attachment_handler</a> _attachment_handler;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">bool</span> _has_attachments = false;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">bool</span> _has_repost = false;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace event</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; ostream, const <a class="code" href="namespacevk.html">vk</a>::event::<a class="code" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a>&amp; event);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_WALL_POST_NEW_H</span></div>
 <div class="ttc" id="aattachment__handler_8hpp_html"><div class="ttname"><a href="attachment__handler_8hpp.html">attachment_handler.hpp</a></div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="classvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:24</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html">vk::event::wall_post_new</a></div><div class="ttdoc">The wall_post_new event representation.</div><div class="ttdef"><b>Definition:</b> wall_post_new.hpp:22</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a080150420f2d87a840eab1e792850f3b"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a080150420f2d87a840eab1e792850f3b">vk::event::wall_post_new::marked_as_ads</a></div><div class="ttdeci">bool marked_as_ads() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:39</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a188f7bd6309c14cb38e1fc2d8b352a84"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a188f7bd6309c14cb38e1fc2d8b352a84">vk::event::wall_post_new::attachments</a></div><div class="ttdeci">attachment::attachments_t attachments() const noexcept</div><div class="ttdoc">Get attachments vector.</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:48</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a1c12c6c8ecfba43c7445dd82f5cb1edb"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a1c12c6c8ecfba43c7445dd82f5cb1edb">vk::event::wall_post_new::id</a></div><div class="ttdeci">std::int64_t id() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:18</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a2124eb9a51552c5d406706c1718f9338"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a2124eb9a51552c5d406706c1718f9338">vk::event::wall_post_new::can_edit</a></div><div class="ttdeci">bool can_edit() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:33</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a28fc56faaf2750baf744d983ba1a6917"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a28fc56faaf2750baf744d983ba1a6917">vk::event::wall_post_new::has_attachments</a></div><div class="ttdeci">bool has_attachments() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:42</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a490d2ef2f7c86564541445a39f08d72f"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a490d2ef2f7c86564541445a39f08d72f">vk::event::wall_post_new::from_id</a></div><div class="ttdeci">std::int64_t from_id() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:21</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a5334a9944d15da88da104d7f462b08c6"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a5334a9944d15da88da104d7f462b08c6">vk::event::wall_post_new::created_by</a></div><div class="ttdeci">std::int64_t created_by() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:27</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a643439e7c11bb2c15e3e21ad59a929f4"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a643439e7c11bb2c15e3e21ad59a929f4">vk::event::wall_post_new::wall_post_new</a></div><div class="ttdeci">wall_post_new(const wall_post_new &amp;)=default</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_a88915627b2fb738fafc7127f8ad6e23c"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#a88915627b2fb738fafc7127f8ad6e23c">vk::event::wall_post_new::owner_id</a></div><div class="ttdeci">std::int64_t owner_id() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:24</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_aa9e9f94a0d2e15d3ce70c393034df460"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#aa9e9f94a0d2e15d3ce70c393034df460">vk::event::wall_post_new::can_delete</a></div><div class="ttdeci">bool can_delete() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:36</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_ac870365959904c6108855c2b5da0ad6f"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#ac870365959904c6108855c2b5da0ad6f">vk::event::wall_post_new::has_repost</a></div><div class="ttdeci">bool has_repost() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:45</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_ad4f4f8e7cf6d63f711990beebe6d6381"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#ad4f4f8e7cf6d63f711990beebe6d6381">vk::event::wall_post_new::text</a></div><div class="ttdeci">std::string text() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:30</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_ade516c03d5d14381dbf67ae2bb35a0c1"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#ade516c03d5d14381dbf67ae2bb35a0c1">vk::event::wall_post_new::wall_post_new</a></div><div class="ttdeci">wall_post_new(wall_post_new &amp;&amp;)=default</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1wall__post__new_html_ae841d14968b81c9e401a923e52c7c914"><div class="ttname"><a href="classvk_1_1event_1_1wall__post__new.html#ae841d14968b81c9e401a923e52c7c914">vk::event::wall_post_new::repost</a></div><div class="ttdeci">std::shared_ptr&lt; wall_repost &gt; repost() const</div><div class="ttdoc">Try get repost.</div><div class="ttdef"><b>Definition:</b> wall_post_new.cpp:59</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__repost_html"><div class="ttname"><a href="classvk_1_1event_1_1wall__repost.html">vk::event::wall_repost</a></div><div class="ttdoc">The wall_post_new repost representation.</div><div class="ttdef"><b>Definition:</b> wall_repost.hpp:17</div></div>
-<div class="ttc" id="acppdefs_8hpp_html_a43fea1d82be3e6950b6101ec48e6bc9b"><div class="ttname"><a href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a></div><div class="ttdeci">#define vk_export</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:20</div></div>
-<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> common_document.hpp:8</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_a89a8bc9e79c333536b3a6397e5643e46"><div class="ttname"><a href="namespacevk_1_1attachment.html#a89a8bc9e79c333536b3a6397e5643e46">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base_attachment &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:121</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
-<div class="ttc" id="astructvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="structvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:24</div></div>
+<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> common.hpp:8</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_a05588712dbb7751a10ec8296aaffc444"><div class="ttname"><a href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:94</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 <div class="ttc" id="awall__repost_8hpp_html"><div class="ttname"><a href="wall__repost_8hpp.html">wall_repost.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -1,17 +1,7 @@
 include_directories(../lib/include)
+include_directories(../lib/include/cpp_vk_lib)
 
-set(SOURCES
-    src/commands/base.hpp
-    src/commands/docs_search.hpp
-    src/commands/keyboard.hpp
-    src/commands/hide_keyboard.hpp
-    src/events/on_message_pin.hpp
-    src/events/on_chat_invite_user.hpp
-    src/handlers/message_handler.hpp
-    src/long_poller/long_poller.hpp
-    src/utils/string_utils.hpp
-    src/main.cpp
-)
-add_executable(bot ${SOURCES})
+file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
+add_executable(bot ${SRC})
 
 target_link_libraries(bot -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['photo_5fattachment_336',['photo_attachment',['../classvk_1_1attachment_1_1photo__attachment.html',1,'vk::attachment']]],
-  ['photos_337',['photos',['../classvk_1_1method_1_1photos.html',1,'vk::method']]]
+  ['open_5fapp_341',['open_app',['../classvk_1_1keyboard_1_1button_1_1open__app.html',1,'vk::keyboard::button']]]
 ];

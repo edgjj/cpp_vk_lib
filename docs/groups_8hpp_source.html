@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/methods/groups.hpp Source File</title>
+<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/methods/groups.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_f56f06824aa298f967984a670dc9e46c.html">methods</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_8b3c131c7deef97e7a107e2ab510e8a1.html">methods</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,22 +77,25 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>method {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1groups.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a> <a class="code" href="classvk_1_1method_1_1groups.html">groups</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1groups.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1method_1_1groups.html">groups</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::int64_t get_by_id();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  simdjson::dom::object get_long_poll_server(std::string_view group_id);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classvk_1_1method__utils.html">method_utils</a> method_util;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace method</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_GROUPS_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1groups.html#a2feadef79cbb830b04b47d1ab6b3fb47">   16</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classvk_1_1method_1_1groups.html#a2feadef79cbb830b04b47d1ab6b3fb47">groups</a>() : method_util() { }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::int64_t <a class="code" href="classvk_1_1method_1_1groups.html#ac79bb600a136d994a7f41e525f368ce6">get_by_id</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  simdjson::dom::object <a class="code" href="classvk_1_1method_1_1groups.html#a2956404aee5d6986d2ac1b494eaf1742">get_long_poll_server</a>(std::int64_t group_id) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classvk_1_1method__utils.html">method_utils</a> method_util;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace method</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_GROUPS_H</span></div>
 <div class="ttc" id="aclassvk_1_1method_1_1groups_html"><div class="ttname"><a href="classvk_1_1method_1_1groups.html">vk::method::groups</a></div><div class="ttdoc">The groups methods representation.</div><div class="ttdef"><b>Definition:</b> groups.hpp:14</div></div>
-<div class="ttc" id="aclassvk_1_1method__utils_html"><div class="ttname"><a href="classvk_1_1method__utils.html">vk::method_utils</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> method_utils.hpp:18</div></div>
-<div class="ttc" id="acppdefs_8hpp_html_a43fea1d82be3e6950b6101ec48e6bc9b"><div class="ttname"><a href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a></div><div class="ttdeci">#define vk_export</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:20</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1groups_html_a2956404aee5d6986d2ac1b494eaf1742"><div class="ttname"><a href="classvk_1_1method_1_1groups.html#a2956404aee5d6986d2ac1b494eaf1742">vk::method::groups::get_long_poll_server</a></div><div class="ttdeci">simdjson::dom::object get_long_poll_server(std::int64_t group_id) const</div><div class="ttdef"><b>Definition:</b> groups.cpp:19</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1groups_html_a2feadef79cbb830b04b47d1ab6b3fb47"><div class="ttname"><a href="classvk_1_1method_1_1groups.html#a2feadef79cbb830b04b47d1ab6b3fb47">vk::method::groups::groups</a></div><div class="ttdeci">groups()</div><div class="ttdef"><b>Definition:</b> groups.hpp:16</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1groups_html_ac79bb600a136d994a7f41e525f368ce6"><div class="ttname"><a href="classvk_1_1method_1_1groups.html#ac79bb600a136d994a7f41e525f368ce6">vk::method::groups::get_by_id</a></div><div class="ttdeci">std::int64_t get_by_id() const</div><div class="ttdef"><b>Definition:</b> groups.cpp:7</div></div>
+<div class="ttc" id="aclassvk_1_1method__utils_html"><div class="ttname"><a href="classvk_1_1method__utils.html">vk::method_utils</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> method_utils.hpp:20</div></div>
 <div class="ttc" id="amethod__utils_8hpp_html"><div class="ttname"><a href="method__utils_8hpp.html">method_utils.hpp</a></div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/string_utils/implementation/lazy_split.hpp Source File</title>
+<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/string_utils/implementation/lazy_split.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_1e8f53bc896b23eff6320f782b7c4828.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_6213ced4c0838e430a9f703c9a69f295.html">implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_f4297228b4ae3479ebf3ab6b33d53f38.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_01bf83812645c3a3412796c2fc617e54.html">implementation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,75 +77,71 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cppdefs_8hpp.html">misc/cppdefs.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1end__split__iterator.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a> { };</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1end__split__iterator.html">   15</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a> { };</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html">   17</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <span class="keywordtype">string</span>_type&gt; <span class="keyword">class </span><a class="code" href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a1590978a115821378faa4d7f8298fc4c">   19</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a1590978a115821378faa4d7f8298fc4c">split_iterator</a>(string_type source, string_type delim)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    : src(source), delimiter(delim), first(0), last(src.find(delimiter))</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   { }</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a481a4d421cff54e5a727fefede50cd70">   22</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a481a4d421cff54e5a727fefede50cd70">operator++</a>() noexcept {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    first = last + delimiter.size();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    last = src.find(delimiter, first);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a136d26067e18eb7d9759755ec3ebacce">   27</a></span>&#160;  string_type <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a136d26067e18eb7d9759755ec3ebacce">operator*</a>() const noexcept {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> (last != string_type::npos) { <span class="keywordflow">return</span> src.substr(first, last - first); }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    finished = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> src.substr(first, src.size() - first);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  }</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">   32</a></span>&#160;  <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator, <a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> !iterator.finished;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  }</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">   35</a></span>&#160;  <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">operator!=</a>(<a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, <span class="keyword">const</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator) noexcept {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> !iterator.finished;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  string_type src;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  string_type delimiter;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::size_t first;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  std::size_t last;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">mutable</span> <span class="keywordtype">bool</span> finished = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <span class="keywordtype">string</span>_type&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a> <a class="code" href="classvk_1_1string__utils_1_1split__range.html">split_range</a> {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#a7850da622cc3af4bf3f843b8ee91c33e">   50</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__range.html#a7850da622cc3af4bf3f843b8ee91c33e">split_range</a>(string_type source, string_type delim) noexcept</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    : src(source), delimiter(delim)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  { }</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#ac3a9b787a5c2f593a03a4a54c4c04d45">   53</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="classvk_1_1string__utils_1_1split__range.html#ac3a9b787a5c2f593a03a4a54c4c04d45">begin</a>() const noexcept { <span class="keywordflow">return</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator&lt;string_type&gt;</a>(src, delimiter); }</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#aae093ada14be95455b2fc73679a3ff92">   54</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="classvk_1_1string__utils_1_1split__range.html#aae093ada14be95455b2fc73679a3ff92">end</a>() const noexcept { <span class="keywordflow">return</span> <a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>(); }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  string_type src;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  string_type delimiter;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace string_util</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// STRING_UTIL_LAZY_SPLIT_IMPL_H</span></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html">vk::string_utils::split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:17</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a136d26067e18eb7d9759755ec3ebacce"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a136d26067e18eb7d9759755ec3ebacce">vk::string_utils::split_iterator::operator*</a></div><div class="ttdeci">string_type operator*() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:27</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a1590978a115821378faa4d7f8298fc4c"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a1590978a115821378faa4d7f8298fc4c">vk::string_utils::split_iterator::split_iterator</a></div><div class="ttdeci">split_iterator(string_type source, string_type delim)</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:19</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a481a4d421cff54e5a727fefede50cd70"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a481a4d421cff54e5a727fefede50cd70">vk::string_utils::split_iterator::operator++</a></div><div class="ttdeci">split_iterator &amp; operator++() noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:22</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_ab003abc2dd82a9dfd431021f1ccb5671"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">vk::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">friend bool operator!=(end_split_iterator, const split_iterator &amp;iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:35</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_aed76f7203a3a2024a18328c3f9adab9e"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">vk::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">friend bool operator!=(const split_iterator &amp;iterator, end_split_iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:32</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html">vk::string_utils::split_range</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:48</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_a7850da622cc3af4bf3f843b8ee91c33e"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#a7850da622cc3af4bf3f843b8ee91c33e">vk::string_utils::split_range::split_range</a></div><div class="ttdeci">split_range(string_type source, string_type delim) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:50</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_aae093ada14be95455b2fc73679a3ff92"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#aae093ada14be95455b2fc73679a3ff92">vk::string_utils::split_range::end</a></div><div class="ttdeci">auto end() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:54</div></div>
-<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_ac3a9b787a5c2f593a03a4a54c4c04d45"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#ac3a9b787a5c2f593a03a4a54c4c04d45">vk::string_utils::split_range::begin</a></div><div class="ttdeci">auto begin() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:53</div></div>
-<div class="ttc" id="acppdefs_8hpp_html"><div class="ttname"><a href="cppdefs_8hpp.html">cppdefs.hpp</a></div></div>
-<div class="ttc" id="acppdefs_8hpp_html_a43fea1d82be3e6950b6101ec48e6bc9b"><div class="ttname"><a href="cppdefs_8hpp.html#a43fea1d82be3e6950b6101ec48e6bc9b">vk_export</a></div><div class="ttdeci">#define vk_export</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:20</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
-<div class="ttc" id="astructvk_1_1string__utils_1_1end__split__iterator_html"><div class="ttname"><a href="structvk_1_1string__utils_1_1end__split__iterator.html">vk::string_utils::end_split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:15</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html">   15</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _String_type&gt; <span class="keyword">class </span><a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a5c0f9365d3a7246753caa2d4ede82725">   17</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a5c0f9365d3a7246753caa2d4ede82725">split_iterator</a>(_String_type source, _String_type delim)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    : src(source), delimiter(delim), first(0), last(src.find(delimiter))</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   { }</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a491dd6aaf6615ff6893573a0667b6937">   20</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a491dd6aaf6615ff6893573a0667b6937">operator++</a>() noexcept {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    first = last + delimiter.size();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    last = src.find(delimiter, first);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#a07935a1bcb6a3e965be7f397f04f0da9">   25</a></span>&#160;  _String_type <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#a07935a1bcb6a3e965be7f397f04f0da9">operator*</a>() const noexcept {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (last != _String_type::npos) { <span class="keywordflow">return</span> src.substr(first, last - first); }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    finished = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> src.substr(first, src.size() - first);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  }</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">   30</a></span>&#160;  <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator, <a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> !iterator.finished;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  }</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">   33</a></span>&#160;  <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">operator!=</a>(<a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, <span class="keyword">const</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator) noexcept {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> !iterator.finished;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  _String_type src;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  _String_type delimiter;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::size_t first;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::size_t last;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">mutable</span> <span class="keywordtype">bool</span> finished = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _String_type&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1string__utils_1_1split__range.html">split_range</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#ac5bd5e569a0f3579fa41979ac5490009">   48</a></span>&#160;  <a class="code" href="classvk_1_1string__utils_1_1split__range.html#ac5bd5e569a0f3579fa41979ac5490009">split_range</a>(_String_type source, _String_type delim) noexcept</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    : src(source), delimiter(delim)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  { }</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#aae825c2805b72b139a3b92a5f7e31ecd">   51</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="classvk_1_1string__utils_1_1split__range.html#aae825c2805b72b139a3b92a5f7e31ecd">begin</a>() const noexcept { <span class="keywordflow">return</span> <a class="code" href="classvk_1_1string__utils_1_1split__iterator.html">split_iterator&lt;_String_type&gt;</a>(src, delimiter); }</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classvk_1_1string__utils_1_1split__range.html#a2143212b3bccd4a73d1bfdaeab077bff">   52</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="classvk_1_1string__utils_1_1split__range.html#a2143212b3bccd4a73d1bfdaeab077bff">end</a>() const noexcept { <span class="keywordflow">return</span> <a class="code" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>(); }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  _String_type src;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  _String_type delimiter;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace string_util</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// STRING_UTIL_LAZY_SPLIT_IMPL_H</span></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html">vk::string_utils::split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:15</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a07935a1bcb6a3e965be7f397f04f0da9"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a07935a1bcb6a3e965be7f397f04f0da9">vk::string_utils::split_iterator::operator*</a></div><div class="ttdeci">_String_type operator*() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:25</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a491dd6aaf6615ff6893573a0667b6937"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a491dd6aaf6615ff6893573a0667b6937">vk::string_utils::split_iterator::operator++</a></div><div class="ttdeci">split_iterator &amp; operator++() noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:20</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_a5c0f9365d3a7246753caa2d4ede82725"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#a5c0f9365d3a7246753caa2d4ede82725">vk::string_utils::split_iterator::split_iterator</a></div><div class="ttdeci">split_iterator(_String_type source, _String_type delim)</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:17</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_ab003abc2dd82a9dfd431021f1ccb5671"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#ab003abc2dd82a9dfd431021f1ccb5671">vk::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">friend bool operator!=(end_split_iterator, const split_iterator &amp;iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:33</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__iterator_html_aed76f7203a3a2024a18328c3f9adab9e"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__iterator.html#aed76f7203a3a2024a18328c3f9adab9e">vk::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">friend bool operator!=(const split_iterator &amp;iterator, end_split_iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:30</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html">vk::string_utils::split_range</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:46</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_a2143212b3bccd4a73d1bfdaeab077bff"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#a2143212b3bccd4a73d1bfdaeab077bff">vk::string_utils::split_range::end</a></div><div class="ttdeci">auto end() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:52</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_aae825c2805b72b139a3b92a5f7e31ecd"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#aae825c2805b72b139a3b92a5f7e31ecd">vk::string_utils::split_range::begin</a></div><div class="ttdeci">auto begin() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:51</div></div>
+<div class="ttc" id="aclassvk_1_1string__utils_1_1split__range_html_ac5bd5e569a0f3579fa41979ac5490009"><div class="ttname"><a href="classvk_1_1string__utils_1_1split__range.html#ac5bd5e569a0f3579fa41979ac5490009">vk::string_utils::split_range::split_range</a></div><div class="ttdeci">split_range(_String_type source, _String_type delim) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:48</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
+<div class="ttc" id="astructvk_1_1string__utils_1_1end__split__iterator_html"><div class="ttname"><a href="structvk_1_1string__utils_1_1end__split__iterator.html">vk::string_utils::end_split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

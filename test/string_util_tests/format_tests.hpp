@@ -2,7 +2,7 @@
 #define VK_FORMAT_TEST_H
 
 #include <gtest/gtest.h>
-#include "string_utils/string_utils.hpp"
+#include "cpp_vk_lib/string_utils/string_utils.hpp"
 
 
 namespace util = vk::string_utils;
