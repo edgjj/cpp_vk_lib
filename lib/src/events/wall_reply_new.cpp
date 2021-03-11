@@ -6,6 +6,7 @@
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
   : _event_json(std::make_shared<simdjson::dom::object>(event))
+  , _attachment_handler()
 {
   if (event["attachments"].is_array() && event["attachments"].get_array().size() > 0)
     _has_attachments = true;
@@ -31,7 +32,7 @@ bool vk::event::wall_reply_new::has_attachments() const noexcept {
 }
 vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const {
   if (_has_attachments) {
-    return att_handler.try_get((*_event_json)["attachments"].get_array());
+    return _attachment_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     // Exception thrown there, hence final return will never executed.
     processing::log_and_throw<exception::access_error>(

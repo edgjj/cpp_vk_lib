@@ -49,10 +49,10 @@ public:
   conversation_member_list get_conversation_members(std::int64_t peer_id) const;
 
 private:
-  method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;
   document::common common_document;
   bool disable_mentions_flag;
+  method_utils method_util;
 };
 } // namespace method
 } // namespace vk

@@ -2,7 +2,6 @@
 #define VK_EVENT_MESSAGE_ACTION_HANDLER_H
 
 #include <string>
-#include <memory>
 #include <variant>
 
 
@@ -44,11 +43,6 @@ using any_action = std::variant<
   chat_photo_update,
   chat_title_update
 >;
-
-template <typename _Action>
-inline _Action get(const any_action& action) noexcept {
-  return std::get<_Action>(action);
-}
 
 } // namespace action
 } // namespace vk

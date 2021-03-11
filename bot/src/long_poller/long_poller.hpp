@@ -31,8 +31,8 @@ public:
   }
 private:
   message_handler msg_handler;
-  vk::long_poll_api api;
-  vk::long_poll_data data;
+  vk::long_poll::api api;
+  vk::long_poll::data data;
 };
 
 } // namespace bot

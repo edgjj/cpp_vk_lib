@@ -9,7 +9,7 @@ namespace keyboard = vk::keyboard;
 TEST(keyboard, location_button) {
   keyboard::layout l;
   l.add_row({
-    keyboard::location_button()
+    keyboard::button::location()
   });
 
   ASSERT_EQ(l.serialize(),
@@ -19,7 +19,7 @@ TEST(keyboard, location_button) {
 TEST(keyboard, open_app_layout) {
   keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
-    keyboard::open_app_button(100, 200, "hash", "label")
+    keyboard::button::open_app(100, 200, "hash", "label")
   });
 
   ASSERT_EQ(l.serialize(),
@@ -29,8 +29,8 @@ TEST(keyboard, open_app_layout) {
 TEST(keyboard, text_layout) {
   keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
-    keyboard::text_button(keyboard::color::blue, "1"),
-    keyboard::text_button(keyboard::color::blue, "2")
+    keyboard::button::text(keyboard::color::blue, "1"),
+    keyboard::button::text(keyboard::color::blue, "2")
   });
 
   ASSERT_EQ(l.serialize(),
@@ -40,7 +40,7 @@ TEST(keyboard, text_layout) {
 TEST(keyboard, vk_pay_button) {
   keyboard::layout l(keyboard::flag::one_time);
   l.add_row({
-    keyboard::vk_pay_button("hash")
+    keyboard::button::vk_pay("hash")
   });
 
   ASSERT_EQ(

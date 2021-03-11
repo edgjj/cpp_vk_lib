@@ -19,7 +19,7 @@ namespace event {
  * Internal information accessed in a "lazy way".
  * It means, that no data is extracted from JSON until the user wants to access it.
  */
-class vk_export wall_post_new {
+class wall_post_new {
 public:
   wall_post_new(const wall_post_new&) = default;
   wall_post_new(wall_post_new&&) = default;

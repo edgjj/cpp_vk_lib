@@ -8,7 +8,9 @@
 
 vk::method::messages::messages(bool disable_mentions_flag_)
   : parser(std::make_unique<simdjson::dom::parser>())
+  , common_document()
   , disable_mentions_flag(disable_mentions_flag_)
+  , method_util()
 { }
 
 vk::method::messages::~messages() = default;

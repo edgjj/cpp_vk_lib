@@ -15,10 +15,10 @@ namespace vk {
 namespace keyboard {
 
 using any_button = std::variant<
-  text_button,
-  vk_pay_button,
-  open_app_button,
-  location_button
+  button::text,
+  button::vk_pay,
+  button::open_app,
+  button::location
 >;
 
 /*!

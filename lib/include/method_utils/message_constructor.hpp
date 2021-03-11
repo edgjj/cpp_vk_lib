@@ -22,7 +22,9 @@ public:
   static inline bool disable_mentions = true;
   static inline bool enable_mentions = false;
 
-  message_constructor(bool disable_mentions_flag) {
+  message_constructor(bool disable_mentions_flag)
+    : params()
+  {
     params.emplace("random_id", "0");
     if (disable_mentions_flag) {
       params.emplace("disable_mentions", "1");

@@ -1,6 +1,4 @@
 include_directories(../lib/include)
-include_directories(../dependencies/simdjson/include)
-include_directories(../dependencies)
 
 set(SOURCES
     src/commands/base.hpp
@@ -14,6 +12,6 @@ set(SOURCES
     src/utils/string_utils.hpp
     src/main.cpp
 )
-add_executable(test ${SOURCES})
+add_executable(bot ${SOURCES})
 
-target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)
+target_link_libraries(bot -Lbuild cpp_vk_lib pthread curl curlpp -L../dependencies/simdjson simdjson)

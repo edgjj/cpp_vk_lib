@@ -25,14 +25,14 @@ public:
 private:
   void setup_keyboard() {
     layout->add_row({
-      vk::keyboard::text_button(vk::keyboard::color::blue, "Text 1"),
-      vk::keyboard::text_button(vk::keyboard::color::blue, "Text 2")
+      vk::keyboard::button::text(vk::keyboard::color::blue, "Text 1"),
+      vk::keyboard::button::text(vk::keyboard::color::blue, "Text 2")
     });
     layout->add_row({
-      vk::keyboard::location_button()
+      vk::keyboard::button::location()
     });
     layout->add_row({
-      vk::keyboard::vk_pay_button("action=transfer-to-group&group_id=181108510&aid=10")
+      vk::keyboard::button::vk_pay("action=transfer-to-group&group_id=181108510&aid=10")
     });
   }
 

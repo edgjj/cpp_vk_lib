@@ -1,7 +1,17 @@
-rm -rf $1/CMakeCache.txt
-rm -rf $1/CMakeFiles
-rm -rf $1/CPackConfig.cmake
-rm -rf $1/cmake_install.cmake
-rm -rf $1/CPackSourceConfig.cmake
-rm -rf $1/Makefile
-rm -rf $1/CMakeLists.txt.user
+
+#!/bin/bash
+
+function cleaner () {
+	for _dir in "$@"
+	do
+		rm -rf $_dir/CMakeCache.txt
+		rm -rf $_dir/CMakeFiles
+		rm -rf $_dir/CPackConfig.cmake
+		rm -rf $_dir/cmake_install.cmake
+		rm -rf $_dir/CPackSourceConfig.cmake
+		rm -rf $_dir/Makefile
+		rm -rf $_dir/CMakeLists.txt.user
+	done
+}
+
+cleaner "." "dependencies" "dependencies/simdjson" "lib" "bot" "test"

@@ -6,6 +6,7 @@
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event)
   : _event_json(std::make_shared<simdjson::dom::object>(event))
+  , _attachment_handler()
 {
 if (event["attachments"].is_array())
   _has_attachments = true;

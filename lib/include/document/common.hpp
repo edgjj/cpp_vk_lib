@@ -16,7 +16,7 @@ namespace document {
 /*!
  * @brief The base class for @ref vk::docs, @ref vk::photos and @ref vk::video.
  */
-class vk_export common {
+class common {
 public:
   explicit common();
   ~common();

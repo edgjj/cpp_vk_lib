@@ -5,6 +5,8 @@
 
 vk::document::common::common()
   : parser(std::make_unique<simdjson::dom::parser>())
+  , method_util()
+  , net_client()
 { }
 
 vk::document::common::~common() = default;

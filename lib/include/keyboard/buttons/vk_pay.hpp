@@ -6,10 +6,11 @@
 
 namespace vk {
 namespace keyboard {
+namespace button {
 
-class vk_pay_button {
+class vk_pay {
 public:
-  vk_pay_button(std::string_view hash_)
+  vk_pay(std::string_view hash_)
     : hash(hash_) { }
   std::string serialize() const {
     return
@@ -21,6 +22,7 @@ public:
 private:
   std::string hash;
 };
+} // namespace button
 } // namespace keyboard
 } // namespace vk
 

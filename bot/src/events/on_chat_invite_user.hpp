@@ -12,7 +12,7 @@ namespace event {
 class on_chat_invite_user_event {
 public:
   void execute(const vk::event::message_new& event) const {
-    auto invited_user = vk::action::get<vk::action::chat_invite_user>(event.action());
+    auto invited_user = std::get<vk::action::chat_invite_user>(event.action());
     messages.send(event.peer_id(),
       vk::string_utils::format("Hello, {}.", invited_user.member_id));
   }

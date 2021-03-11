@@ -14,7 +14,7 @@ namespace exception {
 /*!
  * @brief General exception of VK method classes.
  */
-class vk_export common_exception : public std::exception {
+class common_exception : public std::exception {
 public:
   virtual const char* what() const noexcept override {
     return error.what();

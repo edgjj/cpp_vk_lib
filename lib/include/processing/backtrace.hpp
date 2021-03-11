@@ -9,18 +9,19 @@
 #include <iostream>
 #include <vector>
 
-#include "misc/cppdefs.hpp"
-
 
 namespace vk {
 namespace processing {
 /*!
  * @brief Backtrace viewer, used in exceptions.
  */
-class vk_hidden backtrace_view {
+class backtrace_view {
 public:
-  explicit backtrace_view() noexcept
-  {
+  backtrace_view(const backtrace_view&) = delete;
+  backtrace_view(backtrace_view&&) = delete;
+  backtrace_view& operator=(const backtrace_view&) = delete;
+  backtrace_view& operator=(backtrace_view&&) = delete;
+  explicit backtrace_view() noexcept {
     generate();
     std::cerr << std::endl;
   }

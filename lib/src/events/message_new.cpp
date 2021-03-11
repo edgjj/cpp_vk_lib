@@ -6,6 +6,8 @@
 
 vk::event::message_new::message_new(simdjson::dom::object&& event)
   : _event_json(std::make_shared<simdjson::dom::object>(event))
+  , _action()
+  , _attachment_handler()
 {
   if (event["reply_message"].is_object())
     _has_reply = true;
@@ -103,7 +105,7 @@ vk::action::any_action vk::event::message_new::action() const {
 }
 vk::attachment::attachments_t vk::event::message_new::attachments() const {
   if (_has_attachments) {
-    return att_handler.try_get((*_event_json)["attachments"].get_array());
+    return _attachment_handler.try_get((*_event_json)["attachments"].get_array());
   } else {
     // Exception thrown there, hence final return will never executed.
     processing::log_and_throw<exception::access_error>(
@@ -156,22 +158,22 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
   if (event.has_action()) {
     if (event.on_action("chat_invite_user")) {
       ostream << "  " << "chat_invite_user action:   ";
-      ostream << vk::action::get<vk::action::chat_invite_user>(event.action()).member_id;
+      ostream << std::get<vk::action::chat_invite_user>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_kick_user")) {
       ostream << "  " << "chat_kick_user action:     ";
-      ostream << vk::action::get<vk::action::chat_kick_user>(event.action()).member_id;
+      ostream << std::get<vk::action::chat_kick_user>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_pin_message")) {
       ostream << "  " << "chat_pin_message action:   ";
-      ostream << vk::action::get<vk::action::chat_pin_message>(event.action()).member_id;
+      ostream << std::get<vk::action::chat_pin_message>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_unpin_message")) {
       ostream << "  " << "chat_unpin_message action: ";
-      ostream << vk::action::get<vk::action::chat_unpin_message>(event.action()).member_id;
+      ostream << std::get<vk::action::chat_unpin_message>(event.action()).member_id;
       ostream << std::endl;
     }
     if (event.on_action("chat_photo_update")) {
@@ -181,7 +183,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
     }
     if (event.on_action("chat_title_update")) {
       ostream << "  " << "chat_title_update action:  ";
-      ostream << vk::action::get<vk::action::chat_title_update>(event.action()).text;
+      ostream << std::get<vk::action::chat_title_update>(event.action()).text;
       ostream << std::endl;
     }
   }

@@ -24,8 +24,8 @@ public:
   vk::attachment::attachments_t search    (std::string_view query, std::int64_t count) const;
   std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
 private:
-  method_utils method_util;
   std::unique_ptr<simdjson::dom::parser> parser;
+  method_utils method_util;
 };
 } // namespace method
 } // namespace vk

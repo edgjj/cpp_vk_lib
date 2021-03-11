@@ -1,10 +1,17 @@
 #ifndef VK_OAUTH_H
 #define VK_OAUTH_H
 
-#include "simdjson.h"
+//#include "simdjson.h"
+#include <string>
 
 #include "net/client.hpp"
 
+
+namespace simdjson {
+namespace dom {
+class parser;
+} // namespace dom
+} // namespace simdjson
 
 namespace vk {
 namespace oauth {
@@ -54,18 +61,18 @@ private:
   static inline const std::int32_t windows_app_client_id = 3697615;
   static inline const std::int32_t iphone_app_client_id  = 3140623;
 
+  target_client client_type;
+  const std::string username;
+  const std::string password;
+
   std::string target_client_secret;
   std::int64_t target_client_id;
 
-  target_client client_type;
-
-  const std::string username;
-  const std::string password;
-  simdjson::dom::parser parser;
-  network_client net_client;
-
   std::string pulled_token;
   std::int64_t pulled_user_id;
+
+  std::unique_ptr<simdjson::dom::parser> parser;
+  network_client net_client;
 };
 } // namespace oauth
 } // namespace vk

@@ -22,7 +22,7 @@ namespace event {
  * and there's meaningless to construct all attachment, reply and forwarded messages objects
  * in the case you only need message text.
  */
-class vk_export message_new {
+class message_new {
 public:
   message_new(const message_new& other) = default;
   message_new(message_new&&) = default;
@@ -76,21 +76,21 @@ public:
    */
   std::int64_t peer_id()const noexcept;
   /*!
-   * Check, if object contains reply.
+   * @brief Check, if object contains reply.
    */
   bool has_reply() const noexcept;
   /*!
-   * Check, if object contains forwarded messages.
+   * @brief Check, if object contains forwarded messages.
    */
   bool has_fwd_messages() const noexcept;
   /*!
-   * Check, if object has actions.
+   * @brief Check, if object has actions.
    */
   bool has_action() const noexcept;
 
 private:
   /*!
-   * Action dispatcher.
+   * @brief Action dispatcher.
    */
   void try_get_actions();
 
@@ -101,7 +101,7 @@ private:
   bool _has_fwd_messages = false;
   bool _has_attachments = false;
 
-  attachment_handler att_handler;
+  attachment_handler _attachment_handler;
 };
 } // namespace event
 } // namespace vk

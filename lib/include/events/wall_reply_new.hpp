@@ -18,7 +18,7 @@ namespace event {
  * Internal information accessed in a "lazy way".
  * It means, that no data is extracted from JSON until the user wants to access it.
  */
-class vk_export wall_reply_new {
+class wall_reply_new {
 public:
   wall_reply_new(const wall_reply_new&) = default;
   wall_reply_new(wall_reply_new&&) = default;
@@ -61,7 +61,7 @@ private:
   std::shared_ptr<simdjson::dom::object> _event_json;
   bool _has_attachments = false;
 
-  attachment_handler att_handler;
+  attachment_handler _attachment_handler;
 };
 } // namespace event
 } // namespace vk

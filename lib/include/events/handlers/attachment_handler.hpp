@@ -21,7 +21,7 @@ class wall_post_new;
 namespace vk {
 namespace event {
 
-class vk_hidden attachment_handler {
+class attachment_handler {
 private:
   attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
 

@@ -13,6 +13,7 @@ namespace method {
  */
 class groups {
 public:
+  explicit groups() : method_util() { }
   std::int64_t get_by_id() const;
   simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
 private:

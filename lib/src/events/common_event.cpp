@@ -6,7 +6,7 @@
 vk::event::common::~common() = default;
 
 vk::event::common::common(std::string_view ts, simdjson::dom::object&& event)
-  : _ts(ts), _event(std::make_unique<simdjson::dom::object>(event))
+  : _ts(ts), _update_type(), _event(std::make_unique<simdjson::dom::object>(event))
 {
   _update_type = event["type"].get_string().take_value().data();
 }

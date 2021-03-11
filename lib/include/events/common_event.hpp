@@ -17,7 +17,7 @@ namespace event {
 /*!
  * @brief Temporary update container.
  */
-class vk_export common {
+class common {
 public:
   common(std::string_view ts, simdjson::dom::object&& event);
   ~common();

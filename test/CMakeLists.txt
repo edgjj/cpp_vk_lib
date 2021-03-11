@@ -2,9 +2,7 @@ include_directories(../lib/include)
 include_directories(../dependencies/simdjson/include)
 include_directories(../dependencies)
 
-set(SOURCES
-    main.cpp
-)
+set(SOURCES main.cpp)
 
 add_executable(test ${SOURCES})
 

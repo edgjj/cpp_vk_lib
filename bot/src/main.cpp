@@ -9,6 +9,8 @@
 #include "events/on_chat_invite_user.hpp"
 #include "long_poller/long_poller.hpp"
 
+#include "simdjson.h"
+
 
 namespace bot {
 // Example bot class.

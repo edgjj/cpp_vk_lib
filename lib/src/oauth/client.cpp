@@ -1,3 +1,5 @@
+#include "simdjson.h"
+
 #include "exception/error_processor.hpp"
 #include "oauth/client.hpp"
 
@@ -7,7 +9,9 @@ vk::oauth::client::client(
     std::string_view password_,
     vk::oauth::target_client client_type_
 )
-  : client_type(client_type_), username(username_.data()), password(password_.data())
+  : client_type(client_type_), username(username_.data()), password(password_.data()),
+    target_client_secret(), target_client_id(), pulled_token(), pulled_user_id(0),
+    parser(std::make_unique<simdjson::dom::parser>()), net_client()
 {
   switch (client_type) {
   case target_client::android:
@@ -27,7 +31,7 @@ vk::oauth::client::client(
 
 void vk::oauth::client::pull() {
   simdjson::dom::object response =
-  parser.parse(net_client.request(std::string(oauth_link) + "token?", {
+  parser->parse(net_client.request(std::string(oauth_link) + "token?", {
     {"grant_type", "password"},
     {"client_id",   std::to_string(target_client_id)},
     {"client_secret", target_client_secret},

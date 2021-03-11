@@ -6,19 +6,17 @@
 #include <deque>
 #include <vector>
 
-#include "misc/cppdefs.hpp"
-
 
 namespace vk {
 namespace processing {
 
-class vk_export task_queue {
+class task_queue {
 public:
   task_queue(const task_queue&) = delete;
   task_queue(task_queue&&) = delete;
   task_queue& operator=(const task_queue&) = delete;
   task_queue& operator=(task_queue&&) = delete;
-  task_queue() = default;
+  task_queue() : locker(), condition(), tasks(), workers() { };
  ~task_queue();
 
   template <typename Function, typename Result_Of = std::result_of_t<Function&()>>

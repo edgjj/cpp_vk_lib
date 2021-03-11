@@ -6,6 +6,7 @@
 
 vk::method_utils::method_utils()
   : parser(std::make_unique<simdjson::dom::parser>())
+  , net_client()
   , access_token(config::access_token())
   , user_token(config::user_token())
 { }

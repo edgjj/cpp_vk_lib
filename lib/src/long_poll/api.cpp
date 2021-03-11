@@ -5,13 +5,15 @@
 #include "../../dependencies/logger/logger.hpp"
 
 
-vk::long_poll_api::long_poll_api() {
+vk::long_poll::api::api()
+  : group_id(), groups(), task_queue()
+{
   group_id = groups.get_by_id();
   logger(logflag::info) << "long polling started";
   logger(logflag::info) << "group id: " << group_id;
 }
 
-vk::long_poll_data vk::long_poll_api::server() const {
+vk::long_poll::data vk::long_poll::api::server() const {
   simdjson::dom::object server(groups.get_long_poll_server(group_id));
   return {
     server["key"].get_c_str().take_value(),
@@ -20,7 +22,7 @@ vk::long_poll_data vk::long_poll_api::server() const {
   };
 }
 
-static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::size_t timeout) {
+static simdjson::dom::object get_updates(const vk::long_poll::data& data, std::size_t timeout) {
   static vk::network_client net_client;
   static simdjson::dom::parser parser;
 
@@ -34,7 +36,7 @@ static simdjson::dom::object get_updates(const vk::long_poll_data& data, std::si
   );
 }
 
-vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std::int8_t timeout) const {
+vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& data, std::int8_t timeout) const {
   events_t event_list;
   simdjson::dom::object raw_updates(get_updates(data, timeout));
   simdjson::dom::array raw_updates_array(raw_updates["updates"].get_array());
@@ -51,6 +53,6 @@ vk::long_poll_api::events_t vk::long_poll_api::listen(long_poll_data& data, std:
   return event_list;
 }
 
-void vk::long_poll_api::run() {
+void vk::long_poll::api::run() {
   task_queue.start();
 }

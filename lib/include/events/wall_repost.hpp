@@ -14,11 +14,11 @@ namespace event {
  * Internal information accessed in a "lazy way".
  * It means, that no data is extracted from JSON until the user wants to access it.
  */
-class vk_export wall_repost {
+class wall_repost {
 public:
   wall_repost(std::int64_t id, std::int64_t from_id,
               std::int64_t owner_id, std::string text)
-    : _id(id), _from_id(from_id), _owner_id(owner_id), _text(text)
+    : _id(id), _from_id(from_id), _owner_id(owner_id), _text(text), _attachments()
   { }
   void construct_attachments(attachment::attachments_t&& attachments) {
     _attachments = attachments;

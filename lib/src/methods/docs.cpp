@@ -7,6 +7,7 @@
 
 vk::method::docs::docs()
   : parser(std::make_unique<simdjson::dom::parser>())
+  , method_util()
 { }
 
 vk::method::docs::~docs() = default;

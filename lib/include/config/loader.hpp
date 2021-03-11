@@ -14,7 +14,7 @@ namespace config {
  * Implemented as singleton to avoid multiply and senseless JSON file read.
  * Please, don't try to use this class directly, use non-member functions instead.
  */
-class vk_export loader {
+class loader {
 public:
   loader(const loader&) = delete;
   loader(loader&&) = delete;

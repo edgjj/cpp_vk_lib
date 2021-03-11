@@ -2,7 +2,9 @@
 
 
 vk::keyboard::layout::layout(vk::keyboard::flag flags_)
-  : flags(flags_) { }
+  : buttons()
+  , flags(flags_)
+{ }
 
 void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& row) {
   buttons.push_back(row);
@@ -36,10 +38,10 @@ std::string vk::keyboard::layout::serialize() const {
 
   for (auto&& row : buttons) {
     for (auto&& any_button : row) {
-      try_push_button<text_button>(any_button, serialized_buttons);
-      try_push_button<vk_pay_button>(any_button, serialized_buttons);
-      try_push_button<open_app_button>(any_button, serialized_buttons);
-      try_push_button<location_button>(any_button, serialized_buttons);
+      try_push_button<button::text>(any_button, serialized_buttons);
+      try_push_button<button::vk_pay>(any_button, serialized_buttons);
+      try_push_button<button::open_app>(any_button, serialized_buttons);
+      try_push_button<button::location>(any_button, serialized_buttons);
     }
     serialized_rows.push_back('[' + string_utils::join<std::string>(serialized_buttons) + ']');
     serialized_buttons.clear();

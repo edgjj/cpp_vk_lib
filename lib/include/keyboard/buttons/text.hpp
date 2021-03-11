@@ -7,23 +7,25 @@
 
 namespace vk {
 namespace keyboard {
+namespace button {
 
-class text_button {
+class text {
 public:
-  text_button(color selected_color_, std::string_view text_)
-    : selected_color(selected_color_), text(text_) { }
+  text(color selected_color_, std::string_view text_)
+    : selected_color(selected_color_), payload_data(text_) { }
   std::string serialize() const {
     const char* color(keyboard::get_color(selected_color));
     return
     string_utils::format(
       R"({"action":{"type":"text","payload":"{\"button\":\"1\"}","label":"{}"},"color":"{}"})",
-      text, color
+      payload_data, color
     );
   }
 private:
   color selected_color = color::none;
-  std::string text;
+  std::string payload_data;
 };
+} // namespace button
 } // namespace keyboard
 } // namespace vk
 

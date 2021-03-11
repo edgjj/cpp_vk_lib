@@ -6,6 +6,8 @@
 
 vk::method::audio::audio()
   : parser(std::make_unique<simdjson::dom::parser>())
+  , common_document()
+  , method_util()
 { }
 
 vk::method::audio::~audio() = default;
