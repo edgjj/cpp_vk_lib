@@ -1,16 +1,14 @@
+#include "spdlog/spdlog.h"
+
 #include "simdjson.h"
 
 #include "long_poll/api.hpp"
 
-#include "logger/logger.hpp"
 
-
-vk::long_poll::api::api()
-  : group_id(), groups(), task_queue()
-{
+vk::long_poll::api::api() : group_id(), groups(), task_queue() {
   group_id = groups.get_by_id();
-  logger(logflag::info) << "long polling started";
-  logger(logflag::info) << "group id: " << group_id;
+  spdlog::info("long polling started");
+  spdlog::info("group id: {}", group_id);
 }
 
 vk::long_poll::data vk::long_poll::api::server() const {

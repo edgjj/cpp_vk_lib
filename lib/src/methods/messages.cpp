@@ -21,12 +21,8 @@ void vk::method::messages::send(
     attachment::attachments_t&& list
 ) const {
   message_constructor constructor(disable_mentions_flag);
-  constructor.append({
-    "peer_id", std::to_string(peer_id)
-  });
-  constructor.append({
-    "message", text.data()
-  });
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
   constructor.append_attachments(std::move(list));
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
@@ -37,15 +33,9 @@ void vk::method::messages::send(
     std::map<std::string, std::string>&& raw_parameters
 ) const {
   message_constructor constructor(disable_mentions_flag);
-  constructor.append({
-    "peer_id", std::to_string(peer_id)
-  });
-  constructor.append({
-    "message", text.data()
-  });
-  constructor.append_map(
-    std::move(raw_parameters)
-  );
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
+  constructor.append_map(std::move(raw_parameters));
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
@@ -55,26 +45,16 @@ void vk::method::messages::send(
     const vk::keyboard::layout& layout
 ) const {
   message_constructor constructor(disable_mentions_flag);
-  constructor.append({
-    "peer_id", std::to_string(peer_id)
-  });
-  constructor.append({
-    "message", text.data()
-  });
-  constructor.append({
-    "keyboard", layout.serialize()
-  });
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
+  constructor.append({"keyboard", layout.serialize()});
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text) const {
   message_constructor constructor(disable_mentions_flag);
-  constructor.append({
-    "peer_id", std::to_string(peer_id)
-  });
-  constructor.append({
-    "message", text.data()
-  });
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
   method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
 }
 

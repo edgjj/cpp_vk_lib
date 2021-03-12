@@ -41,7 +41,9 @@ public:
    * @brief Push task to thread pool queue.
    */
   template <typename Function>
-  void queue(Function&& function);
+  void queue(Function&& function) {
+    task_queue.queue(std::move(function));
+  }
   /*!
    * @brief Pop and execute task from thread pool queue.
    */
@@ -57,10 +59,5 @@ private:
 };
 } // namespace long_poll
 } // namespace vk
-
-template <typename Function>
-void vk::long_poll::api::queue(Function&& function) {
-  task_queue.queue(function);
-}
 
 #endif // VK_LONG_POLL_API_H

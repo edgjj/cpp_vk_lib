@@ -1,8 +1,9 @@
+#include "spdlog/spdlog.h"
+
 #include "simdjson.h"
 
 #include "config/loader.hpp"
 #include "exception/error_processor.hpp"
-#include "logger/logger.hpp"
 
 
 std::pair<int64_t, std::string> vk::processing::extract_from_json(
@@ -20,6 +21,6 @@ void vk::processing::log_and_rethrow(
   try {
    if (exception_ptr) { std::rethrow_exception(exception_ptr); }
   }  catch (std::exception& ex) {
-    logger(vk::config::error_logpath(), logflag::error) << label << ": " << ex.what();
+    spdlog::error("{}: {}", label, ex.what());
   }
 }
