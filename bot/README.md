@@ -1,6 +1,6 @@
-## How to create your own bot
+# How to create your own bot
 
-# Preparation
+### Preparation
 ```
 mkdir example_bot
 cd example_bot
@@ -8,23 +8,17 @@ git clone https://github.com/duonumerouno/cpp_vk_lib.git
 ```
 
 Of cource, you can add library as a submodule in your project.
-Next, you should to create `bot` directory.
-Example CMakeLists:
+Next, you should to create `bot` directory with following `CMakeLists.txt`:
 ```
 include_directories(../cpp_vk_lib/lib/include)
-include_directories(../cpp_vk_lib/dependencies/simdjson/include)
-include_directories(../cpp_vk_lib/dependencies)
+include_directories(../cpp_vk_lib/lib/include/cpp_vk_lib)
 
-set(SOURCES
-    # Your source files.
-    main.cpp
-)
-add_executable(test ${SOURCES})
-
-target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../cpp_vk_lib/dependencies/simdjson simdjson)
+file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
+add_executable(example_bot ${SRC})
+target_link_libraries(example_bot -Lcpp_vk_lib/build cpp_vk_lib pthread curl curlpp -L../cpp_vk_lib/dependencies/simdjson simdjson)
 ```
 
-# Common structure of bot
+### Common structure of bot
 ```
 ├── CMakeLists.txt
 ├── commands
@@ -34,8 +28,8 @@ target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../cpp_vk_li
 │   └── cmd3.hpp
 |   └── // ...
 ├── events
-│   ├── on_chat_invite_user.hpp
-│   └── on_message_pin.hpp
+│   ├── reaction1.hpp
+│   └── reaction2.hpp
 |   └── // ...
 ├── handlers
 │   └── message_handler.hpp
@@ -48,7 +42,7 @@ target_link_libraries(test -Lbuild cpp_vk_lib pthread curl curlpp -L../cpp_vk_li
     └── // ...
 ```
 
-# Creating CMakeLists
+### Creating CMakeLists
 Here is example CMake script to make bot and library work together:
 ```
 cmake_minimum_required(VERSION 3.9)
@@ -72,5 +66,29 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../build)
 set(EXECUTABLE_OUTPUT_PATH ../build)
 
 add_subdirectory(cpp_vk_lib)
-add_subdirectory(example_bot)
+add_subdirectory(bot)
 ```
+
+### Setup config file
+In bot `main` function please type:
+```
+vk::config::load("/path/to/config.json");
+```
+Sample config:
+```
+{
+	"api_keys": {
+		"access_token": "",
+		"user_token": ""
+	},
+	"environment": {
+		"error_logpath": "/path/to/errors.log",
+		"event_logpath": "/path/to/events.log"
+	},
+	"num_threads": 16
+}
+```
+
+### Design goals
+
+This library follows the OCP principle, to allow user easily add any new features.
