@@ -19,36 +19,15 @@ High performance VK API library
 ## Dependencies
 	- curlpp
 
-## Build shared object
+## Run tests
 
 In `cpp_vk_lib` directory:
 ```
 cmake .
 cmake --build .
+./build/test
 ```
-After that, `.so` library will be available in `build` directory.
 
 ## Demo bot
 
-To compile demo bot, please, uncomment this line in `CMakeLists.txt`:
-```
-add_subdirectory(bot)
-```
-, and build it from `cpp_vk_lib` directory.
-Next, place to `build` directory `config.json` with the following content:
-```
-{
-	"api_keys": {
-		"access_token": "",
-		"user_token": ""
-	},
-	"environment": {
-		"error_logpath": "/tmp/errors.log",
-		"event_logpath": "/tmp/events.log"
-	},
-	"num_threads": 8
-}
-```
-## Note
-
-Constructive crticism is welcomed, pull requests are welcomed.
+Please, see `bot` README to find out how to create your own bot.
