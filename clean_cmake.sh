@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function cleaner () {
 	for _dir in "$@"
 	do
@@ -12,14 +10,5 @@ function cleaner () {
 		rm -rf $_dir/CMakeLists.txt.user
 	done
 }
-# . ./pre_commit.sh
-function generate_docs() {
-	cd doxygen
-	doxygen Doxyfile
-	cd ..
-	rm -rf docs
-	mv html docs	
-}
 
 cleaner "." "dependencies" "dependencies/simdjson" "lib" "bot" "test"
-generate_docs

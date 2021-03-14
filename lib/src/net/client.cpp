@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <curlpp/cURLpp.hpp>
 #include <curlpp/Easy.hpp>
 #include <curlpp/Options.hpp>
@@ -23,12 +25,22 @@ static std::string genparams(const std::map<std::string, std::string>& body) {
   return result;
 }
 
+#if defined VK_CURL_DEBUG
+void vk::network_client::debug(std::string_view template_text, std::string_view arg) const noexcept {
+  std::cout << "debug: " << template_text << arg << std::endl;
+}
+
+void vk::network_client::debug_error(std::string_view template_text, std::string_view arg) const noexcept {
+  std::cout << "error: " << template_text << arg << std::endl;
+}
+#endif
+
 std::string vk::network_client::request(std::string_view method, const std::map<std::string, std::string>& params) const {
   std::ostringstream response;
   curlpp::Easy curl_easy;
 
   std::string url = method.data() + genparams(params);
-  debug("HTTP POST:", url);
+  debug("HTTP POST: ", url);
 
   curl_easy.setOpt(new curlpp::options::Url(url));
   curl_easy.setOpt(new curlpp::options::WriteStream(&response));
@@ -43,7 +55,7 @@ std::string vk::network_client::request_data(std::string_view method, std::strin
   std::ostringstream response;
   curlpp::Easy curl_easy;
 
-  debug("HTTP POST:", method.data(), data);
+  debug("HTTP POST: ", data);
 
   curl_easy.setOpt(new curlpp::options::Url(method.data()));
   curl_easy.setOpt(new curlpp::options::PostFields(data.data()));
@@ -66,9 +78,7 @@ std::size_t vk::network_client::download(std::string_view filename, std::string_
 
   curlpp::Easy curl_easy;
 
-  debug("HTTP download:");
-  debug("filename:", filename);
-  debug("url:");
+  debug("HTTP download - filename: ", filename);
 
   curlpp::options::WriteFunction* writef =
     new curlpp::options::WriteFunction(std::bind(
@@ -91,9 +101,7 @@ std::string vk::network_client::upload(std::string_view field_name, std::string_
 
   curlpp::Easy curl_easy;
 
-  debug("HTTP upload:");
-  debug("filename:", filename);
-  debug("server:");
+  debug("HTTP upload - filename: ", filename);
 
   curl_easy.setOpt(new curlpp::options::Url(server.data()));
   curl_easy.setOpt(new curlpp::options::HttpPost(formParts));
@@ -101,7 +109,7 @@ std::string vk::network_client::upload(std::string_view field_name, std::string_
   try {
     curl_easy.perform();
   } catch(curlpp::RuntimeError& re) {
-    debug_error("HTTP upload error");
+    debug_error("HTTP upload error", "");
   }
 
   return response.str();

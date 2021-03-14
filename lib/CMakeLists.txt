@@ -5,7 +5,7 @@ include_directories(include/cpp_vk_lib)
 #add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
-set(COMMON_CXX_FLAGS "-fPIC -Werror -Wall -Wextra -Wcast-qual -Weffc++ -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
+set(COMMON_CXX_FLAGS "-fPIC -Wall -Wextra -Wcast-qual -Weffc++ -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
     set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2 -msse3 -march=native -mtune=generic")

@@ -7,10 +7,6 @@
 
 #include "misc/cppdefs.hpp"
 
-#if defined VK_CURL_DEBUG
-#include "logger/logger.hpp"
-#endif // VK_CURL_DEBUG
-
 
 namespace vk {
 /*!
@@ -50,19 +46,11 @@ public:
 
 private:
 #if defined VK_CURL_DEBUG
-  template <typename... Args>
-  void debug(Args&&... args) const noexcept {
-    logger(logflag::debug | logflag::spaces).print_pack(args...);
-  }
-  template <typename... Args>
-  void debug_error(Args&&... args) const noexcept {
-    logger(logflag::error | logflag::spaces).print_pack(args...);
-  }
+  void debug(std::string_view template_text, std::string_view arg) const noexcept;
+  void debug_error(std::string_view template_text, std::string_view arg) const noexcept;
 #else
-  template <typename... Args>
-  constexpr void debug(Args&&...) const noexcept { }
-  template <typename... Args>
-  constexpr void debug_error(Args&&...) const noexcept { }
+  void debug(std::string_view, std::string_view) const noexcept { }
+  void debug_error(std::string_view, std::string_view) const noexcept { }
 #endif // VK_CURL_DEBUG
 };
 } // namespace vk
