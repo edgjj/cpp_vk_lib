@@ -1,10 +1,10 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/message_new.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/message_new.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="117,5,295,76"/>
-<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="29,124,186,165"/>
-<area shape="rect" id="node7" href="$message__action__handler_8hpp.html" title=" " alt="" coords="211,124,399,165"/>
-<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="5,213,209,240"/>
-<area shape="rect" id="node4" title=" " alt="" coords="261,288,319,315"/>
-<area shape="rect" id="node5" title=" " alt="" coords="22,288,99,315"/>
-<area shape="rect" id="node6" title=" " alt="" coords="124,288,187,315"/>
-<area shape="rect" id="node8" title=" " alt="" coords="233,213,301,240"/>
+<map id="message_new.hpp" name="message_new.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="135,5,277,32"/>
+<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="29,80,186,121"/>
+<area shape="rect" id="node7" href="$message__action__handler_8hpp.html" title=" " alt="" coords="211,80,399,121"/>
+<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="5,169,209,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="261,244,319,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="22,244,99,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="124,244,187,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="233,169,301,196"/>
 </map>

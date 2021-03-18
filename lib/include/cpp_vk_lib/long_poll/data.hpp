@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "misc/cppdefs.hpp"
-
 
 namespace vk {
 namespace long_poll {

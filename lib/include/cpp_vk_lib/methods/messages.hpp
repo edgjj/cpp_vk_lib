@@ -1,9 +1,8 @@
 #ifndef VK_MESSAGES_H
 #define VK_MESSAGES_H
 
-#include "attachment/attachment.hpp"
 #include "document/common.hpp"
-#include "method_utils/method_utils.hpp"
+#include "methods/utility/utility.hpp"
 
 
 namespace vk {
@@ -30,7 +29,6 @@ namespace method {
  */
 class messages {
 public:
-
   messages(bool disable_mentions_flag_);
   messages() = delete;
   ~messages();
@@ -48,11 +46,11 @@ public:
   void set_chat_photo       (std::string_view filename, std::string_view raw_server) const;
   conversation_member_list get_conversation_members(std::int64_t peer_id) const;
 
-private:
-  std::unique_ptr<simdjson::dom::parser> parser;
-  document::common common_document;
+protected:
   bool disable_mentions_flag;
-  method_utils method_util;
+  std::unique_ptr<simdjson::dom::parser> parser;
+  document::common document;
+  method::utility method_util;
 };
 } // namespace method
 } // namespace vk

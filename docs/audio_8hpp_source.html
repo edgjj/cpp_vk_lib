@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/methods/audio.hpp Source File</title>
+<title>cpp_vk_lib: audio.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,22 +89,26 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::string_view filename,</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string_view raw_server</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::unique_ptr&lt;simdjson::dom::parser&gt; parser;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classvk_1_1document_1_1common.html">document::common</a> common_document;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classvk_1_1method__utils.html">method_utils</a> method_util;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">// namespace method</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_AUDIO_H</span></div>
-<div class="ttc" id="aclassvk_1_1document_1_1common_html"><div class="ttname"><a href="classvk_1_1document_1_1common.html">vk::document::common</a></div><div class="ttdoc">The base class for vk::docs, vk::photos and vk::video.</div><div class="ttdef"><b>Definition:</b> common.hpp:19</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1audio.html#ae02823ee9b4f61b83bd56ceedeb5885d">   28</a></span>&#160;  std::unique_ptr&lt;simdjson::dom::parser&gt; <a class="code" href="classvk_1_1method_1_1audio.html#ae02823ee9b4f61b83bd56ceedeb5885d">parser</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1audio.html#afa2c9c384afd4d789b7b8fc65f865731">   29</a></span>&#160;  <a class="code" href="classvk_1_1document_1_1common.html">document::common</a> <a class="code" href="classvk_1_1method_1_1audio.html#afa2c9c384afd4d789b7b8fc65f865731">document</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1audio.html#ad8eeba47e681d413f6019d8e042f5007">   30</a></span>&#160;  <a class="code" href="classvk_1_1method_1_1utility.html">method::utility</a> <a class="code" href="classvk_1_1method_1_1audio.html#ad8eeba47e681d413f6019d8e042f5007">method_util</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace method</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_AUDIO_H</span></div>
+<div class="ttc" id="aclassvk_1_1document_1_1common_html"><div class="ttname"><a href="classvk_1_1document_1_1common.html">vk::document::common</a></div><div class="ttdoc">The base class for vk::docs, vk::photos and vk::video.</div><div class="ttdef"><b>Definition:</b> document/common.hpp:20</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html"><div class="ttname"><a href="classvk_1_1method_1_1audio.html">vk::method::audio</a></div><div class="ttdoc">The audio methods representation.</div><div class="ttdef"><b>Definition:</b> audio.hpp:14</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a041ac7ed3b036eb11ce59dfa5432fb1b"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a041ac7ed3b036eb11ce59dfa5432fb1b">vk::method::audio::save</a></div><div class="ttdeci">void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const</div><div class="ttdef"><b>Definition:</b> audio.cpp:19</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a2e9f1e739f4217b74ef0f7fe1afaec1f"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a2e9f1e739f4217b74ef0f7fe1afaec1f">vk::method::audio::~audio</a></div><div class="ttdeci">~audio()</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a43851a396274951808fa31af1bfa2b51"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">vk::method::audio::audio</a></div><div class="ttdeci">audio()</div><div class="ttdef"><b>Definition:</b> audio.cpp:7</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a5519426367de2bbd7d381b237cf806fe"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a5519426367de2bbd7d381b237cf806fe">vk::method::audio::get_upload_server</a></div><div class="ttdeci">std::string get_upload_server() const</div><div class="ttdef"><b>Definition:</b> audio.cpp:15</div></div>
-<div class="ttc" id="aclassvk_1_1method__utils_html"><div class="ttname"><a href="classvk_1_1method__utils.html">vk::method_utils</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> method_utils.hpp:20</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_ad8eeba47e681d413f6019d8e042f5007"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#ad8eeba47e681d413f6019d8e042f5007">vk::method::audio::method_util</a></div><div class="ttdeci">method::utility method_util</div><div class="ttdef"><b>Definition:</b> audio.hpp:30</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_ae02823ee9b4f61b83bd56ceedeb5885d"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#ae02823ee9b4f61b83bd56ceedeb5885d">vk::method::audio::parser</a></div><div class="ttdeci">std::unique_ptr&lt; simdjson::dom::parser &gt; parser</div><div class="ttdef"><b>Definition:</b> audio.hpp:28</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_afa2c9c384afd4d789b7b8fc65f865731"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#afa2c9c384afd4d789b7b8fc65f865731">vk::method::audio::document</a></div><div class="ttdeci">document::common document</div><div class="ttdef"><b>Definition:</b> audio.hpp:29</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1utility_html"><div class="ttname"><a href="classvk_1_1method_1_1utility.html">vk::method::utility</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> utility.hpp:21</div></div>
 <div class="ttc" id="adocument_2common_8hpp_html"><div class="ttname"><a href="document_2common_8hpp.html">common.hpp</a></div></div>
 <div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->

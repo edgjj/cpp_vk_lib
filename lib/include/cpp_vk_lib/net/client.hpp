@@ -5,8 +5,6 @@
 #include <memory>
 #include <map>
 
-#include "misc/cppdefs.hpp"
-
 
 namespace vk {
 /*!
@@ -38,7 +36,6 @@ public:
    * @return response output.
    */
   std::string request_data(std::string_view body, std::string_view data) const;
-
   /*!
    * @brief Unescape text.
    */

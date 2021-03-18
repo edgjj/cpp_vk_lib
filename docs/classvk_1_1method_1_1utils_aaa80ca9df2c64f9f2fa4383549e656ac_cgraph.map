@@ -1,8 +1,8 @@
 <map id="vk::method::utils::check_link" name="vk::method::utils::check_link">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,145,76"/>
-<area shape="rect" id="node2" href="$classvk_1_1method__utils.html#a62e75c3c331c05ff5d78f0564339c799" title=" " alt="" coords="217,5,380,47"/>
-<area shape="rect" id="node3" href="$classvk_1_1method__utils.html#a504b8ce12d33681134bd5fa844788114" title=" " alt="" coords="193,71,404,98"/>
-<area shape="rect" id="node4" href="$namespacevk_1_1config.html#a4df2823eff8a1d20e6f439885598702a" title=" " alt="" coords="452,64,589,105"/>
-<area shape="rect" id="node5" href="$classvk_1_1config_1_1loader.html#aacb1948d8739f45c36f873eee4d32d14" title=" " alt="" coords="651,35,786,76"/>
-<area shape="rect" id="node6" href="$classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="637,101,800,127"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,145,80"/>
+<area shape="rect" id="node2" href="$classvk_1_1method_1_1utility.html#a99a3de681758232115e4675352ab8db3" title=" " alt="" coords="193,5,336,47"/>
+<area shape="rect" id="node3" href="$classvk_1_1method_1_1utility.html#a0c9ffaba025862d7719f24a0ba4ad770" title=" " alt="" coords="193,71,336,112"/>
+<area shape="rect" id="node4" href="$namespacevk_1_1config.html#a4df2823eff8a1d20e6f439885598702a" title=" " alt="" coords="384,71,521,112"/>
+<area shape="rect" id="node5" href="$classvk_1_1config_1_1loader.html#aacb1948d8739f45c36f873eee4d32d14" title=" " alt="" coords="583,41,718,83"/>
+<area shape="rect" id="node6" href="$classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="569,107,732,134"/>
 </map>

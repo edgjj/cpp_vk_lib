@@ -16,7 +16,7 @@ public:
   task_queue(task_queue&&) = delete;
   task_queue& operator=(const task_queue&) = delete;
   task_queue& operator=(task_queue&&) = delete;
-  task_queue() : locker(), condition(), tasks(), workers() { };
+  task_queue() : locker(), condition(), tasks(), workers() { }
  ~task_queue();
 
   template <typename Function, typename Result_Of = std::result_of_t<Function&()>>

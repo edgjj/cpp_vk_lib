@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/methods/utils.hpp Source File</title>
+<title>cpp_vk_lib: utils.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,30 +72,32 @@ $(function() {
 <a href="utils_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_UTILS_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_UTILS_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="method__utils_8hpp.html">method_utils/method_utils.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="utility_8hpp.html">methods/utility/utility.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>method {</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1utils.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1method_1_1utils.html">utils</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac">check_link</a>                   (std::string_view url) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::string <a class="code" href="classvk_1_1method_1_1utils.html#a5ecbb20e43e09d46231fc78d99ff1aaf">get_short_link</a>        (std::string_view url) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  std::int64_t <a class="code" href="classvk_1_1method_1_1utils.html#a6c109f73dde55f95cb1758ca56ad49cd">resolve_screen_name</a>  (std::string_view screen_name) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classvk_1_1method__utils.html">method_utils</a> method_util;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace method</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_UTILS_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac">check_link</a>(std::string_view url) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::string <a class="code" href="classvk_1_1method_1_1utils.html#a5ecbb20e43e09d46231fc78d99ff1aaf">get_short_link</a>(std::string_view url) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  std::int64_t <a class="code" href="classvk_1_1method_1_1utils.html#a6c109f73dde55f95cb1758ca56ad49cd">resolve_screen_name</a>(std::string_view screen_name) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1utils.html#a3cb7622539f091cecfe0e34dc187a585">   21</a></span>&#160;  <a class="code" href="classvk_1_1method_1_1utility.html">method::utility</a> <a class="code" href="classvk_1_1method_1_1utils.html#a3cb7622539f091cecfe0e34dc187a585">method_util</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace method</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;} <span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_UTILS_H</span></div>
+<div class="ttc" id="aclassvk_1_1method_1_1utility_html"><div class="ttname"><a href="classvk_1_1method_1_1utility.html">vk::method::utility</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> utility.hpp:21</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1utils_html"><div class="ttname"><a href="classvk_1_1method_1_1utils.html">vk::method::utils</a></div><div class="ttdoc">The utils methods representation.</div><div class="ttdef"><b>Definition:</b> utils.hpp:14</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1utils_html_a3cb7622539f091cecfe0e34dc187a585"><div class="ttname"><a href="classvk_1_1method_1_1utils.html#a3cb7622539f091cecfe0e34dc187a585">vk::method::utils::method_util</a></div><div class="ttdeci">method::utility method_util</div><div class="ttdef"><b>Definition:</b> utils.hpp:21</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1utils_html_a5ecbb20e43e09d46231fc78d99ff1aaf"><div class="ttname"><a href="classvk_1_1method_1_1utils.html#a5ecbb20e43e09d46231fc78d99ff1aaf">vk::method::utils::get_short_link</a></div><div class="ttdeci">std::string get_short_link(std::string_view url) const</div><div class="ttdef"><b>Definition:</b> utils.cpp:22</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1utils_html_a6c109f73dde55f95cb1758ca56ad49cd"><div class="ttname"><a href="classvk_1_1method_1_1utils.html#a6c109f73dde55f95cb1758ca56ad49cd">vk::method::utils::resolve_screen_name</a></div><div class="ttdeci">std::int64_t resolve_screen_name(std::string_view screen_name) const</div><div class="ttdef"><b>Definition:</b> utils.cpp:39</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1utils_html_aaa80ca9df2c64f9f2fa4383549e656ac"><div class="ttname"><a href="classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac">vk::method::utils::check_link</a></div><div class="ttdeci">bool check_link(std::string_view url) const</div><div class="ttdef"><b>Definition:</b> utils.cpp:7</div></div>
-<div class="ttc" id="aclassvk_1_1method__utils_html"><div class="ttname"><a href="classvk_1_1method__utils.html">vk::method_utils</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> method_utils.hpp:20</div></div>
-<div class="ttc" id="amethod__utils_8hpp_html"><div class="ttname"><a href="method__utils_8hpp.html">method_utils.hpp</a></div></div>
 <div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
+<div class="ttc" id="autility_8hpp_html"><div class="ttname"><a href="utility_8hpp.html">utility.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

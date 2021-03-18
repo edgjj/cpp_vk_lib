@@ -28,7 +28,7 @@ public:
   }
 private:
   void setup_commands() {
-    poller.get_message_handler().on_command("voice", std::make_unique<command::voice_message_dowload_command>());
+    poller.get_message_handler().on_command("download", std::make_unique<command::voice_message_dowload_command>());
     poller.get_message_handler().on_command("upload", std::make_unique<command::voice_message_upload_command>());
     poller.get_message_handler().on_command("chatphoto", std::make_unique<command::set_chat_photo_command>());
     poller.get_message_handler().on_command("doc", std::make_unique<command::docs_search_command>());

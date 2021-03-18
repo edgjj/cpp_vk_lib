@@ -1,7 +1,6 @@
 #ifndef VK_OAUTH_H
 #define VK_OAUTH_H
 
-//#include "simdjson.h"
 #include <string>
 
 #include "net/client.hpp"
@@ -29,7 +28,6 @@ enum class target_client : std::uint8_t {
  * int main() {
  *   vk::oauth::client client("phone number", "password", vk::oauth::target_client::windows);
  *   client.pull();
- *   // Now you can access your token and user id.
  *   vk::messages messages(client.token());
 }
  */
@@ -49,9 +47,6 @@ public:
   std::int64_t user_id() const noexcept;
 
 private:
-  bool error_returned(const simdjson::dom::object& response, std::string_view error_desc) {
-    return response.begin().key() == "error" && response["error"].get_string().take_value() == error_desc;
-  }
   static inline const std::string_view oauth_link = "https://oauth.vk.com/";
   static inline const std::string_view android_app_client_secret = "hHbZxrka2uZ6jB1inYsH";
   static inline const std::string_view iphone_app_client_secret  = "VeWdmVclDCtn6ihuP1nt";

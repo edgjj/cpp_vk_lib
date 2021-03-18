@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: /home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/processing/task_queue.hpp Source File</title>
+<title>cpp_vk_lib: task_queue.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,7 +87,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1processing_1_1task__queue.html#adfadad0dd3687b5e356fc54799bc2f90">   16</a></span>&#160;  <a class="code" href="classvk_1_1processing_1_1task__queue.html#adfadad0dd3687b5e356fc54799bc2f90">task_queue</a>(<a class="code" href="classvk_1_1processing_1_1task__queue.html">task_queue</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1processing_1_1task__queue.html#a828ad2f6650cd997a4e69b718b347f2a">   17</a></span>&#160;  <a class="code" href="classvk_1_1processing_1_1task__queue.html">task_queue</a>&amp; <a class="code" href="classvk_1_1processing_1_1task__queue.html#a828ad2f6650cd997a4e69b718b347f2a">operator=</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1processing_1_1task__queue.html">task_queue</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classvk_1_1processing_1_1task__queue.html#a579c809609421d8b18f2821aa7f496a9">   18</a></span>&#160;  <a class="code" href="classvk_1_1processing_1_1task__queue.html">task_queue</a>&amp; <a class="code" href="classvk_1_1processing_1_1task__queue.html#a579c809609421d8b18f2821aa7f496a9">operator=</a>(<a class="code" href="classvk_1_1processing_1_1task__queue.html">task_queue</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1processing_1_1task__queue.html#a5e6a222d0384ae0130f63a84e6166f85">   19</a></span>&#160;  <a class="code" href="classvk_1_1processing_1_1task__queue.html#a5e6a222d0384ae0130f63a84e6166f85">task_queue</a>() : locker(), condition(), tasks(), workers() { };</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1processing_1_1task__queue.html#a5e6a222d0384ae0130f63a84e6166f85">   19</a></span>&#160;  <a class="code" href="classvk_1_1processing_1_1task__queue.html#a5e6a222d0384ae0130f63a84e6166f85">task_queue</a>() : locker(), condition(), tasks(), workers() { }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <a class="code" href="classvk_1_1processing_1_1task__queue.html#a7ee57a4499dce2b2c955d72e86709889">~task_queue</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Function, <span class="keyword">typename</span> Result_Of = std::result_of_t&lt;Function&amp;()&gt;&gt;</div>

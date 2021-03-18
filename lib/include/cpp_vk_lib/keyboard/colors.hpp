@@ -4,12 +4,12 @@
 
 namespace vk {
 namespace keyboard {
-
 namespace color_data {
-inline const char* red = "negative";
-inline const char* green = "positive";
-inline const char* blue = "primary";
-inline const char* white = "secondary";
+
+inline const char* red    = "negative";
+inline const char* green  = "positive";
+inline const char* blue   = "primary";
+inline const char* white  = "secondary";
 } // namespace color_data
 
 enum class color : unsigned char {

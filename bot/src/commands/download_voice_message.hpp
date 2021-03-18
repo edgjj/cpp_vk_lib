@@ -1,6 +1,8 @@
 #ifndef BOT_DOWNLOAD_VOICE_MESSAGE_COMMAND_H
 #define BOT_DOWNLOAD_VOICE_MESSAGE_COMMAND_H
 
+#include <ctime>
+
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
 #include "cpp_vk_lib/net/client.hpp"
@@ -14,14 +16,16 @@ namespace command {
 class voice_message_dowload_command final : public base_command {
 public:
   void execute (const vk::event::message_new& event) const override {
-    auto reply_message = event.reply();
-    for (auto&& attachment : reply_message->attachments()) {
+    for (auto&& attachment : event.reply()->attachments()) {
       if (attachment->type() == "audio_message") {
+        messages.send(event.peer_id(), "Downloading...");
         auto audio_message = vk::attachment::static_cast_to<vk::attachment::audio_message>(attachment);
-          messages.send(event.peer_id(), "Downloading...");
-          (client.download("voice.mp3", audio_message->raw_mp3()) == 0)
-            ? messages.send(event.peer_id(), "Downloaded")
-            : messages.send(event.peer_id(), "Error while downloading");
+        std::string path = "/tmp/audio" + std::to_string(std::time(nullptr)) + ".mp3";
+        if (client.download(path, audio_message->raw_mp3()) == 0) {
+          messages.send(event.peer_id(), "Downloaded");
+        } else {
+          messages.send(event.peer_id(), "Error while downloading");
+        }
       }
     }
   }

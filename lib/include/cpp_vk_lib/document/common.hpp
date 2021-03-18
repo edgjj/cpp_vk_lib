@@ -2,12 +2,13 @@
 #define VK_COMMON_DOCUMENT_H
 
 #include "attachment/attachment.hpp"
-#include "method_utils/method_utils.hpp"
+#include "methods/utility/utility.hpp"
 
 
 namespace simdjson {
 namespace dom {
 class parser;
+class object;
 } // namespace dom
 } // namespace simdjson
 
@@ -29,7 +30,6 @@ public:
     std::string_view server,
     std::string_view field_name
   ) const;
-protected:
   /*!
    * @brief Search attachments of requested type.
    * @param method    - method name (photos.search, video.search or docs.search)
@@ -43,8 +43,9 @@ protected:
     std::int64_t count
   ) const;
 
+private:
   std::unique_ptr<simdjson::dom::parser> parser;
-  method_utils method_util;
+  method::utility method_util;
   network_client net_client;
 };
 } // namespace document

@@ -67,8 +67,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classvk_1_1document_1_1common-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vk::document::common Class Reference</div>  </div>
@@ -79,27 +77,6 @@ $(function() {
  <a href="classvk_1_1document_1_1common.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="document_2common_8hpp_source.html">common.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for vk::document::common:</div>
-<div class="dyncontent">
-<div class="center"><img src="classvk_1_1document_1_1common__inherit__graph.png" border="0" usemap="#avk_1_1document_1_1common_inherit__map" alt="Inheritance graph"/></div>
-<map name="avk_1_1document_1_1common_inherit__map" id="avk_1_1document_1_1common_inherit__map">
-<area shape="rect" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="150,5,326,32"/>
-<area shape="rect" href="classvk_1_1method_1_1docs.html" title="The docs methods representation." alt="" coords="5,80,140,107"/>
-<area shape="rect" href="classvk_1_1method_1_1photos.html" title="The photos methods representation." alt="" coords="164,80,312,107"/>
-<area shape="rect" href="classvk_1_1method_1_1video.html" title="The video methods representation." alt="" coords="336,80,476,107"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for vk::document::common:</div>
-<div class="dyncontent">
-<div class="center"><img src="classvk_1_1document_1_1common__coll__graph.png" border="0" usemap="#avk_1_1document_1_1common_coll__map" alt="Collaboration graph"/></div>
-<map name="avk_1_1document_1_1common_coll__map" id="avk_1_1document_1_1common_coll__map">
-<area shape="rect" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="69,95,245,121"/>
-<area shape="rect" href="classvk_1_1network__client.html" title="The HTTPS client." alt="" coords="5,5,148,32"/>
-<area shape="rect" href="classvk_1_1method__utils.html" title="The container of common functions and constants needed by various methods." alt="" coords="173,5,303,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -110,21 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac300316844fc98573f9529844dec5923"><td class="memItemLeft" align="right" valign="top">simdjson::dom::object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1document_1_1common.html#ac300316844fc98573f9529844dec5923">common_upload</a> (std::string_view filename, std::string_view server, std::string_view field_name) const</td></tr>
 <tr class="memdesc:ac300316844fc98573f9529844dec5923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload file to server.  <a href="classvk_1_1document_1_1common.html#ac300316844fc98573f9529844dec5923">More...</a><br /></td></tr>
 <tr class="separator:ac300316844fc98573f9529844dec5923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
 <tr class="memitem:a1512aa0ca256e20682c732dbfc16a989"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1document_1_1common.html#a1512aa0ca256e20682c732dbfc16a989">common_search</a> (std::string_view method, std::string_view query, std::int64_t count) const</td></tr>
 <tr class="memdesc:a1512aa0ca256e20682c732dbfc16a989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search attachments of requested type.  <a href="classvk_1_1document_1_1common.html#a1512aa0ca256e20682c732dbfc16a989">More...</a><br /></td></tr>
 <tr class="separator:a1512aa0ca256e20682c732dbfc16a989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a1536487eca404dbc054d9f964d84ba3c"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1document_1_1common.html#a1536487eca404dbc054d9f964d84ba3c">parser</a></td></tr>
-<tr class="separator:a1536487eca404dbc054d9f964d84ba3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5aacb18dc6ebd85086561ee6e6cd0d25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method__utils.html">method_utils</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1document_1_1common.html#a5aacb18dc6ebd85086561ee6e6cd0d25">method_util</a></td></tr>
-<tr class="separator:a5aacb18dc6ebd85086561ee6e6cd0d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4d5fb651a876ebc679acc1976f0139a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1network__client.html">network_client</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1document_1_1common.html#ac4d5fb651a876ebc679acc1976f0139a">net_client</a></td></tr>
-<tr class="separator:ac4d5fb651a876ebc679acc1976f0139a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class for vk::docs, vk::photos and vk::video. </p>
@@ -185,9 +150,6 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a> vk::document::common::common_search </td>
@@ -213,11 +175,6 @@ Protected Attributes</h2></td></tr>
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Search attachments of requested type. </p>
@@ -235,9 +192,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classvk_1_1document_1_1common_a1512aa0ca256e20682c732dbfc16a989_icgraph.png" border="0" usemap="#aclassvk_1_1document_1_1common_a1512aa0ca256e20682c732dbfc16a989_icgraph" alt=""/></div>
 <map name="aclassvk_1_1document_1_1common_a1512aa0ca256e20682c732dbfc16a989_icgraph" id="aclassvk_1_1document_1_1common_a1512aa0ca256e20682c732dbfc16a989_icgraph">
-<area shape="rect" title="Search attachments of requested type." alt="" coords="201,39,377,80"/>
-<area shape="rect" href="classvk_1_1method_1_1photos.html#a8dc4edf68d34cacc205eb81b70b62f3b" title=" " alt="" coords="5,5,153,47"/>
-<area shape="rect" href="classvk_1_1method_1_1video.html#aeb9b7c9a1ba3ee234bafe98328c079c9" title=" " alt="" coords="5,71,153,112"/>
+<area shape="rect" title="Search attachments of requested type." alt="" coords="201,5,377,47"/>
+<area shape="rect" href="classvk_1_1method_1_1video.html#aeb9b7c9a1ba3ee234bafe98328c079c9" title=" " alt="" coords="5,5,153,47"/>
 </map>
 </div>
 
@@ -280,76 +236,9 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5aacb18dc6ebd85086561ee6e6cd0d25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5aacb18dc6ebd85086561ee6e6cd0d25">&#9670;&nbsp;</a></span>method_util</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1method__utils.html">method_utils</a> vk::document::common::method_util</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac4d5fb651a876ebc679acc1976f0139a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4d5fb651a876ebc679acc1976f0139a">&#9670;&nbsp;</a></span>net_client</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1network__client.html">network_client</a> vk::document::common::net_client</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1536487eca404dbc054d9f964d84ba3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1536487eca404dbc054d9f964d84ba3c">&#9670;&nbsp;</a></span>parser</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;simdjson::dom::parser&gt; vk::document::common::parser</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/document/<a class="el" href="document_2common_8hpp_source.html">common.hpp</a></li>
-<li>/home/machen/git/cpp_vk_lib/lib/src/document/<a class="el" href="common_8cpp.html">common.cpp</a></li>
+<li><a class="el" href="document_2common_8hpp_source.html">document/common.hpp</a></li>
+<li><a class="el" href="common_8cpp.html">common.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

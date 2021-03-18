@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['text_612',['text',['../structvk_1_1action_1_1chat__title__update.html#a4d9071ff3c7f98cbcffac79ad355b7af',1,'vk::action::chat_title_update']]],
-  ['ts_613',['ts',['../structvk_1_1long__poll_1_1data.html#a5af367a08cb507006451de613b6163f0',1,'vk::long_poll::data']]]
+  ['white_624',['white',['../namespacevk_1_1keyboard_1_1color__data.html#ae2c32d564e10f6027c5335186a394a61',1,'vk::keyboard::color_data']]]
 ];

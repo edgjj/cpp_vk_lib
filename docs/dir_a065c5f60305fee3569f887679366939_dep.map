@@ -1,27 +1,25 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/src" name="/home/machen/git/cpp_vk_lib/lib/src">
-<area shape="rect" id="node1" href="dir_5a30104352ef4255dc24354b02eb2d20.html" title="include" alt="" coords="587,159,659,207"/>
-<area shape="rect" id="node3" href="dir_25b61307efd081764b8aaa03fc56b047.html" title="config" alt="" coords="1115,63,1187,111"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000022_000001.html" title="1" alt="" coords="673,179,682,194"/>
-<area shape="rect" id="node4" href="dir_a6832cab753dac3c185e0f0a744dd5ec.html" title="document" alt="" coords="1003,63,1090,111"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000023_000001.html" title="1" alt="" coords="673,180,682,195"/>
-<area shape="rect" id="node5" href="dir_1f610d0c5c1fad7784991781c5f43f87.html" title="events" alt="" coords="907,63,979,111"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000024_000001.html" title="8" alt="" coords="673,177,682,191"/>
-<area shape="rect" id="node6" href="dir_f996d03a8870ba3a35ec6948a3d9dfc5.html" title="exception" alt="" coords="795,63,882,111"/>
-<area shape="rect" id="edge8-headlabel" href="dir_000026_000001.html" title="2" alt="" coords="674,165,684,179"/>
-<area shape="rect" id="node7" href="dir_63ba9ecfef12e5f6b161ac887d4a6b18.html" title="keyboard" alt="" coords="688,63,771,111"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000027_000001.html" title="1" alt="" coords="663,146,673,160"/>
-<area shape="rect" id="node8" href="dir_33acc3ef5cd7e779958f0c85571b0470.html" title="long_poll" alt="" coords="582,63,663,111"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000028_000001.html" title="1" alt="" coords="626,133,636,148"/>
-<area shape="rect" id="node9" href="dir_84084825788b73a7d509ff09b1a91d65.html" title="method_utils" alt="" coords="451,63,557,111"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000029_000001.html" title="2" alt="" coords="580,133,589,148"/>
-<area shape="rect" id="node10" href="dir_717c9ec00bc88ff78f9ce2d43b047a3d.html" title="methods" alt="" coords="347,63,426,111"/>
-<area shape="rect" id="edge7-headlabel" href="dir_000030_000001.html" title="16" alt="" coords="562,152,580,167"/>
-<area shape="rect" id="node11" href="dir_27ca3812e2ab2d2e7d44e35356d1ad4a.html" title="net" alt="" coords="251,63,323,111"/>
-<area shape="rect" id="edge9-headlabel" href="dir_000031_000001.html" title="1" alt="" coords="565,161,574,175"/>
-<area shape="rect" id="node12" href="dir_8657e6cb556c9ed5d8e078c66c43834a.html" title="oauth" alt="" coords="155,63,227,111"/>
-<area shape="rect" id="edge10-headlabel" href="dir_000032_000001.html" title="2" alt="" coords="564,165,573,179"/>
-<area shape="rect" id="node13" href="dir_66f9729bcee8d5ae75293891afd568b8.html" title="processing" alt="" coords="38,63,130,111"/>
-<area shape="rect" id="edge11-headlabel" href="dir_000033_000001.html" title="1" alt="" coords="563,166,573,180"/>
-<area shape="rect" id="clust2" href="dir_a065c5f60305fee3569f887679366939.html" alt="" coords="27,52,1293,121"/>
-<area shape="rect" id="clust1" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html" title="lib" alt="" coords="16,16,1304,217"/>
+<map id="src" name="src">
+<area shape="rect" id="node1" href="dir_5a30104352ef4255dc24354b02eb2d20.html" title="include" alt="" coords="508,159,580,207"/>
+<area shape="rect" id="node3" href="dir_25b61307efd081764b8aaa03fc56b047.html" title="config" alt="" coords="983,63,1055,111"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000027_000003.html" title="1" alt="" coords="594,183,603,197"/>
+<area shape="rect" id="node4" href="dir_a6832cab753dac3c185e0f0a744dd5ec.html" title="document" alt="" coords="871,63,958,111"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000019_000003.html" title="1" alt="" coords="594,178,604,193"/>
+<area shape="rect" id="node5" href="dir_1f610d0c5c1fad7784991781c5f43f87.html" title="events" alt="" coords="775,63,847,111"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000007_000003.html" title="9" alt="" coords="595,173,604,188"/>
+<area shape="rect" id="node6" href="dir_f996d03a8870ba3a35ec6948a3d9dfc5.html" title="exception" alt="" coords="663,63,750,111"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000022_000003.html" title="2" alt="" coords="595,152,605,167"/>
+<area shape="rect" id="node7" href="dir_63ba9ecfef12e5f6b161ac887d4a6b18.html" title="keyboard" alt="" coords="556,63,639,111"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000026_000003.html" title="1" alt="" coords="569,140,578,154"/>
+<area shape="rect" id="node8" href="dir_33acc3ef5cd7e779958f0c85571b0470.html" title="long_poll" alt="" coords="450,63,531,111"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000002_000003.html" title="1" alt="" coords="525,131,534,146"/>
+<area shape="rect" id="node9" href="dir_717c9ec00bc88ff78f9ce2d43b047a3d.html" title="methods" alt="" coords="347,63,426,111"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000011_000003.html" title="19" alt="" coords="487,138,505,152"/>
+<area shape="rect" id="node10" href="dir_27ca3812e2ab2d2e7d44e35356d1ad4a.html" title="net" alt="" coords="251,63,323,111"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000014_000003.html" title="1" alt="" coords="487,155,497,170"/>
+<area shape="rect" id="node11" href="dir_8657e6cb556c9ed5d8e078c66c43834a.html" title="oauth" alt="" coords="155,63,227,111"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000015_000003.html" title="2" alt="" coords="486,162,495,176"/>
+<area shape="rect" id="node12" href="dir_66f9729bcee8d5ae75293891afd568b8.html" title="processing" alt="" coords="38,63,130,111"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000032_000003.html" title="1" alt="" coords="485,164,494,178"/>
+<area shape="rect" id="clust2" href="dir_a065c5f60305fee3569f887679366939.html" alt="" coords="27,52,1161,121"/>
+<area shape="rect" id="clust1" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html" title="lib" alt="" coords="16,16,1172,217"/>
 </map>

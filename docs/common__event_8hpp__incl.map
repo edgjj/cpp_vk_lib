@@ -1,20 +1,14 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/common_event.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/common_event.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="359,5,608,61"/>
-<area shape="rect" id="node2" href="$message__new_8hpp.html" title=" " alt="" coords="607,109,797,136"/>
-<area shape="rect" id="node10" href="$wall__post__new_8hpp.html" title=" " alt="" coords="167,109,360,136"/>
-<area shape="rect" id="node18" href="$wall__reply__new_8hpp.html" title=" " alt="" coords="384,109,583,136"/>
-<area shape="rect" id="node3" href="$attachment__handler_8hpp.html" title=" " alt="" coords="405,184,562,225"/>
-<area shape="rect" id="node8" href="$message__action__handler_8hpp.html" title=" " alt="" coords="607,184,795,225"/>
-<area shape="rect" id="node4" href="$attachment_8hpp.html" title=" " alt="" coords="384,273,588,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="541,423,599,449"/>
-<area shape="rect" id="node6" title=" " alt="" coords="389,348,466,375"/>
-<area shape="rect" id="node7" title=" " alt="" coords="453,497,516,524"/>
-<area shape="rect" id="node9" title=" " alt="" coords="667,273,735,300"/>
-<area shape="rect" id="node11" href="$wall__repost_8hpp.html" title=" " alt="" coords="177,191,350,218"/>
-<area shape="rect" id="node12" href="$error__processor_8hpp.html" title=" " alt="" coords="141,273,359,300"/>
-<area shape="rect" id="node13" href="$exception_8hpp.html" title=" " alt="" coords="159,348,341,375"/>
-<area shape="rect" id="node14" href="$backtrace_8hpp.html" title=" " alt="" coords="277,423,465,449"/>
-<area shape="rect" id="node16" title=" " alt="" coords="5,423,92,449"/>
-<area shape="rect" id="node17" href="$cppdefs_8hpp.html" title=" " alt="" coords="117,423,253,449"/>
-<area shape="rect" id="node15" title=" " alt="" coords="331,497,411,524"/>
+<map id="common_event.hpp" name="common_event.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="247,5,397,32"/>
+<area shape="rect" id="node2" href="$message__new_8hpp.html" title=" " alt="" coords="445,80,636,107"/>
+<area shape="rect" id="node10" href="$wall__post__new_8hpp.html" title=" " alt="" coords="5,80,199,107"/>
+<area shape="rect" id="node12" href="$wall__reply__new_8hpp.html" title=" " alt="" coords="223,80,421,107"/>
+<area shape="rect" id="node3" href="$attachment__handler_8hpp.html" title=" " alt="" coords="237,155,394,196"/>
+<area shape="rect" id="node8" href="$message__action__handler_8hpp.html" title=" " alt="" coords="447,155,635,196"/>
+<area shape="rect" id="node4" href="$attachment_8hpp.html" title=" " alt="" coords="209,244,413,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="467,319,526,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="321,319,398,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="233,319,296,345"/>
+<area shape="rect" id="node9" title=" " alt="" coords="437,244,505,271"/>
+<area shape="rect" id="node11" href="$wall__repost_8hpp.html" title=" " alt="" coords="27,162,201,189"/>
 </map>

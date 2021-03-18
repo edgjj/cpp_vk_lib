@@ -19,10 +19,13 @@ namespace string_utils {
 
 template <typename... _Args> struct format_implementation {
 private:
+  static constexpr std::size_t average_word_size = 7;
+
   static std::string create(std::string_view data, _Args&&... args) {
     if (data.empty())
       return {};
     std::string formatted;
+    formatted.reserve(data.size() + ( average_word_size * sizeof...(args) ));
     auto pack_one = [](auto&& argument) {
       if constexpr (std::is_integral_v<std::decay_t<decltype(argument)>>) {
         return std::to_string(argument);
@@ -30,7 +33,7 @@ private:
         return std::string(argument);
       }
     };
-    std::array<std::string, sizeof...(_Args)> elements{pack_one(args)...};
+    std::array<std::string, sizeof...(_Args)> elements { pack_one(args)... };
     std::size_t curr = 0;
     for (std::size_t i = 0; i < data.size(); i++) {
       // If we're have '{}' token, insert parameter at this place.

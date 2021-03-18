@@ -23,10 +23,11 @@ public:
     std::string_view filename,
     std::string_view raw_server
   ) const;
-private:
+
+protected:
   std::unique_ptr<simdjson::dom::parser> parser;
-  document::common common_document;
-  method_utils method_util;
+  document::common document;
+  method::utility method_util;
 };
 } // namespace method
 } // namespace vk

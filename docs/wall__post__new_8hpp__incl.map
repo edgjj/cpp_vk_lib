@@ -1,15 +1,9 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/wall_post_new.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/events/wall_post_new.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="135,5,318,76"/>
-<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="17,124,223,165"/>
-<area shape="rect" id="node7" href="$wall__repost_8hpp.html" title=" " alt="" coords="247,131,420,158"/>
-<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="18,213,222,240"/>
-<area shape="rect" id="node4" title=" " alt="" coords="157,363,216,389"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,288,83,315"/>
-<area shape="rect" id="node6" title=" " alt="" coords="229,437,291,464"/>
-<area shape="rect" id="node8" href="$error__processor_8hpp.html" title=" " alt="" coords="247,213,465,240"/>
-<area shape="rect" id="node9" href="$exception_8hpp.html" title=" " alt="" coords="265,288,447,315"/>
-<area shape="rect" id="node10" href="$backtrace_8hpp.html" title=" " alt="" coords="401,363,589,389"/>
-<area shape="rect" id="node12" title=" " alt="" coords="613,363,699,389"/>
-<area shape="rect" id="node13" href="$cppdefs_8hpp.html" title=" " alt="" coords="240,363,376,389"/>
-<area shape="rect" id="node11" title=" " alt="" coords="455,437,535,464"/>
+<map id="wall_post_new.hpp" name="wall_post_new.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="142,5,287,32"/>
+<area shape="rect" id="node2" href="$attachment__handler_8hpp.html" title=" " alt="" coords="5,80,211,121"/>
+<area shape="rect" id="node7" href="$wall__repost_8hpp.html" title=" " alt="" coords="235,87,408,114"/>
+<area shape="rect" id="node3" href="$attachment_8hpp.html" title=" " alt="" coords="113,169,317,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="93,244,152,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="176,244,253,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="278,244,341,271"/>
 </map>

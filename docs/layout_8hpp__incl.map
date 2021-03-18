@@ -1,23 +1,23 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/keyboard/layout.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/keyboard/layout.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="239,5,445,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,117,73,143"/>
-<area shape="rect" id="node3" href="$flags_8hpp.html" title=" " alt="" coords="97,117,243,143"/>
-<area shape="rect" id="node4" href="$location_8hpp.html" title=" " alt="" coords="151,206,370,233"/>
-<area shape="rect" id="node6" href="$open__app_8hpp.html" title=" " alt="" coords="318,109,489,151"/>
-<area shape="rect" id="node19" href="$text_8hpp.html" title=" " alt="" coords="692,117,885,143"/>
-<area shape="rect" id="node21" href="$vk__pay_8hpp.html" title=" " alt="" coords="513,109,667,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="235,377,294,404"/>
-<area shape="rect" id="node7" href="$string__utils_8hpp.html" title=" " alt="" coords="539,199,673,240"/>
-<area shape="rect" id="node8" href="$join_8hpp.html" title=" " alt="" coords="278,288,481,329"/>
-<area shape="rect" id="node10" href="$format_8hpp.html" title=" " alt="" coords="505,288,707,329"/>
-<area shape="rect" id="node15" href="$split_8hpp.html" title=" " alt="" coords="731,288,934,329"/>
-<area shape="rect" id="node18" href="$lazy__split_8hpp.html" title=" " alt="" coords="958,288,1161,329"/>
-<area shape="rect" id="node9" title=" " alt="" coords="342,377,417,404"/>
-<area shape="rect" id="node11" title=" " alt="" coords="453,377,516,404"/>
-<area shape="rect" id="node12" title=" " alt="" coords="541,377,597,404"/>
-<area shape="rect" id="node13" title=" " alt="" coords="621,377,695,404"/>
-<area shape="rect" id="node14" title=" " alt="" coords="720,377,767,404"/>
-<area shape="rect" id="node16" title=" " alt="" coords="801,377,864,404"/>
-<area shape="rect" id="node17" title=" " alt="" coords="949,377,1047,404"/>
-<area shape="rect" id="node20" href="$colors_8hpp.html" title=" " alt="" coords="712,206,865,233"/>
+<map id="layout.hpp" name="layout.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="297,5,387,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,87,73,114"/>
+<area shape="rect" id="node3" href="$flags_8hpp.html" title=" " alt="" coords="97,87,243,114"/>
+<area shape="rect" id="node4" href="$location_8hpp.html" title=" " alt="" coords="151,177,370,203"/>
+<area shape="rect" id="node6" href="$open__app_8hpp.html" title=" " alt="" coords="318,80,489,121"/>
+<area shape="rect" id="node19" href="$text_8hpp.html" title=" " alt="" coords="692,87,885,114"/>
+<area shape="rect" id="node21" href="$vk__pay_8hpp.html" title=" " alt="" coords="513,80,667,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="235,348,294,375"/>
+<area shape="rect" id="node7" href="$string__utils_8hpp.html" title=" " alt="" coords="539,169,673,211"/>
+<area shape="rect" id="node8" href="$join_8hpp.html" title=" " alt="" coords="278,259,481,300"/>
+<area shape="rect" id="node10" href="$format_8hpp.html" title=" " alt="" coords="505,259,707,300"/>
+<area shape="rect" id="node15" href="$split_8hpp.html" title=" " alt="" coords="731,259,934,300"/>
+<area shape="rect" id="node18" href="$lazy__split_8hpp.html" title=" " alt="" coords="958,259,1161,300"/>
+<area shape="rect" id="node9" title=" " alt="" coords="342,348,417,375"/>
+<area shape="rect" id="node11" title=" " alt="" coords="453,348,516,375"/>
+<area shape="rect" id="node12" title=" " alt="" coords="541,348,597,375"/>
+<area shape="rect" id="node13" title=" " alt="" coords="621,348,695,375"/>
+<area shape="rect" id="node14" title=" " alt="" coords="720,348,767,375"/>
+<area shape="rect" id="node16" title=" " alt="" coords="801,348,864,375"/>
+<area shape="rect" id="node17" title=" " alt="" coords="949,348,1047,375"/>
+<area shape="rect" id="node20" href="$colors_8hpp.html" title=" " alt="" coords="712,177,865,203"/>
 </map>

@@ -1,11 +1,10 @@
-<map id="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/string_utils/string_utils.hpp" name="/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/string_utils/string_utils.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="264,5,449,76"/>
-<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,347,172,403"/>
-<area shape="rect" id="node3" href="$open__app_8hpp.html" title=" " alt="" coords="55,124,240,195"/>
-<area shape="rect" id="node7" href="$text_8hpp.html" title=" " alt="" coords="264,124,449,195"/>
-<area shape="rect" id="node8" href="$vk__pay_8hpp.html" title=" " alt="" coords="473,124,659,195"/>
-<area shape="rect" id="node9" href="$docs_8cpp.html" title=" " alt="" coords="683,131,855,187"/>
-<area shape="rect" id="node4" href="$layout_8hpp.html" title=" " alt="" coords="235,243,441,299"/>
-<area shape="rect" id="node5" href="$layout_8cpp.html" title=" " alt="" coords="232,347,407,403"/>
-<area shape="rect" id="node6" href="$messages_8cpp.html" title=" " alt="" coords="431,347,603,403"/>
+<map id="string_utils.hpp" name="string_utils.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="174,5,297,32"/>
+<area shape="rect" id="node2" href="$open__app_8hpp.html" title=" " alt="" coords="5,80,119,107"/>
+<area shape="rect" id="node6" href="$text_8hpp.html" title=" " alt="" coords="143,80,219,107"/>
+<area shape="rect" id="node7" href="$vk__pay_8hpp.html" title=" " alt="" coords="243,80,337,107"/>
+<area shape="rect" id="node8" href="$docs_8cpp.html" title=" " alt="" coords="361,80,440,107"/>
+<area shape="rect" id="node3" href="$layout_8hpp.html" title=" " alt="" coords="135,155,226,181"/>
+<area shape="rect" id="node4" href="$layout_8cpp.html" title=" " alt="" coords="73,229,163,256"/>
+<area shape="rect" id="node5" href="$messages_8cpp.html" title=" " alt="" coords="187,229,302,256"/>
 </map>

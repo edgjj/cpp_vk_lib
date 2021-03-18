@@ -11,10 +11,14 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class video : protected document::common {
+class video {
 public:
   vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
   void save_by_link(std::string_view url) const;
+
+protected:
+  method::utility method_util;
+  document::common document;
 };
 } // namespace method
 } // namespace vk

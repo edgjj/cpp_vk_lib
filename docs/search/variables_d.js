@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parser_609',['parser',['../classvk_1_1document_1_1common.html#a1536487eca404dbc054d9f964d84ba3c',1,'vk::document::common']]]
+  ['red_620',['red',['../namespacevk_1_1keyboard_1_1color__data.html#ad31678c8655ebc7f800d45e183a1d99a',1,'vk::keyboard::color_data']]]
 ];

@@ -5,8 +5,6 @@
 #include <stdexcept>
 #include <string>
 
-#include "misc/cppdefs.hpp"
-
 
 namespace vk {
 namespace exception {
@@ -33,21 +31,21 @@ private:
   std::runtime_error error;
 };
 
-class vk_export upload_error : public common_exception {
+class upload_error : public common_exception {
 public:
   explicit upload_error(int id_, const char* what_arg_)
     : common_exception(create(id_, "upload_error", what_arg_))
   { }
 };
 
-class vk_export access_error : public common_exception {
+class access_error : public common_exception {
 public:
   explicit access_error(int id_, const char* what_arg_)
     : common_exception(create(id_, "access_error", what_arg_))
   { }
 };
 
-class vk_export invalid_parameter_error : public common_exception {
+class invalid_parameter_error : public common_exception {
 public:
   explicit invalid_parameter_error(int id_, const char* what_arg_)
     : common_exception(create(id_, "invalid_parameter_error", what_arg_))

@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classvk_1_1method_1_1audio-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vk::method::audio Class Reference</div>  </div>
@@ -77,6 +78,16 @@ $(function() {
  <a href="classvk_1_1method_1_1audio.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="audio_8hpp_source.html">audio.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for vk::method::audio:</div>
+<div class="dyncontent">
+<div class="center"><img src="classvk_1_1method_1_1audio__coll__graph.png" border="0" usemap="#avk_1_1method_1_1audio_coll__map" alt="Collaboration graph"/></div>
+<map name="avk_1_1method_1_1audio_coll__map" id="avk_1_1method_1_1audio_coll__map">
+<area shape="rect" title="The audio methods representation." alt="" coords="99,95,239,121"/>
+<area shape="rect" href="classvk_1_1method_1_1utility.html" title="The container of common functions and constants needed by various methods." alt="" coords="5,5,148,32"/>
+<area shape="rect" href="classvk_1_1document_1_1common.html" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="173,5,349,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -88,6 +99,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5519426367de2bbd7d381b237cf806fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041ac7ed3b036eb11ce59dfa5432fb1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1audio.html#a041ac7ed3b036eb11ce59dfa5432fb1b">save</a> (std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const</td></tr>
 <tr class="separator:a041ac7ed3b036eb11ce59dfa5432fb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ae02823ee9b4f61b83bd56ceedeb5885d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1audio.html#ae02823ee9b4f61b83bd56ceedeb5885d">parser</a></td></tr>
+<tr class="separator:ae02823ee9b4f61b83bd56ceedeb5885d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2c9c384afd4d789b7b8fc65f865731"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1audio.html#afa2c9c384afd4d789b7b8fc65f865731">document</a></td></tr>
+<tr class="separator:afa2c9c384afd4d789b7b8fc65f865731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8eeba47e681d413f6019d8e042f5007"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1utility.html">method::utility</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1audio.html#ad8eeba47e681d413f6019d8e042f5007">method_util</a></td></tr>
+<tr class="separator:ad8eeba47e681d413f6019d8e042f5007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The audio methods representation. </p>
@@ -201,9 +221,76 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afa2c9c384afd4d789b7b8fc65f865731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2c9c384afd4d789b7b8fc65f865731">&#9670;&nbsp;</a></span>document</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a> vk::method::audio::document</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8eeba47e681d413f6019d8e042f5007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8eeba47e681d413f6019d8e042f5007">&#9670;&nbsp;</a></span>method_util</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvk_1_1method_1_1utility.html">method::utility</a> vk::method::audio::method_util</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae02823ee9b4f61b83bd56ceedeb5885d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02823ee9b4f61b83bd56ceedeb5885d">&#9670;&nbsp;</a></span>parser</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;simdjson::dom::parser&gt; vk::method::audio::parser</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/machen/git/cpp_vk_lib/lib/include/cpp_vk_lib/methods/<a class="el" href="audio_8hpp_source.html">audio.hpp</a></li>
-<li>/home/machen/git/cpp_vk_lib/lib/src/methods/<a class="el" href="audio_8cpp.html">audio.cpp</a></li>
+<li><a class="el" href="audio_8hpp_source.html">audio.hpp</a></li>
+<li><a class="el" href="audio_8cpp.html">audio.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,7 +1,7 @@
 #ifndef VK_GROUPS_H
 #define VK_GROUPS_H
 
-#include "method_utils/method_utils.hpp"
+#include "methods/utility/utility.hpp"
 
 
 namespace vk {
@@ -16,8 +16,9 @@ public:
   explicit groups() : method_util() { }
   std::int64_t get_by_id() const;
   simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
-private:
-  method_utils method_util;
+
+protected:
+  method::utility method_util;
 };
 } // namespace method
 } // namespace vk

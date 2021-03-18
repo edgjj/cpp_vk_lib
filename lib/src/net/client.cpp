@@ -114,4 +114,3 @@ std::string vk::network_client::upload(std::string_view field_name, std::string_
 
   return response.str();
 }
-

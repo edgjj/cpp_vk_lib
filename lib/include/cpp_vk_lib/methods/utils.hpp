@@ -1,7 +1,7 @@
 #ifndef VK_UTILS_H
 #define VK_UTILS_H
 
-#include "method_utils/method_utils.hpp"
+#include "methods/utility/utility.hpp"
 
 
 namespace vk {
@@ -13,11 +13,12 @@ namespace method {
  */
 class utils {
 public:
-  bool check_link                   (std::string_view url) const;
-  std::string get_short_link        (std::string_view url) const;
-  std::int64_t resolve_screen_name  (std::string_view screen_name) const;
-private:
-  method_utils method_util;
+  bool check_link(std::string_view url) const;
+  std::string get_short_link(std::string_view url) const;
+  std::int64_t resolve_screen_name(std::string_view screen_name) const;
+
+protected:
+  method::utility method_util;
 };
 } // namespace method
 } // namespace vk

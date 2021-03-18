@@ -11,7 +11,7 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class docs : protected document::common {
+class docs {
 public:
   explicit docs();
   ~docs();
@@ -23,9 +23,11 @@ public:
   std::string get_messages_upload_server  (std::string_view type, std::int64_t peer_id) const;
   vk::attachment::attachments_t search    (std::string_view query, std::int64_t count) const;
   std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
-private:
+
+protected:
   std::unique_ptr<simdjson::dom::parser> parser;
-  method_utils method_util;
+  method::utility method_util;
+  document::common document;
 };
 } // namespace method
 } // namespace vk

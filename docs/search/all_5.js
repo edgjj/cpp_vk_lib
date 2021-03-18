@@ -2,7 +2,7 @@ var searchData=
 [
   ['edit_83',['edit',['../classvk_1_1method_1_1docs.html#a2e3a4e56c1b3431b551f25a642e55721',1,'vk::method::docs']]],
   ['edit_5fchat_84',['edit_chat',['../classvk_1_1method_1_1messages.html#a0149f70b42c361c427abaea6a554dd38',1,'vk::method::messages']]],
-  ['enable_5fmentions_85',['enable_mentions',['../classvk_1_1message__constructor.html#a4f90c3910ea8b6ff72aae172c9ba4282',1,'vk::message_constructor::enable_mentions()'],['../classvk_1_1method_1_1messages.html#a3e9579437188b6a319baa6d1404c02c9',1,'vk::method::messages::enable_mentions()']]],
+  ['enable_5fmentions_85',['enable_mentions',['../classvk_1_1method_1_1messages.html#a3e9579437188b6a319baa6d1404c02c9',1,'vk::method::messages::enable_mentions()'],['../classvk_1_1method_1_1message__constructor.html#adc75bb893ef8b949975081e06b8228d4',1,'vk::method::message_constructor::enable_mentions()']]],
   ['end_86',['end',['../classvk_1_1string__utils_1_1split__range.html#a2143212b3bccd4a73d1bfdaeab077bff',1,'vk::string_utils::split_range']]],
   ['end_5fsplit_5fiterator_87',['end_split_iterator',['../structvk_1_1string__utils_1_1end__split__iterator.html',1,'vk::string_utils']]],
   ['error_5flogpath_88',['error_logpath',['../classvk_1_1config_1_1loader.html#a73c730b5c5b7321574af45f32df9badc',1,'vk::config::loader::error_logpath()'],['../namespacevk_1_1config.html#a68014c2e939935d7e9cd7722ef462c50',1,'vk::config::error_logpath()']]],

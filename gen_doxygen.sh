@@ -9,6 +9,4 @@ function generate_docs() {
 	mv html docs	
 }
 
-if [[ $1 = "--doxygen" ]]; then
-	generate_docs
-fi
+generate_docs

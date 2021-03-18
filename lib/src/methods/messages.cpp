@@ -1,15 +1,17 @@
 #include "simdjson.h"
 
 #include "keyboard/layout.hpp"
-#include "methods/messages.hpp"
-#include "method_utils/message_constructor.hpp"
+#include "methods/utility/utility.hpp"
+#include "methods/utility/message_constructor.hpp"
 #include "exception/error_processor.hpp"
+
+#include "methods/messages.hpp"
 
 
 vk::method::messages::messages(bool disable_mentions_flag_)
-  : parser(std::make_unique<simdjson::dom::parser>())
-  , common_document()
-  , disable_mentions_flag(disable_mentions_flag_)
+  : disable_mentions_flag(disable_mentions_flag_)
+  , parser(std::make_unique<simdjson::dom::parser>())
+  , document()
   , method_util()
 { }
 
@@ -115,7 +117,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const {
   simdjson::dom::object response =
-    common_document.common_upload(filename, raw_server, "file");
+    document.common_upload(filename, raw_server, "file");
   method_util.call("messages.setChatPhoto", method_util.group_args({
     {"file", response["response"].get_c_str().take_value()}
   }));
