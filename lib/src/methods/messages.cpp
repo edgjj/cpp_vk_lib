@@ -117,7 +117,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const {
   simdjson::dom::object response =
-    document.common_upload(filename, raw_server, "file");
+    document.upload(filename, raw_server, "file");
   method_util.call("messages.setChatPhoto", method_util.group_args({
     {"file", response["response"].get_c_str().take_value()}
   }));

@@ -76,24 +76,32 @@ $(function() {
 <code>#include &quot;<a class="el" href="format_8hpp_source.html">string_utils/implementation/format.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="split_8hpp_source.html">string_utils/implementation/split.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lazy__split_8hpp_source.html">string_utils/implementation/lazy_split.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="convert__ascii_8hpp_source.html">string_utils/implementation/convert_ascii.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="convert__utf8_8hpp_source.html">string_utils/implementation/convert_utf8.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cppdefs_8hpp_source.html">misc/cppdefs.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for string_utils.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="string__utils_8hpp__incl.png" border="0" usemap="#astring__utils_8hpp" alt=""/></div>
 <map name="astring__utils_8hpp" id="astring__utils_8hpp">
-<area shape="rect" title=" " alt="" coords="404,5,527,32"/>
+<area shape="rect" title=" " alt="" coords="744,5,867,32"/>
 <area shape="rect" href="join_8hpp.html" title=" " alt="" coords="24,80,227,121"/>
 <area shape="rect" href="format_8hpp.html" title=" " alt="" coords="251,80,453,121"/>
 <area shape="rect" href="split_8hpp.html" title=" " alt="" coords="477,80,680,121"/>
 <area shape="rect" href="lazy__split_8hpp.html" title=" " alt="" coords="704,80,907,121"/>
+<area shape="rect" href="convert__ascii_8hpp.html" title=" " alt="" coords="1157,80,1360,121"/>
+<area shape="rect" href="convert__utf8_8hpp.html" title=" " alt="" coords="931,80,1133,121"/>
+<area shape="rect" href="cppdefs_8hpp.html" title=" " alt="" coords="1384,87,1520,114"/>
 <area shape="rect" title=" " alt="" coords="5,169,80,196"/>
 <area shape="rect" title=" " alt="" coords="104,169,163,196"/>
-<area shape="rect" title=" " alt="" coords="202,169,265,196"/>
-<area shape="rect" title=" " alt="" coords="289,169,345,196"/>
-<area shape="rect" title=" " alt="" coords="369,169,444,196"/>
-<area shape="rect" title=" " alt="" coords="469,169,515,196"/>
+<area shape="rect" title=" " alt="" coords="371,169,434,196"/>
+<area shape="rect" title=" " alt="" coords="459,169,515,196"/>
+<area shape="rect" title=" " alt="" coords="201,169,276,196"/>
+<area shape="rect" title=" " alt="" coords="301,169,347,196"/>
 <area shape="rect" title=" " alt="" coords="547,169,610,196"/>
 <area shape="rect" title=" " alt="" coords="695,169,793,196"/>
+<area shape="rect" title=" " alt="" coords="1029,169,1102,196"/>
+<area shape="rect" title=" " alt="" coords="1193,169,1255,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -136,6 +144,14 @@ Functions</h2></td></tr>
 <tr class="separator:a230a30da79e2b707bc3202f6be5a3fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57ae5042d7de31947dbeccb9a0eca72"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#ae57ae5042d7de31947dbeccb9a0eca72">vk::string_utils::lazy_split</a> (std::string_view data, std::string_view delimiter)</td></tr>
 <tr class="separator:ae57ae5042d7de31947dbeccb9a0eca72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4ee0753ecc8fdce4772a6fc17affbe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a3d4ee0753ecc8fdce4772a6fc17affbe">vk::string_utils::utf8_to_lower</a> (std::string_view data)</td></tr>
+<tr class="separator:a3d4ee0753ecc8fdce4772a6fc17affbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a21bcbc0304473114cae3cd0666ab8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a76a21bcbc0304473114cae3cd0666ab8">vk::string_utils::utf8_to_upper</a> (std::string_view data)</td></tr>
+<tr class="separator:a76a21bcbc0304473114cae3cd0666ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f2d4dfc66174514d81561a801ba929"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#ac4f2d4dfc66174514d81561a801ba929">vk::string_utils::ascii_to_lower</a> (std::string_view data)</td></tr>
+<tr class="separator:ac4f2d4dfc66174514d81561a801ba929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7c7b51e4529479373ae216e0513099"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#aff7c7b51e4529479373ae216e0513099">vk::string_utils::ascii_to_upper</a> (std::string_view data)</td></tr>
+<tr class="separator:aff7c7b51e4529479373ae216e0513099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

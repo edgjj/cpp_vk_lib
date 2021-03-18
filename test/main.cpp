@@ -1,6 +1,7 @@
 #include "string_util_tests/join_tests.hpp"
 #include "string_util_tests/format_tests.hpp"
 #include "string_util_tests/split_tests.hpp"
+#include "string_util_tests/convert_tests.hpp"
 
 #include "attachment_tests/attachment_tests.hpp"
 

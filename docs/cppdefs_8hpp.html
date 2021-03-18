@@ -76,8 +76,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="cppdefs_8hpp__dep__incl.png" border="0" usemap="#acppdefs_8hppdep" alt=""/></div>
 <map name="acppdefs_8hppdep" id="acppdefs_8hppdep">
-<area shape="rect" title=" " alt="" coords="27,5,128,32"/>
-<area shape="rect" href="wall__post__new_8cpp.html" title=" " alt="" coords="5,80,149,107"/>
+<area shape="rect" title=" " alt="" coords="263,5,365,32"/>
+<area shape="rect" href="string__utils_8hpp.html" title=" " alt="" coords="174,80,297,107"/>
+<area shape="rect" href="wall__post__new_8cpp.html" title=" " alt="" coords="321,80,465,107"/>
+<area shape="rect" href="open__app_8hpp.html" title=" " alt="" coords="5,155,119,181"/>
+<area shape="rect" href="text_8hpp.html" title=" " alt="" coords="143,155,219,181"/>
+<area shape="rect" href="vk__pay_8hpp.html" title=" " alt="" coords="243,155,337,181"/>
+<area shape="rect" href="docs_8cpp.html" title=" " alt="" coords="361,155,440,181"/>
+<area shape="rect" href="layout_8hpp.html" title=" " alt="" coords="135,229,226,256"/>
+<area shape="rect" href="layout_8cpp.html" title=" " alt="" coords="73,304,163,331"/>
+<area shape="rect" href="messages_8cpp.html" title=" " alt="" coords="187,304,302,331"/>
 </map>
 </div>
 </div>
@@ -105,8 +113,8 @@ Macros</h2></td></tr>
 <tr class="separator:adc22e6055f779aaa6f0ba98ade173dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a2c7619ee41bc94712ae9a5eb4a4fceb7">VK_PUSH_DISABLE_ALL_WARNINGS</a></td></tr>
 <tr class="separator:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d3eb4dfbf882448dcd2c1703955623f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a5d3eb4dfbf882448dcd2c1703955623f">vk_always_inline</a>&#160;&#160;&#160;[[gnu::always_inline]]</td></tr>
-<tr class="separator:a5d3eb4dfbf882448dcd2c1703955623f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1fe462315787bc4aeb182ae84dd8a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#aee1fe462315787bc4aeb182ae84dd8a6">vk_really_inline</a>&#160;&#160;&#160;[[gnu::always_inline]]</td></tr>
+<tr class="separator:aee1fe462315787bc4aeb182ae84dd8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2266b36a60393328806444a1071a2655"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a2266b36a60393328806444a1071a2655">vk_likely</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 1)</td></tr>
 <tr class="separator:a2266b36a60393328806444a1071a2655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b17dfe85a0cd13b9d925f61fe265a9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a5b17dfe85a0cd13b9d925f61fe265a9b">vk_unlikely</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 0)</td></tr>
@@ -197,20 +205,6 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">  type(type&amp;&amp;) = <span class="keyword">delete</span>;                    \</div>
 <div class="line">  type&amp; operator = (type&amp;&amp;) = <span class="keyword">delete</span>;       \</div>
 </div><!-- fragment -->
-</div>
-</div>
-<a id="a5d3eb4dfbf882448dcd2c1703955623f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d3eb4dfbf882448dcd2c1703955623f">&#9670;&nbsp;</a></span>vk_always_inline</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define vk_always_inline&#160;&#160;&#160;[[gnu::always_inline]]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 </div>
 </div>
 <a id="adc22e6055f779aaa6f0ba98ade173dfb"></a>
@@ -345,6 +339,20 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define VK_PUSH_DISABLE_WARNINGS&#160;&#160;&#160;_Pragma(&quot;GCC diagnostic push&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee1fe462315787bc4aeb182ae84dd8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1fe462315787bc4aeb182ae84dd8a6">&#9670;&nbsp;</a></span>vk_really_inline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define vk_really_inline&#160;&#160;&#160;[[gnu::always_inline]]</td>
         </tr>
       </table>
 </div><div class="memdoc">

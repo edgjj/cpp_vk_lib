@@ -25,7 +25,7 @@ public:
    * @brief Upload file to server.
    * @return parsed JSON response.
    */
-  simdjson::dom::object common_upload(
+  simdjson::dom::object upload(
     std::string_view filename,
     std::string_view server,
     std::string_view field_name
@@ -37,7 +37,7 @@ public:
    * @param count     - maximum count of documents to search
    * @return vector of attachments.
    */
-  vk::attachment::attachments_t common_search(
+  vk::attachment::attachments_t search(
     std::string_view method,
     std::string_view query,
     std::int64_t count

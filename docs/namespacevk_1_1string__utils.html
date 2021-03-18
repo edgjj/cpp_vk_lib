@@ -75,9 +75,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1format__implementation.html">format_implementation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1ascii__convert__impl.html">ascii_convert_impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1join__implementation.html">join_implementation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1utf8__convert__impl.html">utf8_convert_impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1format__impl.html">format_impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1join__impl.html">join_impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -85,11 +89,21 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1string__utils_1_1split__range.html">split_range</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1split__implementation.html">split_implementation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1split__impl.html">split_impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac4f2d4dfc66174514d81561a801ba929"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#ac4f2d4dfc66174514d81561a801ba929">ascii_to_lower</a> (std::string_view data)</td></tr>
+<tr class="separator:ac4f2d4dfc66174514d81561a801ba929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7c7b51e4529479373ae216e0513099"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#aff7c7b51e4529479373ae216e0513099">ascii_to_upper</a> (std::string_view data)</td></tr>
+<tr class="separator:aff7c7b51e4529479373ae216e0513099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4ee0753ecc8fdce4772a6fc17affbe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a3d4ee0753ecc8fdce4772a6fc17affbe">utf8_to_lower</a> (std::string_view data)</td></tr>
+<tr class="separator:a3d4ee0753ecc8fdce4772a6fc17affbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a21bcbc0304473114cae3cd0666ab8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a76a21bcbc0304473114cae3cd0666ab8">utf8_to_upper</a> (std::string_view data)</td></tr>
+<tr class="separator:a76a21bcbc0304473114cae3cd0666ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0587bef5700c2375356e5f51145f00"><td class="memItemLeft" align="right" valign="top">const std::locale&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#abc0587bef5700c2375356e5f51145f00">utf8</a> (&quot;en_US.UTF-8&quot;)</td></tr>
+<tr class="separator:abc0587bef5700c2375356e5f51145f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b75c357092a62b10a30104ddc9d872b"><td class="memTemplParams" colspan="2">template&lt;typename... _Args&gt; </td></tr>
 <tr class="memitem:a8b75c357092a62b10a30104ddc9d872b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">format</a> (std::string_view data, _Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a8b75c357092a62b10a30104ddc9d872b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,6 +119,58 @@ Functions</h2></td></tr>
 <tr class="separator:ae57ae5042d7de31947dbeccb9a0eca72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ac4f2d4dfc66174514d81561a801ba929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f2d4dfc66174514d81561a801ba929">&#9670;&nbsp;</a></span>ascii_to_lower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string vk::string_utils::ascii_to_lower </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff7c7b51e4529479373ae216e0513099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7c7b51e4529479373ae216e0513099">&#9670;&nbsp;</a></span>ascii_to_upper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string vk::string_utils::ascii_to_upper </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8b75c357092a62b10a30104ddc9d872b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b75c357092a62b10a30104ddc9d872b">&#9670;&nbsp;</a></span>format()</h2>
 
@@ -266,6 +332,76 @@ template&lt;typename T &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc0587bef5700c2375356e5f51145f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0587bef5700c2375356e5f51145f00">&#9670;&nbsp;</a></span>utf8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::locale vk::string_utils::utf8 </td>
+          <td>(</td>
+          <td class="paramtype">&quot;en_US.UTF-8&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d4ee0753ecc8fdce4772a6fc17affbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4ee0753ecc8fdce4772a6fc17affbe">&#9670;&nbsp;</a></span>utf8_to_lower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string vk::string_utils::utf8_to_lower </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76a21bcbc0304473114cae3cd0666ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76a21bcbc0304473114cae3cd0666ab8">&#9670;&nbsp;</a></span>utf8_to_upper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string vk::string_utils::utf8_to_upper </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>

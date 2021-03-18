@@ -5,7 +5,9 @@
 #include "long_poll/api.hpp"
 
 
-vk::long_poll::api::api() : group_id(), groups(), task_queue() {
+vk::long_poll::api::api()
+  : group_id(), groups(), task_queue()
+{
   group_id = groups.get_by_id();
   spdlog::info("long polling started");
   spdlog::info("group id: {}", group_id);
@@ -36,18 +38,18 @@ static simdjson::dom::object get_updates(const vk::long_poll::data& data, std::s
 
 vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& data, std::int8_t timeout) const {
   events_t event_list;
-  simdjson::dom::object raw_updates(get_updates(data, timeout));
-  simdjson::dom::array raw_updates_array(raw_updates["updates"].get_array());
-  if (raw_updates_array.size() == 0)
+  simdjson::dom::object updates_json(get_updates(data, timeout));
+  simdjson::dom::array updates(updates_json["updates"].get_array());
+  if (updates.size() == 0)
     data = server();
 
-  for (simdjson::dom::element&& update : raw_updates_array) {
+  for (simdjson::dom::element&& update : updates) {
     event_list.push_back(std::make_unique<vk::event::common>(
-      raw_updates["ts"].get_string(),
+      updates_json["ts"].get_string(),
       std::move(update)
     ));
   }
-  data.ts = raw_updates["ts"].get_c_str();
+  data.ts = updates_json["ts"].get_c_str();
   return event_list;
 }
 

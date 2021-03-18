@@ -19,7 +19,7 @@ static void search_attachments(const simdjson::dom::array& items, _Execution_Pol
   }
 }
 
-vk::attachment::attachments_t vk::document::common::common_search(
+vk::attachment::attachments_t vk::document::common::search(
     std::string_view method,
     std::string_view query,
     std::int64_t count
@@ -56,7 +56,7 @@ vk::attachment::attachments_t vk::document::common::common_search(
   return documents;
 }
 
-simdjson::dom::object vk::document::common::common_upload(
+simdjson::dom::object vk::document::common::upload(
   std::string_view filename,
   std::string_view server,
   std::string_view field_name

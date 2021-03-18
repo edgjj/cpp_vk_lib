@@ -18,7 +18,9 @@ namespace vk {
 namespace string_utils {
 
 template <typename T>
-struct join_implementation {
+struct join_impl {
+public:
+  join_impl() = delete;
 private:
   template <typename _Container, typename _Binary_operation>
   static std::string common_implementation(_Container&& elements, _Binary_operation operation) {
@@ -26,7 +28,7 @@ private:
   }
   template <typename _Container>
   static std::string common_create(_Container&& elements, char delimiter) {
-    return common_implementation(elements, [&delimiter](std::string& accumlator, T element){
+    return common_implementation(elements, [&delimiter](std::string& accumlator, T element) {
       if constexpr (std::is_integral_v<T>) {
         return accumlator.empty()
           ? std::to_string(element)

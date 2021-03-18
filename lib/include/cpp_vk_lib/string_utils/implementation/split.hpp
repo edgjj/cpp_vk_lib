@@ -14,7 +14,9 @@ std::vector<std::string_view> split(std::string_view text, char delimiter);
 namespace vk {
 namespace string_utils {
 
-struct split_implementation {
+struct split_impl {
+public:
+  split_impl() = delete;
 private:
   static std::vector<std::string_view> create(std::string_view data, char delimiter) {
     std::vector<std::string_view> splitted;

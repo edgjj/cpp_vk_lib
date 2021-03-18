@@ -20,4 +20,5 @@ TEST(split, split) {
   ASSERT_EQ(util::split("1?1?1?1", '?'), v4);
   ASSERT_EQ(util::split("text1,text2,text3", ','), v5);
 }
+
 #endif // VK_SPLIT_TEST_H

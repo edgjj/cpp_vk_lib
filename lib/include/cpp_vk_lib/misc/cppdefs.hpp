@@ -41,7 +41,7 @@
   VK_DISABLE_GCC_WARNING(-Wunused-parameter) \
   VK_DISABLE_GCC_WARNING(-Wunused-variable)
 
-#define vk_always_inline [[gnu::always_inline]]
+#define vk_really_inline [[gnu::always_inline]]
 
 #define vk_likely(expr) __builtin_expect(!!(expr), 1)
 #define vk_unlikely(expr) __builtin_expect(!!(expr), 0)

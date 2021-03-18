@@ -17,7 +17,10 @@ std::string format(std::string_view data, _Args&&... args);
 namespace vk {
 namespace string_utils {
 
-template <typename... _Args> struct format_implementation {
+template <typename... _Args>
+struct format_impl {
+public:
+  format_impl() = delete;
 private:
   static constexpr std::size_t average_word_size = 7;
 

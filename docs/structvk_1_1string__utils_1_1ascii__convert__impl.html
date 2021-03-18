@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp_vk_lib: vk::string_utils::split_implementation Struct Reference</title>
+<title>cpp_vk_lib: vk::string_utils::ascii_convert_impl Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,28 +61,30 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevk.html">vk</a></li><li class="navelem"><a class="el" href="namespacevk_1_1string__utils.html">string_utils</a></li><li class="navelem"><a class="el" href="structvk_1_1string__utils_1_1split__implementation.html">split_implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacevk.html">vk</a></li><li class="navelem"><a class="el" href="namespacevk_1_1string__utils.html">string_utils</a></li><li class="navelem"><a class="el" href="structvk_1_1string__utils_1_1ascii__convert__impl.html">ascii_convert_impl</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#friends">Friends</a> &#124;
-<a href="structvk_1_1string__utils_1_1split__implementation-members.html">List of all members</a>  </div>
+<a href="structvk_1_1string__utils_1_1ascii__convert__impl-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vk::string_utils::split_implementation Struct Reference</div>  </div>
+<div class="title">vk::string_utils::ascii_convert_impl Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="split_8hpp_source.html">split.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="convert__ascii_8hpp_source.html">convert_ascii.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ab160b6c0f7e08f0c2c9b7f979b3bd8e5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1split__implementation.html#ab160b6c0f7e08f0c2c9b7f979b3bd8e5">vk::string_utils::split</a> (std::string_view text, char delimiter)</td></tr>
-<tr class="separator:ab160b6c0f7e08f0c2c9b7f979b3bd8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5077ea0a0ce3ce4d11e37c8319705c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1ascii__convert__impl.html#a2c5077ea0a0ce3ce4d11e37c8319705c">string_utils::ascii_to_lower</a> (std::string_view data)</td></tr>
+<tr class="separator:a2c5077ea0a0ce3ce4d11e37c8319705c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad561a7ef3d7630c93d05983a80d1e527"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1string__utils_1_1ascii__convert__impl.html#ad561a7ef3d7630c93d05983a80d1e527">string_utils::ascii_to_upper</a> (std::string_view data)</td></tr>
+<tr class="separator:ad561a7ef3d7630c93d05983a80d1e527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="ab160b6c0f7e08f0c2c9b7f979b3bd8e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab160b6c0f7e08f0c2c9b7f979b3bd8e5">&#9670;&nbsp;</a></span>vk::string_utils::split</h2>
+<a id="a2c5077ea0a0ce3ce4d11e37c8319705c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c5077ea0a0ce3ce4d11e37c8319705c">&#9670;&nbsp;</a></span>string_utils::ascii_to_lower</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -91,21 +93,37 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::string_view&gt; <a class="el" href="namespacevk_1_1string__utils.html#a230a30da79e2b707bc3202f6be5a3fe3">vk::string_utils::split</a> </td>
+          <td class="memname">std::string <a class="el" href="namespacevk_1_1string__utils.html#ac4f2d4dfc66174514d81561a801ba929">string_utils::ascii_to_lower</a> </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>text</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>delimiter</em>&#160;</td>
         </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad561a7ef3d7630c93d05983a80d1e527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad561a7ef3d7630c93d05983a80d1e527">&#9670;&nbsp;</a></span>string_utils::ascii_to_upper</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
         <tr>
+          <td class="memname">std::string <a class="el" href="namespacevk_1_1string__utils.html#aff7c7b51e4529479373ae216e0513099">string_utils::ascii_to_upper</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -118,7 +136,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="split_8hpp_source.html">split.hpp</a></li>
+<li><a class="el" href="convert__ascii_8hpp_source.html">convert_ascii.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

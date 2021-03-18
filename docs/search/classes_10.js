@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['upload_5ferror_349',['upload_error',['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception']]],
-  ['utility_350',['utility',['../classvk_1_1method_1_1utility.html',1,'vk::method']]],
-  ['utils_351',['utils',['../classvk_1_1method_1_1utils.html',1,'vk::method']]]
+  ['upload_5ferror_361',['upload_error',['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception']]],
+  ['utf8_5fconvert_5fimpl_362',['utf8_convert_impl',['../structvk_1_1string__utils_1_1utf8__convert__impl.html',1,'vk::string_utils']]],
+  ['utility_363',['utility',['../classvk_1_1method_1_1utility.html',1,'vk::method']]],
+  ['utils_364',['utils',['../classvk_1_1method_1_1utils.html',1,'vk::method']]]
 ];

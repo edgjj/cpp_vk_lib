@@ -16,7 +16,7 @@ vk::attachment::attachments_t vk::method::photos::search(
     std::string_view query,
     std::int64_t count
 ) const {
-  return document.common_search("photos.search", query, count);
+  return document.search("photos.search", query, count);
 }
 
 std::string vk::method::photos::get_messages_upload_server(std::int64_t peer_id) const {
@@ -50,7 +50,7 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(
     std::string_view filename,
     std::string_view raw_server
 ) const {
-  simdjson::dom::object upload_response = document.common_upload(filename, raw_server, "file");
+  simdjson::dom::object upload_response = document.upload(filename, raw_server, "file");
 
   if (upload_response["photo"].get_string().take_value() == "[]" ||
       upload_response["photo"].get_string().take_value() == "")

@@ -17,7 +17,7 @@ vk::attachment::attachments_t vk::method::docs::search(
     std::string_view query,
     std::int64_t count
 ) const {
-  return document.common_search("docs.search", query, count);
+  return document.search("docs.search", query, count);
 }
 
 void vk::method::docs::edit(
@@ -78,7 +78,7 @@ std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_mess
     std::string_view filename,
     std::string_view raw_server
 ) const {
-  simdjson::dom::object upload_response = document.common_upload(filename, raw_server, "file");
+  simdjson::dom::object upload_response = document.upload(filename, raw_server, "file");
 
   if (upload_response.begin().key() != "file") {
     processing::log_and_throw<exception::upload_error>(

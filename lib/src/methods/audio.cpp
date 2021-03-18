@@ -23,7 +23,7 @@ void vk::method::audio::save(
     std::string_view raw_server
 ) const {
   simdjson::dom::object response =
-    document.common_upload(filename, raw_server, "file");
+    document.upload(filename, raw_server, "file");
 
   if (response.begin().key() == "error") {
     processing::log_and_throw<exception::upload_error>(
