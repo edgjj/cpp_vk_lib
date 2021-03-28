@@ -20,6 +20,11 @@ namespace event {
 class common {
 public:
   common(std::string_view ts, simdjson::dom::object&& event);
+
+  common(const common&) = default;
+  common(common&&) = default;
+  common& operator=(const common&) = default;
+  common& operator=(common&&) = default;
   ~common();
 
   /*!
@@ -56,7 +61,7 @@ public:
 private:
   std::string _ts;
   std::string _update_type;
-  std::unique_ptr<simdjson::dom::object> _event;
+  std::shared_ptr<simdjson::dom::object> _event;
 };
 } // namespace event
 } // namespace vk

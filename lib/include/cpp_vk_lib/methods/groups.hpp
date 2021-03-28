@@ -14,6 +14,13 @@ namespace method {
 class groups {
 public:
   explicit groups() : method_util() { }
+
+  groups(const groups&) = default;
+  groups(groups&&) = default;
+  groups& operator=(const groups&) = default;
+  groups& operator=(groups&&) = default;
+  ~groups() = default;
+
   std::int64_t get_by_id() const;
   simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
 

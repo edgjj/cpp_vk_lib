@@ -10,23 +10,59 @@
 
 vk::method::messages::messages(bool disable_mentions_flag_)
   : disable_mentions_flag(disable_mentions_flag_)
-  , parser(std::make_unique<simdjson::dom::parser>())
+  , parser(std::make_shared<simdjson::dom::parser>())
   , document()
   , method_util()
 { }
 
 vk::method::messages::~messages() = default;
 
+template <typename _Attachment_Container>
+static auto construct_with_attachments_impl(
+    bool disable_mentions_flag,
+    std::int64_t peer_id,
+    std::string_view text,
+    _Attachment_Container&& list
+) {
+  vk::method::message_constructor constructor(disable_mentions_flag);
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
+  constructor.append_attachments(std::forward<_Attachment_Container>(list));
+  return constructor;
+}
+
+template <typename _Map_Container>
+static auto construct_with_raw_parameters_impl(
+    bool disable_mentions_flag,
+    std::int64_t peer_id,
+    std::string_view text,
+    _Map_Container&& list
+) {
+  vk::method::message_constructor constructor(disable_mentions_flag);
+  constructor.append({"peer_id", std::to_string(peer_id)});
+  constructor.append({"message", text.data()});
+  constructor.append_map(std::forward<_Map_Container>(list));
+  return constructor;
+}
+
 void vk::method::messages::send(
     std::int64_t peer_id,
     std::string_view text,
     attachment::attachments_t&& list
 ) const {
-  message_constructor constructor(disable_mentions_flag);
-  constructor.append({"peer_id", std::to_string(peer_id)});
-  constructor.append({"message", text.data()});
-  constructor.append_attachments(std::move(list));
-  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
+  auto constructed_message =
+    construct_with_attachments_impl(disable_mentions, peer_id, text, std::move(list));
+  method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+}
+
+void vk::method::messages::send(
+    std::int64_t peer_id,
+    std::string_view text,
+    const attachment::attachments_t& list
+) const {
+  auto constructed_message =
+    construct_with_attachments_impl(disable_mentions, peer_id, text, list);
+  method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(
@@ -34,11 +70,19 @@ void vk::method::messages::send(
     std::string_view text,
     std::map<std::string, std::string>&& raw_parameters
 ) const {
-  message_constructor constructor(disable_mentions_flag);
-  constructor.append({"peer_id", std::to_string(peer_id)});
-  constructor.append({"message", text.data()});
-  constructor.append_map(std::move(raw_parameters));
-  method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
+  auto constructed_message =
+    construct_with_raw_parameters_impl(disable_mentions, peer_id, text, std::move(raw_parameters));
+  method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+}
+
+void vk::method::messages::send(
+    std::int64_t peer_id,
+    std::string_view text,
+    const std::map<std::string, std::string>& raw_parameters
+) const {
+  auto constructed_message =
+    construct_with_raw_parameters_impl(disable_mentions, peer_id, text, raw_parameters);
+  method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(

@@ -1,6 +1,16 @@
 #include "methods/video.hpp"
 
 
+vk::method::video::video()
+  : method_util()
+  , document()
+{ }
+
+vk::method::video::video(std::string_view user_token)
+  : method_util(user_token.data())
+  , document(user_token.data())
+{ }
+
 vk::attachment::attachments_t vk::method::video::search(
     std::string_view query,
     std::int64_t count

@@ -1,4 +1,5 @@
 <map id="vk::processing::task_queue::queue" name="vk::processing::task_queue::queue">
-<area shape="rect" id="node1" title=" " alt="" coords="187,5,339,47"/>
-<area shape="rect" id="node2" href="$classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075" title="Push task to thread pool queue." alt="" coords="5,5,139,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="368,5,520,47"/>
+<area shape="rect" id="node2" href="$classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075" title="Push task to thread pool queue." alt="" coords="187,5,320,47"/>
+<area shape="rect" id="node3" href="$classvk_1_1long__poll_1_1api.html#a882e3c60801df33bbcfd52444b81fe4d" title=" " alt="" coords="5,5,139,47"/>
 </map>

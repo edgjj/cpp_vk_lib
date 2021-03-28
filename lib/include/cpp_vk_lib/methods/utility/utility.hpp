@@ -20,8 +20,15 @@ namespace method {
  */
 class utility {
 public:
-  explicit utility();
+  utility(std::string_view user_token);
+  utility();
+
+  utility(const utility&) = default;
+  utility(utility&&) = default;
+  utility& operator=(const utility&) = default;
+  utility& operator=(utility&&) = default;
   ~utility();
+
   std::map<std::string, std::string> user_args(std::map<std::string, std::string>&& params) const;
   std::map<std::string, std::string> group_args(std::map<std::string, std::string>&& params) const;
   simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) const noexcept;
@@ -31,10 +38,10 @@ public:
   static inline const std::int64_t chat_id_constant = 2000000000;
 
 private:
-  mutable std::unique_ptr<simdjson::dom::parser> parser;
   vk::network_client net_client;
-  const std::string access_token;
-  const std::string user_token;
+  std::string user_token;
+  std::string access_token;
+  mutable std::shared_ptr<simdjson::dom::parser> parser;
 };
 } // namespace method
 } // namespace vk

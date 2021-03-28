@@ -24,8 +24,11 @@ namespace event {
  */
 class message_new {
 public:
-  message_new(const message_new& other) = default;
+  message_new(const message_new&) = default;
   message_new(message_new&&) = default;
+  message_new& operator=(const message_new&) = default;
+  message_new& operator=(message_new&&) = default;
+  ~message_new() = default;
 
   /*!
    * @brief Construct event from JSON.
@@ -93,6 +96,9 @@ private:
    * @brief Action dispatcher.
    */
   void try_get_actions();
+  simdjson::dom::object& get_event() const {
+    return *_event_json;
+  }
 
   std::shared_ptr<simdjson::dom::object> _event_json;
   action::any_action _action;

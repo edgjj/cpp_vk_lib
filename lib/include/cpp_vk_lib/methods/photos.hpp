@@ -14,6 +14,12 @@ namespace method {
 class photos {
 public:
   explicit photos();
+  explicit photos(std::string_view user_token);
+
+  photos(const photos&) = default;
+  photos(photos&&) = default;
+  photos& operator=(const photos&) = default;
+  photos& operator=(photos&&) = default;
   ~photos();
 
   std::string get_messages_upload_server    (std::int64_t peer_id) const;
@@ -22,7 +28,7 @@ public:
   std::shared_ptr<vk::attachment::photo> save_messages_photo(std::string_view filename, std::string_view raw_server) const;
 
 protected:
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   method::utility method_util;
   document::common document;
 };

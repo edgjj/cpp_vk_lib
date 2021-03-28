@@ -11,7 +11,7 @@ vk::oauth::client::client(
 )
   : client_type(client_type_), username(username_.data()), password(password_.data()),
     target_client_secret(), target_client_id(), pulled_token(), pulled_user_id(0),
-    parser(std::make_unique<simdjson::dom::parser>()), net_client()
+    parser(std::make_shared<simdjson::dom::parser>()), net_client()
 {
   switch (client_type) {
   case target_client::android:
@@ -27,7 +27,10 @@ vk::oauth::client::client(
     target_client_secret = windows_app_client_secret;
     break;
   }
+  pull();
 }
+
+vk::oauth::client::~client() = default;
 
 static bool error_returned(const simdjson::dom::object& response, std::string_view error_desc) {
   return response.begin().key() == "error" && response["error"].get_string().take_value() == error_desc;

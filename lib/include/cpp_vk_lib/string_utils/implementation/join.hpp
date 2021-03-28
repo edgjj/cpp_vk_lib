@@ -46,9 +46,9 @@ private:
     return common_create<_Container&&>(elements, delimiter);
   }
   template <typename _T, typename _Container>
-  friend std::string vk::string_utils::join(_Container&& elements, char delimiter);
+  friend std::string string_utils::join(_Container&& elements, char delimiter);
   template <typename _T>
-  friend std::string vk::string_utils::join(std::initializer_list<_T> elements, char delimiter);
+  friend std::string string_utils::join(std::initializer_list<_T> elements, char delimiter);
 };
 } // namespace string_util
 } // namespace vk

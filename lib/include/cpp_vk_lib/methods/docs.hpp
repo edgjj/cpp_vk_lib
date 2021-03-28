@@ -14,6 +14,12 @@ namespace method {
 class docs {
 public:
   explicit docs();
+  explicit docs(std::string_view user_token);
+
+  docs(const docs&) = default;
+  docs(docs&&) = default;
+  docs& operator=(const docs&) = default;
+  docs& operator=(docs&&) = default;
   ~docs();
 
   void edit                               (std::int64_t owner_id, std::int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags = { }) const;
@@ -25,7 +31,7 @@ public:
   std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
 
 protected:
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   method::utility method_util;
   document::common document;
 };

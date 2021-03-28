@@ -31,13 +31,21 @@ class messages {
 public:
   messages(bool disable_mentions_flag_);
   messages() = delete;
+
+  messages(const messages&) = default;
+  messages(messages&&) = default;
+  messages& operator=(const messages&) = default;
+  messages& operator=(messages&&) = default;
   ~messages();
+
   static inline bool disable_mentions = true;
   static inline bool enable_mentions = false;
 
   void send                 (std::int64_t peer_id, std::string_view text) const;
   void send                 (std::int64_t peer_id, std::string_view text, attachment::attachments_t&& list) const;
+  void send                 (std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list) const;
   void send                 (std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) const;
+  void send                 (std::int64_t peer_id, std::string_view text, const std::map<std::string, std::string>& raw_parameters) const;
   void send                 (std::int64_t peer_id, std::string_view text, const vk::keyboard::layout& layout) const;
   void remove_chat_user     (std::int64_t chat_id, std::int64_t user_id) const;
   void edit_chat            (std::int64_t chat_id, std::string_view new_title) const;
@@ -48,7 +56,7 @@ public:
 
 protected:
   bool disable_mentions_flag;
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   document::common document;
   method::utility method_util;
 };

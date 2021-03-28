@@ -15,7 +15,7 @@ var searchData=
   ['get_5fwall_5fupload_5fserver_119',['get_wall_upload_server',['../classvk_1_1method_1_1docs.html#a24ed8f25ce5716f379d5eda356bb363e',1,'vk::method::docs']]],
   ['green_120',['green',['../namespacevk_1_1keyboard_1_1color__data.html#a2f42352abdd940dbca75ca1d0015806a',1,'vk::keyboard::color_data::green()'],['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8aca9f27410725ab8cc8854a2769c7a516b8',1,'vk::keyboard::green()']]],
   ['group_5fargs_121',['group_args',['../classvk_1_1method_1_1utility.html#a0c9ffaba025862d7719f24a0ba4ad770',1,'vk::method::utility']]],
-  ['groups_122',['groups',['../classvk_1_1method_1_1groups.html#a2feadef79cbb830b04b47d1ab6b3fb47',1,'vk::method::groups::groups()'],['../classvk_1_1method_1_1groups.html',1,'vk::method::groups']]],
+  ['groups_122',['groups',['../classvk_1_1method_1_1groups.html#a2feadef79cbb830b04b47d1ab6b3fb47',1,'vk::method::groups::groups()'],['../classvk_1_1method_1_1groups.html#a3cfcabc49dac973bbd65172420f9652e',1,'vk::method::groups::groups(const groups &amp;)=default'],['../classvk_1_1method_1_1groups.html#a288ac51575e981b26b962c0e31f46f96',1,'vk::method::groups::groups(groups &amp;&amp;)=default'],['../classvk_1_1method_1_1groups.html',1,'vk::method::groups']]],
   ['groups_2ecpp_123',['groups.cpp',['../groups_8cpp.html',1,'']]],
   ['groups_2ehpp_124',['groups.hpp',['../groups_8hpp.html',1,'']]]
 ];

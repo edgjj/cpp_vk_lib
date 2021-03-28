@@ -5,9 +5,15 @@
 
 
 vk::method::audio::audio()
-  : parser(std::make_unique<simdjson::dom::parser>())
+  : parser(std::make_shared<simdjson::dom::parser>())
   , document()
   , method_util()
+{ }
+
+vk::method::audio::audio(std::string_view user_token)
+  : parser(std::make_shared<simdjson::dom::parser>())
+  , document(user_token.data())
+  , method_util(user_token.data())
 { }
 
 vk::method::audio::~audio() = default;

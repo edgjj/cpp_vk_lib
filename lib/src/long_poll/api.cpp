@@ -5,8 +5,8 @@
 #include "long_poll/api.hpp"
 
 
-vk::long_poll::api::api()
-  : group_id(), groups(), task_queue()
+vk::long_poll::api::api(std::int64_t update_interval_)
+  : update_interval(update_interval_), group_id(), groups(), task_queue()
 {
   group_id = groups.get_by_id();
   spdlog::info("long polling started");
@@ -40,7 +40,7 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
   events_t event_list;
   simdjson::dom::object updates_json(get_updates(data, timeout));
   simdjson::dom::array updates(updates_json["updates"].get_array());
-  if (updates.size() == 0)
+  if (std::time(nullptr) % update_interval == 0)
     data = server();
 
   for (simdjson::dom::element&& update : updates) {

@@ -4,8 +4,14 @@
 
 
 vk::document::common::common()
-  : parser(std::make_unique<simdjson::dom::parser>())
+  : parser(std::make_shared<simdjson::dom::parser>())
   , method_util()
+  , net_client()
+{ }
+
+vk::document::common::common(std::string_view user_token)
+  : parser(std::make_shared<simdjson::dom::parser>())
+  , method_util(user_token.data())
   , net_client()
 { }
 
@@ -13,8 +19,8 @@ vk::document::common::~common() = default;
 
 template <typename _Execution_Policy>
 static void search_attachments(const simdjson::dom::array& items, _Execution_Policy&& policy) {
-  for (std::size_t i = 0; i < items.size() && i < 10; i++) {
-    std::size_t index = rand() % items.size();
+  for (std::size_t i = 0, size = items.size(); i < size && i < 10; i++) {
+    std::size_t index = rand() % size;
     policy(index);
   }
 }
@@ -61,11 +67,7 @@ simdjson::dom::object vk::document::common::upload(
   std::string_view server,
   std::string_view field_name
 ) const {
-  return
-  parser->parse(
-    net_client.upload(
-      field_name, filename,
-      parser->parse(server)["response"]["upload_url"].get_string()
-    )
+  return parser->parse(
+    net_client.upload(field_name, filename, parser->parse(server)["response"]["upload_url"].get_string())
   );
 }

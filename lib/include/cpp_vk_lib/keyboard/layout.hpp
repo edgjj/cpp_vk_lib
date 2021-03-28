@@ -26,10 +26,14 @@ using any_button = std::variant<
  */
 class layout {
 public:
-  explicit layout() = default;
-  explicit layout(flag flags_);
-  explicit layout(const layout&) = default;
-  explicit layout(layout&&) = default;
+  layout(keyboard::flag);
+
+  layout() = default;
+  layout(const layout&) = default;
+  layout(layout&&) = default;
+  layout& operator=(const layout&) = default;
+  layout& operator=(layout&&) = default;
+  ~layout() = default;
 
   /*!
    * @brief Add row by passing `std::vector`.

@@ -35,7 +35,7 @@ private:
     return splitted;
   }
 
-  friend std::vector<std::string_view> vk::string_utils::split(std::string_view text, char delimiter);
+  friend std::vector<std::string_view> string_utils::split(std::string_view text, char delimiter);
 };
 } // namespace string_util
 } // namespace vk

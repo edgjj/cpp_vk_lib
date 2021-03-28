@@ -1,12 +1,11 @@
 <map id="client.cpp" name="client.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="375,5,460,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="110,80,253,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="277,80,400,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="424,80,568,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="592,80,667,107"/>
-<area shape="rect" id="node7" href="$net_2client_8hpp.html" title=" " alt="" coords="691,80,802,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="586,155,683,181"/>
-<area shape="rect" id="node9" title=" " alt="" coords="708,155,785,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="809,155,860,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="349,5,434,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="173,80,295,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="319,80,463,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="487,80,562,107"/>
+<area shape="rect" id="node6" href="$net_2client_8hpp.html" title=" " alt="" coords="587,80,697,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="481,155,579,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="603,155,681,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="705,155,755,181"/>
 </map>

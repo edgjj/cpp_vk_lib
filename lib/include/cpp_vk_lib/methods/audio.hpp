@@ -14,6 +14,12 @@ namespace method {
 class audio {
 public:
   explicit audio();
+  explicit audio(std::string_view user_token);
+
+  audio(const audio&) = default;
+  audio(audio&&) = default;
+  audio& operator=(const audio&) = default;
+  audio& operator=(audio&&) = default;
   ~audio();
 
   std::string get_upload_server() const;
@@ -25,7 +31,7 @@ public:
   ) const;
 
 protected:
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   document::common document;
   method::utility method_util;
 };

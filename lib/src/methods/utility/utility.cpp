@@ -5,10 +5,17 @@
 
 
 vk::method::utility::utility()
-  : parser(std::make_unique<simdjson::dom::parser>())
-  , net_client()
-  , access_token(config::access_token())
+  : net_client()
   , user_token(config::user_token())
+  , access_token(config::access_token())
+  , parser(std::make_shared<simdjson::dom::parser>())
+{ }
+
+vk::method::utility::utility(std::string_view user_token_)
+  : net_client()
+  , user_token(user_token_.data())
+  , access_token(config::access_token())
+  , parser(std::make_shared<simdjson::dom::parser>())
 { }
 
 vk::method::utility::~utility() = default;

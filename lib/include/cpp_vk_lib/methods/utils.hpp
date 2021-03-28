@@ -13,6 +13,12 @@ namespace method {
  */
 class utils {
 public:
+  utils(const utils&) = default;
+  utils(utils&&) = default;
+  utils& operator=(const utils&) = default;
+  utils& operator=(utils&&) = default;
+  ~utils() = default;
+
   bool check_link(std::string_view url) const;
   std::string get_short_link(std::string_view url) const;
   std::int64_t resolve_screen_name(std::string_view screen_name) const;

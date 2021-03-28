@@ -5,6 +5,8 @@
 #include <map>
 #include <numeric>
 
+#include <iostream>
+
 #include "attachment/attachment.hpp"
 
 
@@ -34,29 +36,43 @@ public:
       params.emplace("disable_mentions", "0");
     }
   }
+
   void append(std::pair<std::string, std::string>&& pair) {
     params.emplace(std::move(pair));
   }
+  void append(const std::pair<std::string, std::string>& pair) {
+    params.emplace(pair);
+  }
+
   void append_map(parameter_t&& additional_params) {
     params.merge(std::move(additional_params));
   }
-  void append_attachments(vk::attachment::attachments_t&& attachments) {
-    params.emplace("attachment", append_attachments_impl(std::move(attachments)).data());
+  void append_map(const parameter_t& additional_params) {
+    params.insert(additional_params.begin(), additional_params.end());
   }
+
+  template <typename _Attachment_List>
+  void append_attachments(_Attachment_List&& attachments) {
+    params.emplace("attachment", append_attachments_impl(std::forward<_Attachment_List>(attachments)).data());
+  }
+
   parameter_t&& consume_map() noexcept {
     return std::move(params);
   }
   parameter_t map() const noexcept {
     return params;
   }
+
 private:
-  std::string append_attachments_impl(vk::attachment::attachments_t&& attachments) const {
-    return std::accumulate(
-      attachments.begin(), attachments.end(), std::string(),
-        [](std::string& res, std::shared_ptr<vk::attachment::base> att) mutable {
-            return res += att->value() + ',';
-        }
-    );
+  template <typename _Attachment_T>
+  std::string append_attachments_impl(_Attachment_T&& attachments) const {
+    std::string result;
+    result.reserve(attachments.size() * 20);
+    for (auto& attachment : attachments) {
+      result += attachment->value();
+      result += ',';
+    }
+    return result;
   }
   parameter_t params;
 };

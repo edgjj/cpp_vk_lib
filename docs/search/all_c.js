@@ -1,7 +1,7 @@
 var searchData=
 [
   ['last_5fname_140',['last_name',['../structvk_1_1conversation__member.html#ac6cf22456deb1b3859454106bcbbdad8',1,'vk::conversation_member']]],
-  ['layout_141',['layout',['../classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6',1,'vk::keyboard::layout::layout()=default'],['../classvk_1_1keyboard_1_1layout.html#acabbe8469f96e7c369ef01e1c260f12c',1,'vk::keyboard::layout::layout(flag flags_)'],['../classvk_1_1keyboard_1_1layout.html#a4e0ed4adfeef535caf2abd07854eea24',1,'vk::keyboard::layout::layout(const layout &amp;)=default'],['../classvk_1_1keyboard_1_1layout.html#a66623f369acb904d265eeff13a611efa',1,'vk::keyboard::layout::layout(layout &amp;&amp;)=default'],['../classvk_1_1keyboard_1_1layout.html',1,'vk::keyboard::layout']]],
+  ['layout_141',['layout',['../classvk_1_1keyboard_1_1layout.html#ab38bb9341defa841d889e55ffe66e085',1,'vk::keyboard::layout::layout(keyboard::flag)'],['../classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6',1,'vk::keyboard::layout::layout()=default'],['../classvk_1_1keyboard_1_1layout.html#a4e0ed4adfeef535caf2abd07854eea24',1,'vk::keyboard::layout::layout(const layout &amp;)=default'],['../classvk_1_1keyboard_1_1layout.html#a66623f369acb904d265eeff13a611efa',1,'vk::keyboard::layout::layout(layout &amp;&amp;)=default'],['../classvk_1_1keyboard_1_1layout.html',1,'vk::keyboard::layout']]],
   ['layout_2ecpp_142',['layout.cpp',['../layout_8cpp.html',1,'']]],
   ['layout_2ehpp_143',['layout.hpp',['../layout_8hpp.html',1,'']]],
   ['lazy_5fsplit_144',['lazy_split',['../namespacevk_1_1string__utils.html#ae57ae5042d7de31947dbeccb9a0eca72',1,'vk::string_utils']]],

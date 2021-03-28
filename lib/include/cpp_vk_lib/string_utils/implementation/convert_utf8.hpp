@@ -28,10 +28,10 @@ private:
     return conv.to_bytes(s);
   }
   template <typename _Execution_Policy>
-  static std::string __create(std::string_view data, _Execution_Policy policy) {
+  static std::string __create(std::string_view data, _Execution_Policy converter) {
     auto ss = __to_wstring(data.data());
     for (auto& c : ss) {
-      c = policy(c);
+      c = converter(c);
     }
     return __to_string(ss);
   }

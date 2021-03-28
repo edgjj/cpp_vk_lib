@@ -22,6 +22,9 @@ class wall_reply_new {
 public:
   wall_reply_new(const wall_reply_new&) = default;
   wall_reply_new(wall_reply_new&&) = default;
+  wall_reply_new& operator=(const wall_reply_new&) = default;
+  wall_reply_new& operator=(wall_reply_new&&) = default;
+  ~wall_reply_new() = default;
 
   /*!
    * @brief Construct event from JSON.
@@ -58,9 +61,12 @@ public:
   attachment::attachments_t attachments() const;
 
 private:
+  simdjson::dom::object& get_event() const {
+    return *_event_json;
+  }
+
   std::shared_ptr<simdjson::dom::object> _event_json;
   bool _has_attachments = false;
-
   attachment_handler _attachment_handler;
 };
 } // namespace event

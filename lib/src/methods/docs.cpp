@@ -6,9 +6,15 @@
 
 
 vk::method::docs::docs()
-  : parser(std::make_unique<simdjson::dom::parser>())
+  : parser(std::make_shared<simdjson::dom::parser>())
   , method_util()
   , document()
+{ }
+
+vk::method::docs::docs(std::string_view user_token)
+  : parser(std::make_shared<simdjson::dom::parser>())
+  , method_util(user_token.data())
+  , document(user_token.data())
 { }
 
 vk::method::docs::~docs() = default;
@@ -93,8 +99,7 @@ std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_mess
 
   simdjson::dom::object uploaded_doc = parser->parse(raw_save_response)["response"]["audio_message"];
 
-  return
-  std::make_shared<vk::attachment::audio_message>(
+  return std::make_shared<vk::attachment::audio_message>(
     uploaded_doc["owner_id"].get_int64(),
     uploaded_doc["id"].get_int64(),
     uploaded_doc["link_ogg"].get_string(),

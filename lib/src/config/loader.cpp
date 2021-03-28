@@ -20,8 +20,7 @@ vk::config::loader* vk::config::loader::get() {
 }
 
 void vk::config::loader::deallocate() {
-  if (instance)
-    delete instance;
+  if (instance) { delete instance; }
 }
 
 vk::config::loader::loader(std::string_view path)

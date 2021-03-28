@@ -23,6 +23,10 @@ class wall_post_new {
 public:
   wall_post_new(const wall_post_new&) = default;
   wall_post_new(wall_post_new&&) = default;
+  wall_post_new& operator=(const wall_post_new&) = default;
+  wall_post_new& operator=(wall_post_new&&) = default;
+  ~wall_post_new() = default;
+
   /*!
    * @brief Construct event from JSON.
    */
@@ -80,6 +84,9 @@ public:
   attachment::attachments_t attachments() const noexcept;
 
 private:
+  simdjson::dom::object& get_event() const {
+    return *_event_json;
+  }
   std::shared_ptr<simdjson::dom::object> _event_json;
   attachment_handler _attachment_handler;
   bool _has_attachments = false;

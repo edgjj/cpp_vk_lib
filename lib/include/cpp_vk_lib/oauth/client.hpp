@@ -38,6 +38,13 @@ public:
     std::string_view password_,
     target_client client_type_
   );
+
+  client() = default;
+  client(const client&) = default;
+  client(client&&) = default;
+  client& operator=(const client&) = default;
+  client& operator=(client&&) = default;
+  ~client();
   /*!
    * @brief Try get user data.
    * @throws vk::exception::access_error with detailed description in case, when wrong data were provided.
@@ -57,8 +64,8 @@ private:
   static inline const std::int32_t iphone_app_client_id  = 3140623;
 
   target_client client_type;
-  const std::string username;
-  const std::string password;
+  std::string username;
+  std::string password;
 
   std::string target_client_secret;
   std::int64_t target_client_id;
@@ -66,7 +73,7 @@ private:
   std::string pulled_token;
   std::int64_t pulled_user_id;
 
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   network_client net_client;
 };
 } // namespace oauth

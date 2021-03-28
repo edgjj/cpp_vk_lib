@@ -5,9 +5,15 @@
 
 
 vk::method::photos::photos()
-  : parser(std::make_unique<simdjson::dom::parser>())
+  : parser(std::make_shared<simdjson::dom::parser>())
   , method_util()
   , document()
+{ }
+
+vk::method::photos::photos(std::string_view user_token)
+  : parser(std::make_shared<simdjson::dom::parser>())
+  , method_util(user_token.data())
+  , document(user_token.data())
 { }
 
 vk::method::photos::~photos() = default;

@@ -19,11 +19,9 @@ public:
     while (true) {
       auto events = api.listen(data);
       for (auto& event : events) {
-        if (event->on_type("message_new")) {
-          api.queue([this, &event](){
-            msg_handler.process(event->get_message_event());
-          });
-        }
+        api.on_event("message_new", *event, [this, &event]{
+          msg_handler.process(event->get_message_event());
+        });
       }
       api.run();
     }

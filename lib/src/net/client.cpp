@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include <curlpp/cURLpp.hpp>
 #include <curlpp/Easy.hpp>
 #include <curlpp/Options.hpp>
@@ -18,9 +16,14 @@ static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb) {
 }
 
 static std::string genparams(const std::map<std::string, std::string>& body) {
+  static constexpr std::size_t average_word_length = 20;
   std::string result;
+  result.reserve(average_word_length * body.size() * 2);
   for (const auto&[key, value] : body) {
-    result += std::string(key) + '=' + escape(value) + '&';
+    result += key;
+    result += '=';
+    result += escape(value);
+    result += '&';
   }
   return result;
 }
@@ -35,7 +38,10 @@ void vk::network_client::debug_error(std::string_view template_text, std::string
 }
 #endif
 
-std::string vk::network_client::request(std::string_view method, const std::map<std::string, std::string>& params) const {
+std::string vk::network_client::request(
+    std::string_view method,
+    const std::map<std::string, std::string>& params
+) const {
   std::ostringstream response;
   curlpp::Easy curl_easy;
 
@@ -74,7 +80,10 @@ std::string vk::network_client::unescape(std::string_view text) {
 
 std::size_t vk::network_client::download(std::string_view filename, std::string_view server) const {
   FILE* fp = fopen(filename.data(), "w");
-  if (not fp) { return -1; }
+  if (not fp) {
+    debug_error("Can't open file :", filename.data());
+    return -1;
+  }
 
   curlpp::Easy curl_easy;
 
@@ -94,7 +103,11 @@ std::size_t vk::network_client::download(std::string_view filename, std::string_
   return 0;
 }
 
-std::string vk::network_client::upload(std::string_view field_name, std::string_view filename, std::string_view server) const {
+std::string vk::network_client::upload(
+    std::string_view field_name,
+    std::string_view filename,
+    std::string_view server
+) const {
   std::ostringstream response;
   curlpp::Forms formParts;
   formParts.push_back(new curlpp::FormParts::File(field_name.data(), filename.data()));

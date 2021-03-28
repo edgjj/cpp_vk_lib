@@ -8,10 +8,7 @@ vk::processing::task_queue::~task_queue() {
 void vk::processing::task_queue::start(std::size_t num_threads) {
   for (std::size_t i = 0; i < num_threads; i++) {
     workers.push_back(
-      std::async(
-        std::launch::async,
-        [this]{ thread_task(); }
-      )
+      std::async(std::launch::async, [this]{ thread_task(); })
     );
   }
   finish();

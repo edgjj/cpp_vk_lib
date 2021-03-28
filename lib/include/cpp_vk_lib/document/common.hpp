@@ -20,6 +20,12 @@ namespace document {
 class common {
 public:
   explicit common();
+  explicit common(std::string_view user_token);
+
+  common(const common&) = default;
+  common(common&&) = default;
+  common& operator=(const common&) = default;
+  common& operator=(common&&) = default;
   ~common();
   /*!
    * @brief Upload file to server.
@@ -44,7 +50,7 @@ public:
   ) const;
 
 private:
-  std::unique_ptr<simdjson::dom::parser> parser;
+  std::shared_ptr<simdjson::dom::parser> parser;
   method::utility method_util;
   network_client net_client;
 };
