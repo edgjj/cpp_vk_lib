@@ -4,12 +4,11 @@
 #include "events/handlers/attachment_handler.hpp"
 #include "events/wall_repost.hpp"
 
-
 namespace simdjson {
 namespace dom {
 class object;
-} // namespace dom
-} // namespace simdjson
+}// namespace dom
+}// namespace simdjson
 
 namespace vk {
 namespace event {
@@ -17,7 +16,8 @@ namespace event {
  * @brief The `wall_post_new` event representation.
  *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access it.
+ * It means, that no data is extracted from JSON until the user wants to access
+ * it.
  */
 class wall_post_new {
 public:
@@ -73,7 +73,8 @@ public:
   bool has_repost() const noexcept;
   /*!
    * @brief Try get repost.
-   * @throws vk::exception::access_error in case, when _repost pointer is not set.
+   * @throws vk::exception::access_error in case, when _repost pointer is not
+   * set.
    */
   std::shared_ptr<wall_repost> repost() const;
   /*!
@@ -92,9 +93,9 @@ private:
   bool _has_attachments = false;
   bool _has_repost = false;
 };
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event);
 
-#endif // VK_WALL_POST_NEW_H
+#endif// VK_WALL_POST_NEW_H

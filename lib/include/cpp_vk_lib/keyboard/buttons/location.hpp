@@ -3,19 +3,18 @@
 
 #include <string>
 
-
 namespace vk {
 namespace keyboard {
 namespace button {
 
 class location {
 public:
-  std::string serialize() {
+  std::string serialize() const {
     return R"({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})";
   }
 };
-} // namespace button
-} // namespace keyboard
-} // namespace vk
+}// namespace button
+}// namespace keyboard
+}// namespace vk
 
-#endif // VK_LOCATION_BUTTON_H
+#endif// VK_LOCATION_BUTTON_H

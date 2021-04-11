@@ -14,6 +14,9 @@ namespace command {
 
 class voice_message_upload_command final : public base_command {
 public:
+  explicit voice_message_upload_command()
+    : messages(vk::method::messages::disable_mentions)
+    , docs() {}
   void execute (const vk::event::message_new& event) const override {
     std::string raw_upload_json =
       docs.get_messages_upload_server("audio_message", event.peer_id());
@@ -22,7 +25,7 @@ public:
     messages.send(event.peer_id(), "Hey, i have uploaded audio!", { audio });
   }
 private:
-  vk::method::messages messages{vk::method::messages::disable_mentions};
+  vk::method::messages messages;
   vk::method::docs docs;
 };
 } // namespace command

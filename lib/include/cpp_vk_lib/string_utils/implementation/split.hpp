@@ -1,15 +1,14 @@
 #ifndef STRING_UTIL_SPLIT_IMPL_H
 #define STRING_UTIL_SPLIT_IMPL_H
 
-#include <vector>
 #include <string_view>
-
+#include <vector>
 
 namespace vk {
 namespace string_utils {
 std::vector<std::string_view> split(std::string_view text, char delimiter);
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
 namespace vk {
 namespace string_utils {
@@ -17,6 +16,7 @@ namespace string_utils {
 struct split_impl {
 public:
   split_impl() = delete;
+
 private:
   static std::vector<std::string_view> create(std::string_view data, char delimiter) {
     std::vector<std::string_view> splitted;
@@ -24,8 +24,7 @@ private:
     std::size_t pos = 0;
     while (pos != std::string_view::npos) {
       pos = data.find_first_not_of(delimiter);
-      if (pos == std::string_view::npos)
-        return splitted;
+      if (pos == std::string_view::npos) { return splitted; }
       data = data.substr(pos);
       pos = data.find(delimiter);
       splitted.emplace_back(data.substr(0, pos));
@@ -37,7 +36,7 @@ private:
 
   friend std::vector<std::string_view> string_utils::split(std::string_view text, char delimiter);
 };
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
-#endif // STRING_UTIL_SPLIT_IMPL_H
+#endif// STRING_UTIL_SPLIT_IMPL_H

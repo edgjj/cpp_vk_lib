@@ -2,17 +2,32 @@ include_directories(../dependencies)
 include_directories(../dependencies/spdlog/include)
 include_directories(include/cpp_vk_lib)
 
-add_definitions(-DVK_CURL_DEBUG)
+#add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
-set(COMMON_CXX_FLAGS "-fPIC -Wall -Wextra -Wcast-qual -Weffc++ -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
+set(extra_warnings TRUE)
+set(find_leaks TRUE)
+
+set(common_flags "-fPIC -Wall -Wextra -Werror -Weffc++ -pedantic -Wshadow -Wunused-parameter")
+
+if (${find_leaks})
+  set(find_leaks_flags "-fsanitize=leak -fstack-protector")
+else()
+  set(find_leaks_flags "")
+endif()
+
+if (${extra_warnings})
+  set(extra_warnings_flags "-Wcast-qual -Wnon-virtual-dtor -Wreturn-type -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
+else()
+  set(extra_warnings_flags "")
+endif()
 
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
-    set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2 -msse3 -march=native -mtune=generic")
+  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=x86-64 -mtune=generic")
 elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
-    set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2 -msse3 -m32 -march=i686 -mtune=generic")
+  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -m32 -march=i686 -mtune=generic")
 else()
-    set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2 -march=native")
+  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -march=native")
 endif()
 
 add_library(lib-simdjson INTERFACE)

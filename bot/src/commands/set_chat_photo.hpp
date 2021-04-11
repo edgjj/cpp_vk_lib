@@ -14,14 +14,17 @@ namespace command {
 
 class set_chat_photo_command final : public base_command {
 public:
+  explicit set_chat_photo_command()
+    : photos()
+    , messages(vk::method::messages::disable_mentions) {}
   void execute (const vk::event::message_new& event) const override {
     std::string raw_upload_json =
       photos.get_chat_upload_server(event.peer_id());
     messages.set_chat_photo("/path/to/image.{png|jpg}", raw_upload_json);
   }
 private:
-  vk::method::messages messages{vk::method::messages::disable_mentions};
   vk::method::photos photos;
+  vk::method::messages messages;
 };
 } // namespace command
 } // namespace bot

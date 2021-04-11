@@ -10,13 +10,17 @@ namespace bot {
 
 class long_poller {
 public:
-  explicit long_poller() : data(api.server())
+  explicit long_poller()
+    : api()
+    , data(api.server())
+    , msg_handler()
   { }
   message_handler& get_message_handler() noexcept {
     return msg_handler;
   }
   int run() {
-    while (true) {
+    static int c = 0;
+    while (++ c < 5) {
       auto events = api.listen(data);
       for (auto& event : events) {
         api.on_event("message_new", *event, [this, &event]{
@@ -28,9 +32,9 @@ public:
     return EXIT_SUCCESS;
   }
 private:
-  message_handler msg_handler;
   vk::long_poll::api api;
   vk::long_poll::data data;
+  message_handler msg_handler;
 };
 
 } // namespace bot

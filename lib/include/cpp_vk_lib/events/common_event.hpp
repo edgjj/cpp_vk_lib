@@ -5,12 +5,11 @@
 #include "events/wall_post_new.hpp"
 #include "events/wall_reply_new.hpp"
 
-
 namespace simdjson {
 namespace dom {
 class object;
-} // namespace dom
-} // namespace simdjson
+}// namespace dom
+}// namespace simdjson
 
 namespace vk {
 namespace event {
@@ -34,7 +33,7 @@ public:
   /*!
    * @brief Get ts of current update.
    */
-  std::string ts()   const noexcept;
+  std::string ts() const noexcept;
   /*!
    * @brief Get raw json packed to std::string.
    */
@@ -63,7 +62,7 @@ private:
   std::string _update_type;
   std::shared_ptr<simdjson::dom::object> _event;
 };
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
-#endif // VK_COMMON_EVENT_H
+#endif// VK_COMMON_EVENT_H

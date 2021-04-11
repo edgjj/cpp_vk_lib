@@ -1,10 +1,9 @@
 #ifndef VK_NETWORK_CLIENT_H
 #define VK_NETWORK_CLIENT_H
 
-#include <string_view>
-#include <memory>
 #include <map>
-
+#include <memory>
+#include <string_view>
 
 namespace vk {
 /*!
@@ -24,9 +23,10 @@ public:
    * @param params  - parameters
    * @return response output.
    *
-   * @example request("https://www.example.com?", {{"q","text"},{"length","50"}});
+   * @example request("https://www.example.com?",
+   * {{"q","text"},{"length","50"}});
    */
-  std::string request(std::string_view body, const std::map<std::string, std::string>& params = { }) const;
+  std::string request(std::string_view body, const std::map<std::string, std::string>& params = {}) const;
   /*!
    * @brief Download file frm server to filename.
    * @return -1 in case, when file was not created or opened, 0 otherwise.
@@ -52,10 +52,10 @@ private:
   void debug(std::string_view template_text, std::string_view arg) const noexcept;
   void debug_error(std::string_view template_text, std::string_view arg) const noexcept;
 #else
-  void debug(std::string_view, std::string_view) const noexcept { }
-  void debug_error(std::string_view, std::string_view) const noexcept { }
-#endif // VK_CURL_DEBUG
+  void debug(std::string_view, std::string_view) const noexcept {}
+  void debug_error(std::string_view, std::string_view) const noexcept {}
+#endif// VK_CURL_DEBUG
 };
-} // namespace vk
+}// namespace vk
 
-#endif // VK_NETWORK_CLIENT_H
+#endif// VK_NETWORK_CLIENT_H

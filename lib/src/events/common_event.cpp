@@ -1,13 +1,13 @@
-#include "simdjson.h"
-
 #include "events/common_event.hpp"
 
+#include "simdjson.h"
 
 vk::event::common::~common() = default;
 
 vk::event::common::common(std::string_view ts, simdjson::dom::object&& event)
-  : _ts(ts), _update_type(), _event(std::make_shared<simdjson::dom::object>(std::move(event)))
-{
+  : _ts(ts)
+  , _update_type()
+  , _event(std::make_shared<simdjson::dom::object>(std::move(event))) {
   _update_type = (*_event)["type"].get_string().take_value().data();
 }
 

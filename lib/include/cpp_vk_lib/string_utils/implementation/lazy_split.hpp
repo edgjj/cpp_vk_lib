@@ -6,17 +6,19 @@
 
 #include <string_view>
 
-
 namespace vk {
 namespace string_utils {
 
-struct end_split_iterator { };
+struct end_split_iterator {};
 
-template <typename _String_type> class split_iterator {
+template <typename _String_type>
+class split_iterator {
 public:
   split_iterator(_String_type source, _String_type delim)
-    : src(source), delimiter(delim), first(0), last(src.find(delimiter))
-   { }
+    : src(source)
+    , delimiter(delim)
+    , first(0)
+    , last(src.find(delimiter)) {}
   split_iterator& operator++() noexcept {
     first = last + delimiter.size();
     last = src.find(delimiter, first);
@@ -46,16 +48,20 @@ template <typename _String_type>
 class split_range {
 public:
   split_range(_String_type source, _String_type delim) noexcept
-    : src(source), delimiter(delim)
-  { }
-  auto begin() const noexcept { return split_iterator<_String_type>(src, delimiter); }
-  auto end() const noexcept { return end_split_iterator(); }
+    : src(source)
+    , delimiter(delim) {}
+  auto begin() const noexcept {
+    return split_iterator<_String_type>(src, delimiter);
+  }
+  auto end() const noexcept {
+    return end_split_iterator();
+  }
 
 private:
   _String_type src;
   _String_type delimiter;
 };
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
-#endif // STRING_UTIL_LAZY_SPLIT_IMPL_H
+#endif// STRING_UTIL_LAZY_SPLIT_IMPL_H

@@ -1,26 +1,17 @@
-#include "simdjson.h"
-
 #include "config/loader.hpp"
 
+#include "simdjson.h"
 
 vk::config::loader* vk::config::loader::instance = nullptr;
 
 vk::config::loader* vk::config::loader::load(std::string_view path) {
-  if (!instance) {
-    instance = new loader(path);
-  }
+  if (!instance) { instance = new loader(path); }
   return instance;
 }
 
 vk::config::loader* vk::config::loader::get() {
-  if (!instance) {
-    throw std::runtime_error("Please, load config first.");
-  }
+  if (!instance) { throw std::runtime_error("Please, load config first."); }
   return instance;
-}
-
-void vk::config::loader::deallocate() {
-  if (instance) { delete instance; }
 }
 
 vk::config::loader::loader(std::string_view path)
@@ -28,8 +19,7 @@ vk::config::loader::loader(std::string_view path)
   , access_token_()
   , error_logpath_()
   , event_logpath_()
-  , num_threads_()
-{
+  , num_threads_() {
   simdjson::dom::parser parser;
   simdjson::dom::element element = parser.load(path.data());
 

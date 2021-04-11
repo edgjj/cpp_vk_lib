@@ -3,7 +3,6 @@
 
 #include "methods/utility/utility.hpp"
 
-
 namespace vk {
 namespace method {
 /*!
@@ -26,7 +25,7 @@ public:
 protected:
   method::utility method_util;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_UTILS_H
+#endif// VK_UTILS_H

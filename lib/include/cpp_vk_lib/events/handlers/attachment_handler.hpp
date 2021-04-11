@@ -3,20 +3,19 @@
 
 #include "attachment/attachment.hpp"
 
-
 namespace simdjson {
 namespace dom {
 class array;
-} // namespace dom
-} // namespace simdjson
+}// namespace dom
+}// namespace simdjson
 
 namespace vk {
 namespace event {
 class message_new;
 class wall_reply_new;
 class wall_post_new;
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
 namespace vk {
 namespace event {
@@ -29,7 +28,7 @@ private:
   friend class wall_reply_new;
   friend class wall_post_new;
 };
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
-#endif // VK_EVENT_ATTACHMENT_HANDLER_H
+#endif// VK_EVENT_ATTACHMENT_HANDLER_H

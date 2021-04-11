@@ -1,25 +1,18 @@
 #ifndef VK_KEYBOARD_LAYOUT_H
 #define VK_KEYBOARD_LAYOUT_H
 
-#include <variant>
-
-#include "keyboard/flags.hpp"
-
 #include "keyboard/buttons/location.hpp"
 #include "keyboard/buttons/open_app.hpp"
 #include "keyboard/buttons/text.hpp"
 #include "keyboard/buttons/vk_pay.hpp"
+#include "keyboard/flags.hpp"
 
+#include <variant>
 
 namespace vk {
 namespace keyboard {
 
-using any_button = std::variant<
-  button::text,
-  button::vk_pay,
-  button::open_app,
-  button::location
->;
+using any_button = std::variant<button::text, button::vk_pay, button::open_app, button::location>;
 
 /*!
  * @brief The buttons grid representation.
@@ -44,7 +37,7 @@ public:
    * @return JSON representation.
    */
   std::string serialize() const;
-  bool is_flag_set(flag flag_) const noexcept;
+  bool has_flag(flag flag_) const noexcept;
 
 private:
   /*!
@@ -52,11 +45,11 @@ private:
    *
    * Example: for 2x2 layout: [[button1,button2],[button3,button4]].
    */
-  std::vector<std::vector<any_button>> buttons;
+  std::vector<std::vector<any_button>> buttons{};
   flag flags = vk::keyboard::flag::none;
 };
 
-} // namespace keyboard
-} // namespace vk
+}// namespace keyboard
+}// namespace vk
 
-#endif // VK_KEYBOARD_LAYOUT_H
+#endif// VK_KEYBOARD_LAYOUT_H

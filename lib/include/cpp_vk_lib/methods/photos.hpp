@@ -3,7 +3,6 @@
 
 #include "document/common.hpp"
 
-
 namespace vk {
 namespace method {
 /*!
@@ -22,9 +21,9 @@ public:
   photos& operator=(photos&&) = default;
   ~photos();
 
-  std::string get_messages_upload_server    (std::int64_t peer_id) const;
-  std::string get_chat_upload_server        (std::int64_t chat_id, std::int64_t crop = 512) const;
-  vk::attachment::attachments_t search      (std::string_view query, std::int64_t count) const;
+  std::string get_messages_upload_server(std::int64_t peer_id) const;
+  std::string get_chat_upload_server(std::int64_t chat_id, std::int64_t crop = 512) const;
+  vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
   std::shared_ptr<vk::attachment::photo> save_messages_photo(std::string_view filename, std::string_view raw_server) const;
 
 protected:
@@ -32,7 +31,7 @@ protected:
   method::utility method_util;
   document::common document;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_PHOTOS_H
+#endif// VK_PHOTOS_H

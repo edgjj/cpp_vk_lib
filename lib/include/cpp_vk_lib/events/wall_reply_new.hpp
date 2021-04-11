@@ -3,12 +3,11 @@
 
 #include "events/handlers/attachment_handler.hpp"
 
-
 namespace simdjson {
 namespace dom {
 class object;
-} // namespace dom
-} // namespace simdjson
+}// namespace dom
+}// namespace simdjson
 
 namespace vk {
 namespace event {
@@ -16,7 +15,8 @@ namespace event {
  * @brief The `wall_reply_new` event representation.
  *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access it.
+ * It means, that no data is extracted from JSON until the user wants to access
+ * it.
  */
 class wall_reply_new {
 public:
@@ -56,7 +56,8 @@ public:
   bool has_attachments() const noexcept;
   /*!
    * @brief Get attachments vector.
-   * @throws vk::exception::access_error in case, when object hasn't attachments.
+   * @throws vk::exception::access_error in case, when object hasn't
+   * attachments.
    */
   attachment::attachments_t attachments() const;
 
@@ -69,9 +70,9 @@ private:
   bool _has_attachments = false;
   attachment_handler _attachment_handler;
 };
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply);
 
-#endif // VK_WALL_REPLY_NEW_H
+#endif// VK_WALL_REPLY_NEW_H

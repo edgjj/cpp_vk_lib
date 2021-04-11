@@ -4,13 +4,12 @@
 #include <codecvt>
 #include <locale>
 
-
 namespace vk {
 namespace string_utils {
 std::string utf8_to_lower(std::string_view data);
 std::string utf8_to_upper(std::string_view data);
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
 namespace vk {
 namespace string_utils {
@@ -36,12 +35,12 @@ private:
     return __to_string(ss);
   }
   static std::string create_upper(std::string_view data) {
-    return __create(data, [](auto& c){
+    return __create(data, [](auto& c) {
       return std::toupper(c, utf8);
     });
   }
   static std::string create_lower(std::string_view data) {
-    return __create(data, [](auto& c){
+    return __create(data, [](auto& c) {
       return std::tolower(c, utf8);
     });
   }
@@ -49,7 +48,7 @@ private:
   friend std::string string_utils::utf8_to_upper(std::string_view data);
 };
 
-} // namespace string_utils
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
-#endif // STRING_UTIL_UTF8_CONVERT_H
+#endif// STRING_UTIL_UTF8_CONVERT_H

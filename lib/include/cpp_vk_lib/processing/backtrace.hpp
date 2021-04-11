@@ -2,13 +2,12 @@
 #define BACKTRACE_H
 
 #ifdef __linux__
-# include <execinfo.h>
-# include <cxxabi.h>
+  #include <cxxabi.h>
+  #include <execinfo.h>
 #endif
 
 #include <iostream>
 #include <vector>
-
 
 namespace vk {
 namespace processing {
@@ -54,23 +53,28 @@ private:
     }
   }
   void get_address_info(size_t i) noexcept {
-    for (char *p = symbol_list[i]; *p; ++p) {
+    for (char* p = symbol_list[i]; *p; ++p) {
       switch (*p) {
-        case '(': begin_name    = p; break;
-        case '+': begin_offset  = p; break;
-        case ')': end_offset    = p; return;
+        case '(':
+          begin_name = p;
+          break;
+        case '+':
+          begin_offset = p;
+          break;
+        case ')':
+          end_offset = p;
+          return;
       }
     }
   }
   void print(size_t i) noexcept {
     if (begin_name && begin_offset && end_offset && begin_name < begin_offset) {
       char* func_name = new char[max_func_length];
-      *begin_name++   = '\0';
+      *begin_name++ = '\0';
       *begin_offset++ = '\0';
-      *end_offset++   = '\0';
+      *end_offset++ = '\0';
       print_impl(func_name, i);
-    }
-    else {
+    } else {
       std::cerr << indent << symbol_list[i] << std::endl;
     }
   }
@@ -100,12 +104,12 @@ private:
 #ifdef __linux__
   void* address_list[max_frames];
 #endif
-  char** symbol_list    = nullptr;
-  char*  begin_name     = nullptr;
-  char*  begin_offset   = nullptr;
-  char*  end_offset     = nullptr;
+  char** symbol_list = nullptr;
+  char* begin_name = nullptr;
+  char* begin_offset = nullptr;
+  char* end_offset = nullptr;
 };
-} // namespace processing
-} // namespace vk
+}// namespace processing
+}// namespace vk
 
-#endif // BACKTRACE_H
+#endif// BACKTRACE_H

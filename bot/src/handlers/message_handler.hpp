@@ -37,10 +37,10 @@ public:
     chat_invite_user_command = std::move(command);
   }
 private:
-  std::unordered_map<std::string, std::shared_ptr<command::base_command>> commands;
+  std::unordered_map<std::string, std::shared_ptr<command::base_command>> commands{};
   // Event wrappers.
-  std::unique_ptr<event::on_message_pin_event> message_pin_command;
-  std::unique_ptr<event::on_chat_invite_user_event> chat_invite_user_command;
+  std::unique_ptr<event::on_message_pin_event> message_pin_command{};
+  std::unique_ptr<event::on_chat_invite_user_event> chat_invite_user_command{};
 };
 
 } // namespace bot

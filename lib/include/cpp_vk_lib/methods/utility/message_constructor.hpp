@@ -1,14 +1,12 @@
 #ifndef VK_MESSAGE_CONSTRUCTOR_H
 #define VK_MESSAGE_CONSTRUCTOR_H
 
-#include <string>
-#include <map>
-#include <numeric>
-
-#include <iostream>
-
 #include "attachment/attachment.hpp"
 
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <string>
 
 namespace vk {
 namespace method {
@@ -19,16 +17,15 @@ public:
   message_constructor(message_constructor&&) = default;
   message_constructor& operator=(const message_constructor&) = default;
   message_constructor& operator=(message_constructor&&) = default;
- ~message_constructor() = default;
+  ~message_constructor() = default;
 
-  using parameter_t = std::map <std::string, std::string>;
+  using parameter_t = std::map<std::string, std::string>;
 
   static inline bool disable_mentions = true;
   static inline bool enable_mentions = false;
 
   message_constructor(bool disable_mentions_flag)
-    : params()
-  {
+    : params() {
     params.emplace("random_id", "0");
     if (disable_mentions_flag) {
       params.emplace("disable_mentions", "1");
@@ -76,7 +73,7 @@ private:
   }
   parameter_t params;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_MESSAGE_CONSTRUCTOR_H
+#endif// VK_MESSAGE_CONSTRUCTOR_H

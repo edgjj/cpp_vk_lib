@@ -4,13 +4,12 @@
 #include <codecvt>
 #include <locale>
 
-
 namespace vk {
 namespace string_utils {
 std::string ascii_to_lower(std::string_view data);
 std::string ascii_to_upper(std::string_view data);
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
 namespace vk {
 namespace string_utils {
@@ -18,16 +17,11 @@ namespace string_utils {
 struct ascii_convert_impl {
 private:
   static char __to_lower_ascii_char(char c) noexcept {
-    if (c <= 'Z' && c >= 'A') {
-      return c - ('Z' - 'z');
-    }
+    if (c <= 'Z' && c >= 'A') { return c - ('Z' - 'z'); }
     return c;
   }
-
   static char __to_upper_ascii_char(char c) noexcept {
-    if (c <= 'z' && c >= 'a') {
-      return c + ('Z' - 'z');
-    }
+    if (c <= 'z' && c >= 'a') { return c + ('Z' - 'z'); }
     return c;
   }
   template <typename _Execution_Policy>
@@ -53,7 +47,7 @@ private:
   friend std::string string_utils::ascii_to_upper(std::string_view data);
 };
 
-} // namespace string_utils
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
-#endif // STRING_UTIL_ASCII_CONVERT_H
+#endif// STRING_UTIL_ASCII_CONVERT_H

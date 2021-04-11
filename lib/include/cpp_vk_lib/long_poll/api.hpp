@@ -1,13 +1,10 @@
 #ifndef VK_LONG_POLL_API_H
 #define VK_LONG_POLL_API_H
 
-#include "config/loader.hpp"
 #include "events/common_event.hpp"
+#include "long_poll/data.hpp"
 #include "methods/groups.hpp"
 #include "processing/task_queue.hpp"
-
-#include "long_poll/data.hpp"
-
 
 namespace vk {
 namespace long_poll {
@@ -39,9 +36,7 @@ public:
   events_t listen(data& lp_data, std::int8_t timeout = 60) const;
   template <typename _Execution_Policy>
   void on_event(std::string_view event_type, const event::common& event, _Execution_Policy executor) {
-    if (event.on_type(event_type)) {
-      queue(executor);
-    }
+    if (event.on_type(event_type)) { queue(executor); }
   }
   /*!
    * @brief Push task to thread pool queue.
@@ -64,7 +59,7 @@ private:
   method::groups groups;
   processing::task_queue task_queue;
 };
-} // namespace long_poll
-} // namespace vk
+}// namespace long_poll
+}// namespace vk
 
-#endif // VK_LONG_POLL_API_H
+#endif// VK_LONG_POLL_API_H

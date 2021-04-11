@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 namespace vk {
 namespace long_poll {
 /*!
@@ -14,6 +13,6 @@ struct data {
   std::string server;
   std::string ts;
 };
-} // namespace long_poll
-} // namespace vk
-#endif // VK_LONG_POLL_DATA_H
+}// namespace long_poll
+}// namespace vk
+#endif// VK_LONG_POLL_DATA_H

@@ -1,15 +1,13 @@
 #ifndef STRING_UTIL_H
 #define STRING_UTIL_H
 
-#include "string_utils/implementation/join.hpp"
-#include "string_utils/implementation/format.hpp"
-#include "string_utils/implementation/split.hpp"
-#include "string_utils/implementation/lazy_split.hpp"
-
+#include "misc/cppdefs.hpp"
 #include "string_utils/implementation/convert_ascii.hpp"
 #include "string_utils/implementation/convert_utf8.hpp"
-
-#include "misc/cppdefs.hpp"
+#include "string_utils/implementation/format.hpp"
+#include "string_utils/implementation/join.hpp"
+#include "string_utils/implementation/lazy_split.hpp"
+#include "string_utils/implementation/split.hpp"
 
 namespace vk {
 namespace string_utils {
@@ -47,7 +45,7 @@ inline std::string ascii_to_lower(std::string_view data) {
 inline std::string ascii_to_upper(std::string_view data) {
   return ascii_convert_impl::create_upper(data);
 }
-} // namespace string_util
-} // namespace vk
+}// namespace string_utils
+}// namespace vk
 
-#endif // STRING_UTIL_H
+#endif// STRING_UTIL_H

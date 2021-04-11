@@ -3,7 +3,6 @@
 
 #include "methods/utility/utility.hpp"
 
-
 namespace vk {
 namespace method {
 /*!
@@ -13,7 +12,8 @@ namespace method {
  */
 class groups {
 public:
-  explicit groups() : method_util() { }
+  explicit groups()
+    : method_util() {}
 
   groups(const groups&) = default;
   groups(groups&&) = default;
@@ -27,7 +27,7 @@ public:
 protected:
   method::utility method_util;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_GROUPS_H
+#endif// VK_GROUPS_H

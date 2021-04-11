@@ -3,7 +3,6 @@
 
 #include "document/common.hpp"
 
-
 namespace vk {
 namespace method {
 /*!
@@ -23,19 +22,14 @@ public:
   ~audio();
 
   std::string get_upload_server() const;
-  void save(
-    std::string_view artist,
-    std::string_view title,
-    std::string_view filename,
-    std::string_view raw_server
-  ) const;
+  void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const;
 
 protected:
   std::shared_ptr<simdjson::dom::parser> parser;
   document::common document;
   method::utility method_util;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_AUDIO_H
+#endif// VK_AUDIO_H

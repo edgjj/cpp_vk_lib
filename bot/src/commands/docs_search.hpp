@@ -25,7 +25,7 @@ namespace command {
 class docs_search_command final : public base_command {
 public:
   explicit docs_search_command()
-    : oauth_client("username", "password", vk::oauth::target_client::windows)
+    : oauth_client("login", "password", vk::oauth::target_client::windows)
     , messages(vk::method::messages::disable_mentions)
     , docs(oauth_client.token())
   { }

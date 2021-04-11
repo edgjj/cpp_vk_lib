@@ -30,7 +30,7 @@ public:
     }
   }
 private:
-  vk::network_client client;
+  vk::network_client client{};
   vk::method::messages messages{vk::method::messages::disable_mentions};
 };
 } // namespace command

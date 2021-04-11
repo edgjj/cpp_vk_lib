@@ -3,7 +3,6 @@
 
 #include "document/common.hpp"
 
-
 namespace vk {
 namespace method {
 /*!
@@ -29,7 +28,7 @@ protected:
   method::utility method_util;
   document::common document;
 };
-} // namespace method
-} // namespace vk
+}// namespace method
+}// namespace vk
 
-#endif // VK_VIDEO_H
+#endif// VK_VIDEO_H
