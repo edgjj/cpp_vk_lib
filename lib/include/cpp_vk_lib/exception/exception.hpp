@@ -14,7 +14,7 @@ namespace exception {
  */
 class common_exception : public std::exception {
 public:
-  virtual const char* what() const noexcept override {
+  const char* what() const noexcept override {
     return error.what();
   }
 
