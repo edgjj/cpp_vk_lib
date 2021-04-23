@@ -15,7 +15,7 @@ namespace bot {
 // You can add handling other types of events.
 class bot_object
 {
-  public:
+public:
     void setup()
     {
         setup_commands();
@@ -26,7 +26,7 @@ class bot_object
         return poller.run();
     }
 
-  private:
+private:
     void setup_commands()
     {
         poller.get_message_handler().on_command("/download", std::make_unique<command::voice_message_dowload>());

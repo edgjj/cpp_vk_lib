@@ -19,15 +19,16 @@ namespace string_utils {
 template <typename T>
 struct join_impl
 {
-  public:
+public:
     join_impl() = delete;
 
-  private:
+private:
     template <typename _Container, typename _Binary_operation>
     static std::string common_implementation(_Container&& elements, _Binary_operation operation)
     {
         return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
     }
+
     template <typename _Container>
     static std::string common_create(_Container&& elements, char delimiter)
     {
@@ -48,6 +49,7 @@ struct join_impl
     {
         return common_create<_Container&&>(std::forward<_Container>(elements), delimiter);
     }
+
     template <typename _T, typename _Container>
     friend std::string string_utils::join(_Container&& elements, char delimiter);
     template <typename _T>

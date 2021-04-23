@@ -20,7 +20,7 @@ namespace event {
  */
 class wall_reply_new
 {
-  public:
+public:
     wall_reply_new(const wall_reply_new&) = default;
     wall_reply_new(wall_reply_new&&) = default;
     wall_reply_new& operator=(const wall_reply_new&) = default;
@@ -62,7 +62,7 @@ class wall_reply_new
      */
     attachment::attachments_t attachments() const;
 
-  private:
+private:
     simdjson::dom::object& get_event() const
     {
         return *_event_json;

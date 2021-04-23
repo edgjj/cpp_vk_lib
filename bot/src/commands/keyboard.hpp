@@ -12,7 +12,7 @@ namespace command {
 
 class keyboard final : public base
 {
-  public:
+public:
     // vk::keyboard::layout has `none` flag by default, which corresponds to white color.
     explicit keyboard()
       : layout(std::make_unique<vk::keyboard::layout>(vk::keyboard::flag::in_line))
@@ -24,7 +24,7 @@ class keyboard final : public base
         messages.send(event.peer_id(), "Here is keyboard: ", layout->get());
     }
 
-  private:
+private:
     void setup_keyboard()
     {
         layout->add_row(

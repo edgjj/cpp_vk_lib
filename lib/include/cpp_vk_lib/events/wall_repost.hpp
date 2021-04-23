@@ -15,7 +15,7 @@ namespace event {
  */
 class wall_repost
 {
-  public:
+public:
     wall_repost(std::int64_t id, std::int64_t from_id, std::int64_t owner_id, std::string text)
       : _id(id)
       , _from_id(from_id)
@@ -54,7 +54,7 @@ class wall_repost
         return _attachments;
     }
 
-  private:
+private:
     std::int64_t _id;
     std::int64_t _from_id;
     std::int64_t _owner_id;

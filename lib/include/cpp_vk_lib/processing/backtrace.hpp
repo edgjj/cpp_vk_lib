@@ -16,7 +16,7 @@ namespace processing {
  */
 class backtrace_view
 {
-  public:
+public:
     backtrace_view(const backtrace_view&) = delete;
     backtrace_view(backtrace_view&&) = delete;
     backtrace_view& operator=(const backtrace_view&) = delete;
@@ -31,7 +31,7 @@ class backtrace_view
         free(symbol_list);
     }
 
-  private:
+private:
 #if defined __linux__
     void generate()
     {

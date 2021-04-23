@@ -18,7 +18,7 @@ namespace event {
  */
 class common
 {
-  public:
+public:
     common(std::string_view ts, simdjson::dom::object&& event);
 
     common(const common&) = default;
@@ -58,7 +58,7 @@ class common
      */
     wall_reply_new get_wall_reply_event() const;
 
-  private:
+private:
     std::string _ts;
     std::string _update_type;
     std::shared_ptr<simdjson::dom::object> _event;

@@ -15,10 +15,10 @@ namespace string_utils {
 
 struct split_impl
 {
-  public:
+public:
     split_impl() = delete;
 
-  private:
+private:
     static std::vector<std::string_view> create(std::string_view data, char delimiter)
     {
         std::vector<std::string_view> splitted;

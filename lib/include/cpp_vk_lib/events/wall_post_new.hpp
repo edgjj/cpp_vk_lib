@@ -21,7 +21,7 @@ namespace event {
  */
 class wall_post_new
 {
-  public:
+public:
     wall_post_new(const wall_post_new&) = default;
     wall_post_new(wall_post_new&&) = default;
     wall_post_new& operator=(const wall_post_new&) = default;
@@ -85,7 +85,7 @@ class wall_post_new
      */
     attachment::attachments_t attachments() const noexcept;
 
-  private:
+private:
     simdjson::dom::object& get_event() const
     {
         return *_event_json;

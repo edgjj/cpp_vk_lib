@@ -34,7 +34,7 @@ vk::oauth::target_client::windows);
  */
 class client
 {
-  public:
+public:
     explicit client(std::string_view username_, std::string_view password_, target_client client_type_);
 
     client() = default;
@@ -52,7 +52,7 @@ class client
     std::string token() const noexcept;
     std::int64_t user_id() const noexcept;
 
-  private:
+private:
     static inline const std::string_view oauth_link = "https://oauth.vk.com/";
     static inline const std::string_view android_app_client_secret = "hHbZxrka2uZ6jB1inYsH";
     static inline const std::string_view iphone_app_client_secret = "VeWdmVclDCtn6ihuP1nt";

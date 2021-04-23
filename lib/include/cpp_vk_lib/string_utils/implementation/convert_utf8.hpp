@@ -18,7 +18,7 @@ const std::locale utf8("en_US.UTF-8");
 
 struct utf8_convert_impl
 {
-  private:
+private:
     static std::wstring __to_wstring(const std::string& s)
     {
         std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;

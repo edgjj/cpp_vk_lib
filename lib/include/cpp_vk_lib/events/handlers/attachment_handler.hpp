@@ -20,13 +20,14 @@ class wall_post_new;
 namespace vk {
 namespace event {
 
-class attachment_handler {
+class attachment_handler
+{
 private:
-  attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
+    attachment::attachments_t try_get(const simdjson::dom::array& attachments) const;
 
-  friend class message_new;
-  friend class wall_reply_new;
-  friend class wall_post_new;
+    friend class message_new;
+    friend class wall_reply_new;
+    friend class wall_post_new;
 };
 }// namespace event
 }// namespace vk

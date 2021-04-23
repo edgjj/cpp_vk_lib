@@ -14,7 +14,7 @@ namespace bot {
 
 class message_handler
 {
-  public:
+public:
     void process(vk::event::message_new&& event) const
     {
         spdlog::info("Message event: {} from {}", event.text(), event.peer_id());
@@ -46,7 +46,7 @@ class message_handler
         chat_invite_user_command = std::move(command);
     }
 
-  private:
+private:
     std::unordered_map<std::string, std::shared_ptr<command::base>> commands{};
     // Event wrappers.
     std::unique_ptr<event::on_message_pin_event> message_pin_command{};

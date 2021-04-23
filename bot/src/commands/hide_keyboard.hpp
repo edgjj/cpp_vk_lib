@@ -12,7 +12,7 @@ namespace command {
 
 class hide_keyboard final : public base
 {
-  public:
+public:
     void execute(const vk::event::message_new& event) const override
     {
         // You should to pass empty layout to hide keyboard.
@@ -20,7 +20,7 @@ class hide_keyboard final : public base
         messages.send(event.peer_id(), "Keyboard was hidden", layout.get());
     }
 
-  private:
+private:
     vk::method::messages messages{vk::method::messages::disable_mentions};
 };
 

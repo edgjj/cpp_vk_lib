@@ -29,7 +29,7 @@ namespace method {
  */
 class messages
 {
-  public:
+public:
     messages(bool disable_mentions_flag_);
     messages() = delete;
 
@@ -55,7 +55,7 @@ class messages
     void set_chat_photo(std::string_view filename, std::string_view raw_server) const;
     conversation_member_list get_conversation_members(std::int64_t peer_id) const;
 
-  protected:
+protected:
     bool disable_mentions_flag;
     std::shared_ptr<simdjson::dom::parser> parser;
     document::common document;

@@ -19,7 +19,7 @@ using any_button = std::variant<button::text, button::vk_pay, button::open_app, 
  */
 class layout
 {
-  public:
+public:
     layout(keyboard::flag);
 
     layout() = default;
@@ -41,7 +41,7 @@ class layout
     std::string get() const noexcept;
     bool has_flag(flag flag_) const noexcept;
 
-  private:
+private:
     std::string serialized;
     /*!
      * @brief Button grid container.

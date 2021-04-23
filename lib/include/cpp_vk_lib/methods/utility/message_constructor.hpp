@@ -13,7 +13,7 @@ namespace method {
 
 class message_constructor
 {
-  public:
+public:
     message_constructor(const message_constructor&) = default;
     message_constructor(message_constructor&&) = default;
     message_constructor& operator=(const message_constructor&) = default;
@@ -72,7 +72,7 @@ class message_constructor
         return params;
     }
 
-  private:
+private:
     template <typename _Attachment_T>
     std::string append_attachments_impl(_Attachment_T&& attachments) const
     {

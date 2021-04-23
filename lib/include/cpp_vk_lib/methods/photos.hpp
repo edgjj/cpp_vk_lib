@@ -12,7 +12,7 @@ namespace method {
  */
 class photos
 {
-  public:
+public:
     explicit photos();
     explicit photos(std::string_view user_token);
 
@@ -27,7 +27,7 @@ class photos
     vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
     std::shared_ptr<vk::attachment::photo> save_messages_photo(std::string_view filename, std::string_view raw_server) const;
 
-  protected:
+protected:
     std::shared_ptr<simdjson::dom::parser> parser;
     method::utility method_util;
     document::common document;

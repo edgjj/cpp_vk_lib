@@ -14,7 +14,7 @@ namespace command {
 
 class voice_message_dowload final : public base
 {
-  public:
+public:
     void execute(const vk::event::message_new& event) const override
     {
         for (auto&& attachment : event.reply()->attachments())
@@ -36,7 +36,7 @@ class voice_message_dowload final : public base
         }
     }
 
-  private:
+private:
     vk::network_client client{};
     vk::method::messages messages{vk::method::messages::disable_mentions};
 };

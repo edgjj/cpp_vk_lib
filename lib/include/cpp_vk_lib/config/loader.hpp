@@ -14,7 +14,7 @@ namespace config {
  */
 class loader
 {
-  public:
+public:
     loader(const loader&) = delete;
     loader(loader&&) = delete;
     loader& operator=(const loader&) = delete;
@@ -56,7 +56,7 @@ class loader
         return num_workers_;
     }
 
-  private:
+private:
     loader(std::string_view path);
 
     std::string username_{};

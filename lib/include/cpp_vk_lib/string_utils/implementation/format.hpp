@@ -19,10 +19,10 @@ namespace string_utils {
 template <typename... _Args>
 struct format_impl
 {
-  public:
+public:
     format_impl() = delete;
 
-  private:
+private:
     static constexpr std::size_t average_word_size = 7;
 
     static std::string create(std::string_view data, _Args&&... args)

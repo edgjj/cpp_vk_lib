@@ -18,8 +18,7 @@ void vk::processing::log_and_rethrow(std::string_view label, std::exception_ptr 
         {
             std::rethrow_exception(exception_ptr);
         }
-    }
-    catch (std::exception& ex)
+    } catch (std::exception& ex)
     {
         spdlog::error("{}: {}", label, ex.what());
     }

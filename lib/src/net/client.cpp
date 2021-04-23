@@ -122,8 +122,7 @@ std::string vk::network_client::upload(std::string_view field_name, std::string_
     try
     {
         curl_easy.perform();
-    }
-    catch (curlpp::RuntimeError& re)
+    } catch (curlpp::RuntimeError& re)
     {
         debug_error("HTTP upload error", "");
     }

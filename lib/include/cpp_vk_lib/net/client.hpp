@@ -11,7 +11,7 @@ namespace vk {
  */
 class network_client
 {
-  public:
+public:
     network_client() = default;
     network_client(const network_client&) = default;
     network_client(network_client&&) = default;
@@ -46,7 +46,7 @@ class network_client
      */
     static std::string unescape(std::string_view text);
 
-  private:
+private:
 #if defined VK_CURL_DEBUG
     void debug(std::string_view template_text, std::string_view arg) const noexcept;
     void debug_error(std::string_view template_text, std::string_view arg) const noexcept;

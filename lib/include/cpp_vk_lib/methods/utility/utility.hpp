@@ -19,7 +19,7 @@ namespace method {
  */
 class utility
 {
-  public:
+public:
     utility(std::string_view user_token);
     utility();
 
@@ -41,7 +41,7 @@ class utility
 
     static inline const std::int64_t chat_id_constant = 2000000000;
 
-  private:
+private:
     vk::network_client net_client;
     std::string user_token;
     std::string access_token;

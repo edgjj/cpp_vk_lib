@@ -12,7 +12,7 @@ namespace method {
  */
 class docs
 {
-  public:
+public:
     explicit docs();
     explicit docs(std::string_view user_token);
 
@@ -30,7 +30,7 @@ class docs
     vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
     std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
 
-  protected:
+protected:
     std::shared_ptr<simdjson::dom::parser> parser;
     method::utility method_util;
     document::common document;

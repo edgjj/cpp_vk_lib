@@ -18,7 +18,7 @@ namespace document {
  */
 class common
 {
-  public:
+public:
     explicit common();
     explicit common(std::string_view user_token);
 
@@ -41,7 +41,7 @@ class common
      */
     vk::attachment::attachments_t search(std::string_view method, std::string_view query, std::int64_t count) const;
 
-  private:
+private:
     std::shared_ptr<simdjson::dom::parser> parser;
     method::utility method_util;
     network_client net_client;

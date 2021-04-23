@@ -13,7 +13,7 @@ namespace command {
 
 class base
 {
-  public:
+public:
     virtual void execute(const vk::event::message_new& event) const = 0;
     virtual ~base() = default;
 };

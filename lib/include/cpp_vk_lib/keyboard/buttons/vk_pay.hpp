@@ -7,16 +7,19 @@ namespace vk {
 namespace keyboard {
 namespace button {
 
-class vk_pay {
+class vk_pay
+{
 public:
-  vk_pay(std::string_view hash_)
-    : hash(hash_) {}
-  std::string serialize() const {
-    return string_utils::format(R"({"action":{"type":"vkpay","hash":"{}"}})", hash);
-  }
+    vk_pay(std::string_view hash_)
+      : hash(hash_)
+    {}
+    std::string serialize() const
+    {
+        return string_utils::format(R"({"action":{"type":"vkpay","hash":"{}"}})", hash);
+    }
 
 private:
-  std::string hash;
+    std::string hash;
 };
 }// namespace button
 }// namespace keyboard

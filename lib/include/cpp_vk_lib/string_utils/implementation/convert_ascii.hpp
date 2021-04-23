@@ -16,7 +16,7 @@ namespace string_utils {
 
 struct ascii_convert_impl
 {
-  private:
+private:
     static char __to_lower_ascii_char(char c) noexcept
     {
         if (c <= 'Z' && c >= 'A')

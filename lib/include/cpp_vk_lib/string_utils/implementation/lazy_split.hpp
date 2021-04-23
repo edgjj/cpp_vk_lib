@@ -15,7 +15,7 @@ struct end_split_iterator
 template <typename _String_type>
 class split_iterator
 {
-  public:
+public:
     split_iterator(_String_type source, _String_type delim)
       : src(source)
       , delimiter(delim)
@@ -46,7 +46,7 @@ class split_iterator
         return !iterator.finished;
     }
 
-  private:
+private:
     _String_type src;
     _String_type delimiter;
     std::size_t first;
@@ -57,7 +57,7 @@ class split_iterator
 template <typename _String_type>
 class split_range
 {
-  public:
+public:
     split_range(_String_type source, _String_type delim) noexcept
       : src(source)
       , delimiter(delim)
@@ -71,7 +71,7 @@ class split_range
         return end_split_iterator();
     }
 
-  private:
+private:
     _String_type src;
     _String_type delimiter;
 };

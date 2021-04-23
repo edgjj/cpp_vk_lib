@@ -13,7 +13,7 @@ namespace long_poll {
  */
 class api
 {
-  public:
+public:
     explicit api(std::int64_t update_interval_ = 600);
 
     api(const api&) = delete;
@@ -57,7 +57,7 @@ class api
      */
     void run();
 
-  private:
+private:
     std::int64_t update_interval;
     /*!
      * @brief Class with group long poll methods.

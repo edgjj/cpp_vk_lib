@@ -23,7 +23,7 @@ namespace event {
  */
 class message_new
 {
-  public:
+public:
     message_new(const message_new&) = default;
     message_new(message_new&&) = default;
     message_new& operator=(const message_new&) = default;
@@ -93,7 +93,7 @@ class message_new
      */
     bool has_action() const noexcept;
 
-  private:
+private:
     /*!
      * @brief Action dispatcher.
      */

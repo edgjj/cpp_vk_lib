@@ -7,31 +7,37 @@
 namespace vk {
 namespace action {
 
-struct chat_invite_user {
-  std::int64_t member_id;
+struct chat_invite_user
+{
+    std::int64_t member_id;
 };
 
-struct chat_kick_user {
-  std::int64_t member_id;
+struct chat_kick_user
+{
+    std::int64_t member_id;
 };
 
-struct chat_pin_message {
-  std::int64_t member_id;
-  std::int64_t conversation_member_id;
-  std::string message;
+struct chat_pin_message
+{
+    std::int64_t member_id;
+    std::int64_t conversation_member_id;
+    std::string message;
 };
 
-struct chat_unpin_message {
-  std::int64_t member_id;
-  std::int64_t conversation_member_id;
+struct chat_unpin_message
+{
+    std::int64_t member_id;
+    std::int64_t conversation_member_id;
 };
 
-struct chat_photo_update {
-  // Empty.
+struct chat_photo_update
+{
+    // Empty.
 };
 
-struct chat_title_update {
-  std::string text;
+struct chat_title_update
+{
+    std::string text;
 };
 
 using any_action =

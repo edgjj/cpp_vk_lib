@@ -13,7 +13,7 @@ namespace command {
 
 class voice_message_upload final : public base
 {
-  public:
+public:
     explicit voice_message_upload()
       : messages(vk::method::messages::disable_mentions)
       , docs()
@@ -26,7 +26,7 @@ class voice_message_upload final : public base
         messages.send(event.peer_id(), "Hey, i have uploaded audio!", {audio});
     }
 
-  private:
+private:
     vk::method::messages messages;
     vk::method::docs docs;
 };

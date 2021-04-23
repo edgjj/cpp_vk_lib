@@ -12,7 +12,7 @@ namespace method {
  */
 class audio
 {
-  public:
+public:
     explicit audio();
     explicit audio(std::string_view user_token);
 
@@ -25,7 +25,7 @@ class audio
     std::string get_upload_server() const;
     void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const;
 
-  protected:
+protected:
     std::shared_ptr<simdjson::dom::parser> parser;
     document::common document;
     method::utility method_util;

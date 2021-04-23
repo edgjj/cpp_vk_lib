@@ -11,14 +11,14 @@ namespace event {
 
 class on_message_pin_event final
 {
-  public:
+public:
     void execute(const vk::event::message_new& event) const
     {
         auto pinned = std::get<vk::action::chat_pin_message>(event.action());
         messages.send(event.peer_id(), vk::string_utils::format("Message was pinned with text: {}.", pinned.message));
     }
 
-  private:
+private:
     vk::method::messages messages{vk::method::messages::disable_mentions};
 };
 

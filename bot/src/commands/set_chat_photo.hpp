@@ -13,7 +13,7 @@ namespace command {
 
 class set_chat_photo final : public base
 {
-  public:
+public:
     explicit set_chat_photo()
       : photos()
       , messages(vk::method::messages::disable_mentions)
@@ -24,7 +24,7 @@ class set_chat_photo final : public base
         messages.set_chat_photo("/path/to/image.{png|jpg}", raw_upload_json);
     }
 
-  private:
+private:
     vk::method::photos photos;
     vk::method::messages messages;
 };

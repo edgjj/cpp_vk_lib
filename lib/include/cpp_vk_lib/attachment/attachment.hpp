@@ -13,7 +13,7 @@ namespace attachment {
 
 class base
 {
-  public:
+public:
     explicit base(std::string_view type_, std::int32_t owner_id_, std::int32_t id_)
       : attachment_type(type_)
       , owner_id(owner_id_)
@@ -29,7 +29,7 @@ class base
         return attachment_type;
     }
 
-  protected:
+protected:
     std::string attachment_type;
     std::int32_t owner_id;
     std::int32_t id;
@@ -37,7 +37,7 @@ class base
 
 class photo : public base
 {
-  public:
+public:
     explicit photo(std::int32_t owner_id_, std::int32_t id_)
       : base("photo", owner_id_, id_)
     {}
@@ -45,7 +45,7 @@ class photo : public base
 
 class video : public base
 {
-  public:
+public:
     explicit video(std::int32_t owner_id_, std::int32_t id_)
       : base("video", owner_id_, id_)
     {}
@@ -53,7 +53,7 @@ class video : public base
 
 class audio : public base
 {
-  public:
+public:
     explicit audio(std::int32_t owner_id_, std::int32_t id_)
       : base("audio", owner_id_, id_)
     {}
@@ -61,7 +61,7 @@ class audio : public base
 
 class document : public base
 {
-  public:
+public:
     explicit document(std::int32_t owner_id_, std::int32_t id_, std::string_view url)
       : base("doc", owner_id_, id_)
       , _raw_url(url)
@@ -71,13 +71,13 @@ class document : public base
         return _raw_url;
     }
 
-  private:
+private:
     std::string _raw_url;
 };
 
 class wall : public base
 {
-  public:
+public:
     explicit wall(std::int32_t id_, std::int32_t from_id_)
       : base("wall", from_id_, id_)
     {}
@@ -85,7 +85,7 @@ class wall : public base
 
 class audio_message : public base
 {
-  public:
+public:
     explicit audio_message(std::int32_t owner_id_, std::int32_t id_, std::string_view raw_ogg, std::string_view raw_mp3)
       : base("audio_message", owner_id_, id_)
       , _raw_ogg(raw_ogg)
@@ -100,7 +100,7 @@ class audio_message : public base
         return _raw_mp3;
     }
 
-  private:
+private:
     std::string _raw_ogg;
     std::string _raw_mp3;
 };

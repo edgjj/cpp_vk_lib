@@ -12,7 +12,7 @@ namespace method {
  */
 class video
 {
-  public:
+public:
     explicit video();
     explicit video(std::string_view user_token);
 
@@ -25,7 +25,7 @@ class video
     vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
     void save_by_link(std::string_view url) const;
 
-  protected:
+protected:
     method::utility method_util;
     document::common document;
 };

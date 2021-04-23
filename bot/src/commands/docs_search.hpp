@@ -24,7 +24,7 @@ namespace command {
  */
 class docs_search final : public base
 {
-  public:
+public:
     explicit docs_search()
       : oauth_client(vk::config::username(), vk::config::password(), vk::oauth::target_client::windows)
       , messages(vk::method::messages::disable_mentions)
@@ -35,7 +35,7 @@ class docs_search final : public base
         messages.send(event.peer_id(), "Docs: ", {docs.search(string_util::cut_first(event.text()), 50)});
     }
 
-  private:
+private:
     vk::oauth::client oauth_client;
     vk::method::messages messages;
     vk::method::docs docs;

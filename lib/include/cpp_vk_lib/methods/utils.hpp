@@ -12,7 +12,7 @@ namespace method {
  */
 class utils
 {
-  public:
+public:
     utils(const utils&) = default;
     utils(utils&&) = default;
     utils& operator=(const utils&) = default;
@@ -23,7 +23,7 @@ class utils
     std::string get_short_link(std::string_view url) const;
     std::int64_t resolve_screen_name(std::string_view screen_name) const;
 
-  protected:
+protected:
     method::utility method_util;
 };
 }// namespace method

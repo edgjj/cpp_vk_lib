@@ -7,11 +7,13 @@ namespace vk {
 namespace keyboard {
 namespace button {
 
-class location {
+class location
+{
 public:
-  std::string serialize() const {
-    return R"({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})";
-  }
+    std::string serialize() const
+    {
+        return R"({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})";
+    }
 };
 }// namespace button
 }// namespace keyboard

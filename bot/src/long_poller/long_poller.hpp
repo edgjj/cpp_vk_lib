@@ -9,7 +9,7 @@ namespace bot {
 
 class long_poller
 {
-  public:
+public:
     explicit long_poller()
       : data(api.server())
     {}
@@ -33,7 +33,7 @@ class long_poller
         return EXIT_SUCCESS;
     }
 
-  private:
+private:
     vk::long_poll::api api{};
     vk::long_poll::data data;
     message_handler msg_handler{};

@@ -19,7 +19,7 @@ class task_queue
         stop_after_current_task
     };
 
-  public:
+public:
     using exception_callback_t = std::function<void(std::exception_ptr)>;
 
     explicit task_queue(std::size_t num_workers = std::thread::hardware_concurrency());
@@ -46,7 +46,7 @@ class task_queue
 
     ~task_queue();
 
-  private:
+private:
     void set_default_exception_handler();
     void init_workers(std::size_t num);
 
@@ -118,8 +118,7 @@ bool task_queue::push_void_task(Function&& fn, Args&&... args)
         try
         {
             std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
-        }
-        catch (...)
+        } catch (...)
         {
             m_on_exception(std::current_exception());
         }
@@ -158,12 +157,10 @@ void task_queue::set_default_exception_handler()
         try
         {
             std::rethrow_exception(ex_ptr);
-        }
-        catch (std::exception& ex)
+        } catch (std::exception& ex)
         {
             stream << ex.what();
-        }
-        catch (...)
+        } catch (...)
         {
             stream << "Unknown exception";
         }
@@ -214,8 +211,7 @@ inline std::pair<bool, std::future<Invoke_Task_Type>> task_queue::push_future_ta
             {
                 std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
                 promise->set_value();
-            }
-            catch (...)
+            } catch (...)
             {
                 promise->set_exception(std::current_exception());
             }
@@ -225,8 +221,7 @@ inline std::pair<bool, std::future<Invoke_Task_Type>> task_queue::push_future_ta
             try
             {
                 promise->set_value(std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp)));
-            }
-            catch (...)
+            } catch (...)
             {
                 promise->set_exception(std::current_exception());
             }
