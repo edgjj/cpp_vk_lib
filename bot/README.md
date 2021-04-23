@@ -13,9 +13,13 @@ Next, you should to create `bot` directory with following `CMakeLists.txt`:
 include_directories(../cpp_vk_lib/lib/include)
 include_directories(../cpp_vk_lib/lib/include/cpp_vk_lib)
 
+set(CMAKE_CXX_FLAGS "-O2")
+
 file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
-add_executable(example_bot ${SRC})
-target_link_libraries(example_bot -Lcpp_vk_lib/build cpp_vk_lib pthread curl curlpp -L../cpp_vk_lib/dependencies/simdjson simdjson)
+add_executable(bot ${SRC})
+
+find_library(cpp_vk_lib HINTS "../cpp_vk_lib/lib")
+target_link_libraries(bot cpp_vk_lib curl curlpp pthread)
 ```
 
 ### Common structure of bot
@@ -47,10 +51,7 @@ Here is example CMake script to make bot and library work together:
 ```
 cmake_minimum_required(VERSION 3.9)
 
-project(example_bot
-    DESCRIPTION "C++ vk library"
-    LANGUAGES CXX
-)
+project(example_bot DESCRIPTION "C++ vk library"  LANGUAGES CXX)
 
 set(CMAKE_C_COMPILER /usr/bin/clang CACHE PATH "" FORCE)
 set(CMAKE_CXX_COMPILER /usr/bin/clang++ CACHE PATH "" FORCE)
@@ -70,25 +71,29 @@ add_subdirectory(bot)
 ```
 
 ### Setup config file
-In bot `main` function please type:
+At the begin of `main` function please type:
 ```
 vk::config::load("/path/to/config.json");
 ```
 Sample config:
 ```
 {
-	"api_keys": {
+	"api": {
 		"access_token": "",
 		"user_token": ""
 	},
-	"environment": {
-		"error_logpath": "/path/to/errors.log",
-		"event_logpath": "/path/to/events.log"
+	"oauth": {
+		"login": "",
+		"password": ""
 	},
-	"num_threads": 16
+	"environment": {
+		"num_threads": 8,
+		"error_logpath": ".../errors.log",
+		"event_logpath": ".../events.log"
+	}
 }
 ```
 
 ### Design goals
 
-This library follows the OCP principle, to allow user easily add any new features.
+This library follows the OCP principle to allow user easily add any new features.

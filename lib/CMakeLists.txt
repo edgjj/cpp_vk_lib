@@ -6,7 +6,7 @@ include_directories(include/cpp_vk_lib)
 add_definitions(-DAPI_V="5.130")
 
 set(extra_warnings TRUE)
-set(find_leaks TRUE)
+set(find_leaks FALSE)
 
 set(common_flags "-fPIC -Wall -Wextra -Werror -Weffc++ -pedantic -Wshadow -Wunused-parameter")
 
@@ -22,13 +22,7 @@ else()
   set(extra_warnings_flags "")
 endif()
 
-if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
-  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=x86-64 -mtune=generic")
-elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
-  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -m32 -march=i686 -mtune=generic")
-else()
-  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -march=native")
-endif()
+set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=native -mtune=generic")
 
 add_library(lib-simdjson INTERFACE)
 target_compile_features(lib-simdjson INTERFACE cxx_std_17)

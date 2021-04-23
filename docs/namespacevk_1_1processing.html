@@ -107,7 +107,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memTemplParams" colspan="2">template&lt;typename _Error_t &gt; </td></tr>
-<tr class="memitem:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe">is_exception_inheritor_v</a></td></tr>
+<tr class="memitem:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe">is_exception_inheritor_v</a> = std::is_base_of_v&lt;<a class="el" href="classvk_1_1exception_1_1common__exception.html">exception::common_exception</a>, _Error_t&gt;</td></tr>
 <tr class="separator:a2ff2d2576f25ba3043fa69ede1e982fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -368,7 +368,7 @@ template&lt;typename _Error_t &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool vk::processing::is_exception_inheritor_v</td>
+          <td class="memname">constexpr bool vk::processing::is_exception_inheritor_v = std::is_base_of_v&lt;<a class="el" href="classvk_1_1exception_1_1common__exception.html">exception::common_exception</a>, _Error_t&gt;</td>
         </tr>
       </table>
   </td>
@@ -377,9 +377,7 @@ template&lt;typename _Error_t &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">  std::is_base_of_v&lt;exception::common_exception, _Error_t&gt;</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# . ./pre_commit.sh
 function generate_docs() {
 	cd doxygen
 	doxygen Doxyfile

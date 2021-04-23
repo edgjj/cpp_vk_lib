@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1e5469cc23e3fd2fd53efa8880d36f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada5f1481a8934d5e8213ffc162daf4b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1messages.html#ada5f1481a8934d5e8213ffc162daf4b7">send</a> (std::int64_t peer_id, std::string_view text, const std::map&lt; std::string, std::string &gt; &amp;raw_parameters) const</td></tr>
 <tr class="separator:ada5f1481a8934d5e8213ffc162daf4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ac26cc4eda54bbab24af9fcf193d664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1messages.html#a2ac26cc4eda54bbab24af9fcf193d664">send</a> (std::int64_t peer_id, std::string_view text, const <a class="el" href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a> &amp;layout) const</td></tr>
-<tr class="separator:a2ac26cc4eda54bbab24af9fcf193d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad5ef490aa8208066cbddf5ef18c877"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1messages.html#abad5ef490aa8208066cbddf5ef18c877">send</a> (std::int64_t peer_id, std::string_view text, std::string_view layout) const</td></tr>
+<tr class="separator:abad5ef490aa8208066cbddf5ef18c877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e598a4bc3b76c0642b05db8e49fd434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1messages.html#a8e598a4bc3b76c0642b05db8e49fd434">remove_chat_user</a> (std::int64_t chat_id, std::int64_t user_id) const</td></tr>
 <tr class="separator:a8e598a4bc3b76c0642b05db8e49fd434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0149f70b42c361c427abaea6a554dd38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1messages.html#a0149f70b42c361c427abaea6a554dd38">edit_chat</a> (std::int64_t chat_id, std::string_view new_title) const</td></tr>
@@ -602,42 +602,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a2ac26cc4eda54bbab24af9fcf193d664"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ac26cc4eda54bbab24af9fcf193d664">&#9670;&nbsp;</a></span>send() <span class="overload">[5/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::method::messages::send </td>
-          <td>(</td>
-          <td class="paramtype">std::int64_t&#160;</td>
-          <td class="paramname"><em>peer_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>text</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a> &amp;&#160;</td>
-          <td class="paramname"><em>layout</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1e5469cc23e3fd2fd53efa8880d36f52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e5469cc23e3fd2fd53efa8880d36f52">&#9670;&nbsp;</a></span>send() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5469cc23e3fd2fd53efa8880d36f52">&#9670;&nbsp;</a></span>send() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -659,6 +625,40 @@ Here is the call graph for this function:</div>
           <td></td>
           <td class="paramtype">std::map&lt; std::string, std::string &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>raw_parameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abad5ef490aa8208066cbddf5ef18c877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad5ef490aa8208066cbddf5ef18c877">&#9670;&nbsp;</a></span>send() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::method::messages::send </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>peer_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>layout</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

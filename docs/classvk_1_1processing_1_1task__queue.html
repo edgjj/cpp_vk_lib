@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classvk_1_1processing_1_1task__queue-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -75,8 +76,15 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="task__queue_8hpp_source.html">task_queue.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac822b4ef035bd162158b10ee8ffab71d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#ac822b4ef035bd162158b10ee8ffab71d">exception_callback_t</a> = std::function&lt; void(std::exception_ptr)&gt;</td></tr>
+<tr class="separator:ac822b4ef035bd162158b10ee8ffab71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:afb540cdadb8c2dcf2b719b71b43b3fc6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#afb540cdadb8c2dcf2b719b71b43b3fc6">task_queue</a> (std::size_t num_workers=std::thread::hardware_concurrency())</td></tr>
+<tr class="separator:afb540cdadb8c2dcf2b719b71b43b3fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41f43c6918f2b66e792f9f8eb915ffb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a41f43c6918f2b66e792f9f8eb915ffb9">task_queue</a> (const <a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;)=delete</td></tr>
 <tr class="separator:a41f43c6918f2b66e792f9f8eb915ffb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfadad0dd3687b5e356fc54799bc2f90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#adfadad0dd3687b5e356fc54799bc2f90">task_queue</a> (<a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;&amp;)=delete</td></tr>
@@ -85,23 +93,69 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a828ad2f6650cd997a4e69b718b347f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a579c809609421d8b18f2821aa7f496a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a579c809609421d8b18f2821aa7f496a9">operator=</a> (<a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a579c809609421d8b18f2821aa7f496a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e6a222d0384ae0130f63a84e6166f85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a5e6a222d0384ae0130f63a84e6166f85">task_queue</a> ()</td></tr>
-<tr class="separator:a5e6a222d0384ae0130f63a84e6166f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a568f1d027fd1a93f0656c2ebba87b851"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a568f1d027fd1a93f0656c2ebba87b851">set_exception_handler</a> (<a class="el" href="classvk_1_1processing_1_1task__queue.html#ac822b4ef035bd162158b10ee8ffab71d">exception_callback_t</a> handler)</td></tr>
+<tr class="separator:a568f1d027fd1a93f0656c2ebba87b851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85ae386f0ed456143b311812179919d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#af85ae386f0ed456143b311812179919d">set_num_workers</a> (std::size_t num)</td></tr>
+<tr class="separator:af85ae386f0ed456143b311812179919d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731fbd58f9b1307c0db02024ecd9cebf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a731fbd58f9b1307c0db02024ecd9cebf">start</a> ()</td></tr>
+<tr class="separator:a731fbd58f9b1307c0db02024ecd9cebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38094dc9617f656003bee81265ec853d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a38094dc9617f656003bee81265ec853d">stop</a> ()</td></tr>
+<tr class="separator:a38094dc9617f656003bee81265ec853d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1942c43c33634e65e77e282e929124ea"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Args&gt; </td></tr>
+<tr class="memitem:a1942c43c33634e65e77e282e929124ea"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a1942c43c33634e65e77e282e929124ea">push_void_task</a> (Function &amp;&amp;fn, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a1942c43c33634e65e77e282e929124ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0678a79308e10ac84dd0ac7a158768d9"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Args, typename Invoke_Task_Type  = std::invoke_result_t&lt;Function, Args...&gt;&gt; </td></tr>
+<tr class="memitem:a0678a79308e10ac84dd0ac7a158768d9"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; bool, std::future&lt; Invoke_Task_Type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a0678a79308e10ac84dd0ac7a158768d9">push_future_task</a> (Function &amp;&amp;fn, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a0678a79308e10ac84dd0ac7a158768d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53671f3ffef62fb9e73c0e7cbdc3b52c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a53671f3ffef62fb9e73c0e7cbdc3b52c">wait_for_completion</a> ()</td></tr>
+<tr class="separator:a53671f3ffef62fb9e73c0e7cbdc3b52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee57a4499dce2b2c955d72e86709889"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a7ee57a4499dce2b2c955d72e86709889">~task_queue</a> ()</td></tr>
 <tr class="separator:a7ee57a4499dce2b2c955d72e86709889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba79c4e1763af2b24a27406f1d1a2a77"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename Result_Of  = std::result_of_t&lt;Function&amp;()&gt;&gt; </td></tr>
-<tr class="memitem:aba79c4e1763af2b24a27406f1d1a2a77"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#aba79c4e1763af2b24a27406f1d1a2a77">queue</a> (Function &amp;&amp;f)</td></tr>
-<tr class="separator:aba79c4e1763af2b24a27406f1d1a2a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712d6aa02224a8e68f06e29244625cba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a712d6aa02224a8e68f06e29244625cba">start</a> (std::size_t num_threads=std::thread::hardware_concurrency())</td></tr>
-<tr class="separator:a712d6aa02224a8e68f06e29244625cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf2031a6d99af57545641dca81fb244e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#abf2031a6d99af57545641dca81fb244e">cancel_pending</a> ()</td></tr>
-<tr class="separator:abf2031a6d99af57545641dca81fb244e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16a38ea20a2a2902b689b740b0c3f3d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a16a38ea20a2a2902b689b740b0c3f3d9">finish</a> ()</td></tr>
-<tr class="separator:a16a38ea20a2a2902b689b740b0c3f3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac822b4ef035bd162158b10ee8ffab71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac822b4ef035bd162158b10ee8ffab71d">&#9670;&nbsp;</a></span>exception_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classvk_1_1processing_1_1task__queue.html#ac822b4ef035bd162158b10ee8ffab71d">vk::processing::task_queue::exception_callback_t</a> =  std::function&lt;void(std::exception_ptr)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afb540cdadb8c2dcf2b719b71b43b3fc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb540cdadb8c2dcf2b719b71b43b3fc6">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vk::processing::task_queue::task_queue </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>num_workers</em> = <code>std::thread::hardware_concurrency()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a41f43c6918f2b66e792f9f8eb915ffb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41f43c6918f2b66e792f9f8eb915ffb9">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f43c6918f2b66e792f9f8eb915ffb9">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +181,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="adfadad0dd3687b5e356fc54799bc2f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfadad0dd3687b5e356fc54799bc2f90">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adfadad0dd3687b5e356fc54799bc2f90">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,8 +206,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e6a222d0384ae0130f63a84e6166f85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e6a222d0384ae0130f63a84e6166f85">&#9670;&nbsp;</a></span>task_queue() <span class="overload">[3/3]</span></h2>
+<a id="a7ee57a4499dce2b2c955d72e86709889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee57a4499dce2b2c955d72e86709889">&#9670;&nbsp;</a></span>~task_queue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +216,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vk::processing::task_queue::task_queue </td>
+          <td class="memname">vk::processing::task_queue::~task_queue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,79 +228,19 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7ee57a4499dce2b2c955d72e86709889"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ee57a4499dce2b2c955d72e86709889">&#9670;&nbsp;</a></span>~task_queue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::processing::task_queue::~task_queue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classvk_1_1processing_1_1task__queue_a7ee57a4499dce2b2c955d72e86709889_cgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a7ee57a4499dce2b2c955d72e86709889_cgraph" alt=""/></div>
 <map name="aclassvk_1_1processing_1_1task__queue_a7ee57a4499dce2b2c955d72e86709889_cgraph" id="aclassvk_1_1processing_1_1task__queue_a7ee57a4499dce2b2c955d72e86709889_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,168,47"/>
-<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a16a38ea20a2a2902b689b740b0c3f3d9" title=" " alt="" coords="216,5,368,47"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a38094dc9617f656003bee81265ec853d" title=" " alt="" coords="216,5,368,47"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf2031a6d99af57545641dca81fb244e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf2031a6d99af57545641dca81fb244e">&#9670;&nbsp;</a></span>cancel_pending()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::processing::task_queue::cancel_pending </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a16a38ea20a2a2902b689b740b0c3f3d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16a38ea20a2a2902b689b740b0c3f3d9">&#9670;&nbsp;</a></span>finish()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::processing::task_queue::finish </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classvk_1_1processing_1_1task__queue_a16a38ea20a2a2902b689b740b0c3f3d9_icgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a16a38ea20a2a2902b689b740b0c3f3d9_icgraph" alt=""/></div>
-<map name="aclassvk_1_1processing_1_1task__queue_a16a38ea20a2a2902b689b740b0c3f3d9_icgraph" id="aclassvk_1_1processing_1_1task__queue_a16a38ea20a2a2902b689b740b0c3f3d9_icgraph">
-<area shape="rect" title=" " alt="" coords="216,5,368,47"/>
-<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a7ee57a4499dce2b2c955d72e86709889" title=" " alt="" coords="5,5,168,47"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a828ad2f6650cd997a4e69b718b347f2a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a828ad2f6650cd997a4e69b718b347f2a">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -299,29 +293,77 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aba79c4e1763af2b24a27406f1d1a2a77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba79c4e1763af2b24a27406f1d1a2a77">&#9670;&nbsp;</a></span>queue()</h2>
+<a id="a0678a79308e10ac84dd0ac7a158768d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0678a79308e10ac84dd0ac7a158768d9">&#9670;&nbsp;</a></span>push_future_task()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function , typename Result_Of &gt; </div>
+template&lt;typename Function , typename... Args, typename Invoke_Task_Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void vk::processing::task_queue::queue </td>
+          <td class="memname">std::pair&lt; bool, std::future&lt; Invoke_Task_Type &gt; &gt; vk::processing::task_queue::push_future_task </td>
           <td>(</td>
           <td class="paramtype">Function &amp;&amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1942c43c33634e65e77e282e929124ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1942c43c33634e65e77e282e929124ea">&#9670;&nbsp;</a></span>push_void_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool vk::processing::task_queue::push_void_task </td>
+          <td>(</td>
+          <td class="paramtype">Function &amp;&amp;&#160;</td>
+          <td class="paramname"><em>fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1processing_1_1task__queue_aba79c4e1763af2b24a27406f1d1a2a77_icgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_aba79c4e1763af2b24a27406f1d1a2a77_icgraph" alt=""/></div>
-<map name="aclassvk_1_1processing_1_1task__queue_aba79c4e1763af2b24a27406f1d1a2a77_icgraph" id="aclassvk_1_1processing_1_1task__queue_aba79c4e1763af2b24a27406f1d1a2a77_icgraph">
-<area shape="rect" title=" " alt="" coords="368,5,520,47"/>
+<div class="center"><img src="classvk_1_1processing_1_1task__queue_a1942c43c33634e65e77e282e929124ea_icgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a1942c43c33634e65e77e282e929124ea_icgraph" alt=""/></div>
+<map name="aclassvk_1_1processing_1_1task__queue_a1942c43c33634e65e77e282e929124ea_icgraph" id="aclassvk_1_1processing_1_1task__queue_a1942c43c33634e65e77e282e929124ea_icgraph">
+<area shape="rect" title=" " alt="" coords="368,5,547,47"/>
 <area shape="rect" href="classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075" title="Push task to thread pool queue." alt="" coords="187,5,320,47"/>
 <area shape="rect" href="classvk_1_1long__poll_1_1api.html#a882e3c60801df33bbcfd52444b81fe4d" title=" " alt="" coords="5,5,139,47"/>
 </map>
@@ -329,38 +371,164 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a712d6aa02224a8e68f06e29244625cba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a712d6aa02224a8e68f06e29244625cba">&#9670;&nbsp;</a></span>start()</h2>
+<a id="a568f1d027fd1a93f0656c2ebba87b851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568f1d027fd1a93f0656c2ebba87b851">&#9670;&nbsp;</a></span>set_exception_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp; vk::processing::task_queue::set_exception_handler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvk_1_1processing_1_1task__queue.html#ac822b4ef035bd162158b10ee8ffab71d">task_queue::exception_callback_t</a>&#160;</td>
+          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af85ae386f0ed456143b311812179919d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85ae386f0ed456143b311812179919d">&#9670;&nbsp;</a></span>set_num_workers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvk_1_1processing_1_1task__queue.html">task_queue</a> &amp; vk::processing::task_queue::set_num_workers </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a731fbd58f9b1307c0db02024ecd9cebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a731fbd58f9b1307c0db02024ecd9cebf">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void vk::processing::task_queue::start </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>num_threads</em> = <code>std::thread::hardware_concurrency()</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1processing_1_1task__queue_a712d6aa02224a8e68f06e29244625cba_cgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a712d6aa02224a8e68f06e29244625cba_cgraph" alt=""/></div>
-<map name="aclassvk_1_1processing_1_1task__queue_a712d6aa02224a8e68f06e29244625cba_cgraph" id="aclassvk_1_1processing_1_1task__queue_a712d6aa02224a8e68f06e29244625cba_cgraph">
-<area shape="rect" title=" " alt="" coords="5,27,157,69"/>
-<area shape="rect" href="namespacevk_1_1config.html#ad5483096965a6966c74551c73b9c8946" title=" " alt="" coords="205,35,384,61"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227" title=" " alt="" coords="432,5,595,32"/>
-<area shape="rect" href="classvk_1_1config_1_1loader.html#a3a741ecca240da5e16807076028cc172" title=" " alt="" coords="446,57,581,98"/>
+<div class="center"><img src="classvk_1_1processing_1_1task__queue_a731fbd58f9b1307c0db02024ecd9cebf_icgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a731fbd58f9b1307c0db02024ecd9cebf_icgraph" alt=""/></div>
+<map name="aclassvk_1_1processing_1_1task__queue_a731fbd58f9b1307c0db02024ecd9cebf_icgraph" id="aclassvk_1_1processing_1_1task__queue_a731fbd58f9b1307c0db02024ecd9cebf_icgraph">
+<area shape="rect" title=" " alt="" coords="264,5,416,47"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a53671f3ffef62fb9e73c0e7cbdc3b52c" title=" " alt="" coords="5,5,216,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a38094dc9617f656003bee81265ec853d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38094dc9617f656003bee81265ec853d">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::task_queue::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classvk_1_1processing_1_1task__queue_a38094dc9617f656003bee81265ec853d_icgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a38094dc9617f656003bee81265ec853d_icgraph" alt=""/></div>
+<map name="aclassvk_1_1processing_1_1task__queue_a38094dc9617f656003bee81265ec853d_icgraph" id="aclassvk_1_1processing_1_1task__queue_a38094dc9617f656003bee81265ec853d_icgraph">
+<area shape="rect" title=" " alt="" coords="264,39,416,80"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a53671f3ffef62fb9e73c0e7cbdc3b52c" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a7ee57a4499dce2b2c955d72e86709889" title=" " alt="" coords="29,71,192,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a53671f3ffef62fb9e73c0e7cbdc3b52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53671f3ffef62fb9e73c0e7cbdc3b52c">&#9670;&nbsp;</a></span>wait_for_completion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::processing::task_queue::wait_for_completion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classvk_1_1processing_1_1task__queue_a53671f3ffef62fb9e73c0e7cbdc3b52c_cgraph.png" border="0" usemap="#aclassvk_1_1processing_1_1task__queue_a53671f3ffef62fb9e73c0e7cbdc3b52c_cgraph" alt=""/></div>
+<map name="aclassvk_1_1processing_1_1task__queue_a53671f3ffef62fb9e73c0e7cbdc3b52c_cgraph" id="aclassvk_1_1processing_1_1task__queue_a53671f3ffef62fb9e73c0e7cbdc3b52c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,216,80"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a731fbd58f9b1307c0db02024ecd9cebf" title=" " alt="" coords="264,5,416,47"/>
+<area shape="rect" href="classvk_1_1processing_1_1task__queue.html#a38094dc9617f656003bee81265ec853d" title=" " alt="" coords="264,71,416,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="task__queue_8hpp_source.html">task_queue.hpp</a></li>
-<li><a class="el" href="task__queue_8cpp.html">task_queue.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

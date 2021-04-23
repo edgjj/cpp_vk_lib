@@ -1,6 +1,6 @@
 <map id="task_queue.hpp" name="task_queue.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="38,5,163,32"/>
-<area shape="rect" id="node2" href="$api_8hpp.html" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" id="node4" href="$task__queue_8cpp.html" title=" " alt="" coords="100,80,224,107"/>
-<area shape="rect" id="node3" href="$api_8cpp.html" title=" " alt="" coords="6,155,75,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="32,5,157,32"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,155,112,181"/>
+<area shape="rect" id="node3" href="$api_8hpp.html" title=" " alt="" coords="97,80,167,107"/>
+<area shape="rect" id="node4" href="$api_8cpp.html" title=" " alt="" coords="136,155,205,181"/>
 </map>

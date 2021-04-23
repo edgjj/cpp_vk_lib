@@ -4,6 +4,5 @@ var searchData=
   ['in_5fline_131',['in_line',['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339',1,'vk::keyboard']]],
   ['invalid_5fparameter_5ferror_132',['invalid_parameter_error',['../classvk_1_1exception_1_1invalid__parameter__error.html#aa73fb198418f3e10816e2850073f9316',1,'vk::exception::invalid_parameter_error::invalid_parameter_error()'],['../classvk_1_1exception_1_1invalid__parameter__error.html',1,'vk::exception::invalid_parameter_error']]],
   ['iphone_133',['iphone',['../namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ffa0b3f45b266a97d7029dde7c2ba372093',1,'vk::oauth']]],
-  ['is_5fexception_5finheritor_5fv_134',['is_exception_inheritor_v',['../namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe',1,'vk::processing']]],
-  ['is_5fflag_5fset_135',['is_flag_set',['../classvk_1_1keyboard_1_1layout.html#afc0a51e4be225eafa35b97e1998dd536',1,'vk::keyboard::layout']]]
+  ['is_5fexception_5finheritor_5fv_134',['is_exception_inheritor_v',['../namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe',1,'vk::processing']]]
 ];

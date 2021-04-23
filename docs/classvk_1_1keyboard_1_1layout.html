@@ -94,14 +94,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a71ad88e0f9613713546d37db61df0513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada5e450f02df3a80082ccf89946990d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#ada5e450f02df3a80082ccf89946990d6">~layout</a> ()=default</td></tr>
 <tr class="separator:ada5e450f02df3a80082ccf89946990d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bbca2c3ff31e0dcaf967e545814e82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#a3bbca2c3ff31e0dcaf967e545814e82d">add_row</a> (const std::vector&lt; <a class="el" href="namespacevk_1_1keyboard.html#a60ba96025d99cdaa3cc0d2ae45c7d22f">any_button</a> &gt; &amp;row)</td></tr>
+<tr class="memitem:a3bbca2c3ff31e0dcaf967e545814e82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#a3bbca2c3ff31e0dcaf967e545814e82d">add_row</a> (const std::vector&lt; <a class="el" href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">any_button</a> &gt; &amp;row)</td></tr>
 <tr class="memdesc:a3bbca2c3ff31e0dcaf967e545814e82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row by passing <code>std::vector</code>.  <a href="classvk_1_1keyboard_1_1layout.html#a3bbca2c3ff31e0dcaf967e545814e82d">More...</a><br /></td></tr>
 <tr class="separator:a3bbca2c3ff31e0dcaf967e545814e82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada48d8889b8165197f7465a73826e850"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#ada48d8889b8165197f7465a73826e850">serialize</a> () const</td></tr>
-<tr class="memdesc:ada48d8889b8165197f7465a73826e850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert buttons data to JSON schema.  <a href="classvk_1_1keyboard_1_1layout.html#ada48d8889b8165197f7465a73826e850">More...</a><br /></td></tr>
-<tr class="separator:ada48d8889b8165197f7465a73826e850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc0a51e4be225eafa35b97e1998dd536"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#afc0a51e4be225eafa35b97e1998dd536">is_flag_set</a> (<a class="el" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flag_) const noexcept</td></tr>
-<tr class="separator:afc0a51e4be225eafa35b97e1998dd536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1a4c1fcb333d4c98e67cf097566c17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">serialize</a> ()</td></tr>
+<tr class="memdesc:a9c1a4c1fcb333d4c98e67cf097566c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert buttons data to JSON schema.  <a href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">More...</a><br /></td></tr>
+<tr class="separator:a9c1a4c1fcb333d4c98e67cf097566c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9029dac5d65e995667186014c1d444"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444">get</a> () const noexcept</td></tr>
+<tr class="separator:a3d9029dac5d65e995667186014c1d444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0326ed1ce272f8f45c5903339353eb7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1keyboard_1_1layout.html#a0326ed1ce272f8f45c5903339353eb7d">has_flag</a> (<a class="el" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flag_) const noexcept</td></tr>
+<tr class="separator:a0326ed1ce272f8f45c5903339353eb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The buttons grid representation. </p>
@@ -236,7 +238,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void vk::keyboard::layout::add_row </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacevk_1_1keyboard.html#a60ba96025d99cdaa3cc0d2ae45c7d22f">any_button</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">any_button</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>row</em></td><td>)</td>
           <td></td>
         </tr>
@@ -247,8 +249,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afc0a51e4be225eafa35b97e1998dd536"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc0a51e4be225eafa35b97e1998dd536">&#9670;&nbsp;</a></span>is_flag_set()</h2>
+<a id="a3d9029dac5d65e995667186014c1d444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9029dac5d65e995667186014c1d444">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +259,32 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool vk::keyboard::layout::is_flag_set </td>
+          <td class="memname">std::string vk::keyboard::layout::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0326ed1ce272f8f45c5903339353eb7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0326ed1ce272f8f45c5903339353eb7d">&#9670;&nbsp;</a></span>has_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool vk::keyboard::layout::has_flag </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a>&#160;</td>
           <td class="paramname"><em>flag_</em></td><td>)</td>
@@ -325,17 +352,17 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ada48d8889b8165197f7465a73826e850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada48d8889b8165197f7465a73826e850">&#9670;&nbsp;</a></span>serialize()</h2>
+<a id="a9c1a4c1fcb333d4c98e67cf097566c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1a4c1fcb333d4c98e67cf097566c17">&#9670;&nbsp;</a></span>serialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string vk::keyboard::layout::serialize </td>
+          <td class="memname">void vk::keyboard::layout::serialize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

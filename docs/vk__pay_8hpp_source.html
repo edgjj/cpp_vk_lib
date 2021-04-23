@@ -74,35 +74,31 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string__utils_8hpp.html">string_utils/string_utils.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>keyboard {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>button {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">vk_pay</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">   13</a></span>&#160;  <a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">vk_pay</a>(std::string_view hash_)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    : hash(hash_) { }</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">   15</a></span>&#160;  std::string <a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">serialize</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;vkpay&quot;,&quot;hash&quot;:&quot;{}&quot;}})&quot;,</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="stringliteral">      hash</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="stringliteral">    );</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">  }</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::string hash;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace button</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <span class="comment">// namespace keyboard</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VK_PAY_BUTTON_H</span></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">vk::keyboard::button::vk_pay</a></div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:11</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html_ac400ada24f88fc77830c7d43bd73a5dd"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">vk::keyboard::button::vk_pay::vk_pay</a></div><div class="ttdeci">vk_pay(std::string_view hash_)</div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:13</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html_aec7e3acc5ba1969cfa13338d43b941ec"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">vk::keyboard::button::vk_pay::serialize</a></div><div class="ttdeci">std::string serialize() const</div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:15</div></div>
-<div class="ttc" id="anamespacevk_1_1string__utils_html_a8b75c357092a62b10a30104ddc9d872b"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, _Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:27</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>keyboard {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>button {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">vk_pay</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">   12</a></span>&#160;  <a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">vk_pay</a>(std::string_view hash_)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    : hash(hash_) {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">   14</a></span>&#160;  std::string <a class="code" href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">serialize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;vkpay&quot;,&quot;hash&quot;:&quot;{}&quot;}})&quot;, hash);</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">  }</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string hash;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}<span class="comment">// namespace button</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<span class="comment">// namespace keyboard</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_PAY_BUTTON_H</span></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html">vk::keyboard::button::vk_pay</a></div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:10</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html_ac400ada24f88fc77830c7d43bd73a5dd"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#ac400ada24f88fc77830c7d43bd73a5dd">vk::keyboard::button::vk_pay::vk_pay</a></div><div class="ttdeci">vk_pay(std::string_view hash_)</div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:12</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1vk__pay_html_aec7e3acc5ba1969cfa13338d43b941ec"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec">vk::keyboard::button::vk_pay::serialize</a></div><div class="ttdeci">std::string serialize() const</div><div class="ttdef"><b>Definition:</b> vk_pay.hpp:14</div></div>
+<div class="ttc" id="anamespacevk_1_1string__utils_html_a8b75c357092a62b10a30104ddc9d872b"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, _Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:26</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:8</div></div>
 <div class="ttc" id="astring__utils_8hpp_html"><div class="ttname"><a href="string__utils_8hpp.html">string_utils.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

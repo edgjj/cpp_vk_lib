@@ -93,17 +93,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e5a44d7b8300c07317ecbd31e2719cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a622bac5a0cf53a4f8308d3d6fe1dce3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a622bac5a0cf53a4f8308d3d6fe1dce3b">~network_client</a> ()=default</td></tr>
 <tr class="separator:a622bac5a0cf53a4f8308d3d6fe1dce3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4541ec0639409754a927a3ecb0acfbc4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a4541ec0639409754a927a3ecb0acfbc4">request</a> (std::string_view body, const std::map&lt; std::string, std::string &gt; &amp;params={ }) const</td></tr>
-<tr class="separator:a4541ec0639409754a927a3ecb0acfbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987730611db15624097f07a9cfce89f4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a987730611db15624097f07a9cfce89f4">request</a> (std::string_view host, const std::map&lt; std::string, std::string &gt; &amp;target={}) const</td></tr>
+<tr class="separator:a987730611db15624097f07a9cfce89f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75536a6c9f36b4ac0cf33c2073dcf3d1"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a75536a6c9f36b4ac0cf33c2073dcf3d1">download</a> (std::string_view filename, std::string_view server) const</td></tr>
 <tr class="memdesc:a75536a6c9f36b4ac0cf33c2073dcf3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download file frm server to filename.  <a href="classvk_1_1network__client.html#a75536a6c9f36b4ac0cf33c2073dcf3d1">More...</a><br /></td></tr>
 <tr class="separator:a75536a6c9f36b4ac0cf33c2073dcf3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad34b5113f2ea70066cdd258bfcdc404"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#aad34b5113f2ea70066cdd258bfcdc404">upload</a> (std::string_view field_name, std::string_view filename, std::string_view server) const</td></tr>
 <tr class="memdesc:aad34b5113f2ea70066cdd258bfcdc404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload file from filename to server.  <a href="classvk_1_1network__client.html#aad34b5113f2ea70066cdd258bfcdc404">More...</a><br /></td></tr>
 <tr class="separator:aad34b5113f2ea70066cdd258bfcdc404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cccd72e93ca8034edc35c3d43dbbca8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a4cccd72e93ca8034edc35c3d43dbbca8">request_data</a> (std::string_view body, std::string_view data) const</td></tr>
-<tr class="memdesc:a4cccd72e93ca8034edc35c3d43dbbca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute HTTP POST request with text data.  <a href="classvk_1_1network__client.html#a4cccd72e93ca8034edc35c3d43dbbca8">More...</a><br /></td></tr>
-<tr class="separator:a4cccd72e93ca8034edc35c3d43dbbca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94b821c768787f4dcae7b3b69f917a7a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1network__client.html#a94b821c768787f4dcae7b3b69f917a7a">request_data</a> (std::string_view host, std::string_view data) const</td></tr>
+<tr class="memdesc:a94b821c768787f4dcae7b3b69f917a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute HTTP POST request with text data.  <a href="classvk_1_1network__client.html#a94b821c768787f4dcae7b3b69f917a7a">More...</a><br /></td></tr>
+<tr class="separator:a94b821c768787f4dcae7b3b69f917a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -300,8 +300,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4541ec0639409754a927a3ecb0acfbc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4541ec0639409754a927a3ecb0acfbc4">&#9670;&nbsp;</a></span>request()</h2>
+<a id="a987730611db15624097f07a9cfce89f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987730611db15624097f07a9cfce89f4">&#9670;&nbsp;</a></span>request()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,13 +310,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">std::string vk::network_client::request </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>body</em>, </td>
+          <td class="paramname"><em>host</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::map&lt; std::string, std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>params</em> = <code>{&#160;}</code>&#160;</td>
+          <td class="paramname"><em>target</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -328,8 +328,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4cccd72e93ca8034edc35c3d43dbbca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cccd72e93ca8034edc35c3d43dbbca8">&#9670;&nbsp;</a></span>request_data()</h2>
+<a id="a94b821c768787f4dcae7b3b69f917a7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94b821c768787f4dcae7b3b69f917a7a">&#9670;&nbsp;</a></span>request_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,7 +338,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">std::string vk::network_client::request_data </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>body</em>, </td>
+          <td class="paramname"><em>host</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

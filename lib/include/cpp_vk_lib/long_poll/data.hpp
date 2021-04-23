@@ -8,10 +8,11 @@ namespace long_poll {
 /*!
  * @brief Wrapper for data returned by group long poll.
  */
-struct data {
-  std::string key;
-  std::string server;
-  std::string ts;
+struct data
+{
+    std::string key;
+    std::string server;
+    std::string ts;
 };
 }// namespace long_poll
 }// namespace vk

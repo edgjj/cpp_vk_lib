@@ -5,19 +5,20 @@
 namespace vk {
 namespace event {
 class message_new;
-} // namespace event
-} // namespace vk
+}// namespace event
+}// namespace vk
 
 namespace bot {
 namespace command {
 
-class base_command {
-public:
-  virtual void execute(const vk::event::message_new& event) const = 0;
-  virtual ~base_command() = default;
+class base
+{
+  public:
+    virtual void execute(const vk::event::message_new& event) const = 0;
+    virtual ~base() = default;
 };
 
-} // namespace command
-} // namespace bot
+}// namespace command
+}// namespace bot
 
-#endif // BOT_BASE_COMMAND_H
+#endif// BOT_BASE_COMMAND_H

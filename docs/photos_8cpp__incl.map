@@ -1,19 +1,19 @@
 <map id="photos.cpp" name="photos.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="284,5,377,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="136,80,229,107"/>
-<area shape="rect" id="node3" href="$photos_8hpp.html" title=" " alt="" coords="253,80,408,107"/>
-<area shape="rect" id="node13" href="$error__processor_8hpp.html" title=" " alt="" coords="432,80,651,107"/>
-<area shape="rect" id="node4" href="$document_2common_8hpp.html" title=" " alt="" coords="243,155,419,181"/>
-<area shape="rect" id="node5" href="$attachment_8hpp.html" title=" " alt="" coords="270,229,474,256"/>
-<area shape="rect" id="node9" href="$utility_8hpp.html" title=" " alt="" coords="5,229,195,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="495,5,588,32"/>
+<area shape="rect" id="node2" href="$photos_8hpp.html" title=" " alt="" coords="253,80,408,107"/>
+<area shape="rect" id="node12" href="$error__processor_8hpp.html" title=" " alt="" coords="432,80,651,107"/>
+<area shape="rect" id="node17" title=" " alt="" coords="675,80,768,107"/>
+<area shape="rect" id="node3" href="$document_2common_8hpp.html" title=" " alt="" coords="243,155,419,181"/>
+<area shape="rect" id="node4" href="$attachment_8hpp.html" title=" " alt="" coords="270,229,474,256"/>
+<area shape="rect" id="node8" href="$utility_8hpp.html" title=" " alt="" coords="5,229,195,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="267,379,344,405"/>
 <area shape="rect" id="node6" title=" " alt="" coords="203,304,261,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="263,379,340,405"/>
-<area shape="rect" id="node8" title=" " alt="" coords="347,304,410,331"/>
-<area shape="rect" id="node10" href="$net_2client_8hpp.html" title=" " alt="" coords="53,304,163,331"/>
-<area shape="rect" id="node11" title=" " alt="" coords="57,379,154,405"/>
-<area shape="rect" id="node12" title=" " alt="" coords="179,379,229,405"/>
-<area shape="rect" id="node14" href="$exception_8hpp.html" title=" " alt="" coords="450,155,633,181"/>
-<area shape="rect" id="node15" href="$backtrace_8hpp.html" title=" " alt="" coords="609,229,797,256"/>
-<area shape="rect" id="node17" title=" " alt="" coords="498,229,585,256"/>
-<area shape="rect" id="node16" title=" " alt="" coords="663,304,743,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="475,304,538,331"/>
+<area shape="rect" id="node9" href="$net_2client_8hpp.html" title=" " alt="" coords="57,304,167,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="37,379,88,405"/>
+<area shape="rect" id="node11" title=" " alt="" coords="113,379,210,405"/>
+<area shape="rect" id="node13" href="$exception_8hpp.html" title=" " alt="" coords="450,155,633,181"/>
+<area shape="rect" id="node14" href="$backtrace_8hpp.html" title=" " alt="" coords="609,229,797,256"/>
+<area shape="rect" id="node16" title=" " alt="" coords="498,229,585,256"/>
+<area shape="rect" id="node15" title=" " alt="" coords="663,304,743,331"/>
 </map>

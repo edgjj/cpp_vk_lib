@@ -1,8 +1,9 @@
 <map id="wall_post_new.hpp" name="wall_post_new.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="120,5,265,32"/>
-<area shape="rect" id="node2" href="$common__event_8hpp.html" title=" " alt="" coords="32,80,183,107"/>
-<area shape="rect" id="node6" href="$wall__post__new_8cpp.html" title=" " alt="" coords="207,80,351,107"/>
-<area shape="rect" id="node3" href="$api_8hpp.html" title=" " alt="" coords="5,155,76,181"/>
-<area shape="rect" id="node5" href="$common__event_8cpp.html" title=" " alt="" coords="100,155,251,181"/>
-<area shape="rect" id="node4" href="$api_8cpp.html" title=" " alt="" coords="6,229,75,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="74,5,219,32"/>
+<area shape="rect" id="node2" href="$common_8hpp.html" title=" " alt="" coords="5,229,112,256"/>
+<area shape="rect" id="node3" href="$common__event_8hpp.html" title=" " alt="" coords="71,80,222,107"/>
+<area shape="rect" id="node7" href="$wall__post__new_8cpp.html" title=" " alt="" coords="247,80,391,107"/>
+<area shape="rect" id="node4" href="$api_8hpp.html" title=" " alt="" coords="117,155,187,181"/>
+<area shape="rect" id="node6" href="$common__event_8cpp.html" title=" " alt="" coords="211,155,362,181"/>
+<area shape="rect" id="node5" href="$api_8cpp.html" title=" " alt="" coords="136,229,205,256"/>
 </map>

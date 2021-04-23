@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['last_5fname_659',['last_name',['../structvk_1_1conversation__member.html#ac6cf22456deb1b3859454106bcbbdad8',1,'vk::conversation_member']]]
+  ['online_670',['online',['../structvk_1_1conversation__member.html#a8dd521a1af4c91fdd5b218327b112aee',1,'vk::conversation_member']]],
+  ['owner_5fid_671',['owner_id',['../classvk_1_1attachment_1_1base.html#af87a99b9714e7e223d85da8dece6a59a',1,'vk::attachment::base']]]
 ];

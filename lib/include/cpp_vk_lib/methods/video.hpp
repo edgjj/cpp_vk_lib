@@ -10,23 +10,24 @@ namespace method {
  *
  * Please, inherit this class to add new methods.
  */
-class video {
-public:
-  explicit video();
-  explicit video(std::string_view user_token);
+class video
+{
+  public:
+    explicit video();
+    explicit video(std::string_view user_token);
 
-  video(const video&) = default;
-  video(video&&) = default;
-  video& operator=(const video&) = default;
-  video& operator=(video&&) = default;
-  ~video() = default;
+    video(const video&) = default;
+    video(video&&) = default;
+    video& operator=(const video&) = default;
+    video& operator=(video&&) = default;
+    ~video() = default;
 
-  vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
-  void save_by_link(std::string_view url) const;
+    vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
+    void save_by_link(std::string_view url) const;
 
-protected:
-  method::utility method_util;
-  document::common document;
+  protected:
+    method::utility method_util;
+    document::common document;
 };
 }// namespace method
 }// namespace vk
