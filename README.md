@@ -1,7 +1,7 @@
 ![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/CMake/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/threadpoolexecutor/cpp_vk_lib/badge/main)](https://www.codefactor.io/repository/github/threadpoolexecutor/cpp_vk_lib/overview/main)
-[![BCH compliance](https://bettercodehub.com/edge/badge/duonumerouno/cpp_vk_lib?branch=main)](https://bettercodehub.com/)
-[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://duonumerouno.github.io/cpp_vk_lib/index.html)
+[![BCH compliance](https://bettercodehub.com/edge/badge/threadpoolexecutor/cpp_vk_lib?branch=main)](https://bettercodehub.com/)
+[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://threadpoolexecutor.github.io/cpp_vk_lib/index.html)
 
 # cpp_vk_lib
 High performance VK API library
