@@ -1,0 +1,15 @@
+{
+	"api": {
+		"access_token": "access_token",
+		"user_token": "user_token"
+	},
+	"oauth": {
+		"login": "login@gmail.com",
+		"password": "password"
+	},
+	"environment": {
+		"num_workers": 8,
+		"error_logpath": "/tmp/errors.log",
+		"event_logpath": "/tmp/events.log"
+	}
+}

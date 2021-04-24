@@ -8,7 +8,7 @@ add_definitions(-DAPI_V="5.130")
 set(extra_warnings TRUE)
 set(find_leaks FALSE)
 
-set(common_flags "-fPIC -Wall -Wextra -Werror -Weffc++ -pedantic -Wshadow -Wunused-parameter")
+set(common_flags "-fPIC -Wall -Wextra -Weffc++ -pedantic -Wshadow -Wunused-parameter")
 
 if (${find_leaks})
   set(find_leaks_flags "-fsanitize=leak -fstack-protector")

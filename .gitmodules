@@ -1,9 +1,6 @@
 [submodule "dependencies/simdjson"]
 	path = dependencies/simdjson
 	url = https://github.com/simdjson/simdjson.git
-[submodule "spdlog"]
-	path = dependencies/spdlog
-	url = https://github.com/gabime/spdlog.git
 [submodule "dependencies/spdlog"]
 	path = dependencies/spdlog
 	url = https://github.com/gabime/spdlog.git

@@ -1,8 +1,7 @@
-include_directories(../lib/include)
-include_directories(../lib/include/cpp_vk_lib)
-
-add_executable(test main.cpp)
-
-find_library(cpp_vk_lib HINTS "../lib")
-
-target_link_libraries(test cpp_vk_lib curl curlpp pthread gtest)
+add_subdirectory(attachment_tests)
+add_subdirectory(button_tests)
+add_subdirectory(config_tests)
+add_subdirectory(event_tests)
+add_subdirectory(exception_tests)
+add_subdirectory(message_constructor_tests)
+add_subdirectory(string_util_tests)
