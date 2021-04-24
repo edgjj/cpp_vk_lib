@@ -5,28 +5,28 @@
 #include "exception/error_processor.hpp"
 
 vk::event::message_new::message_new(simdjson::dom::object&& event)
-  : _event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
-  , _action()
-  , _attachment_handler()
+  : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
+  , m_action()
+  , m_attachment_handler()
 {
     if (get_event()["reply_message"].is_object())
     {
-        _has_reply = true;
+        m_has_reply = true;
     }
 
     if (get_event()["attachments"].is_array())
     {
-        _has_attachments = true;
+        m_has_attachments = true;
     }
 
     if (get_event()["fwd_messages"].is_array() && get_event()["fwd_messages"].get_array().size() != 0)
     {
-        _has_fwd_messages = true;
+        m_has_attachments = true;
     }
 
     if (get_event()["action"].is_object())
     {
-        _has_action = true;
+        m_has_action = true;
         try_get_actions();
     }
 }
@@ -37,32 +37,32 @@ void vk::event::message_new::try_get_actions()
     std::string action_name = action["type"].get_string().take_value().data();
     if (action_name == "chat_invite_user")
     {
-        _action = action::chat_invite_user{action["member_id"].get_int64()};
+        m_action = action::chat_invite_user{action["member_id"].get_int64()};
     }
     if (action_name == "chat_kick_user")
     {
-        _action = action::chat_kick_user{action["member_id"].get_int64()};
+        m_action = action::chat_kick_user{action["member_id"].get_int64()};
     }
     if (action_name == "chat_pin_message")
     {
-        _action = action::chat_pin_message{
+        m_action = action::chat_pin_message{
             action["member_id"].get_int64(),
             action["conversation_message_id"].get_int64(),
             action["message"].get_c_str().take_value()};
     }
     if (action_name == "chat_unpin_message")
     {
-        _action = action::chat_unpin_message{action["member_id"].get_int64(), action["conversation_message_id"].get_int64()};
+        m_action = action::chat_unpin_message{action["member_id"].get_int64(), action["conversation_message_id"].get_int64()};
     }
     if (action_name == "chat_photo_update")
     {
-        _action = action::chat_photo_update{
+        m_action = action::chat_photo_update{
             // empty
         };
     }
     if (action_name == "chat_title_update")
     {
-        _action = action::chat_title_update{action["text"].get_c_str().take_value()};
+        m_action = action::chat_title_update{action["text"].get_c_str().take_value()};
     }
 }
 
@@ -70,34 +70,34 @@ bool vk::event::message_new::on_action(std::string_view action_type) const noexc
 {
     if (action_type == "chat_invite_user")
     {
-        return std::holds_alternative<action::chat_invite_user>(_action);
+        return std::holds_alternative<action::chat_invite_user>(m_action);
     }
     if (action_type == "chat_kick_user")
     {
-        return std::holds_alternative<action::chat_kick_user>(_action);
+        return std::holds_alternative<action::chat_kick_user>(m_action);
     }
     if (action_type == "chat_pin_message")
     {
-        return std::holds_alternative<action::chat_pin_message>(_action);
+        return std::holds_alternative<action::chat_pin_message>(m_action);
     }
     if (action_type == "chat_unpin_message")
     {
-        return std::holds_alternative<action::chat_unpin_message>(_action);
+        return std::holds_alternative<action::chat_unpin_message>(m_action);
     }
     if (action_type == "chat_photo_update")
     {
-        return std::holds_alternative<action::chat_photo_update>(_action);
+        return std::holds_alternative<action::chat_photo_update>(m_action);
     }
     if (action_type == "chat_title_update")
     {
-        return std::holds_alternative<action::chat_title_update>(_action);
+        return std::holds_alternative<action::chat_title_update>(m_action);
     }
     return false;
 }
 
 simdjson::dom::object& vk::event::message_new::get_event() const
 {
-    return *_event_json;
+    return *m_event_json;
 }
 
 std::int64_t vk::event::message_new::conversation_message_id() const noexcept
@@ -122,24 +122,24 @@ std::string vk::event::message_new::text() const noexcept
 
 bool vk::event::message_new::has_action() const noexcept
 {
-    return _has_action;
+    return m_has_action;
 }
 
 bool vk::event::message_new::has_reply() const noexcept
 {
-    return _has_reply;
+    return m_has_reply;
 }
 
 bool vk::event::message_new::has_fwd_messages() const noexcept
 {
-    return _has_fwd_messages;
+    return m_has_attachments;
 }
 
 vk::action::any_action vk::event::message_new::action() const
 {
-    if (_has_action)
+    if (m_has_action)
     {
-        return _action;
+        return m_action;
     }
     else
     {
@@ -151,9 +151,9 @@ vk::action::any_action vk::event::message_new::action() const
 
 vk::attachment::attachments_t vk::event::message_new::attachments() const
 {
-    if (_has_attachments)
+    if (m_has_attachments)
     {
-        return _attachment_handler.try_get(get_event()["attachments"].get_array());
+        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
     }
     else
     {
@@ -165,7 +165,7 @@ vk::attachment::attachments_t vk::event::message_new::attachments() const
 
 std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const
 {
-    if (_has_fwd_messages)
+    if (m_has_attachments)
     {
         std::vector<std::unique_ptr<message_new>> fwd_messages;
         for (simdjson::dom::element&& fwd_message : get_event()["fwd_messages"].get_array())
@@ -184,7 +184,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
 
 std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const
 {
-    if (_has_reply)
+    if (m_has_reply)
     {
         return std::make_unique<message_new>(get_event()["reply_message"].get_object());
     }

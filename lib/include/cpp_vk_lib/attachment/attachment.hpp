@@ -15,24 +15,24 @@ class base
 {
 public:
     explicit base(std::string_view type_, std::int32_t owner_id_, std::int32_t id_)
-      : attachment_type(type_)
-      , owner_id(owner_id_)
-      , id(id_)
+      : m_attachment_type(type_)
+      , m_owner_id(owner_id_)
+      , m_id(id_)
     {}
     virtual ~base() = default;
     std::string value() const noexcept
     {
-        return attachment_type + std::to_string(owner_id) + '_' + std::to_string(id);
+        return m_attachment_type + std::to_string(m_owner_id) + '_' + std::to_string(m_id);
     }
     std::string_view type() const noexcept
     {
-        return attachment_type;
+        return m_attachment_type;
     }
 
 protected:
-    std::string attachment_type;
-    std::int32_t owner_id;
-    std::int32_t id;
+    std::string m_attachment_type;
+    std::int32_t m_owner_id;
+    std::int32_t m_id;
 };
 
 class photo : public base

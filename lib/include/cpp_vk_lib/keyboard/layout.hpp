@@ -42,14 +42,14 @@ public:
     bool has_flag(flag flag_) const noexcept;
 
 private:
-    std::string serialized;
+    std::string m_serialized;
     /*!
      * @brief Button grid container.
      *
      * Example: for 2x2 layout: [[button1,button2],[button3,button4]].
      */
-    std::vector<std::vector<any_button>> buttons{};
-    flag flags = vk::keyboard::flag::none;
+    std::vector<std::vector<any_button>> m_buttons{};
+    flag m_flags = vk::keyboard::flag::none;
 };
 
 }// namespace keyboard

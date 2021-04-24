@@ -14,12 +14,11 @@ TEST(task_queue, future_tasks)
 
     for (size_t i = 0; i < 10; i++)
     {
-        tasks.emplace_back(
-            task_queue.push_future_task([_i = i]{
-                using namespace std::chrono_literals;
-                std::this_thread::sleep_for(100ms);
-                return _i;
-            }));
+        tasks.emplace_back(task_queue.push_future_task([_i = i] {
+            using namespace std::chrono_literals;
+            std::this_thread::sleep_for(100ms);
+            return _i;
+        }));
     }
 
     task_queue.start();
@@ -45,7 +44,7 @@ TEST(task_queue, void_tasks)
 
     for (size_t i = 0; i < 10; i++)
     {
-        successfully_completed_tasks.push_back(task_queue.push_void_task([]{
+        successfully_completed_tasks.push_back(task_queue.push_void_task([] {
             using namespace std::chrono_literals;
             std::this_thread::sleep_for(100ms);
         }));

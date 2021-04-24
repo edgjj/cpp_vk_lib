@@ -26,8 +26,8 @@ public:
     void save_by_link(std::string_view url) const;
 
 protected:
-    method::utility method_util;
-    document::common document;
+    method::utility m_method_util;
+    document::common m_document;
 };
 }// namespace method
 }// namespace vk

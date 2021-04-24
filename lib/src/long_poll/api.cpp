@@ -5,17 +5,17 @@
 #include "spdlog/spdlog.h"
 
 vk::long_poll::api::api(std::int64_t update_interval_)
-  : update_interval(update_interval_)
-  , groups()
-  , group_id(groups.get_by_id())
-  , task_queue(config::num_workers())
+  : m_update_interval(update_interval_)
+  , m_groups()
+  , m_group_id(m_groups.get_by_id())
+  , m_task_queue(config::num_workers())
 {
-    spdlog::info("Long poll: group id - {}", group_id);
+    spdlog::info("Long poll: group id - {}", m_group_id);
 }
 
 vk::long_poll::data vk::long_poll::api::server() const
 {
-    simdjson::dom::object server(groups.get_long_poll_server(group_id));
+    simdjson::dom::object server(m_groups.get_long_poll_server(m_group_id));
     return {server["key"].get_c_str().take_value(), server["server"].get_c_str().take_value(), server["ts"].get_c_str().take_value()};
 }
 
@@ -33,7 +33,7 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
     events_t event_list;
     simdjson::dom::object updates_json = get_updates(data, timeout);
     simdjson::dom::array updates = updates_json["updates"].get_array();
-    if (std::time(nullptr) % update_interval == 0)
+    if (std::time(nullptr) % m_update_interval == 0)
     {
         data = server();
     }
@@ -48,6 +48,6 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
 
 void vk::long_poll::api::run()
 {
-    task_queue.start();
-    task_queue.wait_for_completion();
+    m_task_queue.start();
+    m_task_queue.wait_for_completion();
 }

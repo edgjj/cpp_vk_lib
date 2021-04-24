@@ -5,7 +5,7 @@
 
 bool vk::method::utils::check_link(std::string_view url) const
 {
-    simdjson::dom::object response = method_util.call_and_parse("utils.checkLink", method_util.group_args({{"url", url.data()}}));
+    simdjson::dom::object response = m_method_util.call_and_parse("utils.checkLink", m_method_util.group_args({{"url", url.data()}}));
 
     if (response.begin().key() == "error")
     {
@@ -17,7 +17,7 @@ bool vk::method::utils::check_link(std::string_view url) const
 
 std::string vk::method::utils::get_short_link(std::string_view url) const
 {
-    simdjson::dom::object response = method_util.call_and_parse("utils.getShortLink", method_util.group_args({{"url", url.data()}}));
+    simdjson::dom::object response = m_method_util.call_and_parse("utils.getShortLink", m_method_util.group_args({{"url", url.data()}}));
 
     if (response.begin().key() == "error")
     {
@@ -32,7 +32,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) const
 {
     simdjson::dom::object response =
-        method_util.call_and_parse("utils.resolveScreenName", method_util.group_args({{"screen_name", screen_name.data()}}));
+        m_method_util.call_and_parse("utils.resolveScreenName", m_method_util.group_args({{"screen_name", screen_name.data()}}));
 
     if (response["response"].get_array().size() == 0)
     {

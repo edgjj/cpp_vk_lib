@@ -42,9 +42,9 @@ public:
     vk::attachment::attachments_t search(std::string_view method, std::string_view query, std::int64_t count) const;
 
 private:
-    std::shared_ptr<simdjson::dom::parser> parser;
-    method::utility method_util;
-    network_client net_client;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
+    method::utility m_method_util;
+    network_client m_net_client;
 };
 }// namespace document
 }// namespace vk

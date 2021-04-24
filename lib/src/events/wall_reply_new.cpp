@@ -4,12 +4,12 @@
 #include "simdjson.h"
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
-  : _event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
-  , _attachment_handler()
+  : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
+  , m_attachment_handler()
 {
     if (get_event()["attachments"].is_array() && get_event()["attachments"].get_array().size() > 0)
     {
-        _has_attachments = true;
+        m_has_attachments = true;
     }
 }
 
@@ -40,14 +40,14 @@ std::string vk::event::wall_reply_new::text() const noexcept
 
 bool vk::event::wall_reply_new::has_attachments() const noexcept
 {
-    return _has_attachments;
+    return m_has_attachments;
 }
 
 vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const
 {
-    if (_has_attachments)
+    if (m_has_attachments)
     {
-        return _attachment_handler.try_get(get_event()["attachments"].get_array());
+        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
     }
     else
     {

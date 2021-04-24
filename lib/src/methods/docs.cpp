@@ -5,29 +5,29 @@
 #include "string_utils/string_utils.hpp"
 
 vk::method::docs::docs()
-  : parser(std::make_shared<simdjson::dom::parser>())
-  , method_util()
-  , document()
+  : m_parser(std::make_shared<simdjson::dom::parser>())
+  , m_method_util()
+  , m_document()
 {}
 
 vk::method::docs::docs(std::string_view user_token)
-  : parser(std::make_shared<simdjson::dom::parser>())
-  , method_util(user_token.data())
-  , document(user_token.data())
+  : m_parser(std::make_shared<simdjson::dom::parser>())
+  , m_method_util(user_token.data())
+  , m_document(user_token.data())
 {}
 
 vk::method::docs::~docs() = default;
 
 vk::attachment::attachments_t vk::method::docs::search(std::string_view query, std::int64_t count) const
 {
-    return document.search("docs.search", query, count);
+    return m_document.search("docs.search", query, count);
 }
 
 void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags) const
 {
-    simdjson::dom::object response = method_util.call_and_parse(
+    simdjson::dom::object response = m_method_util.call_and_parse(
         "docs.edit",
-        method_util.user_args(
+        m_method_util.user_args(
             {{"owner_id", std::to_string(owner_id)},
              {"doc_id", std::to_string(doc_id)},
              {"title", title.data()},
@@ -41,9 +41,9 @@ void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view t
 
 void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 {
-    simdjson::dom::object response = method_util.call_and_parse(
+    simdjson::dom::object response = m_method_util.call_and_parse(
         "docs.delete",
-        method_util.user_args({{"owner_id", std::to_string(owner_id)}, {"doc_id", std::to_string(doc_id)}}));
+        m_method_util.user_args({{"owner_id", std::to_string(owner_id)}, {"doc_id", std::to_string(doc_id)}}));
 
     if (response.begin().key() == "error")
     {
@@ -53,25 +53,25 @@ void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 
 std::string vk::method::docs::get_upload_server(std::int64_t group_id) const
 {
-    return method_util.call("docs.getUploadServer", method_util.group_args({{"group_id", std::to_string(group_id)}}));
+    return m_method_util.call("docs.getUploadServer", m_method_util.group_args({{"group_id", std::to_string(group_id)}}));
 }
 
 std::string vk::method::docs::get_wall_upload_server(int64_t group_id) const
 {
-    return method_util.call("docs.getWallUploadServer", method_util.group_args({{"group_id", std::to_string(group_id)}}));
+    return m_method_util.call("docs.getWallUploadServer", m_method_util.group_args({{"group_id", std::to_string(group_id)}}));
 }
 
 std::string vk::method::docs::get_messages_upload_server(std::string_view type, int64_t peer_id) const
 {
-    return method_util.call(
+    return m_method_util.call(
         "docs.getMessagesUploadServer",
-        method_util.group_args({{"peer_id", std::to_string(peer_id)}, {"type", type.data()}}));
+        m_method_util.group_args({{"peer_id", std::to_string(peer_id)}, {"type", type.data()}}));
 }
 
 std::shared_ptr<vk::attachment::audio_message>
 vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) const
 {
-    simdjson::dom::object upload_response = document.upload(filename, raw_server, "file");
+    simdjson::dom::object upload_response = m_document.upload(filename, raw_server, "file");
 
     if (upload_response.begin().key() != "file")
     {
@@ -83,9 +83,9 @@ vk::method::docs::save_audio_message(std::string_view filename, std::string_view
     {
         return {};
     }
-    std::string raw_save_response = method_util.call("docs.save", method_util.group_args({{"file", file}, {"title", "voice"}}));
+    std::string raw_save_response = m_method_util.call("docs.save", m_method_util.group_args({{"file", file}, {"title", "voice"}}));
 
-    simdjson::dom::object uploaded_doc = parser->parse(raw_save_response)["response"]["audio_message"];
+    simdjson::dom::object uploaded_doc = m_parser->parse(raw_save_response)["response"]["audio_message"];
 
     return std::make_shared<vk::attachment::audio_message>(
         uploaded_doc["owner_id"].get_int64(),

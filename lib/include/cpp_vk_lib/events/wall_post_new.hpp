@@ -86,14 +86,12 @@ public:
     attachment::attachments_t attachments() const noexcept;
 
 private:
-    simdjson::dom::object& get_event() const
-    {
-        return *_event_json;
-    }
-    std::shared_ptr<simdjson::dom::object> _event_json;
-    attachment_handler _attachment_handler;
-    bool _has_attachments = false;
-    bool _has_repost = false;
+    simdjson::dom::object& get_event() const;
+
+    std::shared_ptr<simdjson::dom::object> m_event_json;
+    attachment_handler m_attachment_handler;
+    bool m_has_attachments = false;
+    bool m_has_repost = false;
 };
 }// namespace event
 }// namespace vk

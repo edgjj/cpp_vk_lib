@@ -100,14 +100,14 @@ private:
     void try_get_actions();
     simdjson::dom::object& get_event() const;
 
-    std::shared_ptr<simdjson::dom::object> _event_json;
-    action::any_action _action;
-    bool _has_action = false;
-    bool _has_reply = false;
-    bool _has_fwd_messages = false;
-    bool _has_attachments = false;
+    std::shared_ptr<simdjson::dom::object> m_event_json;
+    action::any_action m_action;
+    bool m_has_action = false;
+    bool m_has_reply = false;
+    bool m_has_fwd_messages = false;
+    bool m_has_attachments = false;
 
-    attachment_handler _attachment_handler;
+    attachment_handler m_attachment_handler;
 };
 }// namespace event
 }// namespace vk

@@ -31,9 +31,9 @@ public:
     std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
 
 protected:
-    std::shared_ptr<simdjson::dom::parser> parser;
-    method::utility method_util;
-    document::common document;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
+    method::utility m_method_util;
+    document::common m_document;
 };
 }// namespace method
 }// namespace vk

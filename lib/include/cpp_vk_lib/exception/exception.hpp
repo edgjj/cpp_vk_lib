@@ -17,12 +17,12 @@ class common_exception : public std::exception
 public:
     const char* what() const noexcept override
     {
-        return error.what();
+        return m_error.what();
     }
 
 protected:
     explicit common_exception(std::string_view what_arg)
-      : error(what_arg.data())
+      : m_error(what_arg.data())
     {
         processing::backtrace_view{};
     }
@@ -32,7 +32,7 @@ protected:
     }
 
 private:
-    std::runtime_error error;
+    std::runtime_error m_error;
 };
 
 class upload_error : public common_exception

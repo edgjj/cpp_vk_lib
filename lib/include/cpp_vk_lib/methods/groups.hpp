@@ -14,7 +14,7 @@ class groups
 {
 public:
     explicit groups()
-      : method_util()
+      : m_method_util()
     {}
 
     groups(const groups&) = default;
@@ -27,7 +27,7 @@ public:
     simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
 
 protected:
-    method::utility method_util;
+    method::utility m_method_util;
 };
 }// namespace method
 }// namespace vk

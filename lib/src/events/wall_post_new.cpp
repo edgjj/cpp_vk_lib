@@ -5,17 +5,17 @@
 #include "simdjson.h"
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event)
-  : _event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
-  , _attachment_handler()
+  : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
+  , m_attachment_handler()
 {
     if (get_event()["attachments"].is_array())
     {
-        _has_attachments = true;
+        m_has_attachments = true;
     }
 
     if (get_event()["copy_history"].is_array())
     {
-        _has_repost = true;
+        m_has_repost = true;
     }
 }
 
@@ -61,19 +61,24 @@ bool vk::event::wall_post_new::marked_as_ads() const noexcept
 
 bool vk::event::wall_post_new::has_attachments() const noexcept
 {
-    return _has_attachments;
+    return m_has_attachments;
 }
 
 bool vk::event::wall_post_new::has_repost() const noexcept
 {
-    return _has_repost;
+    return m_has_repost;
+}
+
+simdjson::dom::object& vk::event::wall_post_new::get_event() const
+{
+    return *m_event_json;
 }
 
 vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noexcept
 {
-    if (vk_likely(_has_attachments))
+    if (vk_likely(m_has_attachments))
     {
-        return _attachment_handler.try_get(get_event()["attachments"].get_array());
+        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
     }
     else
     {
@@ -87,7 +92,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
 {
     simdjson::dom::object repost_json = get_event()["copy_history"].get_array().at(0).get_object();
 
-    if (vk_likely(_has_repost))
+    if (vk_likely(m_has_repost))
     {
         std::shared_ptr<wall_repost> repost = std::make_shared<wall_repost>(
             repost_json["id"].get_int64(),
@@ -96,7 +101,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
             repost_json["text"].get_c_str().take_value());
         if (repost_json["attachments"].is_array() && repost_json["attachments"].get_array().size() > 0)
         {
-            repost->construct_attachments(_attachment_handler.try_get(repost_json["attachments"].get_array()));
+            repost->construct_attachments(m_attachment_handler.try_get(repost_json["attachments"].get_array()));
         }
         return repost;
     }

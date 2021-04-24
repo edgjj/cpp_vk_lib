@@ -6,10 +6,10 @@
 #include "simdjson.h"
 
 vk::method::messages::messages(bool disable_mentions_flag_)
-  : disable_mentions_flag(disable_mentions_flag_)
-  , parser(std::make_shared<simdjson::dom::parser>())
-  , document()
-  , method_util()
+  : m_disable_mentions_flag(disable_mentions_flag_)
+  , m_parser(std::make_shared<simdjson::dom::parser>())
+  , m_document()
+  , m_method_util()
 {}
 
 vk::method::messages::~messages() = default;
@@ -39,49 +39,49 @@ construct_with_raw_parameters_impl(bool disable_mentions_flag, std::int64_t peer
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text, attachment::attachments_t&& list) const
 {
     auto constructed_message = construct_with_attachments_impl(disable_mentions, peer_id, text, std::move(list));
-    method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list) const
 {
     auto constructed_message = construct_with_attachments_impl(disable_mentions, peer_id, text, list);
-    method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) const
 {
     auto constructed_message = construct_with_raw_parameters_impl(disable_mentions, peer_id, text, std::move(raw_parameters));
-    method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const std::map<std::string, std::string>& raw_parameters) const
 {
     auto constructed_message = construct_with_raw_parameters_impl(disable_mentions, peer_id, text, raw_parameters);
-    method_util.call("messages.send", method_util.group_args(constructed_message.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructed_message.consume_map()));
 }
 
 void vk::method::messages::send(int64_t peer_id, std::string_view text, std::string_view layout) const
 {
-    message_constructor constructor(disable_mentions_flag);
+    message_constructor constructor(m_disable_mentions_flag);
     constructor.append({"peer_id", std::to_string(peer_id)});
     constructor.append({"message", text.data()});
     constructor.append({"keyboard", layout.data()});
-    method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::send(std::int64_t peer_id, std::string_view text) const
 {
-    message_constructor constructor(disable_mentions_flag);
+    message_constructor constructor(m_disable_mentions_flag);
     constructor.append({"peer_id", std::to_string(peer_id)});
     constructor.append({"message", text.data()});
-    method_util.call("messages.send", method_util.group_args(constructor.consume_map()));
+    m_method_util.call("messages.send", m_method_util.group_args(constructor.consume_map()));
 }
 
 void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t user_id) const
 {
-    simdjson::dom::object response = method_util.call_and_parse(
+    simdjson::dom::object response = m_method_util.call_and_parse(
         "messages.removeChatUser",
-        method_util.group_args({{"chat_id", std::to_string(chat_id)}, {"user_id", std::to_string(user_id)}, {"random_id", "0"}}));
+        m_method_util.group_args({{"chat_id", std::to_string(chat_id)}, {"user_id", std::to_string(user_id)}, {"random_id", "0"}}));
 
     if (response.begin().key() == "response" && response["response"].get_int64() == 1)
     {
@@ -95,18 +95,18 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
 
 void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_title) const
 {
-    method_util.call(
+    m_method_util.call(
         "messages.editChat",
-        method_util.group_args(
-            {{"chat_id", std::to_string(chat_id - method_util.chat_id_constant)}, {"title", new_title.data()}, {"random_id", "0"}}));
+        m_method_util.group_args(
+            {{"chat_id", std::to_string(chat_id - m_method_util.chat_id_constant)}, {"title", new_title.data()}, {"random_id", "0"}}));
 }
 
 void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) const
 {
-    simdjson::dom::object response = method_util.call_and_parse(
+    simdjson::dom::object response = m_method_util.call_and_parse(
         "messages.deleteChatPhoto",
-        method_util.group_args(
-            {{"chat_id", std::to_string(chat_id - method_util.chat_id_constant)}, {"group_id", std::to_string(group_id)}}));
+        m_method_util.group_args(
+            {{"chat_id", std::to_string(chat_id - m_method_util.chat_id_constant)}, {"group_id", std::to_string(group_id)}}));
 
     if (response.begin().key() == "error")
     {
@@ -116,9 +116,9 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
 
 void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t conversation_message_id) const
 {
-    simdjson::dom::object response = method_util.call_and_parse(
+    simdjson::dom::object response = m_method_util.call_and_parse(
         "messages.pin",
-        method_util.group_args(
+        m_method_util.group_args(
             {{"peer_id", std::to_string(peer_id)},
              {"message_id", std::to_string(message_id)},
              {"conversation_message_id", std::to_string(conversation_message_id)}}));
@@ -131,14 +131,14 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const
 {
-    simdjson::dom::object response = document.upload(filename, raw_server, "file");
-    method_util.call("messages.setChatPhoto", method_util.group_args({{"file", response["response"].get_c_str().take_value()}}));
+    simdjson::dom::object response = m_document.upload(filename, raw_server, "file");
+    m_method_util.call("messages.setChatPhoto", m_method_util.group_args({{"file", response["response"].get_c_str().take_value()}}));
 }
 
 vk::conversation_member_list vk::method::messages::get_conversation_members(int64_t peer_id) const
 {
     simdjson::dom::object response =
-        method_util.call_and_parse("messages.getConversationMembers", method_util.group_args({{"peer_id", std::to_string(peer_id)}}));
+        m_method_util.call_and_parse("messages.getConversationMembers", m_method_util.group_args({{"peer_id", std::to_string(peer_id)}}));
 
     if (response.begin().key() == "error")
     {

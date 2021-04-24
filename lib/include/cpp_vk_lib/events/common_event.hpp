@@ -59,9 +59,9 @@ public:
     wall_reply_new get_wall_reply_event() const;
 
 private:
-    std::string _ts;
-    std::string _update_type;
-    std::shared_ptr<simdjson::dom::object> _event;
+    std::string m_ts;
+    std::string m_update_type;
+    std::shared_ptr<simdjson::dom::object> m_event;
 };
 }// namespace event
 }// namespace vk

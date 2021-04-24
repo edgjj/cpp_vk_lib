@@ -3,14 +3,14 @@
 #include <algorithm>
 
 vk::keyboard::layout::layout(vk::keyboard::flag flags_)
-  : serialized()
-  , buttons()
-  , flags(flags_)
+  : m_serialized()
+  , m_buttons()
+  , m_flags(flags_)
 {}
 
 void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& row)
 {
-    buttons.push_back(row);
+    m_buttons.push_back(row);
 }
 
 template <typename _Button_type>
@@ -42,22 +42,22 @@ static std::string create_button(const vk::keyboard::any_button& any_button)
 
 void vk::keyboard::layout::serialize()
 {
-    serialized.push_back('{');
+    m_serialized.push_back('{');
 
     if (has_flag(flag::in_line))
     {
-        serialized.append(R"("inline":true,)");
+        m_serialized.append(R"("inline":true,)");
     }
     if (has_flag(flag::one_time))
     {
-        serialized.append(R"("one_time":true,)");
+        m_serialized.append(R"("one_time":true,)");
     }
 
-    serialized.append(R"("buttons":[)");
+    m_serialized.append(R"("buttons":[)");
 
     std::vector<std::string> serialized_rows;
 
-    for (auto&& row : buttons)
+    for (auto&& row : m_buttons)
     {
         std::vector<std::string> serialized_buttons;
         for (auto&& any_button : row)
@@ -67,17 +67,17 @@ void vk::keyboard::layout::serialize()
         serialized_rows.push_back('[' + string_utils::join<std::string>(serialized_buttons) + ']');
     }
 
-    serialized += string_utils::join<std::string>(serialized_rows);
+    m_serialized += string_utils::join<std::string>(serialized_rows);
 
-    serialized.append("]}");
+    m_serialized.append("]}");
 }
 
 std::string vk::keyboard::layout::get() const noexcept
 {
-    return serialized;
+    return m_serialized;
 }
 
 bool vk::keyboard::layout::has_flag(vk::keyboard::flag flag_) const noexcept
 {
-    return ((flags & flag_) > 0);
+    return ((m_flags & flag_) > 0);
 }

@@ -26,9 +26,9 @@ public:
     void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const;
 
 protected:
-    std::shared_ptr<simdjson::dom::parser> parser;
-    document::common document;
-    method::utility method_util;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
+    document::common m_document;
+    method::utility m_method_util;
 };
 }// namespace method
 }// namespace vk

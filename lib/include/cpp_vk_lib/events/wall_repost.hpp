@@ -17,11 +17,11 @@ class wall_repost
 {
 public:
     wall_repost(std::int64_t id, std::int64_t from_id, std::int64_t owner_id, std::string text)
-      : _id(id)
-      , _from_id(from_id)
-      , _owner_id(owner_id)
-      , _text(text)
-      , _attachments()
+      : m_id(id)
+      , m_from_id(from_id)
+      , m_owner_id(owner_id)
+      , m_text(text)
+      , m_attachments()
     {}
     wall_repost(const wall_repost&) = default;
     wall_repost(wall_repost&&) = default;
@@ -31,35 +31,35 @@ public:
 
     void construct_attachments(attachment::attachments_t&& attachments)
     {
-        _attachments = attachments;
+        m_attachments = attachments;
     }
     std::int64_t id() const noexcept
     {
-        return _id;
+        return m_id;
     }
     std::int64_t from_id() const noexcept
     {
-        return _from_id;
+        return m_from_id;
     }
     std::int64_t owner_id() const noexcept
     {
-        return _owner_id;
+        return m_owner_id;
     }
     std::string text() const noexcept
     {
-        return _text;
+        return m_text;
     }
     attachment::attachments_t attachments() const noexcept
     {
-        return _attachments;
+        return m_attachments;
     }
 
 private:
-    std::int64_t _id;
-    std::int64_t _from_id;
-    std::int64_t _owner_id;
-    std::string _text;
-    attachment::attachments_t _attachments;
+    std::int64_t m_id;
+    std::int64_t m_from_id;
+    std::int64_t m_owner_id;
+    std::string m_text;
+    attachment::attachments_t m_attachments;
 };
 }// namespace event
 }// namespace vk

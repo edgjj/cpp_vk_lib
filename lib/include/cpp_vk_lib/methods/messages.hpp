@@ -56,10 +56,10 @@ public:
     conversation_member_list get_conversation_members(std::int64_t peer_id) const;
 
 protected:
-    bool disable_mentions_flag;
-    std::shared_ptr<simdjson::dom::parser> parser;
-    document::common document;
-    method::utility method_util;
+    bool m_disable_mentions_flag;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
+    document::common m_document;
+    method::utility m_method_util;
 };
 }// namespace method
 }// namespace vk

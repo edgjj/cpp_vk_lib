@@ -65,12 +65,12 @@ public:
 private:
     simdjson::dom::object& get_event() const
     {
-        return *_event_json;
+        return *m_event_json;
     }
 
-    std::shared_ptr<simdjson::dom::object> _event_json;
-    bool _has_attachments = false;
-    attachment_handler _attachment_handler;
+    std::shared_ptr<simdjson::dom::object> m_event_json;
+    bool m_has_attachments = false;
+    attachment_handler m_attachment_handler;
 };
 }// namespace event
 }// namespace vk

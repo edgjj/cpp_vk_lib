@@ -25,47 +25,47 @@ public:
 
     std::string username() const noexcept
     {
-        return username_;
+        return m_username;
     }
     std::string password() const noexcept
     {
-        return password_;
+        return m_password;
     }
     std::string& user_token_instance() noexcept
     {
-        return user_token_;
+        return m_user_token;
     }
     std::string user_token() const noexcept
     {
-        return user_token_;
+        return m_user_token;
     }
     std::string access_token() const noexcept
     {
-        return access_token_;
+        return m_access_token;
     }
     std::string error_logpath() const noexcept
     {
-        return error_logpath_;
+        return m_error_logpath;
     }
     std::string event_logpath() const noexcept
     {
-        return event_logpath_;
+        return m_event_logpath;
     }
     std::int64_t num_workers() const noexcept
     {
-        return num_workers_;
+        return m_num_workers;
     }
 
 private:
     loader(std::string_view path);
 
-    std::string username_{};
-    std::string password_{};
-    std::string user_token_{};
-    std::string access_token_{};
-    std::string error_logpath_{};
-    std::string event_logpath_{};
-    std::int8_t num_workers_{};
+    std::string m_username{};
+    std::string m_password{};
+    std::string m_user_token{};
+    std::string m_access_token{};
+    std::string m_error_logpath{};
+    std::string m_event_logpath{};
+    std::int8_t m_num_workers{};
 
     static loader* instance;
 };

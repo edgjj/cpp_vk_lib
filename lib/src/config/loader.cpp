@@ -27,11 +27,11 @@ vk::config::loader::loader(std::string_view path)
     simdjson::dom::parser parser;
     simdjson::dom::element element = parser.load(path.data());
 
-    username_ = element["oauth"]["login"];
-    password_ = element["oauth"]["password"];
-    user_token_ = element["api"]["user_token"].get_c_str().take_value();
-    access_token_ = element["api"]["access_token"].get_c_str().take_value();
-    error_logpath_ = element["environment"]["error_logpath"].get_c_str().take_value();
-    event_logpath_ = element["environment"]["event_logpath"].get_c_str().take_value();
-    num_workers_ = element["environment"]["num_workers"].get_int64();
+    m_username = element["oauth"]["login"];
+    m_password = element["oauth"]["password"];
+    m_user_token = element["api"]["user_token"].get_c_str().take_value();
+    m_access_token = element["api"]["access_token"].get_c_str().take_value();
+    m_error_logpath = element["environment"]["error_logpath"].get_c_str().take_value();
+    m_event_logpath = element["environment"]["event_logpath"].get_c_str().take_value();
+    m_num_workers = element["environment"]["num_workers"].get_int64();
 }

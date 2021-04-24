@@ -24,7 +24,7 @@ public:
     std::int64_t resolve_screen_name(std::string_view screen_name) const;
 
 protected:
-    method::utility method_util;
+    method::utility m_method_util;
 };
 }// namespace method
 }// namespace vk

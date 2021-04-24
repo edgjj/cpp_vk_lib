@@ -50,7 +50,7 @@ public:
     void queue(Function&& function)
     {
         //    task_queue.queue(std::move(function));
-        task_queue.push_void_task(std::move(function));
+        m_task_queue.push_void_task(std::move(function));
     }
     /*!
      * @brief Pop and execute task from thread pool queue.
@@ -58,13 +58,13 @@ public:
     void run();
 
 private:
-    std::int64_t update_interval;
+    std::int64_t m_update_interval;
     /*!
      * @brief Class with group long poll methods.
      */
-    method::groups groups;
-    std::int64_t group_id;
-    processing::task_queue task_queue;
+    method::groups m_groups;
+    std::int64_t m_group_id;
+    processing::task_queue m_task_queue;
 };
 }// namespace long_poll
 }// namespace vk

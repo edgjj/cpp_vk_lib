@@ -26,50 +26,50 @@ public:
     static inline bool enable_mentions = false;
 
     message_constructor(bool disable_mentions_flag)
-      : params()
+      : m_params()
     {
-        params.emplace("random_id", "0");
+        m_params.emplace("random_id", "0");
         if (disable_mentions_flag)
         {
-            params.emplace("disable_mentions", "1");
+            m_params.emplace("disable_mentions", "1");
         }
         else
         {
-            params.emplace("disable_mentions", "0");
+            m_params.emplace("disable_mentions", "0");
         }
     }
 
     void append(std::pair<std::string, std::string>&& pair)
     {
-        params.emplace(std::move(pair));
+        m_params.emplace(std::move(pair));
     }
     void append(const std::pair<std::string, std::string>& pair)
     {
-        params.emplace(pair);
+        m_params.emplace(pair);
     }
 
     void append_map(parameter_t&& additional_params)
     {
-        params.merge(std::move(additional_params));
+        m_params.merge(std::move(additional_params));
     }
     void append_map(const parameter_t& additional_params)
     {
-        params.insert(additional_params.begin(), additional_params.end());
+        m_params.insert(additional_params.begin(), additional_params.end());
     }
 
     template <typename _Attachment_List>
     void append_attachments(_Attachment_List&& attachments)
     {
-        params.emplace("attachment", append_attachments_impl(std::forward<_Attachment_List>(attachments)).data());
+        m_params.emplace("attachment", append_attachments_impl(std::forward<_Attachment_List>(attachments)).data());
     }
 
     parameter_t&& consume_map() noexcept
     {
-        return std::move(params);
+        return std::move(m_params);
     }
     parameter_t map() const noexcept
     {
-        return params;
+        return m_params;
     }
 
 private:
@@ -85,7 +85,7 @@ private:
         }
         return result;
     }
-    parameter_t params;
+    parameter_t m_params;
 };
 }// namespace method
 }// namespace vk
