@@ -6,10 +6,12 @@ static std::shared_ptr<vk::attachment::photo> get_photo(const simdjson::dom::ele
 {
     return std::make_shared<vk::attachment::photo>(attachment["photo"]["owner_id"].get_int64(), attachment["photo"]["id"].get_int64());
 }
+
 static std::shared_ptr<vk::attachment::video> get_video(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::video>(attachment["video"]["owner_id"].get_int64(), attachment["video"]["id"].get_int64());
 }
+
 static std::shared_ptr<vk::attachment::document> get_doc(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::document>(
@@ -17,10 +19,12 @@ static std::shared_ptr<vk::attachment::document> get_doc(const simdjson::dom::el
         attachment["doc"]["id"].get_int64(),
         attachment["doc"]["url"].get_string());
 }
+
 static std::shared_ptr<vk::attachment::audio> get_audio(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::audio>(attachment["audio"]["owner_id"].get_int64(), attachment["audio"]["id"].get_int64());
 }
+
 static std::shared_ptr<vk::attachment::audio_message> get_audio_message(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::audio_message>(
@@ -29,6 +33,7 @@ static std::shared_ptr<vk::attachment::audio_message> get_audio_message(const si
         attachment["audio_message"]["link_ogg"].get_string(),
         attachment["audio_message"]["link_mp3"].get_string());
 }
+
 static std::shared_ptr<vk::attachment::wall> get_wall(const simdjson::dom::element& attachment)
 {
     return std::make_shared<vk::attachment::wall>(attachment["wall"]["from_id"].get_int64(), attachment["wall"]["id"].get_int64());
