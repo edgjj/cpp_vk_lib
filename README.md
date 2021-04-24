@@ -18,38 +18,32 @@ High performance VK API library
 ## Dependencies
 	- curlpp
 
-## Run tests
-
-In `cpp_vk_lib` directory:
-```
-cmake .
-cmake --build .
-./build/test
-```
-
 ## Example reply bot
 
 ```
 #include "cpp_vk_lib/long_poll/api.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
 
-int main() {
-  const std::size_t new_server_interval_secs = 5;
-  const std::size_t lp_timeout_secs = 60;
+int main()
+{
+    const std::size_t new_server_interval_secs = 5;
+    const std::size_t lp_timeout_secs = 60;
 
-  vk::config::load("/path/to/config.json");
-  vk::long_poll::api api(new_server_interval_secs);
-  vk::long_poll::data data = api.server();
-  vk::method::messages messages(vk::method::messages::disable_mentions);
-  while (true) {
-    for (auto&& event : api.listen(data, lp_timeout_secs)) {
-      api.on_event("message_new", *event, [&event, &messages]{
-        auto message_event = event->get_message_event();
-        messages.send(message_event.peer_id(), "response");
-      });
-      api.run();
+    vk::config::load("/path/to/config.json");
+    vk::long_poll::api api(new_server_interval_secs);
+    vk::long_poll::data data = api.server();
+    vk::method::messages messages(vk::method::messages::disable_mentions);
+    while (true)
+    {
+        for (auto&& event : api.listen(data, lp_timeout_secs))
+	{
+            api.on_event("message_new", *event, [&event, &messages]{
+                auto message_event = event->get_message_event();
+                messages.send(message_event.peer_id(), "response");
+            });
+            api.run();
+	}
     }
-  }
 }
 
 ```
