@@ -132,6 +132,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
             << "can_delete?     " << std::boolalpha << event.can_delete() << std::endl;
     ostream << "  "
             << "marked_as_ads?  " << std::boolalpha << event.marked_as_ads() << std::endl;
+
     auto append_attachments = [&ostream](const auto& attachments) {
         for (auto& attachment : attachments)
         {
@@ -140,10 +141,12 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
             ostream << std::endl;
         }
     };
+
     if (event.has_attachments())
     {
         append_attachments(event.attachments());
     }
+
     if (event.has_repost())
     {
         ostream << "  "
@@ -160,6 +163,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
         ostream << "  "
                 << "  "
                 << "text:       " << event.repost()->text() << std::endl;
+
         if (!event.repost()->attachments().empty())
         {
             append_attachments(event.repost()->attachments());

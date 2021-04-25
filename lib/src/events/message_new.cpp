@@ -168,7 +168,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     if (m_has_attachments)
     {
         std::vector<std::unique_ptr<message_new>> fwd_messages;
-        for (simdjson::dom::element&& fwd_message : get_event()["fwd_messages"].get_array())
+        for (const simdjson::dom::element& fwd_message : get_event()["fwd_messages"].get_array())
         {
             fwd_messages.emplace_back(std::make_unique<message_new>(fwd_message));
         }

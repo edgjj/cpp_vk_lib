@@ -79,10 +79,12 @@ vk::method::docs::save_audio_message(std::string_view filename, std::string_view
     }
 
     std::string file(upload_response["file"].get_c_str());
+
     if (file == "")
     {
         return {};
     }
+
     std::string raw_save_response = m_method_util.call("docs.save", m_method_util.group_args({{"file", file}, {"title", "voice"}}));
 
     simdjson::dom::object uploaded_doc = m_parser->parse(raw_save_response)["response"]["audio_message"];

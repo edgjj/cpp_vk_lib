@@ -11,6 +11,7 @@ bool vk::method::utils::check_link(std::string_view url) const
     {
         processing::log_and_throw<exception::invalid_parameter_error>("utils", response);
     }
+
     std::string_view status = response["response"]["status"];
     return status == "not_banned";
 }

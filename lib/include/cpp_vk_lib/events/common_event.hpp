@@ -59,6 +59,8 @@ public:
     wall_reply_new get_wall_reply_event() const;
 
 private:
+    simdjson::dom::object& get_event() const noexcept;
+
     std::string m_ts;
     std::string m_update_type;
     std::shared_ptr<simdjson::dom::object> m_event;

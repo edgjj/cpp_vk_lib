@@ -72,6 +72,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new&
             << "text:             " << reply.text() << std::endl;
     ostream << "  "
             << "has_attachments?  " << reply.has_attachments() << std::endl;
+
     if (reply.has_attachments())
     {
         for (auto& attachment : reply.attachments())
@@ -82,5 +83,6 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new&
             ostream << std::endl;
         }
     }
+
     return ostream;
 }

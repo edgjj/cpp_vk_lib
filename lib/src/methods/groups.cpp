@@ -19,6 +19,7 @@ simdjson::dom::object vk::method::groups::get_long_poll_server(std::int64_t grou
     simdjson::dom::object response = m_method_util.call_and_parse(
         "groups.getLongPollServer",
         m_method_util.group_args({{"group_id", std::to_string(group_id)}, {"random_id", "0"}}));
+
     if (response.begin().key() == "error")
     {
         processing::log_and_throw<exception::access_error>("groups", response);
