@@ -18,6 +18,11 @@ High performance VK API library
 ## Dependencies
 	- curlpp
 
+## Note
+
+You can extend existing or create new method classes by inheritance to implement needed API methods.
+Also, of course, you can make PR.
+
 ## Example reply bot
 
 ```
