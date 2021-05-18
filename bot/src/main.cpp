@@ -4,6 +4,8 @@
 #include "commands/keyboard.hpp"
 #include "commands/set_chat_photo.hpp"
 #include "commands/upload_voice_message.hpp"
+#include "commands/raw_method.hpp"
+
 #include "cpp_vk_lib/config/loader.hpp"
 #include "events/on_chat_invite_user.hpp"
 #include "events/on_message_pin.hpp"
@@ -16,7 +18,7 @@ namespace bot {
 class bot_object
 {
 public:
-    void setup()
+    explicit bot_object()
     {
         setup_commands();
         setup_event_reactions();
@@ -29,12 +31,14 @@ public:
 private:
     void setup_commands()
     {
-        poller.get_message_handler().on_command("/download", std::make_unique<command::voice_message_dowload>());
-        poller.get_message_handler().on_command("/upload", std::make_unique<command::voice_message_upload>());
-        poller.get_message_handler().on_command("/chatphoto", std::make_unique<command::set_chat_photo>());
-        poller.get_message_handler().on_command("/doc", std::make_unique<command::docs_search>());
-        poller.get_message_handler().on_command("/show", std::make_unique<command::keyboard>());
-        poller.get_message_handler().on_command("/hide", std::make_unique<command::hide_keyboard>());
+        poller.get_message_handler()
+            .on_command("/download", std::make_unique<command::voice_message_dowload>())
+            .on_command("/upload", std::make_unique<command::voice_message_upload>())
+            .on_command("/chatphoto", std::make_unique<command::set_chat_photo>())
+            .on_command("/doc", std::make_unique<command::docs_search>())
+            .on_command("/show", std::make_unique<command::keyboard>())
+            .on_command("/hide", std::make_unique<command::hide_keyboard>())
+            .on_command("/raw", std::make_unique<command::raw_method>());
         // Other commands...
     }
     void setup_event_reactions()
@@ -49,9 +53,8 @@ private:
 
 int main()
 {
-    vk::config::load("/home/machen/TextData/configs/config.json");
+    vk::config::load("/path/to/config.json");
     spdlog::info("Maximum num of workers: {}", vk::config::num_workers());
     bot::bot_object example;
-    example.setup();
     return example.run();
 }

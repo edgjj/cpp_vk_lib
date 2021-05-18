@@ -16,7 +16,10 @@ High performance VK API library
 * Buttons support
 
 ## Dependencies
+	- curl
 	- curlpp
+	- gtest
+	- cmake
 
 ## Note
 

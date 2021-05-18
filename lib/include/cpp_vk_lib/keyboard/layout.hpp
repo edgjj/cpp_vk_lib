@@ -42,7 +42,7 @@ public:
     bool has_flag(flag flag_) const noexcept;
 
 private:
-    std::string m_serialized;
+    std::string m_serialized{};
     /*!
      * @brief Button grid container.
      *

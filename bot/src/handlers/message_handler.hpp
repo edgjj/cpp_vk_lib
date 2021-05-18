@@ -32,9 +32,10 @@ public:
             chat_invite_user_command->execute(event);
         }
     }
-    void on_command(std::string_view trigger, std::shared_ptr<command::base>&& command)
+    message_handler& on_command(std::string_view trigger, std::shared_ptr<command::base>&& command)
     {
         commands.emplace(trigger, std::move(command));
+        return *this;
     }
     // Event reactions initializers.
     void on_message_pin(std::unique_ptr<event::on_message_pin_event>&& command)

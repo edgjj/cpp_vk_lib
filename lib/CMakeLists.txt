@@ -2,7 +2,7 @@ include_directories(../dependencies)
 include_directories(../dependencies/spdlog/include)
 include_directories(include/cpp_vk_lib)
 
-#add_definitions(-DVK_CURL_DEBUG)
+add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
 set(extra_warnings TRUE)

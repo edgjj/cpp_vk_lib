@@ -11,9 +11,9 @@ namespace button {
 class text
 {
 public:
-    text(color selected_color, std::string_view text)
+    text(color selected_color, std::string_view payload_data)
       : m_selected_color(selected_color)
-      , m_payload_data(text)
+      , m_payload_data(payload_data)
     {}
     std::string serialize() const
     {
