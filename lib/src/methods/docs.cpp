@@ -6,13 +6,15 @@
 
 vk::method::docs::docs()
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util()
+  , m_group_raw_method()
+  , m_user_raw_method()
   , m_document()
 {}
 
 vk::method::docs::docs(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util(user_token.data())
+  , m_group_raw_method()
+  , m_user_raw_method(user_token.data())
   , m_document(user_token.data())
 {}
 
@@ -25,13 +27,15 @@ vk::attachment::attachments_t vk::method::docs::search(std::string_view query, s
 
 void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags) const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse(
-        "docs.edit",
-        m_method_util.user_args(
-            {{"owner_id", std::to_string(owner_id)},
-             {"doc_id", std::to_string(doc_id)},
-             {"title", title.data()},
-             {"tags", string_utils::join<std::string>(std::move(tags)).data()}}));
+    std::string raw_response = m_user_raw_method.impl()
+        .method("docs.edit")
+        .param("owner_id", std::to_string(owner_id))
+        .param("doc_id", std::to_string(doc_id))
+        .param("title", title.data())
+        .param("tags", string_utils::join<std::string>(std::move(tags)).data())
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
@@ -41,9 +45,13 @@ void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view t
 
 void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse(
-        "docs.delete",
-        m_method_util.user_args({{"owner_id", std::to_string(owner_id)}, {"doc_id", std::to_string(doc_id)}}));
+    std::string raw_response = m_user_raw_method.impl()
+        .method("docs.delete")
+        .param("owner_id", std::to_string(owner_id))
+        .param("doc_id", std::to_string(doc_id))
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
@@ -53,19 +61,27 @@ void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 
 std::string vk::method::docs::get_upload_server(std::int64_t group_id) const
 {
-    return m_method_util.call("docs.getUploadServer", m_method_util.group_args({{"group_id", std::to_string(group_id)}}));
+    return m_group_raw_method.impl()
+        .method("docs.getUploadServer")
+        .param("group_id", std::to_string(group_id))
+        .execute();
 }
 
 std::string vk::method::docs::get_wall_upload_server(int64_t group_id) const
 {
-    return m_method_util.call("docs.getWallUploadServer", m_method_util.group_args({{"group_id", std::to_string(group_id)}}));
+    return m_group_raw_method.impl()
+        .method("docs.getWallUploadServer")
+        .param("group_id", std::to_string(group_id))
+        .execute();
 }
 
 std::string vk::method::docs::get_messages_upload_server(std::string_view type, int64_t peer_id) const
 {
-    return m_method_util.call(
-        "docs.getMessagesUploadServer",
-        m_method_util.group_args({{"peer_id", std::to_string(peer_id)}, {"type", type.data()}}));
+    return m_group_raw_method.impl()
+        .method("docs.getMessagesUploadServer")
+        .param("peer_id", std::to_string(peer_id))
+        .param("type", type.data())
+        .execute();
 }
 
 std::shared_ptr<vk::attachment::audio_message>
@@ -85,7 +101,11 @@ vk::method::docs::save_audio_message(std::string_view filename, std::string_view
         return {};
     }
 
-    std::string raw_save_response = m_method_util.call("docs.save", m_method_util.group_args({{"file", file}, {"title", "voice"}}));
+    std::string raw_save_response = m_group_raw_method.impl()
+        .method("docs.save")
+        .param("file", file)
+        .param("title", "voice")
+        .execute();
 
     simdjson::dom::object uploaded_doc = m_parser->parse(raw_save_response)["response"]["audio_message"];
 

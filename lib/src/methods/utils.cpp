@@ -3,9 +3,19 @@
 #include "exception/error_processor.hpp"
 #include "simdjson.h"
 
+vk::method::utils::utils()
+    : m_parser(std::make_shared<simdjson::dom::parser>())
+    , m_group_raw_method()
+{ }
+
 bool vk::method::utils::check_link(std::string_view url) const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse("utils.checkLink", m_method_util.group_args({{"url", url.data()}}));
+    std::string raw_response = m_group_raw_method.impl()
+        .method("utils.checkLink")
+        .param("url", url)
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
@@ -18,7 +28,12 @@ bool vk::method::utils::check_link(std::string_view url) const
 
 std::string vk::method::utils::get_short_link(std::string_view url) const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse("utils.getShortLink", m_method_util.group_args({{"url", url.data()}}));
+    std::string raw_response = m_group_raw_method.impl()
+        .method("utils.getShortLink")
+        .param("url", url)
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
@@ -32,8 +47,12 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) const
 {
-    simdjson::dom::object response =
-        m_method_util.call_and_parse("utils.resolveScreenName", m_method_util.group_args({{"screen_name", screen_name.data()}}));
+    std::string raw_response = m_group_raw_method.impl()
+        .method("utils.resolveScreenName")
+        .param("screen_name", screen_name)
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response["response"].get_array().size() == 0)
     {

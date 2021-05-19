@@ -48,18 +48,6 @@ const std::map<std::string, std::string>& vk::method::utility::group_args(std::m
     return params;
 }
 
-simdjson::dom::object
-vk::method::utility::call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) const noexcept
-{
-    return m_parser->parse(call(method, std::move(params)));
-}
-
-simdjson::dom::object
-vk::method::utility::call_and_parse(std::string_view method, const std::map<std::string, std::string>& params) const noexcept
-{
-    return m_parser->parse(call(method, params));
-}
-
 std::string vk::method::utility::call(std::string_view method, std::map<std::string, std::string>&& params) const
 {
     return m_net_client.request(append_url(method), std::move(params));

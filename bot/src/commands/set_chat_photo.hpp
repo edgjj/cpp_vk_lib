@@ -21,7 +21,7 @@ public:
     void execute(const vk::event::message_new& event) const override
     {
         std::string raw_upload_json = photos.get_chat_upload_server(event.peer_id());
-        messages.set_chat_photo("/path/to/image.{png|jpg}", raw_upload_json);
+        messages.set_chat_photo("/path/to/photo.png", raw_upload_json);
     }
 
 private:

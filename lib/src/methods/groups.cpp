@@ -3,9 +3,18 @@
 #include "exception/error_processor.hpp"
 #include "simdjson.h"
 
+vk::method::groups::groups()
+  : m_group_raw_method()
+  , m_parser(std::make_unique<simdjson::dom::parser>())
+{}
+
 std::int64_t vk::method::groups::get_by_id() const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse("groups.getById", m_method_util.group_args({}));
+    std::string raw_response = m_group_raw_method.impl()
+        .method("groups.getById")
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
@@ -16,9 +25,13 @@ std::int64_t vk::method::groups::get_by_id() const
 
 simdjson::dom::object vk::method::groups::get_long_poll_server(std::int64_t group_id) const
 {
-    simdjson::dom::object response = m_method_util.call_and_parse(
-        "groups.getLongPollServer",
-        m_method_util.group_args({{"group_id", std::to_string(group_id)}, {"random_id", "0"}}));
+    std::string raw_response = m_group_raw_method.impl()
+        .method("groups.getLongPollServer")
+        .param("group_id", std::to_string(group_id))
+        .param("random_id", "0")
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {

@@ -1,6 +1,7 @@
 #include "oauth/client.hpp"
 
 #include "exception/error_processor.hpp"
+#include "methods/utility/raw_method.hpp"
 #include "simdjson.h"
 
 vk::oauth::client::client(std::string_view username_, std::string_view password_, vk::oauth::target_client client_type_)
@@ -12,7 +13,6 @@ vk::oauth::client::client(std::string_view username_, std::string_view password_
   , m_pulled_token()
   , m_pulled_user_id(0)
   , m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_net_client()
 {
     switch (m_client_type)
     {
@@ -41,13 +41,16 @@ static bool error_returned(const simdjson::dom::object& response, std::string_vi
 
 void vk::oauth::client::pull()
 {
-    simdjson::dom::object response = m_parser->parse(m_net_client.request(
-        std::string(m_oauth_link) + "token?",
-        {{"grant_type", "password"},
-         {"client_id", std::to_string(m_target_client_id)},
-         {"client_secret", m_target_client_secret},
-         {"username", m_username.data()},
-         {"password", m_password.data()}}));
+    method::raw_method raw_method_util(method::raw_method::do_not_use_api_link);
+    raw_method_util
+        .method(std::string(m_oauth_link) + "token?")
+        .param("grant_type", "password")
+        .param("client_id", std::to_string(m_target_client_id))
+        .param("client_secret", m_target_client_secret)
+        .param("username", m_username.data())
+        .param("password", m_password.data());
+
+    simdjson::dom::object response = m_parser->parse(raw_method_util.execute());
 
     if (error_returned(response, "invalid_client") || error_returned(response, "invalid_request") ||
         error_returned(response, "invalid_grant"))

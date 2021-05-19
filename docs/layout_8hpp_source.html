@@ -87,7 +87,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">layout</a>(<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">keyboard::flag</a>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">   25</a></span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">layout</a>() = <span class="keywordflow">default</span>;</div>
@@ -102,10 +102,10 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::string <a class="code" href="classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444">get</a>() const noexcept;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a0326ed1ce272f8f45c5903339353eb7d">has_flag</a>(<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flag_) const noexcept;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  private:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::<span class="keywordtype">string</span> serialized;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;std::vector&lt;<a class="code" href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">any_button</a>&gt;&gt; buttons{};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flags = <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;private:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::<span class="keywordtype">string</span> m_serialized{};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; m_buttons{};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> m_flags = <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}<span class="comment">// namespace keyboard</span></div>

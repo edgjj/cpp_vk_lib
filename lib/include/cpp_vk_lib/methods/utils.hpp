@@ -1,7 +1,7 @@
 #ifndef VK_UTILS_H
 #define VK_UTILS_H
 
-#include "methods/utility/utility.hpp"
+#include "methods/utility/raw_method.hpp"
 
 namespace vk {
 namespace method {
@@ -13,6 +13,7 @@ namespace method {
 class utils
 {
 public:
+    utils();
     utils(const utils&) = default;
     utils(utils&&) = default;
     utils& operator=(const utils&) = default;
@@ -24,7 +25,8 @@ public:
     std::int64_t resolve_screen_name(std::string_view screen_name) const;
 
 protected:
-    method::utility m_method_util;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
+    mutable method::group_raw_method m_group_raw_method;
 };
 }// namespace method
 }// namespace vk

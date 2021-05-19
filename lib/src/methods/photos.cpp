@@ -5,13 +5,13 @@
 
 vk::method::photos::photos()
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util()
+  , m_group_method()
   , m_document()
 {}
 
 vk::method::photos::photos(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util(user_token.data())
+  , m_group_method()
   , m_document(user_token.data())
 {}
 
@@ -24,17 +24,20 @@ vk::attachment::attachments_t vk::method::photos::search(std::string_view query,
 
 std::string vk::method::photos::get_messages_upload_server(std::int64_t peer_id) const
 {
-    return m_method_util.call("photos.getMessagesUploadServer", m_method_util.group_args({{"peer_id", std::to_string(peer_id)}}));
+    return m_group_method.impl()
+        .method("photos.getMessagesUploadServer")
+        .param("peer_id", std::to_string(peer_id))
+        .execute();
 }
 
 std::string vk::method::photos::get_chat_upload_server(std::int64_t chat_id, std::int64_t crop) const
 {
-    return m_method_util.call(
-        "photos.getChatUploadServer",
-        m_method_util.group_args(
-            {{"crop_x", std::to_string(crop)},
-             {"crop_y", std::to_string(crop)},
-             {"chat_id", std::to_string(chat_id - m_method_util.chat_id_constant)}}));
+    return m_group_method.impl()
+        .method("photos.getChatUploadServer")
+        .param("crop_x", std::to_string(crop))
+        .param("crop_y", std::to_string(crop))
+        .param("chat_id", std::to_string(chat_id - vk::method::utility::chat_id_constant))
+        .execute();
 }
 
 static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom::object&& upload_response)
@@ -54,10 +57,12 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(s
         processing::log_and_throw<exception::upload_error>("photos", upload_response);
     }
 
-    std::string raw_vk_response(
-        m_method_util.call("photos.saveMessagesPhoto", m_method_util.group_args(save_messages_photo_args(std::move(upload_response)))));
+    std::string raw_response = m_group_method.impl()
+        .method("photos.saveMessagesPhoto")
+        .append_map(save_messages_photo_args(std::move(upload_response)))
+        .execute();
 
-    simdjson::dom::object uploaded(m_parser->parse(raw_vk_response)["response"].at(0));
+    simdjson::dom::object uploaded(m_parser->parse(raw_response)["response"].at(0));
     std::int64_t owner_id(uploaded["owner_id"].get_int64());
     std::int64_t id(uploaded["id"].get_int64());
 

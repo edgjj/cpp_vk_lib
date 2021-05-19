@@ -79,7 +79,7 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classvk_1_1network__client.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1network__client.html">network_client</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classvk_1_1network__client.html#aa82999427231758ddaae53808a9b8d02">   15</a></span>&#160;    <a class="code" href="classvk_1_1network__client.html#aa82999427231758ddaae53808a9b8d02">network_client</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1network__client.html#ae2bae5d228c8a4f4c8798a88b9dca8be">   16</a></span>&#160;    <a class="code" href="classvk_1_1network__client.html#ae2bae5d228c8a4f4c8798a88b9dca8be">network_client</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1network__client.html">network_client</a>&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1network__client.html#aa63fe320231400b16dab39ea865a2e86">   17</a></span>&#160;    <a class="code" href="classvk_1_1network__client.html#aa63fe320231400b16dab39ea865a2e86">network_client</a>(<a class="code" href="classvk_1_1network__client.html">network_client</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
@@ -92,7 +92,7 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::string <a class="code" href="classvk_1_1network__client.html#a94b821c768787f4dcae7b3b69f917a7a">request_data</a>(std::string_view host, std::string_view data) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classvk_1_1network__client.html#a1bec526609ce7dc493b1a0b83a48f981">unescape</a>(std::string_view text);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#if defined VK_CURL_DEBUG</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> debug(std::string_view template_text, std::string_view arg) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> debug_error(std::string_view template_text, std::string_view arg) <span class="keyword">const</span> noexcept;</div>

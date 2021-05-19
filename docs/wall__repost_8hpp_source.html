@@ -79,13 +79,13 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a6e292403718242df6ad33ba37abaedca">   19</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__repost.html#a6e292403718242df6ad33ba37abaedca">wall_repost</a>(std::int64_t <span class="keywordtype">id</span>, std::int64_t <a class="code" href="classvk_1_1event_1_1wall__repost.html#a13a962fe2781af74d064364938fe7de7">from_id</a>, std::int64_t <a class="code" href="classvk_1_1event_1_1wall__repost.html#aeaae771f2e456651c1780d5e403b926f">owner_id</a>, std::string <a class="code" href="classvk_1_1event_1_1wall__repost.html#a8fe5a929554dc974cf9f03ee594f2b9d">text</a>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      : _id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#ac6117ec21d24562efeb60d7e4ac7ac62">id</a>)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      , _from_id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#a13a962fe2781af74d064364938fe7de7">from_id</a>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      , _owner_id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#aeaae771f2e456651c1780d5e403b926f">owner_id</a>)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      , _text(<a class="code" href="classvk_1_1event_1_1wall__repost.html#a8fe5a929554dc974cf9f03ee594f2b9d">text</a>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      , _attachments()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      : m_id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#ac6117ec21d24562efeb60d7e4ac7ac62">id</a>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      , m_from_id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#a13a962fe2781af74d064364938fe7de7">from_id</a>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      , m_owner_id(<a class="code" href="classvk_1_1event_1_1wall__repost.html#aeaae771f2e456651c1780d5e403b926f">owner_id</a>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      , m_text(<a class="code" href="classvk_1_1event_1_1wall__repost.html#a8fe5a929554dc974cf9f03ee594f2b9d">text</a>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      , m_attachments()</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {}</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a1306b4a21716c365219db93df2790c2b">   26</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__repost.html#a1306b4a21716c365219db93df2790c2b">wall_repost</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a>&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a66f2a3a956f1926226f27773baebfe25">   27</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__repost.html#a66f2a3a956f1926226f27773baebfe25">wall_repost</a>(<a class="code" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
@@ -95,35 +95,35 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a69268114d063f5130f5c969e566f1a19">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1event_1_1wall__repost.html#a69268114d063f5130f5c969e566f1a19">construct_attachments</a>(<a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a>&amp;&amp; <a class="code" href="classvk_1_1event_1_1wall__repost.html#a2fd2b05b6c188bd04cf7e54c5a0cfc16">attachments</a>)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        _attachments = <a class="code" href="classvk_1_1event_1_1wall__repost.html#a2fd2b05b6c188bd04cf7e54c5a0cfc16">attachments</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        m_attachments = <a class="code" href="classvk_1_1event_1_1wall__repost.html#a2fd2b05b6c188bd04cf7e54c5a0cfc16">attachments</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#ac6117ec21d24562efeb60d7e4ac7ac62">   36</a></span>&#160;    std::int64_t <a class="code" href="classvk_1_1event_1_1wall__repost.html#ac6117ec21d24562efeb60d7e4ac7ac62">id</a>() const noexcept</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> _id;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> m_id;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a13a962fe2781af74d064364938fe7de7">   40</a></span>&#160;    std::int64_t <a class="code" href="classvk_1_1event_1_1wall__repost.html#a13a962fe2781af74d064364938fe7de7">from_id</a>() const noexcept</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> _from_id;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> m_from_id;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#aeaae771f2e456651c1780d5e403b926f">   44</a></span>&#160;    std::int64_t <a class="code" href="classvk_1_1event_1_1wall__repost.html#aeaae771f2e456651c1780d5e403b926f">owner_id</a>() const noexcept</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> _owner_id;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> m_owner_id;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a8fe5a929554dc974cf9f03ee594f2b9d">   48</a></span>&#160;    std::string <a class="code" href="classvk_1_1event_1_1wall__repost.html#a8fe5a929554dc974cf9f03ee594f2b9d">text</a>() const noexcept</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> _text;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> m_text;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__repost.html#a2fd2b05b6c188bd04cf7e54c5a0cfc16">   52</a></span>&#160;    <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a> <a class="code" href="classvk_1_1event_1_1wall__repost.html#a2fd2b05b6c188bd04cf7e54c5a0cfc16">attachments</a>() const noexcept</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> _attachments;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> m_attachments;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::int64_t _id;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::int64_t _from_id;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::int64_t _owner_id;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::string _text;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a> _attachments;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::int64_t m_id;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::int64_t m_from_id;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::int64_t m_owner_id;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::string m_text;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a> m_attachments;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}<span class="comment">// namespace event</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}<span class="comment">// namespace vk</span></div>

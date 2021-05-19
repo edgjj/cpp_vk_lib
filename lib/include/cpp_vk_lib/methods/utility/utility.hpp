@@ -33,8 +33,6 @@ public:
     const std::map<std::string, std::string>& user_args(std::map<std::string, std::string>&& params) const;
     const std::map<std::string, std::string>& group_args(std::map<std::string, std::string>& params) const;
     const std::map<std::string, std::string>& group_args(std::map<std::string, std::string>&& params) const;
-    simdjson::dom::object call_and_parse(std::string_view method, std::map<std::string, std::string>&& params) const noexcept;
-    simdjson::dom::object call_and_parse(std::string_view method, const std::map<std::string, std::string>& params) const noexcept;
     std::string call(std::string_view method, std::map<std::string, std::string>&& params) const;
     std::string call(std::string_view method, const std::map<std::string, std::string>& params) const;
     std::string append_url(std::string_view method) const;

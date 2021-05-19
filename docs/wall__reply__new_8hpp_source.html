@@ -84,7 +84,7 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>event {</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__reply__new.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__reply__new.html#afa7c179a5123cf575da2871d8737f789">   24</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__reply__new.html#afa7c179a5123cf575da2871d8737f789">wall_reply_new</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__reply__new.html#adfccb0bb5be090a576508a43814b4a2f">   25</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__reply__new.html#adfccb0bb5be090a576508a43814b4a2f">wall_reply_new</a>(<a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1wall__reply__new.html#ae3371fc9e785014809ad216d0acbe504">   26</a></span>&#160;    <a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>&amp; <a class="code" href="classvk_1_1event_1_1wall__reply__new.html#ae3371fc9e785014809ad216d0acbe504">operator=</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1wall__reply__new.html">wall_reply_new</a>&amp;) = <span class="keywordflow">default</span>;</div>
@@ -100,15 +100,15 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1event_1_1wall__reply__new.html#a68a080d9ad60de3c2b9f7fde1b98e09e">has_attachments</a>() const noexcept;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    attachment::<a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachments_t</a> <a class="code" href="classvk_1_1event_1_1wall__reply__new.html#a872c6caaf96af58614fa387709b8d03e">attachments</a>() const;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  private:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;private:</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="namespacesimdjson.html">simdjson</a>::dom::<span class="keywordtype">object</span>&amp; get_event()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> *_event_json;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> *m_event_json;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::shared_ptr&lt;simdjson::dom::object&gt; _event_json;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> _has_attachments = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classvk_1_1event_1_1attachment__handler.html">attachment_handler</a> _attachment_handler;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::shared_ptr&lt;simdjson::dom::object&gt; m_event_json;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> m_has_attachments = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classvk_1_1event_1_1attachment__handler.html">attachment_handler</a> m_attachment_handler;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}<span class="comment">// namespace event</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}<span class="comment">// namespace vk</span></div>
@@ -117,7 +117,7 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_WALL_REPLY_NEW_H</span></div>
 <div class="ttc" id="aattachment__handler_8hpp_html"><div class="ttname"><a href="attachment__handler_8hpp.html">attachment_handler.hpp</a></div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="classvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:23</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1attachment__handler_html"><div class="ttname"><a href="classvk_1_1event_1_1attachment__handler.html">vk::event::attachment_handler</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:24</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__reply__new_html"><div class="ttname"><a href="classvk_1_1event_1_1wall__reply__new.html">vk::event::wall_reply_new</a></div><div class="ttdoc">The wall_reply_new event representation.</div><div class="ttdef"><b>Definition:</b> wall_reply_new.hpp:22</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__reply__new_html_a04875b96a809e842e6e5000db6e63e4e"><div class="ttname"><a href="classvk_1_1event_1_1wall__reply__new.html#a04875b96a809e842e6e5000db6e63e4e">vk::event::wall_reply_new::operator=</a></div><div class="ttdeci">wall_reply_new &amp; operator=(wall_reply_new &amp;&amp;)=default</div></div>
 <div class="ttc" id="aclassvk_1_1event_1_1wall__reply__new_html_a586fbd21207405ffcc8c7f391271aca2"><div class="ttname"><a href="classvk_1_1event_1_1wall__reply__new.html#a586fbd21207405ffcc8c7f391271aca2">vk::event::wall_reply_new::text</a></div><div class="ttdeci">std::string text() const noexcept</div><div class="ttdef"><b>Definition:</b> wall_reply_new.cpp:36</div></div>

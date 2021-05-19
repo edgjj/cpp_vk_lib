@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['first_5fname_662',['first_name',['../structvk_1_1conversation__member.html#a13311a892e5fd9968383c1666b06ddb0',1,'vk::conversation_member']]]
+  ['group_5fparams_690',['group_params',['../classvk_1_1method_1_1raw__method.html#a881e377be512141d8d47a305a4f87c8a',1,'vk::method::raw_method']]]
 ];

@@ -2,10 +2,9 @@
 #include "commands/download_voice_message.hpp"
 #include "commands/hide_keyboard.hpp"
 #include "commands/keyboard.hpp"
+#include "commands/raw_method.hpp"
 #include "commands/set_chat_photo.hpp"
 #include "commands/upload_voice_message.hpp"
-#include "commands/raw_method.hpp"
-
 #include "cpp_vk_lib/config/loader.hpp"
 #include "events/on_chat_invite_user.hpp"
 #include "events/on_message_pin.hpp"

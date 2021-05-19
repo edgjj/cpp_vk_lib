@@ -82,15 +82,15 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1common__exception.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a> : <span class="keyword">public</span> std::exception</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1common__exception.html#a0357e6f714f14b15309470aad1876224">   18</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classvk_1_1exception_1_1common__exception.html#a0357e6f714f14b15309470aad1876224">what</a>() const noexcept<span class="keyword"> override</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> error.what();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> m_error.what();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1common__exception.html#a65a6af318ef3aaefb710c8cd10b343f5">   24</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1exception_1_1common__exception.html#a65a6af318ef3aaefb710c8cd10b343f5">common_exception</a>(std::string_view what_arg)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      : error(what_arg.data())</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      : m_error(what_arg.data())</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classvk_1_1processing_1_1backtrace__view.html">processing::backtrace_view</a>{};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
@@ -99,13 +99,13 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;[vk.exception.&quot;</span> + ename + <span class="charliteral">&#39;.&#39;</span> + std::to_string(<span class="keywordtype">id</span>) + <span class="stringliteral">&quot;]: &quot;</span> + arg;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::runtime_error error;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::runtime_error m_error;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1upload__error.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1exception_1_1upload__error.html">upload_error</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1upload__error.html#ab2a6518835db6c59466b9490edae7f02">   41</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1exception_1_1upload__error.html#ab2a6518835db6c59466b9490edae7f02">upload_error</a>(<span class="keywordtype">int</span> id_, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg_)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      : <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a>(<a class="code" href="classvk_1_1exception_1_1common__exception.html#a58420a0c273dc3732545c18a692d3814">create</a>(id_, <span class="stringliteral">&quot;upload_error&quot;</span>, what_arg_))</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {}</div>
@@ -113,7 +113,7 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1access__error.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1exception_1_1access__error.html">access_error</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1access__error.html#a3c6fcd87586dbf9f3ca827991bf9b43f">   49</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1exception_1_1access__error.html#a3c6fcd87586dbf9f3ca827991bf9b43f">access_error</a>(<span class="keywordtype">int</span> id_, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg_)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      : <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a>(<a class="code" href="classvk_1_1exception_1_1common__exception.html#a58420a0c273dc3732545c18a692d3814">create</a>(id_, <span class="stringliteral">&quot;access_error&quot;</span>, what_arg_))</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {}</div>
@@ -121,7 +121,7 @@ $(function() {
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1invalid__parameter__error.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1exception_1_1invalid__parameter__error.html">invalid_parameter_error</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classvk_1_1exception_1_1invalid__parameter__error.html#aa73fb198418f3e10816e2850073f9316">   57</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1exception_1_1invalid__parameter__error.html#aa73fb198418f3e10816e2850073f9316">invalid_parameter_error</a>(<span class="keywordtype">int</span> id_, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg_)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      : <a class="code" href="classvk_1_1exception_1_1common__exception.html">common_exception</a>(<a class="code" href="classvk_1_1exception_1_1common__exception.html#a58420a0c273dc3732545c18a692d3814">create</a>(id_, <span class="stringliteral">&quot;invalid_parameter_error&quot;</span>, what_arg_))</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {}</div>

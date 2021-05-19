@@ -82,11 +82,6 @@ $(function() {
 Collaboration diagram for vk::method::docs:</div>
 <div class="dyncontent">
 <div class="center"><img src="classvk_1_1method_1_1docs__coll__graph.png" border="0" usemap="#avk_1_1method_1_1docs_coll__map" alt="Collaboration graph"/></div>
-<map name="avk_1_1method_1_1docs_coll__map" id="avk_1_1method_1_1docs_coll__map">
-<area shape="rect" title="The docs methods representation." alt="" coords="101,95,236,121"/>
-<area shape="rect" href="classvk_1_1method_1_1utility.html" title="The container of common functions and constants needed by various methods." alt="" coords="5,5,148,32"/>
-<area shape="rect" href="classvk_1_1document_1_1common.html" title="The base class for vk::docs, vk::photos and vk::video." alt="" coords="173,5,349,32"/>
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -122,12 +117,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a72498013f687e30215d78e7fd947a45d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#a72498013f687e30215d78e7fd947a45d">parser</a></td></tr>
-<tr class="separator:a72498013f687e30215d78e7fd947a45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210563ac379ef413738dd417f56bc792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1utility.html">method::utility</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#a210563ac379ef413738dd417f56bc792">method_util</a></td></tr>
-<tr class="separator:a210563ac379ef413738dd417f56bc792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab40a41b3003b6a9e06a544bb2bb88da2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#ab40a41b3003b6a9e06a544bb2bb88da2">document</a></td></tr>
-<tr class="separator:ab40a41b3003b6a9e06a544bb2bb88da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3faf48815943f7c9c44c8a891ea890a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#ab3faf48815943f7c9c44c8a891ea890a">m_parser</a></td></tr>
+<tr class="separator:ab3faf48815943f7c9c44c8a891ea890a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bdf7c59781d9f7f98cbb7ce2bf0713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1group__raw__method.html">method::group_raw_method</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#a86bdf7c59781d9f7f98cbb7ce2bf0713">m_group_raw_method</a></td></tr>
+<tr class="separator:a86bdf7c59781d9f7f98cbb7ce2bf0713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fd79a8a9b7b09b52f5db22ed20a0df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1user__raw__method.html">method::user_raw_method</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#ae8fd79a8a9b7b09b52f5db22ed20a0df">m_user_raw_method</a></td></tr>
+<tr class="separator:ae8fd79a8a9b7b09b52f5db22ed20a0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8723e5413716dbc52542f7d2bb4bc04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1docs.html#af8723e5413716dbc52542f7d2bb4bc04">m_document</a></td></tr>
+<tr class="separator:af8723e5413716dbc52542f7d2bb4bc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The docs methods representation. </p>
@@ -503,8 +500,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab40a41b3003b6a9e06a544bb2bb88da2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab40a41b3003b6a9e06a544bb2bb88da2">&#9670;&nbsp;</a></span>document</h2>
+<a id="af8723e5413716dbc52542f7d2bb4bc04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8723e5413716dbc52542f7d2bb4bc04">&#9670;&nbsp;</a></span>m_document</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -513,7 +510,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a> vk::method::docs::document</td>
+          <td class="memname"><a class="el" href="classvk_1_1document_1_1common.html">document::common</a> vk::method::docs::m_document</td>
         </tr>
       </table>
   </td>
@@ -525,8 +522,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a210563ac379ef413738dd417f56bc792"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a210563ac379ef413738dd417f56bc792">&#9670;&nbsp;</a></span>method_util</h2>
+<a id="a86bdf7c59781d9f7f98cbb7ce2bf0713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86bdf7c59781d9f7f98cbb7ce2bf0713">&#9670;&nbsp;</a></span>m_group_raw_method</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -535,7 +532,29 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classvk_1_1method_1_1utility.html">method::utility</a> vk::method::docs::method_util</td>
+          <td class="memname"><a class="el" href="classvk_1_1method_1_1group__raw__method.html">method::group_raw_method</a> vk::method::docs::m_group_raw_method</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3faf48815943f7c9c44c8a891ea890a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3faf48815943f7c9c44c8a891ea890a">&#9670;&nbsp;</a></span>m_parser</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;simdjson::dom::parser&gt; vk::method::docs::m_parser</td>
         </tr>
       </table>
   </td>
@@ -547,8 +566,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a72498013f687e30215d78e7fd947a45d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72498013f687e30215d78e7fd947a45d">&#9670;&nbsp;</a></span>parser</h2>
+<a id="ae8fd79a8a9b7b09b52f5db22ed20a0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fd79a8a9b7b09b52f5db22ed20a0df">&#9670;&nbsp;</a></span>m_user_raw_method</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -557,12 +576,12 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;simdjson::dom::parser&gt; vk::method::docs::parser</td>
+          <td class="memname"><a class="el" href="classvk_1_1method_1_1user__raw__method.html">method::user_raw_method</a> vk::method::docs::m_user_raw_method</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

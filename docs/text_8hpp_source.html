@@ -79,28 +79,31 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>keyboard {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>button {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>text {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  text(<a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a> selected_color_, std::string_view text_)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    : selected_color(selected_color_)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    , payload_data(text_) {}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::string serialize()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a>(<a class="code" href="namespacevk_1_1keyboard.html#a606d80fd5756436926d04ab19ffd5d54">keyboard::get_color</a>(selected_color));</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;text&quot;,&quot;payload&quot;:&quot;{\&quot;button\&quot;:\&quot;1\&quot;}&quot;,&quot;label&quot;:&quot;{}&quot;},&quot;color&quot;:&quot;{}&quot;})&quot;,</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="stringliteral">        payload_data,</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">        <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a>);</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">  }</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a> selected_color = <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8aca334c4a4c42fdb79d7ebc3e73b517e6f8">color::none</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::string payload_data;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace button</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}<span class="comment">// namespace keyboard</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_TEXT_BUTTON_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>text</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    text(<a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a> selected_color, std::string_view payload_data)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      : m_selected_color(selected_color)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      , m_payload_data(payload_data)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string serialize()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a>(<a class="code" href="namespacevk_1_1keyboard.html#a606d80fd5756436926d04ab19ffd5d54">keyboard::get_color</a>(m_selected_color));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;text&quot;,&quot;payload&quot;:&quot;{\&quot;button\&quot;:\&quot;1\&quot;}&quot;,&quot;label&quot;:&quot;{}&quot;},&quot;color&quot;:&quot;{}&quot;})&quot;,</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">            m_payload_data,</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">            <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a>);</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">color</a> m_selected_color = <a class="code" href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8aca334c4a4c42fdb79d7ebc3e73b517e6f8">color::none</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string m_payload_data;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}<span class="comment">// namespace button</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}<span class="comment">// namespace keyboard</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_TEXT_BUTTON_H</span></div>
 <div class="ttc" id="acolors_8hpp_html"><div class="ttname"><a href="colors_8hpp.html">colors.hpp</a></div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_a606d80fd5756436926d04ab19ffd5d54"><div class="ttname"><a href="namespacevk_1_1keyboard.html#a606d80fd5756436926d04ab19ffd5d54">vk::keyboard::get_color</a></div><div class="ttdeci">const char * get_color(color c) noexcept</div><div class="ttdef"><b>Definition:</b> colors.hpp:23</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_a99e84c429aa7ee52c2be10ccb116f8ac"><div class="ttname"><a href="namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac">vk::keyboard::color</a></div><div class="ttdeci">color</div><div class="ttdef"><b>Definition:</b> colors.hpp:15</div></div>

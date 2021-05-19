@@ -1,7 +1,7 @@
 #ifndef VK_GROUPS_H
 #define VK_GROUPS_H
 
-#include "methods/utility/utility.hpp"
+#include "methods/utility/raw_method.hpp"
 
 namespace vk {
 namespace method {
@@ -13,9 +13,7 @@ namespace method {
 class groups
 {
 public:
-    explicit groups()
-      : m_method_util()
-    {}
+    explicit groups();
 
     groups(const groups&) = default;
     groups(groups&&) = default;
@@ -27,7 +25,8 @@ public:
     simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
 
 protected:
-    method::utility m_method_util;
+    mutable method::group_raw_method m_group_raw_method;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
 };
 }// namespace method
 }// namespace vk

@@ -78,36 +78,39 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacevk_1_1keyboard.html">    7</a></span>&#160;<span class="keyword">namespace </span>keyboard {</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacevk_1_1keyboard_1_1button.html">    8</a></span>&#160;<span class="keyword">namespace </span>button {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html">open_app</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">   12</a></span>&#160;  <a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">open_app</a>(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    : app_id(app_id_)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    , owner_id(owner_id_)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    , hash(hash_)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    , label(label_) {}</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">   17</a></span>&#160;  std::string <a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">serialize</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;open_app&quot;,&quot;app_id&quot;:{},&quot;owner_id&quot;:{},&quot;hash&quot;:&quot;{}&quot;,&quot;label&quot;:&quot;{}&quot;}})&quot;,</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="stringliteral">        app_id,</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">        owner_id,</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">        hash,</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">        label);</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">  }</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::int64_t app_id;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::int64_t owner_id;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  std::string hash;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  std::string label;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}<span class="comment">// namespace button</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}<span class="comment">// namespace keyboard</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_OPEN_APP_BUTTON_H</span></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html">vk::keyboard::button::open_app</a></div><div class="ttdef"><b>Definition:</b> open_app.hpp:10</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html_ad52aa852cc5c87802e4558d828e323e7"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">vk::keyboard::button::open_app::serialize</a></div><div class="ttdeci">std::string serialize() const</div><div class="ttdef"><b>Definition:</b> open_app.hpp:17</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html_aee7e6405e02e8016eb522fe3653de0bf"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">vk::keyboard::button::open_app::open_app</a></div><div class="ttdeci">open_app(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)</div><div class="ttdef"><b>Definition:</b> open_app.hpp:12</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html">open_app</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">   13</a></span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">open_app</a>(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      : m_app_id(app_id_)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      , m_owner_id(owner_id_)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      , m_hash(hash_)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      , m_label(label_)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {}</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">   19</a></span>&#160;    std::string <a class="code" href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">serialize</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">string_utils::format</a>(</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            R<span class="stringliteral">&quot;({&quot;action&quot;:{&quot;type&quot;:&quot;open_app&quot;,&quot;app_id&quot;:{},&quot;owner_id&quot;:{},&quot;hash&quot;:&quot;{}&quot;,&quot;label&quot;:&quot;{}&quot;}})&quot;,</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">            m_app_id,</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">            m_owner_id,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">            m_hash,</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">            m_label);</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral"></span><span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::int64_t m_app_id;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::int64_t m_owner_id;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string m_hash;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::string m_label;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}<span class="comment">// namespace button</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<span class="comment">// namespace keyboard</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_OPEN_APP_BUTTON_H</span></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html">vk::keyboard::button::open_app</a></div><div class="ttdef"><b>Definition:</b> open_app.hpp:11</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html_ad52aa852cc5c87802e4558d828e323e7"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7">vk::keyboard::button::open_app::serialize</a></div><div class="ttdeci">std::string serialize() const</div><div class="ttdef"><b>Definition:</b> open_app.hpp:19</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1button_1_1open__app_html_aee7e6405e02e8016eb522fe3653de0bf"><div class="ttname"><a href="classvk_1_1keyboard_1_1button_1_1open__app.html#aee7e6405e02e8016eb522fe3653de0bf">vk::keyboard::button::open_app::open_app</a></div><div class="ttdeci">open_app(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)</div><div class="ttdef"><b>Definition:</b> open_app.hpp:13</div></div>
 <div class="ttc" id="anamespacevk_1_1string__utils_html_a8b75c357092a62b10a30104ddc9d872b"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, _Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:26</div></div>
 <div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:8</div></div>
 <div class="ttc" id="astring__utils_8hpp_html"><div class="ttname"><a href="string__utils_8hpp.html">string_utils.hpp</a></div></div>

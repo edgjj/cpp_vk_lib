@@ -2,6 +2,7 @@
 #define VK_DOCS_H
 
 #include "document/common.hpp"
+#include "methods/utility/raw_method.hpp"
 
 namespace vk {
 namespace method {
@@ -32,7 +33,8 @@ public:
 
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    method::utility m_method_util;
+    mutable method::group_raw_method m_group_raw_method;
+    mutable method::user_raw_method m_user_raw_method;
     document::common m_document;
 };
 }// namespace method

@@ -6,13 +6,13 @@
 
 vk::document::common::common()
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util()
+  , m_user_method()
   , m_net_client()
 {}
 
 vk::document::common::common(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_method_util(user_token.data())
+  , m_user_method(user_token.data())
   , m_net_client()
 {}
 
@@ -35,8 +35,14 @@ static void search_attachments(const simdjson::dom::array& items, _Execution_Pol
 vk::attachment::attachments_t vk::document::common::search(std::string_view method, std::string_view query, std::int64_t count) const
 {
     vk::attachment::attachments_t documents;
-    std::string raw_json = m_method_util.call(method, m_method_util.user_args({{"q", query.data()}, {"count", std::to_string(count)}}));
-    simdjson::dom::array items = m_parser->parse(raw_json)["response"]["items"].get_array();
+
+    std::string raw_response = m_user_method.impl()
+        .method(method)
+        .param("q", query)
+        .param("count", std::to_string(count))
+        .execute();
+
+    simdjson::dom::array items = m_parser->parse(raw_response)["response"]["items"].get_array();
     documents.reserve(items.size());
 
     if (items.size() == 0)
@@ -73,5 +79,8 @@ vk::attachment::attachments_t vk::document::common::search(std::string_view meth
 
 simdjson::dom::object vk::document::common::upload(std::string_view filename, std::string_view server, std::string_view field_name) const
 {
-    return m_parser->parse(m_net_client.upload(field_name, filename, m_parser->parse(server)["response"]["upload_url"].get_string()));
+    std::string upload_server = m_parser->parse(server)["response"]["upload_url"].get_c_str().take_value();
+    std::string upload_response = m_net_client.upload(field_name, filename, upload_server);
+
+    return m_parser->parse(upload_response);
 }

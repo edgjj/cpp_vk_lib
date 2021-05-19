@@ -1,0 +1,12 @@
+digraph "vk::processing::log_and_throw"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="vk::processing::log\l_and_throw",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="vk::processing::extract\l_from_json",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1processing.html#a65a52510d26de0fbca6bba69da453685",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="vk::processing::log\l_and_rethrow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1processing.html#a4ae986bde0314b7c18f34a4f06613554",tooltip=" "];
+}

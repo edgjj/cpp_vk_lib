@@ -81,7 +81,7 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacevk_1_1long__poll.html">   10</a></span>&#160;<span class="keyword">namespace </span>long_poll {</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1long__poll_1_1api.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1long__poll_1_1api.html">api</a></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1long__poll_1_1api.html#a5cbdc447c3584895cb09958a68fc013d">api</a>(std::int64_t update_interval_ = 600);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1long__poll_1_1api.html#a712a3fb861bd9612c92c484cab012270">   19</a></span>&#160;    <a class="code" href="classvk_1_1long__poll_1_1api.html#a712a3fb861bd9612c92c484cab012270">api</a>(<span class="keyword">const</span> <a class="code" href="classvk_1_1long__poll_1_1api.html">api</a>&amp;) = <span class="keyword">delete</span>;</div>
@@ -105,22 +105,22 @@ $(function() {
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075">   50</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075">queue</a>(Function&amp;&amp; <span class="keyword">function</span>)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">//    task_queue.queue(std::move(function));</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        task_queue.<a class="code" href="classvk_1_1processing_1_1task__queue.html#a1942c43c33634e65e77e282e929124ea">push_void_task</a>(std::move(<span class="keyword">function</span>));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        m_task_queue.<a class="code" href="classvk_1_1processing_1_1task__queue.html#a1942c43c33634e65e77e282e929124ea">push_void_task</a>(std::move(<span class="keyword">function</span>));</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1long__poll_1_1api.html#a2f935aa619ab8f62c0070996d6c09c58">run</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::int64_t update_interval;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classvk_1_1method_1_1groups.html">method::groups</a> groups;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::int64_t group_id;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classvk_1_1processing_1_1task__queue.html">processing::task_queue</a> task_queue;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::int64_t m_update_interval;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classvk_1_1method_1_1groups.html">method::groups</a> m_groups;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::int64_t m_group_id;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classvk_1_1processing_1_1task__queue.html">processing::task_queue</a> m_task_queue;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}<span class="comment">// namespace long_poll</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}<span class="comment">// namespace vk</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_LONG_POLL_API_H</span></div>
 <div class="ttc" id="aclassvk_1_1event_1_1common_html"><div class="ttname"><a href="classvk_1_1event_1_1common.html">vk::event::common</a></div><div class="ttdoc">Temporary update container.</div><div class="ttdef"><b>Definition:</b> common_event.hpp:20</div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1common_html_ace7c10d6e49111c8c6f6e9d07b07f7d0"><div class="ttname"><a href="classvk_1_1event_1_1common.html#ace7c10d6e49111c8c6f6e9d07b07f7d0">vk::event::common::on_type</a></div><div class="ttdeci">bool on_type(std::string_view type) const noexcept</div><div class="ttdoc">Check if event matches.</div><div class="ttdef"><b>Definition:</b> common_event.cpp:15</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1common_html_ace7c10d6e49111c8c6f6e9d07b07f7d0"><div class="ttname"><a href="classvk_1_1event_1_1common.html#ace7c10d6e49111c8c6f6e9d07b07f7d0">vk::event::common::on_type</a></div><div class="ttdeci">bool on_type(std::string_view type) const noexcept</div><div class="ttdoc">Check if event matches.</div><div class="ttdef"><b>Definition:</b> common_event.cpp:20</div></div>
 <div class="ttc" id="aclassvk_1_1long__poll_1_1api_html"><div class="ttname"><a href="classvk_1_1long__poll_1_1api.html">vk::long_poll::api</a></div><div class="ttdoc">Class to interact with long poll mechanism.</div><div class="ttdef"><b>Definition:</b> api.hpp:15</div></div>
 <div class="ttc" id="aclassvk_1_1long__poll_1_1api_html_a1a44501b8bf941c940b6937a677fa245"><div class="ttname"><a href="classvk_1_1long__poll_1_1api.html#a1a44501b8bf941c940b6937a677fa245">vk::long_poll::api::~api</a></div><div class="ttdeci">~api()=default</div></div>
 <div class="ttc" id="aclassvk_1_1long__poll_1_1api_html_a2f935aa619ab8f62c0070996d6c09c58"><div class="ttname"><a href="classvk_1_1long__poll_1_1api.html#a2f935aa619ab8f62c0070996d6c09c58">vk::long_poll::api::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Pop and execute task from thread pool queue.</div><div class="ttdef"><b>Definition:</b> api.cpp:49</div></div>
