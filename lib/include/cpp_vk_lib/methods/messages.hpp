@@ -2,7 +2,7 @@
 #define VK_MESSAGES_H
 
 #include "document/common.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 
 namespace vk {
 namespace keyboard {
@@ -30,7 +30,7 @@ namespace method {
 class messages
 {
 public:
-    messages(bool disable_mentions_flag_);
+    messages(bool disable_mentions_flag);
     messages() = delete;
 
     messages(const messages&) = default;
@@ -59,7 +59,7 @@ protected:
     bool m_disable_mentions_flag;
     std::shared_ptr<simdjson::dom::parser> m_parser;
     document::common m_document;
-    mutable method::group_raw_method m_group_raw_method;
+    mutable method::group_constructor_proxy m_group_constructor;
 };
 }// namespace method
 }// namespace vk

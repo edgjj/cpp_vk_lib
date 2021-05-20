@@ -1,8 +1,8 @@
-#include "document/common.hpp"
+#include <random>
 
 #include "simdjson.h"
 
-#include <random>
+#include "document/common.hpp"
 
 vk::document::common::common()
   : m_parser(std::make_shared<simdjson::dom::parser>())
@@ -36,7 +36,7 @@ vk::attachment::attachments_t vk::document::common::search(std::string_view meth
 {
     vk::attachment::attachments_t documents;
 
-    std::string raw_response = m_user_method.impl()
+    std::string raw_response = m_user_method
         .method(method)
         .param("q", query)
         .param("count", std::to_string(count))

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['group_5fraw_5fmethod_733',['group_raw_method',['../classvk_1_1method_1_1raw__method.html#ab8a16ccdedc06eca8a441dafc0069371',1,'vk::method::raw_method']]]
+  ['message_5fnew_735',['message_new',['../classvk_1_1event_1_1attachment__handler.html#a9fa11c10f6d0d595ee9e6fb6470362c8',1,'vk::event::attachment_handler']]]
 ];

@@ -50,9 +50,14 @@ private:
 };
 }// namespace bot
 
-int main()
+int main(int argc, char* argv[])
 {
-    vk::config::load("/path/to/config.json");
+    if (argc != 2)
+    {
+        std::cerr << "Program requires path to config as the only agrument." << std::endl;
+        exit(-1);
+    }
+    vk::config::load(argv[1]);
     spdlog::info("Maximum num of workers: {}", vk::config::num_workers());
     bot::bot_object example;
     return example.run();

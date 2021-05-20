@@ -1,12 +1,12 @@
 #include "methods/video.hpp"
 
 vk::method::video::video()
-  : m_user_method()
+  : m_user_constructor()
   , m_document()
 {}
 
 vk::method::video::video(std::string_view user_token)
-  : m_user_method(user_token.data())
+  : m_user_constructor(user_token.data())
   , m_document(user_token.data())
 {}
 
@@ -17,7 +17,7 @@ vk::attachment::attachments_t vk::method::video::search(std::string_view query, 
 
 void vk::method::video::save_by_link(std::string_view url) const
 {
-    m_user_method.impl()
+    m_user_constructor
         .method("video.save")
         .param("link", url)
         .execute();

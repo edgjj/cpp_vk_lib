@@ -40,7 +40,7 @@ digraph "api.cpp"
   Node2 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node16 [label="methods/groups.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$groups_8hpp.html",tooltip=" "];
   Node16 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node17 [label="methods/utility/raw\l_method.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$raw__method_8hpp.html",tooltip=" "];
+  Node17 [label="methods/utility/constructor.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$constructor_8hpp.html",tooltip=" "];
   Node17 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node18 [label="utility.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utility_8hpp.html",tooltip=" "];
   Node18 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -51,6 +51,7 @@ digraph "api.cpp"
   Node19 -> Node21 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node21 [label="string_view",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node18 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 [label="processing/task_queue.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$task__queue_8hpp.html",tooltip=" "];
   Node22 -> Node23 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

@@ -19,7 +19,7 @@ digraph "common.hpp"
   Node7 [label="document/common.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$document_2common_8hpp.html",tooltip=" "];
   Node7 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="methods/utility/raw\l_method.hpp",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$raw__method_8hpp.html",tooltip=" "];
+  Node8 [label="methods/utility/constructor.hpp",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$constructor_8hpp.html",tooltip=" "];
   Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node13 [label="events/common_event.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$common__event_8hpp.html",tooltip=" "];
   Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -97,6 +97,7 @@ digraph "common.hpp"
   Node47 -> Node49 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node49 [label="methods/groups.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$groups_8hpp.html",tooltip=" "];
   Node49 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node47 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node47 -> Node50 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node50 [label="processing/task_queue.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$task__queue_8hpp.html",tooltip=" "];
   Node50 -> Node51 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

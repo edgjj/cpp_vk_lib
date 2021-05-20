@@ -3,11 +3,12 @@ digraph "vk::method::audio"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
   Node1 [label="vk::method::audio",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The audio methods representation."];
-  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_document" ,fontname="Helvetica"];
-  Node2 [label="vk::document::common",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1document_1_1common.html",tooltip="The base class for vk::docs, vk::photos and vk::video."];
-  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_group_raw_method" ,fontname="Helvetica"];
-  Node3 [label="vk::method::group_raw\l_method",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1group__raw__method.html",tooltip=" "];
-  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_user_raw_method" ,fontname="Helvetica"];
-  Node4 [label="vk::method::user_raw\l_method",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1user__raw__method.html",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_user_constructor" ,fontname="Helvetica"];
+  Node2 [label="vk::method::constructor\l\< method_parameter::use\l_api_link\|method_parameter\l::user_params \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_group_constructor" ,fontname="Helvetica"];
+  Node3 [label="vk::method::constructor\l\< method_parameter::use\l_api_link\|method_parameter\l::group_params \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_document" ,fontname="Helvetica"];
+  Node4 [label="vk::document::common",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1document_1_1common.html",tooltip="The base class for vk::docs, vk::photos and vk::video."];
 }

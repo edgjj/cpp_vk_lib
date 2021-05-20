@@ -2,7 +2,7 @@
 #define VK_AUDIO_H
 
 #include "document/common.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 
 namespace vk {
 namespace method {
@@ -29,8 +29,8 @@ public:
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
     document::common m_document;
-    mutable method::group_raw_method m_group_raw_method;
-    mutable method::user_raw_method m_user_raw_method;
+    mutable method::group_constructor_proxy m_group_constructor;
+    mutable method::user_constructor_proxy m_user_constructor;
 };
 }// namespace method
 }// namespace vk

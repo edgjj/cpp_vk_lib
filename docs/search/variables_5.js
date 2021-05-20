@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['id_691',['id',['../structvk_1_1conversation__member.html#a5d57401962a74455b381ad025ca65e05',1,'vk::conversation_member']]],
-  ['is_5fexception_5finheritor_5fv_692',['is_exception_inheritor_v',['../namespacevk_1_1processing.html#a2ff2d2576f25ba3043fa69ede1e982fe',1,'vk::processing']]]
+  ['key_693',['key',['../structvk_1_1long__poll_1_1data.html#a6796ba33b8900a206f165e0c855c14af',1,'vk::long_poll::data']]]
 ];

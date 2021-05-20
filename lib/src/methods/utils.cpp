@@ -5,12 +5,12 @@
 
 vk::method::utils::utils()
     : m_parser(std::make_shared<simdjson::dom::parser>())
-    , m_group_raw_method()
+    , m_group_constructor()
 { }
 
 bool vk::method::utils::check_link(std::string_view url) const
 {
-    std::string raw_response = m_group_raw_method.impl()
+    std::string raw_response = m_group_constructor
         .method("utils.checkLink")
         .param("url", url)
         .execute();
@@ -28,7 +28,7 @@ bool vk::method::utils::check_link(std::string_view url) const
 
 std::string vk::method::utils::get_short_link(std::string_view url) const
 {
-    std::string raw_response = m_group_raw_method.impl()
+    std::string raw_response = m_group_constructor
         .method("utils.getShortLink")
         .param("url", url)
         .execute();
@@ -47,7 +47,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
 
 std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) const
 {
-    std::string raw_response = m_group_raw_method.impl()
+    std::string raw_response = m_group_constructor
         .method("utils.resolveScreenName")
         .param("screen_name", screen_name)
         .execute();

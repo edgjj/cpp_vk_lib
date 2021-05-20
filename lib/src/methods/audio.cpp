@@ -6,25 +6,24 @@
 vk::method::audio::audio()
   : m_parser(std::make_shared<simdjson::dom::parser>())
   , m_document()
-  , m_group_raw_method()
-  , m_user_raw_method()
+  , m_group_constructor()
+  , m_user_constructor()
 {}
 
 vk::method::audio::audio(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
   , m_document(user_token.data())
-  , m_group_raw_method()
-  , m_user_raw_method(user_token)
+  , m_group_constructor()
+  , m_user_constructor(user_token)
 {}
 
 vk::method::audio::~audio() = default;
 
 std::string vk::method::audio::get_upload_server() const
 {
-    std::string response =
-        m_user_raw_method.impl()
-            .method("audio.getUploadServer")
-            .execute();
+    std::string response = m_user_constructor
+        .method("audio.getUploadServer")
+        .execute();
 
     return response;
 }
@@ -38,7 +37,7 @@ void vk::method::audio::save(std::string_view artist, std::string_view title, st
         processing::log_and_throw<exception::upload_error>("audio", "Can't upload file. Maybe is not an mp3 track?");
     }
 
-    m_group_raw_method.impl()
+    m_group_constructor
         .method("audio.save")
         .param("server", std::to_string(response["server"].get_int64()))
         .param("audio", std::string(response["audio"].get_c_str()))

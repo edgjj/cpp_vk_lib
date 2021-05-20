@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_693',['key',['../structvk_1_1long__poll_1_1data.html#a6796ba33b8900a206f165e0c855c14af',1,'vk::long_poll::data']]]
+  ['last_5fname_694',['last_name',['../structvk_1_1conversation__member.html#ac6cf22456deb1b3859454106bcbbdad8',1,'vk::conversation_member']]]
 ];

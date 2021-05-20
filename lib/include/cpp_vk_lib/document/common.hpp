@@ -2,7 +2,7 @@
 #define VK_COMMON_DOCUMENT_H
 
 #include "attachment/attachment.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 
 namespace simdjson {
 namespace dom {
@@ -43,7 +43,7 @@ public:
 
 private:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    mutable method::user_raw_method m_user_method;
+    mutable method::group_constructor_proxy m_user_method;
     network_client m_net_client;
 };
 }// namespace document

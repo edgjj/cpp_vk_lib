@@ -4,6 +4,7 @@
 #include "events/common_event.hpp"
 #include "long_poll/data.hpp"
 #include "methods/groups.hpp"
+#include "methods/utility/constructor.hpp"
 #include "processing/task_queue.hpp"
 
 namespace vk {
@@ -62,9 +63,10 @@ private:
     /*!
      * @brief Class with group long poll methods.
      */
+    processing::task_queue m_task_queue;
+    mutable method::constructor<vk::method::method_parameter::do_not_use_api_link> m_raw_method;
     method::groups m_groups;
     std::int64_t m_group_id;
-    processing::task_queue m_task_queue;
 };
 }// namespace long_poll
 }// namespace vk

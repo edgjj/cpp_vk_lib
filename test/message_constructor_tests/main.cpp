@@ -17,8 +17,8 @@ TEST(config, custom_field_access)
 {
     vk::method::message_constructor constructor(vk::method::messages::disable_mentions);
 
-    constructor.append({"param1", "value1"});
-    constructor.append({"param2", "value2"});
+    constructor.append("param1", "value1");
+    constructor.append("param2", "value2");
 
     for (auto&& element :
          std::map<std::string, std::string>{{"random_id", "0"}, {"disable_mentions", "1"}, {"param1", "value1"}, {"param2", "value2"}})

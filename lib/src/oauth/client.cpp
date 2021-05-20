@@ -1,7 +1,7 @@
 #include "oauth/client.hpp"
 
 #include "exception/error_processor.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 #include "simdjson.h"
 
 vk::oauth::client::client(std::string_view username_, std::string_view password_, vk::oauth::target_client client_type_)
@@ -41,7 +41,7 @@ static bool error_returned(const simdjson::dom::object& response, std::string_vi
 
 void vk::oauth::client::pull()
 {
-    method::raw_method raw_method_util(method::raw_method::do_not_use_api_link);
+    method::constructor<method::method_parameter::do_not_use_api_link> raw_method_util;//(method::constructor::do_not_use_api_link);
     raw_method_util
         .method(std::string(m_oauth_link) + "token?")
         .param("grant_type", "password")

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['red_730',['red',['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8acabda9643ac6601722a28f238714274da4',1,'vk::keyboard']]]
+  ['one_5ftime_729',['one_time',['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a42c65b4a0a42503f782c380c8db96925',1,'vk::keyboard']]]
 ];

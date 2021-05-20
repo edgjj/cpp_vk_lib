@@ -20,8 +20,6 @@ public:
     message_constructor& operator=(message_constructor&&) = default;
     ~message_constructor() = default;
 
-    using parameter_t = std::map<std::string, std::string>;
-
     static inline bool disable_mentions = true;
     static inline bool enable_mentions = false;
 
@@ -39,22 +37,16 @@ public:
         }
     }
 
-    void append(std::pair<std::string, std::string>&& pair)
+    void append(std::string_view lhs, std::string_view rhs)
     {
-        m_params.emplace(std::move(pair));
+        m_params.emplace(lhs, rhs);
     }
-    void append(const std::pair<std::string, std::string>& pair)
-    {
-        m_params.emplace(pair);
-    }
-
-    void append_map(parameter_t&& additional_params)
+    /*!
+     * Additional_params should be moved.
+     */
+    void append_map(std::map<std::string, std::string> additional_params)
     {
         m_params.merge(std::move(additional_params));
-    }
-    void append_map(const parameter_t& additional_params)
-    {
-        m_params.insert(additional_params.begin(), additional_params.end());
     }
 
     template <typename _Attachment_List>
@@ -63,11 +55,11 @@ public:
         m_params.emplace("attachment", append_attachments_impl(std::forward<_Attachment_List>(attachments)).data());
     }
 
-    parameter_t&& consume_map() noexcept
+    std::map<std::string, std::string>&& consume_map() noexcept
     {
         return std::move(m_params);
     }
-    parameter_t map() const noexcept
+    std::map<std::string, std::string> map() const noexcept
     {
         return m_params;
     }
@@ -85,7 +77,7 @@ private:
         }
         return result;
     }
-    parameter_t m_params;
+    std::map<std::string, std::string> m_params;
 };
 }// namespace method
 }// namespace vk

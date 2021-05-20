@@ -6,33 +6,46 @@
 
 vk::long_poll::api::api(std::int64_t update_interval_)
   : m_update_interval(update_interval_)
+  , m_task_queue(vk::config::num_workers())
+  , m_raw_method()
   , m_groups()
   , m_group_id(m_groups.get_by_id())
-  , m_task_queue(config::num_workers())
 {
     spdlog::info("Long poll: group id - {}", m_group_id);
 }
 
 vk::long_poll::data vk::long_poll::api::server() const
 {
-    simdjson::dom::object server(m_groups.get_long_poll_server(m_group_id));
-    return {server["key"].get_c_str().take_value(), server["server"].get_c_str().take_value(), server["ts"].get_c_str().take_value()};
+    simdjson::dom::object server_object = m_groups.get_long_poll_server(m_group_id);
+
+    std::string key = server_object["key"].get_c_str().take_value();
+    std::string server = server_object["server"].get_c_str().take_value();
+    std::string ts = server_object["ts"].get_c_str().take_value();
+
+    return { key, server, ts };
 }
 
-static simdjson::dom::object get_updates(const vk::long_poll::data& data, std::size_t timeout)
+static simdjson::dom::object get_updates(vk::method::constructor<vk::method::method_parameter::do_not_use_api_link>& raw_method, const vk::long_poll::data& data, std::size_t timeout)
 {
-    static vk::network_client net_client;
     static simdjson::dom::parser parser;
 
-    return parser.parse(
-        net_client.request(data.server + '?', {{"act", "a_check"}, {"key", data.key}, {"ts", data.ts}, {"wait", std::to_string(timeout)}}));
+    std::string response = raw_method
+        .method(data.server + "?")
+        .param("act", "a_check")
+        .param("key", data.key)
+        .param("ts", data.ts)
+        .param("wait", std::to_string(timeout))
+        .execute();
+
+    return parser.parse(response);
 }
 
 vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& data, std::int8_t timeout) const
 {
     events_t event_list;
-    simdjson::dom::object updates_json = get_updates(data, timeout);
+    simdjson::dom::object updates_json = get_updates(m_raw_method, data, timeout);
     simdjson::dom::array updates = updates_json["updates"].get_array();
+
     if (std::time(nullptr) % m_update_interval == 0)
     {
         data = server();
@@ -42,6 +55,7 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
     {
         event_list.push_back(std::make_unique<vk::event::common>(updates_json["ts"].get_string(), std::move(update)));
     }
+
     data.ts = updates_json["ts"].get_c_str();
     return event_list;
 }

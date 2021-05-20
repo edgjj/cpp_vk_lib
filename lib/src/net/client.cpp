@@ -109,15 +109,15 @@ std::size_t vk::network_client::download(std::string_view filename, std::string_
 std::string vk::network_client::upload(std::string_view field_name, std::string_view filename, std::string_view server) const
 {
     std::ostringstream response;
-    curlpp::Forms formParts;
+    curlpp::Forms form_parts;
     curlpp::Easy curl_easy;
 
-    formParts.push_back(new curlpp::FormParts::File(field_name.data(), filename.data()));
+    form_parts.push_back(new curlpp::FormParts::File(field_name.data(), filename.data()));
 
     debug("HTTP upload - filename: ", filename);
 
     curl_easy.setOpt(curlpp::options::Url(server.data()));
-    curl_easy.setOpt(curlpp::options::HttpPost(formParts));
+    curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
     try
     {

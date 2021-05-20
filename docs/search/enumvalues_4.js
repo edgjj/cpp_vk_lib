@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['none_728',['none',['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8aca334c4a4c42fdb79d7ebc3e73b517e6f8',1,'vk::keyboard::none()'],['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'vk::keyboard::none()']]]
+  ['in_5fline_726',['in_line',['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339',1,'vk::keyboard']]],
+  ['iphone_727',['iphone',['../namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ffa0b3f45b266a97d7029dde7c2ba372093',1,'vk::oauth']]]
 ];

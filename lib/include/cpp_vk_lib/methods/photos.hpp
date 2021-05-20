@@ -2,7 +2,7 @@
 #define VK_PHOTOS_H
 
 #include "document/common.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 
 namespace vk {
 namespace method {
@@ -30,7 +30,7 @@ public:
 
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    mutable method::group_raw_method m_group_method;
+    mutable method::group_constructor_proxy m_group_constructor;
     document::common m_document;
 };
 }// namespace method

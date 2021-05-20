@@ -2,7 +2,7 @@
 #define VK_VIDEO_H
 
 #include "document/common.hpp"
-#include "methods/utility/raw_method.hpp"
+#include "methods/utility/constructor.hpp"
 
 namespace vk {
 namespace method {
@@ -27,7 +27,7 @@ public:
     void save_by_link(std::string_view url) const;
 
 protected:
-    mutable method::user_raw_method m_user_method;
+    mutable method::user_constructor_proxy m_user_constructor;
     document::common m_document;
 };
 }// namespace method
