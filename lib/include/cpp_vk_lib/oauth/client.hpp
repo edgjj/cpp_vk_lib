@@ -36,11 +36,6 @@ class client
 public:
     explicit client(std::string_view username_, std::string_view password_, target_client client_type_);
 
-    client() = default;
-    client(const client&) = default;
-    client(client&&) = default;
-    client& operator=(const client&) = default;
-    client& operator=(client&&) = default;
     ~client();
     /*!
      * @brief Try get user data.

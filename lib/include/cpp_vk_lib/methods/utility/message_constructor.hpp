@@ -14,12 +14,6 @@ namespace method {
 class message_constructor
 {
 public:
-    message_constructor(const message_constructor&) = default;
-    message_constructor(message_constructor&&) = default;
-    message_constructor& operator=(const message_constructor&) = default;
-    message_constructor& operator=(message_constructor&&) = default;
-    ~message_constructor() = default;
-
     static inline bool disable_mentions = true;
     static inline bool enable_mentions = false;
 
@@ -42,7 +36,7 @@ public:
         m_params.emplace(lhs, rhs);
     }
     /*!
-     * Additional_params should be moved.
+     * @note Additional_params should be moved.
      */
     void append_map(std::map<std::string, std::string> additional_params)
     {

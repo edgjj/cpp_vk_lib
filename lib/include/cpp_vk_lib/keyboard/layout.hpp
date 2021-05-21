@@ -20,14 +20,8 @@ using any_button = std::variant<button::text, button::vk_pay, button::open_app, 
 class layout
 {
 public:
-    layout(keyboard::flag);
-
     layout() = default;
-    layout(const layout&) = default;
-    layout(layout&&) = default;
-    layout& operator=(const layout&) = default;
-    layout& operator=(layout&&) = default;
-    ~layout() = default;
+    layout(keyboard::flag flags);
 
     /*!
      * @brief Add row by passing `std::vector`.

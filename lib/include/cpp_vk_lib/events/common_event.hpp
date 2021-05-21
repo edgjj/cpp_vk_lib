@@ -21,10 +21,6 @@ class common
 public:
     common(std::string_view ts, simdjson::dom::object&& event);
 
-    common(const common&) = default;
-    common(common&&) = default;
-    common& operator=(const common&) = default;
-    common& operator=(common&&) = default;
     ~common();
 
     /*!

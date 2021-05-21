@@ -8,6 +8,8 @@ vk::method::groups::groups()
   , m_parser(std::make_unique<simdjson::dom::parser>())
 {}
 
+vk::method::groups::~groups() = default;
+
 std::int64_t vk::method::groups::get_by_id() const
 {
     std::string raw_response = m_group_constructor

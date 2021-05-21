@@ -33,10 +33,6 @@ public:
     messages(bool disable_mentions_flag);
     messages() = delete;
 
-    messages(const messages&) = default;
-    messages(messages&&) = default;
-    messages& operator=(const messages&) = default;
-    messages& operator=(messages&&) = default;
     ~messages();
 
     static inline bool disable_mentions = true;

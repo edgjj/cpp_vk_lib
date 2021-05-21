@@ -14,11 +14,8 @@ class utils
 {
 public:
     utils();
-    utils(const utils&) = default;
-    utils(utils&&) = default;
-    utils& operator=(const utils&) = default;
-    utils& operator=(utils&&) = default;
-    ~utils() = default;
+
+    ~utils();
 
     bool check_link(std::string_view url) const;
     std::string get_short_link(std::string_view url) const;

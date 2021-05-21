@@ -2,10 +2,10 @@
 
 #include <algorithm>
 
-vk::keyboard::layout::layout(vk::keyboard::flag flags_)
+vk::keyboard::layout::layout(vk::keyboard::flag flags)
   : m_serialized()
   , m_buttons()
-  , m_flags(flags_)
+  , m_flags(flags)
 {}
 
 void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& row)
@@ -13,10 +13,10 @@ void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& 
     m_buttons.push_back(row);
 }
 
-template <typename _Button_type>
+template <typename Button>
 static bool has_type(vk::keyboard::any_button button) noexcept
 {
-    return std::holds_alternative<_Button_type>(button);
+    return std::holds_alternative<Button>(button);
 }
 
 static std::string create_button(const vk::keyboard::any_button& any_button)
@@ -77,7 +77,7 @@ std::string vk::keyboard::layout::get() const noexcept
     return m_serialized;
 }
 
-bool vk::keyboard::layout::has_flag(vk::keyboard::flag flag_) const noexcept
+bool vk::keyboard::layout::has_flag(vk::keyboard::flag flag) const noexcept
 {
-    return ((m_flags & flag_) > 0);
+    return ((m_flags & flag) > 0);
 }

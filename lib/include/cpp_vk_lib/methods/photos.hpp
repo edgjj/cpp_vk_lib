@@ -17,10 +17,6 @@ public:
     explicit photos();
     explicit photos(std::string_view user_token);
 
-    photos(const photos&) = default;
-    photos(photos&&) = default;
-    photos& operator=(const photos&) = default;
-    photos& operator=(photos&&) = default;
     ~photos();
 
     std::string get_messages_upload_server(std::int64_t peer_id) const;

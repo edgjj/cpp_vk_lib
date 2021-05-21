@@ -41,7 +41,8 @@ static bool error_returned(const simdjson::dom::object& response, std::string_vi
 
 void vk::oauth::client::pull()
 {
-    method::constructor<method::method_parameter::do_not_use_api_link> raw_method_util;//(method::constructor::do_not_use_api_link);
+    method::constructor<method::method_parameter::do_not_use_api_link> raw_method_util;
+
     raw_method_util
         .method(std::string(m_oauth_link) + "token?")
         .param("grant_type", "password")

@@ -11,10 +11,10 @@
 namespace vk {
 namespace string_utils {
 
-template <typename T, typename _Container>
-std::string join(_Container&& elements, char delimiter)
+template <typename T, typename Container>
+std::string join(Container&& elements, char delimiter)
 {
-    return join_impl<T>::create(std::forward<_Container>(elements), delimiter);
+    return join_impl<T>::create(std::forward<Container>(elements), delimiter);
 }
 template <typename T>
 std::string join(std::initializer_list<T> elements, char delimiter)
@@ -22,10 +22,10 @@ std::string join(std::initializer_list<T> elements, char delimiter)
     return join_impl<T>::create(elements, delimiter);
 }
 
-template <typename... _Args>
-std::string format(std::string_view data, _Args&&... args)
+template <typename... Args>
+std::string format(std::string_view data, Args&&... args)
 {
-    return format_impl<_Args...>::create(data, std::forward<_Args>(args)...);
+    return format_impl<Args...>::create(data, std::forward<Args>(args)...);
 }
 
 inline std::vector<std::string_view> split(std::string_view data, char delimiter)

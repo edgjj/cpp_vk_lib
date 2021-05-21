@@ -4,8 +4,8 @@
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
-vk::long_poll::api::api(std::int64_t update_interval_)
-  : m_update_interval(update_interval_)
+vk::long_poll::api::api(std::int64_t update_interval)
+  : m_update_interval(update_interval)
   , m_task_queue(vk::config::num_workers())
   , m_raw_method()
   , m_groups()

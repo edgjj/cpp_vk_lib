@@ -4,6 +4,8 @@
 
 #include "exception/error_processor.hpp"
 
+vk::event::message_new::~message_new() = default;
+
 vk::event::message_new::message_new(simdjson::dom::object&& event)
   : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
   , m_action()

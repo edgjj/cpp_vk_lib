@@ -15,7 +15,7 @@ namespace long_poll {
 class api
 {
 public:
-    explicit api(std::int64_t update_interval_ = 600);
+    explicit api(std::int64_t update_interval = 600);
 
     api(const api&) = delete;
     api(api&&) = delete;
@@ -36,8 +36,9 @@ public:
      * In the case, when no updates were returned, the request is executed again.
      */
     events_t listen(data& lp_data, std::int8_t timeout = 60) const;
-    template <typename _Execution_Policy>
-    void on_event(std::string_view event_type, const event::common& event, _Execution_Policy executor)
+
+    template <typename ExecutionPolicy>
+    void on_event(std::string_view event_type, const event::common& event, ExecutionPolicy executor)
     {
         if (event.on_type(event_type))
         {

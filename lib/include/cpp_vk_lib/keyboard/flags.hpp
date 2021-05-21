@@ -11,7 +11,7 @@ enum class flag : unsigned char
     one_time = (1 << 2)
 };
 
-constexpr inline unsigned char operator&(flag lhs, flag rhs) noexcept
+constexpr unsigned char operator & (flag lhs, flag rhs) noexcept
 {
     return static_cast<unsigned char>(lhs) & static_cast<unsigned char>(rhs);
 }

@@ -10,12 +10,13 @@ namespace button {
 class open_app
 {
 public:
-    open_app(std::int64_t app_id_, std::int64_t owner_id_, std::string_view hash_, std::string_view label_)
-      : m_app_id(app_id_)
-      , m_owner_id(owner_id_)
-      , m_hash(hash_)
-      , m_label(label_)
+    open_app(std::int64_t app_id, std::int64_t owner_id, std::string_view hash, std::string_view label)
+      : m_app_id(app_id)
+      , m_owner_id(owner_id)
+      , m_hash(hash)
+      , m_label(label)
     {}
+
     std::string serialize() const
     {
         return string_utils::format(

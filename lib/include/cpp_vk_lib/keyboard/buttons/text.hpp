@@ -15,9 +15,10 @@ public:
       : m_selected_color(selected_color)
       , m_payload_data(payload_data)
     {}
+
     std::string serialize() const
     {
-        const char* color(keyboard::get_color(m_selected_color));
+        const char* color = keyboard::get_color(m_selected_color);
         return string_utils::format(
             R"({"action":{"type":"text","payload":"{\"button\":\"1\"}","label":"{}"},"color":"{}"})",
             m_payload_data,

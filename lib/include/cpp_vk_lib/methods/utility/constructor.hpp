@@ -61,10 +61,12 @@ public:
         m_method_name = method_name;
         return *this;
     }
-
-    constructor& append_map(const std::map<std::string, std::string>& map)
+    /*!
+     * @note Additional_params should be moved.
+     */
+    constructor& append_map(std::map<std::string, std::string> additional_params)
     {
-        m_params.insert(map.begin(), map.end());
+        m_params.merge(std::move(additional_params));
         return *this;
     }
 

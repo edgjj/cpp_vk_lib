@@ -26,6 +26,7 @@ protected:
     {
         processing::backtrace_view{};
     }
+
     std::string create(std::int32_t id, std::string ename, std::string arg) const
     {
         return "[vk.exception." + ename + '.' + std::to_string(id) + "]: " + arg;
@@ -38,25 +39,34 @@ private:
 class upload_error : public common_exception
 {
 public:
-    explicit upload_error(int id_, const char* what_arg_)
-      : common_exception(create(id_, "upload_error", what_arg_))
+    explicit upload_error(int id, const char* what_arg)
+      : common_exception(create(id, "upload_error", what_arg))
     {}
 };
 
 class access_error : public common_exception
 {
 public:
-    explicit access_error(int id_, const char* what_arg_)
-      : common_exception(create(id_, "access_error", what_arg_))
+    explicit access_error(int id, const char* what_arg)
+      : common_exception(create(id, "access_error", what_arg))
     {}
 };
 
 class invalid_parameter_error : public common_exception
 {
 public:
-    explicit invalid_parameter_error(int id_, const char* what_arg_)
-      : common_exception(create(id_, "invalid_parameter_error", what_arg_))
+    explicit invalid_parameter_error(int id, const char* what_arg)
+      : common_exception(create(id, "invalid_parameter_error", what_arg))
     {}
+};
+
+template <typename Base, typename Derived>
+class bad_cast_error : public common_exception
+{
+public:
+    explicit bad_cast_error()
+      : common_exception(create(0, "bad_cast_error", "Cast error"))
+    { }
 };
 
 }// namespace exception

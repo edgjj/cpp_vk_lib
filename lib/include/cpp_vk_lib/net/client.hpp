@@ -12,12 +12,6 @@ namespace vk {
 class network_client
 {
 public:
-    network_client() = default;
-    network_client(const network_client&) = default;
-    network_client(network_client&&) = default;
-    network_client& operator=(const network_client&) = default;
-    network_client& operator=(network_client&&) = default;
-    ~network_client() = default;
     /*!
      * @brief Execute HTTP POST request.
      * @return response output.

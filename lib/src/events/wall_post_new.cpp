@@ -4,6 +4,8 @@
 #include "misc/cppdefs.hpp"
 #include "simdjson.h"
 
+vk::event::wall_post_new::~wall_post_new() = default;
+
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event)
   : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
   , m_attachment_handler()

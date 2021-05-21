@@ -17,10 +17,6 @@ public:
     explicit docs();
     explicit docs(std::string_view user_token);
 
-    docs(const docs&) = default;
-    docs(docs&&) = default;
-    docs& operator=(const docs&) = default;
-    docs& operator=(docs&&) = default;
     ~docs();
 
     void edit(std::int64_t owner_id, std::int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags = {}) const;

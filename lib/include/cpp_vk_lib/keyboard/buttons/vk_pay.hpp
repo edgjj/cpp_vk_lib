@@ -13,6 +13,7 @@ public:
     vk_pay(std::string_view hash)
       : m_hash(hash)
     {}
+
     std::string serialize() const
     {
         return string_utils::format(R"({"action":{"type":"vkpay","hash":"{}"}})", m_hash);

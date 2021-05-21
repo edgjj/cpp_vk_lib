@@ -17,11 +17,7 @@ public:
     explicit video();
     explicit video(std::string_view user_token);
 
-    video(const video&) = default;
-    video(video&&) = default;
-    video& operator=(const video&) = default;
-    video& operator=(video&&) = default;
-    ~video() = default;
+    ~video();
 
     vk::attachment::attachments_t search(std::string_view query, std::int64_t count) const;
     void save_by_link(std::string_view url) const;

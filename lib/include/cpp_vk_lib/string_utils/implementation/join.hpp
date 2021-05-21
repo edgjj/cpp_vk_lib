@@ -6,8 +6,8 @@
 
 namespace vk {
 namespace string_utils {
-template <typename T, typename _Container>
-std::string join(_Container&& elements, char delimiter = ',');
+template <typename T, typename Container>
+std::string join(Container&& elements, char delimiter = ',');
 template <typename T>
 std::string join(std::initializer_list<T> elements, char delimiter = ',');
 }// namespace string_utils
@@ -23,16 +23,16 @@ public:
     join_impl() = delete;
 
 private:
-    template <typename _Container, typename _Binary_operation>
-    static std::string common_implementation(_Container&& elements, _Binary_operation operation)
+    template <typename Container, typename BinaryOperation>
+    static std::string implementation(Container&& elements, BinaryOperation operation)
     {
         return std::accumulate(elements.begin(), elements.end(), std::string(), operation);
     }
 
-    template <typename _Container>
-    static std::string common_create(_Container&& elements, char delimiter)
+    template <typename Container>
+    static std::string common_create(Container&& elements, char delimiter)
     {
-        return common_implementation(elements, [&delimiter](std::string& accumlator, T element) {
+        return implementation(elements, [&delimiter](std::string& accumlator, T element) {
             if constexpr (std::is_integral_v<T>)
             {
                 return accumlator.empty() ? std::to_string(element) : std::move(accumlator) + delimiter + std::to_string(element);
@@ -44,14 +44,14 @@ private:
         });
     }
 
-    template <typename _Container>
-    static std::string create(_Container&& elements, char delimiter)
+    template <typename Container>
+    static std::string create(Container&& elements, char delimiter)
     {
-        return common_create<_Container&&>(std::forward<_Container>(elements), delimiter);
+        return common_create<Container&&>(std::forward<Container>(elements), delimiter);
     }
 
-    template <typename _T, typename _Container>
-    friend std::string string_utils::join(_Container&& elements, char delimiter);
+    template <typename _T, typename Container>
+    friend std::string string_utils::join(Container&& elements, char delimiter);
     template <typename _T>
     friend std::string string_utils::join(std::initializer_list<_T> elements, char delimiter);
 };

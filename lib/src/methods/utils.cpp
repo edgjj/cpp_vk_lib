@@ -8,6 +8,8 @@ vk::method::utils::utils()
     , m_group_constructor()
 { }
 
+vk::method::utils::~utils() = default;
+
 bool vk::method::utils::check_link(std::string_view url) const
 {
     std::string raw_response = m_group_constructor
@@ -23,6 +25,7 @@ bool vk::method::utils::check_link(std::string_view url) const
     }
 
     std::string_view status = response["response"]["status"];
+
     return status == "not_banned";
 }
 
@@ -42,6 +45,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
 
     std::string_view short_url_response = response["response"]["short_url"];
     std::string short_url;
+
     return short_url.assign(short_url_response.data(), short_url_response.size());
 }
 

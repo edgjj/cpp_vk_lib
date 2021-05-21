@@ -3,6 +3,8 @@
 #include "exception/error_processor.hpp"
 #include "simdjson.h"
 
+vk::event::wall_reply_new::~wall_reply_new() = default;
+
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
   : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
   , m_attachment_handler()

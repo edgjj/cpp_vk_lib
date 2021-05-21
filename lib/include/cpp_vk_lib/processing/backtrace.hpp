@@ -21,11 +21,13 @@ public:
     backtrace_view(backtrace_view&&) = delete;
     backtrace_view& operator=(const backtrace_view&) = delete;
     backtrace_view& operator=(backtrace_view&&) = delete;
+
     explicit backtrace_view() noexcept
     {
         generate();
         std::cerr << std::endl;
     }
+
     ~backtrace_view()
     {
         free(symbol_list);

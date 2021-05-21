@@ -24,11 +24,7 @@ namespace event {
 class message_new
 {
 public:
-    message_new(const message_new&) = default;
-    message_new(message_new&&) = default;
-    message_new& operator=(const message_new&) = default;
-    message_new& operator=(message_new&&) = default;
-    ~message_new() = default;
+    ~message_new();
 
     /*!
      * @brief Construct event from JSON.

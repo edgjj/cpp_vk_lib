@@ -22,10 +22,6 @@ public:
     explicit common();
     explicit common(std::string_view user_token);
 
-    common(const common&) = default;
-    common(common&&) = default;
-    common& operator=(const common&) = default;
-    common& operator=(common&&) = default;
     ~common();
     /*!
      * @brief Upload file to server.

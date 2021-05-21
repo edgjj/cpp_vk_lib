@@ -22,11 +22,7 @@ namespace event {
 class wall_post_new
 {
 public:
-    wall_post_new(const wall_post_new&) = default;
-    wall_post_new(wall_post_new&&) = default;
-    wall_post_new& operator=(const wall_post_new&) = default;
-    wall_post_new& operator=(wall_post_new&&) = default;
-    ~wall_post_new() = default;
+    ~wall_post_new();
 
     /*!
      * @brief Construct event from JSON.

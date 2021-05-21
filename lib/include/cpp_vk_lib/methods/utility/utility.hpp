@@ -20,13 +20,9 @@ namespace method {
 class utility
 {
 public:
-    utility(std::string_view user_token);
     utility();
+    utility(std::string_view user_token);
 
-    utility(const utility&) = default;
-    utility(utility&&) = default;
-    utility& operator=(const utility&) = default;
-    utility& operator=(utility&&) = default;
     ~utility();
 
     const std::map<std::string, std::string>& user_args(std::map<std::string, std::string>& params) const;

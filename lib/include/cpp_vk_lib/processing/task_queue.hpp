@@ -39,8 +39,8 @@ public:
     template <typename Function, typename... Args>
     bool push_void_task(Function&& fn, Args&&... args);
 
-    template <typename Function, typename... Args, typename Invoke_Task_Type = std::invoke_result_t<Function, Args...>>
-    std::pair<bool, std::future<Invoke_Task_Type>> push_future_task(Function&& fn, Args&&... args);
+    template <typename Function, typename... Args, typename InvokeTaskType = std::invoke_result_t<Function, Args...>>
+    std::pair<bool, std::future<InvokeTaskType>> push_future_task(Function&& fn, Args&&... args);
 
     void wait_for_completion();
 
@@ -191,21 +191,21 @@ inline void task_queue::init_workers(std::size_t num)
     }
 }
 
-template <typename Function, typename... Args, typename Invoke_Task_Type>
-inline std::pair<bool, std::future<Invoke_Task_Type>> task_queue::push_future_task(Function&& fn, Args&&... args)
+template <typename Function, typename... Args, typename InvokeTaskType>
+inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task(Function&& fn, Args&&... args)
 {
     if (m_stop_requested)
     {
-        return {false, std::future<Invoke_Task_Type>()};
+        return {false, std::future<InvokeTaskType>()};
     }
-    auto result_promise = std::make_shared<std::promise<Invoke_Task_Type>>();
+    auto result_promise = std::make_shared<std::promise<InvokeTaskType>>();
     auto result_future = result_promise->get_future();
     std::unique_lock<decltype(m_locker)> lock(m_locker);
 
     m_tasks.emplace_back([fn = std::forward<Function>(fn),
                           tp = std::make_tuple(std::forward<Args>(args)...),
                           promise = std::move(result_promise)]() mutable {
-        if constexpr (std::is_void_v<Invoke_Task_Type>)
+        if constexpr (std::is_void_v<InvokeTaskType>)
         {
             try
             {

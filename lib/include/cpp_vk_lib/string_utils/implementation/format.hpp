@@ -8,15 +8,15 @@
 
 namespace vk {
 namespace string_utils {
-template <typename... _Args>
-std::string format(std::string_view data, _Args&&... args);
+template <typename... Args>
+std::string format(std::string_view data, Args&&... args);
 }// namespace string_utils
 }// namespace vk
 
 namespace vk {
 namespace string_utils {
 
-template <typename... _Args>
+template <typename... Args>
 struct format_impl
 {
 public:
@@ -25,7 +25,7 @@ public:
 private:
     static constexpr std::size_t average_word_size = 7;
 
-    static std::string create(std::string_view data, _Args&&... args)
+    static std::string create(std::string_view data, Args&&... args)
     {
         if (data.empty())
             return {};
@@ -36,12 +36,11 @@ private:
             {
                 return std::to_string(argument);
             }
-            else
-            {
+            else {
                 return std::string(argument);
             }
         };
-        std::array<std::string, sizeof...(_Args)> elements{pack_one(args)...};
+        std::array<std::string, sizeof...(Args)> elements{pack_one(args)...};
         std::size_t curr = 0;
         for (std::size_t i = 0; i < data.size(); i++)
         {
@@ -59,8 +58,8 @@ private:
         return formatted;
     }
 
-    template <typename... __Args>
-    friend std::string vk::string_utils::format(std::string_view data, __Args&&... args);
+    template <typename... _Args>
+    friend std::string vk::string_utils::format(std::string_view data, _Args&&... args);
 };
 }// namespace string_utils
 }// namespace vk

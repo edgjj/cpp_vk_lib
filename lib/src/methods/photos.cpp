@@ -63,6 +63,7 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(s
         .execute();
 
     simdjson::dom::object uploaded = m_parser->parse(raw_response)["response"].at(0);
+
     std::int64_t owner_id = uploaded["owner_id"].get_int64();
     std::int64_t id = uploaded["id"].get_int64();
 

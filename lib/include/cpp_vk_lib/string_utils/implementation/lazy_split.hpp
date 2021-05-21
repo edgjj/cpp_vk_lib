@@ -12,11 +12,11 @@ namespace string_utils {
 struct end_split_iterator
 {};
 
-template <typename _String_type>
+template <typename StringType>
 class split_iterator
 {
 public:
-    split_iterator(_String_type source, _String_type delim)
+    split_iterator(StringType source, StringType delim)
       : src(source)
       , delimiter(delim)
       , first(0)
@@ -28,9 +28,9 @@ public:
         last = src.find(delimiter, first);
         return *this;
     }
-    _String_type operator*() const noexcept
+    StringType operator*() const noexcept
     {
-        if (last != _String_type::npos)
+        if (last != StringType::npos)
         {
             return src.substr(first, last - first);
         }
@@ -47,24 +47,24 @@ public:
     }
 
 private:
-    _String_type src;
-    _String_type delimiter;
+    StringType src;
+    StringType delimiter;
     std::size_t first;
     std::size_t last;
     mutable bool finished = false;
 };
 
-template <typename _String_type>
+template <typename StringType>
 class split_range
 {
 public:
-    split_range(_String_type source, _String_type delim) noexcept
+    split_range(StringType source, StringType delim) noexcept
       : src(source)
       , delimiter(delim)
     {}
     auto begin() const noexcept
     {
-        return split_iterator<_String_type>(src, delimiter);
+        return split_iterator<StringType>(src, delimiter);
     }
     auto end() const noexcept
     {
@@ -72,8 +72,8 @@ public:
     }
 
 private:
-    _String_type src;
-    _String_type delimiter;
+    StringType src;
+    StringType delimiter;
 };
 }// namespace string_utils
 }// namespace vk

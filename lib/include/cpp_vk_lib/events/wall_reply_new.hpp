@@ -21,11 +21,7 @@ namespace event {
 class wall_reply_new
 {
 public:
-    wall_reply_new(const wall_reply_new&) = default;
-    wall_reply_new(wall_reply_new&&) = default;
-    wall_reply_new& operator=(const wall_reply_new&) = default;
-    wall_reply_new& operator=(wall_reply_new&&) = default;
-    ~wall_reply_new() = default;
+    ~wall_reply_new();
 
     /*!
      * @brief Construct event from JSON.
@@ -69,8 +65,8 @@ private:
     }
 
     std::shared_ptr<simdjson::dom::object> m_event_json;
-    bool m_has_attachments = false;
     attachment_handler m_attachment_handler;
+    bool m_has_attachments = false;
 };
 }// namespace event
 }// namespace vk

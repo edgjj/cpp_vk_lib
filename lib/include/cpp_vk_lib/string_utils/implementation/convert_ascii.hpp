@@ -25,6 +25,7 @@ private:
         }
         return c;
     }
+
     static char __to_upper_ascii_char(char c) noexcept
     {
         if (c <= 'z' && c >= 'a')
@@ -33,8 +34,9 @@ private:
         }
         return c;
     }
-    template <typename _Execution_Policy>
-    static std::string __ascii_convert_implementation(std::string_view data, _Execution_Policy policy)
+
+    template <typename ExecutionPolicy>
+    static std::string __ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
     {
         std::string converted;
         converted.reserve(data.length());
@@ -44,18 +46,21 @@ private:
         }
         return converted;
     }
+
     static std::string create_lower(std::string_view data)
     {
         return __ascii_convert_implementation(data, [](auto& c) {
             return __to_lower_ascii_char(c);
         });
     }
+
     static std::string create_upper(std::string_view data)
     {
         return __ascii_convert_implementation(data, [](auto& c) {
             return __to_upper_ascii_char(c);
         });
     }
+
     friend std::string string_utils::ascii_to_lower(std::string_view data);
     friend std::string string_utils::ascii_to_upper(std::string_view data);
 };
