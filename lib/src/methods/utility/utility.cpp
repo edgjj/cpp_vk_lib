@@ -24,36 +24,19 @@ std::string vk::method::utility::append_url(std::string_view method) const
     return "https://api.vk.com/method/" + std::string(method) + '?';
 }
 
-const std::map<std::string, std::string>& vk::method::utility::user_args(std::map<std::string, std::string>& params) const
+std::map<std::string, std::string>& vk::method::utility::user_args(std::map<std::string, std::string>& params) const
 {
     params.insert({{"access_token", m_user_token}, {"v", API_V}});
     return params;
 }
 
-const std::map<std::string, std::string>& vk::method::utility::user_args(std::map<std::string, std::string>&& params) const
-{
-    params.insert({{"access_token", m_user_token}, {"v", API_V}});
-    return params;
-}
-
-const std::map<std::string, std::string>& vk::method::utility::group_args(std::map<std::string, std::string>& params) const
+std::map<std::string, std::string>& vk::method::utility::group_args(std::map<std::string, std::string>& params) const
 {
     params.insert({{"access_token", m_access_token}, {"v", API_V}});
     return params;
 }
 
-const std::map<std::string, std::string>& vk::method::utility::group_args(std::map<std::string, std::string>&& params) const
-{
-    params.insert({{"access_token", m_access_token}, {"v", API_V}});
-    return params;
-}
-
-std::string vk::method::utility::call(std::string_view method, std::map<std::string, std::string>&& params) const
+std::string vk::method::utility::call(std::string_view method, std::map<std::string, std::string> params) const
 {
     return m_net_client.request(append_url(method), std::move(params));
-}
-
-std::string vk::method::utility::call(std::string_view method, const std::map<std::string, std::string>& params) const
-{
-    return m_net_client.request(append_url(method), params);
 }

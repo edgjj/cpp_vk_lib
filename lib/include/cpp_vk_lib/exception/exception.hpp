@@ -60,6 +60,14 @@ public:
     {}
 };
 
+class runtime_error : public common_exception
+{
+public:
+    explicit runtime_error(int id, const char* what_arg)
+      : common_exception(create(id, "runtime_error", what_arg))
+    {}
+};
+
 template <typename Base, typename Derived>
 class bad_cast_error : public common_exception
 {

@@ -48,12 +48,13 @@ class constructor
 {
 public:
     explicit constructor()
-      : m_flags(static_cast<std::uint32_t>(parameter))
+      : m_method_util()
+      , m_flags(static_cast<std::uint32_t>(parameter))
     { }
 
     explicit constructor(std::string_view user_token)
-      : m_flags(static_cast<std::uint32_t>(parameter))
-      , m_method_util(user_token)
+      : m_method_util(user_token)
+      , m_flags(static_cast<std::uint32_t>(parameter))
     { }
 
     constructor& method(std::string_view method_name)
@@ -62,7 +63,7 @@ public:
         return *this;
     }
     /*!
-     * @note Additional_params should be moved.
+     * @note Move or copy is your choice.
      */
     constructor& append_map(std::map<std::string, std::string> additional_params)
     {
@@ -110,7 +111,7 @@ public:
     }
 
 protected:
-    std::map<std::string, std::string>& map()
+    std::map<std::string, std::string>& map() noexcept
     {
         return m_params;
     }
@@ -119,7 +120,7 @@ private:
     std::uint32_t m_flags;
     vk::network_client m_net_client{};
     std::string m_method_name{};
-    vk::method::utility m_method_util{};
+    vk::method::utility m_method_util;
     std::map<std::string, std::string> m_params{};
 };
 

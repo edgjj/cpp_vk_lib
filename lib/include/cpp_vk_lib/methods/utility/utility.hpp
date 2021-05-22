@@ -25,12 +25,12 @@ public:
 
     ~utility();
 
-    const std::map<std::string, std::string>& user_args(std::map<std::string, std::string>& params) const;
-    const std::map<std::string, std::string>& user_args(std::map<std::string, std::string>&& params) const;
-    const std::map<std::string, std::string>& group_args(std::map<std::string, std::string>& params) const;
-    const std::map<std::string, std::string>& group_args(std::map<std::string, std::string>&& params) const;
-    std::string call(std::string_view method, std::map<std::string, std::string>&& params) const;
-    std::string call(std::string_view method, const std::map<std::string, std::string>& params) const;
+    std::map<std::string, std::string>& user_args(std::map<std::string, std::string>& params) const;
+    std::map<std::string, std::string>& group_args(std::map<std::string, std::string>& params) const;
+    /*!
+     * Move or copy is your choice.
+     */
+    std::string call(std::string_view method, std::map<std::string, std::string> params) const;
     std::string append_url(std::string_view method) const;
 
     static inline const std::int64_t chat_id_constant = 2000000000;

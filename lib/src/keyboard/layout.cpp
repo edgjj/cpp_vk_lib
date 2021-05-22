@@ -25,18 +25,22 @@ static std::string create_button(const vk::keyboard::any_button& any_button)
     {
         return std::get<vk::keyboard::button::text>(any_button).serialize();
     }
+
     if (has_type<vk::keyboard::button::vk_pay>(any_button))
     {
         return std::get<vk::keyboard::button::vk_pay>(any_button).serialize();
     }
+
     if (has_type<vk::keyboard::button::open_app>(any_button))
     {
         return std::get<vk::keyboard::button::open_app>(any_button).serialize();
     }
+
     if (has_type<vk::keyboard::button::location>(any_button))
     {
         return std::get<vk::keyboard::button::location>(any_button).serialize();
     }
+
     return "";
 }
 
@@ -46,24 +50,25 @@ void vk::keyboard::layout::serialize()
 
     if (has_flag(flag::in_line))
     {
-        m_serialized.append(R"("inline":true,)");
-    }
-    if (has_flag(flag::one_time))
-    {
-        m_serialized.append(R"("one_time":true,)");
+        m_serialized.append("\"inline\":true,");
     }
 
-    m_serialized.append(R"("buttons":[)");
+    if (has_flag(flag::one_time))
+    {
+        m_serialized.append("\"one_time\":true,");
+    }
+
+    m_serialized.append("\"buttons\":[");
 
     std::vector<std::string> serialized_rows;
 
     for (auto&& row : m_buttons)
     {
         std::vector<std::string> serialized_buttons;
-        for (auto&& any_button : row)
-        {
-            serialized_buttons.push_back(create_button(any_button));
-        }
+        std::transform(row.begin(), row.end(), std::back_inserter(serialized_buttons), [](any_button button){
+            return create_button(button);
+        });
+
         serialized_rows.push_back('[' + string_utils::join<std::string>(serialized_buttons) + ']');
     }
 
@@ -79,5 +84,5 @@ std::string vk::keyboard::layout::get() const noexcept
 
 bool vk::keyboard::layout::has_flag(vk::keyboard::flag flag) const noexcept
 {
-    return ((m_flags & flag) > 0);
+    return (m_flags & flag) > 0;
 }

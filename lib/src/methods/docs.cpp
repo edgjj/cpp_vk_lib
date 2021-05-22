@@ -25,7 +25,7 @@ vk::attachment::attachments_t vk::method::docs::search(std::string_view query, s
     return m_document.search("docs.search", query, count);
 }
 
-void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags) const
+void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string> tags) const
 {
     std::string raw_response = m_user_constructor
         .method("docs.edit")

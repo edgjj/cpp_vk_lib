@@ -10,59 +10,30 @@ vk::method::messages::messages(bool disable_mentions_flag)
   , m_parser(std::make_shared<simdjson::dom::parser>())
   , m_document()
   , m_group_constructor()
+  , m_user_constructor()
 {}
 
 vk::method::messages::~messages() = default;
 
-template <typename AttachmentContainer>
-static auto
-construct_with_attachments_impl(bool disable_mentions_flag, std::int64_t peer_id, std::string_view text, AttachmentContainer&& list)
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text, attachment::attachments_t list) const
 {
-    vk::method::message_constructor constructor(disable_mentions_flag);
+    message_constructor constructor(m_disable_mentions_flag);
 
     constructor
         .param("peer_id", std::to_string(peer_id))
         .param("message", text)
-        .attachments(std::forward<AttachmentContainer>(list));
-
-    return constructor;
+        .attachments(std::move(list))
+        .execute();
 }
 
-template <typename MapContainer>
-static auto
-construct_with_raw_parameters_impl(bool disable_mentions_flag, std::int64_t peer_id, std::string_view text, MapContainer&& list)
+void vk::method::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string> raw_parameters) const
 {
-    vk::method::message_constructor constructor(disable_mentions_flag);
+    message_constructor constructor(m_disable_mentions_flag);
 
     constructor
         .param("peer_id", std::to_string(peer_id))
         .param("message", text)
-        .append_map(std::move(list));
-
-    return constructor;
-}
-
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, attachment::attachments_t&& list) const
-{
-    construct_with_attachments_impl(m_disable_mentions_flag, peer_id, text, std::move(list))
-        .execute();
-}
-
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const attachment::attachments_t& list) const
-{
-    construct_with_attachments_impl(m_disable_mentions_flag, peer_id, text, list)
-        .execute();
-}
-
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, std::map<std::string, std::string>&& raw_parameters) const
-{
-    construct_with_raw_parameters_impl(m_disable_mentions_flag, peer_id, text, std::move(raw_parameters))
-        .execute();
-}
-
-void vk::method::messages::send(std::int64_t peer_id, std::string_view text, const std::map<std::string, std::string>& raw_parameters) const
-{
-    construct_with_raw_parameters_impl(m_disable_mentions_flag, peer_id, text, raw_parameters)
+        .append_map(std::move(raw_parameters))
         .execute();
 }
 
@@ -102,6 +73,7 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
     {
         return;
     }
+
     if (response.begin().key() == "error")
     {
         processing::log_and_throw<exception::access_error>("messages", response);
@@ -116,6 +88,32 @@ void vk::method::messages::edit_chat(std::int64_t chat_id, std::string_view new_
         .param("title", new_title)
         .param("random_id", "0")
         .execute();
+}
+
+void vk::method::messages::create_chat(std::string_view title, std::int64_t group_id, std::vector<std::size_t> user_ids)
+{
+    m_group_constructor
+        .method("messages.createChat")
+        .param("title", title)
+        .param("group_id", std::to_string(group_id))
+        .param("user_ids", string_utils::join<std::size_t>(std::move(user_ids)))
+        .execute();
+}
+
+void vk::method::messages::add_chat_user(int64_t chat_id, int64_t user_id)
+{
+    std::string raw_response = m_user_constructor
+        .method("messages.addChatUser")
+        .param("chat_id", std::to_string(chat_id - vk::method::utility::chat_id_constant))
+        .param("user_id", std::to_string(user_id))
+        .execute();
+
+    simdjson::dom::object response = m_parser->parse(raw_response);
+
+    if (response.begin().key() == "error")
+    {
+        processing::log_and_throw<exception::runtime_error>("messages", response);
+    }
 }
 
 void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) const

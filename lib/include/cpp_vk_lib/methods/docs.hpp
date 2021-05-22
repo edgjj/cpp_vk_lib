@@ -19,7 +19,7 @@ public:
 
     ~docs();
 
-    void edit(std::int64_t owner_id, std::int64_t doc_id, std::string_view title, std::initializer_list<std::string>&& tags = {}) const;
+    void edit(std::int64_t owner_id, std::int64_t doc_id, std::string_view title, std::initializer_list<std::string> tags = {}) const;
     void remove(std::int64_t owner_id, std::int64_t doc_id) const;
     std::string get_upload_server(std::int64_t group_id) const;
     std::string get_wall_upload_server(std::int64_t group_id) const;
