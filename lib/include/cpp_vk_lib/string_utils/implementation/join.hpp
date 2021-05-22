@@ -50,10 +50,10 @@ private:
         return common_create<Container&&>(std::forward<Container>(elements), delimiter);
     }
 
-    template <typename _T, typename Container>
+    template <typename mT, typename Container>
     friend std::string string_utils::join(Container&& elements, char delimiter);
-    template <typename _T>
-    friend std::string string_utils::join(std::initializer_list<_T> elements, char delimiter);
+    template <typename mT>
+    friend std::string string_utils::join(std::initializer_list<mT> elements, char delimiter);
 };
 }// namespace string_utils
 }// namespace vk

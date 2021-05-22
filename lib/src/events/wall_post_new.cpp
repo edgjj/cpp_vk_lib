@@ -1,6 +1,6 @@
 #include "events/wall_post_new.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "misc/cppdefs.hpp"
 #include "simdjson.h"
 
@@ -76,16 +76,16 @@ simdjson::dom::object& vk::event::wall_post_new::get_event() const
     return *m_event_json;
 }
 
-vk::attachment::attachments_t vk::event::wall_post_new::attachments() const noexcept
+vk::attachment::attachments_t vk::event::wall_post_new::attachments() const
 {
-    if (vk_likely(m_has_attachments))
+    if (VK_LIKELY(m_has_attachments))
     {
         return m_attachment_handler.try_get(get_event()["attachments"].get_array());
     }
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("wall_post_new", "Attempting accessing empty attachment list.");
+        throw exception::access_error(-1 ,"Attempting accessing empty attachment list.");
     }
     return {};
 }
@@ -94,7 +94,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
 {
     simdjson::dom::object repost_json = get_event()["copy_history"].get_array().at(0).get_object();
 
-    if (vk_likely(m_has_repost))
+    if (VK_LIKELY(m_has_repost))
     {
         std::shared_ptr<wall_repost> repost = std::make_shared<wall_repost>(
             repost_json["id"].get_int64(),
@@ -110,7 +110,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("wall_post_new", "Attempting accessing empty repost.");
+        throw exception::access_error(-1 ,"Attempting accessing empty repost");
     }
     return {};
 }

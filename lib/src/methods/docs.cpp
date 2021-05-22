@@ -1,6 +1,6 @@
 #include "methods/docs.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 #include "string_utils/string_utils.hpp"
 
@@ -32,14 +32,14 @@ void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view t
         .param("owner_id", std::to_string(owner_id))
         .param("doc_id", std::to_string(doc_id))
         .param("title", title.data())
-        .param("tags", string_utils::join<std::string>(std::move(tags)).data())
+        .param("tags", string_utils::join<std::string>(tags).data())
         .execute();
 
     simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -55,7 +55,7 @@ void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -91,12 +91,12 @@ vk::method::docs::save_audio_message(std::string_view filename, std::string_view
 
     if (upload_response.begin().key() != "file")
     {
-        processing::log_and_throw<exception::upload_error>("docs", "Can't upload file. Maybe is not an mp3 track?");
+        throw exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?");
     }
 
     std::string file = upload_response["file"].get_c_str().take_value();
 
-    if (file == "")
+    if (file.empty())
     {
         return {};
     }

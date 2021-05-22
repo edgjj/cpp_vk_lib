@@ -1,6 +1,7 @@
 #include "methods/audio.hpp"
 
-#include "exception/error_processor.hpp"
+//#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 
 vk::method::audio::audio()
@@ -34,7 +35,7 @@ void vk::method::audio::save(std::string_view artist, std::string_view title, st
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::upload_error>("audio", "Can't upload file. Maybe is not an mp3 track?");
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     m_group_constructor

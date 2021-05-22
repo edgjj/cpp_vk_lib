@@ -65,7 +65,7 @@ void vk::keyboard::layout::serialize()
     for (auto&& row : m_buttons)
     {
         std::vector<std::string> serialized_buttons;
-        std::transform(row.begin(), row.end(), std::back_inserter(serialized_buttons), [](any_button button){
+        std::transform(row.begin(), row.end(), std::back_inserter(serialized_buttons), [](const any_button& button){
             return create_button(button);
         });
 

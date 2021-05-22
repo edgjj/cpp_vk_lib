@@ -79,7 +79,7 @@ public:
      *
      * In case, when no attachments were provided, empty vector returned.
      */
-    attachment::attachments_t attachments() const noexcept;
+    attachment::attachments_t attachments() const;
 
 private:
     simdjson::dom::object& get_event() const;

@@ -49,9 +49,9 @@ public:
         return *this;
     }
 
-    message_constructor& attachments(const attachment::attachments_t& attachments)
+    message_constructor& attachments(attachment::attachments_t attachments)
     {
-        param("attachment", append_attachments_impl(attachments).data());
+        param("attachment", append_attachments_impl(std::move(attachments)).data());
         return *this;
     }
 
@@ -61,7 +61,7 @@ public:
     }
 
 private:
-    std::string append_attachments_impl(const attachment::attachments_t& attachments) const
+    std::string append_attachments_impl(attachment::attachments_t attachments) const
     {
         std::string result;
         result.reserve(attachments.size() * 20);

@@ -1,6 +1,6 @@
 #include "events/wall_reply_new.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 
 vk::event::wall_reply_new::~wall_reply_new() = default;
@@ -54,7 +54,7 @@ vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("wall_reply_new", "Attempting accessing empty attachment list");
+        throw exception::access_error(-1, "Attempting accessing empty attachment list");
     }
     return {};
 }

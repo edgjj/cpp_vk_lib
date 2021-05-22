@@ -1,6 +1,6 @@
 #include "methods/utils.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 
 vk::method::utils::utils()
@@ -21,7 +21,7 @@ bool vk::method::utils::check_link(std::string_view url) const
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::invalid_parameter_error>("utils", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     std::string_view status = response["response"]["status"];
@@ -40,7 +40,7 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("utils", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     std::string_view short_url_response = response["response"]["short_url"];
@@ -60,7 +60,7 @@ std::int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name
 
     if (response["response"].get_array().size() == 0)
     {
-        processing::log_and_throw<exception::access_error>("utils", "No such user.");
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     return response["response"]["object_id"].get_int64();

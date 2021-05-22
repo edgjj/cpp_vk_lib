@@ -1,6 +1,6 @@
 #include "methods/photos.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 
 vk::method::photos::photos()
@@ -40,7 +40,7 @@ std::string vk::method::photos::get_chat_upload_server(std::int64_t chat_id, std
         .execute();
 }
 
-static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom::object&& upload_response)
+static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom::object upload_response)
 {
     return {
         {"photo", upload_response["photo"].get_c_str().take_value()},
@@ -50,16 +50,16 @@ static std::map<std::string, std::string> save_messages_photo_args(simdjson::dom
 
 std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(std::string_view filename, std::string_view raw_server) const
 {
-    simdjson::dom::object upload_response = m_document.upload(filename, raw_server, "file");
+    simdjson::dom::object response = m_document.upload(filename, raw_server, "file");
 
-    if (upload_response["photo"].get_string().take_value() == "[]" || upload_response["photo"].get_string().take_value() == "")
+    if (response["photo"].get_string().take_value() == "[]" || response["photo"].get_string().take_value().empty())
     {
-        processing::log_and_throw<exception::upload_error>("photos", upload_response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     std::string raw_response = m_group_constructor
         .method("photos.saveMessagesPhoto")
-        .append_map(save_messages_photo_args(std::move(upload_response)))
+        .append_map(save_messages_photo_args(response))
         .execute();
 
     simdjson::dom::object uploaded = m_parser->parse(raw_response)["response"].at(0);

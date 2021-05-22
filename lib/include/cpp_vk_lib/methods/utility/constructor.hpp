@@ -117,10 +117,11 @@ protected:
     }
 
 private:
+
+    vk::method::utility m_method_util;
     std::uint32_t m_flags;
     vk::network_client m_net_client{};
     std::string m_method_name{};
-    vk::method::utility m_method_util;
     std::map<std::string, std::string> m_params{};
 };
 

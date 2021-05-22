@@ -23,7 +23,7 @@ static void search_attachments(const simdjson::dom::array& items, ExecutionPolic
 {
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<> distribution(1, items.size());
+    std::uniform_int_distribution<> distribution(1, static_cast<int>(items.size()));
 
     for (std::size_t i = 0, size = items.size(); i < size && i < 10; i++)
     {

@@ -58,8 +58,8 @@ private:
         return formatted;
     }
 
-    template <typename... _Args>
-    friend std::string vk::string_utils::format(std::string_view data, _Args&&... args);
+    template <typename... mArgs>
+    friend std::string vk::string_utils::format(std::string_view data, mArgs&&... args);
 };
 }// namespace string_utils
 }// namespace vk

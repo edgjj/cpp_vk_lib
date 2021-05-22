@@ -17,7 +17,7 @@ static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb)
     return fwrite(ptr, size, nmemb, file);
 }
 
-static std::string genparams(const std::map<std::string, std::string>& body)
+static std::string create_parameters(const std::map<std::string, std::string>& body)
 {
     static constexpr std::size_t average_word_length = 20;
     std::string result;
@@ -49,7 +49,7 @@ std::string vk::network_client::request(std::string_view host, const std::map<st
     std::ostringstream response;
     curlpp::Easy curl_easy;
 
-    std::string url = host.data() + genparams(target);
+    std::string url = host.data() + create_parameters(target);
     debug("HTTP POST: ", url);
 
     curl_easy.setOpt(curlpp::options::Url(url));
@@ -97,9 +97,14 @@ std::size_t vk::network_client::download(std::string_view filename, std::string_
 
     debug("HTTP download - filename: ", filename);
 
-    curlpp::options::WriteFunction* writef =
-        new curlpp::options::WriteFunction(std::bind(&file_write, fp, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-    curl_easy.setOpt(writef);
+    auto* write_function =
+        new curlpp::options::WriteFunction([fp](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
+            return file_write(fp,
+                std::forward<decltype(placeholder1)>(placeholder1),
+                std::forward<decltype(placeholder2)>(placeholder2),
+                std::forward<decltype(placeholder3)>(placeholder3));
+        });
+    curl_easy.setOpt(write_function);
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.perform();
     fclose(fp);

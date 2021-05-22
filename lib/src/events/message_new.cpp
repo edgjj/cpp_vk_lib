@@ -1,8 +1,7 @@
-﻿#include "simdjson.h"
+﻿#include "events/message_new.hpp"
 
-#include "events/message_new.hpp"
-
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
+#include "simdjson.h"
 
 vk::event::message_new::~message_new() = default;
 
@@ -146,7 +145,7 @@ vk::action::any_action vk::event::message_new::action() const
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("message_new_event", "Attempting accessing empty action.");
+        throw exception::access_error(-1, "Attempting accessing empty action");
     }
     return {};
 }
@@ -160,7 +159,7 @@ vk::attachment::attachments_t vk::event::message_new::attachments() const
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("message_new_event", "Attempting accessing empty attachment list.");
+        throw exception::access_error (-1, "Attempting accessing empty attachment list");
     }
     return {};
 }
@@ -179,7 +178,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("message_new_event", "Attempting accessing empty forward messages list.");
+        throw exception::access_error(-1, "Attempting accessing empty forward messages list");
     }
     return {};
 }
@@ -193,7 +192,7 @@ std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const
     else
     {
         // Exception thrown there, hence final return will never executed.
-        processing::log_and_throw<exception::access_error>("message_new_event", "Attempting accessing empty reply.");
+       throw exception::access_error(-1, "Attempting accessing empty reply");
     }
     return {};
 }

@@ -1,6 +1,6 @@
 #include "oauth/client.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "methods/utility/constructor.hpp"
 #include "simdjson.h"
 
@@ -56,7 +56,7 @@ void vk::oauth::client::pull()
     if (error_returned(response, "invalid_client") || error_returned(response, "invalid_request") ||
         error_returned(response, "invalid_grant"))
     {
-        processing::log_and_throw<exception::access_error>("oauth", response["error_description"].get_c_str().take_value());
+        throw exception::access_error(-1, response["error_description"].get_c_str().take_value());
     }
 
     m_pulled_token = response["access_token"].get_c_str().take_value();

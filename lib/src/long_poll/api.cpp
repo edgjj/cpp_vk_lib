@@ -49,7 +49,7 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
 
     for (simdjson::dom::element&& update : updates)
     {
-        event_list.push_back(std::make_unique<vk::event::common>(parsed_response["ts"].get_string(), std::move(update)));
+        event_list.push_back(std::make_unique<vk::event::common>(parsed_response["ts"].get_string(), update));
     }
 
     data.ts = parsed_response["ts"].get_c_str();

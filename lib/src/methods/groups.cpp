@@ -1,6 +1,6 @@
 #include "methods/groups.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "simdjson.h"
 
 vk::method::groups::groups()
@@ -20,7 +20,7 @@ std::int64_t vk::method::groups::get_by_id() const
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("groups", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     return response["response"].at(0)["id"];
@@ -38,7 +38,7 @@ simdjson::dom::object vk::method::groups::get_long_poll_server(std::int64_t grou
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("groups", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     return response["response"];

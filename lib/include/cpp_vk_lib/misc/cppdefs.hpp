@@ -42,17 +42,9 @@
     VK_DISABLE_GCC_WARNING(-Wunused - parameter)                                                                                           \
     VK_DISABLE_GCC_WARNING(-Wunused - variable)
 
-#define vk_really_inline [[gnu::always_inline]]
+#define VK_REALLY_INLINE [[gnu::always_inline]]
 
-#define vk_likely(expr) __builtin_expect(!!(expr), 1)
-#define vk_unlikely(expr) __builtin_expect(!!(expr), 0)
-
-#define disable_copy(type)                                                                                                                 \
-    type(const type&) = delete;                                                                                                            \
-    type& operator=(const type&) = delete;
-
-#define disable_move(type)                                                                                                                 \
-    type(type&&) = delete;                                                                                                                 \
-    type& operator=(type&&) = delete;
+#define VK_LIKELY(expr) __builtin_expect(!!(expr), 1)
+#define VK_UNLIKELY(expr) __builtin_expect(!!(expr), 0)
 
 #endif// VK_CPPDEFS_H

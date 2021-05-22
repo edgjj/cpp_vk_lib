@@ -1,6 +1,6 @@
 #include "methods/messages.hpp"
 
-#include "exception/error_processor.hpp"
+#include "exception/error-inl.hpp"
 #include "keyboard/layout.hpp"
 #include "methods/utility/message_constructor.hpp"
 #include "simdjson.h"
@@ -76,7 +76,7 @@ void vk::method::messages::remove_chat_user(std::int64_t chat_id, std::int64_t u
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -112,7 +112,7 @@ void vk::method::messages::add_chat_user(int64_t chat_id, int64_t user_id)
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::runtime_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -128,7 +128,7 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -145,7 +145,7 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, std::int64_t
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
@@ -169,7 +169,7 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
 
     if (response.begin().key() == "error")
     {
-        processing::log_and_throw<exception::access_error>("messages", response);
+        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 
     conversation_member_list members;
@@ -179,7 +179,7 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
             {profile["first_name"].get_string().take_value().data(),
              profile["last_name"].get_string().take_value().data(),
              profile["id"].get_int64(),
-             (profile["online"].get_int64() == 1) ? true : false});
+             (profile["online"].get_int64() == 1)});
     }
 
     return members;

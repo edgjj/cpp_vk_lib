@@ -21,7 +21,7 @@ public:
      */
     std::string request(std::string_view host, const std::map<std::string, std::string>& target = {}) const;
     /*!
-     * @brief Download file frm server to filename.
+     * @brief Download file from server to filename.
      * @return -1 in case, when file was not created or opened, 0 otherwise.
      */
     std::size_t download(std::string_view filename, std::string_view server) const;
