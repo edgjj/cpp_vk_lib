@@ -109,6 +109,12 @@ public:
         m_params.clear();
     }
 
+protected:
+    std::map<std::string, std::string>& map()
+    {
+        return m_params;
+    }
+
 private:
     std::uint32_t m_flags;
     vk::network_client m_net_client{};

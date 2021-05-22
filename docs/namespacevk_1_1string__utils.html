@@ -104,12 +104,12 @@ Functions</h2></td></tr>
 <tr class="separator:a76a21bcbc0304473114cae3cd0666ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc0587bef5700c2375356e5f51145f00"><td class="memItemLeft" align="right" valign="top">const std::locale&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#abc0587bef5700c2375356e5f51145f00">utf8</a> (&quot;en_US.UTF-8&quot;)</td></tr>
 <tr class="separator:abc0587bef5700c2375356e5f51145f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b75c357092a62b10a30104ddc9d872b"><td class="memTemplParams" colspan="2">template&lt;typename... _Args&gt; </td></tr>
-<tr class="memitem:a8b75c357092a62b10a30104ddc9d872b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">format</a> (std::string_view data, _Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a8b75c357092a62b10a30104ddc9d872b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0aa7d022d6824a945f4703dead81e8b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename _Container &gt; </td></tr>
-<tr class="memitem:aa0aa7d022d6824a945f4703dead81e8b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#aa0aa7d022d6824a945f4703dead81e8b">join</a> (_Container &amp;&amp;elements, char delimiter=',')</td></tr>
-<tr class="separator:aa0aa7d022d6824a945f4703dead81e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb80a403f0a69bcbb3fe26964e85bff0"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:aeb80a403f0a69bcbb3fe26964e85bff0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">format</a> (std::string_view data, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:aeb80a403f0a69bcbb3fe26964e85bff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb0c72cb729c76bec0f58ded180d213"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container &gt; </td></tr>
+<tr class="memitem:a7eb0c72cb729c76bec0f58ded180d213"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">join</a> (Container &amp;&amp;elements, char delimiter=',')</td></tr>
+<tr class="separator:a7eb0c72cb729c76bec0f58ded180d213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16ca0f65878c360683c544314258af37"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a16ca0f65878c360683c544314258af37"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevk_1_1string__utils.html#a16ca0f65878c360683c544314258af37">join</a> (std::initializer_list&lt; T &gt; elements, char delimiter=',')</td></tr>
 <tr class="separator:a16ca0f65878c360683c544314258af37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,13 +171,13 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b75c357092a62b10a30104ddc9d872b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b75c357092a62b10a30104ddc9d872b">&#9670;&nbsp;</a></span>format()</h2>
+<a id="aeb80a403f0a69bcbb3fe26964e85bff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb80a403f0a69bcbb3fe26964e85bff0">&#9670;&nbsp;</a></span>format()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... _Args&gt; </div>
+template&lt;typename... Args&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::string_utils::format </td>
@@ -188,7 +188,7 @@ template&lt;typename... _Args&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">_Args &amp;&amp;...&#160;</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
@@ -201,23 +201,23 @@ template&lt;typename... _Args&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1string__utils_a8b75c357092a62b10a30104ddc9d872b_icgraph.png" border="0" usemap="#anamespacevk_1_1string__utils_a8b75c357092a62b10a30104ddc9d872b_icgraph" alt=""/></div>
+<div class="center"><img src="namespacevk_1_1string__utils_aeb80a403f0a69bcbb3fe26964e85bff0_icgraph.png" border="0" usemap="#anamespacevk_1_1string__utils_aeb80a403f0a69bcbb3fe26964e85bff0_icgraph" alt=""/></div>
 </div>
 
 </div>
 </div>
-<a id="aa0aa7d022d6824a945f4703dead81e8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0aa7d022d6824a945f4703dead81e8b">&#9670;&nbsp;</a></span>join() <span class="overload">[1/2]</span></h2>
+<a id="a7eb0c72cb729c76bec0f58ded180d213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eb0c72cb729c76bec0f58ded180d213">&#9670;&nbsp;</a></span>join() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename _Container &gt; </div>
+template&lt;typename T , typename Container &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::string_utils::join </td>
           <td>(</td>
-          <td class="paramtype">_Container &amp;&amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>elements</em>, </td>
         </tr>
         <tr>

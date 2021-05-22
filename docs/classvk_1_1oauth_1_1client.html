@@ -82,16 +82,6 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe14e319ea960dfa9be7efc9b599253d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a> (std::string_view username_, std::string_view password_, <a class="el" href="namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ff">target_client</a> client_type_)</td></tr>
 <tr class="separator:abe14e319ea960dfa9be7efc9b599253d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cb32ede26ce90590f6d311fa284a32b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a9cb32ede26ce90590f6d311fa284a32b">client</a> ()=default</td></tr>
-<tr class="separator:a9cb32ede26ce90590f6d311fa284a32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4f978f4f4f156953ac4c93648d8c916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#aa4f978f4f4f156953ac4c93648d8c916">client</a> (const <a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;)=default</td></tr>
-<tr class="separator:aa4f978f4f4f156953ac4c93648d8c916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f85e08737d89ea15b76fd60608380ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a9f85e08737d89ea15b76fd60608380ba">client</a> (<a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a9f85e08737d89ea15b76fd60608380ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8673899d02979c30a3f639edbb2286f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#af8673899d02979c30a3f639edbb2286f">operator=</a> (const <a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;)=default</td></tr>
-<tr class="separator:af8673899d02979c30a3f639edbb2286f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbd621dac9f6170d2e94c4e1e8d3363b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#abbd621dac9f6170d2e94c4e1e8d3363b">operator=</a> (<a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:abbd621dac9f6170d2e94c4e1e8d3363b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaad35a11ae25c8839142f22e56c703c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">~client</a> ()</td></tr>
 <tr class="separator:aaad35a11ae25c8839142f22e56c703c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e076f3759181ee177f347fdbf36ec70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70">pull</a> ()</td></tr>
@@ -108,7 +98,7 @@ Public Member Functions</h2></td></tr>
 <p>int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a> { <a class="el" href="classvk_1_1oauth_1_1client.html" title="VK Oauth client.">vk::oauth::client</a> client("phone number", "password", <a class="el" href="namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ffa0f4137ed1502b5045d6083aa258b5c42">vk::oauth::target_client::windows</a>); <a class="el" href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70" title="Try get user data.">client.pull()</a>; vk::messages messages(<a class="el" href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">client.token()</a>); } </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abe14e319ea960dfa9be7efc9b599253d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe14e319ea960dfa9be7efc9b599253d">&#9670;&nbsp;</a></span>client() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abe14e319ea960dfa9be7efc9b599253d">&#9670;&nbsp;</a></span>client()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,83 +144,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a9cb32ede26ce90590f6d311fa284a32b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cb32ede26ce90590f6d311fa284a32b">&#9670;&nbsp;</a></span>client() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::oauth::client::client </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa4f978f4f4f156953ac4c93648d8c916"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4f978f4f4f156953ac4c93648d8c916">&#9670;&nbsp;</a></span>client() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::oauth::client::client </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9f85e08737d89ea15b76fd60608380ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f85e08737d89ea15b76fd60608380ba">&#9670;&nbsp;</a></span>client() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::oauth::client::client </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aaad35a11ae25c8839142f22e56c703c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaad35a11ae25c8839142f22e56c703c9">&#9670;&nbsp;</a></span>~client()</h2>
 
@@ -257,58 +170,6 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abbd621dac9f6170d2e94c4e1e8d3363b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbd621dac9f6170d2e94c4e1e8d3363b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a>&amp; vk::oauth::client::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af8673899d02979c30a3f639edbb2286f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8673899d02979c30a3f639edbb2286f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1oauth_1_1client.html">client</a>&amp; vk::oauth::client::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvk_1_1oauth_1_1client.html">client</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a4e076f3759181ee177f347fdbf36ec70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e076f3759181ee177f347fdbf36ec70">&#9670;&nbsp;</a></span>pull()</h2>
 

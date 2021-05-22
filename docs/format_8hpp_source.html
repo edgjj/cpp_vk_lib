@@ -79,24 +79,24 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... _Args&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;std::string <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">format</a>(std::string_view data, _Args&amp;&amp;... args);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;std::string <a class="code" href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">format</a>(std::string_view data, Args&amp;&amp;... args);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}<span class="comment">// namespace string_utils</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}<span class="comment">// namespace vk</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... _Args&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1format__impl.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvk_1_1string__utils_1_1format__impl.html">format_impl</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1format__impl.html#a8ce3f789a37c502fa123fcf517c55f1e">   23</a></span>&#160;    <a class="code" href="structvk_1_1string__utils_1_1format__impl.html#a8ce3f789a37c502fa123fcf517c55f1e">format_impl</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1format__impl.html#a35d3b98a7b10cf1f87ea463f7efecb69">   23</a></span>&#160;    <a class="code" href="structvk_1_1string__utils_1_1format__impl.html#a35d3b98a7b10cf1f87ea463f7efecb69">format_impl</a>() = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> constexpr std::size_t average_word_size = 7;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> std::string create(std::string_view data, _Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> std::string create(std::string_view data, Args&amp;&amp;... args)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (data.empty())</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> {};</div>
@@ -107,40 +107,39 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> std::to_string(argument);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> std::string(argument);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        };</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::array&lt;std::string, <span class="keyword">sizeof</span>...(_Args)&gt; elements{pack_one(args)...};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::size_t curr = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; data.size(); i++)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// If we&#39;re have &#39;{}&#39; token, insert parameter at this place.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (data[i] == <span class="charliteral">&#39;{&#39;</span> &amp;&amp; data[i + 1] == <span class="charliteral">&#39;}&#39;</span>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                formatted += elements[curr++];</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="comment">// Add all characters from source string except &#39;{}&#39; token.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (data[i - 1] != <span class="charliteral">&#39;{&#39;</span> || data[i] != <span class="charliteral">&#39;}&#39;</span>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                formatted += data[i];</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> formatted;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... __Args&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1format__impl.html#af25b7042a88e2a40b495726d3efa4f10">   63</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">vk::string_utils::format</a>(std::string_view data, __Args&amp;&amp;... args);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// STRING_UTIL_FORMAT_IMPL_H</span></div>
-<div class="ttc" id="anamespacevk_1_1string__utils_html_a8b75c357092a62b10a30104ddc9d872b"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, _Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:26</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:8</div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> std::string(argument);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::array&lt;std::string, <span class="keyword">sizeof</span>...(Args)&gt; elements{pack_one(args)...};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::size_t curr = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; data.size(); i++)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">// If we&#39;re have &#39;{}&#39; token, insert parameter at this place.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (data[i] == <span class="charliteral">&#39;{&#39;</span> &amp;&amp; data[i + 1] == <span class="charliteral">&#39;}&#39;</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                formatted += elements[curr++];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="comment">// Add all characters from source string except &#39;{}&#39; token.</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (data[i - 1] != <span class="charliteral">&#39;{&#39;</span> || data[i] != <span class="charliteral">&#39;}&#39;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                formatted += data[i];</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> formatted;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... _Args&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1format__impl.html#a00be64f445ae2b3495782096a2ba37c3">   62</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">vk::string_utils::format</a>(std::string_view data, _Args&amp;&amp;... args);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}<span class="comment">// namespace string_utils</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// STRING_UTIL_FORMAT_IMPL_H</span></div>
+<div class="ttc" id="anamespacevk_1_1string__utils_html_aeb80a403f0a69bcbb3fe26964e85bff0"><div class="ttname"><a href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:26</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:10</div></div>
 <div class="ttc" id="astructvk_1_1string__utils_1_1format__impl_html"><div class="ttname"><a href="structvk_1_1string__utils_1_1format__impl.html">vk::string_utils::format_impl</a></div><div class="ttdef"><b>Definition:</b> format.hpp:21</div></div>
-<div class="ttc" id="astructvk_1_1string__utils_1_1format__impl_html_a8ce3f789a37c502fa123fcf517c55f1e"><div class="ttname"><a href="structvk_1_1string__utils_1_1format__impl.html#a8ce3f789a37c502fa123fcf517c55f1e">vk::string_utils::format_impl::format_impl</a></div><div class="ttdeci">format_impl()=delete</div></div>
+<div class="ttc" id="astructvk_1_1string__utils_1_1format__impl_html_a35d3b98a7b10cf1f87ea463f7efecb69"><div class="ttname"><a href="structvk_1_1string__utils_1_1format__impl.html#a35d3b98a7b10cf1f87ea463f7efecb69">vk::string_utils::format_impl::format_impl</a></div><div class="ttdeci">format_impl()=delete</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

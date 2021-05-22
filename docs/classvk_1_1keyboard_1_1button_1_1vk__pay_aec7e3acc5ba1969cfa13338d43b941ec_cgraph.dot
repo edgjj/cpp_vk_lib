@@ -6,5 +6,5 @@ digraph "vk::keyboard::button::vk_pay::serialize"
   rankdir="LR";
   Node1 [label="vk::keyboard::button\l::vk_pay::serialize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk::string_utils::format",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1string__utils.html#a8b75c357092a62b10a30104ddc9d872b",tooltip=" "];
+  Node2 [label="vk::string_utils::format",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0",tooltip=" "];
 }

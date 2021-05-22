@@ -60,7 +60,7 @@ public:
     void run();
 
 private:
-    std::int64_t m_update_interval;
+    std::shared_ptr<simdjson::dom::parser> m_parser;
     /*!
      * @brief Class with group long poll methods.
      */
@@ -68,6 +68,7 @@ private:
     mutable method::constructor<vk::method::method_parameter::do_not_use_api_link> m_raw_method;
     method::groups m_groups;
     std::int64_t m_group_id;
+    std::int64_t m_update_interval;
 };
 }// namespace long_poll
 }// namespace vk

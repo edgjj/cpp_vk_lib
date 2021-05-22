@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['main_576',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['map_577',['map',['../classvk_1_1method_1_1message__constructor.html#aa1a70f436e8573f64b8fdfcfa03a7725',1,'vk::method::message_constructor']]],
-  ['marked_5fas_5fads_578',['marked_as_ads',['../classvk_1_1event_1_1wall__post__new.html#a080150420f2d87a840eab1e792850f3b',1,'vk::event::wall_post_new']]],
-  ['message_5fconstructor_579',['message_constructor',['../classvk_1_1method_1_1message__constructor.html#a04a11ba66683a4b464f375094d7bde3d',1,'vk::method::message_constructor::message_constructor(const message_constructor &amp;)=default'],['../classvk_1_1method_1_1message__constructor.html#a7d69c4dbc8a4e63b16ead4b575dd9a68',1,'vk::method::message_constructor::message_constructor(message_constructor &amp;&amp;)=default'],['../classvk_1_1method_1_1message__constructor.html#ab0879fdc29699fade33dea42cbe8d351',1,'vk::method::message_constructor::message_constructor(bool disable_mentions_flag)']]],
-  ['message_5fnew_580',['message_new',['../classvk_1_1event_1_1message__new.html#ab8a73ac86c03a2cecfc2ec51fc37184e',1,'vk::event::message_new::message_new(const message_new &amp;)=default'],['../classvk_1_1event_1_1message__new.html#a22538e9c3c6493f162eba8c4f6cf314b',1,'vk::event::message_new::message_new(message_new &amp;&amp;)=default'],['../classvk_1_1event_1_1message__new.html#a7f93baef656f7488e8d3ec6f59f43349',1,'vk::event::message_new::message_new(simdjson::dom::object &amp;&amp;event)']]],
-  ['messages_581',['messages',['../classvk_1_1method_1_1messages.html#ae74e3086f0f8efcc49aa4e855b231755',1,'vk::method::messages::messages(bool disable_mentions_flag)'],['../classvk_1_1method_1_1messages.html#a25c7facb4eacec6187fe6d8ff6a49ea3',1,'vk::method::messages::messages()=delete'],['../classvk_1_1method_1_1messages.html#a532385f4a945026fbbf5d79311700dea',1,'vk::method::messages::messages(const messages &amp;)=default'],['../classvk_1_1method_1_1messages.html#ac020538c9d39e66ced91d55a28b6ac0b',1,'vk::method::messages::messages(messages &amp;&amp;)=default']]],
-  ['method_582',['method',['../classvk_1_1method_1_1constructor.html#afc49ea0c88f4370ffa0e1d859dc62264',1,'vk::method::constructor']]]
+  ['main_566',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['map_567',['map',['../classvk_1_1method_1_1constructor.html#aa5156e6a814649a061dcd72f5bdbf227',1,'vk::method::constructor']]],
+  ['marked_5fas_5fads_568',['marked_as_ads',['../classvk_1_1event_1_1wall__post__new.html#a080150420f2d87a840eab1e792850f3b',1,'vk::event::wall_post_new']]],
+  ['message_5fconstructor_569',['message_constructor',['../classvk_1_1method_1_1message__constructor.html#ab0879fdc29699fade33dea42cbe8d351',1,'vk::method::message_constructor']]],
+  ['message_5fnew_570',['message_new',['../classvk_1_1event_1_1message__new.html#a7f93baef656f7488e8d3ec6f59f43349',1,'vk::event::message_new']]],
+  ['messages_571',['messages',['../classvk_1_1method_1_1messages.html#ae74e3086f0f8efcc49aa4e855b231755',1,'vk::method::messages::messages(bool disable_mentions_flag)'],['../classvk_1_1method_1_1messages.html#a25c7facb4eacec6187fe6d8ff6a49ea3',1,'vk::method::messages::messages()=delete']]],
+  ['method_572',['method',['../classvk_1_1method_1_1constructor.html#afc49ea0c88f4370ffa0e1d859dc62264',1,'vk::method::constructor']]]
 ];

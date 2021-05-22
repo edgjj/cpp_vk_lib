@@ -86,8 +86,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5cbdc447c3584895cb09958a68fc013d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a5cbdc447c3584895cb09958a68fc013d">api</a> (std::int64_t update_interval_=600)</td></tr>
-<tr class="separator:a5cbdc447c3584895cb09958a68fc013d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1f3d472eb3d1c2de8362f0d6cee05b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#ac1f3d472eb3d1c2de8362f0d6cee05b2">api</a> (std::int64_t update_interval=600)</td></tr>
+<tr class="separator:ac1f3d472eb3d1c2de8362f0d6cee05b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712a3fb861bd9612c92c484cab012270"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a712a3fb861bd9612c92c484cab012270">api</a> (const <a class="el" href="classvk_1_1long__poll_1_1api.html">api</a> &amp;)=delete</td></tr>
 <tr class="separator:a712a3fb861bd9612c92c484cab012270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3522a3eba781a906b496a959c3055ee4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a3522a3eba781a906b496a959c3055ee4">api</a> (<a class="el" href="classvk_1_1long__poll_1_1api.html">api</a> &amp;&amp;)=delete</td></tr>
@@ -104,9 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a92112f3fe32362adb3738c38efa51946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1long__poll_1_1api.html#a6eb5b2eb11e7282c8a219ba91cd629b0">events_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a92112f3fe32362adb3738c38efa51946">listen</a> (<a class="el" href="structvk_1_1long__poll_1_1data.html">data</a> &amp;lp_data, std::int8_t timeout=60) const</td></tr>
 <tr class="memdesc:a92112f3fe32362adb3738c38efa51946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try get updates.  <a href="classvk_1_1long__poll_1_1api.html#a92112f3fe32362adb3738c38efa51946">More...</a><br /></td></tr>
 <tr class="separator:a92112f3fe32362adb3738c38efa51946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a882e3c60801df33bbcfd52444b81fe4d"><td class="memTemplParams" colspan="2">template&lt;typename _Execution_Policy &gt; </td></tr>
-<tr class="memitem:a882e3c60801df33bbcfd52444b81fe4d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a882e3c60801df33bbcfd52444b81fe4d">on_event</a> (std::string_view event_type, const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;event, _Execution_Policy executor)</td></tr>
-<tr class="separator:a882e3c60801df33bbcfd52444b81fe4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1de69b0cc5fad45112413ff8ff647d"><td class="memTemplParams" colspan="2">template&lt;typename ExecutionPolicy &gt; </td></tr>
+<tr class="memitem:a7c1de69b0cc5fad45112413ff8ff647d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a7c1de69b0cc5fad45112413ff8ff647d">on_event</a> (std::string_view event_type, const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;event, ExecutionPolicy executor)</td></tr>
+<tr class="separator:a7c1de69b0cc5fad45112413ff8ff647d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fd62b68507ac5a3bbfea061fb015075"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
 <tr class="memitem:a4fd62b68507ac5a3bbfea061fb015075"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075">queue</a> (Function &amp;&amp;function)</td></tr>
 <tr class="memdesc:a4fd62b68507ac5a3bbfea061fb015075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push task to thread pool queue.  <a href="classvk_1_1long__poll_1_1api.html#a4fd62b68507ac5a3bbfea061fb015075">More...</a><br /></td></tr>
@@ -133,8 +133,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5cbdc447c3584895cb09958a68fc013d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cbdc447c3584895cb09958a68fc013d">&#9670;&nbsp;</a></span>api() <span class="overload">[1/3]</span></h2>
+<a id="ac1f3d472eb3d1c2de8362f0d6cee05b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f3d472eb3d1c2de8362f0d6cee05b2">&#9670;&nbsp;</a></span>api() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +146,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">vk::long_poll::api::api </td>
           <td>(</td>
           <td class="paramtype">std::int64_t&#160;</td>
-          <td class="paramname"><em>update_interval_</em> = <code>600</code></td><td>)</td>
+          <td class="paramname"><em>update_interval</em> = <code>600</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -269,13 +269,13 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a882e3c60801df33bbcfd52444b81fe4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a882e3c60801df33bbcfd52444b81fe4d">&#9670;&nbsp;</a></span>on_event()</h2>
+<a id="a7c1de69b0cc5fad45112413ff8ff647d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1de69b0cc5fad45112413ff8ff647d">&#9670;&nbsp;</a></span>on_event()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename _Execution_Policy &gt; </div>
+template&lt;typename ExecutionPolicy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -295,7 +295,7 @@ template&lt;typename _Execution_Policy &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">_Execution_Policy&#160;</td>
+          <td class="paramtype">ExecutionPolicy&#160;</td>
           <td class="paramname"><em>executor</em>&#160;</td>
         </tr>
         <tr>
@@ -313,7 +313,7 @@ template&lt;typename _Execution_Policy &gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1long__poll_1_1api_a882e3c60801df33bbcfd52444b81fe4d_cgraph.png" border="0" usemap="#aclassvk_1_1long__poll_1_1api_a882e3c60801df33bbcfd52444b81fe4d_cgraph" alt=""/></div>
+<div class="center"><img src="classvk_1_1long__poll_1_1api_a7c1de69b0cc5fad45112413ff8ff647d_cgraph.png" border="0" usemap="#aclassvk_1_1long__poll_1_1api_a7c1de69b0cc5fad45112413ff8ff647d_cgraph" alt=""/></div>
 </div>
 
 </div>

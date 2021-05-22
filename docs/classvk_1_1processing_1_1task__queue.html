@@ -104,9 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1942c43c33634e65e77e282e929124ea"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Args&gt; </td></tr>
 <tr class="memitem:a1942c43c33634e65e77e282e929124ea"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a1942c43c33634e65e77e282e929124ea">push_void_task</a> (Function &amp;&amp;fn, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a1942c43c33634e65e77e282e929124ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0678a79308e10ac84dd0ac7a158768d9"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Args, typename Invoke_Task_Type  = std::invoke_result_t&lt;Function, Args...&gt;&gt; </td></tr>
-<tr class="memitem:a0678a79308e10ac84dd0ac7a158768d9"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; bool, std::future&lt; Invoke_Task_Type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a0678a79308e10ac84dd0ac7a158768d9">push_future_task</a> (Function &amp;&amp;fn, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a0678a79308e10ac84dd0ac7a158768d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd668fe5e238c25b6666761347fd118"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Args, typename InvokeTaskType  = std::invoke_result_t&lt;Function, Args...&gt;&gt; </td></tr>
+<tr class="memitem:a8fd668fe5e238c25b6666761347fd118"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; bool, std::future&lt; InvokeTaskType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a8fd668fe5e238c25b6666761347fd118">push_future_task</a> (Function &amp;&amp;fn, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a8fd668fe5e238c25b6666761347fd118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53671f3ffef62fb9e73c0e7cbdc3b52c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a53671f3ffef62fb9e73c0e7cbdc3b52c">wait_for_completion</a> ()</td></tr>
 <tr class="separator:a53671f3ffef62fb9e73c0e7cbdc3b52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee57a4499dce2b2c955d72e86709889"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1processing_1_1task__queue.html#a7ee57a4499dce2b2c955d72e86709889">~task_queue</a> ()</td></tr>
@@ -289,19 +289,19 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a0678a79308e10ac84dd0ac7a158768d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0678a79308e10ac84dd0ac7a158768d9">&#9670;&nbsp;</a></span>push_future_task()</h2>
+<a id="a8fd668fe5e238c25b6666761347fd118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd668fe5e238c25b6666761347fd118">&#9670;&nbsp;</a></span>push_future_task()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function , typename... Args, typename Invoke_Task_Type &gt; </div>
+template&lt;typename Function , typename... Args, typename InvokeTaskType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; bool, std::future&lt; Invoke_Task_Type &gt; &gt; vk::processing::task_queue::push_future_task </td>
+          <td class="memname">std::pair&lt; bool, std::future&lt; InvokeTaskType &gt; &gt; vk::processing::task_queue::push_future_task </td>
           <td>(</td>
           <td class="paramtype">Function &amp;&amp;&#160;</td>
           <td class="paramname"><em>fn</em>, </td>
