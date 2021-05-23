@@ -21,7 +21,7 @@ public:
             std::vector<std::string> attachment_values;
 
             std::transform(attachments.begin(), attachments.end(), std::back_inserter(attachment_values),
-                [](const std::shared_ptr<vk::attachment::base>& att){
+                [](const std::shared_ptr<vk::attachment::base>& att) {
                     return att->value();
                 }
             );

@@ -22,6 +22,7 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
     static constexpr std::size_t average_word_length = 20;
     std::string result;
     result.reserve(average_word_length * body.size() * 2);
+
     for (const auto& [key, value] : body)
     {
         result += key;
@@ -29,6 +30,7 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
         result += escape(value);
         result += '&';
     }
+
     return result;
 }
 
@@ -104,10 +106,12 @@ std::size_t vk::network::request_manager::download(std::string_view filename, st
                 std::forward<decltype(placeholder2)>(placeholder2),
                 std::forward<decltype(placeholder3)>(placeholder3));
         });
+
     curl_easy.setOpt(write_function);
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.perform();
     fclose(fp);
+
     return 0;
 }
 
@@ -127,8 +131,8 @@ std::string vk::network::request_manager::upload(std::string_view field_name, st
     try
     {
         curl_easy.perform();
-    } catch (curlpp::RuntimeError& re)
-    {
+    }
+    catch (curlpp::RuntimeError& re) {
         debug_error("HTTP upload error", "");
     }
 

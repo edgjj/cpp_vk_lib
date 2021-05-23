@@ -13,30 +13,24 @@ void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& 
     m_buttons.push_back(row);
 }
 
-template <typename Button>
-static bool has_type(vk::keyboard::any_button button) noexcept
-{
-    return std::holds_alternative<Button>(button);
-}
-
 static std::string create_button(const vk::keyboard::any_button& any_button)
 {
-    if (has_type<vk::keyboard::button::text>(any_button))
+    if (std::holds_alternative<vk::keyboard::button::text>(any_button))
     {
         return std::get<vk::keyboard::button::text>(any_button).serialize();
     }
 
-    if (has_type<vk::keyboard::button::vk_pay>(any_button))
+    if (std::holds_alternative<vk::keyboard::button::vk_pay>(any_button))
     {
         return std::get<vk::keyboard::button::vk_pay>(any_button).serialize();
     }
 
-    if (has_type<vk::keyboard::button::open_app>(any_button))
+    if (std::holds_alternative<vk::keyboard::button::open_app>(any_button))
     {
         return std::get<vk::keyboard::button::open_app>(any_button).serialize();
     }
 
-    if (has_type<vk::keyboard::button::location>(any_button))
+    if (std::holds_alternative<vk::keyboard::button::location>(any_button))
     {
         return std::get<vk::keyboard::button::location>(any_button).serialize();
     }
