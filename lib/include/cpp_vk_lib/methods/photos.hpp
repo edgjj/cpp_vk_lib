@@ -26,7 +26,8 @@ public:
 
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    mutable method::group_constructor_proxy m_group_constructor;
+    mutable method::group_constructor_proxy m_group_constructor{};
+    mutable method::user_constructor_proxy m_user_constructor{};
     document::common m_document;
 };
 }// namespace method

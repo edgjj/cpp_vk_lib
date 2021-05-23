@@ -37,8 +37,7 @@ private:
             {
                 return accumlator.empty() ? std::to_string(element) : std::move(accumlator) + delimiter + std::to_string(element);
             }
-            else
-            {
+            else {
                 return accumlator.empty() ? std::string(element) : std::move(accumlator) + delimiter + std::string(element);
             }
         });
@@ -52,6 +51,7 @@ private:
 
     template <typename mT, typename Container>
     friend std::string string_utils::join(Container&& elements, char delimiter);
+
     template <typename mT>
     friend std::string string_utils::join(std::initializer_list<mT> elements, char delimiter);
 };

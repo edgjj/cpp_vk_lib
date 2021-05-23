@@ -50,6 +50,7 @@ private:
     long_poller poller{};
 };
 }// namespace bot
+
 int main(int argc, char* argv[])
 {
     if (argc != 2)

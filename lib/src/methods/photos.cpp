@@ -5,13 +5,11 @@
 
 vk::method::photos::photos()
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_group_constructor()
   , m_document()
 {}
 
 vk::method::photos::photos(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_group_constructor()
   , m_document(user_token.data())
 {}
 
