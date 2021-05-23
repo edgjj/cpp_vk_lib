@@ -6,7 +6,7 @@ digraph "operator&lt;&lt;"
   rankdir="LR";
   Node1 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk::event::wall_post\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a188f7bd6309c14cb38e1fc2d8b352a84",tooltip="Get attachments vector."];
+  Node2 [label="vk::event::wall_post\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a5af75b54e21fb3af906d1ff177a11268",tooltip="Get attachments vector."];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk::event::wall_post\l_new::has_attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a28fc56faaf2750baf744d983ba1a6917",tooltip=" "];
   Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

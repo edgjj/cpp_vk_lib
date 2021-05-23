@@ -67,7 +67,6 @@ private:
     std::int64_t m_pulled_user_id;
 
     std::shared_ptr<simdjson::dom::parser> m_parser;
-//    network_client m_net_client;
 };
 }// namespace oauth
 }// namespace vk

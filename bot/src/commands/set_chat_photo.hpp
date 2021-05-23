@@ -5,7 +5,7 @@
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
 #include "cpp_vk_lib/methods/photos.hpp"
-#include "cpp_vk_lib/net/client.hpp"
+#include "cpp_vk_lib/net/request_manager.hpp"
 
 
 namespace bot {

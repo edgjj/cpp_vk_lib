@@ -101,16 +101,12 @@ Macros</h2></td></tr>
 <tr class="separator:adc22e6055f779aaa6f0ba98ade173dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a2c7619ee41bc94712ae9a5eb4a4fceb7">VK_PUSH_DISABLE_ALL_WARNINGS</a></td></tr>
 <tr class="separator:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee1fe462315787bc4aeb182ae84dd8a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#aee1fe462315787bc4aeb182ae84dd8a6">vk_really_inline</a>&#160;&#160;&#160;[[gnu::always_inline]]</td></tr>
-<tr class="separator:aee1fe462315787bc4aeb182ae84dd8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2266b36a60393328806444a1071a2655"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a2266b36a60393328806444a1071a2655">vk_likely</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 1)</td></tr>
-<tr class="separator:a2266b36a60393328806444a1071a2655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b17dfe85a0cd13b9d925f61fe265a9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a5b17dfe85a0cd13b9d925f61fe265a9b">vk_unlikely</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 0)</td></tr>
-<tr class="separator:a5b17dfe85a0cd13b9d925f61fe265a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d0d133e1418b22f7f8dffb352f38f8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a3d0d133e1418b22f7f8dffb352f38f8e">disable_copy</a>(type)</td></tr>
-<tr class="separator:a3d0d133e1418b22f7f8dffb352f38f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82bab636c719a429cc4a20232b74aacc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a82bab636c719a429cc4a20232b74aacc">disable_move</a>(type)</td></tr>
-<tr class="separator:a82bab636c719a429cc4a20232b74aacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ee45f49af3ecd5860a8345850443db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a>&#160;&#160;&#160;[[gnu::always_inline]]</td></tr>
+<tr class="separator:a33ee45f49af3ecd5860a8345850443db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14024bb98b44880e8138bf9a2929899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#aa14024bb98b44880e8138bf9a2929899">VK_LIKELY</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 1)</td></tr>
+<tr class="separator:aa14024bb98b44880e8138bf9a2929899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160dc28076b202e507fed9648c449ace"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a160dc28076b202e507fed9648c449ace">VK_UNLIKELY</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 0)</td></tr>
+<tr class="separator:a160dc28076b202e507fed9648c449ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8289fa501792a96598b596fe859c2997"></a>
@@ -153,46 +149,6 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a3d0d133e1418b22f7f8dffb352f38f8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d0d133e1418b22f7f8dffb352f38f8e">&#9670;&nbsp;</a></span>disable_copy</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define disable_copy</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    type(<span class="keyword">const</span> type&amp;) = <span class="keyword">delete</span>;                                                                                                            \</div>
-<div class="line">    type&amp; operator=(<span class="keyword">const</span> type&amp;) = <span class="keyword">delete</span>;</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a82bab636c719a429cc4a20232b74aacc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82bab636c719a429cc4a20232b74aacc">&#9670;&nbsp;</a></span>disable_move</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define disable_move</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    type(type&amp;&amp;) = <span class="keyword">delete</span>;                                                                                                                 \</div>
-<div class="line">    type&amp; operator=(type&amp;&amp;) = <span class="keyword">delete</span>;</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="adc22e6055f779aaa6f0ba98ade173dfb"></a>
@@ -241,14 +197,14 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a2266b36a60393328806444a1071a2655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2266b36a60393328806444a1071a2655">&#9670;&nbsp;</a></span>vk_likely</h2>
+<a id="aa14024bb98b44880e8138bf9a2929899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14024bb98b44880e8138bf9a2929899">&#9670;&nbsp;</a></span>VK_LIKELY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define vk_likely</td>
+          <td class="memname">#define VK_LIKELY</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">expr</td><td>)</td>
@@ -306,7 +262,7 @@ Macros</h2></td></tr>
 <div class="line"><a class="code" href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">    VK_DISABLE_GCC_WARNING</a>(-Weffc++)                                                                                                       \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wall)                                                                                                          \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wconversion)                                                                                                   \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wold - style - <a class="code" href="namespacevk_1_1attachment.html#aa43ed6a5f86b474af634278eb2d284d7">cast</a>)                                                                                           \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wold - style - <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>)                                                                                           \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wextra)                                                                                                        \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wattributes)                                                                                                   \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wimplicit - fallthrough)                                                                                       \</div>
@@ -316,7 +272,7 @@ Macros</h2></td></tr>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wunused - parameter)                                                                                           \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wunused - variable)</div>
 <div class="ttc" id="acppdefs_8hpp_html_adc22e6055f779aaa6f0ba98ade173dfb"><div class="ttname"><a href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">VK_DISABLE_GCC_WARNING</a></div><div class="ttdeci">#define VK_DISABLE_GCC_WARNING(WARNING)</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:29</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_aa43ed6a5f86b474af634278eb2d284d7"><div class="ttname"><a href="namespacevk_1_1attachment.html#aa43ed6a5f86b474af634278eb2d284d7">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer) noexcept(false)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:117</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:128</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,28 +290,28 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="aee1fe462315787bc4aeb182ae84dd8a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee1fe462315787bc4aeb182ae84dd8a6">&#9670;&nbsp;</a></span>vk_really_inline</h2>
+<a id="a33ee45f49af3ecd5860a8345850443db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ee45f49af3ecd5860a8345850443db">&#9670;&nbsp;</a></span>VK_REALLY_INLINE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define vk_really_inline&#160;&#160;&#160;[[gnu::always_inline]]</td>
+          <td class="memname">#define VK_REALLY_INLINE&#160;&#160;&#160;[[gnu::always_inline]]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5b17dfe85a0cd13b9d925f61fe265a9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b17dfe85a0cd13b9d925f61fe265a9b">&#9670;&nbsp;</a></span>vk_unlikely</h2>
+<a id="a160dc28076b202e507fed9648c449ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160dc28076b202e507fed9648c449ace">&#9670;&nbsp;</a></span>VK_UNLIKELY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define vk_unlikely</td>
+          <td class="memname">#define VK_UNLIKELY</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">expr</td><td>)</td>

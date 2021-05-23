@@ -27,7 +27,7 @@ protected:
         processing::backtrace_view{};
     }
 
-    std::string create(std::int32_t id, std::string ename, std::string arg) const
+    std::string create(std::size_t id, std::string ename, std::string arg) const
     {
         return "[vk.exception." + ename + '.' + std::to_string(id) + "]: " + arg;
     }
@@ -39,7 +39,7 @@ private:
 class upload_error : public common_exception
 {
 public:
-    explicit upload_error(int id, const char* what_arg)
+    explicit upload_error(std::size_t id, const char* what_arg)
       : common_exception(create(id, "upload_error", what_arg))
     {}
 };
@@ -47,7 +47,7 @@ public:
 class access_error : public common_exception
 {
 public:
-    explicit access_error(int id, const char* what_arg)
+    explicit access_error(std::size_t id, const char* what_arg)
       : common_exception(create(id, "access_error", what_arg))
     {}
 };
@@ -55,7 +55,7 @@ public:
 class invalid_parameter_error : public common_exception
 {
 public:
-    explicit invalid_parameter_error(int id, const char* what_arg)
+    explicit invalid_parameter_error(std::size_t id, const char* what_arg)
       : common_exception(create(id, "invalid_parameter_error", what_arg))
     {}
 };
@@ -63,7 +63,7 @@ public:
 class runtime_error : public common_exception
 {
 public:
-    explicit runtime_error(int id, const char* what_arg)
+    explicit runtime_error(std::size_t id, const char* what_arg)
       : common_exception(create(id, "runtime_error", what_arg))
     {}
 };

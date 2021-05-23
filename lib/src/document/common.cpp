@@ -7,13 +7,13 @@
 vk::document::common::common()
   : m_parser(std::make_shared<simdjson::dom::parser>())
   , m_user_method()
-  , m_net_client()
+  , m_request_manager()
 {}
 
 vk::document::common::common(std::string_view user_token)
   : m_parser(std::make_shared<simdjson::dom::parser>())
   , m_user_method(user_token.data())
-  , m_net_client()
+  , m_request_manager()
 {}
 
 vk::document::common::~common() = default;
@@ -82,7 +82,7 @@ vk::attachment::attachments_t vk::document::common::search(std::string_view meth
 simdjson::dom::object vk::document::common::upload(std::string_view filename, std::string_view server, std::string_view field_name) const
 {
     std::string upload_server = m_parser->parse(server)["response"]["upload_url"].get_c_str().take_value();
-    std::string upload_response = m_net_client.upload(field_name, filename, upload_server);
+    std::string upload_response = m_request_manager.upload(field_name, filename, upload_server);
 
     return m_parser->parse(upload_response);
 }

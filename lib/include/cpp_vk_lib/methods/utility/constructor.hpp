@@ -96,7 +96,7 @@ public:
             }
         }
         else {
-            response = m_net_client.request(m_method_name, m_params);
+            response = m_request_manager.request(m_method_name, m_params);
         }
 
         reset();
@@ -117,10 +117,9 @@ protected:
     }
 
 private:
-
     vk::method::utility m_method_util;
     std::uint32_t m_flags;
-    vk::network_client m_net_client{};
+    network::request_manager m_request_manager{};
     std::string m_method_name{};
     std::map<std::string, std::string> m_params{};
 };

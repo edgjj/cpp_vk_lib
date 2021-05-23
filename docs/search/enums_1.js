@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flag_700',['flag',['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654',1,'vk::keyboard']]]
+  ['error_5ftype_703',['error_type',['../namespacevk_1_1exception.html#a0f243df6d27cfb54270b079d9ff594f7',1,'vk::exception']]]
 ];

@@ -1,7 +1,7 @@
 #ifndef VK_METHOD_UTILITY_H
 #define VK_METHOD_UTILITY_H
 
-#include "net/client.hpp"
+#include "net/request_manager.hpp"
 
 #include <string>
 
@@ -36,7 +36,7 @@ public:
     static inline const std::int64_t chat_id_constant = 2000000000;
 
 private:
-    vk::network_client m_net_client;
+    network::request_manager m_request_manager;
     std::string m_user_token;
     std::string m_access_token;
     mutable std::shared_ptr<simdjson::dom::parser> m_parser;

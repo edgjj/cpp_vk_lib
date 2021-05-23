@@ -1,0 +1,27 @@
+digraph "error-inl.hpp"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="error-inl.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="message_new.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$message__new_8cpp.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="wall_post_new.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__post__new_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="wall_reply_new.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__reply__new_8cpp.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="audio.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$audio_8cpp.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="docs.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$docs_8cpp.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="groups.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$groups_8cpp.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="messages.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$messages_8cpp.html",tooltip=" "];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="photos.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$photos_8cpp.html",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="utils.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utils_8cpp.html",tooltip=" "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="client.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$client_8cpp.html",tooltip=" "];
+}

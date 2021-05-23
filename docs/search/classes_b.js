@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['network_5fclient_385',['network_client',['../classvk_1_1network__client.html',1,'vk']]]
+  ['open_5fapp_386',['open_app',['../classvk_1_1keyboard_1_1button_1_1open__app.html',1,'vk::keyboard::button']]]
 ];

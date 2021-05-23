@@ -14,5 +14,7 @@ digraph "vk::exception::common_exception"
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="vk::exception::invalid\l_parameter_error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1exception_1_1invalid__parameter__error.html",tooltip=" "];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="vk::exception::upload\l_error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1exception_1_1upload__error.html",tooltip=" "];
+  Node6 [label="vk::exception::runtime\l_error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1exception_1_1runtime__error.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="vk::exception::upload\l_error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1exception_1_1upload__error.html",tooltip=" "];
 }

@@ -11,6 +11,6 @@ digraph "keyboard" {
   dir_7e438775d118a359d9836220201659ce [shape=box label="buttons" fillcolor="white" style="filled" URL="dir_7e438775d118a359d9836220201659ce.html"];
   }
   }
-  dir_7e438775d118a359d9836220201659ce->dir_f4297228b4ae3479ebf3ab6b33d53f38 [headlabel="3", labeldistance=1.5 headhref="dir_000030_000022.html"];
-  dir_a4395e605c4be48afa98c77014abdd59->dir_7e438775d118a359d9836220201659ce [headlabel="4", labeldistance=1.5 headhref="dir_000018_000030.html"];
+  dir_7e438775d118a359d9836220201659ce->dir_f4297228b4ae3479ebf3ab6b33d53f38 [headlabel="3", labeldistance=1.5 headhref="dir_000027_000020.html"];
+  dir_a4395e605c4be48afa98c77014abdd59->dir_7e438775d118a359d9836220201659ce [headlabel="4", labeldistance=1.5 headhref="dir_000016_000027.html"];
 }

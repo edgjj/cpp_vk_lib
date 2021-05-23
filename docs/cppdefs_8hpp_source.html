@@ -113,20 +113,12 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    VK_DISABLE_GCC_WARNING(-Wunused - parameter)                                                                                           \</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">    VK_DISABLE_GCC_WARNING(-Wunused - variable)</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#aee1fe462315787bc4aeb182ae84dd8a6">   45</a></span>&#160;<span class="preprocessor">#define vk_really_inline [[gnu::always_inline]]</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">   45</a></span>&#160;<span class="preprocessor">#define VK_REALLY_INLINE [[gnu::always_inline]]</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a2266b36a60393328806444a1071a2655">   47</a></span>&#160;<span class="preprocessor">#define vk_likely(expr) __builtin_expect(!!(expr), 1)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a5b17dfe85a0cd13b9d925f61fe265a9b">   48</a></span>&#160;<span class="preprocessor">#define vk_unlikely(expr) __builtin_expect(!!(expr), 0)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#aa14024bb98b44880e8138bf9a2929899">   47</a></span>&#160;<span class="preprocessor">#define VK_LIKELY(expr) __builtin_expect(!!(expr), 1)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a160dc28076b202e507fed9648c449ace">   48</a></span>&#160;<span class="preprocessor">#define VK_UNLIKELY(expr) __builtin_expect(!!(expr), 0)</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a3d0d133e1418b22f7f8dffb352f38f8e">   50</a></span>&#160;<span class="preprocessor">#define disable_copy(type)                                                                                                                 \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    type(const type&amp;) = delete;                                                                                                            \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    type&amp; operator=(const type&amp;) = delete;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="cppdefs_8hpp.html#a82bab636c719a429cc4a20232b74aacc">   54</a></span>&#160;<span class="preprocessor">#define disable_move(type)                                                                                                                 \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">    type(type&amp;&amp;) = delete;                                                                                                                 \</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    type&amp; operator=(type&amp;&amp;) = delete;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_CPPDEFS_H</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_CPPDEFS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

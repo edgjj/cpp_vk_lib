@@ -55,8 +55,7 @@ digraph "common.hpp"
   Node1 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node24 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node25 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node25 [label="exception/error_processor.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$error__processor_8hpp.html",tooltip=" "];
-  Node25 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="exception/error_processor.hpp",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node26 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node26 [label="keyboard/colors.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$colors_8hpp.html",tooltip=" "];
   Node1 -> Node27 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -136,14 +135,14 @@ digraph "common.hpp"
   Node1 -> Node59 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node59 [label="misc/cppdefs.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$cppdefs_8hpp.html",tooltip=" "];
   Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node14 [label="net/client.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$net_2client_8hpp.html",tooltip=" "];
+  Node14 [label="net/request_manager.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$request__manager_8hpp.html",tooltip=" "];
   Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node15 [label="map",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node14 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node14 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node16 [label="string_view",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node60 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node60 [label="oauth/client.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$oauth_2client_8hpp.html",tooltip=" "];
+  Node60 [label="oauth/client.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$client_8hpp.html",tooltip=" "];
   Node60 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node60 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

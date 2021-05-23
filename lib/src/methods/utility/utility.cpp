@@ -4,14 +4,14 @@
 #include "simdjson.h"
 
 vk::method::utility::utility()
-  : m_net_client()
+  : m_request_manager()
   , m_user_token(config::user_token())
   , m_access_token(config::access_token())
   , m_parser(std::make_shared<simdjson::dom::parser>())
 {}
 
 vk::method::utility::utility(std::string_view user_token_)
-  : m_net_client()
+  : m_request_manager()
   , m_user_token(user_token_.data())
   , m_access_token(config::access_token())
   , m_parser(std::make_shared<simdjson::dom::parser>())
@@ -38,5 +38,5 @@ std::map<std::string, std::string>& vk::method::utility::group_args(std::map<std
 
 std::string vk::method::utility::call(std::string_view method, std::map<std::string, std::string> params) const
 {
-    return m_net_client.request(append_url(method), std::move(params));
+    return m_request_manager.request(append_url(method), std::move(params));
 }

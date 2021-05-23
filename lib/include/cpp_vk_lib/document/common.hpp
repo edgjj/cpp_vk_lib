@@ -40,8 +40,9 @@ public:
 private:
     std::shared_ptr<simdjson::dom::parser> m_parser;
     mutable method::group_constructor_proxy m_user_method;
-    network_client m_net_client;
+    network::request_manager m_request_manager;
 };
 }// namespace document
 }// namespace vk
+
 #endif// VK_COMMON_DOCUMENT_H

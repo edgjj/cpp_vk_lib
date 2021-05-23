@@ -4,7 +4,7 @@
 #include "../commands/base.hpp"
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
-#include "cpp_vk_lib/net/client.hpp"
+#include "cpp_vk_lib/net/request_manager.hpp"
 
 #include <ctime>
 
@@ -37,7 +37,7 @@ public:
     }
 
 private:
-    vk::network_client client{};
+    vk::network::request_manager client{};
     vk::method::messages messages{vk::method::messages::disable_mentions};
 };
 }// namespace command

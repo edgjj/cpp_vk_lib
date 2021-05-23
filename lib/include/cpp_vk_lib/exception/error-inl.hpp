@@ -96,10 +96,11 @@ inline void dispatch_error_by_code(std::size_t error_code, bool enable_logging_b
     {
         auto dispatch_error_name = [](error_type err) {
             switch (err) {
-            case error_type::access_error: return "access error";
-            case error_type::invalid_parameter_error: return "invalid parameter";
-            case error_type::runtime_error: return "runtime error";
-            default: return "unknown error type";
+                case error_type::access_error: return "access error";
+                case error_type::runtime_error: return "runtime error";
+                case error_type::invalid_parameter_error: return "invalid parameter";
+                default:
+                    return "unknown error type";
             }
         };
 
@@ -110,8 +111,8 @@ inline void dispatch_error_by_code(std::size_t error_code, bool enable_logging_b
 
     switch (error.type) {
         case error_type::access_error: throw access_error(error_code, error.message);
-        case error_type::invalid_parameter_error: throw invalid_parameter_error(error_code, error.message);
         case error_type::runtime_error: throw runtime_error(error_code, error.message);
+        case error_type::invalid_parameter_error: throw invalid_parameter_error(error_code, error.message);
         default:
             throw runtime_error(-1, "Unknown error");
     }

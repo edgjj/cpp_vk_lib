@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['photo_387',['photo',['../classvk_1_1attachment_1_1photo.html',1,'vk::attachment']]],
-  ['photos_388',['photos',['../classvk_1_1method_1_1photos.html',1,'vk::method']]]
+  ['request_5fmanager_389',['request_manager',['../classvk_1_1network_1_1request__manager.html',1,'vk::network']]],
+  ['runtime_5ferror_390',['runtime_error',['../classvk_1_1exception_1_1runtime__error.html',1,'vk::exception']]]
 ];

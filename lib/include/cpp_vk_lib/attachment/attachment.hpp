@@ -113,19 +113,26 @@ private:
     std::string m_raw_mp3;
 };
 
-template <typename Attachment>
-std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer) noexcept(false)
+template<typename Base, typename Derived>
+std::shared_ptr<Derived> static_pointer_cast(const std::shared_ptr<Base>& pointer)
 {
-    if (auto casted = std::dynamic_pointer_cast<Attachment>(pointer))
+    if (auto* casted = static_cast<Derived*>(pointer.get()))
     {
-        return casted;
+        return std::shared_ptr<Derived>(pointer, casted);
     }
-    else {
-        throw exception::bad_cast_error<base, Attachment>();
-    }
+
+    throw exception::bad_cast_error<Base, Derived>();
+}
+
+template <typename Attachment>
+std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)
+{
+    return ::vk::attachment::static_pointer_cast<base, Attachment>(pointer);
 }
 
 using attachments_t = std::vector<std::shared_ptr<attachment::base>>;
+
 }// namespace attachment
 }// namespace vk
+
 #endif// VK_ATTACHMENT_H

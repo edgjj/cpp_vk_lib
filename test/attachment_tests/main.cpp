@@ -55,6 +55,25 @@ TEST(attachment, wall)
     ASSERT_EQ(wall.type(), "wall");
 }
 
+TEST(attachment, audio_cast)
+{
+    std::shared_ptr<att::base> base = std::make_shared<att::base>("audio", 100, 200);
+
+    auto audio_attachment = vk::attachment::cast<att::audio>(base);
+
+    ASSERT_TRUE(audio_attachment);
+    ASSERT_EQ(audio_attachment->value(), "audio100_200");
+}
+
+TEST(attachment, raw_)
+{
+    std::shared_ptr<att::audio> audio = std::make_shared<att::audio>(100, 200);
+
+    class empty_attachment : public vk::attachment::base {};
+
+    ASSERT_TRUE(vk::attachment::cast<empty_attachment>(audio));
+}
+
 int main(int argc, char* argv[])
 {
     testing::InitGoogleTest(&argc, argv);

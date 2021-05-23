@@ -29,6 +29,7 @@ private:
     {
         if (data.empty())
             return {};
+
         std::string formatted;
         formatted.reserve(data.size() + (average_word_size * sizeof...(args)));
         auto pack_one = [](auto&& argument) {

@@ -29,7 +29,7 @@
 #include "methods/utils.hpp"
 #include "methods/video.hpp"
 #include "misc/cppdefs.hpp"
-#include "net/client.hpp"
+#include "net/request_manager.hpp"
 #include "oauth/client.hpp"
 #include "processing/backtrace.hpp"
 #include "processing/task_queue.hpp"

@@ -62,7 +62,7 @@ digraph "utility.hpp"
   Node22 [label="utils.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utils_8cpp.html",tooltip=" "];
   Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node23 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node23 [label="client.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$oauth_2client_8cpp.html",tooltip=" "];
+  Node23 [label="client.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$client_8cpp.html",tooltip=" "];
   Node1 -> Node24 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node24 [label="utility.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utility_8cpp.html",tooltip=" "];
 }
