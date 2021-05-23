@@ -40,6 +40,7 @@ private:
             .on_command("/raw", std::make_unique<command::raw_method>());
         // Other commands...
     }
+
     void setup_event_reactions()
     {
         poller.get_message_handler().on_message_pin(std::make_unique<event::on_message_pin_event>());

@@ -26,19 +26,20 @@ class docs_search final : public base
 {
 public:
     explicit docs_search()
-      : oauth_client(vk::config::username(), vk::config::password(), vk::oauth::target_client::windows)
-      , messages(vk::method::messages::disable_mentions)
-      , docs(oauth_client.token())
+      : m_oauth_client(vk::config::username(), vk::config::password(), vk::oauth::target_client::windows)
+      , m_messages(vk::method::messages::disable_mentions)
+      , m_docs(m_oauth_client.token())
     {}
+    
     void execute(const vk::event::message_new& event) const override
     {
-        messages.send(event.peer_id(), "Docs: ", {docs.search(string_util::cut_first(event.text()), 50)});
+        m_messages.send(event.peer_id(), "Docs: ", {m_docs.search(string_util::cut_first(event.text()), 50)});
     }
 
 private:
-    vk::oauth::client oauth_client;
-    vk::method::messages messages;
-    vk::method::docs docs;
+    vk::oauth::client m_oauth_client;
+    vk::method::messages m_messages;
+    vk::method::docs m_docs;
 };
 
 }// namespace command

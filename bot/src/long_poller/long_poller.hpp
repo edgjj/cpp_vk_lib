@@ -11,32 +11,34 @@ class long_poller
 {
 public:
     explicit long_poller()
-      : data(api.server())
+      : m_data(m_api.server())
     {}
+
     message_handler& get_message_handler() noexcept
     {
-        return msg_handler;
+        return m_message_handler;
     }
+
     int run()
     {
         while (true)
         {
-            auto events = api.listen(data);
+            auto events = m_api.listen(m_data);
             for (auto& event : events)
             {
-                api.on_event("message_new", *event, [this, &event] {
-                    msg_handler.process(event->get_message_event());
+                m_api.on_event("message_new", *event, [this, &event] {
+                    m_message_handler.process(event->get_message_event());
                 });
             }
-            api.run();
+            m_api.run();
         }
         return EXIT_SUCCESS;
     }
 
 private:
-    vk::long_poll::api api{};
-    vk::long_poll::data data;
-    message_handler msg_handler{};
+    vk::long_poll::api m_api{};
+    vk::long_poll::data m_data;
+    message_handler m_message_handler{};
 };
 
 }// namespace bot

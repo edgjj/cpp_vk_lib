@@ -21,16 +21,16 @@ public:
         {
             if (attachment->type() == "audio_message")
             {
-                messages.send(event.peer_id(), "Downloading...");
+                m_messages.send(event.peer_id(), "Downloading...");
                 auto audio_message = vk::attachment::cast<vk::attachment::audio_message>(attachment);
                 std::string path = "/tmp/audio" + std::to_string(std::time(nullptr)) + ".mp3";
                 if (client.download(path, audio_message->raw_mp3()) == 0)
                 {
-                    messages.send(event.peer_id(), "Downloaded");
+                    m_messages.send(event.peer_id(), "Downloaded");
                 }
                 else
                 {
-                    messages.send(event.peer_id(), "Error while downloading");
+                    m_messages.send(event.peer_id(), "Error while downloading");
                 }
             }
         }
@@ -38,7 +38,7 @@ public:
 
 private:
     vk::network::request_manager client{};
-    vk::method::messages messages{vk::method::messages::disable_mentions};
+    vk::method::messages m_messages{vk::method::messages::disable_mentions};
 };
 }// namespace command
 }// namespace bot

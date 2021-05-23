@@ -17,11 +17,11 @@ public:
     {
         // You should to pass empty layout to hide keyboard.
         vk::keyboard::layout layout;
-        messages.send(event.peer_id(), "Keyboard was hidden", layout.get());
+        m_messages.send(event.peer_id(), "Keyboard was hidden", layout.get());
     }
 
 private:
-    vk::method::messages messages{vk::method::messages::disable_mentions};
+    vk::method::messages m_messages{vk::method::messages::disable_mentions};
 };
 
 }// namespace command

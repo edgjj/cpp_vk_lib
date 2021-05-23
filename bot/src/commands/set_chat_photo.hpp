@@ -15,18 +15,18 @@ class set_chat_photo final : public base
 {
 public:
     explicit set_chat_photo()
-      : photos()
-      , messages(vk::method::messages::disable_mentions)
+      : m_photos()
+      , m_messages(vk::method::messages::disable_mentions)
     {}
     void execute(const vk::event::message_new& event) const override
     {
-        std::string raw_upload_json = photos.get_chat_upload_server(event.peer_id());
-        messages.set_chat_photo("/path/to/photo.png", raw_upload_json);
+        std::string raw_upload_json = m_photos.get_chat_upload_server(event.peer_id());
+        m_messages.set_chat_photo("/path/to/photo.png", raw_upload_json);
     }
 
 private:
-    vk::method::photos photos;
-    vk::method::messages messages;
+    vk::method::photos m_photos;
+    vk::method::messages m_messages;
 };
 }// namespace command
 }// namespace bot
