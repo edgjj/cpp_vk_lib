@@ -55,17 +55,52 @@ TEST(attachment, wall)
     ASSERT_EQ(wall.type(), "wall");
 }
 
-TEST(attachment, audio_cast)
+TEST(attachment, photo_cast)
 {
-    std::shared_ptr<att::base> base = std::make_shared<att::base>("audio", 100, 200);
+    using AttType = att::photo;
 
-    auto audio_attachment = vk::attachment::cast<att::audio>(base);
-
-    ASSERT_TRUE(audio_attachment);
-    ASSERT_EQ(audio_attachment->value(), "audio100_200");
+    auto photo_attachment = vk::attachment::cast<AttType>(std::make_shared<att::base>("photo", 100, 200));
+    ASSERT_TRUE(photo_attachment);
+    ASSERT_EQ(photo_attachment->value(), "photo100_200");
 }
 
-TEST(attachment, raw_)
+TEST(attachment, video_cast)
+{
+    using AttType = att::video;
+
+    auto audio_attachment = vk::attachment::cast<AttType>(std::make_shared<att::base>("video", 100, 200));
+    ASSERT_TRUE(audio_attachment);
+    ASSERT_EQ(audio_attachment->value(), "video100_200");
+}
+
+TEST(attachment, audio_cast)
+{
+    using AttType = att::document;
+
+    auto audio_attachment = vk::attachment::cast<AttType>(std::make_shared<att::base>("doc", 100, 200));
+    ASSERT_TRUE(audio_attachment);
+    ASSERT_EQ(audio_attachment->value(), "doc100_200");
+}
+
+TEST(attachment, wall_cast)
+{
+    using AttType = att::wall;
+
+    auto audio_attachment = vk::attachment::cast<AttType>(std::make_shared<att::base>("wall", 100, 200));
+    ASSERT_TRUE(audio_attachment);
+    ASSERT_EQ(audio_attachment->value(), "wall100_200");
+}
+
+TEST(attachment, audio_message_cast)
+{
+    using AttType = att::audio_message;
+
+    auto audio_attachment = vk::attachment::cast<AttType>(std::make_shared<att::base>("audio_message", 100, 200));
+    ASSERT_TRUE(audio_attachment);
+    ASSERT_EQ(audio_attachment->value(), "audio_message100_200");
+}
+
+TEST(attachment, raw_class_cast)
 {
     std::shared_ptr<att::audio> audio = std::make_shared<att::audio>(100, 200);
 
