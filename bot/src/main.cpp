@@ -31,9 +31,9 @@ private:
     void setup_commands()
     {
         poller.get_message_handler()
-            .on_command("/download", std::make_unique<command::voice_message_dowload>())
+            .on_command("/download", std::make_unique<command::voice_message_download>())
             .on_command("/upload", std::make_unique<command::voice_message_upload>())
-            .on_command("/chatphoto", std::make_unique<command::set_chat_photo>())
+            .on_command("/chat_photo", std::make_unique<command::set_chat_photo>())
             .on_command("/doc", std::make_unique<command::docs_search>())
             .on_command("/show", std::make_unique<command::keyboard>())
             .on_command("/hide", std::make_unique<command::hide_keyboard>())

@@ -12,7 +12,7 @@
 namespace bot {
 namespace command {
 
-class voice_message_dowload final : public base
+class voice_message_download final : public base
 {
 public:
     void execute(const vk::event::message_new& event) const override
@@ -24,12 +24,12 @@ public:
                 m_messages.send(event.peer_id(), "Downloading...");
                 auto audio_message = vk::attachment::cast<vk::attachment::audio_message>(attachment);
                 std::string path = "/tmp/audio" + std::to_string(std::time(nullptr)) + ".mp3";
-                if (client.download(path, audio_message->raw_mp3()) == 0)
+
+                if (m_client.download(path, audio_message->raw_mp3()) == 0)
                 {
                     m_messages.send(event.peer_id(), "Downloaded");
                 }
-                else
-                {
+                else {
                     m_messages.send(event.peer_id(), "Error while downloading");
                 }
             }
@@ -37,7 +37,7 @@ public:
     }
 
 private:
-    vk::network::request_manager client{};
+    vk::network::request_manager m_client{};
     vk::method::messages m_messages{vk::method::messages::disable_mentions};
 };
 }// namespace command

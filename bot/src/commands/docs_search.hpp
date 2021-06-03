@@ -33,7 +33,7 @@ public:
     
     void execute(const vk::event::message_new& event) const override
     {
-        m_messages.send(event.peer_id(), "Docs: ", {m_docs.search(string_util::cut_first(event.text()), 50)});
+        m_messages.send(event.peer_id(), "Docs: ", { m_docs.search(string_util::cut_first(event.text()), 50) });
     }
 
 private:

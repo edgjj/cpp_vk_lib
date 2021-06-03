@@ -21,7 +21,7 @@ public:
     void execute(const vk::event::message_new& event) const override
     {
         std::string raw_upload_json = m_docs.get_messages_upload_server("audio_message", event.peer_id());
-        // You can organize path retreiving in any convenient way.
+        // You can organize path retrieving in any convenient way.
         auto audio = m_docs.save_audio_message("/path/to/audio.mp3", raw_upload_json);
         m_messages.send(event.peer_id(), "Hey, i have uploaded audio!", {audio});
     }
