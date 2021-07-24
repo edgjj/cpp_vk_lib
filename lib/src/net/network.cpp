@@ -2,9 +2,10 @@
 
 #include "spdlog/spdlog.h"
 
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
-#include <curlpp/cURLpp.hpp>
+#include "curlpp/Easy.hpp"
+#include "curlpp/Options.hpp"
+#include "curlpp/cURLpp.hpp"
+
 #include <sstream>
 
 static std::string escape(std::string_view url)

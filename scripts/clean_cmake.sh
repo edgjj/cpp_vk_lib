@@ -24,5 +24,5 @@ function test_cleaner () {
 	done
 }
 
-cleaner "." "lib" "bot" "test" "test/*"
+cleaner "." "lib" "bot" "test" "test/*" "dependencies"
 test_cleaner

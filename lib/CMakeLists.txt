@@ -1,5 +1,6 @@
 include_directories(../dependencies)
 include_directories(../dependencies/spdlog/include)
+include_directories(../dependencies/curlpp/include)
 include_directories(include/cpp_vk_lib)
 
 add_definitions(-DVK_CURL_DEBUG)
