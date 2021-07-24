@@ -124,11 +124,10 @@ std::string vk::network::upload(std::string_view field_name, std::string_view fi
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
+
     try {
         curl_easy.perform();
-
     } catch (curlpp::RuntimeError& re) {
-
         debug_error("HTTP upload error", "");
     }
 
