@@ -9,7 +9,7 @@
 	},
 	"environment": {
 		"num_workers": 8,
-		"error_logpath": "/tmp/errors.log",
-		"event_logpath": "/tmp/events.log"
+		"error_log_path": "/tmp/errors.log",
+		"event_log_path": "/tmp/events.log"
 	}
 }
