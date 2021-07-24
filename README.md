@@ -60,8 +60,8 @@ int main()
 
 ## Contributors
 
-	* threadpoolexecutor - author
-	* Sanceilaks - build under Windows
+* **threadpoolexecutor** - author
+* **Sanceilaks** - build under Windows
 
 
 Please, see `bot` README to find out more info how to create your own bot.
