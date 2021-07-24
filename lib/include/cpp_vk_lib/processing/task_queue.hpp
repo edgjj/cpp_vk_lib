@@ -118,9 +118,7 @@ bool task_queue::push_void_task(Function&& fn, Args&&... args)
     m_tasks.emplace_back([this, fn = std::forward<Function>(fn), tp = std::make_tuple(std::forward<Args>(args)...)]() mutable {
         try {
             std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
-
         } catch (...) {
-
             m_on_exception(std::current_exception());
         }
     });
@@ -158,15 +156,12 @@ void task_queue::set_default_exception_handler()
 
         try {
             std::rethrow_exception(ex_ptr);
-
         } catch (std::exception& ex) {
-
             stream << ex.what();
-        }
-        catch (...) {
-
+        } catch (...) {
             stream << "Unknown exception";
         }
+
         std::cerr << stream.str() << std::endl;
     };
 }
@@ -211,17 +206,13 @@ inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task
             try {
                 std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
                 promise->set_value();
-
             } catch (...) {
-
                 promise->set_exception(std::current_exception());
             }
         } else {
             try {
                 promise->set_value(std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp)));
-
             } catch (...) {
-
                 promise->set_exception(std::current_exception());
             }
         }
