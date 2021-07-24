@@ -18,7 +18,6 @@ High performance VK API library
 ## Dependencies
 	- curl
 	- curlpp
-	- gtest
 	- cmake
 
 ## Note
