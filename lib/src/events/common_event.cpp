@@ -5,9 +5,9 @@
 vk::event::common::~common() = default;
 
 vk::event::common::common(std::string_view ts, simdjson::dom::object&& event)
-  : m_ts(ts)
-  , m_update_type()
-  , m_event(std::make_shared<simdjson::dom::object>(std::move(event)))
+    : m_ts(ts)
+    , m_update_type()
+    , m_event(std::make_shared<simdjson::dom::object>(std::move(event)))
 {
     m_update_type = (*m_event)["type"].get_string().take_value().data();
 }

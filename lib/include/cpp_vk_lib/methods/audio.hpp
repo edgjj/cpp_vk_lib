@@ -1,5 +1,5 @@
-#ifndef VK_AUDIO_H
-#define VK_AUDIO_H
+#ifndef VK_METHODS_AUDIO_HPP
+#define VK_METHODS_AUDIO_HPP
 
 #include "document/common.hpp"
 #include "methods/utility/constructor.hpp"
@@ -16,7 +16,6 @@ class audio
 public:
     explicit audio();
     explicit audio(std::string_view user_token);
-
     ~audio();
 
     std::string get_upload_server() const;
@@ -25,10 +24,11 @@ public:
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
     document::common m_document;
-    mutable method::group_constructor_proxy m_group_constructor;
-    mutable method::user_constructor_proxy m_user_constructor;
+    mutable method::group_constructor m_group_constructor;
+    mutable method::user_constructor m_user_constructor;
 };
+
 }// namespace method
 }// namespace vk
 
-#endif// VK_AUDIO_H
+#endif// VK_METHODS_AUDIO_HPP

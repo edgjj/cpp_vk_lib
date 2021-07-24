@@ -1,5 +1,5 @@
-#ifndef STRING_UTIL_ASCII_CONVERT_H
-#define STRING_UTIL_ASCII_CONVERT_H
+#ifndef VK_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP
+#define VK_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP
 
 #include <codecvt>
 #include <locale>
@@ -17,47 +17,48 @@ namespace string_utils {
 struct ascii_convert_impl
 {
 private:
-    static char __to_lower_ascii_char(char c) noexcept
+    static char internal_to_lower_ascii_char(char c) noexcept
     {
-        if (c <= 'Z' && c >= 'A')
-        {
+        if (c <= 'Z' && c >= 'A') {
             return c - ('Z' - 'z');
         }
+
         return c;
     }
 
-    static char __to_upper_ascii_char(char c) noexcept
+    static char internal_to_upper_ascii_char(char c) noexcept
     {
-        if (c <= 'z' && c >= 'a')
-        {
+        if (c <= 'z' && c >= 'a') {
             return c + ('Z' - 'z');
         }
+
         return c;
     }
 
     template <typename ExecutionPolicy>
-    static std::string __ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
+    static std::string internal_ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
     {
         std::string converted;
         converted.reserve(data.length());
-        for (auto& c : data)
-        {
+
+        for (auto& c : data) {
             converted += policy(c);
         }
+
         return converted;
     }
 
     static std::string create_lower(std::string_view data)
     {
-        return __ascii_convert_implementation(data, [](auto& c) {
-            return __to_lower_ascii_char(c);
+        return internal_ascii_convert_implementation(data, [](auto& c) {
+            return internal_to_lower_ascii_char(c);
         });
     }
 
     static std::string create_upper(std::string_view data)
     {
-        return __ascii_convert_implementation(data, [](auto& c) {
-            return __to_upper_ascii_char(c);
+        return internal_ascii_convert_implementation(data, [](auto& c) {
+            return internal_to_upper_ascii_char(c);
         });
     }
 
@@ -68,4 +69,4 @@ private:
 }// namespace string_utils
 }// namespace vk
 
-#endif// STRING_UTIL_ASCII_CONVERT_H
+#endif// VK_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP

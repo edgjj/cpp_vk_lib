@@ -1,9 +1,9 @@
-#ifndef BOT_LONG_POLLER_H
-#define BOT_LONG_POLLER_H
+#ifndef BOT_LONG_POLLER_HPP
+#define BOT_LONG_POLLER_HPP
 
 #include "../handlers/message_handler.hpp"
-#include "cpp_vk_lib/long_poll/api.hpp"
 
+#include "cpp_vk_lib/long_poll/api.hpp"
 
 namespace bot {
 
@@ -11,8 +11,7 @@ class long_poller
 {
 public:
     explicit long_poller()
-      : m_data(m_api.server())
-    {}
+      : m_data(m_api.server()) {}
 
     message_handler& get_message_handler() noexcept
     {
@@ -21,12 +20,12 @@ public:
 
     int run()
     {
-        while (true)
-        {
+        while (true) {
             auto events = m_api.listen(m_data);
-            for (auto& event : events)
-            {
+
+            for (auto& event : events) {
                 m_api.on_event("message_new", *event, [this, &event] {
+                    std::cout << event->get_message_event() << std::endl;
                     m_message_handler.process(event->get_message_event());
                 });
             }
@@ -43,4 +42,4 @@ private:
 
 }// namespace bot
 
-#endif// BOT_LONG_POLLER_H
+#endif// BOT_LONG_POLLER_HPP

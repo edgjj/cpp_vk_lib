@@ -69,167 +69,155 @@ $(function() {
 <div class="title">attachment.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="attachment_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_ATTACHMENT_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_ATTACHMENT_H</span></div>
+<a href="attachment_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_ATTACHMENT_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_ATTACHMENT_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exception_8hpp.html">exception/exception.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacevk.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html">   14</a></span>&#160;<span class="keyword">namespace </span>attachment {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#a6034f0cb246cdc555be33974457f8819">   19</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1base.html#a6034f0cb246cdc555be33974457f8819">base</a>(std::string_view type_, std::int32_t owner_id_, std::int32_t id_)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      : m_attachment_type(type_)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      , m_owner_id(owner_id_)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      , m_id(id_)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {}</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="exception_8hpp.html">exception/exception.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string__utils_8hpp.html">string_utils/string_utils.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacevk.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html">   15</a></span>&#160;<span class="keyword">namespace </span>attachment {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#a4c1d14496529bb5154c79b6161fa0fd2">   20</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1base.html#a4c1d14496529bb5154c79b6161fa0fd2">base</a>(std::string_view <a class="code" href="classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff">type</a>, int32_t owner_id, int32_t <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        : m_attachment_type(<a class="code" href="classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff">type</a>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        , m_owner_id(owner_id)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        , m_id(id) {}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#acf429ecad9e0d62b6b9b44ec8700ecb5">   25</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvk_1_1attachment_1_1base.html#acf429ecad9e0d62b6b9b44ec8700ecb5">~base</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#a4a1b72a7556b6e7ca93f6904a4a12f2c">   27</a></span>&#160;    std::string <a class="code" href="classvk_1_1attachment_1_1base.html#a4a1b72a7556b6e7ca93f6904a4a12f2c">value</a>() const noexcept</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> m_attachment_type + std::to_string(m_owner_id) + <span class="charliteral">&#39;_&#39;</span> + std::to_string(m_id);</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#ad3aec9fdda5bd00bc0276f20b13784ec">   27</a></span>&#160;    std::string <a class="code" href="classvk_1_1attachment_1_1base.html#ad3aec9fdda5bd00bc0276f20b13784ec">value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">string_utils::format</a>(<span class="stringliteral">&quot;{}{}_{}&quot;</span>, m_attachment_type, m_owner_id, m_id);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#a8684887d00a03f768ca73e2ca0b83a74">   32</a></span>&#160;    std::string_view <a class="code" href="classvk_1_1attachment_1_1base.html#a8684887d00a03f768ca73e2ca0b83a74">type</a>() const noexcept</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff">   32</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff">type</a>() const noexcept</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> m_attachment_type;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string m_attachment_type;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::int32_t m_owner_id;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::int32_t m_id;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    int32_t m_owner_id;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    int32_t m_id;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1photo.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1photo.html">photo</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1photo.html#a612361c8c31a292145533a0096442c8b">   46</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1photo.html#a612361c8c31a292145533a0096442c8b">photo</a>(std::int32_t owner_id_, std::int32_t id_)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;photo&quot;</span>, owner_id_, id_)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1video.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1video.html">video</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1video.html#a54d0859e4269cd7666bd0d446609b73c">   54</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1video.html#a54d0859e4269cd7666bd0d446609b73c">video</a>(std::int32_t owner_id_, std::int32_t id_)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;video&quot;</span>, owner_id_, id_)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1audio.html">audio</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio.html#ad9aecb97549c54e4e47812dfbd436ef4">   62</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1audio.html#ad9aecb97549c54e4e47812dfbd436ef4">audio</a>(std::int32_t owner_id_, std::int32_t id_)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;audio&quot;</span>, owner_id_, id_)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1document.html">document</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html#aea3c808981ceea7c33c6b1ab91e231e6">   70</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1document.html#aea3c808981ceea7c33c6b1ab91e231e6">document</a>(std::int32_t owner_id, std::int32_t <span class="keywordtype">id</span>, std::string_view url)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;doc&quot;</span>, owner_id, id)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      , m_raw_url(url)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html#a7d1db8d90a8a926ce3a7949321240ecf">   75</a></span>&#160;    std::string_view <a class="code" href="classvk_1_1attachment_1_1document.html#a7d1db8d90a8a926ce3a7949321240ecf">raw_url</a>() const noexcept</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> m_raw_url;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1photo.html#ab3b8a835ad409093be2347252eb03d52">   46</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1photo.html#ab3b8a835ad409093be2347252eb03d52">photo</a>(int32_t owner_id, int32_t <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;photo&quot;</span>, owner_id, id) {}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1video.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1video.html">video</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1video.html#a93f2bbc483dca9854cef3495142d804d">   53</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1video.html#a93f2bbc483dca9854cef3495142d804d">video</a>(int32_t owner_id, int32_t <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;video&quot;</span>, owner_id, id) {}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1audio.html">audio</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio.html#a96f8829fa278fb3e4c57b2d8ecedc7ac">   60</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1audio.html#a96f8829fa278fb3e4c57b2d8ecedc7ac">audio</a>(int32_t owner_id, int32_t <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;audio&quot;</span>, owner_id, id) {}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html">   64</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1document.html">document</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html#ae138ec133215f493b1621efdd9c569b3">   67</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1document.html#ae138ec133215f493b1621efdd9c569b3">document</a>(int32_t owner_id, int32_t <span class="keywordtype">id</span>, std::string_view url)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;doc&quot;</span>, owner_id, id)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        , m_raw_url(url) {}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1document.html#aaacaab591dba3ac66edb352c144b8262">   71</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1attachment_1_1document.html#aaacaab591dba3ac66edb352c144b8262">raw_url</a>() const noexcept</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> m_raw_url;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::string m_raw_url;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::string m_raw_url;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1wall.html">   84</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1wall.html">wall</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1wall.html#ad0cb8d5d0ddd48b014c7ad55768605ff">   87</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1wall.html#ad0cb8d5d0ddd48b014c7ad55768605ff">wall</a>(std::int32_t <span class="keywordtype">id</span>, std::int32_t from_id)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;wall&quot;</span>, from_id, id)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html">   92</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1audio__message.html">audio_message</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#ab5e075c7a2b329d062fb1b4383f9d6a2">   95</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1audio__message.html#ab5e075c7a2b329d062fb1b4383f9d6a2">audio_message</a>(std::int32_t owner_id, std::int32_t <span class="keywordtype">id</span>, std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a45333627e40ebbb8bc902eb7f43a18be">raw_ogg</a>, std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a69b9f26aa2761f02764e1db87d8b1d39">raw_mp3</a>)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;audio_message&quot;</span>, owner_id, id)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      , m_raw_ogg(<a class="code" href="classvk_1_1attachment_1_1audio__message.html#a45333627e40ebbb8bc902eb7f43a18be">raw_ogg</a>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      , m_raw_mp3(<a class="code" href="classvk_1_1attachment_1_1audio__message.html#a69b9f26aa2761f02764e1db87d8b1d39">raw_mp3</a>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#a45333627e40ebbb8bc902eb7f43a18be">  101</a></span>&#160;    std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a45333627e40ebbb8bc902eb7f43a18be">raw_ogg</a>() const noexcept</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> m_raw_ogg;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#a69b9f26aa2761f02764e1db87d8b1d39">  106</a></span>&#160;    std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a69b9f26aa2761f02764e1db87d8b1d39">raw_mp3</a>() const noexcept</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> m_raw_mp3;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::string m_raw_ogg;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    std::string m_raw_mp3;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#a0cfacd90f3baa525d8441f60ee994b20">  117</a></span>&#160;std::shared_ptr&lt;Derived&gt; <a class="code" href="namespacevk_1_1attachment.html#a0cfacd90f3baa525d8441f60ee994b20">static_pointer_cast</a>(<span class="keyword">const</span> std::shared_ptr&lt;Base&gt;&amp; pointer)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* casted = <span class="keyword">static_cast&lt;</span>Derived*<span class="keyword">&gt;</span>(pointer.get()))</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> std::shared_ptr&lt;Derived&gt;(pointer, casted);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classvk_1_1exception_1_1bad__cast__error.html">exception::bad_cast_error&lt;Base, Derived&gt;</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Attachment&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">  128</a></span>&#160;std::shared_ptr&lt;Attachment&gt; <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>(<span class="keyword">const</span> std::shared_ptr&lt;base&gt;&amp; pointer)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    return ::vk::attachment::static_pointer_cast&lt;base, Attachment&gt;(pointer);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">  133</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachments_t</a> = std::vector&lt;std::shared_ptr&lt;attachment::base&gt;&gt;;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}<span class="comment">// namespace attachment</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_H</span></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html">vk::attachment::audio_message</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:93</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_a45333627e40ebbb8bc902eb7f43a18be"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#a45333627e40ebbb8bc902eb7f43a18be">vk::attachment::audio_message::raw_ogg</a></div><div class="ttdeci">std::string_view raw_ogg() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:101</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_a69b9f26aa2761f02764e1db87d8b1d39"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#a69b9f26aa2761f02764e1db87d8b1d39">vk::attachment::audio_message::raw_mp3</a></div><div class="ttdeci">std::string_view raw_mp3() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:106</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_ab5e075c7a2b329d062fb1b4383f9d6a2"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#ab5e075c7a2b329d062fb1b4383f9d6a2">vk::attachment::audio_message::audio_message</a></div><div class="ttdeci">audio_message(std::int32_t owner_id, std::int32_t id, std::string_view raw_ogg, std::string_view raw_mp3)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:95</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html">vk::attachment::audio</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:60</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1audio_html_ad9aecb97549c54e4e47812dfbd436ef4"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html#ad9aecb97549c54e4e47812dfbd436ef4">vk::attachment::audio::audio</a></div><div class="ttdeci">audio(std::int32_t owner_id_, std::int32_t id_)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:62</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1base_html"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html">vk::attachment::base</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:17</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_a4a1b72a7556b6e7ca93f6904a4a12f2c"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#a4a1b72a7556b6e7ca93f6904a4a12f2c">vk::attachment::base::value</a></div><div class="ttdeci">std::string value() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:27</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_a6034f0cb246cdc555be33974457f8819"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#a6034f0cb246cdc555be33974457f8819">vk::attachment::base::base</a></div><div class="ttdeci">base(std::string_view type_, std::int32_t owner_id_, std::int32_t id_)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:19</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_a8684887d00a03f768ca73e2ca0b83a74"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#a8684887d00a03f768ca73e2ca0b83a74">vk::attachment::base::type</a></div><div class="ttdeci">std::string_view type() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:32</div></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1wall.html">   80</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1wall.html">wall</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1wall.html#a9702d5e9b621c6ce1f3385a9087474d0">   83</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1wall.html#a9702d5e9b621c6ce1f3385a9087474d0">wall</a>(int32_t <span class="keywordtype">id</span>, int32_t from_id)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;wall&quot;</span>, from_id, id) {}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html">   87</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1attachment_1_1audio__message.html">audio_message</a> : <span class="keyword">public</span> <a class="code" href="classvk_1_1attachment_1_1base.html">base</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#afd2b33ee8c1f1aa8301e8c9353d04a03">   90</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1attachment_1_1audio__message.html#afd2b33ee8c1f1aa8301e8c9353d04a03">audio_message</a>(int32_t owner_id, int32_t <span class="keywordtype">id</span>, std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#aee8c662e0b6e0622dea422dea66e09bd">raw_ogg</a>, std::string_view <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a2028b530a043cd666a545674ca37cc85">raw_mp3</a>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        : <a class="code" href="classvk_1_1attachment_1_1base.html">base</a>(<span class="stringliteral">&quot;audio_message&quot;</span>, owner_id, id)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        , m_raw_ogg(<a class="code" href="classvk_1_1attachment_1_1audio__message.html#aee8c662e0b6e0622dea422dea66e09bd">raw_ogg</a>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        , m_raw_mp3(<a class="code" href="classvk_1_1attachment_1_1audio__message.html#a2028b530a043cd666a545674ca37cc85">raw_mp3</a>) {}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#aee8c662e0b6e0622dea422dea66e09bd">   95</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1attachment_1_1audio__message.html#aee8c662e0b6e0622dea422dea66e09bd">raw_ogg</a>() const noexcept</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> m_raw_ogg;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classvk_1_1attachment_1_1audio__message.html#a2028b530a043cd666a545674ca37cc85">  100</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1attachment_1_1audio__message.html#a2028b530a043cd666a545674ca37cc85">raw_mp3</a>() const noexcept</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> m_raw_mp3;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::string m_raw_ogg;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    std::string m_raw_mp3;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Attachment&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">  111</a></span>&#160;std::shared_ptr&lt;Attachment&gt; <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>(<span class="keyword">const</span> std::shared_ptr&lt;base&gt;&amp; pointer)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* casted = <span class="keyword">static_cast&lt;</span>Attachment*<span class="keyword">&gt;</span>(pointer.get())) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> std::shared_ptr&lt;Attachment&gt;(pointer, casted);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classvk_1_1exception_1_1bad__cast__error.html">exception::bad_cast_error&lt;base, Attachment&gt;</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">  120</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachments_t</a> = std::vector&lt;std::shared_ptr&lt;attachment::base&gt;&gt;;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}<span class="comment">// namespace attachment</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_HPP</span></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html">vk::attachment::audio_message</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:88</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_a2028b530a043cd666a545674ca37cc85"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#a2028b530a043cd666a545674ca37cc85">vk::attachment::audio_message::raw_mp3</a></div><div class="ttdeci">const std::string &amp; raw_mp3() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:100</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_aee8c662e0b6e0622dea422dea66e09bd"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#aee8c662e0b6e0622dea422dea66e09bd">vk::attachment::audio_message::raw_ogg</a></div><div class="ttdeci">const std::string &amp; raw_ogg() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:95</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html_afd2b33ee8c1f1aa8301e8c9353d04a03"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html#afd2b33ee8c1f1aa8301e8c9353d04a03">vk::attachment::audio_message::audio_message</a></div><div class="ttdeci">audio_message(int32_t owner_id, int32_t id, std::string_view raw_ogg, std::string_view raw_mp3)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:90</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html">vk::attachment::audio</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:58</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1audio_html_a96f8829fa278fb3e4c57b2d8ecedc7ac"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html#a96f8829fa278fb3e4c57b2d8ecedc7ac">vk::attachment::audio::audio</a></div><div class="ttdeci">audio(int32_t owner_id, int32_t id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:60</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1base_html"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html">vk::attachment::base</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:18</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_a4c1d14496529bb5154c79b6161fa0fd2"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#a4c1d14496529bb5154c79b6161fa0fd2">vk::attachment::base::base</a></div><div class="ttdeci">base(std::string_view type, int32_t owner_id, int32_t id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:20</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_ac52b92a895eb1fff3165f78580e9cfff"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff">vk::attachment::base::type</a></div><div class="ttdeci">const std::string &amp; type() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:32</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1base_html_acf429ecad9e0d62b6b9b44ec8700ecb5"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#acf429ecad9e0d62b6b9b44ec8700ecb5">vk::attachment::base::~base</a></div><div class="ttdeci">virtual ~base()=default</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1document_html"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html">vk::attachment::document</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:68</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1document_html_a7d1db8d90a8a926ce3a7949321240ecf"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html#a7d1db8d90a8a926ce3a7949321240ecf">vk::attachment::document::raw_url</a></div><div class="ttdeci">std::string_view raw_url() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:75</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1document_html_aea3c808981ceea7c33c6b1ab91e231e6"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html#aea3c808981ceea7c33c6b1ab91e231e6">vk::attachment::document::document</a></div><div class="ttdeci">document(std::int32_t owner_id, std::int32_t id, std::string_view url)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:70</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1base_html_ad3aec9fdda5bd00bc0276f20b13784ec"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html#ad3aec9fdda5bd00bc0276f20b13784ec">vk::attachment::base::value</a></div><div class="ttdeci">std::string value() const</div><div class="ttdef"><b>Definition:</b> attachment.hpp:27</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1document_html"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html">vk::attachment::document</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:65</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1document_html_aaacaab591dba3ac66edb352c144b8262"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html#aaacaab591dba3ac66edb352c144b8262">vk::attachment::document::raw_url</a></div><div class="ttdeci">const std::string &amp; raw_url() const noexcept</div><div class="ttdef"><b>Definition:</b> attachment.hpp:71</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1document_html_ae138ec133215f493b1621efdd9c569b3"><div class="ttname"><a href="classvk_1_1attachment_1_1document.html#ae138ec133215f493b1621efdd9c569b3">vk::attachment::document::document</a></div><div class="ttdeci">document(int32_t owner_id, int32_t id, std::string_view url)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:67</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1photo_html"><div class="ttname"><a href="classvk_1_1attachment_1_1photo.html">vk::attachment::photo</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:44</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1photo_html_a612361c8c31a292145533a0096442c8b"><div class="ttname"><a href="classvk_1_1attachment_1_1photo.html#a612361c8c31a292145533a0096442c8b">vk::attachment::photo::photo</a></div><div class="ttdeci">photo(std::int32_t owner_id_, std::int32_t id_)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:46</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1video_html"><div class="ttname"><a href="classvk_1_1attachment_1_1video.html">vk::attachment::video</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:52</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1video_html_a54d0859e4269cd7666bd0d446609b73c"><div class="ttname"><a href="classvk_1_1attachment_1_1video.html#a54d0859e4269cd7666bd0d446609b73c">vk::attachment::video::video</a></div><div class="ttdeci">video(std::int32_t owner_id_, std::int32_t id_)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:54</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1wall_html"><div class="ttname"><a href="classvk_1_1attachment_1_1wall.html">vk::attachment::wall</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:85</div></div>
-<div class="ttc" id="aclassvk_1_1attachment_1_1wall_html_ad0cb8d5d0ddd48b014c7ad55768605ff"><div class="ttname"><a href="classvk_1_1attachment_1_1wall.html#ad0cb8d5d0ddd48b014c7ad55768605ff">vk::attachment::wall::wall</a></div><div class="ttdeci">wall(std::int32_t id, std::int32_t from_id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:87</div></div>
-<div class="ttc" id="aclassvk_1_1exception_1_1bad__cast__error_html"><div class="ttname"><a href="classvk_1_1exception_1_1bad__cast__error.html">vk::exception::bad_cast_error</a></div><div class="ttdef"><b>Definition:</b> exception.hpp:73</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1photo_html_ab3b8a835ad409093be2347252eb03d52"><div class="ttname"><a href="classvk_1_1attachment_1_1photo.html#ab3b8a835ad409093be2347252eb03d52">vk::attachment::photo::photo</a></div><div class="ttdeci">photo(int32_t owner_id, int32_t id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:46</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1video_html"><div class="ttname"><a href="classvk_1_1attachment_1_1video.html">vk::attachment::video</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:51</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1video_html_a93f2bbc483dca9854cef3495142d804d"><div class="ttname"><a href="classvk_1_1attachment_1_1video.html#a93f2bbc483dca9854cef3495142d804d">vk::attachment::video::video</a></div><div class="ttdeci">video(int32_t owner_id, int32_t id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:53</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1wall_html"><div class="ttname"><a href="classvk_1_1attachment_1_1wall.html">vk::attachment::wall</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:81</div></div>
+<div class="ttc" id="aclassvk_1_1attachment_1_1wall_html_a9702d5e9b621c6ce1f3385a9087474d0"><div class="ttname"><a href="classvk_1_1attachment_1_1wall.html#a9702d5e9b621c6ce1f3385a9087474d0">vk::attachment::wall::wall</a></div><div class="ttdeci">wall(int32_t id, int32_t from_id)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:83</div></div>
+<div class="ttc" id="aclassvk_1_1exception_1_1bad__cast__error_html"><div class="ttname"><a href="classvk_1_1exception_1_1bad__cast__error.html">vk::exception::bad_cast_error</a></div><div class="ttdef"><b>Definition:</b> exception.hpp:69</div></div>
 <div class="ttc" id="aexception_8hpp_html"><div class="ttname"><a href="exception_8hpp.html">exception.hpp</a></div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_a05588712dbb7751a10ec8296aaffc444"><div class="ttname"><a href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:133</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_a0cfacd90f3baa525d8441f60ee994b20"><div class="ttname"><a href="namespacevk_1_1attachment.html#a0cfacd90f3baa525d8441f60ee994b20">vk::attachment::static_pointer_cast</a></div><div class="ttdeci">std::shared_ptr&lt; Derived &gt; static_pointer_cast(const std::shared_ptr&lt; Base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:117</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:128</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:10</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_a05588712dbb7751a10ec8296aaffc444"><div class="ttname"><a href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; attachment::base &gt; &gt; attachments_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:120</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:111</div></div>
+<div class="ttc" id="anamespacevk_1_1string__utils_html_aeb80a403f0a69bcbb3fe26964e85bff0"><div class="ttname"><a href="namespacevk_1_1string__utils.html#aeb80a403f0a69bcbb3fe26964e85bff0">vk::string_utils::format</a></div><div class="ttdeci">std::string format(std::string_view data, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:27</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
+<div class="ttc" id="astring__utils_8hpp_html"><div class="ttname"><a href="string__utils_8hpp.html">string_utils.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,66 +5,62 @@
 #include "string_utils/string_utils.hpp"
 
 vk::method::docs::docs()
-  : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_group_constructor()
-  , m_user_constructor()
-  , m_document()
-{}
+    : m_parser(std::make_shared<simdjson::dom::parser>())
+    , m_group_constructor()
+    , m_user_constructor()
+    , m_document() {}
 
 vk::method::docs::docs(std::string_view user_token)
-  : m_parser(std::make_shared<simdjson::dom::parser>())
-  , m_group_constructor()
-  , m_user_constructor(user_token.data())
-  , m_document(user_token.data())
-{}
+    : m_parser(std::make_shared<simdjson::dom::parser>())
+    , m_group_constructor()
+    , m_user_constructor(user_token.data())
+    , m_document(user_token.data()) {}
 
 vk::method::docs::~docs() = default;
 
-vk::attachment::attachments_t vk::method::docs::search(std::string_view query, std::int64_t count) const
+vk::attachment::attachments_t vk::method::docs::search(std::string_view query, int64_t count) const
 {
     return m_document.search("docs.search", query, count);
 }
 
 void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string> tags) const
 {
-    std::string raw_response = m_user_constructor
+    const std::string raw_response = m_user_constructor
         .method("docs.edit")
         .param("owner_id", std::to_string(owner_id))
         .param("doc_id", std::to_string(doc_id))
         .param("title", title.data())
         .param("tags", string_utils::join<std::string>(tags).data())
-        .execute();
+        .perform_request();
 
-    simdjson::dom::object response = m_parser->parse(raw_response);
+    const simdjson::dom::object response = m_parser->parse(raw_response);
 
-    if (response.begin().key() == "error")
-    {
+    if (response.begin().key() == "error") {
         exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
 void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
 {
-    std::string raw_response = m_user_constructor
+    const std::string raw_response = m_user_constructor
         .method("docs.delete")
         .param("owner_id", std::to_string(owner_id))
         .param("doc_id", std::to_string(doc_id))
-        .execute();
+        .perform_request();
 
-    simdjson::dom::object response = m_parser->parse(raw_response);
+    const simdjson::dom::object response = m_parser->parse(raw_response);
 
-    if (response.begin().key() == "error")
-    {
+    if (response.begin().key() == "error") {
         exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
     }
 }
 
-std::string vk::method::docs::get_upload_server(std::int64_t group_id) const
+std::string vk::method::docs::get_upload_server(int64_t group_id) const
 {
     return m_group_constructor
         .method("docs.getUploadServer")
         .param("group_id", std::to_string(group_id))
-        .execute();
+        .perform_request();
 }
 
 std::string vk::method::docs::get_wall_upload_server(int64_t group_id) const
@@ -72,7 +68,7 @@ std::string vk::method::docs::get_wall_upload_server(int64_t group_id) const
     return m_group_constructor
         .method("docs.getWallUploadServer")
         .param("group_id", std::to_string(group_id))
-        .execute();
+        .perform_request();
 }
 
 std::string vk::method::docs::get_messages_upload_server(std::string_view type, int64_t peer_id) const
@@ -81,33 +77,29 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
         .method("docs.getMessagesUploadServer")
         .param("peer_id", std::to_string(peer_id))
         .param("type", type.data())
-        .execute();
+        .perform_request();
 }
 
 std::shared_ptr<vk::attachment::audio_message>
 vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) const
 {
-    simdjson::dom::object upload_response = m_document.upload(filename, raw_server, "file");
+    const simdjson::dom::object upload_response = m_document.upload(filename, raw_server, "file");
 
-    if (upload_response.begin().key() != "file")
-    {
+    if (upload_response.begin().key() != "file") {
         throw exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?");
     }
 
-    std::string file = upload_response["file"].get_c_str().take_value();
+    const std::string file = upload_response["file"].get_c_str().take_value();
 
-    if (file.empty())
-    {
-        return {};
-    }
+    if (file.empty()) { return {}; }
 
-    std::string raw_save_response = m_group_constructor
+    const std::string raw_save_response = m_group_constructor
         .method("docs.save")
         .param("file", file)
         .param("title", "voice")
-        .execute();
+        .perform_request();
 
-    simdjson::dom::object uploaded_doc = m_parser->parse(raw_save_response)["response"]["audio_message"];
+    const simdjson::dom::object uploaded_doc = m_parser->parse(raw_save_response)["response"]["audio_message"];
 
     return std::make_shared<vk::attachment::audio_message>(
         uploaded_doc["owner_id"].get_int64(),

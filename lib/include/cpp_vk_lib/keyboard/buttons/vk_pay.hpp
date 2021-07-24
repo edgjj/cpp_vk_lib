@@ -1,5 +1,5 @@
-#ifndef VK_PAY_BUTTON_H
-#define VK_PAY_BUTTON_H
+#ifndef VK_KEYBOARD_BUTTONS_VK_PAY_HPP
+#define VK_KEYBOARD_BUTTONS_VK_PAY_HPP
 
 #include "string_utils/string_utils.hpp"
 
@@ -11,8 +11,7 @@ class vk_pay
 {
 public:
     vk_pay(std::string_view hash)
-      : m_hash(hash)
-    {}
+        : m_hash(hash) {}
 
     std::string serialize() const
     {
@@ -26,4 +25,4 @@ private:
 }// namespace keyboard
 }// namespace vk
 
-#endif// VK_PAY_BUTTON_H
+#endif// VK_KEYBOARD_BUTTONS_VK_PAY_HPP

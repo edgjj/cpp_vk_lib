@@ -1,11 +1,11 @@
-#ifndef BOT_KEYBOARD_COMMAND_H
-#define BOT_KEYBOARD_COMMAND_H
+#ifndef BOT_COMMANDS_KEYBOARD_HPP
+#define BOT_COMMANDS_KEYBOARD_HPP
 
 #include "../commands/base.hpp"
+
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/keyboard/layout.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
-
 
 namespace bot {
 namespace command {
@@ -13,15 +13,17 @@ namespace command {
 class keyboard final : public base
 {
 public:
-    // vk::keyboard::layout has `none` flag by default, which corresponds to white color.
+    /// @note vk::keyboard::layout has `none` flag by default, which corresponds to white color.
     explicit keyboard()
-      : m_layout(std::make_unique<vk::keyboard::layout>(vk::keyboard::flag::in_line))
+        : m_layout(std::make_unique<vk::keyboard::layout>(vk::keyboard::flag::in_line))
+        , m_messages(vk::method::messages::disable_mentions)
     {
         setup_keyboard();
     }
+
     void execute(const vk::event::message_new& event) const override
     {
-        m_messages.send(event.peer_id(), "Here is keyboard: ", m_layout->get());
+        m_messages.send(event.peer_id(), "Here is keyboard:", m_layout->get());
     }
 
 private:
@@ -36,10 +38,10 @@ private:
     }
 
     std::unique_ptr<vk::keyboard::layout> m_layout;
-    vk::method::messages m_messages{vk::method::messages::disable_mentions};
+    vk::method::messages m_messages;
 };
 
 }// namespace command
 }// namespace bot
 
-#endif// BOT_KEYBOARD_COMMAND_H
+#endif// BOT_COMMANDS_KEYBOARD_HPP

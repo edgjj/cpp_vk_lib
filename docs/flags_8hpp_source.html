@@ -69,33 +69,34 @@ $(function() {
 <div class="title">flags.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="flags_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_KEYBOARD_FLAGS_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_KEYBOARD_FLAGS_H</span></div>
+<a href="flags_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_KEYBOARD_FLAGS_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_KEYBOARD_FLAGS_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>keyboard {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">    7</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> : unsigned char</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">none</a> = (1 &lt;&lt; 0),</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339">in_line</a> = (1 &lt;&lt; 1),</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a42c65b4a0a42503f782c380c8db96925">one_time</a> = (1 &lt;&lt; 2)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>        = (1 &lt;&lt; 0),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339">in_line</a>     = (1 &lt;&lt; 1),</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a42c65b4a0a42503f782c380c8db96925">one_time</a>    = (1 &lt;&lt; 2)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacevk_1_1keyboard.html#ad6680c53b97f78e32bbffd1b953c44d6">   14</a></span>&#160;constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="namespacevk_1_1keyboard.html#ad6680c53b97f78e32bbffd1b953c44d6">operator &amp; </a>(<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> lhs, <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> rhs) noexcept</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(lhs) &amp; <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(rhs);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}<span class="comment">// namespace keyboard</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_FLAGS_H</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace keyboard</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_FLAGS_HPP</span></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">vk::keyboard::flag</a></div><div class="ttdeci">flag</div><div class="ttdef"><b>Definition:</b> flags.hpp:8</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a></div><div class="ttdeci">@ none</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654a42c65b4a0a42503f782c380c8db96925"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a42c65b4a0a42503f782c380c8db96925">vk::keyboard::flag::one_time</a></div><div class="ttdeci">@ one_time</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339">vk::keyboard::flag::in_line</a></div><div class="ttdeci">@ in_line</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_ad6680c53b97f78e32bbffd1b953c44d6"><div class="ttname"><a href="namespacevk_1_1keyboard.html#ad6680c53b97f78e32bbffd1b953c44d6">vk::keyboard::operator&amp;</a></div><div class="ttdeci">constexpr unsigned char operator&amp;(flag lhs, flag rhs) noexcept</div><div class="ttdef"><b>Definition:</b> flags.hpp:14</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:10</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -102,7 +102,7 @@ TEST(attachment, audio_message_cast)
 
 TEST(attachment, raw_class_cast)
 {
-    std::shared_ptr<att::audio> audio = std::make_shared<att::audio>(100, 200);
+    auto audio = std::make_shared<att::audio>(100, 200);
 
     class empty_attachment : public vk::attachment::base {};
 

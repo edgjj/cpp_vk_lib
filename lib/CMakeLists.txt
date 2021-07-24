@@ -22,7 +22,7 @@ else()
   set(extra_warnings_flags "")
 endif()
 
-set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=native -mtune=generic")
+set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=native -mtune=generic -flto")
 
 add_library(lib-simdjson INTERFACE)
 target_compile_features(lib-simdjson INTERFACE cxx_std_17)

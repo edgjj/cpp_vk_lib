@@ -1,15 +1,18 @@
-#ifndef STRING_UTIL_JOIN_IMPL_H
-#define STRING_UTIL_JOIN_IMPL_H
+#ifndef VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP
+#define VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP
 
 #include <numeric>
 #include <string>
 
 namespace vk {
 namespace string_utils {
+
 template <typename T, typename Container>
 std::string join(Container&& elements, char delimiter = ',');
+
 template <typename T>
 std::string join(std::initializer_list<T> elements, char delimiter = ',');
+
 }// namespace string_utils
 }// namespace vk
 
@@ -33,11 +36,9 @@ private:
     static std::string common_create(Container&& elements, char delimiter)
     {
         return implementation(elements, [&delimiter](std::string& accumlator, T element) {
-            if constexpr (std::is_integral_v<T>)
-            {
+            if constexpr (std::is_integral_v<T>) {
                 return accumlator.empty() ? std::to_string(element) : std::move(accumlator) + delimiter + std::to_string(element);
-            }
-            else {
+            } else {
                 return accumlator.empty() ? std::string(element) : std::move(accumlator) + delimiter + std::string(element);
             }
         });
@@ -55,7 +56,8 @@ private:
     template <typename mT>
     friend std::string string_utils::join(std::initializer_list<mT> elements, char delimiter);
 };
+
 }// namespace string_utils
 }// namespace vk
 
-#endif// STRING_UTIL_JOIN_IMPL_H
+#endif// VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP

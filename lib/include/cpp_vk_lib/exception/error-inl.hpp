@@ -1,17 +1,17 @@
-#ifndef VK_ERROR_INL_HPP
-#define VK_ERROR_INL_HPP
+#ifndef VK_EXCEPTION_ERROR_INL_HPP
+#define VK_EXCEPTION_ERROR_INL_HPP
+
+#include "exception/exception.hpp"
+
+#include "spdlog/spdlog.h"
 
 #include <cstddef>
 #include <unordered_map>
 
-#include "spdlog/spdlog.h"
-
-#include "exception/exception.hpp"
-
 namespace vk {
 namespace exception {
 
-enum class error_type : std::size_t
+enum class error_type : size_t
 {
     upload_error,
     access_error,
@@ -25,7 +25,7 @@ struct error_code
     error_type type;
 };
 
-static std::unordered_map<std::size_t, error_code> errors = {
+static const std::unordered_map<size_t, error_code> errors = {
     { 1,    { "Unknown error occurred", error_type::runtime_error }},
     { 2,    { "Application is disabled. Enable your application or use test mode", error_type::runtime_error }},
     { 3,    { "Unknown method passed", error_type::runtime_error }},
@@ -88,13 +88,12 @@ static std::unordered_map<std::size_t, error_code> errors = {
 
 inline constexpr bool log_before_throw = true;
 
-inline void dispatch_error_by_code(std::size_t error_code, bool enable_logging_before_throw = false)
+inline void dispatch_error_by_code(size_t error_code, bool enable_logging_before_throw = false)
 {
-    const auto& error = errors[error_code];
+    const auto& error = errors.at(error_code);
 
-    if (enable_logging_before_throw)
-    {
-        auto dispatch_error_name = [](error_type err) {
+    if (enable_logging_before_throw) {
+        auto dispatch_error_name = [](error_type err) -> const char* {
             switch (err) {
                 case error_type::access_error: return "access error";
                 case error_type::runtime_error: return "runtime error";
@@ -121,4 +120,4 @@ inline void dispatch_error_by_code(std::size_t error_code, bool enable_logging_b
 } // namespace exception
 } // namespace vk
 
-#endif // VK_ERROR_INL_HPP
+#endif // VK_EXCEPTION_ERROR_INL_HPP

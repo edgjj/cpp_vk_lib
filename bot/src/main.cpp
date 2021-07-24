@@ -5,11 +5,11 @@
 #include "commands/raw_method.hpp"
 #include "commands/set_chat_photo.hpp"
 #include "commands/upload_voice_message.hpp"
-#include "cpp_vk_lib/config/loader.hpp"
 #include "events/on_chat_invite_user.hpp"
 #include "events/on_message_pin.hpp"
 #include "long_poller/long_poller.hpp"
 
+#include "cpp_vk_lib/config/loader.hpp"
 
 namespace bot {
 // Example bot class.
@@ -22,10 +22,8 @@ public:
         setup_commands();
         setup_event_reactions();
     }
-    int run()
-    {
-        return poller.run();
-    }
+
+    int run() { return poller.run(); }
 
 private:
     void setup_commands()
@@ -59,6 +57,7 @@ int main(int argc, char* argv[])
         std::cerr << "Program requires path to config as the only argument." << std::endl;
         exit(-1);
     }
+
     vk::config::load(argv[1]);
     spdlog::info("Maximum num of workers: {}", vk::config::num_workers());
 

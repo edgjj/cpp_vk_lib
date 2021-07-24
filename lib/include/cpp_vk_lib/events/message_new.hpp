@@ -1,8 +1,10 @@
-#ifndef VK_MESSAGE_NEW_H
-#define VK_MESSAGE_NEW_H
+#ifndef VK_EVENTS_MESSAGE_NEW_HPP
+#define VK_EVENTS_MESSAGE_NEW_HPP
 
 #include "handlers/attachment_handler.hpp"
 #include "handlers/message_action_handler.hpp"
+
+#include <memory>
 
 namespace simdjson {
 namespace dom {
@@ -24,90 +26,52 @@ namespace event {
 class message_new
 {
 public:
-    ~message_new();
-
-    /*!
-     * @brief Construct event from JSON.
-     */
     message_new(simdjson::dom::object&& event);
+    ~message_new();
     /*!
-     * @brief Try get reply.
      * @throws vk::exception::access_error in case, when reply pointer is not set.
      */
     std::shared_ptr<message_new> reply() const;
     /*!
-     * @brief Try get reply.
-     * @throws vk::exception::access_error in case, when forward messages vector
-     * is empty.
+     * @throws vk::exception::access_error in case, when forward messages vector is empty.
      */
     std::vector<std::unique_ptr<message_new>> fwd_messages() const;
     /*!
-     * @brief Try get action.
-     * @throws vk::exception::access error in case, when there's no actions
-     * setted.
+     * @throws vk::exception::access error in case, when there's no actions setted.
      */
-    action::any_action action() const;
+    action::any_action_t action() const;
     /*!
-     * @brief Get attachments vector.
      * @throws exception::access_error in case, when object hasn't attachments.
-     *
-     * In case, when no attachments were provided, empty vector returned.
+     * @note In case, when no attachments were provided, empty vector returned.
      */
     attachment::attachments_t attachments() const;
 
-    /*!
-     * @brief Check if message has requested action type.
-     */
     bool on_action(std::string_view action_type) const noexcept;
 
-    /*!
-     * @returns conversation_message_id field from _event_json;
-     */
-    std::int64_t conversation_message_id() const noexcept;
-    /*!
-     * @returns text field from _event_json;
-     */
+    int64_t conversation_message_id() const noexcept;
     std::string text() const noexcept;
-    /*!
-     * @returns from_id field from _event_json;
-     */
-    std::int64_t from_id() const noexcept;
-    /*!
-     * @returns peer_id field from _event_json;
-     */
-    std::int64_t peer_id() const noexcept;
-    /*!
-     * @brief Check, if object contains reply.
-     */
+    int64_t from_id() const noexcept;
+    int64_t peer_id() const noexcept;
     bool has_reply() const noexcept;
-    /*!
-     * @brief Check, if object contains forwarded messages.
-     */
     bool has_fwd_messages() const noexcept;
-    /*!
-     * @brief Check, if object has actions.
-     */
     bool has_action() const noexcept;
 
 private:
-    /*!
-     * @brief Action dispatcher.
-     */
     void try_get_actions();
     simdjson::dom::object& get_event() const;
 
     std::shared_ptr<simdjson::dom::object> m_event_json;
-    action::any_action m_action;
+    action::any_action_t m_action;
+    attachment_handler m_attachment_handler;
     bool m_has_action = false;
     bool m_has_reply = false;
     bool m_has_fwd_messages = false;
     bool m_has_attachments = false;
-
-    attachment_handler m_attachment_handler;
 };
+
 }// namespace event
 }// namespace vk
 
 std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event);
 
-#endif// VK_MESSAGE_NEW_H
+#endif// VK_EVENTS_MESSAGE_NEW_HPP

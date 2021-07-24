@@ -1,16 +1,14 @@
-#ifndef BOT_CONCRETE_COMMAND_H
-#define BOT_CONCRETE_COMMAND_H
+#ifndef BOT_COMMANDS_DOCS_SEARCH_HPP
+#define BOT_COMMANDS_DOCS_SEARCH_HPP
 
 #include "../commands/base.hpp"
 #include "../utils/string_utils.hpp"
+
 #include "cpp_vk_lib/config/loader.hpp"
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/docs.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
 #include "cpp_vk_lib/oauth/client.hpp"
-
-#include <iostream>
-
 
 namespace bot {
 namespace command {
@@ -26,10 +24,9 @@ class docs_search final : public base
 {
 public:
     explicit docs_search()
-      : m_oauth_client(vk::config::username(), vk::config::password(), vk::oauth::target_client::windows)
-      , m_messages(vk::method::messages::disable_mentions)
-      , m_docs(m_oauth_client.token())
-    {}
+        : m_oauth_client(vk::config::username(), vk::config::password(), vk::oauth::target_client::windows)
+        , m_messages(vk::method::messages::disable_mentions)
+        , m_docs(m_oauth_client.token()) {}
     
     void execute(const vk::event::message_new& event) const override
     {
@@ -46,4 +43,4 @@ private:
 }// namespace bot
 
 
-#endif// BOT_CONCRETE_COMMAND_H
+#endif// BOT_COMMANDS_DOCS_SEARCH_HPP

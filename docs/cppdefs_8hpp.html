@@ -101,12 +101,22 @@ Macros</h2></td></tr>
 <tr class="separator:adc22e6055f779aaa6f0ba98ade173dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a2c7619ee41bc94712ae9a5eb4a4fceb7">VK_PUSH_DISABLE_ALL_WARNINGS</a></td></tr>
 <tr class="separator:a2c7619ee41bc94712ae9a5eb4a4fceb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33ee45f49af3ecd5860a8345850443db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a>&#160;&#160;&#160;[[gnu::always_inline]]</td></tr>
+<tr class="memitem:a33ee45f49af3ecd5860a8345850443db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a>&#160;&#160;&#160;inline __attribute__((always_inline))</td></tr>
 <tr class="separator:a33ee45f49af3ecd5860a8345850443db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a3fa58980356daf700b576c53cd187"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#ac6a3fa58980356daf700b576c53cd187">VK_NEVER_INLINE</a>&#160;&#160;&#160;inline __attribute__((noinline))</td></tr>
+<tr class="separator:ac6a3fa58980356daf700b576c53cd187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14024bb98b44880e8138bf9a2929899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#aa14024bb98b44880e8138bf9a2929899">VK_LIKELY</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 1)</td></tr>
 <tr class="separator:aa14024bb98b44880e8138bf9a2929899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a160dc28076b202e507fed9648c449ace"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a160dc28076b202e507fed9648c449ace">VK_UNLIKELY</a>(expr)&#160;&#160;&#160;__builtin_expect(!!(expr), 0)</td></tr>
 <tr class="separator:a160dc28076b202e507fed9648c449ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e765105f18e2158a5dfbdb61484337"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a98e765105f18e2158a5dfbdb61484337">VK_UNUSED</a>(expr)&#160;&#160;&#160;(void)expr</td></tr>
+<tr class="separator:a98e765105f18e2158a5dfbdb61484337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753a6eb9bc1600de1c34d0fbb4e88ccc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a753a6eb9bc1600de1c34d0fbb4e88ccc">VK_DISABLE_COPY</a>(x)</td></tr>
+<tr class="separator:a753a6eb9bc1600de1c34d0fbb4e88ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e66ba521b24439df2a2059335053a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a63e66ba521b24439df2a2059335053a1">VK_DISABLE_MOVE</a>(x)</td></tr>
+<tr class="separator:a63e66ba521b24439df2a2059335053a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de05e612e861535d1dc061577a93f6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cppdefs_8hpp.html#a7de05e612e861535d1dc061577a93f6b">VK_DISABLE_COPY_MOVE</a>(x)</td></tr>
+<tr class="separator:a7de05e612e861535d1dc061577a93f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8289fa501792a96598b596fe859c2997"></a>
@@ -151,6 +161,47 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a753a6eb9bc1600de1c34d0fbb4e88ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a753a6eb9bc1600de1c34d0fbb4e88ccc">&#9670;&nbsp;</a></span>VK_DISABLE_COPY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VK_DISABLE_COPY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    x(<span class="keyword">const</span> x&amp;) = <span class="keyword">delete</span>;       \</div>
+<div class="line">    x&amp; operator=(<span class="keyword">const</span> x&amp;) = <span class="keyword">delete</span>;</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7de05e612e861535d1dc061577a93f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de05e612e861535d1dc061577a93f6b">&#9670;&nbsp;</a></span>VK_DISABLE_COPY_MOVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VK_DISABLE_COPY_MOVE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="cppdefs_8hpp.html#a753a6eb9bc1600de1c34d0fbb4e88ccc">VK_DISABLE_COPY</a>(x)          \</div>
+<div class="line">    VK_DISABLE_MOVE(x)</div>
+<div class="ttc" id="acppdefs_8hpp_html_a753a6eb9bc1600de1c34d0fbb4e88ccc"><div class="ttname"><a href="cppdefs_8hpp.html#a753a6eb9bc1600de1c34d0fbb4e88ccc">VK_DISABLE_COPY</a></div><div class="ttdeci">#define VK_DISABLE_COPY(x)</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:53</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="adc22e6055f779aaa6f0ba98ade173dfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc22e6055f779aaa6f0ba98ade173dfb">&#9670;&nbsp;</a></span>VK_DISABLE_GCC_WARNING</h2>
 
@@ -167,6 +218,26 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a63e66ba521b24439df2a2059335053a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e66ba521b24439df2a2059335053a1">&#9670;&nbsp;</a></span>VK_DISABLE_MOVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VK_DISABLE_MOVE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    x(x&amp;&amp;) = <span class="keyword">delete</span>;            \</div>
+<div class="line">    x&amp; operator=(x&amp;&amp;) = <span class="keyword">delete</span>;</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a43fea1d82be3e6950b6101ec48e6bc9b"></a>
@@ -209,6 +280,20 @@ Macros</h2></td></tr>
           <td class="paramtype">&#160;</td>
           <td class="paramname">expr</td><td>)</td>
           <td>&#160;&#160;&#160;__builtin_expect(!!(expr), 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6a3fa58980356daf700b576c53cd187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a3fa58980356daf700b576c53cd187">&#9670;&nbsp;</a></span>VK_NEVER_INLINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VK_NEVER_INLINE&#160;&#160;&#160;inline __attribute__((noinline))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -258,21 +343,21 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">VK_PUSH_DISABLE_WARNINGS                                                                                                               \</a></div>
-<div class="line"><a class="code" href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">    VK_DISABLE_GCC_WARNING</a>(-Weffc++)                                                                                                       \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wall)                                                                                                          \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wconversion)                                                                                                   \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wold - style - <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>)                                                                                           \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wextra)                                                                                                        \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wattributes)                                                                                                   \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wimplicit - fallthrough)                                                                                       \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wnon - <span class="keyword">virtual</span> - dtor)                                                                                         \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wreturn - type)                                                                                                \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wshadow)                                                                                                       \</div>
-<div class="line">    VK_DISABLE_GCC_WARNING(-Wunused - parameter)                                                                                           \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">VK_PUSH_DISABLE_WARNINGS                                        \</a></div>
+<div class="line"><a class="code" href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">    VK_DISABLE_GCC_WARNING</a>(-Weffc++)                                \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wall)                                   \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wconversion)                            \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wold - style - <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>)                    \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wextra)                                 \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wattributes)                            \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wimplicit - fallthrough)                \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wnon - <span class="keyword">virtual</span> - dtor)                  \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wreturn - type)                         \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wshadow)                                \</div>
+<div class="line">    VK_DISABLE_GCC_WARNING(-Wunused - parameter)                    \</div>
 <div class="line">    VK_DISABLE_GCC_WARNING(-Wunused - variable)</div>
 <div class="ttc" id="acppdefs_8hpp_html_adc22e6055f779aaa6f0ba98ade173dfb"><div class="ttname"><a href="cppdefs_8hpp.html#adc22e6055f779aaa6f0ba98ade173dfb">VK_DISABLE_GCC_WARNING</a></div><div class="ttdeci">#define VK_DISABLE_GCC_WARNING(WARNING)</div><div class="ttdef"><b>Definition:</b> cppdefs.hpp:29</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:128</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:111</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -297,7 +382,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VK_REALLY_INLINE&#160;&#160;&#160;[[gnu::always_inline]]</td>
+          <td class="memname">#define VK_REALLY_INLINE&#160;&#160;&#160;inline __attribute__((always_inline))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,6 +401,24 @@ Macros</h2></td></tr>
           <td class="paramtype">&#160;</td>
           <td class="paramname">expr</td><td>)</td>
           <td>&#160;&#160;&#160;__builtin_expect(!!(expr), 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98e765105f18e2158a5dfbdb61484337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e765105f18e2158a5dfbdb61484337">&#9670;&nbsp;</a></span>VK_UNUSED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VK_UNUSED</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expr</td><td>)</td>
+          <td>&#160;&#160;&#160;(void)expr</td>
         </tr>
       </table>
 </div><div class="memdoc">

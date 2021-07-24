@@ -42,33 +42,16 @@ static std::shared_ptr<vk::attachment::wall> get_wall(const simdjson::dom::eleme
 vk::attachment::attachments_t vk::event::attachment_handler::try_get(const simdjson::dom::array& attachments) const
 {
     attachment::attachments_t attachment_list;
-    for (const simdjson::dom::element& attachment : attachments)
-    {
+
+    for (const simdjson::dom::element& attachment : attachments) {
         std::string type = attachment["type"].get_string().take_value().data();
-        if (type == "photo")
-        {
-            attachment_list.emplace_back(get_photo(attachment));
-        }
-        if (type == "video")
-        {
-            attachment_list.emplace_back(get_video(attachment));
-        }
-        if (type == "doc")
-        {
-            attachment_list.emplace_back(get_doc(attachment));
-        }
-        if (type == "audio")
-        {
-            attachment_list.emplace_back(get_audio(attachment));
-        }
-        if (type == "wall")
-        {
-            attachment_list.emplace_back(get_wall(attachment));
-        }
-        if (type == "audio_message")
-        {
-            attachment_list.emplace_back(get_audio_message(attachment));
-        }
+        if (type == "photo") { attachment_list.emplace_back(get_photo(attachment)); }
+        if (type == "video") { attachment_list.emplace_back(get_video(attachment)); }
+        if (type == "doc")   { attachment_list.emplace_back(get_doc(attachment)); }
+        if (type == "audio") { attachment_list.emplace_back(get_audio(attachment)); }
+        if (type == "wall")  { attachment_list.emplace_back(get_wall(attachment)); }
+        if (type == "audio_message") { attachment_list.emplace_back(get_audio_message(attachment)); }
     }
+
     return attachment_list;
 }

@@ -1,10 +1,11 @@
-#ifndef BOT_MESSAGE_HANDLER_H
-#define BOT_MESSAGE_HANDLER_H
+#ifndef BOT_HANDLERS_MESSAGE_HANDLER_HPP
+#define BOT_HANDLERS_MESSAGE_HANDLER_HPP
 
 #include "../commands/base.hpp"
 #include "../events/on_chat_invite_user.hpp"
 #include "../events/on_message_pin.hpp"
 #include "../utils/string_utils.hpp"
+
 #include "spdlog/spdlog.h"
 
 #include <memory>
@@ -18,17 +19,17 @@ public:
     void process(vk::event::message_new&& event) const
     {
         spdlog::info("Message event: {} from {}", event.text(), event.peer_id());
-        if (!event.has_action())
-        {
+
+        if (!event.has_action()) {
             m_commands.at(string_util::get_first(event.text()))->execute(event);
             return;
         }
-        if (event.on_action("chat_pin_message"))
-        {
+
+        if (event.on_action("chat_pin_message")) {
             m_message_pin_command->execute(event);
         }
-        if (event.on_action("chat_invite_user"))
-        {
+
+        if (event.on_action("chat_invite_user")) {
             m_chat_invite_user_command->execute(event);
         }
     }
@@ -58,4 +59,4 @@ private:
 
 }// namespace bot
 
-#endif// BOT_MESSAGE_HANDLER_H
+#endif// BOT_HANDLERS_MESSAGE_HANDLER_HPP

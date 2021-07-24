@@ -1,5 +1,5 @@
-#ifndef VK_WALL_REPOST_H
-#define VK_WALL_REPOST_H
+#ifndef VK_EVENTS_WALL_REPOST_HPP
+#define VK_EVENTS_WALL_REPOST_HPP
 
 #include "attachment/attachment.hpp"
 
@@ -16,52 +16,25 @@ namespace event {
 class wall_repost
 {
 public:
-    wall_repost(std::int64_t id, std::int64_t from_id, std::int64_t owner_id, std::string text)
-      : m_id(id)
-      , m_from_id(from_id)
-      , m_owner_id(owner_id)
-      , m_text(text)
-      , m_attachments()
-    {}
+    wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text);
 
-    void construct_attachments(attachment::attachments_t&& attachments)
-    {
-        m_attachments = attachments;
-    }
+    void construct_attachments(attachment::attachments_t&& attachments);
 
-    std::int64_t id() const noexcept
-    {
-        return m_id;
-    }
-
-    std::int64_t from_id() const noexcept
-    {
-        return m_from_id;
-    }
-
-    std::int64_t owner_id() const noexcept
-    {
-        return m_owner_id;
-    }
-
-    std::string text() const noexcept
-    {
-        return m_text;
-    }
-
-    attachment::attachments_t attachments() const noexcept
-    {
-        return m_attachments;
-    }
+    int64_t id() const noexcept;
+    int64_t from_id() const noexcept;
+    int64_t owner_id() const noexcept;
+    const std::string& text() const noexcept;
+    const attachment::attachments_t& attachments() const noexcept;
 
 private:
-    std::int64_t m_id;
-    std::int64_t m_from_id;
-    std::int64_t m_owner_id;
+    int64_t m_id;
+    int64_t m_from_id;
+    int64_t m_owner_id;
     std::string m_text;
     attachment::attachments_t m_attachments;
 };
+
 }// namespace event
 }// namespace vk
 
-#endif// VK_WALL_REPOST_H
+#endif// VK_EVENTS_WALL_REPOST_HPP

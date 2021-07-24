@@ -1,6 +1,5 @@
-#ifndef BOT_BASE_COMMAND_H
-#define BOT_BASE_COMMAND_H
-
+#ifndef BOT_COMMANDS_BASE_HPP
+#define BOT_COMMANDS_BASE_HPP
 
 namespace vk {
 namespace event {
@@ -21,4 +20,4 @@ public:
 }// namespace command
 }// namespace bot
 
-#endif// BOT_BASE_COMMAND_H
+#endif// BOT_COMMANDS_BASE_HPP

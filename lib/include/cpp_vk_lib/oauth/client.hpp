@@ -1,5 +1,5 @@
-#ifndef VK_OAUTH_H
-#define VK_OAUTH_H
+#ifndef VK_OAUTH_CLIENT_HPP
+#define VK_OAUTH_CLIENT_HPP
 
 #include <memory>
 #include <string>
@@ -12,10 +12,10 @@ class parser;
 
 namespace vk {
 namespace oauth {
-enum class target_client : std::uint8_t
+enum class target_client : uint8_t
 {
     android = (1 << 0),
-    iphone = (1 << 1),
+    iphone  = (1 << 1),
     windows = (1 << 2)
 };
 
@@ -24,12 +24,13 @@ enum class target_client : std::uint8_t
  *
  * Example usage:
  *
- * int main() {
- *   vk::oauth::client client("phone number", "password",
-vk::oauth::target_client::windows);
- *   client.pull();
- *   vk::messages messages(client.token());
-}
+ *  @code
+ *  int main() {
+ *      vk::oauth::client client("phone number", "password", vk::oauth::target_client::windows);
+ *      client.pull();
+ *      vk::messages messages(client.token());
+ *  }
+ *  @endcode
  */
 class client
 {
@@ -44,7 +45,7 @@ public:
      */
     void pull();
     std::string token() const noexcept;
-    std::int64_t user_id() const noexcept;
+    int64_t user_id() const noexcept;
 
 private:
     static inline const std::string_view m_oauth_link = "https://oauth.vk.com/";
@@ -52,23 +53,24 @@ private:
     static inline const std::string_view m_iphone_app_client_secret = "VeWdmVclDCtn6ihuP1nt";
     static inline const std::string_view m_windows_app_client_secret = "AlVXZFMUqyrnABp8ncuU";
 
-    static inline const std::int32_t m_android_app_client_id = 2274003;
-    static inline const std::int32_t m_windows_app_client_id = 3697615;
-    static inline const std::int32_t m_iphone_app_client_id = 3140623;
+    static inline const int32_t m_android_app_client_id = 2274003;
+    static inline const int32_t m_windows_app_client_id = 3697615;
+    static inline const int32_t m_iphone_app_client_id = 3140623;
 
     target_client m_client_type;
     std::string m_username;
     std::string m_password;
 
     std::string m_target_client_secret;
-    std::int64_t m_target_client_id;
+    int64_t m_target_client_id;
 
     std::string m_pulled_token;
-    std::int64_t m_pulled_user_id;
+    int64_t m_pulled_user_id;
 
     std::shared_ptr<simdjson::dom::parser> m_parser;
 };
+
 }// namespace oauth
 }// namespace vk
 
-#endif// VK_OAUTH_H
+#endif// VK_OAUTH_CLIENT_HPP

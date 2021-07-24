@@ -69,8 +69,8 @@ $(function() {
 <div class="title">split.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="split_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STRING_UTIL_SPLIT_IMPL_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STRING_UTIL_SPLIT_IMPL_H</span></div>
+<a href="split_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_STRING_UTILS_IMPLEMENTATION_SPLIT_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_STRING_UTILS_IMPLEMENTATION_SPLIT_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
@@ -94,31 +94,30 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;std::string_view&gt; splitted;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        splitted.reserve(data.length() / 4);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::size_t pos = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">while</span> (pos != std::string_view::npos)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            pos = data.find_first_not_of(delimiter);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">if</span> (pos == std::string_view::npos)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">return</span> splitted;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            data = data.substr(pos);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            pos = data.find(delimiter);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            splitted.emplace_back(data.substr(0, pos));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            data = data.substr(pos == std::string_view::npos ? 0 : pos);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        splitted.shrink_to_fit();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> splitted;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1split__impl.html#a273b71e15b3281f4ede15a90c45b59e8">   43</a></span>&#160;    <span class="keyword">friend</span> std::vector&lt;std::string_view&gt; <a class="code" href="namespacevk_1_1string__utils.html#a230a30da79e2b707bc3202f6be5a3fe3">string_utils::split</a>(std::string_view text, <span class="keywordtype">char</span> delimiter);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// STRING_UTIL_SPLIT_IMPL_H</span></div>
-<div class="ttc" id="anamespacevk_1_1string__utils_html_a230a30da79e2b707bc3202f6be5a3fe3"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a230a30da79e2b707bc3202f6be5a3fe3">vk::string_utils::split</a></div><div class="ttdeci">std::vector&lt; std::string_view &gt; split(std::string_view text, char delimiter)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:31</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:10</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">while</span> (pos != std::string_view::npos) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            pos = data.find_first_not_of(delimiter);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">if</span> (pos == std::string_view::npos) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">return</span> splitted;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            data = data.substr(pos);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            pos = data.find(delimiter);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            splitted.emplace_back(data.substr(0, pos));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            data = data.substr(pos == std::string_view::npos ? 0 : pos);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        splitted.shrink_to_fit();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> splitted;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1split__impl.html#a273b71e15b3281f4ede15a90c45b59e8">   41</a></span>&#160;    <span class="keyword">friend</span> std::vector&lt;std::string_view&gt; <a class="code" href="namespacevk_1_1string__utils.html#a230a30da79e2b707bc3202f6be5a3fe3">string_utils::split</a>(std::string_view text, <span class="keywordtype">char</span> delimiter);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<span class="comment">// namespace string_utils</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_STRING_UTILS_IMPLEMENTATION_SPLIT_HPP</span></div>
+<div class="ttc" id="anamespacevk_1_1string__utils_html_a230a30da79e2b707bc3202f6be5a3fe3"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a230a30da79e2b707bc3202f6be5a3fe3">vk::string_utils::split</a></div><div class="ttdeci">std::vector&lt; std::string_view &gt; split(std::string_view text, char delimiter)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:32</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
 <div class="ttc" id="astructvk_1_1string__utils_1_1split__impl_html"><div class="ttname"><a href="structvk_1_1string__utils_1_1split__impl.html">vk::string_utils::split_impl</a></div><div class="ttdef"><b>Definition:</b> split.hpp:17</div></div>
 <div class="ttc" id="astructvk_1_1string__utils_1_1split__impl_html_a4f789ab3df16d6870a6b071eea1e406b"><div class="ttname"><a href="structvk_1_1string__utils_1_1split__impl.html#a4f789ab3df16d6870a6b071eea1e406b">vk::string_utils::split_impl::split_impl</a></div><div class="ttdeci">split_impl()=delete</div></div>
 </div><!-- fragment --></div><!-- contents -->

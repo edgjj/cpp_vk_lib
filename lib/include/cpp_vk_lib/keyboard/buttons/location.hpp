@@ -1,5 +1,5 @@
-#ifndef VK_LOCATION_BUTTON_H
-#define VK_LOCATION_BUTTON_H
+#ifndef VK_KEYBOARD_BUTTONS_LOCATION_HPP
+#define VK_KEYBOARD_BUTTONS_LOCATION_HPP
 
 #include <string>
 
@@ -10,13 +10,14 @@ namespace button {
 class location
 {
 public:
-    std::string serialize() const
+    const char* serialize() const noexcept
     {
-        return R"({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})";
+        return R"__({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})__";
     }
 };
+
 }// namespace button
 }// namespace keyboard
 }// namespace vk
 
-#endif// VK_LOCATION_BUTTON_H
+#endif// VK_KEYBOARD_BUTTONS_LOCATION_HPP

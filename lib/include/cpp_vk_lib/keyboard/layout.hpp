@@ -1,5 +1,5 @@
-#ifndef VK_KEYBOARD_LAYOUT_H
-#define VK_KEYBOARD_LAYOUT_H
+#ifndef VK_KEYBOARD_LAYOUT_HPP
+#define VK_KEYBOARD_LAYOUT_HPP
 
 #include "keyboard/buttons/location.hpp"
 #include "keyboard/buttons/open_app.hpp"
@@ -33,7 +33,7 @@ public:
      */
     void serialize();
     std::string get() const noexcept;
-    bool has_flag(flag flag_) const noexcept;
+    bool has_flag(keyboard::flag flag) const noexcept;
 
 private:
     std::string m_serialized{};
@@ -49,4 +49,4 @@ private:
 }// namespace keyboard
 }// namespace vk
 
-#endif// VK_KEYBOARD_LAYOUT_H
+#endif// VK_KEYBOARD_LAYOUT_HPP

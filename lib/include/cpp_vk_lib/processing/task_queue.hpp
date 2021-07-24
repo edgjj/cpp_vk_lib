@@ -1,5 +1,7 @@
-#ifndef VK_TASK_QUEUE_H
-#define VK_TASK_QUEUE_H
+#ifndef VK_PROCESSING_TASK_QUEUE_HPP
+#define VK_PROCESSING_TASK_QUEUE_HPP
+
+#include "misc/cppdefs.hpp"
 
 #include <condition_variable>
 #include <deque>
@@ -20,18 +22,15 @@ class task_queue
     };
 
 public:
+    VK_DISABLE_COPY_MOVE(task_queue)
+
     using exception_callback_t = std::function<void(std::exception_ptr)>;
 
-    explicit task_queue(std::size_t num_workers = std::thread::hardware_concurrency());
-
-    task_queue(const task_queue&) = delete;
-    task_queue(task_queue&&) = delete;
-    task_queue& operator=(const task_queue&) = delete;
-    task_queue& operator=(task_queue&&) = delete;
+    explicit task_queue(size_t num_workers = std::thread::hardware_concurrency());
 
     task_queue& set_exception_handler(exception_callback_t handler);
 
-    task_queue& set_num_workers(std::size_t num);
+    task_queue& set_num_workers(size_t num);
 
     void start();
     void stop();
@@ -48,20 +47,20 @@ public:
 
 private:
     void set_default_exception_handler();
-    void init_workers(std::size_t num);
+    void init_workers(size_t num);
 
     std::condition_variable m_notifier;
     std::deque<std::function<void()>> m_tasks;
     exception_callback_t m_on_exception;
     std::mutex m_locker;
     std::vector<std::thread> m_workers;
-    std::size_t m_num_workers;
+    size_t m_num_workers;
     stop_policy m_stop_policy = stop_policy::stop_after_current_task;
     std::atomic<bool> m_running;
     std::atomic<bool> m_stop_requested;
 };
 
-inline task_queue::task_queue(std::size_t num_workers)
+inline task_queue::task_queue(size_t num_workers)
   : m_num_workers(num_workers)
   , m_running(false)
   , m_stop_requested(false)
@@ -75,18 +74,18 @@ inline task_queue& task_queue::set_exception_handler(task_queue::exception_callb
     return *this;
 }
 
-inline task_queue& task_queue::set_num_workers(std::size_t num)
+inline task_queue& task_queue::set_num_workers(size_t num)
 {
-    if (m_running)
+    if (m_running) {
         throw std::runtime_error("Attempt to change number of workers while running");
+    }
     m_num_workers = num;
     return *this;
 }
 
 inline void task_queue::start()
 {
-    if (m_running)
-    {
+    if (m_running) {
         return;
     }
     m_running = true;
@@ -95,13 +94,15 @@ inline void task_queue::start()
 
 inline void task_queue::stop()
 {
-    if (!m_running)
+    if (!m_running) {
         return;
+    }
     m_stop_requested = true;
     m_running = false;
     m_notifier.notify_all();
-    for (auto& w : m_workers)
+    for (auto& w : m_workers) {
         w.join();
+    }
     m_workers.clear();
     m_stop_requested = false;
 }
@@ -109,29 +110,29 @@ inline void task_queue::stop()
 template <typename Function, typename... Args>
 bool task_queue::push_void_task(Function&& fn, Args&&... args)
 {
-    if (m_stop_requested)
-    {
+    if (m_stop_requested) {
         return false;
     }
+
     std::unique_lock<decltype(m_locker)> lock(m_locker);
     m_tasks.emplace_back([this, fn = std::forward<Function>(fn), tp = std::make_tuple(std::forward<Args>(args)...)]() mutable {
-        try
-        {
+        try {
             std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
-        } catch (...)
-        {
+
+        } catch (...) {
+
             m_on_exception(std::current_exception());
         }
     });
     m_locker.unlock();
     m_notifier.notify_one();
+
     return true;
 }
 
 inline void task_queue::wait_for_completion()
 {
-    if (!m_running)
-    {
+    if (!m_running) {
         return;
     }
     m_stop_policy = stop_policy::wait_for_queue_completion;
@@ -148,40 +149,42 @@ inline task_queue::~task_queue()
 void task_queue::set_default_exception_handler()
 {
     m_on_exception = [](std::exception_ptr ex_ptr) -> void {
-        if (!ex_ptr)
-        {
+        if (!ex_ptr) {
             return;
         }
+
         std::ostringstream stream;
         stream << "[task_queue] Exception from thread (" << std::this_thread::get_id() << "): ";
-        try
-        {
+
+        try {
             std::rethrow_exception(ex_ptr);
-        } catch (std::exception& ex)
-        {
+
+        } catch (std::exception& ex) {
+
             stream << ex.what();
-        } catch (...)
-        {
+        }
+        catch (...) {
+
             stream << "Unknown exception";
         }
         std::cerr << stream.str() << std::endl;
     };
 }
 
-inline void task_queue::init_workers(std::size_t num)
+inline void task_queue::init_workers(size_t num)
 {
-    for (std::size_t i = 0; i < num; ++i)
-    {
+    for (size_t i = 0; i < num; ++i) {
         m_workers.emplace_back([this]() {
-            while (true)
-            {
+            while (true) {
                 std::unique_lock<decltype(m_locker)> locker(m_locker);
                 m_notifier.wait(locker, [this] {
                     return !m_tasks.empty() || m_stop_requested;
                 });
-                if (m_stop_requested)
-                    if (m_tasks.empty() || m_stop_policy == stop_policy::stop_after_current_task)
+                if (m_stop_requested) {
+                    if (m_tasks.empty() || m_stop_policy == stop_policy::stop_after_current_task) {
                         return;
+                    }
+                }
                 auto task = std::move(m_tasks.front());
                 m_tasks.pop_front();
                 locker.unlock();
@@ -194,8 +197,7 @@ inline void task_queue::init_workers(std::size_t num)
 template <typename Function, typename... Args, typename InvokeTaskType>
 inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task(Function&& fn, Args&&... args)
 {
-    if (m_stop_requested)
-    {
+    if (m_stop_requested) {
         return {false, std::future<InvokeTaskType>()};
     }
     auto result_promise = std::make_shared<std::promise<InvokeTaskType>>();
@@ -205,24 +207,21 @@ inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task
     m_tasks.emplace_back([fn = std::forward<Function>(fn),
                           tp = std::make_tuple(std::forward<Args>(args)...),
                           promise = std::move(result_promise)]() mutable {
-        if constexpr (std::is_void_v<InvokeTaskType>)
-        {
-            try
-            {
+        if constexpr (std::is_void_v<InvokeTaskType>) {
+            try {
                 std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp));
                 promise->set_value();
-            } catch (...)
-            {
+
+            } catch (...) {
+
                 promise->set_exception(std::current_exception());
             }
-        }
-        else
-        {
-            try
-            {
+        } else {
+            try {
                 promise->set_value(std::apply(std::forward<Function>(fn), std::forward<decltype(tp)>(tp)));
-            } catch (...)
-            {
+
+            } catch (...) {
+
                 promise->set_exception(std::current_exception());
             }
         }
@@ -236,4 +235,4 @@ inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task
 }// namespace vk
 
 
-#endif// VK_TASK_QUEUE_H
+#endif// VK_PROCESSING_TASK_QUEUE_HPP

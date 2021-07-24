@@ -1,5 +1,5 @@
-#ifndef VK_EVENT_ATTACHMENT_HANDLER_H
-#define VK_EVENT_ATTACHMENT_HANDLER_H
+#ifndef VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP
+#define VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP
 
 #include "attachment/attachment.hpp"
 
@@ -29,7 +29,9 @@ private:
     friend class wall_reply_new;
     friend class wall_post_new;
 };
+
 }// namespace event
 }// namespace vk
 
-#endif// VK_EVENT_ATTACHMENT_HANDLER_H
+#endif// VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP
+

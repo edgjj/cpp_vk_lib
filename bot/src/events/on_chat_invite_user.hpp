@@ -1,10 +1,9 @@
-#ifndef BOT_ON_CHAT_INVITE_USER_EVENT_H
-#define BOT_ON_CHAT_INVITE_USER_EVENT_H
+#ifndef BOT_EVENTS_ON_CHAT_INVITE_USER_EVENT_HPP
+#define BOT_EVENTS_ON_CHAT_INVITE_USER_EVENT_HPP
 
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
 #include "cpp_vk_lib/string_utils/string_utils.hpp"
-
 
 namespace bot {
 namespace event {
@@ -25,4 +24,4 @@ private:
 }// namespace event
 }// namespace bot
 
-#endif// BOT_ON_CHAT_INVITE_USER_EVENT_H
+#endif// BOT_EVENTS_ON_CHAT_INVITE_USER_EVENT_HPP

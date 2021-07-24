@@ -9,7 +9,7 @@ digraph "long_poll" {
   dir_e468bc965c788d30218c6feedd6472a5 [shape=box label="processing" URL="dir_e468bc965c788d30218c6feedd6472a5.html"];
   dir_25c2f00e66240dae870844a8f9395bfc [shape=box, label="long_poll", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_25c2f00e66240dae870844a8f9395bfc.html"];
   }
-  dir_25c2f00e66240dae870844a8f9395bfc->dir_53544e70ef113b77a7d7180fbd3b440a [headlabel="1", labeldistance=1.5 headhref="dir_000005_000009.html"];
-  dir_25c2f00e66240dae870844a8f9395bfc->dir_8b3c131c7deef97e7a107e2ab510e8a1 [headlabel="2", labeldistance=1.5 headhref="dir_000005_000012.html"];
-  dir_25c2f00e66240dae870844a8f9395bfc->dir_e468bc965c788d30218c6feedd6472a5 [headlabel="1", labeldistance=1.5 headhref="dir_000005_000013.html"];
+  dir_25c2f00e66240dae870844a8f9395bfc->dir_53544e70ef113b77a7d7180fbd3b440a [headlabel="1", labeldistance=1.5 headhref="dir_000009_000015.html"];
+  dir_25c2f00e66240dae870844a8f9395bfc->dir_8b3c131c7deef97e7a107e2ab510e8a1 [headlabel="1", labeldistance=1.5 headhref="dir_000009_000019.html"];
+  dir_25c2f00e66240dae870844a8f9395bfc->dir_e468bc965c788d30218c6feedd6472a5 [headlabel="1", labeldistance=1.5 headhref="dir_000009_000020.html"];
 }

@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="vk::oauth::client",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1oauth_1_1client.html",tooltip="VK Oauth client."];
+  Node0 [label="vk::method::video",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1video.html",tooltip="The video methods representation."];
 }

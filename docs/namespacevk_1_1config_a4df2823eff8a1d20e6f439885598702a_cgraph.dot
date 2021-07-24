@@ -6,7 +6,7 @@ digraph "vk::config::access_token"
   rankdir="LR";
   Node1 [label="vk::config::access\l_token",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk::config::loader\l::access_token",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#aacb1948d8739f45c36f873eee4d32d14",tooltip=" "];
+  Node2 [label="vk::config::loader\l::access_token",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#a36be59dd90f638842e1fec0a0a74fdf1",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk::config::loader::get",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227",tooltip=" "];
 }

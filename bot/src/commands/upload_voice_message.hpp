@@ -1,12 +1,12 @@
-#ifndef BOT_UPLOAD_VOICE_MESSAGE_COMMAND_H
-#define BOT_UPLOAD_VOICE_MESSAGE_COMMAND_H
+#ifndef BOT_COMMANDS_UPLOAD_VOICE_MESSAGE_HPP
+#define BOT_COMMANDS_UPLOAD_VOICE_MESSAGE_HPP
 
 #include "../commands/base.hpp"
+
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/methods/docs.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
-#include "cpp_vk_lib/net/request_manager.hpp"
-
+#include "cpp_vk_lib/net/network.hpp"
 
 namespace bot {
 namespace command {
@@ -16,8 +16,8 @@ class voice_message_upload final : public base
 public:
     explicit voice_message_upload()
       : m_messages(vk::method::messages::disable_mentions)
-      , m_docs()
-    {}
+      , m_docs() {}
+
     void execute(const vk::event::message_new& event) const override
     {
         std::string raw_upload_json = m_docs.get_messages_upload_server("audio_message", event.peer_id());
@@ -30,7 +30,8 @@ private:
     vk::method::messages m_messages;
     vk::method::docs m_docs;
 };
+
 }// namespace command
 }// namespace bot
 
-#endif// BOT_UPLOAD_VOICE_MESSAGE_COMMAND_H
+#endif// BOT_COMMANDS_UPLOAD_VOICE_MESSAGE_HPP

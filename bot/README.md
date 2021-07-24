@@ -88,8 +88,8 @@ Sample config:
 	},
 	"environment": {
 		"num_threads": 8,
-		"error_logpath": ".../errors.log",
-		"event_logpath": ".../events.log"
+		"error_log_path": ".../errors.log",
+		"event_log_path": ".../events.log"
 	}
 }
 ```

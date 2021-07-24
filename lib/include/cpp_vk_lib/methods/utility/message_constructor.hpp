@@ -1,18 +1,13 @@
-#ifndef VK_MESSAGE_CONSTRUCTOR_H
-#define VK_MESSAGE_CONSTRUCTOR_H
+#ifndef VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP
+#define VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP
 
 #include "attachment/attachment.hpp"
 #include "methods/utility/constructor.hpp"
 
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <string>
-
 namespace vk {
 namespace method {
 /*!
- * @brief Adapter to work with message.send method only.
+ * @brief Helper to work with message.send method.
  */
 class message_constructor
 {
@@ -20,65 +15,23 @@ public:
     static inline bool disable_mentions = true;
     static inline bool enable_mentions = false;
 
-    message_constructor(bool disable_mentions_flag)
-    {
-        m_constructor.method("messages.send");
+    message_constructor(bool disable_mentions_flag);
 
-        param("random_id", "0");
-
-        if (disable_mentions_flag)
-        {
-            param("disable_mentions", "1");
-        }
-        else {
-            param("disable_mentions", "0");
-        }
-    }
-
-    message_constructor& param(std::string_view lhs, std::string_view rhs)
-    {
-        m_constructor.param(lhs, rhs);
-        return *this;
-    }
+    message_constructor& param(std::string_view lhs, std::string_view rhs);
     /*!
      * Move or copy is your choice.
      */
-    message_constructor& append_map(std::map<std::string, std::string> additional_params)
-    {
-        m_constructor.append_map(std::move(additional_params));
-        return *this;
-    }
-
-    message_constructor& attachments(attachment::attachments_t attachments)
-    {
-        param("attachment", append_attachments_impl(std::move(attachments)).data());
-        return *this;
-    }
-
-    std::string execute()
-    {
-        return m_constructor.execute();
-    }
+    message_constructor& append_map(std::map<std::string, std::string> additional_params);
+    message_constructor& attachments(attachment::attachments_t attachments);
+    std::string execute();
 
 private:
-    std::string append_attachments_impl(attachment::attachments_t attachments) const
-    {
-        std::string result;
-        result.reserve(attachments.size() * 20);
+    std::string append_attachments_impl(attachment::attachments_t attachments) const;
 
-        for (auto& attachment : attachments)
-        {
-            result += attachment->value();
-            result += ',';
-        }
-
-        return result;
-    }
-
-    group_constructor_proxy m_constructor;
+    group_constructor m_constructor;
 };
 
 }// namespace method
 }// namespace vk
 
-#endif// VK_MESSAGE_CONSTRUCTOR_H
+#endif// VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP

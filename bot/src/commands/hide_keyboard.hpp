@@ -1,11 +1,11 @@
-#ifndef BOT_HIDE_KEYBOARD_COMMAND_H
-#define BOT_HIDE_KEYBOARD_COMMAND_H
+#ifndef BOT_COMMANDS_HIDE_KEYBOARD_HPP
+#define BOT_COMMANDS_HIDE_KEYBOARD_HPP
 
 #include "../commands/base.hpp"
+
 #include "cpp_vk_lib/events/message_new.hpp"
 #include "cpp_vk_lib/keyboard/layout.hpp"
 #include "cpp_vk_lib/methods/messages.hpp"
-
 
 namespace bot {
 namespace command {
@@ -27,4 +27,4 @@ private:
 }// namespace command
 }// namespace bot
 
-#endif// BOT_HIDE_KEYBOARD_COMMAND_H
+#endif// BOT_COMMANDS_HIDE_KEYBOARD_HPP

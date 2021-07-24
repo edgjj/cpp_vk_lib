@@ -1,9 +1,11 @@
-#ifndef BACKTRACE_H
-#define BACKTRACE_H
+#ifndef VK_PROCESSING_BACKTRACE_HPP
+#define VK_PROCESSING_BACKTRACE_HPP
+
+#include "misc/cppdefs.hpp"
 
 #ifdef __linux__
-    #include <cxxabi.h>
-    #include <execinfo.h>
+# include <cxxabi.h>
+# include <execinfo.h>
 #endif
 
 #include <iostream>
@@ -17,12 +19,9 @@ namespace processing {
 class backtrace_view
 {
 public:
-    backtrace_view(const backtrace_view&) = delete;
-    backtrace_view(backtrace_view&&) = delete;
-    backtrace_view& operator=(const backtrace_view&) = delete;
-    backtrace_view& operator=(backtrace_view&&) = delete;
+    VK_DISABLE_COPY_MOVE(backtrace_view)
 
-    explicit backtrace_view() noexcept
+    backtrace_view() noexcept
     {
         generate();
         std::cerr << std::endl;
@@ -131,7 +130,8 @@ private:
     char* begin_offset = nullptr;
     char* end_offset = nullptr;
 };
+
 }// namespace processing
 }// namespace vk
 
-#endif// BACKTRACE_H
+#endif// VK_PROCESSING_BACKTRACE_HPP

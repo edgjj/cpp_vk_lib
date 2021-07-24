@@ -69,26 +69,28 @@ $(function() {
 <div class="title">ostream.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ostream_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STRING_UTIL_OSTREAM_OPERATORS_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STRING_UTIL_OSTREAM_OPERATORS_H</span></div>
+<a href="ostream_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;codecvt&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;locale&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">    7</a></span>&#160;std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::wstring_view s)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">    7</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::wstring_view s)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8_utf16&lt;wchar_t&gt;&gt;().to_bytes(s.data());</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a73fb1f9005e4f2395dc1966982da480c">   11</a></span>&#160;std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::u16string_view s)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8&lt;char16_t&gt;, char16_t&gt;().to_bytes(s.data());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a341467bff09fb2bf7c4664825e7c3dd8">   15</a></span>&#160;std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::u32string_view s)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8&lt;char32_t&gt;, char32_t&gt;().to_bytes(s.data());</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// STRING_UTIL_OSTREAM_OPERATORS_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a73fb1f9005e4f2395dc1966982da480c">   12</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::u16string_view s)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8&lt;char16_t&gt;, char16_t&gt;().to_bytes(s.data());</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="ostream_8hpp.html#a341467bff09fb2bf7c4664825e7c3dd8">   17</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a>(std::ostream&amp; os, std::u32string_view s)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8&lt;char32_t&gt;, char32_t&gt;().to_bytes(s.data());</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
 <div class="ttc" id="aostream_8hpp_html_a4ec2c1e546362e642cd04f3099c1afba"><div class="ttname"><a href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, std::wstring_view s)</div><div class="ttdef"><b>Definition:</b> ostream.hpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

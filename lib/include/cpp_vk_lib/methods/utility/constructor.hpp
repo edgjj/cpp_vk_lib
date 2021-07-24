@@ -1,73 +1,57 @@
-#ifndef VK_METHOD_CONSTRUCTOR_HPP
-#define VK_METHOD_CONSTRUCTOR_HPP
+#ifndef VK_METHODS_UTILITY_CONSTRUCTOR_HPP
+#define VK_METHODS_UTILITY_CONSTRUCTOR_HPP
 
 #include "utility.hpp"
+#include "misc/cppdefs.hpp"
+#include "net/network.hpp"
 
 namespace vk {
 namespace method {
+namespace policy {
 
-enum class method_parameter : std::uint32_t
+class group_api
 {
-    use_api_link        = 1 << 1,
-    do_not_use_api_link = 1 << 2,
-    user_params         = 1 << 3,
-    group_params        = 1 << 4,
+public:
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
+    {
+        return method_util.call(method, method_util.group_args(params));
+    }
 };
 
-constexpr std::uint32_t operator & (std::uint32_t lhs, method_parameter rhs) noexcept
+class user_api
 {
-    return lhs & static_cast<std::uint32_t>(rhs);
-}
-constexpr std::uint32_t operator & (method_parameter rhs, std::uint32_t lhs) noexcept
+public:
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
+    {
+        return method_util.call(method, method_util.user_args(params));
+    }
+};
+
+class do_not_use_api_link
 {
-    return static_cast<std::uint32_t>(lhs) & rhs;
-}
-constexpr method_parameter operator | (method_parameter lhs, method_parameter rhs) noexcept
-{
-    return static_cast<method_parameter>(static_cast<std::uint32_t>(lhs) | static_cast<std::uint32_t>(rhs));
-}
-constexpr bool is_flag_set(method_parameter flag, std::uint32_t params)
-{
-    return ((params & flag) > 0);
-}
-/*!
- * @code
- *  m_raw_method
- *      .method("messages.send")
- *      .param("key", "value")
- *      .param("key", "value")
- *      .param("key", "value")
- *      .param("key", "value")
- *      .param("key", "value")
- *      .param("key", "value")
- *      .execute();
- * @endcode
- */
-template <method_parameter parameter>
+public:
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
+    {
+        VK_UNUSED(method_util);
+        return vk::network::request(method, params);
+    }
+};
+
+} // namespace policy
+
+template <typename ExecutionPolicy>
 class constructor
 {
 public:
     explicit constructor()
-      : m_method_util()
-      , m_flags(static_cast<std::uint32_t>(parameter))
-    { }
+        : m_method_util() {}
 
     explicit constructor(std::string_view user_token)
-      : m_method_util(user_token)
-      , m_flags(static_cast<std::uint32_t>(parameter))
-    { }
+        : m_method_util(user_token) {}
 
-    constructor& method(std::string_view method_name)
+    constructor& method(std::string_view method)
     {
-        m_method_name = method_name;
-        return *this;
-    }
-    /*!
-     * @note Move or copy is your choice.
-     */
-    constructor& append_map(std::map<std::string, std::string> additional_params)
-    {
-        m_params.merge(std::move(additional_params));
+        m_method = method;
         return *this;
     }
 
@@ -76,58 +60,31 @@ public:
         m_params.emplace(key, value);
         return *this;
     }
-    /*!
-     * @brief Process VK request.
-     * @note Parameter map is cleaned up automatically after request.
-     * @return Raw JSON.
-     */
-    std::string execute()
+
+    constructor& append_map(std::map<std::string, std::string> additional_params)
     {
-        std::string response;
-
-        if (is_flag_set(method_parameter::use_api_link, m_flags))
-        {
-            if (is_flag_set(method_parameter::group_params, m_flags))
-            {
-                response = m_method_util.call(m_method_name, m_method_util.group_args(m_params));
-            }
-            else {
-                response = m_method_util.call(m_method_name, m_method_util.user_args(m_params));
-            }
-        }
-        else {
-            response = m_request_manager.request(m_method_name, m_params);
-        }
-
-        reset();
-
-        return response;
+        m_params.merge(std::move(additional_params));
+        return *this;
     }
 
-    void reset()
+    std::string perform_request()
     {
-        m_method_name.clear();
+        const std::string result = ExecutionPolicy::execute(m_method_util, m_method, m_params);
         m_params.clear();
-    }
-
-protected:
-    std::map<std::string, std::string>& map() noexcept
-    {
-        return m_params;
+        return result;
     }
 
 private:
     vk::method::utility m_method_util;
-    std::uint32_t m_flags;
-    network::request_manager m_request_manager{};
-    std::string m_method_name{};
+    std::string m_method{};
     std::map<std::string, std::string> m_params{};
 };
 
-using user_constructor_proxy = constructor<method_parameter::use_api_link | method_parameter::user_params>;
-using group_constructor_proxy = constructor<method_parameter::use_api_link | method_parameter::group_params>;
+using user_constructor = constructor<policy::user_api>;
+using group_constructor = constructor<policy::group_api>;
+using raw_constructor = constructor<policy::do_not_use_api_link>;
 
 }// namespace method
 }// namespace vk
 
-#endif// VK_METHOD_CONSTRUCTOR_HPP
+#endif// VK_METHODS_UTILITY_CONSTRUCTOR_HPP

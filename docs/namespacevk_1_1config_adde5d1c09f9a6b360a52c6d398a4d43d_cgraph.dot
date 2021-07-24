@@ -8,5 +8,5 @@ digraph "vk::config::user_token"
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="vk::config::loader::get",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#ab88f12a7485301e7f036f91a8be3a227",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk::config::loader\l::user_token",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#a95726438fd7bde9dfe4457c5796ad886",tooltip=" "];
+  Node3 [label="vk::config::loader\l::user_token",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1config_1_1loader.html#a42724e013978ff9d09403265f3e29a8c",tooltip=" "];
 }

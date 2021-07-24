@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['method_5fparameter_705',['method_parameter',['../namespacevk_1_1method.html#ac7290d788df802cda43b55c02bb83e23',1,'vk::method']]]
+  ['target_5fclient_752',['target_client',['../namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810',1,'vk::oauth']]]
 ];

@@ -1,5 +1,5 @@
-#ifndef CPP_VK_LIB_PHOTOS_HPP
-#define CPP_VK_LIB_PHOTOS_HPP
+#ifndef BOT_CUSTOM_METHODS_PHOTOS_HPP
+#define BOT_CUSTOM_METHODS_PHOTOS_HPP
 
 #include "cpp_vk_lib/methods/photos.hpp"
 #include "cpp_vk_lib/string_utils/string_utils.hpp"
@@ -16,8 +16,7 @@ public:
             .param("photo_id", std::to_string(photo_id))
             .param("message", message);
 
-        if (!attachments.empty())
-        {
+        if (!attachments.empty()) {
             std::vector<std::string> attachment_values;
 
             std::transform(attachments.begin(), attachments.end(), std::back_inserter(attachment_values),
@@ -26,13 +25,13 @@ public:
                 }
             );
 
-            m_user_constructor
-                .param("attachments", vk::string_utils::join<std::string>(attachment_values));
+            m_user_constructor.param("attachments", vk::string_utils::join<std::string>(attachment_values));
         }
 
         m_user_constructor.execute();
     }
 };
+
 }// namespace bot
 
-#endif// CPP_VK_LIB_PHOTOS_HPP
+#endif// BOT_CUSTOM_METHODS_PHOTOS_HPP

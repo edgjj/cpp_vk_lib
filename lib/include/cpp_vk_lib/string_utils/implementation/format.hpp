@@ -1,9 +1,7 @@
-#ifndef STRING_UTIL_FORMAT_IMPL_H
-#define STRING_UTIL_FORMAT_IMPL_H
+#ifndef VK_STRING_UTILS_IMPLEMENTATION_FORMAT_HPP
+#define VK_STRING_UTILS_IMPLEMENTATION_FORMAT_HPP
 
-#include <any>
 #include <array>
-#include <deque>
 #include <sstream>
 
 namespace vk {
@@ -23,36 +21,29 @@ public:
     format_impl() = delete;
 
 private:
-    static constexpr std::size_t average_word_size = 7;
+    static constexpr size_t average_word_size = 7;
 
     static std::string create(std::string_view data, Args&&... args)
     {
-        if (data.empty())
-            return {};
+        if (data.empty()) { return {}; }
 
         std::string formatted;
         formatted.reserve(data.size() + (average_word_size * sizeof...(args)));
         auto pack_one = [](auto&& argument) {
-            if constexpr (std::is_integral_v<std::decay_t<decltype(argument)>>)
-            {
+            if constexpr (std::is_integral_v<std::decay_t<decltype(argument)>>) {
                 return std::to_string(argument);
-            }
-            else {
+            } else {
                 return std::string(argument);
             }
         };
         std::array<std::string, sizeof...(Args)> elements{pack_one(args)...};
-        std::size_t curr = 0;
-        for (std::size_t i = 0; i < data.size(); i++)
-        {
+        size_t curr = 0;
+        for (size_t i = 0; i < data.size(); i++) {
             // If we're have '{}' token, insert parameter at this place.
-            if (data[i] == '{' && data[i + 1] == '}')
-            {
+            if (data[i] == '{' && data[i + 1] == '}') {
                 formatted += elements[curr++];
                 // Add all characters from source string except '{}' token.
-            }
-            else if (data[i - 1] != '{' || data[i] != '}')
-            {
+            } else if (data[i - 1] != '{' || data[i] != '}') {
                 formatted += data[i];
             }
         }
@@ -62,7 +53,8 @@ private:
     template <typename... mArgs>
     friend std::string vk::string_utils::format(std::string_view data, mArgs&&... args);
 };
+
 }// namespace string_utils
 }// namespace vk
 
-#endif// STRING_UTIL_FORMAT_IMPL_H
+#endif// VK_STRING_UTILS_IMPLEMENTATION_FORMAT_HPP

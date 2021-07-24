@@ -1,5 +1,5 @@
-#ifndef VK_COMMON_DOCUMENT_H
-#define VK_COMMON_DOCUMENT_H
+#ifndef VK_DOCUMENT_COMMON_HPP
+#define VK_DOCUMENT_COMMON_HPP
 
 #include "attachment/attachment.hpp"
 #include "methods/utility/constructor.hpp"
@@ -21,8 +21,8 @@ class common
 public:
     explicit common();
     explicit common(std::string_view user_token);
-
     ~common();
+
     /*!
      * @brief Upload file to server.
      * @return parsed JSON response.
@@ -35,14 +35,14 @@ public:
      * @param count     - maximum count of documents to search
      * @return vector of attachments.
      */
-    vk::attachment::attachments_t search(std::string_view method, std::string_view query, std::int64_t count) const;
+    vk::attachment::attachments_t search(std::string_view method, std::string_view query, int64_t count) const;
 
 private:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    mutable method::group_constructor_proxy m_user_method;
-    network::request_manager m_request_manager;
+    mutable method::group_constructor m_group_constructor;
 };
+
 }// namespace document
 }// namespace vk
 
-#endif// VK_COMMON_DOCUMENT_H
+#endif// VK_DOCUMENT_COMMON_HPP

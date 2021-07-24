@@ -1,7 +1,9 @@
-#ifndef VK_GROUPS_H
-#define VK_GROUPS_H
+#ifndef VK_METHODS_GROUPS_HPP
+#define VK_METHODS_GROUPS_HPP
 
 #include "methods/utility/constructor.hpp"
+
+#include <memory>
 
 namespace vk {
 namespace method {
@@ -14,17 +16,17 @@ class groups
 {
 public:
     explicit groups();
-
     ~groups();
 
-    std::int64_t get_by_id() const;
-    simdjson::dom::object get_long_poll_server(std::int64_t group_id) const;
+    int64_t get_by_id() const;
+    simdjson::dom::object get_long_poll_server(int64_t group_id) const;
 
 protected:
-    mutable method::group_constructor_proxy m_group_constructor;
+    mutable method::group_constructor m_group_constructor;
     std::shared_ptr<simdjson::dom::parser> m_parser;
 };
+
 }// namespace method
 }// namespace vk
 
-#endif// VK_GROUPS_H
+#endif// VK_METHODS_GROUPS_HPP

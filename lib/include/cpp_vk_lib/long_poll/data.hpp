@@ -1,5 +1,5 @@
-#ifndef VK_LONG_POLL_DATA_H
-#define VK_LONG_POLL_DATA_H
+#ifndef VK_LONG_POLL_DATA_HPP
+#define VK_LONG_POLL_DATA_HPP
 
 #include <string>
 
@@ -14,6 +14,8 @@ struct data
     std::string server;
     std::string ts;
 };
+
 }// namespace long_poll
 }// namespace vk
-#endif// VK_LONG_POLL_DATA_H
+
+#endif// VK_LONG_POLL_DATA_HPP

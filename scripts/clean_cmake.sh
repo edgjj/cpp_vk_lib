@@ -24,5 +24,5 @@ function test_cleaner () {
 	done
 }
 
-cleaner "." "lib" "bot" "test"
+cleaner "." "lib" "bot" "test" "test/*"
 test_cleaner

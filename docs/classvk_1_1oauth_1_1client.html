@@ -80,7 +80,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abe14e319ea960dfa9be7efc9b599253d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a> (std::string_view username_, std::string_view password_, <a class="el" href="namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ff">target_client</a> client_type_)</td></tr>
+<tr class="memitem:abe14e319ea960dfa9be7efc9b599253d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a> (std::string_view username_, std::string_view password_, <a class="el" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> client_type_)</td></tr>
 <tr class="separator:abe14e319ea960dfa9be7efc9b599253d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaad35a11ae25c8839142f22e56c703c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">~client</a> ()</td></tr>
 <tr class="separator:aaad35a11ae25c8839142f22e56c703c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,14 +89,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4e076f3759181ee177f347fdbf36ec70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51703eb3d96a93350b7c4e6097b8fcc0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">token</a> () const noexcept</td></tr>
 <tr class="separator:a51703eb3d96a93350b7c4e6097b8fcc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6829ab83aa8f1dcb3596c6192077f3a5"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a6829ab83aa8f1dcb3596c6192077f3a5">user_id</a> () const noexcept</td></tr>
-<tr class="separator:a6829ab83aa8f1dcb3596c6192077f3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890622463c6e4f4841a5f485ef06ce96"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96">user_id</a> () const noexcept</td></tr>
+<tr class="separator:a890622463c6e4f4841a5f485ef06ce96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>VK Oauth client. </p>
 <p>Example usage:</p>
-<p>int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a> { <a class="el" href="classvk_1_1oauth_1_1client.html" title="VK Oauth client.">vk::oauth::client</a> client("phone number", "password", <a class="el" href="namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ffa0f4137ed1502b5045d6083aa258b5c42">vk::oauth::target_client::windows</a>); <a class="el" href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70" title="Try get user data.">client.pull()</a>; vk::messages messages(<a class="el" href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">client.token()</a>); } </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line">    <a class="code" href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a> <a class="code" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a>(<span class="stringliteral">&quot;phone number&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>, <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42">vk::oauth::target_client::windows</a>);</div>
+<div class="line">    <a class="code" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a>.pull();</div>
+<div class="line">    vk::messages messages(<a class="code" href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">client</a>.token());</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a></div><div class="ttdoc">VK Oauth client.</div><div class="ttdef"><b>Definition:</b> client.hpp:36</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_abe14e319ea960dfa9be7efc9b599253d"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d">vk::oauth::client::client</a></div><div class="ttdeci">client(std::string_view username_, std::string_view password_, target_client client_type_)</div><div class="ttdef"><b>Definition:</b> client.cpp:7</div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> main.cpp:1</div></div>
+<div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42">vk::oauth::target_client::windows</a></div><div class="ttdeci">@ windows</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abe14e319ea960dfa9be7efc9b599253d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe14e319ea960dfa9be7efc9b599253d">&#9670;&nbsp;</a></span>client()</h2>
 
@@ -121,7 +129,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacevk_1_1oauth.html#a10b3983683ef71ee319f0550ea9ef5ff">target_client</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a>&#160;</td>
           <td class="paramname"><em>client_type_</em>&#160;</td>
         </tr>
         <tr>
@@ -230,8 +238,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6829ab83aa8f1dcb3596c6192077f3a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6829ab83aa8f1dcb3596c6192077f3a5">&#9670;&nbsp;</a></span>user_id()</h2>
+<a id="a890622463c6e4f4841a5f485ef06ce96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890622463c6e4f4841a5f485ef06ce96">&#9670;&nbsp;</a></span>user_id()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +248,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t vk::oauth::client::user_id </td>
+          <td class="memname">int64_t vk::oauth::client::user_id </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

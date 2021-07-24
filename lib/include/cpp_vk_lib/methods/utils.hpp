@@ -1,5 +1,5 @@
-#ifndef VK_UTILS_H
-#define VK_UTILS_H
+#ifndef VK_METHODS_UTILS_HPP
+#define VK_METHODS_UTILS_HPP
 
 #include "methods/utility/constructor.hpp"
 
@@ -14,18 +14,18 @@ class utils
 {
 public:
     utils();
-
     ~utils();
 
     bool check_link(std::string_view url) const;
     std::string get_short_link(std::string_view url) const;
-    std::int64_t resolve_screen_name(std::string_view screen_name) const;
+    int64_t resolve_screen_name(std::string_view screen_name) const;
 
 protected:
     std::shared_ptr<simdjson::dom::parser> m_parser;
-    mutable method::group_constructor_proxy m_group_constructor;
+    mutable method::group_constructor m_group_constructor;
 };
+
 }// namespace method
 }// namespace vk
 
-#endif// VK_UTILS_H
+#endif// VK_METHODS_UTILS_HPP
