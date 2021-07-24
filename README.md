@@ -21,7 +21,7 @@ High performance VK API library
 
 ## Windows build
 
-	python ./buildwin.py PATH_TO_VCPKG TARGET_TRIPLET(x64-windows)
+	cmake .. -DCMAKE_TOOLCHAIN_FILE=`vcpkg_path`/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=`triplet`
 
 ## Note
 
