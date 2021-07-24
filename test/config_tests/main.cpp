@@ -1,4 +1,4 @@
-#include "../../lib/include/cpp_vk_lib/config/loader.hpp"
+#include "cpp_vk_lib/config/loader.hpp"
 
 #include <gtest/gtest.h>
 

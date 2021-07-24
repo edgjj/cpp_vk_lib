@@ -1,11 +1,12 @@
-#include "../../lib/include/cpp_vk_lib/events/message_new.hpp"
-#include "../../lib/include/cpp_vk_lib/events/wall_post_new.hpp"
-#include "../../lib/include/cpp_vk_lib/events/wall_reply_new.hpp"
+#include "cpp_vk_lib/events/message_new.hpp"
+#include "cpp_vk_lib/events/wall_post_new.hpp"
+#include "cpp_vk_lib/events/wall_reply_new.hpp"
+
 #include "cpp_vk_lib/events/common_event.hpp"
+
 #include "simdjson.h"
 
 #include <gtest/gtest.h>
-
 
 TEST(message_new, default_event)
 {

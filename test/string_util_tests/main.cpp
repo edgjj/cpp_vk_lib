@@ -1,9 +1,10 @@
-#include "../../lib/include/cpp_vk_lib/string_utils/string_utils.hpp"
+#include "cpp_vk_lib/string_utils/string_utils.hpp"
 
+#include <gtest/gtest.h>
+
+#include <list>
 #include <deque>
 #include <forward_list>
-#include <gtest/gtest.h>
-#include <list>
 
 namespace util = vk::string_utils;
 

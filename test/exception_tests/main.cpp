@@ -1,4 +1,4 @@
-#include "../../lib/include/cpp_vk_lib/exception/exception.hpp"
+#include "cpp_vk_lib/exception/exception.hpp"
 
 #include <gtest/gtest.h>
 

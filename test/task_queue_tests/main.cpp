@@ -1,7 +1,8 @@
-#include "../../lib/include/cpp_vk_lib/processing/task_queue.hpp"
+#include "cpp_vk_lib/processing/task_queue.hpp"
+
+#include <gtest/gtest.h>
 
 #include <thread>
-#include <gtest/gtest.h>
 
 namespace proc = vk::processing;
 

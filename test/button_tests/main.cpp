@@ -1,4 +1,4 @@
-#include "../../lib/include/cpp_vk_lib/keyboard/layout.hpp"
+#include "cpp_vk_lib/keyboard/layout.hpp"
 
 #include <gtest/gtest.h>
 
