@@ -12,8 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install xmllint
-      run: sudo apt-get update && sudo apt-get install tree curl libcurl4-openssl-dev libcurlpp-dev libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install tree curl libcurl4-openssl-dev libcurlpp-dev
 
     - name: Configure CMake
       shell: bash
