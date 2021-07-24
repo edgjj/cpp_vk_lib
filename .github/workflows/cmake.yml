@@ -29,4 +29,4 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}
       shell: bash
-      run: ./build/test_attachment && ./build/test_config && ./build/test_exception && ./build/test_message_constructor && ./build/test_string_util && ./build/test_task_queue
+      run: ./build/test_attachment && ./build/test_config && ./build/test_exception && ./build/test_string_util && ./build/test_task_queue
