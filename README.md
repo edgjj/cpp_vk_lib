@@ -19,6 +19,10 @@ High performance VK API library
 	- curl
 	- cmake
 
+## Windows build
+
+	python ./buildwin.py PATH_TO_VCPKG TARGET_TRIPLET(x64-windows)
+
 ## Note
 
 You can extend existing or create new method classes by inheritance to implement needed API methods.
@@ -53,5 +57,11 @@ int main()
 }
 
 ```
+
+## Contributors
+
+	* threadpoolexecutor - author
+	* Sanceilaks - build under Windows
+
 
 Please, see `bot` README to find out more info how to create your own bot.
