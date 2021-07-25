@@ -1,8 +1,8 @@
-IF (NOT WIN32)
+if (NOT WIN32)
   include_directories(../dependencies)
   include_directories(../dependencies/curlpp/include)
   include_directories(../dependencies/spdlog/include)
-ENDIF()
+endif()
 
 include_directories(include/cpp_vk_lib)
 
@@ -26,13 +26,9 @@ else()
   set(extra_warnings_flags "")
 endif()
 
-IF (NOT WIN32)
-  set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -msse3 -march=native -mtune=generic -flto")
-ELSE()
-  #set(CMAKE_CXX_FLAGS "-O2 -msse3 -march=native -mtune=generic -flto")
-endif()
+set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -march=native -mtune=generic -flto")
 
-IF (NOT WIN32)
+if (NOT WIN32)
   add_library(lib-simdjson INTERFACE)
   target_compile_features(lib-simdjson INTERFACE cxx_std_17)
   target_include_directories(lib-simdjson INTERFACE
@@ -44,11 +40,12 @@ endif()
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
 
 file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
-IF (NOT WIN32)
-	add_library(cpp_vk_lib SHARED ${SRC})
-ELSE()
-	add_library(cpp_vk_lib STATIC ${SRC})
-ENDIF()
+
+if(WIN32)
+  add_library(cpp_vk_lib STATIC ${SRC})
+else()
+  add_library(cpp_vk_lib SHARED ${SRC})
+endif()
 
 IF(WIN32)
   target_link_libraries(cpp_vk_lib PRIVATE spdlog::spdlog_header_only CURL::libcurl unofficial::curlpp::curlpp simdjson::simdjson simdjson::simdjson-flags simdjson::simdjson-headers)

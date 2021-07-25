@@ -131,7 +131,7 @@ bool vk::event::message_new::has_reply() const noexcept
 
 bool vk::event::message_new::has_fwd_messages() const noexcept
 {
-    return m_has_attachments;
+    return m_has_fwd_messages;
 }
 
 vk::action::any_action_t vk::event::message_new::action() const

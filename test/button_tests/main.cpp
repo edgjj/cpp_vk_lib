@@ -11,9 +11,9 @@ TEST(keyboard, location_button)
     l.serialize();
 
     #ifndef  _WIN32
-    ASSERT_EQ(l.get(), R"({"buttons":[[{"action":{"type":"location","payload":"{\"button\":\"1\"}"}}]]})");
+        ASSERT_EQ(l.get(), R"({"buttons":[[{"action":{"type":"location","payload":"{\"button\":\"1\"}"}}]]})");
     #else
-    ASSERT_EQ(l.get(), "{\"buttons\":[[{\"action\":{\"type\":\"location\",\"payload\":\"{\\\"button\\\":\\\"1\\\"}\"}}]]}");
+        ASSERT_EQ(l.get(), "{\"buttons\":[[{\"action\":{\"type\":\"location\",\"payload\":\"{\\\"button\\\":\\\"1\\\"}\"}}]]}");
     #endif
 }
 
