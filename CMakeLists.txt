@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.20)
 
 project(cpp_vk_lib DESCRIPTION "C++ vk library" LANGUAGES CXX)
 
@@ -12,21 +12,21 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_MACOSX_RPATH OFF)
 set(CMAKE_THREAD_PREFER_PTHREAD ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 0)
 set(PROJECT_VERSION_PATCH 1)
 
-IF(WIN32)
+if (WIN32)
 	find_package(CURL CONFIG REQUIRED)
 	find_package(unofficial-curlpp CONFIG REQUIRED)
 	find_package(GTest CONFIG REQUIRED)
 	find_package(simdjson CONFIG REQUIRED)
 	find_package(spdlog CONFIG REQUIRED)
-ELSE()
+else()
 	add_subdirectory(dependencies)
-ENDIF()
+endif()
 
 add_subdirectory(lib)
 add_subdirectory(test)
