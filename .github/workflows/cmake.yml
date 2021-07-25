@@ -36,7 +36,7 @@ jobs:
           platform: ${{ matrix.architecture }}
 
       - name: CMake
-        run: cmake . -DCMAKE_TOOLCHAIN_FILE=./dependencies/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET="x64-windows" -G "MinGW Makefiles"
+        run: cmake . -DCMAKE_TOOLCHAIN_FILE=dependencies/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET="x64-windows" -G "MinGW Makefiles"
 
       - name: build
         run: cmake --build . --parallel 8
