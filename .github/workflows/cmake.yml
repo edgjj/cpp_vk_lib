@@ -7,17 +7,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
-      steps:
-      - uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@v2
 
-      - name: install deps
-        run: sudo apt-get update && sudo apt-get install curl libcurl4-openssl-dev
+    - name: install deps
+      run: sudo apt-get update && sudo apt-get install curl libcurl4-openssl-dev
 
-      - name: run CMake
-        run: cmake . && make -j`nproc`
+    - name: run CMake
+      run: cmake . && make -j`nproc`
 
-      - name: run tests
-        run: ./scripts/run_tests.sh
+    - name: run tests
+      run: ./scripts/run_tests.sh
 
 #    build-windows:
 
