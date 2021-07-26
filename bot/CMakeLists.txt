@@ -12,16 +12,12 @@ set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2")
 
 file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
 
-if (WIN32)
-	add_executable(bot ${SRC})	
-else()
-	add_executable(bot ${SRC} src/custom_methods/photos.hpp)
-endif()
+add_executable(bot ${SRC})
 
 find_library(cpp_vk_lib HINTS "../lib")
 
 if (WIN32)
-	target_link_libraries(bot cpp_vk_lib unofficial::curlpp::curlpp)
+  target_link_libraries(bot cpp_vk_lib unofficial::curlpp::curlpp)
 else()
   target_link_libraries(bot cpp_vk_lib curlpp)
 endif()

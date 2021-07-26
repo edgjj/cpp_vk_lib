@@ -2,13 +2,31 @@
 
 #include <gtest/gtest.h>
 
+#include <fstream>
+
+constexpr char sample_config[] = R"__(
+{
+  "api": {
+    "access_token": "access_token",
+    "user_token": "user_token"
+  },
+  "oauth": {
+    "login": "login@gmail.com",
+    "password": "password"
+  },
+  "environment": {
+    "num_workers": 8,
+    "error_log_path": "/tmp/errors.log",
+    "event_log_path": "/tmp/events.log"
+  }
+}
+)__";
+
 TEST(config, field_access)
 {
-    #ifndef  _WIN32
-        vk::config::load("json_schema/sample_config.json");
-    #else
-        vk::config::load("../../../../json_schema/sample_config.json");
-    #endif
+    std::ofstream("config.json") << sample_config;
+
+    vk::config::load("config.json");
 
     ASSERT_EQ(vk::config::access_token(), "access_token");
     ASSERT_EQ(vk::config::user_token(), "user_token");
