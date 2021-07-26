@@ -8,7 +8,7 @@ else()
 	set(COMMON_CXX_FLAGS "")
 endif()
 
-set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2 -march=native -mtune=generic")
+set(CMAKE_CXX_FLAGS "${COMMON_CXX_FLAGS} -O2")
 
 file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
 

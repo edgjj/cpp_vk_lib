@@ -26,7 +26,7 @@ else()
   set(extra_warnings_flags "")
 endif()
 
-set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -march=native -mtune=generic -flto")
+set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -flto")
 
 if (NOT WIN32)
   add_library(lib-simdjson INTERFACE)

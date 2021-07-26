@@ -1,7 +1,6 @@
 #ifndef VK_EXCEPTION_HPP
 #define VK_EXCEPTION_HPP
 
-#include "processing/backtrace.hpp"
 #include "string_utils/string_utils.hpp"
 
 #include <stdexcept>
@@ -22,10 +21,7 @@ public:
 
 protected:
     explicit common_exception(std::string_view what_arg)
-        : m_error(what_arg.data())
-    {
-        processing::backtrace_view{};
-    }
+        : m_error(what_arg.data()) {}
 
     std::string create(size_t id, const char* error_name, const char* arg) const
     {
