@@ -57,5 +57,5 @@ IF(WIN32)
 	simdjson::simdjson-headers
   )
 ELSE()
-  target_link_libraries(cpp_vk_lib simdjson)
+  target_link_libraries(cpp_vk_lib curl curlpp simdjson)
 ENDIF()
