@@ -31,7 +31,9 @@ TEST(task_queue, future_tasks)
 
     auto finish_time = std::chrono::system_clock::now();
 
-    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(600));
+    std::cout << "[----------]  Test time: " << std::chrono::duration_cast<std::chrono::duration<float>>(finish_time - start_time).count() << std::endl;
+
+    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(510));
 }
 
 TEST(task_queue, void_tasks)
@@ -58,7 +60,9 @@ TEST(task_queue, void_tasks)
 
     auto finish_time = std::chrono::system_clock::now();
 
-    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(600));
+    std::cout << "[----------]  Test time: " << std::chrono::duration_cast<std::chrono::duration<float>>(finish_time - start_time).count() << std::endl;
+
+    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(550));
 }
 
 
