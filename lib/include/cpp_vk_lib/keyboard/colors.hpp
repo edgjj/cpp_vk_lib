@@ -22,8 +22,7 @@ enum class color : unsigned char
 
 constexpr const char* get_color(color c) noexcept
 {
-    switch (c)
-    {
+    switch (c) {
         case color::red:    return colors::red;
         case color::green:  return colors::green;
         case color::blue:   return colors::blue;

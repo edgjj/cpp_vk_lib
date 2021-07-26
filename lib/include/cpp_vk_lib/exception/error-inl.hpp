@@ -5,9 +5,6 @@
 
 #include "spdlog/spdlog.h"
 
-#include <cstddef>
-#include <unordered_map>
-
 namespace vk {
 namespace exception {
 

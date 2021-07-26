@@ -4,8 +4,6 @@
 #include "handlers/attachment_handler.hpp"
 #include "handlers/message_action_handler.hpp"
 
-#include <memory>
-
 namespace simdjson {
 namespace dom {
 class object;

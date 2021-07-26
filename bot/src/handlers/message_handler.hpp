@@ -34,20 +34,25 @@ public:
         }
     }
 
-    message_handler& on_command(std::string_view trigger, std::shared_ptr<command::base>&& command)
+    template <typename Handler>
+    message_handler& on_command(std::string_view trigger)
     {
-        m_commands.emplace(trigger, std::move(command));
+        m_commands.emplace(trigger, std::make_unique<Handler>());
         return *this;
     }
-    // Event reactions initializers.
-    void on_message_pin(std::unique_ptr<event::on_message_pin_event>&& command)
+
+    template <typename Handler>
+    message_handler& on_message_pin()
     {
-        m_message_pin_command = std::move(command);
+        m_message_pin_command = std::make_unique<Handler>();
+        return *this;
     }
 
-    void on_chat_invite_user(std::unique_ptr<event::on_chat_invite_user_event>&& command)
+    template <typename Handler>
+    message_handler& on_chat_invite_user()
     {
-        m_chat_invite_user_command = std::move(command);
+        m_chat_invite_user_command = std::make_unique<Handler>();
+        return *this;
     }
 
 private:

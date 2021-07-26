@@ -28,7 +28,7 @@ public:
             m_user_constructor.param("attachments", vk::string_utils::join<std::string>(attachment_values));
         }
 
-        m_user_constructor.execute();
+        m_user_constructor.perform_request();
     }
 };
 

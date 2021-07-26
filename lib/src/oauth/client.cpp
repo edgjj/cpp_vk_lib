@@ -14,8 +14,7 @@ vk::oauth::client::client(std::string_view username, std::string_view password, 
     , m_pulled_user_id(0)
     , m_parser(std::make_shared<simdjson::dom::parser>())
 {
-    switch (m_client_type)
-    {
+    switch (m_client_type) {
         case target_client::android:
             m_target_client_id = m_android_app_client_id;
             m_target_client_secret = m_android_app_client_secret;

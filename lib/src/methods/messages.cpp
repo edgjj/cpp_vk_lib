@@ -1,7 +1,6 @@
 #include "methods/messages.hpp"
 
 #include "exception/error-inl.hpp"
-#include "keyboard/layout.hpp"
 #include "methods/utility/message_constructor.hpp"
 #include "simdjson.h"
 

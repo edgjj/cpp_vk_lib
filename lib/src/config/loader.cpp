@@ -6,7 +6,9 @@ vk::config::loader* vk::config::loader::instance = nullptr;
 
 vk::config::loader* vk::config::loader::load(std::string_view path)
 {
-    if (!instance) { instance = new loader(path); }
+    if (!instance) {
+        instance = new loader(path);
+    }
 
     return instance;
 }

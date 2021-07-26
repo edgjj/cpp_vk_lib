@@ -180,43 +180,37 @@ void dispatch_events(std::ostream& ostream, const vk::event::message_new& event)
 {
     if (event.has_action()) {
         if (event.on_action("chat_invite_user")) {
-            ostream << "  "
-                    << "chat_invite_user action:   ";
+            ostream << std::setw(40) << "chat_invite_user action: ";
             ostream << std::get<vk::action::chat_invite_user>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_kick_user")) {
-            ostream << "  "
-                    << "chat_kick_user action:     ";
+            ostream << std::setw(40) << "chat_kick_user action: ";
             ostream << std::get<vk::action::chat_kick_user>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_pin_message")) {
-            ostream << "  "
-                    << "chat_pin_message action:   ";
+            ostream << std::setw(40) << "chat_pin_message action: ";
             ostream << std::get<vk::action::chat_pin_message>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_unpin_message")) {
-            ostream << "  "
-                    << "chat_unpin_message action: ";
+            ostream << std::setw(40) << "chat_unpin_message action: ";
             ostream << std::get<vk::action::chat_unpin_message>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_photo_update")) {
-            ostream << "  "
-                    << "chat_photo_update action:  ";
+            ostream << std::setw(40) << "chat_photo_update action:  ";
             ostream << "<empty>";
             ostream << std::endl;
         }
 
         if (event.on_action("chat_title_update")) {
-            ostream << "  "
-                    << "chat_title_update action:  ";
+            ostream << std::setw(30) << "chat_title_update action:  ";
             ostream << std::get<vk::action::chat_title_update>(event.action()).text;
             ostream << std::endl;
         }

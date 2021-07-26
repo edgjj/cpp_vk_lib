@@ -5,7 +5,6 @@
 
 namespace vk {
 namespace event {
-
 /*!
  * @brief The `wall_post_new` repost representation.
  *

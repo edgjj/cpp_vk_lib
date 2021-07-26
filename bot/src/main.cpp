@@ -14,10 +14,10 @@
 namespace bot {
 // Example bot class.
 // You can add handling other types of events.
-class bot_object
+class host
 {
 public:
-    explicit bot_object()
+    host()
     {
         setup_commands();
         setup_event_reactions();
@@ -29,25 +29,27 @@ private:
     void setup_commands()
     {
         poller.get_message_handler()
-            .on_command("/download", std::make_unique<command::voice_message_download>())
-            .on_command("/upload", std::make_unique<command::voice_message_upload>())
-            .on_command("/chat_photo", std::make_unique<command::set_chat_photo>())
-            .on_command("/doc", std::make_unique<command::docs_search>())
-            .on_command("/show", std::make_unique<command::keyboard>())
-            .on_command("/hide", std::make_unique<command::hide_keyboard>())
-            .on_command("/raw", std::make_unique<command::raw_method>());
+            .on_command<command::voice_message_download>("/download")
+            .on_command<command::voice_message_upload>("/upload")
+            .on_command<command::set_chat_photo>("/chat_photo")
+            .on_command<command::docs_search>("/doc")
+            .on_command<command::keyboard>("/show")
+            .on_command<command::hide_keyboard>("/hide")
+            .on_command<command::raw_method>("/raw");
         // Other commands...
     }
 
     void setup_event_reactions()
     {
-        poller.get_message_handler().on_message_pin(std::make_unique<event::on_message_pin_event>());
-        poller.get_message_handler().on_chat_invite_user(std::make_unique<event::on_chat_invite_user_event>());
+        poller.get_message_handler()
+            .on_message_pin<event::on_message_pin_event>()
+            .on_chat_invite_user<event::on_chat_invite_user_event>();
         // Other event reactions...
     }
 
     long_poller poller{};
 };
+
 }// namespace bot
 
 int main(int argc, char* argv[])
@@ -61,6 +63,6 @@ int main(int argc, char* argv[])
     vk::config::load(argv[1]);
     spdlog::info("Maximum num of workers: {}", vk::config::num_workers());
 
-    bot::bot_object example;
+    bot::host example;
     return example.run();
 }

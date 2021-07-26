@@ -10,7 +10,7 @@ namespace bot {
 class long_poller
 {
 public:
-    explicit long_poller()
+    long_poller()
       : m_data(m_api.server()) {}
 
     message_handler& get_message_handler() noexcept
