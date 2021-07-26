@@ -48,7 +48,14 @@ else()
 endif()
 
 IF(WIN32)
-  target_link_libraries(cpp_vk_lib PRIVATE spdlog::spdlog_header_only CURL::libcurl unofficial::curlpp::curlpp simdjson::simdjson simdjson::simdjson-flags simdjson::simdjson-headers)
+  target_link_libraries(cpp_vk_lib
+  	PRIVATE spdlog::spdlog_header_only
+	CURL::libcurl
+	unofficial::curlpp::curlpp
+	simdjson::simdjson
+	simdjson::simdjson-flags
+	simdjson::simdjson-headers
+  )
 ELSE()
   target_link_libraries(cpp_vk_lib simdjson)
 ENDIF()

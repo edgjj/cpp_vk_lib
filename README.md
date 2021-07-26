@@ -1,4 +1,6 @@
-![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/CMake/badge.svg)
+![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/Ubuntu/badge.svg)
+![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/MacOS/badge.svg)
+![CMake](https://github.com/fragmichwarum/cpp_vk_lib/workflows/Windows/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/threadpoolexecutor/cpp_vk_lib/badge/main)](https://www.codefactor.io/repository/github/threadpoolexecutor/cpp_vk_lib/overview/main)
 [![BCH compliance](https://bettercodehub.com/edge/badge/threadpoolexecutor/cpp_vk_lib?branch=main)](https://bettercodehub.com/)
 [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://threadpoolexecutor.github.io/cpp_vk_lib/index.html)
