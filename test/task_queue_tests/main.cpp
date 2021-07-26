@@ -6,13 +6,13 @@
 
 namespace proc = vk::processing;
 
+// It's enough 500-510ms for Linux tests, but on MacOS it may
+// take up to 700-800ms
 TEST(task_queue, future_tasks)
 {
     proc::task_queue task_queue(/*num_workers=*/2);
 
     std::vector<std::pair<bool, std::future<size_t>>> tasks;
-
-    auto start_time = std::chrono::system_clock::now();
 
     for (size_t i = 0; i < 10; ++i) {
         tasks.emplace_back(task_queue.push_future_task([_i = i] {
@@ -21,6 +21,8 @@ TEST(task_queue, future_tasks)
             return _i;
         }));
     }
+
+    auto start_time = std::chrono::system_clock::now();
 
     task_queue.start();
     task_queue.wait_for_completion();
@@ -31,16 +33,12 @@ TEST(task_queue, future_tasks)
 
     auto finish_time = std::chrono::system_clock::now();
 
-    std::cout << "[----------]  Test time: " << std::chrono::duration_cast<std::chrono::duration<float>>(finish_time - start_time).count() << std::endl;
-
-    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(510));
+    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(900));
 }
 
 TEST(task_queue, void_tasks)
 {
     proc::task_queue task_queue(/*num_workers=*/2);
-
-    auto start_time = std::chrono::system_clock::now();
 
     std::vector<bool> successfully_completed_tasks;
 
@@ -51,6 +49,8 @@ TEST(task_queue, void_tasks)
         }));
     }
 
+    auto start_time = std::chrono::system_clock::now();
+
     task_queue.start();
     task_queue.wait_for_completion();
 
@@ -60,9 +60,7 @@ TEST(task_queue, void_tasks)
 
     auto finish_time = std::chrono::system_clock::now();
 
-    std::cout << "[----------]  Test time: " << std::chrono::duration_cast<std::chrono::duration<float>>(finish_time - start_time).count() << std::endl;
-
-    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(550));
+    ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(900));
 }
 
 
