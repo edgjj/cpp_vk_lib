@@ -18,6 +18,22 @@ jobs:
 
     - name: run tests
       run: ./scripts/run_tests.sh
+      
+  build-macos:
+  
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: install deps
+      run: brew install curl
+      
+    - name: run CMake
+      run: cmake . && make -j`nproc`
+      
+    - name: run tests
+      run: ./scripts/run_tests.sh
 
   build-windows:
 
