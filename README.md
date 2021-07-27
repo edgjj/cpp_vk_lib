@@ -21,9 +21,9 @@ High performance VK API library
 	- curl
 	- cmake
 
-## Windows build
+## Note for Windows users
 
-	cmake .. -DCMAKE_TOOLCHAIN_FILE=`vcpkg_path`/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=`triplet`
+You should install and add to PATH libcurl manually.
 
 ## Note
 
