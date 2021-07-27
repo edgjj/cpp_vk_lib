@@ -23,7 +23,7 @@ High performance VK API library
 
 ## Note for Windows users
 
-You should install and add to PATH libcurl manually.
+You should install libcurl and add it to PATH manually.
 
 ## Note
 
