@@ -62,7 +62,7 @@ int main()
 
 * Windows support
 * More examples
-* Carefully documentation
+* Carefully documented API
 
 ## Contributors
 
