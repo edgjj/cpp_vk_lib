@@ -1,8 +1,6 @@
-if (NOT WIN32)
-  include_directories(../dependencies)
-  include_directories(../dependencies/curlpp/include)
-  include_directories(../dependencies/spdlog/include)
-endif()
+include_directories(../dependencies)
+include_directories(../dependencies/curlpp/include)
+include_directories(../dependencies/spdlog/include)
 
 include_directories(include/cpp_vk_lib)
 
@@ -28,14 +26,12 @@ endif()
 
 set(CMAKE_CXX_FLAGS "${common_flags} ${extra_warnings_flags} ${find_leaks_flags} -O2 -flto")
 
-if (NOT WIN32)
-  add_library(lib-simdjson INTERFACE)
-  target_compile_features(lib-simdjson INTERFACE cxx_std_17)
-  target_include_directories(lib-simdjson INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCDIR}>)
-  install(TARGETS lib-simdjson EXPORT simdjson-config INCLUDES DESTINATION dependencies)
-endif()
+add_library(lib-simdjson INTERFACE)
+target_compile_features(lib-simdjson INTERFACE cxx_std_17)
+target_include_directories(lib-simdjson INTERFACE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCDIR}>)
+install(TARGETS lib-simdjson EXPORT simdjson-config INCLUDES DESTINATION dependencies)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
 

@@ -10,9 +10,3 @@
 [submodule "dependencies/curlpp"]
 	path = dependencies/curlpp
 	url = https://github.com/jpbarrette/curlpp.git
-[sumbodule "dependencies/vcpkg"]
-	path = dependencies/vcpkg
-	url = https://github.com/microsoft/vcpkg.git
-[submodule "dependencies/vcpkg"]
-	path = dependencies/vcpkg
-	url = https://github.com/microsoft/vcpkg.git
