@@ -53,9 +53,3 @@ TEST(keyboard, vk_pay_button)
 
     ASSERT_EQ(l.get(), R"({"one_time":true,"buttons":[[{"action":{"type":"vkpay","hash":"hash"}}]]})");
 }
-
-int main(int argc, char* argv[])
-{
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

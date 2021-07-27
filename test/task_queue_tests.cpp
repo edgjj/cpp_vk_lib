@@ -63,7 +63,6 @@ TEST(task_queue, void_tasks)
     ASSERT_LT(finish_time - start_time, std::chrono::milliseconds(900));
 }
 
-
 int main(int argc, char* argv[])
 {
     testing::InitGoogleTest(&argc, argv);

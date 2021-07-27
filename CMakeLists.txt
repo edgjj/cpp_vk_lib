@@ -14,7 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_MACOSX_RPATH OFF)
 set(CMAKE_THREAD_PREFER_PTHREAD ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 0)
@@ -22,5 +22,22 @@ set(PROJECT_VERSION_PATCH 1)
 
 add_subdirectory(dependencies)
 add_subdirectory(lib)
-add_subdirectory(test)
 add_subdirectory(bot)
+
+find_library(cpp_vk_lib HINTS "lib")
+include_directories(lib/include)
+include_directories(lib/include/cpp_vk_lib)
+
+enable_testing()
+
+function (add_vk_test test_name test_path)
+  add_executable(${test_name} ${test_path})
+  target_link_libraries(${test_name} cpp_vk_lib curl curlpp pthread gtest)
+  add_test(${test_name} ${test_name})
+endfunction()
+
+file (GLOB test_files "test/*.cpp")
+foreach (file ${test_files})
+  get_filename_component(test_name ${file} NAME_WE)
+  add_vk_test(${test_name} ${file})
+endforeach()
