@@ -10,12 +10,10 @@ High performance VK API library
 
 ## Overview
 
-* Convenient work with API methods
-* Attachment handling system
-* Built-in multithreading
+* Multithreaded
 * Logging
-* OAuth-authorization support
-* Buttons support
+* OAuth-authorization
+* Buttons
 
 ## Dependencies
 	- curl
@@ -59,6 +57,12 @@ int main()
 }
 
 ```
+
+## TODO
+
+* Windows support
+* More examples
+* Carefully documentation
 
 ## Contributors
 
