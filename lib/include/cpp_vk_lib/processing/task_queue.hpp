@@ -146,7 +146,7 @@ inline task_queue::~task_queue()
     stop();
 }
 
-void task_queue::set_default_exception_handler()
+inline void task_queue::set_default_exception_handler()
 {
     m_on_exception = [](std::exception_ptr ex_ptr) -> void {
         if (!ex_ptr) {

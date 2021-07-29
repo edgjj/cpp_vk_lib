@@ -31,7 +31,7 @@ enable_testing()
 
 function (add_vk_test test_name test_path)
   add_executable(${test_name} ${test_path})
-  target_link_libraries(${test_name} cpp_vk_lib curl curlpp pthread gtest)
+  target_link_libraries(${test_name} cpp_vk_lib gtest)
   add_test(${test_name} ${test_name})
 endfunction()
 

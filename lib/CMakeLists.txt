@@ -36,13 +36,9 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
 
 file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
 
-if(WIN32)
-  add_library(cpp_vk_lib STATIC ${SRC})
-else()
-  add_library(cpp_vk_lib SHARED ${SRC})
-endif()
+add_library(cpp_vk_lib STATIC ${SRC})
 
-IF(WIN32)
+if (WIN32)
   target_link_libraries(cpp_vk_lib
   	PRIVATE spdlog::spdlog_header_only
     CURL::libcurl
@@ -51,6 +47,6 @@ IF(WIN32)
     simdjson::simdjson-flags
     simdjson::simdjson-headers
   )
-ELSE()
+else()
   target_link_libraries(cpp_vk_lib curl curlpp simdjson)
-ENDIF()
+endif()
