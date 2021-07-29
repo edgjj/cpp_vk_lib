@@ -20,7 +20,6 @@ set(PROJECT_VERSION_PATCH 1)
 
 add_subdirectory(dependencies)
 add_subdirectory(lib)
-add_subdirectory(examples)
 
 find_library(cpp_vk_lib HINTS "lib")
 include_directories(lib/include)
