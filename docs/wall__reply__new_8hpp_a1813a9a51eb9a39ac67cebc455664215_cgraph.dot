@@ -1,0 +1,22 @@
+digraph "operator&lt;&lt;"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="vk::event::wall_reply\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a872c6caaf96af58614fa387709b8d03e",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="vk::event::wall_reply\l_new::from_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a72f00a3c0e7ac52e483bfce9d4c8c5a7",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="vk::event::wall_reply\l_new::has_attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a68a080d9ad60de3c2b9f7fde1b98e09e",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="vk::event::wall_reply\l_new::id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#ad40118e05f1b527e617c283a21796f2d",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="vk::event::wall_reply\l_new::owner_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a81fe0a22357f6617a57d3c82363b8e5e",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="vk::event::wall_reply\l_new::post_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a6bbd2dfacd97a29acc07cb2c1cf2d6f3",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="vk::event::wall_reply\l_new::text",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#a586fbd21207405ffcc8c7f391271aca2",tooltip=" "];
+}

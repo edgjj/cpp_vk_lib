@@ -1,0 +1,10 @@
+digraph "vk::long_poll::api::queue"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="vk::long_poll::api\l::queue",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Push task to thread pool queue."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="vk::long_poll::api\l::on_event",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1long__poll_1_1api.html#a7c1de69b0cc5fad45112413ff8ff647d",tooltip=" "];
+}
