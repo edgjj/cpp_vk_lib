@@ -70,4 +70,6 @@ int main()
 * **Sanceilaks** - build under Windows
 
 
-Please, see `bot` README to find out more info how to create your own bot.
+## Examples
+
+Please, visit `https://github.com/threadpoolexecutor/example_cpp_vk_bot`
