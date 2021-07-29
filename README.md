@@ -71,4 +71,4 @@ int main()
 
 ## Examples
 
-Please, visit `https://github.com/threadpoolexecutor/example_cpp_vk_bot`
+[Repo with examples](https://github.com/threadpoolexecutor/example_cpp_vk_bot)
