@@ -6,8 +6,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../build)
 set(EXECUTABLE_OUTPUT_PATH ../build)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../build)
 
-set(OPENSSL_USE_STATIC_LIBS OFF CACHE BOOL "" FORCE)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -27,6 +25,7 @@ add_subdirectory(bot)
 find_library(cpp_vk_lib HINTS "lib")
 include_directories(lib/include)
 include_directories(lib/include/cpp_vk_lib)
+include_directories(dependencies/spdlog/include)
 
 enable_testing()
 

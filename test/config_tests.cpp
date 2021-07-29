@@ -16,8 +16,7 @@ constexpr char sample_config[] = R"__(
   },
   "environment": {
     "num_workers": 8,
-    "error_log_path": "/tmp/errors.log",
-    "event_log_path": "/tmp/events.log"
+    "log_path": "/tmp/bot.log"
   }
 }
 )__";
@@ -40,8 +39,7 @@ TEST(config, field_access)
 
     ASSERT_EQ(vk::config::num_workers(), 8);
     
-    ASSERT_EQ(vk::config::error_logpath(), "/tmp/errors.log");
-    ASSERT_EQ(vk::config::event_logpath(), "/tmp/events.log");
+    ASSERT_EQ(vk::config::log_path(), "/tmp/bot.log");
 }
 
 int main(int argc, char* argv[])

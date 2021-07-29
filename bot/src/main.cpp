@@ -10,6 +10,7 @@
 #include "long_poller/long_poller.hpp"
 
 #include "cpp_vk_lib/config/loader.hpp"
+#include "cpp_vk_lib/log_level.hpp"
 
 namespace bot {
 // Example bot class.
@@ -21,6 +22,8 @@ public:
     {
         setup_commands();
         setup_event_reactions();
+
+        poller.get_message_handler().dump_commands();
     }
 
     int run() { return poller.run(); }
@@ -52,16 +55,38 @@ private:
 
 }// namespace bot
 
+#include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/rotating_file_sink.h"
+
 int main(int argc, char* argv[])
 {
-    if (argc != 2)
-    {
+    if (argc != 2) {
         std::cerr << "Program requires path to config as the only argument." << std::endl;
         exit(-1);
     }
 
     vk::config::load(argv[1]);
-    spdlog::info("Maximum num of workers: {}", vk::config::num_workers());
+    vk::log_level::trace();
+
+//    auto stdout_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+//    auto rotating_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(
+//        /*base_filename=*/vk::config::log_path(),
+//        /*max_size=*/1024*1024,
+//        /*max_files=*/1,
+//        /*rotate_on_open=*/false);
+
+//    std::vector<spdlog::sink_ptr> sinks {stdout_sink, rotating_sink};
+
+//    auto logger = std::make_shared<spdlog::logger>(
+//        "vk",
+//        sinks.begin(),
+//        sinks.end()
+//    );
+
+//    spdlog::register_logger(logger);
+//    spdlog::set_default_logger(logger);
+
+    spdlog::info("workers: {}", vk::config::num_workers());
 
     bot::host example;
     return example.run();

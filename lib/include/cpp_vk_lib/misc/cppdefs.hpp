@@ -2,25 +2,26 @@
 #define VK_MISC_CPPDEFS_HPP
 
 #if defined(__GNUC__)
-    #define _DECL_VK_EXPORT __attribute__((visibility("default")))
-    #define _DECL_VK_IMPORT __attribute__((visibility("default")))
-    #define _DECL_VK_HIDDEN __attribute__((visibility("hidden")))
+#   define _DECL_VK_EXPORT __attribute__((visibility("default")))
+#   define _DECL_VK_IMPORT __attribute__((visibility("default")))
+#   define _DECL_VK_HIDDEN __attribute__((visibility("hidden")))
 #elif defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(WIN32) || defined(_WIN32)
-    #define _DECL_VK_EXPORT __declspec(dllexport)
-    #define _DECL_VK_IMPORT __declspec(dllimport)
-    #define _DECL_VK_HIDDEN
+#   define _DECL_VK_EXPORT __declspec(dllexport)
+#   define _DECL_VK_IMPORT __declspec(dllimport)
+#   define _DECL_VK_HIDDEN
 #else
-    #warning Unknown dynamic link import/export semantics.
-    #define _DECL_VK_EXPORT
-    #define _DECL_VK_IMPORT
-    #define _DECL_VK_HIDDEN
+#   warning Unknown dynamic link import/export semantics.
+#   define _DECL_VK_EXPORT
+#   define _DECL_VK_IMPORT
+#   define _DECL_VK_HIDDEN
 #endif
 
 #if defined(VK_MISC_CPPDEFS_HPP)
-    #define vk_export _DECL_VK_EXPORT
+#   define vk_export _DECL_VK_EXPORT
 #else
-    #define vk_export _DECL_VK_IMPORT
+#   define vk_export _DECL_VK_IMPORT
 #endif
+
 #define vk_hidden _DECL_VK_HIDDEN
 
 #define VK_PRAGMA(P) _Pragma(#P)
@@ -41,6 +42,18 @@
     VK_DISABLE_GCC_WARNING(-Wshadow)                                \
     VK_DISABLE_GCC_WARNING(-Wunused - parameter)                    \
     VK_DISABLE_GCC_WARNING(-Wunused - variable)
+
+//#if defined VK_VERBOSE_LOGGING
+//#   define VK_VERBOSE_LOG(fmt, ...) spdlog::debug(fmt, __VA_ARGS__);
+//#else
+//#   define VK_VERBOSE_LOG(fmt, ...)
+//#endif
+
+//#if defined VK_EVENT_LOGGING
+//#   define VK_EVENT_LOG(fmt, ...)   spdlog::info(fmt, __VA_ARGS__);
+//#else
+//#   define VK_VERBOSE_LOG(fmt, ...)
+//#endif
 
 #define VK_REALLY_INLINE    inline __attribute__((always_inline))
 #define VK_NEVER_INLINE     inline __attribute__((noinline))

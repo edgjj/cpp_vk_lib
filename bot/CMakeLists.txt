@@ -3,7 +3,7 @@ include_directories(../lib/include/cpp_vk_lib)
 include_directories(../dependencies/spdlog/include)
 
 if (NOT WIN32)
-	set(COMMON_CXX_FLAGS "-fPIC -pedantic -fstack-protector -Wall -Wextra -Wcast-qual -Weffc++ -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
+  set(COMMON_CXX_FLAGS "-fPIC -pedantic -fstack-protector -Wall -Wextra -Wcast-qual -Wsign-promo -Wno-unused -Wcast-align -Woverloaded-virtual -Wno-parentheses")
 else()
 	set(COMMON_CXX_FLAGS "")
 endif()

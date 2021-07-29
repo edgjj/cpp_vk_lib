@@ -1,5 +1,6 @@
 ﻿#include "events/message_new.hpp"
 #include "exception/error-inl.hpp"
+#include "misc/cppdefs.hpp"
 
 #include "simdjson.h"
 
@@ -28,6 +29,12 @@ vk::event::message_new::message_new(simdjson::dom::object&& event)
         m_has_action = true;
         try_get_actions();
     }
+
+    spdlog::info("create message_new");
+    spdlog::info("\thas action?        {}", m_has_action);
+    spdlog::info("\thas reply?         {}", m_has_reply);
+    spdlog::info("\thas fwd messages?  {}", m_has_fwd_messages);
+    spdlog::info("\thas attachments?   {}", m_has_attachments);
 }
 
 void vk::event::message_new::try_get_actions()
@@ -148,7 +155,7 @@ vk::attachment::attachments_t vk::event::message_new::attachments() const
     if (m_has_attachments) {
         return m_attachment_handler.try_get(get_event()["attachments"].get_array());
     } else {
-        throw exception::access_error (-1, "Attempting accessing empty attachment list");
+        throw exception::access_error(-1, "Attempting accessing empty attachment list");
     }
 }
 

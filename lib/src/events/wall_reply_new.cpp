@@ -1,6 +1,7 @@
 #include "events/wall_reply_new.hpp"
-
 #include "exception/error-inl.hpp"
+#include "misc/cppdefs.hpp"
+
 #include "simdjson.h"
 
 vk::event::wall_reply_new::~wall_reply_new() = default;
@@ -12,6 +13,9 @@ vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
     if (get_event()["attachments"].is_array() && get_event()["attachments"].get_array().size() > 0) {
         m_has_attachments = true;
     }
+
+    spdlog::info("create wall_reply_new");
+    spdlog::info("\thas attachments? {}", m_has_attachments);
 }
 
 simdjson::dom::object& vk::event::wall_reply_new::get_event() const

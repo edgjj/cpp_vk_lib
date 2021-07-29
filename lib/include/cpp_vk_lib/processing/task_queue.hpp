@@ -3,6 +3,8 @@
 
 #include "misc/cppdefs.hpp"
 
+#include "spdlog/spdlog.h"
+
 #include <condition_variable>
 #include <deque>
 #include <future>
@@ -151,18 +153,15 @@ void task_queue::set_default_exception_handler()
             return;
         }
 
-        std::ostringstream stream;
-        stream << "[task_queue] Exception from thread (" << std::this_thread::get_id() << "): ";
-
         try {
             std::rethrow_exception(ex_ptr);
         } catch (std::exception& ex) {
-            stream << ex.what();
+            std::ostringstream stream;
+            stream << std::this_thread::get_id();
+            spdlog::warn("task queue: exception from thread {}", stream.str());
         } catch (...) {
-            stream << "Unknown exception";
+            spdlog::warn("task queue: unknown exception");
         }
-
-        std::cerr << stream.str() << std::endl;
     };
 }
 

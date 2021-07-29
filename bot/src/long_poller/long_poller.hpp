@@ -10,8 +10,7 @@ namespace bot {
 class long_poller
 {
 public:
-    long_poller()
-      : m_data(m_api.server()) {}
+    long_poller() : m_data(m_api.server()) {}
 
     message_handler& get_message_handler() noexcept
     {
@@ -25,12 +24,12 @@ public:
 
             for (auto& event : events) {
                 m_api.on_event("message_new", *event, [this, &event] {
-                    std::cout << event->get_message_event() << std::endl;
                     m_message_handler.process(event->get_message_event());
                 });
             }
             m_api.run();
         }
+
         return EXIT_SUCCESS;
     }
 

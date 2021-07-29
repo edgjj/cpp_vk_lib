@@ -1,5 +1,7 @@
 #include "net/network.hpp"
 
+#include "misc/cppdefs.hpp"
+
 #include "spdlog/spdlog.h"
 
 #include "curlpp/Easy.hpp"
@@ -34,34 +36,20 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
     return result;
 }
 
-#if defined VK_CURL_DEBUG
-static void debug(std::string_view template_text, std::string_view arg)
-{
-    spdlog::info("network - {}: {}", template_text, arg);
-}
-
-static void debug_error(std::string_view template_text, std::string_view arg)
-{
-    spdlog::error("network error - {}: {}", template_text, arg);
-}
-#else
-static void debug(std::string_view, std::string_view) {}
-static void debug_error(std::string_view, std::string_view) {}
-#endif
-
 std::string vk::network::request(std::string_view host, const std::map<std::string, std::string>& target)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
 
     std::string url = host.data() + create_parameters(target);
-    debug("HTTP POST", url);
+
+    spdlog::trace("HTTP POST: {}", url);
 
     curl_easy.setOpt(curlpp::options::Url(url));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
     curl_easy.perform();
 
-    debug("HTTP RESPONSE", response.str());
+    spdlog::trace("HTTP RESPONSE: {}", response.str());
 
     return response.str();
 }
@@ -71,7 +59,7 @@ std::string vk::network::request_data(std::string_view host, std::string_view da
     std::ostringstream response;
     curlpp::Easy curl_easy;
 
-    debug("HTTP POST", data);
+    spdlog::trace("HTTP POST: {}", data);
 
     curl_easy.setOpt(curlpp::options::Url(host.data()));
     curl_easy.setOpt(curlpp::options::PostFields(data.data()));
@@ -79,7 +67,7 @@ std::string vk::network::request_data(std::string_view host, std::string_view da
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
     curl_easy.perform();
 
-    debug("HTTP RESPONSE", response.str());
+    spdlog::trace("HTTP RESPONSE: {}", response.str());
 
     return response.str();
 }
@@ -92,13 +80,13 @@ size_t vk::network::download(std::string_view filename, std::string_view server)
 {
     FILE* fp = fopen(filename.data(), "w");
     if (not fp) {
-        debug_error("Can't open file", filename.data());
+        spdlog::trace("Can't open file: {}", filename.data());
         return -1;
     }
 
     curlpp::Easy curl_easy;
 
-    debug("HTTP download - filename", filename);
+    spdlog::trace("HTTP download: {}", filename);
 
     auto* write_function =
         new curlpp::options::WriteFunction([fp](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
@@ -124,7 +112,7 @@ std::string vk::network::upload(std::string_view field_name, std::string_view fi
 
     form_parts.push_back(new curlpp::FormParts::File(field_name.data(), filename.data()));
 
-    debug("HTTP upload", filename);
+    spdlog::trace("HTTP upload: {}", filename);
 
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
@@ -133,7 +121,7 @@ std::string vk::network::upload(std::string_view field_name, std::string_view fi
     try {
         curl_easy.perform();
     } catch (curlpp::RuntimeError& re) {
-        debug_error("HTTP upload error", "");
+        spdlog::trace("HTTP upload error");
     }
 
     return response.str();

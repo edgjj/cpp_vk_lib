@@ -27,8 +27,7 @@ public:
     const std::string& password()       const noexcept { return m_password; }
     const std::string& user_token()     const noexcept { return m_user_token; }
     const std::string& access_token()   const noexcept { return m_access_token; }
-    const std::string& error_log_path() const noexcept { return m_error_log_path; }
-    const std::string& event_log_path() const noexcept { return m_event_log_path; }
+    const std::string& log_path()       const noexcept { return m_log_path; }
     int64_t num_workers()               const noexcept { return m_num_workers; }
 
 private:
@@ -38,8 +37,7 @@ private:
     std::string m_password{};
     std::string m_user_token{};
     std::string m_access_token{};
-    std::string m_error_log_path{};
-    std::string m_event_log_path{};
+    std::string m_log_path{};
     int64_t m_num_workers{};
 
     static loader* instance;
@@ -47,13 +45,12 @@ private:
 
 inline void load(std::string_view path) { loader::load(path); }
 inline void set_user_token(std::string_view token) { loader::get()->user_token_instance() = token; }
-inline std::string password()       noexcept { return loader::get()->password(); }
-inline std::string username()       noexcept { return loader::get()->username(); }
-inline std::string user_token()     noexcept { return loader::get()->user_token(); }
-inline std::string access_token()   noexcept { return loader::get()->access_token(); }
-inline std::string error_logpath()  noexcept { return loader::get()->error_log_path(); }
-inline std::string event_logpath()  noexcept { return loader::get()->event_log_path(); }
-inline int64_t num_workers()        noexcept { return loader::get()->num_workers(); }
+inline std::string password()     { return loader::get()->password(); }
+inline std::string username()     { return loader::get()->username(); }
+inline std::string user_token()   { return loader::get()->user_token(); }
+inline std::string access_token() { return loader::get()->access_token(); }
+inline std::string log_path()     { return loader::get()->log_path(); }
+inline int64_t num_workers()      { return loader::get()->num_workers(); }
 
 }// namespace config
 }// namespace vk

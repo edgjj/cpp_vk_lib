@@ -17,6 +17,10 @@ vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event)
     if (get_event()["copy_history"].is_array()) {
         m_has_repost = true;
     }
+
+    spdlog::info("create wall_post_new");
+    spdlog::info("\thas attachments? {}", m_has_attachments);
+    spdlog::info("\thas repost?      {}", m_has_repost);
 }
 
 int64_t vk::event::wall_post_new::id() const noexcept

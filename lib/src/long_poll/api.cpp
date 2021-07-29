@@ -12,7 +12,7 @@ vk::long_poll::api::api(int64_t update_interval)
     , m_group_id(m_groups.get_by_id())
     , m_update_interval(update_interval)
 {
-    spdlog::info("Long poll: group id - {}", m_group_id);
+    spdlog::info("long poll group: - {}", m_group_id);
 }
 
 vk::long_poll::data vk::long_poll::api::server() const
@@ -28,6 +28,8 @@ vk::long_poll::data vk::long_poll::api::server() const
 
 vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& data, int8_t timeout) const
 {
+    spdlog::info("long poll: ts {} timeout {}", data.ts, timeout);
+
     events_t event_list;
 
     const std::string response = m_raw_method

@@ -4,7 +4,6 @@ include_directories(../dependencies/spdlog/include)
 
 include_directories(include/cpp_vk_lib)
 
-add_definitions(-DVK_CURL_DEBUG)
 add_definitions(-DAPI_V="5.130")
 
 set(extra_warnings TRUE)
@@ -46,11 +45,11 @@ endif()
 IF(WIN32)
   target_link_libraries(cpp_vk_lib
   	PRIVATE spdlog::spdlog_header_only
-	CURL::libcurl
-	unofficial::curlpp::curlpp
-	simdjson::simdjson
-	simdjson::simdjson-flags
-	simdjson::simdjson-headers
+    CURL::libcurl
+    unofficial::curlpp::curlpp
+    simdjson::simdjson
+    simdjson::simdjson-flags
+    simdjson::simdjson-headers
   )
 ELSE()
   target_link_libraries(cpp_vk_lib curl curlpp simdjson)

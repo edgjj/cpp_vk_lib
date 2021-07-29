@@ -2,6 +2,8 @@
 
 #include "simdjson.h"
 
+#include "spdlog/spdlog.h"
+
 vk::config::loader* vk::config::loader::instance = nullptr;
 
 vk::config::loader* vk::config::loader::load(std::string_view path)
@@ -31,7 +33,8 @@ vk::config::loader::loader(std::string_view path)
     m_password = element["oauth"]["password"];
     m_user_token = element["api"]["user_token"].get_c_str().take_value();
     m_access_token = element["api"]["access_token"].get_c_str().take_value();
-    m_error_log_path = element["environment"]["error_log_path"].get_c_str().take_value();
-    m_event_log_path = element["environment"]["event_log_path"].get_c_str().take_value();
+    m_log_path = element["environment"]["log_path"].get_c_str().take_value();
     m_num_workers = element["environment"]["num_workers"].get_int64();
+
+    spdlog::info("config loaded successfully");
 }

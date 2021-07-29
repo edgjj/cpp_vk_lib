@@ -55,6 +55,13 @@ public:
         return *this;
     }
 
+    void dump_commands()
+    {
+        for (const auto& command : m_commands) {
+            spdlog::info("bot command: {}", command.first);
+        }
+    }
+
 private:
     std::unordered_map<std::string, std::shared_ptr<command::base>> m_commands{};
     // Event wrappers.

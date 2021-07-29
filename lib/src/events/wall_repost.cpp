@@ -1,11 +1,22 @@
 #include "events/wall_repost.hpp"
+#include "misc/cppdefs.hpp"
+
+#include "spdlog/spdlog.h"
 
 vk::event::wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text)
     : m_id(id)
     , m_from_id(from_id)
     , m_owner_id(owner_id)
     , m_text(text)
-    , m_attachments() {}
+    , m_attachments()
+{
+    spdlog::info("create wall_repost");
+    spdlog::info("\tid           {}", m_id);
+    spdlog::info("\tfrom_id      {}", m_from_id);
+    spdlog::info("\towner_id     {}", m_owner_id);
+    spdlog::info("\ttext         {}", m_text);
+    spdlog::info("\tattachments: {}", m_attachments.size());
+}
 
 void vk::event::wall_repost::construct_attachments(attachment::attachments_t&& attachments)
 {

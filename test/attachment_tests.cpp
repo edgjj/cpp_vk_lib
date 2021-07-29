@@ -98,3 +98,9 @@ TEST(attachment, raw_class_cast)
 
     ASSERT_TRUE(vk::attachment::cast<empty_attachment>(audio));
 }
+
+int main(int argc, char* argv[])
+{
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
