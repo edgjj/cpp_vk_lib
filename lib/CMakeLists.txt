@@ -1,7 +1,7 @@
 include_directories(../dependencies/curlpp/include)
 include_directories(../dependencies/spdlog/include)
 
-include_directories(include/cpp_vk_lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 add_definitions(-DAPI_V="5.130")
 

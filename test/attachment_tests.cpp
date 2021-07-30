@@ -1,4 +1,4 @@
-#include "cpp_vk_lib/attachment/attachment.hpp"
+#include "vk/include/attachment/attachment.hpp"
 
 #include <gtest/gtest.h>
 

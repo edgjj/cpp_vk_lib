@@ -24,8 +24,7 @@ add_subdirectory(dependencies)
 add_subdirectory(lib)
 
 find_library(cpp_vk_lib HINTS "lib")
-include_directories(lib/include)
-include_directories(lib/include/cpp_vk_lib)
+include_directories(lib)
 include_directories(dependencies/spdlog/include)
 
 enable_testing()

@@ -1,10 +1,10 @@
-#include "cpp_vk_lib/processing/task_queue.hpp"
+#include "runtime/include/processing/task_queue.hpp"
 
 #include <gtest/gtest.h>
 
 #include <thread>
 
-namespace proc = vk::processing;
+namespace proc = runtime::processing;
 
 // It's enough 500-510ms for Linux tests, but on MacOS it may
 // take up to 700-800ms

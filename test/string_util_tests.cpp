@@ -1,4 +1,4 @@
-#include "cpp_vk_lib/string_utils/string_utils.hpp"
+#include "runtime/include/string_utils/string_utils.hpp"
 
 #include <gtest/gtest.h>
 
@@ -6,7 +6,7 @@
 #include <deque>
 #include <forward_list>
 
-namespace util = vk::string_utils;
+namespace util = runtime::string_utils;
 
 TEST(convert, utf_to_lower)
 {

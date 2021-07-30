@@ -1,4 +1,4 @@
-#include "cpp_vk_lib/net/network.hpp"
+#include "runtime/include/net/network.hpp"
 
 #include <gtest/gtest.h>
 
@@ -7,7 +7,7 @@
 TEST(curl, POST)
 {
     try {
-        const std::string received = vk::network::request("https://www.example.com");
+        const std::string received = runtime::network::request("https://www.example.com");
         if (received.empty()) {
             ASSERT_FALSE(true);
         } else {
