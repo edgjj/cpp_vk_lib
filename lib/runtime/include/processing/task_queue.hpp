@@ -1,5 +1,5 @@
-#ifndef VK_PROCESSING_TASK_QUEUE_HPP
-#define VK_PROCESSING_TASK_QUEUE_HPP
+#ifndef RUNTIME_PROCESSING_TASK_QUEUE_HPP
+#define RUNTIME_PROCESSING_TASK_QUEUE_HPP
 
 #include "../misc/cppdefs.hpp"
 
@@ -224,5 +224,4 @@ inline std::pair<bool, std::future<InvokeTaskType>> task_queue::push_future_task
 }// namespace processing
 }// namespace runtime
 
-
-#endif// VK_PROCESSING_TASK_QUEUE_HPP
+#endif// RUNTIME_PROCESSING_TASK_QUEUE_HPP

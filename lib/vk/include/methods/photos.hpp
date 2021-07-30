@@ -14,8 +14,8 @@ namespace method {
 class photos
 {
 public:
-    explicit photos();
-    explicit photos(std::string_view user_token);
+    photos();
+    photos(std::string_view user_token);
     ~photos();
 
     std::string get_messages_upload_server(int64_t peer_id) const;

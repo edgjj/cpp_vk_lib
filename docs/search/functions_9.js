@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['join_571',['join',['../namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213',1,'vk::string_utils::join(Container &amp;&amp;elements, char delimiter=&apos;,&apos;)'],['../namespacevk_1_1string__utils.html#a16ca0f65878c360683c544314258af37',1,'vk::string_utils::join(std::initializer_list&lt; T &gt; elements, char delimiter=&apos;,&apos;)']]],
-  ['join_5fimpl_572',['join_impl',['../structvk_1_1string__utils_1_1join__impl.html#ac7dfd46af6eed984a8529907823ccbeb',1,'vk::string_utils::join_impl']]]
+  ['join_573',['join',['../namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad',1,'runtime::string_utils::join(Container &amp;&amp;elements, char delimiter=&apos;,&apos;)'],['../namespaceruntime_1_1string__utils.html#ae79d38e84c2aeb6d3fca7e937792c5a0',1,'runtime::string_utils::join(std::initializer_list&lt; T &gt; elements, char delimiter=&apos;,&apos;)']]],
+  ['join_5fimpl_574',['join_impl',['../structruntime_1_1string__utils_1_1join__impl.html#aae223a408bdc7fc5d5eab96da8d3fe47',1,'runtime::string_utils::join_impl']]]
 ];

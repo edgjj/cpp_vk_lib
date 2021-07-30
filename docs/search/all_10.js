@@ -11,6 +11,6 @@ var searchData=
   ['pin_208',['pin',['../classvk_1_1method_1_1messages.html#a4d9c6924dd1b83328f1ebfddaa6c3912',1,'vk::method::messages']]],
   ['post_5fid_209',['post_id',['../classvk_1_1event_1_1wall__reply__new.html#a6bbd2dfacd97a29acc07cb2c1cf2d6f3',1,'vk::event::wall_reply_new']]],
   ['pull_210',['pull',['../classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70',1,'vk::oauth::client']]],
-  ['push_5ffuture_5ftask_211',['push_future_task',['../classvk_1_1processing_1_1task__queue.html#a8fd668fe5e238c25b6666761347fd118',1,'vk::processing::task_queue']]],
-  ['push_5fvoid_5ftask_212',['push_void_task',['../classvk_1_1processing_1_1task__queue.html#a1942c43c33634e65e77e282e929124ea',1,'vk::processing::task_queue']]]
+  ['push_5ffuture_5ftask_211',['push_future_task',['../classruntime_1_1processing_1_1task__queue.html#a3ad0d9138b7a5b81eaa17466913d572e',1,'runtime::processing::task_queue']]],
+  ['push_5fvoid_5ftask_212',['push_void_task',['../classruntime_1_1processing_1_1task__queue.html#a75a5a4d113877e2f3ea2a88dd71de28e',1,'runtime::processing::task_queue']]]
 ];

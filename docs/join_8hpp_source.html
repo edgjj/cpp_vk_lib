@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_f4297228b4ae3479ebf3ab6b33d53f38.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_01bf83812645c3a3412796c2fc617e54.html">implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_bacc0c93d90f14ec72dd74ece09979fb.html">runtime</a></li><li class="navelem"><a class="el" href="dir_fe683765618cc35bc39882f5ccaddc26.html">include</a></li><li class="navelem"><a class="el" href="dir_35cbde7fb79d3431a793f45cbf93b860.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_8e21e45a65d0d41e7765bb33cbd7e23c.html">implementation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,32 +69,32 @@ $(function() {
 <div class="title">join.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="join_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
+<a href="join_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RUNTIME_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime.html">runtime</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;std::string <a class="code" href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">join</a>(Container&amp;&amp; elements, <span class="keywordtype">char</span> delimiter = <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;std::string <a class="code" href="namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad">join</a>(Container&amp;&amp; elements, <span class="keywordtype">char</span> delimiter = <span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;std::string <a class="code" href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">join</a>(std::initializer_list&lt;T&gt; elements, <span class="keywordtype">char</span> delimiter = <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;std::string <a class="code" href="namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad">join</a>(std::initializer_list&lt;T&gt; elements, <span class="keywordtype">char</span> delimiter = <span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}<span class="comment">// namespace runtime</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime.html">runtime</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1join__impl.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvk_1_1string__utils_1_1join__impl.html">join_impl</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1join__impl.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structruntime_1_1string__utils_1_1join__impl.html">join_impl</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1join__impl.html#ac7dfd46af6eed984a8529907823ccbeb">   26</a></span>&#160;    <a class="code" href="structvk_1_1string__utils_1_1join__impl.html#ac7dfd46af6eed984a8529907823ccbeb">join_impl</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1join__impl.html#aae223a408bdc7fc5d5eab96da8d3fe47">   26</a></span>&#160;    <a class="code" href="structruntime_1_1string__utils_1_1join__impl.html#aae223a408bdc7fc5d5eab96da8d3fe47">join_impl</a>() = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container, <span class="keyword">typename</span> BinaryOperation&gt;</div>
@@ -122,20 +122,20 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> mT, <span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1join__impl.html#a78765d0470f83ca1e03a1d7985d7f9ca">   54</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">string_utils::join</a>(Container&amp;&amp; elements, <span class="keywordtype">char</span> delimiter);</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1join__impl.html#a78765d0470f83ca1e03a1d7985d7f9ca">   54</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad">string_utils::join</a>(Container&amp;&amp; elements, <span class="keywordtype">char</span> delimiter);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> mT&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structvk_1_1string__utils_1_1join__impl.html#a8c4669c6f6b688a47adce10e9798cc82">   57</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">string_utils::join</a>(std::initializer_list&lt;mT&gt; elements, <span class="keywordtype">char</span> delimiter);</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1join__impl.html#a8c4669c6f6b688a47adce10e9798cc82">   57</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad">string_utils::join</a>(std::initializer_list&lt;mT&gt; elements, <span class="keywordtype">char</span> delimiter);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}<span class="comment">// namespace vk</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}<span class="comment">// namespace runtime</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
-<div class="ttc" id="anamespacevk_1_1string__utils_html_a7eb0c72cb729c76bec0f58ded180d213"><div class="ttname"><a href="namespacevk_1_1string__utils.html#a7eb0c72cb729c76bec0f58ded180d213">vk::string_utils::join</a></div><div class="ttdeci">std::string join(Container &amp;&amp;elements, char delimiter=',')</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:15</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
-<div class="ttc" id="astructvk_1_1string__utils_1_1join__impl_html"><div class="ttname"><a href="structvk_1_1string__utils_1_1join__impl.html">vk::string_utils::join_impl</a></div><div class="ttdef"><b>Definition:</b> join.hpp:24</div></div>
-<div class="ttc" id="astructvk_1_1string__utils_1_1join__impl_html_ac7dfd46af6eed984a8529907823ccbeb"><div class="ttname"><a href="structvk_1_1string__utils_1_1join__impl.html#ac7dfd46af6eed984a8529907823ccbeb">vk::string_utils::join_impl::join_impl</a></div><div class="ttdeci">join_impl()=delete</div></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_JOIN_HPP</span></div>
+<div class="ttc" id="anamespaceruntime_1_1string__utils_html_a5a69d91de7c74c91e346fe86c6cac5ad"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html#a5a69d91de7c74c91e346fe86c6cac5ad">runtime::string_utils::join</a></div><div class="ttdeci">std::string join(Container &amp;&amp;elements, char delimiter=',')</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:15</div></div>
+<div class="ttc" id="anamespaceruntime_html"><div class="ttname"><a href="namespaceruntime.html">runtime</a></div><div class="ttdef"><b>Definition:</b> network.hpp:7</div></div>
+<div class="ttc" id="astructruntime_1_1string__utils_1_1join__impl_html"><div class="ttname"><a href="structruntime_1_1string__utils_1_1join__impl.html">runtime::string_utils::join_impl</a></div><div class="ttdef"><b>Definition:</b> join.hpp:24</div></div>
+<div class="ttc" id="astructruntime_1_1string__utils_1_1join__impl_html_aae223a408bdc7fc5d5eab96da8d3fe47"><div class="ttname"><a href="structruntime_1_1string__utils_1_1join__impl.html#aae223a408bdc7fc5d5eab96da8d3fe47">runtime::string_utils::join_impl::join_impl</a></div><div class="ttdeci">join_impl()=delete</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

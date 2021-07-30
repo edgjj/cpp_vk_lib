@@ -10,8 +10,8 @@ vk::method::utility::utility()
     , m_access_token(config::access_token())
     , m_parser(std::make_shared<simdjson::dom::parser>()) {}
 
-vk::method::utility::utility(std::string_view user_token_)
-    : m_user_token(user_token_.data())
+vk::method::utility::utility(std::string_view user_token)
+    : m_user_token(user_token.data())
     , m_access_token(config::access_token())
     , m_parser(std::make_shared<simdjson::dom::parser>()) {}
 

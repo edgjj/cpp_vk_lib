@@ -72,14 +72,10 @@ std::string runtime::network::request_data(std::string_view host, std::string_vi
     return response.str();
 }
 
-#ifdef _WIN32
-#define not !
-#endif
-
 size_t runtime::network::download(std::string_view filename, std::string_view server)
 {
     FILE* fp = fopen(filename.data(), "w");
-    if (not fp) {
+    if (!fp) {
         spdlog::trace("Can't open file: {}", filename.data());
         return -1;
     }

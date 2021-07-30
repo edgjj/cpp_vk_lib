@@ -1,5 +1,5 @@
-#ifndef VK_STRING_UTILS_UNICODE_OSTREAM_HPP
-#define VK_STRING_UTILS_UNICODE_OSTREAM_HPP
+#ifndef RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP
+#define RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP
 
 #include <codecvt>
 #include <locale>
@@ -19,4 +19,4 @@ inline std::ostream& operator<<(std::ostream& os, std::u32string_view s)
     return os << std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t>().to_bytes(s.data());
 }
 
-#endif// VK_STRING_UTILS_UNICODE_OSTREAM_HPP
+#endif// RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP

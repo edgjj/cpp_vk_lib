@@ -30,7 +30,7 @@ namespace method {
 class messages
 {
 public:
-    explicit messages(bool disable_mentions_flag);
+    messages(bool disable_mentions_flag);
     messages() = delete;
     ~messages();
 

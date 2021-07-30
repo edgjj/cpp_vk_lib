@@ -82,7 +82,6 @@ digraph "format.hpp"
   Node31 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node31 -> Node32 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node32 [label="message_constructor.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$message__constructor_8cpp.html",tooltip=" "];
-  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node33 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node33 [label="exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
   Node33 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

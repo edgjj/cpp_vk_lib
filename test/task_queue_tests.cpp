@@ -14,10 +14,10 @@ TEST(task_queue, future_tasks)
 
     std::vector<std::pair<bool, std::future<size_t>>> tasks;
 
-    for (size_t i = 0; i < 10; ++i) {
+    for (size_t i = 0; i < 1000; ++i) {
         tasks.emplace_back(task_queue.push_future_task([_i = i] {
             using namespace std::chrono_literals;
-            std::this_thread::sleep_for(100ms);
+            std::this_thread::sleep_for(1ms);
             return _i;
         }));
     }
@@ -42,10 +42,10 @@ TEST(task_queue, void_tasks)
 
     std::vector<bool> successfully_completed_tasks;
 
-    for (size_t i = 0; i < 10; ++i) {
+    for (size_t i = 0; i < 1000; ++i) {
         successfully_completed_tasks.push_back(task_queue.push_void_task([] {
             using namespace std::chrono_literals;
-            std::this_thread::sleep_for(100ms);
+            std::this_thread::sleep_for(1ms);
         }));
     }
 

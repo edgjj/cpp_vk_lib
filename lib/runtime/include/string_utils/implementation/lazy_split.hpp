@@ -1,5 +1,5 @@
-#ifndef VK_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP
-#define VK_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP
+#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP
+#define RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP
 
 // Thanks some-coder366 for the idea.
 // https://github.com/some-coder366/cpp-lazy-split/blob/master/split_iterators.cpp
@@ -80,4 +80,4 @@ private:
 }// namespace string_utils
 }// namespace runtime
 
-#endif// VK_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP
+#endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP

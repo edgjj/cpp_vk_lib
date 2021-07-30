@@ -13,7 +13,7 @@ var searchData=
   ['chat_5ftitle_5fupdate_43',['chat_title_update',['../structvk_1_1action_1_1chat__title__update.html',1,'vk::action']]],
   ['chat_5funpin_5fmessage_44',['chat_unpin_message',['../structvk_1_1action_1_1chat__unpin__message.html',1,'vk::action']]],
   ['check_5flink_45',['check_link',['../classvk_1_1method_1_1utils.html#aaa80ca9df2c64f9f2fa4383549e656ac',1,'vk::method::utils']]],
-  ['client_46',['client',['../classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d',1,'vk::oauth::client::client()'],['../classvk_1_1oauth_1_1client.html',1,'vk::oauth::client']]],
+  ['client_46',['client',['../classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa',1,'vk::oauth::client::client()'],['../classvk_1_1oauth_1_1client.html',1,'vk::oauth::client']]],
   ['client_2ecpp_47',['client.cpp',['../client_8cpp.html',1,'']]],
   ['client_2ehpp_48',['client.hpp',['../client_8hpp.html',1,'']]],
   ['color_49',['color',['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8ac',1,'vk::keyboard']]],

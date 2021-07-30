@@ -10,5 +10,5 @@ digraph "vk::method::constructor::method"
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk::oauth::client::pull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70",tooltip="Try get user data."];
   Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="vk::oauth::client::\lclient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1oauth_1_1client.html#abe14e319ea960dfa9be7efc9b599253d",tooltip=" "];
+  Node4 [label="vk::oauth::client::\lclient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa",tooltip=" "];
 }

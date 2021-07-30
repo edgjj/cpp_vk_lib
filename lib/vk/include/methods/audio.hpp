@@ -14,8 +14,8 @@ namespace method {
 class audio
 {
 public:
-    explicit audio();
-    explicit audio(std::string_view user_token);
+    audio();
+    audio(std::string_view user_token);
     ~audio();
 
     std::string get_upload_server() const;

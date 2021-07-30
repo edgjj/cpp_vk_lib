@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="vk::string_utils::end\l_split_iterator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1string__utils_1_1end__split__iterator.html",tooltip=" "];
+  Node0 [label="vk::method::policy\l::do_not_use_api_link",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1policy_1_1do__not__use__api__link.html",tooltip=" "];
 }

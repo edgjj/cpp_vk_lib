@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_f4297228b4ae3479ebf3ab6b33d53f38.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_1d633ba020b5e681e9aebb2f6832bd4c.html">unicode</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_bacc0c93d90f14ec72dd74ece09979fb.html">runtime</a></li><li class="navelem"><a class="el" href="dir_fe683765618cc35bc39882f5ccaddc26.html">include</a></li><li class="navelem"><a class="el" href="dir_35cbde7fb79d3431a793f45cbf93b860.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_24e37f88226b4a8757708ca39cb87021.html">unicode</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,8 +69,8 @@ $(function() {
 <div class="title">ostream.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ostream_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
+<a href="ostream_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;codecvt&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;locale&gt;</span></div>
@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; std::wstring_convert&lt;std::codecvt_utf8&lt;char32_t&gt;, char32_t&gt;().to_bytes(s.data());</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_UNICODE_OSTREAM_HPP</span></div>
 <div class="ttc" id="aostream_8hpp_html_a4ec2c1e546362e642cd04f3099c1afba"><div class="ttname"><a href="ostream_8hpp.html#a4ec2c1e546362e642cd04f3099c1afba">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, std::wstring_view s)</div><div class="ttdef"><b>Definition:</b> ostream.hpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

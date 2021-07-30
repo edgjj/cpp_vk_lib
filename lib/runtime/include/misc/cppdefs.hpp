@@ -1,5 +1,5 @@
-#ifndef VK_MISC_CPPDEFS_HPP
-#define VK_MISC_CPPDEFS_HPP
+#ifndef RUNTIME_MISC_CPPDEFS_HPP
+#define RUNTIME_MISC_CPPDEFS_HPP
 
 #if defined(__GNUC__)
 #   define _DECL_VK_EXPORT __attribute__((visibility("default")))
@@ -63,4 +63,4 @@
     VK_DISABLE_COPY(x)          \
     VK_DISABLE_MOVE(x)
 
-#endif// VK_MISC_CPPDEFS_HPP
+#endif// RUNTIME_MISC_CPPDEFS_HPP

@@ -15,7 +15,7 @@ namespace method {
 class groups
 {
 public:
-    explicit groups();
+    groups();
     ~groups();
 
     int64_t get_by_id() const;

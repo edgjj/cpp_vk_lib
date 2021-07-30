@@ -1,5 +1,5 @@
-#ifndef VK_NET_NETWORK_HPP
-#define VK_NET_NETWORK_HPP
+#ifndef RUNTIME_NET_NETWORK_HPP
+#define RUNTIME_NET_NETWORK_HPP
 
 #include <map>
 #include <string_view>
@@ -32,4 +32,4 @@ std::string request_data(std::string_view host, std::string_view data);
 }// namespace network
 }// namespace vk
 
-#endif// VK_NET_NETWORK_HPP
+#endif// RUNTIME_NET_NETWORK_HPP

@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="vk::action::chat_invite_user",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1action_1_1chat__invite__user.html",tooltip=" "];
+  Node0 [label="runtime::processing\l::task_queue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classruntime_1_1processing_1_1task__queue.html",tooltip=" "];
 }

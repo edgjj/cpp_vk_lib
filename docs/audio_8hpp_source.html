@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="dir_ff8df762ee7a92ae5aae7a0c53291ef2.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_8b3c131c7deef97e7a107e2ab510e8a1.html">methods</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_f24f4fdd59688f4e2fd114a89d2b5d0b.html">vk</a></li><li class="navelem"><a class="el" href="dir_2fa8417925308be52a9c60106667e5c1.html">include</a></li><li class="navelem"><a class="el" href="dir_a7bf451d887486fbd46dfcc99cdfed64.html">methods</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,16 +72,16 @@ $(function() {
 <a href="audio_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_METHODS_AUDIO_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_METHODS_AUDIO_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="document_2common_8hpp.html">document/common.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="constructor_8hpp.html">methods/utility/constructor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="document_2common_8hpp.html">vk/include/document/common.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="constructor_8hpp.html">vk/include/methods/utility/constructor.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacevk_1_1method.html">    8</a></span>&#160;<span class="keyword">namespace </span>method {</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1audio.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1method_1_1audio.html">audio</a></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">audio</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">audio</a>(std::string_view <a class="code" href="namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815">user_token</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">audio</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">audio</a>(std::string_view <a class="code" href="namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815">user_token</a>);</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1audio.html#a2e9f1e739f4217b74ef0f7fe1afaec1f">   19</a></span>&#160;    <a class="code" href="classvk_1_1method_1_1audio.html#a2e9f1e739f4217b74ef0f7fe1afaec1f">~audio</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::string <a class="code" href="classvk_1_1method_1_1audio.html#a5519426367de2bbd7d381b237cf806fe">get_upload_server</a>() <span class="keyword">const</span>;</div>
@@ -100,11 +100,11 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_METHODS_AUDIO_HPP</span></div>
 <div class="ttc" id="aclassvk_1_1document_1_1common_html"><div class="ttname"><a href="classvk_1_1document_1_1common.html">vk::document::common</a></div><div class="ttdoc">The base class for vk::docs, vk::photos and vk::video.</div><div class="ttdef"><b>Definition:</b> document/common.hpp:20</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html"><div class="ttname"><a href="classvk_1_1method_1_1audio.html">vk::method::audio</a></div><div class="ttdoc">The audio methods representation.</div><div class="ttdef"><b>Definition:</b> audio.hpp:15</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a041ac7ed3b036eb11ce59dfa5432fb1b"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a041ac7ed3b036eb11ce59dfa5432fb1b">vk::method::audio::save</a></div><div class="ttdeci">void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const</div><div class="ttdef"><b>Definition:</b> audio.cpp:29</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a041ac7ed3b036eb11ce59dfa5432fb1b"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a041ac7ed3b036eb11ce59dfa5432fb1b">vk::method::audio::save</a></div><div class="ttdeci">void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const</div><div class="ttdef"><b>Definition:</b> audio.cpp:30</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a2e9f1e739f4217b74ef0f7fe1afaec1f"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a2e9f1e739f4217b74ef0f7fe1afaec1f">vk::method::audio::~audio</a></div><div class="ttdeci">~audio()</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a43851a396274951808fa31af1bfa2b51"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">vk::method::audio::audio</a></div><div class="ttdeci">audio()</div><div class="ttdef"><b>Definition:</b> audio.cpp:6</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a43851a396274951808fa31af1bfa2b51"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a43851a396274951808fa31af1bfa2b51">vk::method::audio::audio</a></div><div class="ttdeci">audio()</div><div class="ttdef"><b>Definition:</b> audio.cpp:7</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a4c30ed9f45cae535cf7ab7bced17d9b8"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a4c30ed9f45cae535cf7ab7bced17d9b8">vk::method::audio::m_user_constructor</a></div><div class="ttdeci">method::user_constructor m_user_constructor</div><div class="ttdef"><b>Definition:</b> audio.hpp:28</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a5519426367de2bbd7d381b237cf806fe"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a5519426367de2bbd7d381b237cf806fe">vk::method::audio::get_upload_server</a></div><div class="ttdeci">std::string get_upload_server() const</div><div class="ttdef"><b>Definition:</b> audio.cpp:20</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1audio_html_a5519426367de2bbd7d381b237cf806fe"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a5519426367de2bbd7d381b237cf806fe">vk::method::audio::get_upload_server</a></div><div class="ttdeci">std::string get_upload_server() const</div><div class="ttdef"><b>Definition:</b> audio.cpp:21</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a5c0d6fee225a3198e508be9a085b62ad"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a5c0d6fee225a3198e508be9a085b62ad">vk::method::audio::m_parser</a></div><div class="ttdeci">std::shared_ptr&lt; simdjson::dom::parser &gt; m_parser</div><div class="ttdef"><b>Definition:</b> audio.hpp:25</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_a8a0d684c27a7e544685558684eae91af"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#a8a0d684c27a7e544685558684eae91af">vk::method::audio::m_document</a></div><div class="ttdeci">document::common m_document</div><div class="ttdef"><b>Definition:</b> audio.hpp:26</div></div>
 <div class="ttc" id="aclassvk_1_1method_1_1audio_html_af85e2b23ce027315e4a2534c4abdf917"><div class="ttname"><a href="classvk_1_1method_1_1audio.html#af85e2b23ce027315e4a2534c4abdf917">vk::method::audio::m_group_constructor</a></div><div class="ttdeci">method::group_constructor m_group_constructor</div><div class="ttdef"><b>Definition:</b> audio.hpp:27</div></div>
@@ -112,7 +112,7 @@ $(function() {
 <div class="ttc" id="aconstructor_8hpp_html"><div class="ttname"><a href="constructor_8hpp.html">constructor.hpp</a></div></div>
 <div class="ttc" id="adocument_2common_8hpp_html"><div class="ttname"><a href="document_2common_8hpp.html">common.hpp</a></div></div>
 <div class="ttc" id="anamespacevk_1_1config_html_a964f2b4776d0820396dd7de3f1503815"><div class="ttname"><a href="namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815">vk::config::user_token</a></div><div class="ttdeci">std::string user_token()</div><div class="ttdef"><b>Definition:</b> loader.hpp:50</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:11</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

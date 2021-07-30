@@ -6,7 +6,7 @@ digraph "vk::document::common::upload"
   rankdir="LR";
   Node1 [label="vk::document::common\l::upload",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Upload file to server."];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk::network::upload",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1network.html#afbc06b26eef6d1663b7628259b14db1d",tooltip="Upload file from filename to server."];
+  Node2 [label="runtime::network::upload",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5",tooltip="Upload file from filename to server."];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk::log_level::trace",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1log__level.html#a906588d4e58ee7aa81e3f3c411eb260d",tooltip=" "];
 }

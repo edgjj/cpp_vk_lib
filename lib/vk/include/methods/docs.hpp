@@ -14,8 +14,8 @@ namespace method {
 class docs
 {
 public:
-    explicit docs();
-    explicit docs(std::string_view user_token);
+    docs();
+    docs(std::string_view user_token);
     ~docs();
 
     void edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string> tags = {}) const;

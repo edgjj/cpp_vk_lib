@@ -14,8 +14,8 @@ namespace method {
 class video
 {
 public:
-    explicit video();
-    explicit video(std::string_view user_token);
+    video();
+    video(std::string_view user_token);
     ~video();
 
     vk::attachment::attachments_t search(std::string_view query, int64_t count) const;
