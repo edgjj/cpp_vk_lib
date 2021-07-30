@@ -43,18 +43,6 @@
     VK_DISABLE_GCC_WARNING(-Wunused - parameter)                    \
     VK_DISABLE_GCC_WARNING(-Wunused - variable)
 
-//#if defined VK_VERBOSE_LOGGING
-//#   define VK_VERBOSE_LOG(fmt, ...) spdlog::debug(fmt, __VA_ARGS__);
-//#else
-//#   define VK_VERBOSE_LOG(fmt, ...)
-//#endif
-
-//#if defined VK_EVENT_LOGGING
-//#   define VK_EVENT_LOG(fmt, ...)   spdlog::info(fmt, __VA_ARGS__);
-//#else
-//#   define VK_VERBOSE_LOG(fmt, ...)
-//#endif
-
 #define VK_REALLY_INLINE    inline __attribute__((always_inline))
 #define VK_NEVER_INLINE     inline __attribute__((noinline))
 

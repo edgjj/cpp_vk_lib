@@ -28,18 +28,4 @@ file(GLOB_RECURSE SRC "*.hpp" "*.cpp")
 
 add_library(cpp_vk_lib SHARED ${SRC})
 
-#if (WIN32)
-#    set_target_properties(cpp_vk_lib PROPERTIES
-#        LINK_FLAGS "/WHOLEARCHIVE"
-#    )
-#elseif (APPLE)
-#    set_target_properties(cpp_vk_lib PROPERTIES
-#        LINK_FLAGS "-Wl,-all_load"
-#    )
-#else ()
-#    set_target_properties(cpp_vk_lib PROPERTIES
-#        LINK_FLAGS "-Wl,--whole-archive"
-#    )
-#endif ()
-
 target_link_libraries(cpp_vk_lib curl curlpp simdjson)
