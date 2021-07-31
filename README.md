@@ -59,7 +59,7 @@ int main()
 
 ## TODO
 
-* Windows support
+* Windows build without external dependencies
 * More examples
 * Carefully documented API
 
