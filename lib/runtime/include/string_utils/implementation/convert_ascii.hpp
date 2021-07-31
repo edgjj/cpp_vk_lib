@@ -6,66 +6,44 @@
 
 namespace runtime {
 namespace string_utils {
-std::string ascii_to_lower(std::string_view data);
-std::string ascii_to_upper(std::string_view data);
-}// namespace string_utils
-}// namespace runtime
+namespace implementation {
 
-namespace runtime {
-namespace string_utils {
-
-struct ascii_convert_impl
+template <typename ExecutionPolicy>
+static inline std::string ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
 {
-private:
-    static char internal_to_lower_ascii_char(char c) noexcept
-    {
+    std::string converted;
+    converted.reserve(data.length());
+
+    for (auto& c : data) {
+        converted += policy(c);
+    }
+
+    return converted;
+}
+
+inline std::string create_ascii_lower(std::string_view data)
+{
+    return ascii_convert_implementation(data, [](auto c) -> char {
         if (c <= 'Z' && c >= 'A') {
             return c - ('Z' - 'z');
         }
 
         return c;
-    }
+    });
+}
 
-    static char internal_to_upper_ascii_char(char c) noexcept
-    {
+inline std::string create_ascii_upper(std::string_view data)
+{
+    return ascii_convert_implementation(data, [](auto& c) -> char {
         if (c <= 'z' && c >= 'a') {
             return c + ('Z' - 'z');
         }
 
         return c;
-    }
+    });
+}
 
-    template <typename ExecutionPolicy>
-    static std::string internal_ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
-    {
-        std::string converted;
-        converted.reserve(data.length());
-
-        for (auto& c : data) {
-            converted += policy(c);
-        }
-
-        return converted;
-    }
-
-    static std::string create_lower(std::string_view data)
-    {
-        return internal_ascii_convert_implementation(data, [](auto& c) {
-            return internal_to_lower_ascii_char(c);
-        });
-    }
-
-    static std::string create_upper(std::string_view data)
-    {
-        return internal_ascii_convert_implementation(data, [](auto& c) {
-            return internal_to_upper_ascii_char(c);
-        });
-    }
-
-    friend std::string string_utils::ascii_to_lower(std::string_view data);
-    friend std::string string_utils::ascii_to_upper(std::string_view data);
-};
-
+}// namespace implementation
 }// namespace string_utils
 }// namespace runtime
 

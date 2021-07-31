@@ -8,25 +8,27 @@
 #include "runtime/include/string_utils/implementation/lazy_split.hpp"
 #include "runtime/include/string_utils/implementation/split.hpp"
 
+#include "runtime/include/misc/cppdefs.hpp"
+
 namespace runtime {
 namespace string_utils {
 
 template <typename T, typename Container>
-std::string join(Container&& elements, char delimiter) { return join_impl<T>::create(std::forward<Container>(elements), delimiter); }
+VK_REALLY_INLINE std::string join(Container&& elements, char delimiter = ',') { return implementation::join<T>(std::forward<Container>(elements), delimiter); }
 
 template <typename T>
-std::string join(std::initializer_list<T> elements, char delimiter) { return join_impl<T>::create(elements, delimiter); }
+VK_REALLY_INLINE std::string join(std::initializer_list<T> elements, char delimiter = ',') { return implementation::join<T>(elements, delimiter); }
 
 template <typename... Args>
-std::string format(std::string_view data, Args&&... args) { return format_impl<Args...>::create(data, std::forward<Args>(args)...); }
+VK_REALLY_INLINE std::string format(std::string_view data, Args&&... args) { return implementation::format(data, std::forward<Args>(args)...); }
 
-inline std::vector<std::string_view> split(std::string_view data, char delimiter) { return split_impl::create(data, delimiter); }
-inline split_range<std::string_view> lazy_split(std::string_view data, std::string_view delimiter) { return split_range<std::string_view>(data, delimiter); }
+VK_REALLY_INLINE std::vector<std::string_view> split(std::string_view data, char delimiter) { return implementation::split(data, delimiter); }
+VK_REALLY_INLINE split_range<std::string_view> lazy_split(std::string_view data, std::string_view delimiter) { return split_range<std::string_view>(data, delimiter); }
 
-inline std::string utf8_to_lower(std::string_view data) { return utf8_convert_impl::create_lower(data); }
-inline std::string utf8_to_upper(std::string_view data) { return utf8_convert_impl::create_upper(data); }
-inline std::string ascii_to_lower(std::string_view data) { return ascii_convert_impl::create_lower(data); }
-inline std::string ascii_to_upper(std::string_view data) { return ascii_convert_impl::create_upper(data); }
+VK_REALLY_INLINE std::string utf8_to_lower(std::string_view data) { return implementation::create_utf8_lower(data); }
+VK_REALLY_INLINE std::string utf8_to_upper(std::string_view data) { return implementation::create_utf8_upper(data); }
+VK_REALLY_INLINE std::string ascii_to_lower(std::string_view data) { return implementation::create_ascii_lower(data); }
+VK_REALLY_INLINE std::string ascii_to_upper(std::string_view data) { return implementation::create_ascii_upper(data); }
 
 }// namespace string_utils
 }// namespace runtime

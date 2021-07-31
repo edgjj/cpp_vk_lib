@@ -6,41 +6,28 @@
 
 namespace runtime {
 namespace string_utils {
-std::vector<std::string_view> split(std::string_view text, char delimiter);
-}// namespace string_utils
-}// namespace runtime
+namespace implementation {
 
-namespace runtime {
-namespace string_utils {
-
-struct split_impl
+inline std::vector<std::string_view> split(std::string_view data, char delimiter)
 {
-public:
-    split_impl() = delete;
-
-private:
-    static std::vector<std::string_view> create(std::string_view data, char delimiter)
-    {
-        std::vector<std::string_view> splitted;
-        splitted.reserve(data.length() / 4);
-        size_t pos = 0;
-        while (pos != std::string_view::npos) {
-            pos = data.find_first_not_of(delimiter);
-            if (pos == std::string_view::npos) {
-                return splitted;
-            }
-            data = data.substr(pos);
-            pos = data.find(delimiter);
-            splitted.emplace_back(data.substr(0, pos));
-            data = data.substr(pos == std::string_view::npos ? 0 : pos);
+    std::vector<std::string_view> splitted;
+    splitted.reserve(data.length() / 4);
+    size_t pos = 0;
+    while (pos != std::string_view::npos) {
+        pos = data.find_first_not_of(delimiter);
+        if (pos == std::string_view::npos) {
+            return splitted;
         }
-        splitted.shrink_to_fit();
-        return splitted;
+        data = data.substr(pos);
+        pos = data.find(delimiter);
+        splitted.emplace_back(data.substr(0, pos));
+        data = data.substr(pos == std::string_view::npos ? 0 : pos);
     }
+    splitted.shrink_to_fit();
+    return splitted;
+}
 
-    friend std::vector<std::string_view> string_utils::split(std::string_view text, char delimiter);
-};
-
+}// namespace implementation
 }// namespace string_utils
 }// namespace runtime
 
