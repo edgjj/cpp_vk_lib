@@ -83,35 +83,45 @@ static const std::unordered_map<size_t, error_code> errors = {
     { 3611, { "Service is deactivated for user", error_type::access_error }}
 };
 
-inline constexpr bool log_before_throw = true;
+inline const char* translate_error(size_t error_code)
+{
+    return errors.at(error_code).message;
+}
 
-inline void dispatch_error_by_code(size_t error_code, bool enable_logging_before_throw = false)
+inline void process_error(size_t error_code)
 {
     const auto& error = errors.at(error_code);
 
-    if (enable_logging_before_throw) {
-        auto dispatch_error_name = [](error_type err) -> const char* {
-            switch (err) {
-                case error_type::access_error: return "access error";
-                case error_type::runtime_error: return "runtime error";
-                case error_type::invalid_parameter_error: return "invalid parameter";
-                default:
-                    return "unknown error type";
-            }
-        };
+    auto dispatch_error_name = [](error_type err) {
+        switch (err) {
+            case error_type::access_error: return "access error";
+            case error_type::runtime_error: return "runtime error";
+            case error_type::invalid_parameter_error: return "invalid parameter";
+            default:
+                return "unknown error";
+        }
+    };
 
-        std::string error_type_name = dispatch_error_name(error.type);
+    const std::string error_name = dispatch_error_name(error.type);
 
-        spdlog::error("{}: {}", error_type_name, error.message);
-    }
+    spdlog::error("{}: {}", error_name, error.message);
+}
 
-    switch (error.type) {
-        case error_type::access_error: throw access_error(error_code, error.message);
-        case error_type::runtime_error: throw runtime_error(error_code, error.message);
-        case error_type::invalid_parameter_error: throw invalid_parameter_error(error_code, error.message);
-        default:
-            throw runtime_error(-1, "Unknown error");
-    }
+inline void process_error(const char* message, error_type err_type)
+{
+    auto dispatch_error_name = [](error_type err) {
+        switch (err) {
+            case error_type::access_error: return "access error";
+            case error_type::runtime_error: return "runtime error";
+            case error_type::invalid_parameter_error: return "invalid parameter";
+            default:
+                return "unknown error";
+        }
+    };
+
+    const std::string error_name = dispatch_error_name(err_type);
+
+    spdlog::error("{}: {}", error_name, message);
 }
 
 } // namespace exception

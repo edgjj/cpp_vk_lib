@@ -1,11 +1,13 @@
 #include "vk/include/methods/video.hpp"
 
-vk::method::video::video()
-    : m_user_constructor()
+vk::method::video::video(error_code& errc)
+    : m_stored_error(errc)
+    , m_user_constructor()
     , m_document() {}
 
-vk::method::video::video(std::string_view user_token)
-    : m_user_constructor(user_token.data())
+vk::method::video::video(error_code& errc, std::string_view user_token)
+    : m_stored_error(errc)
+    , m_user_constructor(user_token.data())
     , m_document(user_token.data()) {}
 
 vk::method::video::~video() = default;

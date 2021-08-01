@@ -1,6 +1,7 @@
 #ifndef VK_METHODS_AUDIO_HPP
 #define VK_METHODS_AUDIO_HPP
 
+#include "vk/include/exception/error_code.hpp"
 #include "vk/include/document/common.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
@@ -14,14 +15,15 @@ namespace method {
 class audio
 {
 public:
-    audio();
-    audio(std::string_view user_token);
+    audio(error_code& errc);
+    audio(error_code& errc, std::string_view user_token);
     ~audio();
 
     std::string get_upload_server() const;
     void save(std::string_view artist, std::string_view title, std::string_view filename, std::string_view raw_server) const;
 
 protected:
+    error_code& m_stored_error;
     std::shared_ptr<simdjson::dom::parser> m_parser;
     document::common m_document;
     mutable method::group_constructor m_group_constructor;

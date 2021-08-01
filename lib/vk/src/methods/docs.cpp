@@ -6,14 +6,16 @@
 
 #include "simdjson.h"
 
-vk::method::docs::docs()
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::method::docs::docs(error_code& errc)
+    : m_stored_error(errc)
+    , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_group_constructor()
     , m_user_constructor()
     , m_document() {}
 
-vk::method::docs::docs(std::string_view user_token)
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::method::docs::docs(error_code& errc, std::string_view user_token)
+    : m_stored_error(errc)
+    , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_group_constructor()
     , m_user_constructor(user_token.data())
     , m_document(user_token.data()) {}
@@ -38,7 +40,8 @@ void vk::method::docs::edit(int64_t owner_id, int64_t doc_id, std::string_view t
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
@@ -53,7 +56,8 @@ void vk::method::docs::remove(int64_t owner_id, int64_t doc_id) const
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
@@ -82,13 +86,13 @@ std::string vk::method::docs::get_messages_upload_server(std::string_view type, 
         .perform_request();
 }
 
-std::shared_ptr<vk::attachment::audio_message>
-vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) const
+std::shared_ptr<vk::attachment::audio_message> vk::method::docs::save_audio_message(std::string_view filename, std::string_view raw_server) const
 {
     const simdjson::dom::object upload_response = m_document.upload(filename, raw_server, "file");
 
     if (upload_response.begin().key() != "file") {
-        throw exception::upload_error(-1, "Can't upload file. Maybe is not an mp3 track?");
+        m_stored_error.assign("Can't upload file. Maybe is not an mp3 track?");
+        return {};
     }
 
     const std::string file = upload_response["file"].get_c_str().take_value();

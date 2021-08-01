@@ -57,6 +57,7 @@ public:
 
 private:
     std::shared_ptr<simdjson::dom::parser> m_parser;
+    error_code m_stored_error;
     /*!
      * @brief Class with group long poll methods.
      */

@@ -7,9 +7,10 @@
 
 vk::long_poll::api::api(int64_t update_interval)
     : m_parser(std::make_shared<simdjson::dom::parser>())
+    , m_stored_error()
     , m_task_queue(vk::config::num_workers())
     , m_raw_method()
-    , m_groups()
+    , m_groups(m_stored_error)
     , m_group_id(m_groups.get_by_id())
     , m_update_interval(update_interval)
 {
@@ -19,6 +20,7 @@ vk::long_poll::api::api(int64_t update_interval)
 vk::long_poll::data vk::long_poll::api::server() const
 {
     const simdjson::dom::object server_object = m_groups.get_long_poll_server(m_group_id);
+    if (m_stored_error) { spdlog::error("Failed to get long poll server"); return {}; }
 
     const std::string key = server_object["key"].get_c_str().take_value();
     const std::string server = server_object["server"].get_c_str().take_value();

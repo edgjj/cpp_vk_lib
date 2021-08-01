@@ -1,6 +1,7 @@
 #ifndef VK_METHODS_MESSAGES_HPP
 #define VK_METHODS_MESSAGES_HPP
 
+#include "vk/include/exception/error_code.hpp"
 #include "vk/include/document/common.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
@@ -30,7 +31,7 @@ namespace method {
 class messages
 {
 public:
-    messages(bool disable_mentions_flag);
+    messages(error_code& errc, bool disable_mentions_flag);
     messages() = delete;
     ~messages();
 
@@ -51,6 +52,7 @@ public:
     conversation_member_list get_conversation_members(int64_t peer_id) const;
 
 protected:
+    error_code& m_stored_error;
     bool m_disable_mentions_flag;
     std::shared_ptr<simdjson::dom::parser> m_parser;
     document::common m_document;

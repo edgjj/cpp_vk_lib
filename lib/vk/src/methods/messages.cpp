@@ -5,8 +5,9 @@
 
 #include "simdjson.h"
 
-vk::method::messages::messages(bool disable_mentions_flag)
-    : m_disable_mentions_flag(disable_mentions_flag)
+vk::method::messages::messages(error_code& errc, bool disable_mentions_flag)
+    : m_stored_error(errc)
+    , m_disable_mentions_flag(disable_mentions_flag)
     , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_document()
     , m_group_constructor()
@@ -69,7 +70,8 @@ void vk::method::messages::remove_chat_user(int64_t chat_id, int64_t user_id) co
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
@@ -104,7 +106,8 @@ void vk::method::messages::add_chat_user(int64_t chat_id, int64_t user_id)
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
@@ -119,7 +122,8 @@ void vk::method::messages::delete_chat_photo(int64_t chat_id, int64_t group_id) 
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
@@ -135,13 +139,15 @@ void vk::method::messages::pin(int64_t peer_id, int64_t message_id, int64_t conv
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return;
     }
 }
 
 void vk::method::messages::set_chat_photo(std::string_view filename, std::string_view raw_server) const
 {
     const simdjson::dom::object response = m_document.upload(filename, raw_server, "file");
+
     m_group_constructor
         .method("messages.setChatPhoto")
         .param("file", response["response"])
@@ -158,7 +164,8 @@ vk::conversation_member_list vk::method::messages::get_conversation_members(int6
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return {};
     }
 
     conversation_member_list members;

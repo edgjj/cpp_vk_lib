@@ -4,8 +4,9 @@
 
 #include "simdjson.h"
 
-vk::method::groups::groups()
-    : m_group_constructor()
+vk::method::groups::groups(error_code& errc)
+    : m_stored_error(errc)
+    , m_group_constructor()
     , m_parser(std::make_unique<simdjson::dom::parser>()) {}
 
 vk::method::groups::~groups() = default;
@@ -19,7 +20,8 @@ int64_t vk::method::groups::get_by_id() const
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return -1;
     }
 
     return response["response"].at(0)["id"];
@@ -36,7 +38,8 @@ simdjson::dom::object vk::method::groups::get_long_poll_server(int64_t group_id)
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return {};
     }
 
     return response["response"];

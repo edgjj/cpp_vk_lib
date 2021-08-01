@@ -44,10 +44,10 @@ template <typename ExecutionPolicy>
 class constructor
 {
 public:
-    explicit constructor()
+    constructor()
         : m_method_util() {}
 
-    explicit constructor(std::string_view user_token)
+    constructor(std::string_view user_token)
         : m_method_util(user_token) {}
 
     constructor& method(std::string_view method)

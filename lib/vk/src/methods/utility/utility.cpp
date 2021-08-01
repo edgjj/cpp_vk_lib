@@ -2,6 +2,7 @@
 #include "vk/include/config/loader.hpp"
 
 #include "runtime/include/net/network.hpp"
+#include "runtime/include/string_utils/string_utils.hpp"
 
 #include "simdjson.h"
 
@@ -19,7 +20,7 @@ vk::method::utility::~utility() = default;
 
 std::string vk::method::utility::append_url(std::string_view method) const
 {
-    return "https://api.vk.com/method/" + std::string(method) + '?';
+    return runtime::string_utils::format("https://api.vk.com/method/{}?", method);
 }
 
 std::map<std::string, std::string>& vk::method::utility::user_args(std::map<std::string, std::string>& params) const

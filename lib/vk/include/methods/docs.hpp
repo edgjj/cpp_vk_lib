@@ -1,6 +1,7 @@
 #ifndef VK_METHODS_DOCS_HPP
 #define VK_METHODS_DOCS_HPP
 
+#include "vk/include/exception/error_code.hpp"
 #include "vk/include/document/common.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
@@ -14,8 +15,8 @@ namespace method {
 class docs
 {
 public:
-    docs();
-    docs(std::string_view user_token);
+    docs(error_code& errc);
+    docs(error_code& errc, std::string_view user_token);
     ~docs();
 
     void edit(int64_t owner_id, int64_t doc_id, std::string_view title, std::initializer_list<std::string> tags = {}) const;
@@ -27,6 +28,7 @@ public:
     std::shared_ptr<vk::attachment::audio_message> save_audio_message(std::string_view file, std::string_view raw_server) const;
 
 protected:
+    error_code& m_stored_error;
     std::shared_ptr<simdjson::dom::parser> m_parser;
     mutable method::group_constructor m_group_constructor;
     mutable method::user_constructor m_user_constructor;

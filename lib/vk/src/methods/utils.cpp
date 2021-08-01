@@ -4,23 +4,22 @@
 
 #include "simdjson.h"
 
-vk::method::utils::utils()
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::method::utils::utils(error_code& errc)
+    : m_stored_error(errc)
+    , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_group_constructor() {}
 
 vk::method::utils::~utils() = default;
 
 bool vk::method::utils::check_link(std::string_view url) const
 {
-    std::string raw_response = m_group_constructor
-        .method("utils.checkLink")
-        .param("url", url)
-        .perform_request();
+    std::string raw_response = m_group_constructor.method("utils.checkLink").param("url", url).perform_request();
 
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return false;
     }
 
     const std::string_view status = response["response"]["status"];
@@ -38,7 +37,8 @@ std::string vk::method::utils::get_short_link(std::string_view url) const
     const simdjson::dom::object response = m_parser->parse(raw_response);
 
     if (response.begin().key() == "error") {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return "";
     }
 
     const std::string_view short_url_response = response["response"]["short_url"];
@@ -55,10 +55,6 @@ int64_t vk::method::utils::resolve_screen_name(std::string_view screen_name) con
         .perform_request();
 
     const simdjson::dom::object response = m_parser->parse(raw_response);
-
-    if (response["response"].get_array().size() == 0) {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
-    }
 
     return response["response"]["object_id"].get_int64();
 }

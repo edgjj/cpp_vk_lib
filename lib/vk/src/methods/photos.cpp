@@ -4,12 +4,14 @@
 
 #include "simdjson.h"
 
-vk::method::photos::photos()
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::method::photos::photos(error_code& errc)
+    : m_stored_error(errc)
+    , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_document() {}
 
-vk::method::photos::photos(std::string_view user_token)
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::method::photos::photos(error_code& errc, std::string_view user_token)
+    : m_stored_error(errc)
+    , m_parser(std::make_shared<simdjson::dom::parser>())
     , m_document(user_token.data()) {}
 
 vk::method::photos::~photos() = default;
@@ -50,7 +52,8 @@ std::shared_ptr<vk::attachment::photo> vk::method::photos::save_messages_photo(s
     const simdjson::dom::object response = m_document.upload(filename, raw_server, "file");
 
     if (response["photo"].get_string().take_value() == "[]" || response["photo"].get_string().take_value().empty()) {
-        exception::dispatch_error_by_code(response["error"]["error_code"].get_int64(), exception::log_before_throw);
+        m_stored_error.assign(exception::translate_error(response["error"]["error_code"].get_int64()));
+        return {};
     }
 
     const std::string raw_response = m_group_constructor
