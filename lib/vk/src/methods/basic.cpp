@@ -47,7 +47,7 @@ int64_t vk::method::groups::get_by_id(error_code& errc)
     const simdjson::dom::object parsed = parser.parse(response);
 
     if (parsed.begin().key() == "error") {
-        errc.assign(exception::translate_error(parsed["error"]["error_code"]));
+        errc.assign(exception::translate_error(parsed["error"]["error_code"].get_int64()));
         return -1;
     }
 
