@@ -43,7 +43,7 @@ std::vector<vk::attachment::attachment_ptr_t> vk::event::get_attachments(const s
 {
     std::vector<attachment::attachment_ptr_t> attachment_list;
 
-    for (const simdjson::dom::element& attachment : attachments) {
+    for (simdjson::dom::element attachment : attachments) {
         std::string type = attachment["type"].get_string().take_value().data();
         if (type == "photo") { attachment_list.emplace_back(get_photo(attachment)); }
         if (type == "video") { attachment_list.emplace_back(get_video(attachment)); }
