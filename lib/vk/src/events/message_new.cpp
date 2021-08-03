@@ -1,9 +1,11 @@
 ﻿#include "vk/include/events/message_new.hpp"
 #include "vk/include/exception/error-inl.hpp"
+#include "vk/include/events/handlers/attachment_handler.hpp"
 
 #include "runtime/include/misc/cppdefs.hpp"
 
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 #include <iomanip>
 
@@ -12,7 +14,6 @@ vk::event::message_new::~message_new() = default;
 vk::event::message_new::message_new(simdjson::dom::object&& event)
     : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
     , m_action()
-    , m_attachment_handler()
 {
     if (get_event()["reply_message"].is_object()) {
         m_has_reply = true;
@@ -151,10 +152,10 @@ vk::action::any_action_t vk::event::message_new::action() const
     }
 }
 
-vk::attachment::attachments_t vk::event::message_new::attachments() const
+std::vector<vk::attachment::attachment_ptr_t> vk::event::message_new::attachments() const
 {
     if (m_has_attachments) {
-        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
+        return event::get_attachments(get_event()["attachments"].get_array());
     } else {
         throw exception::access_error(-1, "Attempting accessing empty attachment list");
     }

@@ -1,13 +1,10 @@
 #ifndef VK_ATTACHMENT_HPP
 #define VK_ATTACHMENT_HPP
 
-#include "runtime/include/string_utils/string_utils.hpp"
-
 #include "vk/include/exception/exception.hpp"
 
 #include <memory>
 #include <string>
-#include <vector>
 
 namespace vk {
 /*!
@@ -18,22 +15,11 @@ namespace attachment {
 class base
 {
 public:
-    explicit base(std::string_view type, int32_t owner_id, int32_t id)
-        : m_attachment_type(type)
-        , m_owner_id(owner_id)
-        , m_id(id) {}
-
+    explicit base(std::string_view type, int32_t owner_id, int32_t id);
     virtual ~base() = default;
 
-    std::string value() const
-    {
-        return runtime::string_utils::format("{}{}_{}", m_attachment_type, m_owner_id, m_id);
-    }
-
-    const std::string& type() const noexcept
-    {
-        return m_attachment_type;
-    }
+    std::string value() const;
+    const std::string& type() const noexcept;
 
 private:
     std::string m_attachment_type;
@@ -44,35 +30,27 @@ private:
 class photo : public base
 {
 public:
-    explicit photo(int32_t owner_id, int32_t id)
-        : base("photo", owner_id, id) {}
+    explicit photo(int32_t owner_id, int32_t id);
 };
 
 class video : public base
 {
 public:
-    explicit video(int32_t owner_id, int32_t id)
-        : base("video", owner_id, id) {}
+    explicit video(int32_t owner_id, int32_t id);
 };
 
 class audio : public base
 {
 public:
-    explicit audio(int32_t owner_id, int32_t id)
-        : base("audio", owner_id, id) {}
+    explicit audio(int32_t owner_id, int32_t id);
 };
 
 class document : public base
 {
 public:
-    explicit document(int32_t owner_id, int32_t id, std::string_view url)
-        : base("doc", owner_id, id)
-        , m_raw_url(url) {}
+    explicit document(int32_t owner_id, int32_t id, std::string_view url);
 
-    const std::string& raw_url() const noexcept
-    {
-        return m_raw_url;
-    }
+    const std::string& raw_url() const noexcept;
 
 private:
     std::string m_raw_url;
@@ -81,27 +59,16 @@ private:
 class wall : public base
 {
 public:
-    explicit wall(int32_t id, int32_t from_id)
-        : base("wall", from_id, id) {}
+    explicit wall(int32_t id, int32_t from_id);
 };
 
 class audio_message : public base
 {
 public:
-    explicit audio_message(int32_t owner_id, int32_t id, std::string_view raw_ogg, std::string_view raw_mp3)
-        : base("audio_message", owner_id, id)
-        , m_raw_ogg(raw_ogg)
-        , m_raw_mp3(raw_mp3) {}
+    explicit audio_message(int32_t owner_id, int32_t id, std::string_view raw_ogg, std::string_view raw_mp3);
 
-    const std::string& raw_ogg() const noexcept
-    {
-        return m_raw_ogg;
-    }
-
-    const std::string& raw_mp3() const noexcept
-    {
-        return m_raw_mp3;
-    }
+    const std::string& raw_ogg() const noexcept;
+    const std::string& raw_mp3() const noexcept;
 
 private:
     std::string m_raw_ogg;
@@ -118,7 +85,7 @@ std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)
     throw exception::bad_cast_error<base, Attachment>();
 }
 
-using attachments_t = std::vector<std::shared_ptr<attachment::base>>;
+using attachment_ptr_t = std::shared_ptr<attachment::base>;
 
 }// namespace attachment
 }// namespace vk

@@ -1,41 +1,26 @@
 #ifndef VK_METHODS_UTILITY_CONSTRUCTOR_HPP
 #define VK_METHODS_UTILITY_CONSTRUCTOR_HPP
 
-#include "runtime/include/misc/cppdefs.hpp"
 #include "runtime/include/net/network.hpp"
 
 #include "vk/include/methods/utility/utility.hpp"
 
 namespace vk {
 namespace method {
+
 namespace policy {
 
-class group_api
+struct group_api
 {
-public:
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
-    {
-        return method_util.call(method, method_util.group_args(params));
-    }
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params);
 };
-
-class user_api
+struct user_api
 {
-public:
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
-    {
-        return method_util.call(method, method_util.user_args(params));
-    }
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params);
 };
-
-class do_not_use_api_link
+struct do_not_use_api_link
 {
-public:
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params)
-    {
-        VK_UNUSED(method_util);
-        return runtime::network::request(method, params);
-    }
+    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params);
 };
 
 } // namespace policy
@@ -44,36 +29,20 @@ template <typename ExecutionPolicy>
 class constructor
 {
 public:
-    constructor()
-        : m_method_util() {}
+    constructor();
+    constructor(std::string_view user_token);
 
-    constructor(std::string_view user_token)
-        : m_method_util(user_token) {}
+    constructor&  method(std::string_view method) & ;
+    constructor&& method(std::string_view method) &&;
 
-    constructor& method(std::string_view method)
-    {
-        m_method = method;
-        return *this;
-    }
+    constructor&  param(std::string_view key, std::string_view value) & ;
+    constructor&& param(std::string_view key, std::string_view value) &&;
 
-    constructor& param(std::string_view key, std::string_view value)
-    {
-        m_params.emplace(key, value);
-        return *this;
-    }
+    constructor&  append_map(std::map<std::string, std::string> additional_params) & ;
+    constructor&& append_map(std::map<std::string, std::string> additional_params) &&;
 
-    constructor& append_map(std::map<std::string, std::string> additional_params)
-    {
-        m_params.merge(std::move(additional_params));
-        return *this;
-    }
-
-    std::string perform_request()
-    {
-        const std::string result = ExecutionPolicy::execute(m_method_util, m_method, m_params);
-        m_params.clear();
-        return result;
-    }
+    std::string perform_request()  &;
+    std::string perform_request() &&;
 
 private:
     vk::method::utility m_method_util;

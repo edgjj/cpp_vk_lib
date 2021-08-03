@@ -1,7 +1,6 @@
 #ifndef VK_EVENTS_WALL_POST_NEW_HPP
 #define VK_EVENTS_WALL_POST_NEW_HPP
 
-#include "vk/include/events/handlers/attachment_handler.hpp"
 #include "vk/include/events/wall_repost.hpp"
 
 namespace simdjson {
@@ -43,13 +42,12 @@ public:
      * @brief Get attachments vector.
      * @note In case, when no attachments were provided, empty vector returned.
      */
-    attachment::attachments_t attachments() const;
+    std::vector<vk::attachment::attachment_ptr_t> attachments() const;
 
 private:
     simdjson::dom::object& get_event() const;
 
     std::shared_ptr<simdjson::dom::object> m_event_json;
-    attachment_handler m_attachment_handler;
     bool m_has_attachments = false;
     bool m_has_repost = false;
 };

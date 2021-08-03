@@ -9,8 +9,6 @@ namespace network {
 /*!
  * @brief Execute HTTP POST request.
  * @return response output.
- *
- * @example request("https://www.example.com?", {{"q","text"},{"length","50"}});
  */
 std::string request(std::string_view host, const std::map<std::string, std::string>& target = {});
 /*!

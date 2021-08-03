@@ -1,15 +1,17 @@
 #include "vk/include/events/wall_post_new.hpp"
+
+#include "vk/include/events/handlers/attachment_handler.hpp"
 #include "vk/include/exception/error-inl.hpp"
 
 #include "runtime/include/misc/cppdefs.hpp"
 
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 vk::event::wall_post_new::~wall_post_new() = default;
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object&& event)
     : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
-    , m_attachment_handler()
 {
     if (get_event()["attachments"].is_array()) {
         m_has_attachments = true;
@@ -79,10 +81,10 @@ simdjson::dom::object& vk::event::wall_post_new::get_event() const
     return *m_event_json;
 }
 
-vk::attachment::attachments_t vk::event::wall_post_new::attachments() const
+std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_post_new::attachments() const
 {
     if (m_has_attachments) {
-        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
+        return event::get_attachments(get_event()["attachments"].get_array());
     } else {
         throw exception::access_error(-1 ,"Attempting accessing empty attachment list.");
     }
@@ -100,7 +102,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
             repost_json["text"].get_c_str().take_value());
 
         if (repost_json["attachments"].is_array() && repost_json["attachments"].get_array().size() > 0) {
-            repost->construct_attachments(m_attachment_handler.try_get(repost_json["attachments"].get_array()));
+            repost->construct_attachments(event::get_attachments(repost_json["attachments"].get_array()));
         }
 
         return repost;

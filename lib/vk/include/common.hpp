@@ -21,14 +21,6 @@
 #include "vk/include/keyboard/flags.hpp"
 #include "vk/include/keyboard/layout.hpp"
 #include "vk/include/long_poll/api.hpp"
-#include "vk/include/methods/audio.hpp"
-#include "vk/include/methods/docs.hpp"
-#include "vk/include/methods/groups.hpp"
-#include "vk/include/methods/messages.hpp"
-#include "vk/include/methods/photos.hpp"
-#include "vk/include/methods/utils.hpp"
-#include "vk/include/methods/video.hpp"
 #include "vk/include/oauth/client.hpp"
-
 
 #endif// VK_COMMON_HPP

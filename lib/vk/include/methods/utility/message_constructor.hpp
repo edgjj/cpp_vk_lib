@@ -4,6 +4,8 @@
 #include "vk/include/attachment/attachment.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
+#include <vector>
+
 namespace vk {
 namespace method {
 /*!
@@ -22,11 +24,11 @@ public:
      * Move or copy is your choice.
      */
     message_constructor& append_map(std::map<std::string, std::string> additional_params);
-    message_constructor& attachments(attachment::attachments_t attachments);
-    std::string execute();
+    message_constructor& attachments(std::vector<attachment::attachment_ptr_t> attachments);
+    std::string perform_request();
 
 private:
-    std::string append_attachments_impl(attachment::attachments_t attachments) const;
+    std::string append_attachments_impl(std::vector<attachment::attachment_ptr_t> attachments) const;
 
     group_constructor m_constructor;
 };

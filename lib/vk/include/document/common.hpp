@@ -4,6 +4,8 @@
 #include "vk/include/attachment/attachment.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
+#include <vector>
+
 namespace simdjson {
 namespace dom {
 class parser;
@@ -35,7 +37,7 @@ public:
      * @param count     - maximum count of documents to search
      * @return vector of attachments.
      */
-    vk::attachment::attachments_t search(std::string_view method, std::string_view query, int64_t count) const;
+    std::vector<vk::attachment::attachment_ptr_t> search(std::string_view method, std::string_view query, int64_t count) const;
 
 private:
     std::shared_ptr<simdjson::dom::parser> m_parser;

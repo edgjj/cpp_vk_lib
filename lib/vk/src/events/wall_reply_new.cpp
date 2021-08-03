@@ -1,15 +1,17 @@
 #include "vk/include/events/wall_reply_new.hpp"
+
+#include "vk/include/events/handlers/attachment_handler.hpp"
 #include "vk/include/exception/error-inl.hpp"
 
 #include "runtime/include/misc/cppdefs.hpp"
 
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 vk::event::wall_reply_new::~wall_reply_new() = default;
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object&& event)
     : m_event_json(std::make_shared<simdjson::dom::object>(std::move(event)))
-    , m_attachment_handler()
 {
     if (get_event()["attachments"].is_array() && get_event()["attachments"].get_array().size() > 0) {
         m_has_attachments = true;
@@ -54,10 +56,10 @@ bool vk::event::wall_reply_new::has_attachments() const noexcept
     return m_has_attachments;
 }
 
-vk::attachment::attachments_t vk::event::wall_reply_new::attachments() const
+std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_reply_new::attachments() const
 {
     if (m_has_attachments) {
-        return m_attachment_handler.try_get(get_event()["attachments"].get_array());
+        return event::get_attachments(get_event()["attachments"].get_array());
     } else {
         throw exception::access_error(-1, "Attempting accessing empty attachment list");
     }

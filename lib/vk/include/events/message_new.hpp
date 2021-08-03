@@ -1,8 +1,10 @@
 #ifndef VK_EVENTS_MESSAGE_NEW_HPP
 #define VK_EVENTS_MESSAGE_NEW_HPP
 
-#include "vk/include/events/handlers/attachment_handler.hpp"
+#include "vk/include/attachment/attachment.hpp"
 #include "vk/include/events/handlers/message_action_handler.hpp"
+
+#include <vector>
 
 namespace simdjson {
 namespace dom {
@@ -42,7 +44,7 @@ public:
      * @throws exception::access_error in case, when object hasn't attachments.
      * @note In case, when no attachments were provided, empty vector returned.
      */
-    attachment::attachments_t attachments() const;
+    std::vector<attachment::attachment_ptr_t> attachments() const;
 
     bool on_action(std::string_view action_type) const noexcept;
 
@@ -60,7 +62,6 @@ private:
 
     std::shared_ptr<simdjson::dom::object> m_event_json;
     action::any_action_t m_action;
-    attachment_handler m_attachment_handler;
     bool m_has_action = false;
     bool m_has_reply = false;
     bool m_has_fwd_messages = false;

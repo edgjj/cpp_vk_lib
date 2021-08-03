@@ -19,7 +19,7 @@ vk::event::wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_i
     spdlog::info("\tattachments: {}", m_attachments.size());
 }
 
-void vk::event::wall_repost::construct_attachments(attachment::attachments_t&& attachments)
+void vk::event::wall_repost::construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
     m_attachments = attachments;
 }
@@ -44,7 +44,7 @@ const std::string& vk::event::wall_repost::text() const noexcept
     return m_text;
 }
 
-const vk::attachment::attachments_t& vk::event::wall_repost::attachments() const noexcept
+const std::vector<vk::attachment::attachment_ptr_t>& vk::event::wall_repost::attachments() const noexcept
 {
     return m_attachments;
 }

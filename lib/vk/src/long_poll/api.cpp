@@ -1,41 +1,44 @@
 #include "vk/include/long_poll/api.hpp"
 
 #include "vk/include/config/loader.hpp"
+#include "vk/include/methods/basic.hpp"
+#include "vk/include/methods/utility/constructor.hpp"
+#include "vk/include/exception/error-inl.hpp"
 
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
-vk::long_poll::api::api(int64_t update_interval)
-    : m_parser(std::make_shared<simdjson::dom::parser>())
+vk::long_poll::long_poll()
+    : m_parser(std::make_unique<simdjson::dom::parser>())
     , m_stored_error()
     , m_task_queue(vk::config::num_workers())
-    , m_raw_method()
-    , m_groups(m_stored_error)
-    , m_group_id(m_groups.get_by_id())
-    , m_update_interval(update_interval)
 {
-    spdlog::info("long poll group: - {}", m_group_id);
+    m_group_id = vk::method::groups::get_by_id(m_stored_error);
+    if (m_stored_error) { throw std::runtime_error("error retrieve group id"); }
+
+    spdlog::info("long poll group: {}", m_group_id);
 }
 
-vk::long_poll::data vk::long_poll::api::server() const
+vk::long_poll::~long_poll() = default;
+
+vk::long_poll_data vk::long_poll::server() const
 {
-    const simdjson::dom::object server_object = m_groups.get_long_poll_server(m_group_id);
-    if (m_stored_error) { spdlog::error("Failed to get long poll server"); return {}; }
+    const std::string data = method::groups::get_long_poll_server(m_group_id);
+    const simdjson::dom::object server_object = m_parser->parse(data)["response"];
+    if (m_stored_error) { throw std::runtime_error("Failed to get long poll server"); }
 
-    const std::string key = server_object["key"].get_c_str().take_value();
-    const std::string server = server_object["server"].get_c_str().take_value();
-    const std::string ts = server_object["ts"].get_c_str().take_value();
-
-    return { key, server, ts };
+    return {
+        std::string(server_object["key"]),
+        std::string(server_object["server"]),
+        std::string(server_object["ts"])
+    };
 }
 
-vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& data, int8_t timeout) const
+std::vector<vk::event::common> vk::long_poll::listen(vk::long_poll_data& data, int8_t timeout) const
 {
     spdlog::info("long poll: ts {} timeout {}", data.ts, timeout);
 
-    events_t event_list;
-
-    const std::string response = m_raw_method
+    const std::string response = method::raw_constructor()
         .method(data.server + "?")
         .param("act", "a_check")
         .param("key", data.key)
@@ -43,21 +46,21 @@ vk::long_poll::api::events_t vk::long_poll::api::listen(vk::long_poll::data& dat
         .param("wait", std::to_string(timeout))
         .perform_request();
 
-    const simdjson::dom::object parsed_response = m_parser->parse(response);
+    simdjson::dom::object parsed_response = m_parser->parse(response);
 
-    if (std::time(nullptr) % m_update_interval == 0) {
-        data = server();
+    std::vector<vk::event::common> event_list;
+    std::string ts(parsed_response["ts"]);
+
+    for (auto&& update : parsed_response["updates"]) {
+        event_list.emplace_back(ts, std::move(update));
     }
 
-    for (auto&& update : parsed_response["updates"].get_array()) {
-        event_list.push_back(std::make_unique<vk::event::common>(parsed_response["ts"].get_string(), std::move(update)));
-    }
+    data.ts = std::move(ts);
 
-    data.ts = parsed_response["ts"].get_c_str().take_value();
     return event_list;
 }
 
-void vk::long_poll::api::run()
+void vk::long_poll::run()
 {
     m_task_queue.start();
     m_task_queue.wait_for_completion();

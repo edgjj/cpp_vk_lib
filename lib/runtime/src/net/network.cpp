@@ -23,6 +23,7 @@ static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb)
 static std::string create_parameters(const std::map<std::string, std::string>& body)
 {
     static constexpr size_t average_word_length = 20;
+
     std::string result;
     result.reserve(average_word_length * body.size() * 2);
 

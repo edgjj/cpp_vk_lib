@@ -28,9 +28,9 @@ static void search_attachments(int32_t items_size, ExecutionPolicy&& adding_poli
     }
 }
 
-vk::attachment::attachments_t vk::document::common::search(std::string_view method, std::string_view query, int64_t count) const
+std::vector<vk::attachment::attachment_ptr_t> vk::document::common::search(std::string_view method, std::string_view query, int64_t count) const
 {
-    vk::attachment::attachments_t documents;
+    std::vector<vk::attachment::attachment_ptr_t> documents;
 
     const std::string raw_response = m_group_constructor
         .method(method)

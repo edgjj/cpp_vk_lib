@@ -1,6 +1,6 @@
 #include "vk/include/oauth/client.hpp"
 
-#include "vk/include/exception/error-inl.hpp"
+#include "vk/include/exception/exception.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
 #include "simdjson.h"

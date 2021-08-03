@@ -1,7 +1,9 @@
 #ifndef VK_EVENTS_WALL_REPLY_NEW_HPP
 #define VK_EVENTS_WALL_REPLY_NEW_HPP
 
-#include "vk/include/events/handlers/attachment_handler.hpp"
+#include "vk/include/attachment/attachment.hpp"
+
+#include  <vector>
 
 namespace simdjson {
 namespace dom {
@@ -29,13 +31,12 @@ public:
     int64_t owner_id() const noexcept;
     std::string text() const noexcept;
     bool has_attachments() const noexcept;
-    attachment::attachments_t attachments() const;
+    std::vector<attachment::attachment_ptr_t> attachments() const;
 
 private:
     simdjson::dom::object& get_event() const;
 
     std::shared_ptr<simdjson::dom::object> m_event_json;
-    attachment_handler m_attachment_handler;
     bool m_has_attachments = false;
 };
 

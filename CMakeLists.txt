@@ -21,3 +21,6 @@ add_subdirectory(dependencies)
 add_subdirectory(lib)
 
 include(cmake/testing.cmake)
+
+add_executable(long_poll_example test/long_poll/long_poll.cpp)
+target_link_libraries(long_poll_example cpp_vk_lib)

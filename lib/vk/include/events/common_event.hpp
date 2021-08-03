@@ -28,7 +28,6 @@ public:
 
     /*!
      * @brief Check if event matches @param type.
-     * @param type
      */
     bool on_type(std::string_view type) const noexcept;
 

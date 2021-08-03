@@ -3,6 +3,8 @@
 
 #include "vk/include/attachment/attachment.hpp"
 
+#include <vector>
+
 namespace vk {
 namespace event {
 /*!
@@ -17,20 +19,20 @@ class wall_repost
 public:
     wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text);
 
-    void construct_attachments(attachment::attachments_t&& attachments);
+    void construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments);
 
     int64_t id() const noexcept;
     int64_t from_id() const noexcept;
     int64_t owner_id() const noexcept;
     const std::string& text() const noexcept;
-    const attachment::attachments_t& attachments() const noexcept;
+    const std::vector<vk::attachment::attachment_ptr_t>& attachments() const noexcept;
 
 private:
     int64_t m_id;
     int64_t m_from_id;
     int64_t m_owner_id;
     std::string m_text;
-    attachment::attachments_t m_attachments;
+    std::vector<vk::attachment::attachment_ptr_t> m_attachments;
 };
 
 }// namespace event

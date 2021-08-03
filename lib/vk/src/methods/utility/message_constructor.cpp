@@ -25,18 +25,18 @@ vk::method::message_constructor& vk::method::message_constructor::append_map(std
     return *this;
 }
 
-vk::method::message_constructor& vk::method::message_constructor::attachments(attachment::attachments_t attachments)
+vk::method::message_constructor& vk::method::message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t> attachments)
 {
     param("attachment", append_attachments_impl(std::move(attachments)).data());
     return *this;
 }
 
-std::string vk::method::message_constructor::execute()
+std::string vk::method::message_constructor::perform_request()
 {
     return m_constructor.perform_request();
 }
 
-std::string vk::method::message_constructor::append_attachments_impl(attachment::attachments_t attachments) const
+std::string vk::method::message_constructor::append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t> attachments) const
 {
     std::string result;
     result.reserve(attachments.size() * 20);
