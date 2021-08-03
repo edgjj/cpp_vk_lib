@@ -26,8 +26,7 @@ constexpr char sample_config[] = R"__(
 
 int main()
 {
-    std::ofstream("config.json") << sample_config;
-    vk::config::load("config.json");
+    vk::config::load_string(sample_config);
     vk::log_level::trace();
 
     const std::size_t lp_timeout_secs = 60;
@@ -39,8 +38,7 @@ int main()
         auto events = api.listen(data, lp_timeout_secs);
 
         for (auto& event : events) {
-            api.on_event("message_new", event, [&event] {
-                auto message_event = event.get_message_event();
+            api.on_event("message_new", event, [] {
                 vk::method::messages::send(vk::method::utility::chat_id_constant + 1, "response");
             });
         }

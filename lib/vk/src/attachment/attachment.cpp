@@ -6,15 +6,13 @@ vk::attachment::base::base(std::string_view type, int32_t owner_id, int32_t id) 
 
 std::string vk::attachment::base::value() const { return runtime::string_utils::format("{}{}_{}", m_attachment_type, m_owner_id, m_id); }
 
-const std::string& vk::attachment::base::type() const noexcept{ return m_attachment_type; }
+const std::string& vk::attachment::base::type() const noexcept { return m_attachment_type; }
 
 vk::attachment::photo::photo(int32_t owner_id, int32_t id) : base("photo", owner_id, id) {}
 vk::attachment::video::video(int32_t owner_id, int32_t id) : base("video", owner_id, id) {}
 vk::attachment::audio::audio(int32_t owner_id, int32_t id) : base("audio", owner_id, id) {}
 
-vk::attachment::document::document(int32_t owner_id, int32_t id, std::string_view url)
-    : base("doc", owner_id, id)
-    , m_raw_url(url) {}
+vk::attachment::document::document(int32_t owner_id, int32_t id, std::string_view url) : base("doc", owner_id, id), m_raw_url(url) {}
 
 const std::string& vk::attachment::document::raw_url() const noexcept { return m_raw_url; }
 
