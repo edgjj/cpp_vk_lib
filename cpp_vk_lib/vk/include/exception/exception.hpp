@@ -2,6 +2,7 @@
 #define VK_EXCEPTION_HPP
 
 #include <stdexcept>
+#include <string>
 #include <string_view>
 
 namespace vk {
