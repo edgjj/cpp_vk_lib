@@ -17,8 +17,10 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
 option(CPP_VK_LIB_STATIC_BUILD "Link cpp_vk_lib as static library" OFF)
 
+message("-- CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
+
 add_subdirectory(dependencies)
-add_subdirectory(lib)
+add_subdirectory(cpp_vk_lib)
 
 include(cmake/testing.cmake)
 

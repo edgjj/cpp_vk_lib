@@ -1,5 +1,6 @@
 #include "vk/include/long_poll/api.hpp"
 #include "vk/include/methods/basic.hpp"
+#include "vk/include/events/message_new.hpp"
 
 #include "vk/include/config/loader.hpp"
 #include "vk/include/log_level.hpp"
@@ -38,8 +39,9 @@ int main()
         auto events = api.listen(data, lp_timeout_secs);
 
         for (auto& event : events) {
-            api.on_event("message_new", event, [] {
-                vk::method::messages::send(vk::method::utility::chat_id_constant + 1, "response");
+            api.on_event("message_new", event, [&event] {
+                vk::event::message_new message_event = event.get_message_new();
+                vk::method::messages::send(message_event.peer_id(), "response");
             });
         }
         api.run();
