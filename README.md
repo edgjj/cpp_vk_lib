@@ -29,28 +29,50 @@ Also, of course, you can make PR.
 ## Example reply bot
 
 ```
-#include "cpp_vk_lib/long_poll/api.hpp"
-#include "cpp_vk_lib/methods/messages.hpp"
+#include "vk/include/config/loader.hpp"
+#include "vk/include/events/message_new.hpp"
+#include "vk/include/long_poll/api.hpp"
+#include "vk/include/log_level.hpp"
+#include "vk/include/methods/basic.hpp"
+#include "vk/include/methods/utility/utility.hpp"
+
+#include <fstream>
+
+constexpr char sample_config[] = R"__(
+    {
+      "api": {
+        "access_token": "token",
+        "user_token": "not used here"
+      },
+      "oauth": {
+        "login": "not used here",
+        "password": "not used here"
+      },
+      "environment": {
+        "num_workers": 8,
+        "log_path": "logs.txt"
+      }
+    }
+)__";
 
 int main()
 {
-    const std::size_t new_server_interval_secs = 5;
-    const std::size_t lp_timeout_secs = 60;
+    vk::config::load_string(sample_config);
+    vk::log_level::trace();
 
-    vk::config::load("/path/to/config.json");
-    vk::long_poll::api api(new_server_interval_secs);
-    vk::long_poll::data data = api.server();
-    vk::method::messages messages(vk::method::messages::disable_mentions);
-    while (true)
-    {
-        for (auto&& event : api.listen(data, lp_timeout_secs))
-	{
-            api.on_event("message_new", *event, [&event, &messages]{
-                auto message_event = event->get_message_event();
-                messages.send(message_event.peer_id(), "response");
+    vk::long_poll api;
+    vk::long_poll_data data = api.server();
+    
+    while (true) {
+        auto events = api.listen(data, /*lp_timeout=*/lp_timeout_secs);
+
+        for (auto& event : events) {
+            api.on_event("message_new", event, [&event] {
+                vk::event::message_new message_event = event.get_message_new();
+                vk::method::messages::send(message_event.peer_id(), "Hello from cpp_vk_lib");
             });
-            api.run();
-	}
+        }
+        api.run();
     }
 }
 
@@ -58,9 +80,10 @@ int main()
 
 ## TODO
 
-* Windows build without external dependencies
+* User Long Poll
+* API for chat-bots with Python scripting
 * More examples
-* Carefully documented API
+* Windows build without external dependencies
 
 ## Contributors
 
