@@ -8,7 +8,8 @@ namespace runtime {
 namespace string_utils {
 namespace implementation {
 
-inline std::vector<std::string_view> split(std::string_view data, char delimiter)
+template <typename Delimiter>
+inline std::vector<std::string_view> split_implementation(std::string_view data, Delimiter&& delimiter)
 {
     std::vector<std::string_view> splitted;
     splitted.reserve(data.length() / 4);
@@ -19,13 +20,23 @@ inline std::vector<std::string_view> split(std::string_view data, char delimiter
             return splitted;
         }
         data = data.substr(pos);
-        pos = data.find(delimiter);
+        pos = data.find_first_of(delimiter);
         splitted.emplace_back(data.substr(0, pos));
         data = data.substr(pos == std::string_view::npos ? 0 : pos);
     }
     splitted.shrink_to_fit();
     return splitted;
 }
+
+//inline std::vector<std::string_view> split(std::string_view data, char delimiter)
+//{
+//    return split_implementation(data, delimiter);
+//}
+//
+//inline std::vector<std::string_view> whitespace_split(std::string_view data)
+//{
+//    return split_implementation(data, " \f\n\r\t\v");
+//}
 
 }// namespace implementation
 }// namespace string_utils

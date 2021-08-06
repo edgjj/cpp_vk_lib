@@ -126,6 +126,17 @@ TEST(split, split)
     ASSERT_EQ(util::split("text1,text2,text3", ','), v5);
 }
 
+TEST(split, whitespace_split)
+{
+    const std::vector<std::string_view> v1{"1", "2", "3"};
+    const std::vector<std::string_view> v2{"!", "?", ":"};
+    const std::vector<std::string_view> v3{"1"};
+
+    ASSERT_EQ(util::whitespace_split("1\n\n\n\t\r\v\f2   3"), v1);
+    ASSERT_EQ(util::whitespace_split("!\n\n\n\t\r\v\f?\n\n\n\t\r\v\f:"), v2);
+    ASSERT_EQ(util::whitespace_split("\n\n\n\t\r\v\f1\n\n\n\t\r\v\f"), v3);
+}
+
 int main(int argc, char* argv[])
 {
     testing::InitGoogleTest(&argc, argv);
