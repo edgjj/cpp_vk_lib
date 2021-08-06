@@ -77,7 +77,7 @@ void runtime::processing::task_queue::set_default_exception_handler()
         } catch (std::exception& ex) {
             std::ostringstream stream;
             stream << std::this_thread::get_id();
-            spdlog::warn("task queue: exception from thread {}", stream.str());
+            spdlog::warn("task queue: exception from thread {}: {}", stream.str(), ex.what());
         } catch (...) {
             spdlog::warn("task queue: unknown exception");
         }
