@@ -28,16 +28,6 @@ inline std::vector<std::string_view> split_implementation(std::string_view data,
     return splitted;
 }
 
-//inline std::vector<std::string_view> split(std::string_view data, char delimiter)
-//{
-//    return split_implementation(data, delimiter);
-//}
-//
-//inline std::vector<std::string_view> whitespace_split(std::string_view data)
-//{
-//    return split_implementation(data, " \f\n\r\t\v");
-//}
-
 }// namespace implementation
 }// namespace string_utils
 }// namespace runtime
