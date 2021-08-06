@@ -14,10 +14,10 @@ namespace runtime {
 namespace string_utils {
 
 template <typename T, typename Container>
-VK_REALLY_INLINE std::string join(Container&& elements, char delimiter = ',') { return implementation::join<T>(std::forward<Container>(elements), delimiter); }
+VK_REALLY_INLINE std::string join(Container&& elements, char delimiter) { return implementation::join<T>(std::forward<Container>(elements), delimiter); }
 
 template <typename T>
-VK_REALLY_INLINE std::string join(std::initializer_list<T> elements, char delimiter = ',') { return implementation::join<T>(elements, delimiter); }
+VK_REALLY_INLINE std::string join(std::initializer_list<T> elements, char delimiter) { return implementation::join<T>(elements, delimiter); }
 
 template <typename... Args>
 VK_REALLY_INLINE std::string format(std::string_view data, Args&&... args) { return implementation::format(data, std::forward<Args>(args)...); }

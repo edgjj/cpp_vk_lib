@@ -57,7 +57,7 @@ TEST(format, format)
     ASSERT_EQ(util::format("arg1: {}, arg2: {}, arg3: {}", 1, 2, 3), "arg1: 1, arg2: 2, arg3: 3");
     ASSERT_EQ(util::format("arg1: {}, arg2: {}, arg3: {}", 1ULL, 2ULL, 3ULL), "arg1: 1, arg2: 2, arg3: 3");
 
-    std::string_view text = "1";
+    const std::string_view text = "1";
 
     ASSERT_EQ(util::format("text: {}", text), "text: 1");
     ASSERT_EQ(util::format("arg1: {}, arg2: {}, arg3: {}", text, text, text), "arg1: 1, arg2: 1, arg3: 1");
@@ -65,59 +65,59 @@ TEST(format, format)
 
 TEST(join, initializer_list)
 {
-    ASSERT_EQ(util::join({1, 2, 3}), "1,2,3");
-    ASSERT_EQ(util::join({1ULL, 2ULL, 3ULL}), "1,2,3");
-    ASSERT_EQ(util::join({1, 2, 3}), "1,2,3");
-    ASSERT_EQ(util::join({"1", "2", "3"}), "1,2,3");
+    ASSERT_EQ(util::join({1, 2, 3}, ','), "1,2,3");
+    ASSERT_EQ(util::join({1ULL, 2ULL, 3ULL}, ','), "1,2,3");
+    ASSERT_EQ(util::join({1, 2, 3}, ','), "1,2,3");
+    ASSERT_EQ(util::join({"1", "2", "3"}, ','), "1,2,3");
 }
 
 TEST(join, vector)
 {
-    std::vector<std::string> string_container{"1", "2", "3"};
-    std::vector<int> int_container{1, 2, 3};
-    ASSERT_EQ(util::join<std::string>(string_container), "1,2,3");
-    ASSERT_EQ(util::join<int>(int_container), "1,2,3");
+    const std::vector<std::string> string_container{"1", "2", "3"};
+    const std::vector<int> int_container{1, 2, 3};
+    ASSERT_EQ(util::join<std::string>(string_container, ','), "1,2,3");
+    ASSERT_EQ(util::join<int>(int_container, ','), "1,2,3");
 }
 
 TEST(join, deque)
 {
-    std::deque<std::string> string_container{"1", "2", "3"};
-    std::deque<int> int_container{1, 2, 3};
-    ASSERT_EQ(util::join<std::string>(string_container), "1,2,3");
-    ASSERT_EQ(util::join<int>(int_container), "1,2,3");
+    const std::deque<std::string> string_container{"1", "2", "3"};
+    const std::deque<int> int_container{1, 2, 3};
+    ASSERT_EQ(util::join<std::string>(string_container, ','), "1,2,3");
+    ASSERT_EQ(util::join<int>(int_container, ','), "1,2,3");
 }
 
 TEST(join, list)
 {
-    std::list<std::string> string_container{"1", "2", "3"};
-    std::list<int> int_container{1, 2, 3};
-    ASSERT_EQ(util::join<std::string>(string_container), "1,2,3");
-    ASSERT_EQ(util::join<int>(int_container), "1,2,3");
+    const std::list<std::string> string_container{"1", "2", "3"};
+    const std::list<int> int_container{1, 2, 3};
+    ASSERT_EQ(util::join<std::string>(string_container, ','), "1,2,3");
+    ASSERT_EQ(util::join<int>(int_container, ','), "1,2,3");
 }
 
 TEST(join, forward_list)
 {
-    std::forward_list<std::string> string_container{"1", "2", "3"};
-    std::forward_list<int> int_container{1, 2, 3};
-    ASSERT_EQ(util::join<std::string>(string_container), "1,2,3");
-    ASSERT_EQ(util::join<int>(int_container), "1,2,3");
+    const std::forward_list<std::string> string_container{"1", "2", "3"};
+    const std::forward_list<int> int_container{1, 2, 3};
+    ASSERT_EQ(util::join<std::string>(string_container, ','), "1,2,3");
+    ASSERT_EQ(util::join<int>(int_container, ','), "1,2,3");
 }
 
 TEST(join, array)
 {
-    std::array<std::string, 3> string_container{"1", "2", "3"};
-    std::array<int, 3> int_container{1, 2, 3};
-    ASSERT_EQ(util::join<std::string>(string_container), "1,2,3");
-    ASSERT_EQ(util::join<int>(int_container), "1,2,3");
+    const std::array<std::string, 3> string_container{"1", "2", "3"};
+    const std::array<int, 3> int_container{1, 2, 3};
+    ASSERT_EQ(util::join<std::string>(string_container, ','), "1,2,3");
+    ASSERT_EQ(util::join<int>(int_container, ','), "1,2,3");
 }
 
 TEST(split, split)
 {
-    std::vector<std::string_view> v1{"1", "2", "3"};
-    std::vector<std::string_view> v2{"!", "?", ":"};
-    std::vector<std::string_view> v3{"1"};
-    std::vector<std::string_view> v4{"1", "1", "1", "1"};
-    std::vector<std::string_view> v5{"text1", "text2", "text3"};
+    const std::vector<std::string_view> v1{"1", "2", "3"};
+    const std::vector<std::string_view> v2{"!", "?", ":"};
+    const std::vector<std::string_view> v3{"1"};
+    const std::vector<std::string_view> v4{"1", "1", "1", "1"};
+    const std::vector<std::string_view> v5{"text1", "text2", "text3"};
 
     ASSERT_EQ(util::split("1 2 3", ' '), v1);
     ASSERT_EQ(util::split("! ? :", ' '), v2);

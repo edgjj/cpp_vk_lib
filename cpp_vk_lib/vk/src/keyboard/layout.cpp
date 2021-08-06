@@ -55,10 +55,10 @@ void vk::keyboard::layout::serialize()
             return create_button(button);
         });
 
-        serialized_rows.push_back('[' + runtime::string_utils::join<std::string>(serialized_buttons) + ']');
+        serialized_rows.push_back('[' + runtime::string_utils::join<std::string>(serialized_buttons, ',') + ']');
     }
 
-    m_serialized += runtime::string_utils::join<std::string>(serialized_rows);
+    m_serialized += runtime::string_utils::join<std::string>(serialized_rows, ',');
 
     m_serialized.append("]}");
 }
