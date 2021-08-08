@@ -19,11 +19,11 @@ option(CPP_VK_LIB_STATIC_BUILD "Link cpp_vk_lib as static library" OFF)
 
 message("-- CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 
-add_subdirectory(dependencies)
+add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
 
 include(cmake/testing.cmake)
 
-include_directories(dependencies/asio/asio/include)
+include_directories(modules/asio/asio/include)
 add_executable(long_poll_example test/long_poll/long_poll.cpp)
 target_link_libraries(long_poll_example cpp_vk_lib)

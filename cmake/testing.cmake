@@ -1,6 +1,6 @@
 find_library(cpp_vk_lib HINTS "${CMAKE_CURRENT_SOURCE_DIR}/lib")
 include_directories(cpp_vk_lib)
-include_directories(dependencies/spdlog/include)
+include_directories(modules/spdlog/include)
 
 enable_testing()
 
