@@ -14,6 +14,8 @@ endif()
 
 target_link_libraries(cpp_vk_lib curl curlpp simdjson)
 
-target_include_directories(cpp_vk_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+set (CMAKE_INCLUDE_CURRENT_DIR ON)
+#target_include_directories(cpp_vk_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(cpp_vk_lib PRIVATE ../dependencies/curlpp/include)
 target_include_directories(cpp_vk_lib PRIVATE ../dependencies/spdlog/include)
+include_directories(../dependencies/asio/asio/include)

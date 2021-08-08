@@ -4,9 +4,6 @@
 
 #include "vk/include/config/loader.hpp"
 #include "vk/include/log_level.hpp"
-#include "vk/include/methods/utility/utility.hpp"
-
-#include <fstream>
 
 constexpr char sample_config[] = R"__(
     {
@@ -31,8 +28,9 @@ int main()
     vk::log_level::trace();
 
     const std::size_t lp_timeout_secs = 60;
+    asio::io_context io_context;
 
-    vk::long_poll api;
+    vk::long_poll api(io_context);
     vk::long_poll_data data = api.server();
 
     while (true) {

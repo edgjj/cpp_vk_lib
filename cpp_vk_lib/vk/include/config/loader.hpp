@@ -15,7 +15,7 @@ std::string username();
 std::string user_token();
 std::string access_token();
 std::string log_path();
-int64_t num_workers();
+size_t num_workers();
 
 }// namespace config
 }// namespace vk

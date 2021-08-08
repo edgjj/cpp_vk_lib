@@ -10,3 +10,6 @@
 [submodule "dependencies/curlpp"]
 	path = dependencies/curlpp
 	url = https://github.com/jpbarrette/curlpp.git
+[submodule "dependencies/asio"]
+	path = dependencies/asio
+	url = https://github.com/chriskohlhoff/asio.git

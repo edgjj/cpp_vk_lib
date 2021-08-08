@@ -8,10 +8,10 @@
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
-vk::long_poll::long_poll()
+vk::long_poll::long_poll(asio::io_context& io_context)
     : m_parser(std::make_unique<simdjson::dom::parser>())
     , m_stored_error()
-    , m_task_queue(vk::config::num_workers())
+    , m_io_context(io_context)
 {
     m_group_id = vk::method::groups::get_by_id(m_stored_error);
     if (m_stored_error) { throw std::runtime_error("error retrieve group id"); }
@@ -62,6 +62,14 @@ std::vector<vk::event::common> vk::long_poll::listen(vk::long_poll_data& data, i
 
 void vk::long_poll::run()
 {
-    m_task_queue.start();
-    m_task_queue.wait_for_completion();
+    std::vector<std::thread> threads;
+    for (size_t i = 0; i < vk::config::num_workers(); ++i) {
+        threads.emplace_back([this] { m_io_context.run(); });
+    }
+    m_io_context.run();
+    for (auto& t : threads) {
+        t.join();
+    }
+    threads.clear();
+    m_io_context.restart();
 }

@@ -99,4 +99,4 @@ std::string vk::config::username()     { return loader::get()->username(); }
 std::string vk::config::user_token()   { return loader::get()->user_token(); }
 std::string vk::config::access_token() { return loader::get()->access_token(); }
 std::string vk::config::log_path()     { return loader::get()->log_path(); }
-int64_t vk::config::num_workers()      { return loader::get()->num_workers(); }
+size_t vk::config::num_workers()       { return loader::get()->num_workers(); }
