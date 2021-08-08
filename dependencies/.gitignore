@@ -1,7 +1,0 @@
-*.so
-CMakeCache.txt
-cmake_install.cmake
-CMakeFiles
-Makefile
-config.json
-.cmake/
