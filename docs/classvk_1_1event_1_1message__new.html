@@ -80,8 +80,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f93baef656f7488e8d3ec6f59f43349"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#a7f93baef656f7488e8d3ec6f59f43349">message_new</a> (simdjson::dom::object &amp;&amp;event)</td></tr>
-<tr class="separator:a7f93baef656f7488e8d3ec6f59f43349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab11fbb9f3d29750c21f0053c16214738"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#ab11fbb9f3d29750c21f0053c16214738">message_new</a> (simdjson::dom::object event)</td></tr>
+<tr class="separator:ab11fbb9f3d29750c21f0053c16214738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19d40443befc39adff0a247012123c56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#a19d40443befc39adff0a247012123c56">~message_new</a> ()</td></tr>
 <tr class="separator:a19d40443befc39adff0a247012123c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3b1f1fa46b8ec0964e57af24e1716f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classvk_1_1event_1_1message__new.html">message_new</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#a0b3b1f1fa46b8ec0964e57af24e1716f">reply</a> () const</td></tr>
@@ -90,8 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac5da90e401ae4f946a867d9dc795e035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbbc806d47e18b6ab8d83081263a65ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacevk_1_1action.html#a3aa4b904598a946899775e7927ce88ba">action::any_action_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#acbbc806d47e18b6ab8d83081263a65ba">action</a> () const</td></tr>
 <tr class="separator:acbbc806d47e18b6ab8d83081263a65ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecbaf001c49386810a482d2b6345cc08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">attachment::attachments_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#aecbaf001c49386810a482d2b6345cc08">attachments</a> () const</td></tr>
-<tr class="separator:aecbaf001c49386810a482d2b6345cc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbfd5e34fc4454048eadd3e875b124d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacevk_1_1attachment.html#aff05c86e6de0077b6b862d30a6554ab6">attachment::attachment_ptr_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#aafbfd5e34fc4454048eadd3e875b124d">attachments</a> () const</td></tr>
+<tr class="separator:aafbfd5e34fc4454048eadd3e875b124d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb43f3c812808c5a30a72e746d024743"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#abb43f3c812808c5a30a72e746d024743">on_action</a> (std::string_view action_type) const noexcept</td></tr>
 <tr class="separator:abb43f3c812808c5a30a72e746d024743"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c6e7ecddc4654ed3a503790fb8e2da9"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#a7c6e7ecddc4654ed3a503790fb8e2da9">conversation_message_id</a> () const noexcept</td></tr>
@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The <code><a class="el" href="classvk_1_1event_1_1message__new.html" title="The message_new event representation.">message_new</a></code> event representation. </p>
 <p>Internal information accessed in a "lazy way". It means, that no data is extracted from JSON until the user wants to access it, and there's meaningless to construct all attachment, reply and forwarded messages objects in the case you only need message text. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7f93baef656f7488e8d3ec6f59f43349"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f93baef656f7488e8d3ec6f59f43349">&#9670;&nbsp;</a></span>message_new()</h2>
+<a id="ab11fbb9f3d29750c21f0053c16214738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab11fbb9f3d29750c21f0053c16214738">&#9670;&nbsp;</a></span>message_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">vk::event::message_new::message_new </td>
           <td>(</td>
-          <td class="paramtype">simdjson::dom::object &amp;&amp;&#160;</td>
+          <td class="paramtype">simdjson::dom::object&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
@@ -131,7 +131,7 @@ Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1event_1_1message__new_a7f93baef656f7488e8d3ec6f59f43349_cgraph.png" border="0" usemap="#aclassvk_1_1event_1_1message__new_a7f93baef656f7488e8d3ec6f59f43349_cgraph" alt=""/></div>
+<div class="center"><img src="classvk_1_1event_1_1message__new_ab11fbb9f3d29750c21f0053c16214738_cgraph.png" border="0" usemap="#aclassvk_1_1event_1_1message__new_ab11fbb9f3d29750c21f0053c16214738_cgraph" alt=""/></div>
 </div>
 
 </div>
@@ -190,14 +190,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aecbaf001c49386810a482d2b6345cc08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecbaf001c49386810a482d2b6345cc08">&#9670;&nbsp;</a></span>attachments()</h2>
+<a id="aafbfd5e34fc4454048eadd3e875b124d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafbfd5e34fc4454048eadd3e875b124d">&#9670;&nbsp;</a></span>attachments()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacevk_1_1attachment.html#a05588712dbb7751a10ec8296aaffc444">vk::attachment::attachments_t</a> vk::event::message_new::attachments </td>
+          <td class="memname">std::vector&lt; <a class="el" href="namespacevk_1_1attachment.html#aff05c86e6de0077b6b862d30a6554ab6">vk::attachment::attachment_ptr_t</a> &gt; vk::event::message_new::attachments </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -212,9 +212,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>In case, when no attachments were provided, empty vector returned. </dd></dl>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classvk_1_1event_1_1message__new_aafbfd5e34fc4454048eadd3e875b124d_cgraph.png" border="0" usemap="#aclassvk_1_1event_1_1message__new_aafbfd5e34fc4454048eadd3e875b124d_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classvk_1_1event_1_1message__new_aecbaf001c49386810a482d2b6345cc08_icgraph.png" border="0" usemap="#aclassvk_1_1event_1_1message__new_aecbaf001c49386810a482d2b6345cc08_icgraph" alt=""/></div>
+<div class="center"><img src="classvk_1_1event_1_1message__new_aafbfd5e34fc4454048eadd3e875b124d_icgraph.png" border="0" usemap="#aclassvk_1_1event_1_1message__new_aafbfd5e34fc4454048eadd3e875b124d_icgraph" alt=""/></div>
 </div>
 
 </div>

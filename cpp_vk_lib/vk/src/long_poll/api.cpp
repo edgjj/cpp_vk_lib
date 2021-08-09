@@ -9,23 +9,23 @@
 #include "spdlog/spdlog.h"
 
 vk::long_poll::long_poll(asio::io_context& io_context)
-    : m_parser(std::make_unique<simdjson::dom::parser>())
-    , m_stored_error()
-    , m_io_context(io_context)
+    : parser_(std::make_unique<simdjson::dom::parser>())
+    , errc_()
+    , io_context_(io_context)
 {
-    m_group_id = vk::method::groups::get_by_id(m_stored_error);
-    if (m_stored_error) { throw std::runtime_error("error retrieve group id"); }
+    group_id_ = vk::method::groups::get_by_id(errc_);
+    if (errc_) { throw std::runtime_error("error retrieve group id"); }
 
-    spdlog::info("long poll group: {}", m_group_id);
+    spdlog::info("long poll group: {}", group_id_);
 }
 
 vk::long_poll::~long_poll() = default;
 
 vk::long_poll_data vk::long_poll::server() const
 {
-    const std::string data = method::groups::get_long_poll_server(m_group_id);
-    const simdjson::dom::object server_object = m_parser->parse(data)["response"];
-    if (m_stored_error) { throw std::runtime_error("Failed to get long poll server"); }
+    const std::string data = method::groups::get_long_poll_server(group_id_);
+    const simdjson::dom::object server_object = parser_->parse(data)["response"];
+    if (errc_) { throw std::runtime_error("Failed to get long poll server"); }
 
     return {
         std::string(server_object["key"]),
@@ -46,7 +46,7 @@ std::vector<vk::event::common> vk::long_poll::listen(vk::long_poll_data& data, i
         .param("wait", std::to_string(timeout))
         .perform_request();
 
-    simdjson::dom::object parsed_response = m_parser->parse(response);
+    simdjson::dom::object parsed_response = parser_->parse(response);
 
     std::vector<vk::event::common> event_list;
     std::string ts(parsed_response["ts"]);
@@ -64,12 +64,13 @@ void vk::long_poll::run()
 {
     std::vector<std::thread> threads;
     for (size_t i = 0; i < vk::config::num_workers(); ++i) {
-        threads.emplace_back([this] { m_io_context.run(); });
+        threads.emplace_back([this] {
+            io_context_.run(); });
     }
-    m_io_context.run();
+    io_context_.run();
     for (auto& t : threads) {
         t.join();
     }
     threads.clear();
-    m_io_context.restart();
+    io_context_.restart();
 }

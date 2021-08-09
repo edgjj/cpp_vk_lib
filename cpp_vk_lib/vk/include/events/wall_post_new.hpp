@@ -47,9 +47,9 @@ public:
 private:
     simdjson::dom::object& get_event() const;
 
-    std::shared_ptr<simdjson::dom::object> m_event_json;
-    bool m_has_attachments = false;
-    bool m_has_repost = false;
+    std::shared_ptr<simdjson::dom::object> event_json_;
+    bool has_attachments_ = false;
+    bool has_repost_ = false;
 };
 
 }// namespace event

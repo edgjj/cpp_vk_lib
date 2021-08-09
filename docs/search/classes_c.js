@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['photo_393',['photo',['../classvk_1_1attachment_1_1photo.html',1,'vk::attachment']]],
-  ['photos_394',['photos',['../classvk_1_1method_1_1photos.html',1,'vk::method']]]
+  ['split_5fiterator_324',['split_iterator',['../classruntime_1_1string__utils_1_1split__iterator.html',1,'runtime::string_utils']]],
+  ['split_5frange_325',['split_range',['../classruntime_1_1string__utils_1_1split__range.html',1,'runtime::string_utils']]]
 ];

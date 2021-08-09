@@ -4,17 +4,13 @@
 #include "runtime/include/net/network.hpp"
 #include "runtime/include/string_utils/string_utils.hpp"
 
-#include "simdjson.h"
-
 vk::method::utility::utility()
-    : m_user_token(config::user_token())
-    , m_access_token(config::access_token())
-    , m_parser(std::make_shared<simdjson::dom::parser>()) {}
+    : user_token_(config::user_token())
+    , access_token_(config::access_token()) {}
 
 vk::method::utility::utility(std::string_view user_token)
-    : m_user_token(user_token.data())
-    , m_access_token(config::access_token())
-    , m_parser(std::make_shared<simdjson::dom::parser>()) {}
+    : user_token_(user_token.data())
+    , access_token_(config::access_token()) {}
 
 vk::method::utility::~utility() = default;
 
@@ -25,13 +21,13 @@ std::string vk::method::utility::append_url(std::string_view method)
 
 std::map<std::string, std::string>& vk::method::utility::user_args(std::map<std::string, std::string>& params) const
 {
-    params.insert({{"access_token", m_user_token}, {"v", API_V}});
+    params.insert({{"access_token", user_token_}, {"v", API_V}});
     return params;
 }
 
 std::map<std::string, std::string>& vk::method::utility::group_args(std::map<std::string, std::string>& params) const
 {
-    params.insert({{"access_token", m_access_token}, {"v", API_V}});
+    params.insert({{"access_token", access_token_}, {"v", API_V}});
     return params;
 }
 

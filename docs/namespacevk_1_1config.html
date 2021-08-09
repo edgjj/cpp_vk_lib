@@ -66,23 +66,18 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vk::config Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1config_1_1loader.html">loader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config class with its helper functions.  <a href="classvk_1_1config_1_1loader.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9e8d354fe7908d2826e2d9afb30e9624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#a9e8d354fe7908d2826e2d9afb30e9624">load</a> (std::string_view path)</td></tr>
 <tr class="separator:a9e8d354fe7908d2826e2d9afb30e9624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c24e836ffff12d40f4b6257922a345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#ab7c24e836ffff12d40f4b6257922a345">load_string</a> (std::string_view string)</td></tr>
+<tr class="separator:ab7c24e836ffff12d40f4b6257922a345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd89ccdde0a724e2e5dd2dd2aae22658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#abd89ccdde0a724e2e5dd2dd2aae22658">set_user_token</a> (std::string_view token)</td></tr>
 <tr class="separator:abd89ccdde0a724e2e5dd2dd2aae22658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa074dc913d83634a3f0843a2b1d02837"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">password</a> ()</td></tr>
@@ -95,8 +90,8 @@ Functions</h2></td></tr>
 <tr class="separator:a299808f26c09ddb43d4813af0dbd4651"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51dba7a46196ffa727ed54c87c4c7bc3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#a51dba7a46196ffa727ed54c87c4c7bc3">log_path</a> ()</td></tr>
 <tr class="separator:a51dba7a46196ffa727ed54c87c4c7bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3c787a3e0357ba7549d9360164f726c"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#af3c787a3e0357ba7549d9360164f726c">num_workers</a> ()</td></tr>
-<tr class="separator:af3c787a3e0357ba7549d9360164f726c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9dced59052cf589d39c8cd658afaae3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#ad9dced59052cf589d39c8cd658afaae3">num_workers</a> ()</td></tr>
+<tr class="separator:ad9dced59052cf589d39c8cd658afaae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a299808f26c09ddb43d4813af0dbd4651"></a>
@@ -104,9 +99,6 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::config::access_token </td>
@@ -115,17 +107,7 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_a299808f26c09ddb43d4813af0dbd4651_cgraph.png" border="0" usemap="#anamespacevk_1_1config_a299808f26c09ddb43d4813af0dbd4651_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>
@@ -134,9 +116,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void vk::config::load </td>
@@ -146,17 +125,25 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_a9e8d354fe7908d2826e2d9afb30e9624_cgraph.png" border="0" usemap="#anamespacevk_1_1config_a9e8d354fe7908d2826e2d9afb30e9624_cgraph" alt=""/></div>
+
 </div>
+</div>
+<a id="ab7c24e836ffff12d40f4b6257922a345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c24e836ffff12d40f4b6257922a345">&#9670;&nbsp;</a></span>load_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::config::load_string </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -165,9 +152,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::config::log_path </td>
@@ -176,46 +160,28 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_a51dba7a46196ffa727ed54c87c4c7bc3_cgraph.png" border="0" usemap="#anamespacevk_1_1config_a51dba7a46196ffa727ed54c87c4c7bc3_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>
-<a id="af3c787a3e0357ba7549d9360164f726c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3c787a3e0357ba7549d9360164f726c">&#9670;&nbsp;</a></span>num_workers()</h2>
+<a id="ad9dced59052cf589d39c8cd658afaae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9dced59052cf589d39c8cd658afaae3">&#9670;&nbsp;</a></span>num_workers()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int64_t vk::config::num_workers </td>
+          <td class="memname">size_t vk::config::num_workers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_af3c787a3e0357ba7549d9360164f726c_cgraph.png" border="0" usemap="#anamespacevk_1_1config_af3c787a3e0357ba7549d9360164f726c_cgraph" alt=""/></div>
+<div class="center"><img src="namespacevk_1_1config_ad9dced59052cf589d39c8cd658afaae3_icgraph.png" border="0" usemap="#anamespacevk_1_1config_ad9dced59052cf589d39c8cd658afaae3_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -225,9 +191,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::config::password </td>
@@ -236,17 +199,7 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_aa074dc913d83634a3f0843a2b1d02837_cgraph.png" border="0" usemap="#anamespacevk_1_1config_aa074dc913d83634a3f0843a2b1d02837_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>
@@ -255,9 +208,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void vk::config::set_user_token </td>
@@ -267,17 +217,7 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_abd89ccdde0a724e2e5dd2dd2aae22658_cgraph.png" border="0" usemap="#anamespacevk_1_1config_abd89ccdde0a724e2e5dd2dd2aae22658_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>
@@ -286,9 +226,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::config::user_token </td>
@@ -297,17 +234,7 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_a964f2b4776d0820396dd7de3f1503815_cgraph.png" border="0" usemap="#anamespacevk_1_1config_a964f2b4776d0820396dd7de3f1503815_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>
@@ -316,9 +243,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string vk::config::username </td>
@@ -327,17 +251,7 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1config_afb7e0c89cfd77d946196e3e6f93f08d2_cgraph.png" border="0" usemap="#anamespacevk_1_1config_afb7e0c89cfd77d946196e3e6f93f08d2_cgraph" alt=""/></div>
-</div>
 
 </div>
 </div>

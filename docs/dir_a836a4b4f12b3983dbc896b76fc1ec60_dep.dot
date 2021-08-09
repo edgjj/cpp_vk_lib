@@ -1,0 +1,11 @@
+digraph "oauth" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_c72a5efb889fc03326ef7775bdf6554c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="src" fontname="Helvetica", fontsize="10", URL="dir_c72a5efb889fc03326ef7775bdf6554c.html"]
+  dir_a836a4b4f12b3983dbc896b76fc1ec60 [shape=box, label="oauth", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_a836a4b4f12b3983dbc896b76fc1ec60.html"];
+  }
+  dir_5a2e7e63c769be3e121e8a7cb4ca18ae [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_5a2e7e63c769be3e121e8a7cb4ca18ae.html"];
+  dir_a836a4b4f12b3983dbc896b76fc1ec60->dir_5a2e7e63c769be3e121e8a7cb4ca18ae [headlabel="3", labeldistance=1.5 headhref="dir_000012_000002.html"];
+}

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['layout_387',['layout',['../classvk_1_1keyboard_1_1layout.html',1,'vk::keyboard']]],
-  ['loader_388',['loader',['../classvk_1_1config_1_1loader.html',1,'vk::config']]]
+  ['open_5fapp_321',['open_app',['../classvk_1_1keyboard_1_1button_1_1open__app.html',1,'vk::keyboard::button']]]
 ];

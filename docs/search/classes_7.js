@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['invalid_5fparameter_5ferror_385',['invalid_parameter_error',['../classvk_1_1exception_1_1invalid__parameter__error.html',1,'vk::exception']]]
+  ['layout_316',['layout',['../classvk_1_1keyboard_1_1layout.html',1,'vk::keyboard']]],
+  ['long_5fpoll_317',['long_poll',['../classvk_1_1long__poll.html',1,'vk']]],
+  ['long_5fpoll_5fdata_318',['long_poll_data',['../structvk_1_1long__poll__data.html',1,'vk']]]
 ];

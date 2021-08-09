@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_688',['key',['../structvk_1_1long__poll_1_1data.html#a6796ba33b8900a206f165e0c855c14af',1,'vk::long_poll::data']]]
+  ['server_577',['server',['../structvk_1_1long__poll__data.html#a494aee9ab8f7fbe8d2f7063ba4c829e6',1,'vk::long_poll_data']]]
 ];

@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_bacc0c93d90f14ec72dd74ece09979fb.html">runtime</a></li><li class="navelem"><a class="el" href="dir_fe683765618cc35bc39882f5ccaddc26.html">include</a></li><li class="navelem"><a class="el" href="dir_35cbde7fb79d3431a793f45cbf93b860.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_8e21e45a65d0d41e7765bb33cbd7e23c.html">implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_ae58b8918dcb99903ff518e79eee4aff.html">runtime</a></li><li class="navelem"><a class="el" href="dir_6b3b46dacdabf3bc023188deee3b93c2.html">include</a></li><li class="navelem"><a class="el" href="dir_289c82d0fd140af061f5dc9762466b08.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_9f612a5a10a645d2929963d5bcb196f5.html">implementation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,63 +77,43 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime.html">runtime</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;std::string <a class="code" href="namespaceruntime_1_1string__utils.html#ac96035eb276b71e3f74f510fa022b2eb">utf8_to_lower</a>(std::string_view data);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;std::string <a class="code" href="namespaceruntime_1_1string__utils.html#aa96cab605c27663de19a89428dd32ce1">utf8_to_upper</a>(std::string_view data);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}<span class="comment">// namespace runtime</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime.html">runtime</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>string_utils {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils.html#a6abadd9d1d9e1090303fcf9f0dc8a117">   17</a></span>&#160;<span class="keyword">const</span> std::locale <a class="code" href="namespaceruntime_1_1string__utils.html#a6abadd9d1d9e1090303fcf9f0dc8a117">utf8</a>(<span class="stringliteral">&quot;en_US.UTF-8&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1utf8__convert__impl.html">   19</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structruntime_1_1string__utils_1_1utf8__convert__impl.html">utf8_convert_impl</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> std::wstring internal_to_wstring(<span class="keyword">const</span> std::string&amp; s)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt; conv;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> conv.from_bytes(s);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> std::string internal_to_string(<span class="keyword">const</span> std::wstring&amp; s)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt; conv;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> conv.to_bytes(s);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ExecutionPolicy&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> std::string internal_create(std::string_view data, ExecutionPolicy converter)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">auto</span> ss = internal_to_wstring(data.data());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; c : ss) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            c = converter(c);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> internal_to_string(ss);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> std::string create_upper(std::string_view data)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> internal_create(data, [](<span class="keyword">auto</span>&amp; c) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> std::toupper(c, <a class="code" href="namespaceruntime_1_1string__utils.html#a6abadd9d1d9e1090303fcf9f0dc8a117">utf8</a>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        });</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> std::string create_lower(std::string_view data)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> internal_create(data, [](<span class="keyword">auto</span>&amp; c) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> std::tolower(c, <a class="code" href="namespaceruntime_1_1string__utils.html#a6abadd9d1d9e1090303fcf9f0dc8a117">utf8</a>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        });</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1utf8__convert__impl.html#aac3c04dcc29e072db77f35361fa1b881">   53</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespaceruntime_1_1string__utils.html#ac96035eb276b71e3f74f510fa022b2eb">string_utils::utf8_to_lower</a>(std::string_view data);</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1utf8__convert__impl.html#aca56a8ac93958f1eef482042043ec741">   54</a></span>&#160;    <span class="keyword">friend</span> std::string <a class="code" href="namespaceruntime_1_1string__utils.html#aa96cab605c27663de19a89428dd32ce1">string_utils::utf8_to_upper</a>(std::string_view data);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}<span class="comment">// namespace string_utils</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}<span class="comment">// namespace runtime</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_UTF8_HPP</span></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_html_a6abadd9d1d9e1090303fcf9f0dc8a117"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html#a6abadd9d1d9e1090303fcf9f0dc8a117">runtime::string_utils::utf8</a></div><div class="ttdeci">const std::locale utf8(&quot;en_US.UTF-8&quot;)</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_html_aa96cab605c27663de19a89428dd32ce1"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html#aa96cab605c27663de19a89428dd32ce1">runtime::string_utils::utf8_to_upper</a></div><div class="ttdeci">std::string utf8_to_upper(std::string_view data)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:27</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_html_ac96035eb276b71e3f74f510fa022b2eb"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html#ac96035eb276b71e3f74f510fa022b2eb">runtime::string_utils::utf8_to_lower</a></div><div class="ttdeci">std::string utf8_to_lower(std::string_view data)</div><div class="ttdef"><b>Definition:</b> string_utils.hpp:26</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>implementation {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2">   11</a></span>&#160;<span class="keyword">const</span> std::locale <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2">utf8</a>(<span class="stringliteral">&quot;en_US.UTF-8&quot;</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ExecutionPolicy&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> std::string utf8_create(std::string_view data, ExecutionPolicy converter)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::wstring wide_string = std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt;().from_bytes(data.data());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; c : wide_string) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        c = converter(c);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt;().to_bytes(wide_string);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils_1_1implementation.html#ad3edef49c637c6727cfea37ecb820b5d">   23</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#ad3edef49c637c6727cfea37ecb820b5d">create_utf8_upper</a>(std::string_view data)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> utf8_create(data, [](<span class="keyword">auto</span>&amp; c) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> std::toupper(c, <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2">utf8</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    });</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils_1_1implementation.html#a4043866c535f1b0e25da20dc2e837a24">   30</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#a4043866c535f1b0e25da20dc2e837a24">create_utf8_lower</a>(std::string_view data)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> utf8_create(data, [](<span class="keyword">auto</span>&amp; c) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> std::tolower(c, <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2">utf8</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    });</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<span class="comment">// namespace implementation</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}<span class="comment">// namespace string_utils</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}<span class="comment">// namespace runtime</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_UTF8_HPP</span></div>
+<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html_a4043866c535f1b0e25da20dc2e837a24"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html#a4043866c535f1b0e25da20dc2e837a24">runtime::string_utils::implementation::create_utf8_lower</a></div><div class="ttdeci">std::string create_utf8_lower(std::string_view data)</div><div class="ttdef"><b>Definition:</b> convert_utf8.hpp:30</div></div>
+<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html_ac650c7a5247b8aad519fe290d0b920d2"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2">runtime::string_utils::implementation::utf8</a></div><div class="ttdeci">const std::locale utf8(&quot;en_US.UTF-8&quot;)</div></div>
+<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html_ad3edef49c637c6727cfea37ecb820b5d"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html#ad3edef49c637c6727cfea37ecb820b5d">runtime::string_utils::implementation::create_utf8_upper</a></div><div class="ttdeci">std::string create_utf8_upper(std::string_view data)</div><div class="ttdef"><b>Definition:</b> convert_utf8.hpp:23</div></div>
 <div class="ttc" id="anamespaceruntime_html"><div class="ttname"><a href="namespaceruntime.html">runtime</a></div><div class="ttdef"><b>Definition:</b> network.hpp:7</div></div>
-<div class="ttc" id="astructruntime_1_1string__utils_1_1utf8__convert__impl_html"><div class="ttname"><a href="structruntime_1_1string__utils_1_1utf8__convert__impl.html">runtime::string_utils::utf8_convert_impl</a></div><div class="ttdef"><b>Definition:</b> convert_utf8.hpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_f24f4fdd59688f4e2fd114a89d2b5d0b.html">vk</a></li><li class="navelem"><a class="el" href="dir_2fa8417925308be52a9c60106667e5c1.html">include</a></li><li class="navelem"><a class="el" href="dir_03e1825baa76148463b2acaefecdc4f6.html">keyboard</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_bfc5d6602c24fe620e9298c54e0ed106.html">vk</a></li><li class="navelem"><a class="el" href="dir_5a2e7e63c769be3e121e8a7cb4ca18ae.html">include</a></li><li class="navelem"><a class="el" href="dir_fbb33e17df5f069d7f17e07da9201121.html">keyboard</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -97,9 +97,9 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#aace125e412669280da043d58938aad0a">has_flag</a>(keyboard::<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a>) const noexcept;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;private:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::<span class="keywordtype">string</span> m_serialized{};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; m_buttons{};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> m_flags = <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::<span class="keywordtype">string</span> serialized_{};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; buttons_{};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flags_ = <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}<span class="comment">// namespace keyboard</span></div>
@@ -117,7 +117,7 @@ $(function() {
 <div class="ttc" id="anamespacevk_1_1keyboard_html_a52a8e8c52b96c68addfd04eb41c5fc05"><div class="ttname"><a href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">vk::keyboard::any_button</a></div><div class="ttdeci">std::variant&lt; button::text, button::vk_pay, button::open_app, button::location &gt; any_button</div><div class="ttdef"><b>Definition:</b> layout.hpp:15</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">vk::keyboard::flag</a></div><div class="ttdeci">flag</div><div class="ttdef"><b>Definition:</b> flags.hpp:8</div></div>
 <div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a></div><div class="ttdeci">@ none</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:12</div></div>
+<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 <div class="ttc" id="aopen__app_8hpp_html"><div class="ttname"><a href="open__app_8hpp.html">open_app.hpp</a></div></div>
 <div class="ttc" id="atext_8hpp_html"><div class="ttname"><a href="text_8hpp.html">text.hpp</a></div></div>
 <div class="ttc" id="avk__pay_8hpp_html"><div class="ttname"><a href="vk__pay_8hpp.html">vk_pay.hpp</a></div></div>

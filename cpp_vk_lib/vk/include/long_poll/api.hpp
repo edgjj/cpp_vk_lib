@@ -43,10 +43,10 @@ public:
     void run();
 
 private:
-    std::unique_ptr<simdjson::dom::parser> m_parser;
-    mutable error_code m_stored_error;
-    asio::io_context& m_io_context;
-    int64_t m_group_id;
+    std::unique_ptr<simdjson::dom::parser> parser_;
+    mutable error_code errc_;
+    asio::io_context& io_context_;
+    int64_t group_id_;
 };
 
 }// namespace vk
@@ -62,7 +62,7 @@ void vk::long_poll::on_event(std::string_view event_type, const event::common& e
 template <typename Task>
 void vk::long_poll::enqueue(Task executor)
 {
-    asio::post(m_io_context, executor);
+    asio::post(io_context_, executor);
 }
 
 #endif// VK_LONG_POLL_API_HPP

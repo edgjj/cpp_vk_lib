@@ -12,6 +12,19 @@ class parser;
 
 namespace vk {
 namespace oauth {
+namespace context {
+
+static inline const std::string_view oauth_link = "https://oauth.vk.com/";
+static inline const std::string_view android_app_client_secret = "hHbZxrka2uZ6jB1inYsH";
+static inline const std::string_view iphone_app_client_secret = "VeWdmVclDCtn6ihuP1nt";
+static inline const std::string_view windows_app_client_secret = "AlVXZFMUqyrnABp8ncuU";
+
+static inline const int32_t android_app_client_id = 2274003;
+static inline const int32_t windows_app_client_id = 3697615;
+static inline const int32_t iphone_app_client_id = 3140623;
+
+}// namespace context
+
 enum class target_client : uint8_t
 {
     android = (1 << 0),
@@ -48,26 +61,15 @@ public:
     int64_t user_id() const noexcept;
 
 private:
-    static inline const std::string_view m_oauth_link = "https://oauth.vk.com/";
-    static inline const std::string_view m_android_app_client_secret = "hHbZxrka2uZ6jB1inYsH";
-    static inline const std::string_view m_iphone_app_client_secret = "VeWdmVclDCtn6ihuP1nt";
-    static inline const std::string_view m_windows_app_client_secret = "AlVXZFMUqyrnABp8ncuU";
+    target_client client_type_;
+    std::string username_;
+    std::string password_;
 
-    static inline const int32_t m_android_app_client_id = 2274003;
-    static inline const int32_t m_windows_app_client_id = 3697615;
-    static inline const int32_t m_iphone_app_client_id = 3140623;
+    std::string target_client_secret_;
+    int64_t target_client_id_;
 
-    target_client m_client_type;
-    std::string m_username;
-    std::string m_password;
-
-    std::string m_target_client_secret;
-    int64_t m_target_client_id;
-
-    std::string m_pulled_token;
-    int64_t m_pulled_user_id;
-
-    std::shared_ptr<simdjson::dom::parser> m_parser;
+    std::string pulled_token_;
+    int64_t pulled_user_id_;
 };
 
 }// namespace oauth

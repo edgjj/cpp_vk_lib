@@ -1,12 +1,17 @@
 var searchData=
 [
-  ['target_5fclient_260',['target_client',['../namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810',1,'vk::oauth']]],
-  ['task_5fqueue_261',['task_queue',['../classruntime_1_1processing_1_1task__queue.html',1,'runtime::processing::task_queue'],['../classruntime_1_1processing_1_1task__queue.html#a70c06f684ba77bbc6b21e531e261fa33',1,'runtime::processing::task_queue::task_queue()']]],
-  ['task_5fqueue_2ehpp_262',['task_queue.hpp',['../task__queue_8hpp.html',1,'']]],
-  ['text_263',['text',['../classvk_1_1event_1_1wall__repost.html#ab1cdaa45f02350e895eb65c6f143cd78',1,'vk::event::wall_repost::text()'],['../classvk_1_1event_1_1wall__reply__new.html#a586fbd21207405ffcc8c7f391271aca2',1,'vk::event::wall_reply_new::text()'],['../classvk_1_1event_1_1wall__post__new.html#ad4f4f8e7cf6d63f711990beebe6d6381',1,'vk::event::wall_post_new::text()'],['../classvk_1_1event_1_1message__new.html#afa506fded4967feff53937331d0ef560',1,'vk::event::message_new::text()'],['../structvk_1_1action_1_1chat__title__update.html#a4d9071ff3c7f98cbcffac79ad355b7af',1,'vk::action::chat_title_update::text()']]],
-  ['text_2ehpp_264',['text.hpp',['../text_8hpp.html',1,'']]],
-  ['token_265',['token',['../classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0',1,'vk::oauth::client']]],
-  ['trace_266',['trace',['../namespacevk_1_1log__level.html#a906588d4e58ee7aa81e3f3c411eb260d',1,'vk::log_level']]],
-  ['ts_267',['ts',['../structvk_1_1long__poll_1_1data.html#a5af367a08cb507006451de613b6163f0',1,'vk::long_poll::data::ts()'],['../classvk_1_1event_1_1common.html#aa6374a2fb52b35426ee3345b7d5c81ec',1,'vk::event::common::ts()']]],
-  ['type_268',['type',['../structvk_1_1exception_1_1error__code.html#a038f5246b09625920dc6fc6518fdeae2',1,'vk::exception::error_code::type()'],['../classvk_1_1attachment_1_1base.html#ac52b92a895eb1fff3165f78580e9cfff',1,'vk::attachment::base::type()'],['../classvk_1_1event_1_1common.html#a93d3f1b434b1ffebc7ce15fd2979e5d9',1,'vk::event::common::type()']]]
+  ['upload_221',['upload',['../namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5',1,'runtime::network']]],
+  ['upload_5ferror_222',['upload_error',['../classvk_1_1exception_1_1upload__error.html#a2d84fba35e0bbb760c29038d62d91821',1,'vk::exception::upload_error::upload_error()'],['../namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bca10441ecf47cea4784782fbf1180e000b',1,'vk::exception::upload_error()'],['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception::upload_error']]],
+  ['user_5fapi_223',['user_api',['../structvk_1_1method_1_1policy_1_1user__api.html',1,'vk::method::policy']]],
+  ['user_5fargs_224',['user_args',['../classvk_1_1method_1_1utility.html#a27256dedb3916d18e446b26c120826f4',1,'vk::method::utility']]],
+  ['user_5fconstructor_225',['user_constructor',['../namespacevk_1_1method.html#a9036669c58907e5e2db60680aafb368d',1,'vk::method']]],
+  ['user_5fid_226',['user_id',['../classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96',1,'vk::oauth::client']]],
+  ['user_5ftoken_227',['user_token',['../namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815',1,'vk::config']]],
+  ['username_228',['username',['../namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2',1,'vk::config']]],
+  ['utf8_229',['utf8',['../namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2',1,'runtime::string_utils::implementation']]],
+  ['utf8_5fto_5flower_230',['utf8_to_lower',['../namespaceruntime_1_1string__utils.html#adf7fdf7e7aa84620579e60876746ce70',1,'runtime::string_utils']]],
+  ['utf8_5fto_5fupper_231',['utf8_to_upper',['../namespaceruntime_1_1string__utils.html#a69e88c235fb9a596f756bccc34f454d3',1,'runtime::string_utils']]],
+  ['utility_232',['utility',['../classvk_1_1method_1_1utility.html#a081043182f85001f1b8d86996e34c875',1,'vk::method::utility::utility(std::string_view user_token)'],['../classvk_1_1method_1_1utility.html#abb72b36f3283dbb06599a8260a52c6bd',1,'vk::method::utility::utility()'],['../classvk_1_1method_1_1utility.html',1,'vk::method::utility']]],
+  ['utility_2ecpp_233',['utility.cpp',['../utility_8cpp.html',1,'']]],
+  ['utility_2ehpp_234',['utility.hpp',['../utility_8hpp.html',1,'']]]
 ];

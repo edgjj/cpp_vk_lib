@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_f24f4fdd59688f4e2fd114a89d2b5d0b.html">vk</a></li><li class="navelem"><a class="el" href="dir_2fa8417925308be52a9c60106667e5c1.html">include</a></li><li class="navelem"><a class="el" href="dir_d81e5165ed2b0481c93861d3320f17bf.html">long_poll</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_bfc5d6602c24fe620e9298c54e0ed106.html">vk</a></li><li class="navelem"><a class="el" href="dir_5a2e7e63c769be3e121e8a7cb4ca18ae.html">include</a></li><li class="navelem"><a class="el" href="dir_999517a60c0daf39d6976711fccc4b1e.html">long_poll</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,10 +72,13 @@ $(function() {
 <div class="title">api.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="task__queue_8hpp_source.html">runtime/include/processing/task_queue.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="cppdefs_8hpp_source.html">runtime/include/misc/cppdefs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common__event_8hpp_source.html">vk/include/events/common_event.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__code_8hpp_source.html">vk/include/exception/error_code.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="data_8hpp_source.html">vk/include/long_poll/data.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="groups_8hpp_source.html">vk/include/methods/groups.hpp</a>&quot;</code><br />
+<code>#include &quot;asio/io_context.hpp&quot;</code><br />
+<code>#include &quot;asio/post.hpp&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for api.hpp:</div>
 <div class="dyncontent">
@@ -91,15 +94,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll_1_1api.html">vk::long_poll::api</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to interact with long poll mechanism.  <a href="classvk_1_1long__poll_1_1api.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html">vk::long_poll</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to interact with long poll mechanism.  <a href="classvk_1_1long__poll.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacevk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk.html">vk</a></td></tr>
+<tr class="memitem:namespacesimdjson"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesimdjson.html">simdjson</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacevk_1_1long__poll"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1long__poll.html">vk::long_poll</a></td></tr>
+<tr class="memitem:namespacesimdjson_1_1dom"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesimdjson_1_1dom.html">simdjson::dom</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacevk"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk.html">vk</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

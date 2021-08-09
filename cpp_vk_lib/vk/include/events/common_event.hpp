@@ -46,9 +46,9 @@ public:
 private:
     simdjson::dom::object& get_event() const noexcept;
 
-    std::string m_ts;
-    std::string m_update_type;
-    std::shared_ptr<simdjson::dom::object> m_event;
+    std::string ts_;
+    std::string update_type_;
+    std::shared_ptr<simdjson::dom::object> event_;
 };
 
 }// namespace event

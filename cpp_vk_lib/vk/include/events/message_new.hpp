@@ -60,12 +60,12 @@ private:
     void try_get_actions();
     simdjson::dom::object& get_event() const;
 
-    std::shared_ptr<simdjson::dom::object> m_event_json;
-    action::any_action_t m_action;
-    bool m_has_action = false;
-    bool m_has_reply = false;
-    bool m_has_fwd_messages = false;
-    bool m_has_attachments = false;
+    std::shared_ptr<simdjson::dom::object> event_json_;
+    action::any_action_t action_;
+    bool has_action_ = false;
+    bool has_reply_ = false;
+    bool has_fwd_messages_ = false;
+    bool has_attachments_ = false;
 };
 
 }// namespace event

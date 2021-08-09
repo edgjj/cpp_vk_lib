@@ -6,27 +6,26 @@
 #include "simdjson.h"
 
 vk::oauth::client::client(std::string_view username, std::string_view password, vk::oauth::target_client client_type)
-    : m_client_type(client_type)
-    , m_username(username)
-    , m_password(password)
-    , m_target_client_secret()
-    , m_target_client_id()
-    , m_pulled_token()
-    , m_pulled_user_id(0)
-    , m_parser(std::make_shared<simdjson::dom::parser>())
+    : client_type_(client_type)
+    , username_(username)
+    , password_(password)
+    , target_client_secret_()
+    , target_client_id_()
+    , pulled_token_()
+    , pulled_user_id_(0)
 {
-    switch (m_client_type) {
+    switch (client_type_) {
         case target_client::android:
-            m_target_client_id = m_android_app_client_id;
-            m_target_client_secret = m_android_app_client_secret;
+            target_client_id_ = context::android_app_client_id;
+            target_client_secret_ = context::android_app_client_secret;
             break;
         case target_client::iphone:
-            m_target_client_id = m_iphone_app_client_id;
-            m_target_client_secret = m_iphone_app_client_secret;
+            target_client_id_ = context::iphone_app_client_id;
+            target_client_secret_ = context::iphone_app_client_secret;
             break;
         case target_client::windows:
-            m_target_client_id = m_windows_app_client_id;
-            m_target_client_secret = m_windows_app_client_secret;
+            target_client_id_ = context::windows_app_client_id;
+            target_client_secret_ = context::windows_app_client_secret;
             break;
     }
     pull();
@@ -44,30 +43,31 @@ void vk::oauth::client::pull()
     method::raw_constructor constructor;
 
     constructor
-        .method(std::string(m_oauth_link) + "token?")
+        .method(std::string(context::oauth_link) + "token?")
         .param("grant_type", "password")
-        .param("client_id", std::to_string(m_target_client_id))
-        .param("client_secret", m_target_client_secret)
-        .param("username", m_username.data())
-        .param("password", m_password.data());
+        .param("client_id", std::to_string(target_client_id_))
+        .param("client_secret", target_client_secret_)
+        .param("username", username_.data())
+        .param("password", password_.data());
 
-    const simdjson::dom::object response = m_parser->parse(constructor.perform_request());
+    simdjson::dom::parser parser;
+    const simdjson::dom::object response = parser.parse(constructor.perform_request());
 
     if (error_returned(response, "invalid_client") || error_returned(response, "invalid_request") ||
         error_returned(response, "invalid_grant")) {
         throw exception::access_error(-1, response["error_description"].get_c_str().take_value());
     }
 
-    m_pulled_token = response["access_token"].get_c_str().take_value();
-    m_pulled_user_id = response["user_id"].get_int64();
+    pulled_token_ = response["access_token"].get_c_str().take_value();
+    pulled_user_id_ = response["user_id"].get_int64();
 }
 
 std::string vk::oauth::client::token() const noexcept
 {
-    return m_pulled_token;
+    return pulled_token_;
 }
 
 int64_t vk::oauth::client::user_id() const noexcept
 {
-    return m_pulled_user_id;
+    return pulled_user_id_;
 }

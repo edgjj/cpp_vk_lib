@@ -45,9 +45,9 @@ public:
     std::string perform_request() &&;
 
 private:
-    vk::method::utility m_method_util;
-    std::string m_method{};
-    std::map<std::string, std::string> m_params{};
+    vk::method::utility method_util_;
+    std::string method_{};
+    std::map<std::string, std::string> params_{};
 };
 
 using user_constructor = constructor<policy::user_api>;

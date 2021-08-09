@@ -4,8 +4,7 @@
 #include <map>
 #include <string_view>
 
-namespace runtime {
-namespace network {
+namespace runtime::network {
 /*!
  * @brief Execute HTTP POST request.
  * @return response output.
@@ -27,7 +26,6 @@ std::string upload(std::string_view field_name, std::string_view filename, std::
  */
 std::string request_data(std::string_view host, std::string_view data);
 
-}// namespace network
-}// namespace vk
+}// namespace runtime::vk
 
 #endif// RUNTIME_NET_NETWORK_HPP

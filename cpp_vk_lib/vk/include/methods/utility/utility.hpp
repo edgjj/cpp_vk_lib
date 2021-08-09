@@ -35,9 +35,8 @@ public:
     static inline const int64_t chat_id_constant = 2000000000;
 
 private:
-    std::string m_user_token;
-    std::string m_access_token;
-    mutable std::shared_ptr<simdjson::dom::parser> m_parser;
+    std::string user_token_;
+    std::string access_token_;
 };
 
 }// namespace method

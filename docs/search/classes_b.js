@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open_5fapp_392',['open_app',['../classvk_1_1keyboard_1_1button_1_1open__app.html',1,'vk::keyboard::button']]]
+  ['runtime_5ferror_323',['runtime_error',['../classvk_1_1exception_1_1runtime__error.html',1,'vk::exception']]]
 ];

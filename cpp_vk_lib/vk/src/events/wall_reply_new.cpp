@@ -11,19 +11,19 @@
 vk::event::wall_reply_new::~wall_reply_new() = default;
 
 vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object event)
-    : m_event_json(std::make_shared<simdjson::dom::object>(event))
+    : event_json_(std::make_shared<simdjson::dom::object>(event))
 {
     if (get_event()["attachments"].is_array() && get_event()["attachments"].get_array().size() > 0) {
-        m_has_attachments = true;
+        has_attachments_ = true;
     }
 
     spdlog::info("create wall_reply_new");
-    spdlog::info("\thas attachments? {}", m_has_attachments);
+    spdlog::info("\thas attachments? {}", has_attachments_);
 }
 
 simdjson::dom::object& vk::event::wall_reply_new::get_event() const
 {
-    return *m_event_json;
+    return *event_json_;
 }
 
 int64_t vk::event::wall_reply_new::id() const noexcept
@@ -53,12 +53,12 @@ std::string vk::event::wall_reply_new::text() const noexcept
 
 bool vk::event::wall_reply_new::has_attachments() const noexcept
 {
-    return m_has_attachments;
+    return has_attachments_;
 }
 
 std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_reply_new::attachments() const
 {
-    if (m_has_attachments) {
+    if (has_attachments_) {
         return event::get_attachments(get_event()["attachments"].get_array());
     } else {
         throw exception::access_error(-1, "Attempting accessing empty attachment list");

@@ -13,21 +13,21 @@ class text
 {
 public:
     text(color selected_color, std::string_view payload_data)
-        : m_selected_color(selected_color)
-        , m_payload_data(payload_data) {}
+        : selected_color_(selected_color)
+        , payload_data_(payload_data) {}
 
     std::string serialize() const
     {
-        const char* color = keyboard::get_color(m_selected_color);
+        const char* color = keyboard::get_color(selected_color_);
         return runtime::string_utils::format(
             R"__({"action":{"type":"text","payload":"{\"button\":\"1\"}","label":"{}"},"color":"{}"})__",
-            m_payload_data,
+            payload_data_,
             color);
     }
 
 private:
-    color m_selected_color = color::none;
-    std::string m_payload_data;
+    color selected_color_ = color::none;
+    std::string payload_data_;
 };
 
 }// namespace button

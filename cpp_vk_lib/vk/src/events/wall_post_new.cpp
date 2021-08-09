@@ -9,19 +9,19 @@
 vk::event::wall_post_new::~wall_post_new() = default;
 
 vk::event::wall_post_new::wall_post_new(simdjson::dom::object event)
-    : m_event_json(std::make_shared<simdjson::dom::object>(event))
+    : event_json_(std::make_shared<simdjson::dom::object>(event))
 {
     if (get_event()["attachments"].is_array()) {
-        m_has_attachments = true;
+        has_attachments_ = true;
     }
 
     if (get_event()["copy_history"].is_array()) {
-        m_has_repost = true;
+        has_repost_ = true;
     }
 
     spdlog::info("create wall_post_new");
-    spdlog::info("\thas attachments? {}", m_has_attachments);
-    spdlog::info("\thas repost?      {}", m_has_repost);
+    spdlog::info("\thas attachments? {}", has_attachments_);
+    spdlog::info("\thas repost?      {}", has_repost_);
 }
 
 int64_t vk::event::wall_post_new::id() const noexcept
@@ -66,22 +66,22 @@ bool vk::event::wall_post_new::marked_as_ads() const noexcept
 
 bool vk::event::wall_post_new::has_attachments() const noexcept
 {
-    return m_has_attachments;
+    return has_attachments_;
 }
 
 bool vk::event::wall_post_new::has_repost() const noexcept
 {
-    return m_has_repost;
+    return has_repost_;
 }
 
 simdjson::dom::object& vk::event::wall_post_new::get_event() const
 {
-    return *m_event_json;
+    return *event_json_;
 }
 
 std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_post_new::attachments() const
 {
-    if (m_has_attachments) {
+    if (has_attachments_) {
         return event::get_attachments(get_event()["attachments"].get_array());
     } else {
         throw exception::access_error(-1 ,"Attempting accessing empty attachment list.");
@@ -92,7 +92,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
 {
     simdjson::dom::object repost_json = get_event()["copy_history"].get_array().at(0).get_object();
 
-    if (m_has_repost) {
+    if (has_repost_) {
         std::shared_ptr<wall_repost> repost = std::make_shared<wall_repost>(
             repost_json["id"].get_int64(),
             repost_json["from_id"].get_int64(),

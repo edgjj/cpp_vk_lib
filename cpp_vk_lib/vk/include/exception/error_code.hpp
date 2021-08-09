@@ -23,8 +23,8 @@ public:
     explicit operator bool() const noexcept;
 
 private:
-    std::string m_message;
-    bool m_has_error;
+    std::string message_;
+    bool has_error_;
 };
 
 }// namespace vk

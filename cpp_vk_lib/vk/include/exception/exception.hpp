@@ -22,7 +22,7 @@ protected:
     static std::string create(size_t id, const char* error_name, const char* arg);
 
 private:
-    std::runtime_error m_error;
+    std::runtime_error error_;
 };
 
 class upload_error : public common_exception

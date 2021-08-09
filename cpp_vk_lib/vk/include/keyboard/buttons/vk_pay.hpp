@@ -11,15 +11,15 @@ class vk_pay
 {
 public:
     vk_pay(std::string_view hash)
-        : m_hash(hash) {}
+        : hash_(hash) {}
 
     std::string serialize() const
     {
-        return runtime::string_utils::format(R"__({"action":{"type":"vkpay","hash":"{}"}})__", m_hash);
+        return runtime::string_utils::format(R"__({"action":{"type":"vkpay","hash":"{}"}})__", hash_);
     }
 
 private:
-    std::string m_hash;
+    std::string hash_;
 };
 }// namespace button
 }// namespace keyboard

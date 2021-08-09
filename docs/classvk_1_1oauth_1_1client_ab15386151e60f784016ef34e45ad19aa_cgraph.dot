@@ -8,9 +8,9 @@ digraph "vk::oauth::client::client"
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="vk::oauth::client::pull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70",tooltip="Try get user data."];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk::method::constructor\l::method",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#a2e3e6d30524cd932c3ba81aaa4b1fe70",tooltip=" "];
+  Node3 [label="vk::method::constructor\l::method",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#a1e1a26a1d5df2f8fe72f2eca9f33f3b3",tooltip=" "];
   Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="vk::method::constructor\l::param",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#a7a6544d9715891ecd04fab89864f98bf",tooltip=" "];
+  Node4 [label="vk::method::constructor\l::param",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#a8247d8368454d9b8601eb1d75ef1a6e2",tooltip=" "];
   Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="vk::method::constructor\l::perform_request",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#a9e8d220fd80c6a534a5df69722f01d93",tooltip=" "];
+  Node5 [label="vk::method::constructor\l::perform_request",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html#ae51472f567c8cc8141a5a4eb9141f7b8",tooltip=" "];
 }

@@ -28,11 +28,11 @@ public:
     const std::vector<vk::attachment::attachment_ptr_t>& attachments() const noexcept;
 
 private:
-    int64_t m_id;
-    int64_t m_from_id;
-    int64_t m_owner_id;
-    std::string m_text;
-    std::vector<vk::attachment::attachment_ptr_t> m_attachments;
+    int64_t id_;
+    int64_t from_id_;
+    int64_t owner_id_;
+    std::string text_;
+    std::vector<vk::attachment::attachment_ptr_t> attachments_;
 };
 
 }// namespace event

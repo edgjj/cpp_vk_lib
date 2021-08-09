@@ -77,8 +77,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1exception_1_1error__code.html">error_code</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1exception_1_1common__exception.html">common_exception</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">General exception of VK method classes.  <a href="classvk_1_1exception_1_1common__exception.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,6 +90,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1exception_1_1bad__cast__error.html">bad_cast_error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvk_1_1exception_1_1error.html">error</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -104,13 +104,17 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3748ba0d94723c23dc92d4febc7918e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#a3748ba0d94723c23dc92d4febc7918e7">dispatch_error_by_code</a> (size_t <a class="el" href="structvk_1_1exception_1_1error__code.html">error_code</a>, bool enable_logging_before_throw=false)</td></tr>
-<tr class="separator:a3748ba0d94723c23dc92d4febc7918e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8d67ac6364eda59c13c148647f8a8c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#afb8d67ac6364eda59c13c148647f8a8c">translate_error</a> (size_t <a class="el" href="classvk_1_1error__code.html">error_code</a>)</td></tr>
+<tr class="separator:afb8d67ac6364eda59c13c148647f8a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72890d1594cdcf725d29b8b42e60a174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#a72890d1594cdcf725d29b8b42e60a174">process_error</a> (size_t <a class="el" href="classvk_1_1error__code.html">error_code</a>)</td></tr>
+<tr class="separator:a72890d1594cdcf725d29b8b42e60a174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa850a18a184cb46f9d0eaee2e84edaab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#aa850a18a184cb46f9d0eaee2e84edaab">process_error</a> (const char *message, <a class="el" href="namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bc">error_type</a> err_type)</td></tr>
+<tr class="separator:aa850a18a184cb46f9d0eaee2e84edaab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4e3894430253092e521f439758b35e7f"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#a4e3894430253092e521f439758b35e7f">log_before_throw</a> = true</td></tr>
-<tr class="separator:a4e3894430253092e521f439758b35e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af56d0798d67752b322e73b65ad08de"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; size_t, <a class="el" href="structvk_1_1exception_1_1error.html">error</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#a8af56d0798d67752b322e73b65ad08de">errors</a></td></tr>
+<tr class="separator:a8af56d0798d67752b322e73b65ad08de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a45a9c6a6b355d5c76035876d635ff6bc"></a>
@@ -142,26 +146,23 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3748ba0d94723c23dc92d4febc7918e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3748ba0d94723c23dc92d4febc7918e7">&#9670;&nbsp;</a></span>dispatch_error_by_code()</h2>
+<a id="aa850a18a184cb46f9d0eaee2e84edaab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa850a18a184cb46f9d0eaee2e84edaab">&#9670;&nbsp;</a></span>process_error() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void vk::exception::dispatch_error_by_code </td>
+          <td class="memname">void vk::exception::process_error </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>error_code</em>, </td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enable_logging_before_throw</em> = <code>false</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bc">error_type</a>&#160;</td>
+          <td class="paramname"><em>err_type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -169,44 +170,72 @@ Variables</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1exception_a3748ba0d94723c23dc92d4febc7918e7_cgraph.png" border="0" usemap="#anamespacevk_1_1exception_a3748ba0d94723c23dc92d4febc7918e7_cgraph" alt=""/></div>
+<div class="center"><img src="namespacevk_1_1exception_aa850a18a184cb46f9d0eaee2e84edaab_cgraph.png" border="0" usemap="#anamespacevk_1_1exception_aa850a18a184cb46f9d0eaee2e84edaab_cgraph" alt=""/></div>
 </div>
+
+</div>
+</div>
+<a id="a72890d1594cdcf725d29b8b42e60a174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72890d1594cdcf725d29b8b42e60a174">&#9670;&nbsp;</a></span>process_error() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::exception::process_error </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>error_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacevk_1_1exception_a72890d1594cdcf725d29b8b42e60a174_cgraph.png" border="0" usemap="#anamespacevk_1_1exception_a72890d1594cdcf725d29b8b42e60a174_cgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="afb8d67ac6364eda59c13c148647f8a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8d67ac6364eda59c13c148647f8a8c">&#9670;&nbsp;</a></span>translate_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * vk::exception::translate_error </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>error_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacevk_1_1exception_a3748ba0d94723c23dc92d4febc7918e7_icgraph.png" border="0" usemap="#anamespacevk_1_1exception_a3748ba0d94723c23dc92d4febc7918e7_icgraph" alt=""/></div>
+<div class="center"><img src="namespacevk_1_1exception_afb8d67ac6364eda59c13c148647f8a8c_icgraph.png" border="0" usemap="#anamespacevk_1_1exception_afb8d67ac6364eda59c13c148647f8a8c_icgraph" alt=""/></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a4e3894430253092e521f439758b35e7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e3894430253092e521f439758b35e7f">&#9670;&nbsp;</a></span>log_before_throw</h2>
+<a id="a8af56d0798d67752b322e73b65ad08de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af56d0798d67752b322e73b65ad08de">&#9670;&nbsp;</a></span>errors</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool vk::exception::log_before_throw = true</td>
+          <td class="memname">const std::unordered_map&lt;size_t, <a class="el" href="structvk_1_1exception_1_1error.html">error</a>&gt; vk::exception::errors</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

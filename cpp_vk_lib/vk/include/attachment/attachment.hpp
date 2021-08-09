@@ -22,9 +22,9 @@ public:
     const std::string& type() const noexcept;
 
 private:
-    std::string m_attachment_type;
-    int32_t m_owner_id;
-    int32_t m_id;
+    std::string attachment_type_;
+    int32_t owner_id_;
+    int32_t id_;
 };
 
 class photo : public base
@@ -53,7 +53,7 @@ public:
     const std::string& raw_url() const noexcept;
 
 private:
-    std::string m_raw_url;
+    std::string raw_url_;
 };
 
 class wall : public base
@@ -71,8 +71,8 @@ public:
     const std::string& raw_mp3() const noexcept;
 
 private:
-    std::string m_raw_ogg;
-    std::string m_raw_mp3;
+    std::string raw_ogg_;
+    std::string raw_mp3_;
 };
 
 template <typename Attachment>

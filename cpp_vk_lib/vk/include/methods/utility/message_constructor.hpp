@@ -30,7 +30,7 @@ public:
 private:
     static std::string append_attachments_impl(std::vector<attachment::attachment_ptr_t> attachments) ;
 
-    group_constructor m_constructor;
+    group_constructor constructor_;
 };
 
 }// namespace method

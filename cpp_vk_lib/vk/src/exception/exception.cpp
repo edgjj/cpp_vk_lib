@@ -3,11 +3,11 @@
 #include "runtime/include/string_utils/string_utils.hpp"
 
 vk::exception::common_exception::common_exception(std::string_view what_arg)
-  : m_error(what_arg.data()) {}
+  : error_(what_arg.data()) {}
 
 const char* vk::exception::common_exception::what() const noexcept
 {
-    return m_error.what();
+    return error_.what();
 }
 
 std::string vk::exception::common_exception::create(size_t id, const char* error_name, const char* arg)

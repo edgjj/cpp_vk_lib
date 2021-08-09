@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['conversation_5fmember_5flist_706',['conversation_member_list',['../namespacevk.html#a166a22757b315503e8028ad29e9f2f99',1,'vk']]]
+  ['group_5fconstructor_584',['group_constructor',['../namespacevk_1_1method.html#ac00ed30445fc8f02aede3bc59119eafc',1,'vk::method']]]
 ];

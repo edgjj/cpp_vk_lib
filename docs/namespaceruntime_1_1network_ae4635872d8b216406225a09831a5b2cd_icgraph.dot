@@ -4,13 +4,13 @@ digraph "runtime::network::request"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="RL";
-  Node1 [label="runtime::network::request",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="runtime::network::request",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Execute HTTP POST request."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="vk::method::utility\l::call",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1utility.html#a815a7fb6e71510eedbd05eedaf68db84",tooltip=" "];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk::method::policy\l::group_api::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1policy_1_1group__api.html#ad5f1018fdb34a2a106633f169485c5a2",tooltip=" "];
+  Node3 [label="vk::method::policy\l::group_api::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1method_1_1policy_1_1group__api.html#a1b0ed4bf241363b1e2a008a4ed6920af",tooltip=" "];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="vk::method::policy\l::user_api::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1policy_1_1user__api.html#a616f57ef2c0d92de83f3fc6471736d6f",tooltip=" "];
+  Node4 [label="vk::method::policy\l::user_api::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1method_1_1policy_1_1user__api.html#af593ca3c6c2ef31a57d78177d20da192",tooltip=" "];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="vk::method::policy\l::do_not_use_api_link\l::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1policy_1_1do__not__use__api__link.html#a45cc7c7d9ffcebbe9e35edfe1f5a8d68",tooltip=" "];
+  Node5 [label="vk::method::policy\l::do_not_use_api_link\l::execute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1method_1_1policy_1_1do__not__use__api__link.html#acb8cc373faad25424300eaf5605411cf",tooltip=" "];
 }

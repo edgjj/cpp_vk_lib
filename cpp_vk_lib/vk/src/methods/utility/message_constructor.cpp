@@ -2,7 +2,7 @@
 
 vk::method::message_constructor::message_constructor(bool disable_mentions_flag)
 {
-    m_constructor.method("messages.send");
+    constructor_.method("messages.send");
 
     param("random_id", "0");
 
@@ -15,13 +15,13 @@ vk::method::message_constructor::message_constructor(bool disable_mentions_flag)
 
 vk::method::message_constructor& vk::method::message_constructor::param(std::string_view lhs, std::string_view rhs)
 {
-    m_constructor.param(lhs, rhs);
+    constructor_.param(lhs, rhs);
     return *this;
 }
 
 vk::method::message_constructor& vk::method::message_constructor::append_map(std::map<std::string, std::string> additional_params)
 {
-    m_constructor.append_map(std::move(additional_params));
+    constructor_.append_map(std::move(additional_params));
     return *this;
 }
 
@@ -33,7 +33,7 @@ vk::method::message_constructor& vk::method::message_constructor::attachments(st
 
 std::string vk::method::message_constructor::perform_request()
 {
-    return m_constructor.perform_request();
+    return constructor_.perform_request();
 }
 
 std::string vk::method::message_constructor::append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t> attachments)

@@ -11,26 +11,27 @@ class open_app
 {
 public:
     open_app(int64_t app_id, int64_t owner_id, std::string_view hash, std::string_view label)
-        : m_app_id(app_id)
-        , m_owner_id(owner_id)
-        , m_hash(hash)
-        , m_label(label) {}
+        : app_id_(app_id)
+        , owner_id_(owner_id)
+        , hash_(hash)
+        , label_(label) {}
 
     std::string serialize() const
     {
         return runtime::string_utils::format(
             R"__({"action":{"type":"open_app","app_id":{},"owner_id":{},"hash":"{}","label":"{}"}})__",
-            m_app_id,
-            m_owner_id,
-            m_hash,
-            m_label);
+            app_id_,
+            owner_id_,
+            hash_,
+            label_
+        );
     }
 
 private:
-    int64_t m_app_id;
-    int64_t m_owner_id;
-    std::string m_hash;
-    std::string m_label;
+    int64_t app_id_;
+    int64_t owner_id_;
+    std::string hash_;
+    std::string label_;
 };
 
 }// namespace button

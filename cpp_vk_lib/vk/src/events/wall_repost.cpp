@@ -5,46 +5,46 @@
 #include "spdlog/spdlog.h"
 
 vk::event::wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text)
-    : m_id(id)
-    , m_from_id(from_id)
-    , m_owner_id(owner_id)
-    , m_text(std::move(text))
-    , m_attachments()
+    : id_(id)
+    , from_id_(from_id)
+    , owner_id_(owner_id)
+    , text_(std::move(text))
+    , attachments_()
 {
     spdlog::info("create wall_repost");
-    spdlog::info("\tid           {}", m_id);
-    spdlog::info("\tfrom_id      {}", m_from_id);
-    spdlog::info("\towner_id     {}", m_owner_id);
-    spdlog::info("\ttext         {}", m_text);
-    spdlog::info("\tattachments: {}", m_attachments.size());
+    spdlog::info("\tid           {}", id_);
+    spdlog::info("\tfrom_id      {}", from_id_);
+    spdlog::info("\towner_id     {}", owner_id_);
+    spdlog::info("\ttext         {}", text_);
+    spdlog::info("\tattachments: {}", attachments_.size());
 }
 
 void vk::event::wall_repost::construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
-    m_attachments = attachments;
+    attachments_ = attachments;
 }
 
 int64_t vk::event::wall_repost::id() const noexcept
 {
-    return m_id;
+    return id_;
 }
 
 int64_t vk::event::wall_repost::from_id() const noexcept
 {
-    return m_from_id;
+    return from_id_;
 }
 
 int64_t vk::event::wall_repost::owner_id() const noexcept
 {
-    return m_owner_id;
+    return owner_id_;
 }
 
 const std::string& vk::event::wall_repost::text() const noexcept
 {
-    return m_text;
+    return text_;
 }
 
 const std::vector<vk::attachment::attachment_ptr_t>& vk::event::wall_repost::attachments() const noexcept
 {
-    return m_attachments;
+    return attachments_;
 }
