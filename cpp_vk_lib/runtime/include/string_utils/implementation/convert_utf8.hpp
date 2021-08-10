@@ -4,9 +4,7 @@
 #include <codecvt>
 #include <locale>
 
-namespace runtime {
-namespace string_utils {
-namespace implementation {
+namespace runtime::string_utils::implementation {
 
 const std::locale utf8("en_US.UTF-8");
 
@@ -34,8 +32,6 @@ inline std::string create_utf8_lower(std::string_view data)
     });
 }
 
-}// namespace implementation
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils::implementation
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_UTF8_HPP

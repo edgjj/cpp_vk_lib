@@ -4,22 +4,17 @@
 #include <string>
 #include <memory>
 
-namespace vk {
-namespace event {
+namespace vk::event {
 class message_new;
 class wall_post_new;
 class wall_reply_new;
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace event {
+namespace vk::event {
 /*!
  * @brief Temporary update container.
  */
@@ -51,7 +46,6 @@ private:
     std::shared_ptr<simdjson::dom::object> event_;
 };
 
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
 #endif// VK_EVENTS_COMMON_EVENT_HPP

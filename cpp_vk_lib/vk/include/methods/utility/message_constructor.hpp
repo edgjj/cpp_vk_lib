@@ -6,8 +6,7 @@
 
 #include <vector>
 
-namespace vk {
-namespace method {
+namespace vk::method {
 /*!
  * @brief Helper to work with message.send method.
  */
@@ -33,7 +32,6 @@ private:
     group_constructor constructor_;
 };
 
-}// namespace method
-}// namespace vk
+}// namespace vk::method
 
 #endif// VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP

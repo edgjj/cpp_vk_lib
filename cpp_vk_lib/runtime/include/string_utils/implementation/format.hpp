@@ -4,9 +4,7 @@
 #include <array>
 #include <sstream>
 
-namespace runtime {
-namespace string_utils {
-namespace implementation {
+namespace runtime::string_utils::implementation {
 
 template <typename... Args>
 static std::string format(std::string_view data, Args&&... args)
@@ -36,8 +34,6 @@ static std::string format(std::string_view data, Args&&... args)
     return formatted;
 }
 
-}// namespace implementation
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils::implementation
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_FORMAT_HPP

@@ -4,8 +4,7 @@
 #include <string>
 #include <variant>
 
-namespace vk {
-namespace action {
+namespace vk::action {
 
 struct chat_invite_user
 {
@@ -49,7 +48,6 @@ using any_action_t = std::variant<
     chat_title_update
 >;
 
-}// namespace action
-}// namespace vk
+}// namespace vk::action
 
 #endif// VK_EVENTS_HANDLERS_MESSAGE_ACTION_HANDLER_HPP

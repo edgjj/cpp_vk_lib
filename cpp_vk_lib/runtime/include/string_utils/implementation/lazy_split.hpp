@@ -6,8 +6,7 @@
 
 #include <string_view>
 
-namespace runtime {
-namespace string_utils {
+namespace runtime::string_utils {
 
 struct end_split_iterator {};
 
@@ -77,7 +76,6 @@ private:
     StringType delimiter;
 };
 
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP

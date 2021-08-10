@@ -5,19 +5,15 @@
 
 #include <vector>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class array;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace event {
+namespace vk::event {
 
 std::vector<attachment::attachment_ptr_t> get_attachments(const simdjson::dom::array& attachments);
 
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
 #endif// VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP
 

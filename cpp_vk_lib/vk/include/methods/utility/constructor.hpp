@@ -5,10 +5,7 @@
 
 #include "vk/include/methods/utility/utility.hpp"
 
-namespace vk {
-namespace method {
-
-namespace policy {
+namespace vk::method::policy {
 
 struct group_api
 {
@@ -23,7 +20,9 @@ struct do_not_use_api_link
     static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>& params);
 };
 
-} // namespace policy
+}// namespace vk::method::policy
+
+namespace vk::method {
 
 template <typename ExecutionPolicy>
 class constructor
@@ -54,7 +53,6 @@ using user_constructor = constructor<policy::user_api>;
 using group_constructor = constructor<policy::group_api>;
 using raw_constructor = constructor<policy::do_not_use_api_link>;
 
-}// namespace method
-}// namespace vk
+}// namespace vk::method
 
 #endif// VK_METHODS_UTILITY_CONSTRUCTOR_HPP

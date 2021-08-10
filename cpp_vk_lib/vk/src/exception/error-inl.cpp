@@ -74,12 +74,14 @@ const std::unordered_map<size_t, error> errors = {
 }// namespace exception
 }// namespace vk
 
-const char* vk::exception::translate_error(size_t error_code)
+namespace vk {
+
+const char* exception::translate_error(size_t error_code)
 {
     return errors.at(error_code).message;
 }
 
-void vk::exception::process_error(size_t error_code)
+void exception::process_error(size_t error_code)
 {
     const auto& error = errors.at(error_code);
 
@@ -98,7 +100,7 @@ void vk::exception::process_error(size_t error_code)
     spdlog::error("{}: {}", error_name, error.message);
 }
 
-void vk::exception::process_error(const char* message, error_type err_type)
+void exception::process_error(const char* message, error_type err_type)
 {
     auto dispatch_error_name = [](error_type err) {
         switch (err) {
@@ -114,3 +116,5 @@ void vk::exception::process_error(const char* message, error_type err_type)
 
     spdlog::error("{}: {}", error_name, message);
 }
+
+}// namespace vk

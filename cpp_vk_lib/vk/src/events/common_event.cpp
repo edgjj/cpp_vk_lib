@@ -6,9 +6,11 @@
 
 #include "simdjson.h"
 
-vk::event::common::~common() = default;
+namespace vk::event {
 
-vk::event::common::common(std::string_view ts, simdjson::dom::object event)
+common::~common() = default;
+
+common::common(std::string_view ts, simdjson::dom::object event)
     : ts_(ts)
     , update_type_()
     , event_(std::make_shared<simdjson::dom::object>(event))
@@ -16,18 +18,20 @@ vk::event::common::common(std::string_view ts, simdjson::dom::object event)
     update_type_ = (*event_)["type"].get_string().take_value().data();
 }
 
-simdjson::dom::object& vk::event::common::get_event() const noexcept { return *event_; }
+simdjson::dom::object& common::get_event() const noexcept { return *event_; }
 
-bool vk::event::common::on_type(std::string_view type) const noexcept { return update_type_ == type; }
+bool common::on_type(std::string_view type) const noexcept { return update_type_ == type; }
 
-vk::event::common::operator message_new() const { return vk::event::message_new(std::move(get_event()["object"]["message"])); }
-vk::event::common::operator wall_post_new() const { return vk::event::wall_post_new(std::move(get_event()["object"])); }
-vk::event::common::operator wall_reply_new() const { return vk::event::wall_reply_new(std::move(get_event()["object"])); }
+common::operator message_new() const { return message_new(std::move(get_event()["object"]["message"])); }
+common::operator wall_post_new() const { return wall_post_new(std::move(get_event()["object"])); }
+common::operator wall_reply_new() const { return wall_reply_new(std::move(get_event()["object"])); }
 
-vk::event::message_new vk::event::common::get_message_new() const { return this->operator message_new(); }
-vk::event::wall_post_new vk::event::common::get_wall_post_new() const { return this->operator wall_post_new(); }
-vk::event::wall_reply_new vk::event::common::get_wall_reply_new() const { return this->operator wall_reply_new(); }
+message_new common::get_message_new() const { return this->operator message_new(); }
+wall_post_new common::get_wall_post_new() const { return this->operator wall_post_new(); }
+wall_reply_new common::get_wall_reply_new() const { return this->operator wall_reply_new(); }
 
-std::string vk::event::common::type() const noexcept { return update_type_; }
-std::string vk::event::common::ts() const noexcept { return ts_; }
-std::string vk::event::common::dump() const noexcept { return simdjson::to_string(get_event()); }
+std::string common::type() const noexcept { return update_type_; }
+std::string common::ts() const noexcept { return ts_; }
+std::string common::dump() const noexcept { return simdjson::to_string(get_event()); }
+
+}// namespace vk::event

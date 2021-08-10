@@ -1,6 +1,5 @@
 ﻿#include "vk/include/events/message_new.hpp"
 
-#include "vk/include/exception/error-inl.hpp"
 #include "vk/include/events/attachment_handler.hpp"
 
 #include "simdjson.h"
@@ -8,9 +7,11 @@
 
 #include <iomanip>
 
-vk::event::message_new::~message_new() = default;
+namespace vk::event {
 
-vk::event::message_new::message_new(simdjson::dom::object event)
+message_new::~message_new() = default;
+
+message_new::message_new(simdjson::dom::object event)
     : event_json_(std::make_shared<simdjson::dom::object>(event))
     , action_()
 {
@@ -38,7 +39,7 @@ vk::event::message_new::message_new(simdjson::dom::object event)
     spdlog::info("\thas attachments?   {}", has_attachments_);
 }
 
-void vk::event::message_new::try_get_actions()
+void message_new::try_get_actions()
 {
     simdjson::dom::object action = get_event()["action"].get_object();
     std::string action_name = action["type"].get_string().take_value().data();
@@ -73,7 +74,7 @@ void vk::event::message_new::try_get_actions()
     }
 }
 
-bool vk::event::message_new::on_action(std::string_view action_type) const noexcept
+bool message_new::on_action(std::string_view action_type) const noexcept
 {
     if (action_type == "chat_invite_user") {
         return std::holds_alternative<action::chat_invite_user>(action_);
@@ -102,47 +103,47 @@ bool vk::event::message_new::on_action(std::string_view action_type) const noexc
     return false;
 }
 
-simdjson::dom::object& vk::event::message_new::get_event() const
+simdjson::dom::object& message_new::get_event() const
 {
     return *event_json_;
 }
 
-int64_t vk::event::message_new::conversation_message_id() const noexcept
+int64_t message_new::conversation_message_id() const noexcept
 {
     return get_event()["conversation_message_id"].get_int64();
 }
 
-int64_t vk::event::message_new::peer_id() const noexcept
+int64_t message_new::peer_id() const noexcept
 {
     return get_event()["peer_id"].get_int64();
 }
 
-int64_t vk::event::message_new::from_id() const noexcept
+int64_t message_new::from_id() const noexcept
 {
     return get_event()["from_id"].get_int64();
 }
 
-std::string vk::event::message_new::text() const noexcept
+std::string message_new::text() const noexcept
 {
     return get_event()["text"].get_c_str().take_value();
 }
 
-bool vk::event::message_new::has_action() const noexcept
+bool message_new::has_action() const noexcept
 {
     return has_action_;
 }
 
-bool vk::event::message_new::has_reply() const noexcept
+bool message_new::has_reply() const noexcept
 {
     return has_reply_;
 }
 
-bool vk::event::message_new::has_fwd_messages() const noexcept
+bool message_new::has_fwd_messages() const noexcept
 {
     return has_fwd_messages_;
 }
 
-vk::action::any_action_t vk::event::message_new::action() const
+action::any_action_t message_new::action() const
 {
     if (has_action_) {
         return action_;
@@ -151,7 +152,7 @@ vk::action::any_action_t vk::event::message_new::action() const
     }
 }
 
-std::vector<vk::attachment::attachment_ptr_t> vk::event::message_new::attachments() const
+std::vector<attachment::attachment_ptr_t> message_new::attachments() const
 {
     if (has_attachments_) {
         return event::get_attachments(get_event()["attachments"].get_array());
@@ -160,7 +161,7 @@ std::vector<vk::attachment::attachment_ptr_t> vk::event::message_new::attachment
     }
 }
 
-std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd_messages() const
+std::vector<std::unique_ptr<message_new>> message_new::fwd_messages() const
 {
     if (has_attachments_) {
         std::vector<std::unique_ptr<message_new>> fwd_messages;
@@ -175,7 +176,7 @@ std::vector<std::unique_ptr<vk::event::message_new>> vk::event::message_new::fwd
     }
 }
 
-std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const
+std::shared_ptr<message_new> message_new::reply() const
 {
     if (has_reply_) {
         return std::make_unique<message_new>(get_event()["reply_message"].get_object());
@@ -184,30 +185,30 @@ std::shared_ptr<vk::event::message_new> vk::event::message_new::reply() const
     }
 }
 
-void dispatch_events(std::ostream& ostream, const vk::event::message_new& event)
+void dispatch_events(std::ostream& ostream, const message_new& event)
 {
     if (event.has_action()) {
         if (event.on_action("chat_invite_user")) {
             ostream << std::setw(40) << "chat_invite_user action: ";
-            ostream << std::get<vk::action::chat_invite_user>(event.action()).member_id;
+            ostream << std::get<action::chat_invite_user>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_kick_user")) {
             ostream << std::setw(40) << "chat_kick_user action: ";
-            ostream << std::get<vk::action::chat_kick_user>(event.action()).member_id;
+            ostream << std::get<action::chat_kick_user>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_pin_message")) {
             ostream << std::setw(40) << "chat_pin_message action: ";
-            ostream << std::get<vk::action::chat_pin_message>(event.action()).member_id;
+            ostream << std::get<action::chat_pin_message>(event.action()).member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_unpin_message")) {
             ostream << std::setw(40) << "chat_unpin_message action: ";
-            ostream << std::get<vk::action::chat_unpin_message>(event.action()).member_id;
+            ostream << std::get<action::chat_unpin_message>(event.action()).member_id;
             ostream << std::endl;
         }
 
@@ -219,13 +220,13 @@ void dispatch_events(std::ostream& ostream, const vk::event::message_new& event)
 
         if (event.on_action("chat_title_update")) {
             ostream << std::setw(30) << "chat_title_update action:  ";
-            ostream << std::get<vk::action::chat_title_update>(event.action()).text;
+            ostream << std::get<action::chat_title_update>(event.action()).text;
             ostream << std::endl;
         }
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event)
+std::ostream& operator<<(std::ostream& ostream, const message_new& event)
 {
     ostream << "message_new:" << std::endl;
 
@@ -269,3 +270,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
 
     return ostream;
 }
+
+}// namespace vk::event

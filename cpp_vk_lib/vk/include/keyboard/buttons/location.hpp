@@ -3,9 +3,7 @@
 
 #include <string>
 
-namespace vk {
-namespace keyboard {
-namespace button {
+namespace vk::keyboard::button {
 
 class location
 {
@@ -16,8 +14,6 @@ public:
     }
 };
 
-}// namespace button
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard::button
 
 #endif// VK_KEYBOARD_BUTTONS_LOCATION_HPP

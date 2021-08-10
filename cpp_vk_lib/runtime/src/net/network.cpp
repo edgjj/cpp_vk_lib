@@ -35,7 +35,9 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
     return result;
 }
 
-std::string runtime::network::request(std::string_view host, const std::map<std::string, std::string>& target)
+namespace runtime {
+
+std::string network::request(std::string_view host, const std::map<std::string, std::string>& target)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -53,7 +55,7 @@ std::string runtime::network::request(std::string_view host, const std::map<std:
     return response.str();
 }
 
-std::string runtime::network::request_data(std::string_view host, std::string_view data)
+std::string network::request_data(std::string_view host, std::string_view data)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -71,7 +73,7 @@ std::string runtime::network::request_data(std::string_view host, std::string_vi
     return response.str();
 }
 
-size_t runtime::network::download(std::string_view filename, std::string_view server)
+size_t network::download(std::string_view filename, std::string_view server)
 {
     FILE* fp = fopen(filename.data(), "w");
     if (!fp) {
@@ -99,7 +101,7 @@ size_t runtime::network::download(std::string_view filename, std::string_view se
     return 0;
 }
 
-std::string runtime::network::upload(std::string_view field_name, std::string_view filename, std::string_view server)
+std::string network::upload(std::string_view field_name, std::string_view filename, std::string_view server)
 {
     std::ostringstream response;
     curlpp::Forms form_parts;
@@ -121,3 +123,5 @@ std::string runtime::network::upload(std::string_view field_name, std::string_vi
 
     return response.str();
 }
+
+}// namespace runtime

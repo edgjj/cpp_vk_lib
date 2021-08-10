@@ -3,14 +3,11 @@
 
 #include "vk/include/events/wall_repost.hpp"
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace event {
+namespace vk::event {
 /*!
  * @brief The `wall_post_new` event representation.
  *
@@ -52,8 +49,7 @@ private:
     bool has_repost_ = false;
 };
 
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event);
 

@@ -5,7 +5,9 @@
 
 #include "simdjson.h"
 
-vk::oauth::client::client(std::string_view username, std::string_view password, vk::oauth::target_client client_type)
+namespace vk::oauth {
+
+client::client(std::string_view username, std::string_view password, vk::oauth::target_client client_type)
     : client_type_(client_type)
     , username_(username)
     , password_(password)
@@ -15,30 +17,30 @@ vk::oauth::client::client(std::string_view username, std::string_view password, 
     , pulled_user_id_(0)
 {
     switch (client_type_) {
-        case target_client::android:
-            target_client_id_ = context::android_app_client_id;
-            target_client_secret_ = context::android_app_client_secret;
-            break;
-        case target_client::iphone:
-            target_client_id_ = context::iphone_app_client_id;
-            target_client_secret_ = context::iphone_app_client_secret;
-            break;
-        case target_client::windows:
-            target_client_id_ = context::windows_app_client_id;
-            target_client_secret_ = context::windows_app_client_secret;
-            break;
+    case target_client::android:
+        target_client_id_ = context::android_app_client_id;
+        target_client_secret_ = context::android_app_client_secret;
+        break;
+    case target_client::iphone:
+        target_client_id_ = context::iphone_app_client_id;
+        target_client_secret_ = context::iphone_app_client_secret;
+        break;
+    case target_client::windows:
+        target_client_id_ = context::windows_app_client_id;
+        target_client_secret_ = context::windows_app_client_secret;
+        break;
     }
     pull();
 }
 
-vk::oauth::client::~client() = default;
+client::~client() = default;
 
 static bool error_returned(const simdjson::dom::object& response, std::string_view error_desc)
 {
     return response.begin().key() == "error" && response["error"].get_string().take_value() == error_desc;
 }
 
-void vk::oauth::client::pull()
+void client::pull()
 {
     method::raw_constructor constructor;
 
@@ -62,12 +64,14 @@ void vk::oauth::client::pull()
     pulled_user_id_ = response["user_id"].get_int64();
 }
 
-std::string vk::oauth::client::token() const noexcept
+std::string client::token() const noexcept
 {
     return pulled_token_;
 }
 
-int64_t vk::oauth::client::user_id() const noexcept
+int64_t client::user_id() const noexcept
 {
     return pulled_user_id_;
 }
+
+}// namespace vk::oauth

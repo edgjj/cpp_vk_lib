@@ -4,15 +4,11 @@
 #include <memory>
 #include <string>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class parser;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace oauth {
-namespace context {
+namespace vk::oauth::context {
 
 static inline const std::string_view oauth_link = "https://oauth.vk.com/";
 static inline const std::string_view android_app_client_secret = "hHbZxrka2uZ6jB1inYsH";
@@ -23,7 +19,9 @@ static inline const int32_t android_app_client_id = 2274003;
 static inline const int32_t windows_app_client_id = 3697615;
 static inline const int32_t iphone_app_client_id = 3140623;
 
-}// namespace context
+}// namespace vk::oauth::context
+
+namespace vk::oauth {
 
 enum class target_client : uint8_t
 {
@@ -72,7 +70,6 @@ private:
     int64_t pulled_user_id_;
 };
 
-}// namespace oauth
-}// namespace vk
+}// namespace vk::oauth
 
 #endif// VK_OAUTH_CLIENT_HPP

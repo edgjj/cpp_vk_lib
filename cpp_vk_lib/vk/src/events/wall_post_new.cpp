@@ -1,14 +1,15 @@
 #include "vk/include/events/wall_post_new.hpp"
 
-#include "vk/include/exception/error-inl.hpp"
 #include "vk/include/events/attachment_handler.hpp"
 
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
-vk::event::wall_post_new::~wall_post_new() = default;
+namespace vk::event {
 
-vk::event::wall_post_new::wall_post_new(simdjson::dom::object event)
+wall_post_new::~wall_post_new() = default;
+
+wall_post_new::wall_post_new(simdjson::dom::object event)
     : event_json_(std::make_shared<simdjson::dom::object>(event))
 {
     if (get_event()["attachments"].is_array()) {
@@ -24,62 +25,62 @@ vk::event::wall_post_new::wall_post_new(simdjson::dom::object event)
     spdlog::info("\thas repost?      {}", has_repost_);
 }
 
-int64_t vk::event::wall_post_new::id() const noexcept
+int64_t wall_post_new::id() const noexcept
 {
     return get_event()["id"].get_int64();
 }
 
-int64_t vk::event::wall_post_new::from_id() const noexcept
+int64_t wall_post_new::from_id() const noexcept
 {
     return get_event()["from_id"].get_int64();
 }
 
-int64_t vk::event::wall_post_new::owner_id() const noexcept
+int64_t wall_post_new::owner_id() const noexcept
 {
     return get_event()["owner_id"].get_int64();
 }
 
-int64_t vk::event::wall_post_new::created_by() const noexcept
+int64_t wall_post_new::created_by() const noexcept
 {
     return get_event()["created_by"].get_int64();
 }
 
-std::string vk::event::wall_post_new::text() const noexcept
+std::string wall_post_new::text() const noexcept
 {
     return get_event()["text"].get_string().take_value().data();
 }
 
-bool vk::event::wall_post_new::can_edit() const noexcept
+bool wall_post_new::can_edit() const noexcept
 {
     return get_event()["can_edit"].get_int64();
 }
 
-bool vk::event::wall_post_new::can_delete() const noexcept
+bool wall_post_new::can_delete() const noexcept
 {
     return get_event()["can_delete"].get_int64();
 }
 
-bool vk::event::wall_post_new::marked_as_ads() const noexcept
+bool wall_post_new::marked_as_ads() const noexcept
 {
     return get_event()["marked_as_ads"].get_int64();
 }
 
-bool vk::event::wall_post_new::has_attachments() const noexcept
+bool wall_post_new::has_attachments() const noexcept
 {
     return has_attachments_;
 }
 
-bool vk::event::wall_post_new::has_repost() const noexcept
+bool wall_post_new::has_repost() const noexcept
 {
     return has_repost_;
 }
 
-simdjson::dom::object& vk::event::wall_post_new::get_event() const
+simdjson::dom::object& wall_post_new::get_event() const
 {
     return *event_json_;
 }
 
-std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_post_new::attachments() const
+std::vector<vk::attachment::attachment_ptr_t> wall_post_new::attachments() const
 {
     if (has_attachments_) {
         return event::get_attachments(get_event()["attachments"].get_array());
@@ -88,7 +89,7 @@ std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_post_new::attachme
     }
 }
 
-std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
+std::shared_ptr<wall_repost> wall_post_new::repost() const
 {
     simdjson::dom::object repost_json = get_event()["copy_history"].get_array().at(0).get_object();
 
@@ -109,7 +110,7 @@ std::shared_ptr<vk::event::wall_repost> vk::event::wall_post_new::repost() const
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event)
+std::ostream& operator<<(std::ostream& ostream, const wall_post_new& event)
 {
     ostream << "wall_post_new:" << std::endl;
 
@@ -160,3 +161,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
 
     return ostream;
 }
+
+}// namespace vk::event

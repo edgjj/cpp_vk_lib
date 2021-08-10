@@ -4,9 +4,7 @@
 #include <string_view>
 #include <vector>
 
-namespace runtime {
-namespace string_utils {
-namespace implementation {
+namespace runtime::string_utils::implementation {
 
 template <typename Delimiter>
 inline std::vector<std::string_view> split_implementation(std::string_view data, Delimiter&& delimiter)
@@ -28,8 +26,6 @@ inline std::vector<std::string_view> split_implementation(std::string_view data,
     return splitted;
 }
 
-}// namespace implementation
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils::implementation
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_SPLIT_HPP

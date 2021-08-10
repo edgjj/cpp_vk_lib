@@ -3,9 +3,7 @@
 
 #include "runtime/include/string_utils/string_utils.hpp"
 
-namespace vk {
-namespace keyboard {
-namespace button {
+namespace vk::keyboard::button {
 
 class open_app
 {
@@ -34,8 +32,6 @@ private:
     std::string label_;
 };
 
-}// namespace button
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard::button
 
 #endif// VK_KEYBOARD_BUTTONS_OPEN_APP_HPP

@@ -4,8 +4,7 @@
 #include <unordered_map>
 #include <cstddef>
 
-namespace vk {
-namespace exception {
+namespace vk::exception {
 
 enum class error_type : size_t
 {
@@ -19,7 +18,6 @@ const char* translate_error(size_t error_code);
 void process_error(size_t error_code);
 void process_error(const char* message, error_type err_type);
 
-} // namespace exception
-} // namespace vk
+} // namespace vk::exception
 
 #endif // VK_EXCEPTION_ERROR_INL_HPP

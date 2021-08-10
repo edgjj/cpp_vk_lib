@@ -2,38 +2,40 @@
 
 #include <algorithm>
 
-vk::keyboard::layout::layout(vk::keyboard::flag flags)
+namespace vk::keyboard {
+
+layout::layout(flag flags)
     : serialized_()
     , buttons_()
     , flags_(flags) {}
 
-void vk::keyboard::layout::add_row(const std::vector<vk::keyboard::any_button>& row)
+void layout::add_row(const std::vector<any_button>& row)
 {
     buttons_.push_back(row);
 }
 
-static std::string create_button(const vk::keyboard::any_button& any_button)
+static std::string create_button(const any_button& any_button)
 {
-    if (std::holds_alternative<vk::keyboard::button::text>(any_button)) {
-        return std::get<vk::keyboard::button::text>(any_button).serialize();
+    if (std::holds_alternative<button::text>(any_button)) {
+        return std::get<button::text>(any_button).serialize();
     }
 
-    if (std::holds_alternative<vk::keyboard::button::vk_pay>(any_button)) {
-        return std::get<vk::keyboard::button::vk_pay>(any_button).serialize();
+    if (std::holds_alternative<button::vk_pay>(any_button)) {
+        return std::get<button::vk_pay>(any_button).serialize();
     }
 
-    if (std::holds_alternative<vk::keyboard::button::open_app>(any_button)) {
-        return std::get<vk::keyboard::button::open_app>(any_button).serialize();
+    if (std::holds_alternative<button::open_app>(any_button)) {
+        return std::get<button::open_app>(any_button).serialize();
     }
 
-    if (std::holds_alternative<vk::keyboard::button::location>(any_button)) {
-        return std::get<vk::keyboard::button::location>(any_button).serialize();
+    if (std::holds_alternative<button::location>(any_button)) {
+        return std::get<button::location>(any_button).serialize();
     }
 
     return "";
 }
 
-void vk::keyboard::layout::serialize()
+void layout::serialize()
 {
     serialized_.push_back('{');
 
@@ -63,12 +65,14 @@ void vk::keyboard::layout::serialize()
     serialized_.append("]}");
 }
 
-std::string vk::keyboard::layout::get() const noexcept
+std::string layout::get() const noexcept
 {
     return serialized_;
 }
 
-bool vk::keyboard::layout::has_flag(vk::keyboard::flag flag) const noexcept
+bool layout::has_flag(flag flag) const noexcept
 {
     return (flags_ & flag) > 0;
 }
+
+}// namespace vk::keyboard

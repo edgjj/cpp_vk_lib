@@ -4,9 +4,7 @@
 #include <codecvt>
 #include <locale>
 
-namespace runtime {
-namespace string_utils {
-namespace implementation {
+namespace runtime::string_utils::implementation {
 
 template <typename ExecutionPolicy>
 static inline std::string ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
@@ -43,8 +41,6 @@ inline std::string create_ascii_upper(std::string_view data)
     });
 }
 
-}// namespace implementation
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils::implementation
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP

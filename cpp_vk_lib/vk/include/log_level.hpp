@@ -3,9 +3,7 @@
 
 #include "spdlog/spdlog.h"
 
-namespace vk {
-
-namespace log_level {
+namespace vk::log_level {
 
 inline void trace() {
     spdlog::set_level(static_cast<spdlog::level::level_enum>(SPDLOG_LEVEL_TRACE));
@@ -29,7 +27,6 @@ inline void disable() {
     spdlog::set_level(static_cast<spdlog::level::level_enum>(SPDLOG_LEVEL_OFF));
 }
 
-}// namespace log_level
-}// namespace vk
+}// namespace vk::log_level
 
 #endif // VK_LOG_LEVEL_HPP

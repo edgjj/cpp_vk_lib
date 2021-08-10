@@ -90,13 +90,17 @@ const std::string& loader::access_token() const noexcept { return m_access_token
 const std::string& loader::log_path() const noexcept { return m_log_path; }
 int64_t loader::num_workers() const noexcept { return m_num_workers; }
 
-void vk::config::load(std::string_view path) { loader::load(path); }
-void vk::config::load_string(std::string_view string) { loader::load_string(string); }
-void vk::config::set_user_token(std::string_view token) { loader::get()->user_token_instance() = token; }
+namespace vk {
 
-std::string vk::config::password()     { return loader::get()->password(); }
-std::string vk::config::username()     { return loader::get()->username(); }
-std::string vk::config::user_token()   { return loader::get()->user_token(); }
-std::string vk::config::access_token() { return loader::get()->access_token(); }
-std::string vk::config::log_path()     { return loader::get()->log_path(); }
-size_t vk::config::num_workers()       { return loader::get()->num_workers(); }
+void config::load(std::string_view path) { loader::load(path); }
+void config::load_string(std::string_view string) { loader::load_string(string); }
+void config::set_user_token(std::string_view token) { loader::get()->user_token_instance() = token; }
+
+std::string config::password()     { return loader::get()->password(); }
+std::string config::username()     { return loader::get()->username(); }
+std::string config::user_token()   { return loader::get()->user_token(); }
+std::string config::access_token() { return loader::get()->access_token(); }
+std::string config::log_path()     { return loader::get()->log_path(); }
+size_t config::num_workers()       { return loader::get()->num_workers(); }
+
+}// namespace vk::config

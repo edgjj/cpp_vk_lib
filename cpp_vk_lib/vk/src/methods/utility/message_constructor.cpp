@@ -1,6 +1,8 @@
 #include "vk/include/methods/utility/message_constructor.hpp"
 
-vk::method::message_constructor::message_constructor(bool disable_mentions_flag)
+namespace vk::method {
+
+message_constructor::message_constructor(bool disable_mentions_flag)
 {
     constructor_.method("messages.send");
 
@@ -13,30 +15,30 @@ vk::method::message_constructor::message_constructor(bool disable_mentions_flag)
     }
 }
 
-vk::method::message_constructor& vk::method::message_constructor::param(std::string_view lhs, std::string_view rhs)
+message_constructor& message_constructor::param(std::string_view lhs, std::string_view rhs)
 {
     constructor_.param(lhs, rhs);
     return *this;
 }
 
-vk::method::message_constructor& vk::method::message_constructor::append_map(std::map<std::string, std::string> additional_params)
+message_constructor& message_constructor::append_map(std::map<std::string, std::string> additional_params)
 {
     constructor_.append_map(std::move(additional_params));
     return *this;
 }
 
-vk::method::message_constructor& vk::method::message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t> attachments)
+message_constructor& message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t> attachments)
 {
     param("attachment", append_attachments_impl(std::move(attachments)).data());
     return *this;
 }
 
-std::string vk::method::message_constructor::perform_request()
+std::string message_constructor::perform_request()
 {
     return constructor_.perform_request();
 }
 
-std::string vk::method::message_constructor::append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t> attachments)
+std::string message_constructor::append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t> attachments)
 {
     std::string result;
     result.reserve(attachments.size() * 20);
@@ -49,3 +51,4 @@ std::string vk::method::message_constructor::append_attachments_impl(std::vector
     return result;
 }
 
+}// namespace vk::method

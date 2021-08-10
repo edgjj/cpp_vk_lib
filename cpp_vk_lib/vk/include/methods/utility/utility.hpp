@@ -5,15 +5,12 @@
 #include <memory>
 #include <string>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
 class parser;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace method {
+namespace vk::method {
 /*!
  * @brief The container of common functions and constants needed by various methods.
  */
@@ -39,7 +36,6 @@ private:
     std::string access_token_;
 };
 
-}// namespace method
-}// namespace vk
+}// namespace vk::method
 
 #endif// VK_METHODS_UTILITY_HPP

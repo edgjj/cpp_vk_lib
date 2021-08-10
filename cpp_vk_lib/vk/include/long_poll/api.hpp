@@ -12,12 +12,10 @@
 
 #include <vector>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
 class parser;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
 namespace vk {
 /*!
@@ -49,10 +47,8 @@ private:
     int64_t group_id_;
 };
 
-}// namespace vk
-
 template <typename Task>
-void vk::long_poll::on_event(std::string_view event_type, const event::common& event, Task executor)
+void long_poll::on_event(std::string_view event_type, const event::common& event, Task executor)
 {
     if (event.on_type(event_type)) {
         enqueue(executor);
@@ -60,9 +56,11 @@ void vk::long_poll::on_event(std::string_view event_type, const event::common& e
 }
 
 template <typename Task>
-void vk::long_poll::enqueue(Task executor)
+void long_poll::enqueue(Task executor)
 {
     asio::post(io_context_, executor);
 }
+
+}// namespace vk
 
 #endif// VK_LONG_POLL_API_HPP

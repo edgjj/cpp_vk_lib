@@ -1,15 +1,16 @@
 #ifndef VK_KEYBOARD_COLORS_HPP
 #define VK_KEYBOARD_COLORS_HPP
 
-namespace vk {
-namespace keyboard {
-namespace colors {
+namespace vk::keyboard::colors {
 
 static inline constexpr char red[] = "negative";
 static inline constexpr char green[] = "positive";
 static inline constexpr char blue[] = "primary";
 static inline constexpr char white[] = "secondary";
-}// namespace color_data
+
+}// namespace vk::keyboard::colors
+
+namespace vk::keyboard {
 
 enum class color : unsigned char
 {
@@ -30,7 +31,6 @@ constexpr const char* get_color(color c) noexcept
     }
 }
 
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard
 
 #endif// VK_KEYBOARD_COLORS_HPP

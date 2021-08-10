@@ -6,29 +6,23 @@
 
 #include <vector>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace method {
-namespace messages {
+namespace vk::method::messages {
 
 void send(int64_t peer_id, std::string_view text, bool mentions_flag = false);
 void send(int64_t peer_id, std::string_view text, std::vector<attachment::attachment_ptr_t> list, bool mentions_flag = false);
 void send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag = false);
 
-}// namespace messages
+}// namespace vk::method::messages
 
-namespace groups {
+namespace vk::method::groups {
 
 int64_t get_by_id(error_code& errc);
 std::string get_long_poll_server(int64_t group_id);
 
-}// namespace groups
-}// namespace method
-}// namespace vk
+}// namespace vk::method::groups
 
 #endif// VK_METHODS_BASIC_HPP

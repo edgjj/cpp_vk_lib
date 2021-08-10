@@ -5,9 +5,7 @@
 
 #include "vk/include/keyboard/colors.hpp"
 
-namespace vk {
-namespace keyboard {
-namespace button {
+namespace vk::keyboard::button {
 
 class text
 {
@@ -30,8 +28,6 @@ private:
     std::string payload_data_;
 };
 
-}// namespace button
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard::button
 
 #endif// VK_KEYBOARD_BUTTONS_TEXT_HPP

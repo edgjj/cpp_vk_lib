@@ -10,8 +10,7 @@
 
 #include "runtime/include/misc/cppdefs.hpp"
 
-namespace runtime {
-namespace string_utils {
+namespace runtime::string_utils {
 
 template <typename T, typename Container>
 VK_REALLY_INLINE std::string join(Container&& elements, char delimiter) { return implementation::join<T>(std::forward<Container>(elements), delimiter); }
@@ -31,7 +30,6 @@ VK_REALLY_INLINE std::string utf8_to_upper(std::string_view data) { return imple
 VK_REALLY_INLINE std::string ascii_to_lower(std::string_view data) { return implementation::create_ascii_lower(data); }
 VK_REALLY_INLINE std::string ascii_to_upper(std::string_view data) { return implementation::create_ascii_upper(data); }
 
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils
 
 #endif// RUNTIME_STRING_UTILS_HPP

@@ -6,15 +6,12 @@
 
 #include <vector>
 
-namespace simdjson {
-namespace dom {
+namespace simdjson::dom {
 class object;
 class array;
-}// namespace dom
-}// namespace simdjson
+}// namespace simdjson::dom
 
-namespace vk {
-namespace event {
+namespace vk::event {
 /*!
  * @brief The `message_new` event representation.
  *
@@ -68,8 +65,7 @@ private:
     bool has_attachments_ = false;
 };
 
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
 std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event);
 

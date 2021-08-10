@@ -3,8 +3,7 @@
 
 #include <string>
 
-namespace vk {
-namespace config {
+namespace vk::config {
 
 void load(std::string_view path);
 void load_string(std::string_view string);
@@ -17,7 +16,6 @@ std::string access_token();
 std::string log_path();
 size_t num_workers();
 
-}// namespace config
-}// namespace vk
+}// namespace vk::config
 
 #endif// VK_CONFIG_LOADER_HPP

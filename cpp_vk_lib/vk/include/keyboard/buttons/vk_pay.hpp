@@ -3,9 +3,7 @@
 
 #include "runtime/include/string_utils/string_utils.hpp"
 
-namespace vk {
-namespace keyboard {
-namespace button {
+namespace vk::keyboard::button {
 
 class vk_pay
 {
@@ -21,8 +19,6 @@ public:
 private:
     std::string hash_;
 };
-}// namespace button
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard::button
 
 #endif// VK_KEYBOARD_BUTTONS_VK_PAY_HPP

@@ -5,8 +5,7 @@
 
 #include <vector>
 
-namespace vk {
-namespace event {
+namespace vk::event {
 /*!
  * @brief The `wall_post_new` repost representation.
  *
@@ -35,7 +34,6 @@ private:
     std::vector<vk::attachment::attachment_ptr_t> attachments_;
 };
 
-}// namespace event
-}// namespace vk
+}// namespace vk::event
 
 #endif// VK_EVENTS_WALL_REPOST_HPP

@@ -4,9 +4,7 @@
 #include <numeric>
 #include <string>
 
-namespace runtime {
-namespace string_utils {
-namespace implementation {
+namespace runtime::string_utils::implementation {
 
 template <typename Container, typename BinaryOperation>
 static std::string join_implementation(Container&& elements, BinaryOperation operation)
@@ -32,8 +30,6 @@ static std::string join(Container&& elements, char delimiter)
     return create_joined_string<T, Container&&>(std::forward<Container>(elements), delimiter);
 }
 
-}// namespace implementation
-}// namespace string_utils
-}// namespace runtime
+}// namespace runtime::string_utils::implementation
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_JOIN_HPP

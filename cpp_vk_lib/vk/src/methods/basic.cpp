@@ -5,7 +5,9 @@
 
 #include "simdjson.h"
 
-void vk::method::messages::send(int64_t peer_id, std::string_view text, bool mentions_flag)
+namespace vk::method {
+
+void messages::send(int64_t peer_id, std::string_view text, bool mentions_flag)
 {
     message_constructor constructor(mentions_flag);
 
@@ -15,7 +17,7 @@ void vk::method::messages::send(int64_t peer_id, std::string_view text, bool men
         .perform_request();
 }
 
-void vk::method::messages::send(int64_t peer_id, std::string_view text, std::vector<attachment::attachment_ptr_t> list, bool mentions_flag)
+void messages::send(int64_t peer_id, std::string_view text, std::vector<attachment::attachment_ptr_t> list, bool mentions_flag)
 {
     message_constructor constructor(mentions_flag);
 
@@ -26,7 +28,7 @@ void vk::method::messages::send(int64_t peer_id, std::string_view text, std::vec
         .perform_request();
 }
 
-void vk::method::messages::send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag)
+void messages::send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag)
 {
     message_constructor constructor(mentions_flag);
 
@@ -37,7 +39,7 @@ void vk::method::messages::send(int64_t peer_id, std::string_view text, std::str
         .perform_request();
 }
 
-int64_t vk::method::groups::get_by_id(error_code& errc)
+int64_t groups::get_by_id(error_code& errc)
 {
     const std::string response = group_constructor()
         .method("groups.getById")
@@ -54,7 +56,7 @@ int64_t vk::method::groups::get_by_id(error_code& errc)
     return parsed["response"].at(0)["id"];
 }
 
-std::string vk::method::groups::get_long_poll_server(int64_t group_id)
+std::string groups::get_long_poll_server(int64_t group_id)
 {
     return group_constructor()
         .method("groups.getLongPollServer")
@@ -62,3 +64,5 @@ std::string vk::method::groups::get_long_poll_server(int64_t group_id)
         .param("random_id", "0")
         .perform_request();
 }
+
+}// namespace vk::method

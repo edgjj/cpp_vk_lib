@@ -6,11 +6,7 @@
 #include <memory>
 #include <string>
 
-namespace vk {
-/*!
- * @namespace Different attachment types and cast function to it.
- */
-namespace attachment {
+namespace vk::attachment {
 
 class base
 {
@@ -85,9 +81,8 @@ std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)
     throw exception::bad_cast_error<base, Attachment>();
 }
 
-using attachment_ptr_t = std::shared_ptr<attachment::base>;
+using attachment_ptr_t = std::shared_ptr<base>;
 
-}// namespace attachment
-}// namespace vk
+}// namespace vk::attachment
 
 #endif// VK_ATTACHMENT_HPP

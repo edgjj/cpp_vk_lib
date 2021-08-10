@@ -5,8 +5,7 @@
 #include <string>
 #include <string_view>
 
-namespace vk {
-namespace exception {
+namespace vk::exception {
 
 /*!
  * @brief General exception of VK method classes.
@@ -57,7 +56,6 @@ public:
         : common_exception(create(0, "bad_cast_error", "Cast error")) {}
 };
 
-}// namespace exception
-}// namespace vk
+}// namespace vk::exception
 
 #endif// VK_EXCEPTION_HPP

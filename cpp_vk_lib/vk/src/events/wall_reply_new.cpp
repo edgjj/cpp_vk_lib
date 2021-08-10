@@ -1,16 +1,15 @@
 #include "vk/include/events/wall_reply_new.hpp"
 
-#include "runtime/include/misc/cppdefs.hpp"
-
-#include "vk/include/exception/error-inl.hpp"
 #include "vk/include/events/attachment_handler.hpp"
 
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
-vk::event::wall_reply_new::~wall_reply_new() = default;
+namespace vk::event {
 
-vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object event)
+wall_reply_new::~wall_reply_new() = default;
+
+wall_reply_new::wall_reply_new(simdjson::dom::object event)
     : event_json_(std::make_shared<simdjson::dom::object>(event))
 {
     if (get_event()["attachments"].is_array() && get_event()["attachments"].get_array().size() > 0) {
@@ -21,42 +20,42 @@ vk::event::wall_reply_new::wall_reply_new(simdjson::dom::object event)
     spdlog::info("\thas attachments? {}", has_attachments_);
 }
 
-simdjson::dom::object& vk::event::wall_reply_new::get_event() const
+simdjson::dom::object& wall_reply_new::get_event() const
 {
     return *event_json_;
 }
 
-int64_t vk::event::wall_reply_new::id() const noexcept
+int64_t wall_reply_new::id() const noexcept
 {
     return get_event()["id"].get_int64();
 }
 
-int64_t vk::event::wall_reply_new::from_id() const noexcept
+int64_t wall_reply_new::from_id() const noexcept
 {
     return get_event()["from_id"].get_int64();
 }
 
-int64_t vk::event::wall_reply_new::post_id() const noexcept
+int64_t wall_reply_new::post_id() const noexcept
 {
     return get_event()["post_id"].get_int64();
 }
 
-int64_t vk::event::wall_reply_new::owner_id() const noexcept
+int64_t wall_reply_new::owner_id() const noexcept
 {
     return get_event()["owner_id"].get_int64();
 }
 
-std::string vk::event::wall_reply_new::text() const noexcept
+std::string wall_reply_new::text() const noexcept
 {
     return get_event()["text"].get_c_str().take_value();
 }
 
-bool vk::event::wall_reply_new::has_attachments() const noexcept
+bool wall_reply_new::has_attachments() const noexcept
 {
     return has_attachments_;
 }
 
-std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_reply_new::attachments() const
+std::vector<vk::attachment::attachment_ptr_t> wall_reply_new::attachments() const
 {
     if (has_attachments_) {
         return event::get_attachments(get_event()["attachments"].get_array());
@@ -65,7 +64,7 @@ std::vector<vk::attachment::attachment_ptr_t> vk::event::wall_reply_new::attachm
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply)
+std::ostream& operator<<(std::ostream& ostream, const wall_reply_new& reply)
 {
     ostream << "wall_reply_new:" << std::endl;
 
@@ -93,3 +92,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new&
 
     return ostream;
 }
+
+}// namespace vk::event

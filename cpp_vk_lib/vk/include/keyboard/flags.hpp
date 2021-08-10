@@ -1,8 +1,7 @@
 #ifndef VK_KEYBOARD_FLAGS_HPP
 #define VK_KEYBOARD_FLAGS_HPP
 
-namespace vk {
-namespace keyboard {
+namespace vk::keyboard {
 
 enum class flag : unsigned char
 {
@@ -16,7 +15,6 @@ constexpr unsigned char operator & (flag lhs, flag rhs) noexcept
     return static_cast<unsigned char>(lhs) & static_cast<unsigned char>(rhs);
 }
 
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard
 
 #endif// VK_KEYBOARD_FLAGS_HPP

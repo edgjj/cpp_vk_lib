@@ -9,8 +9,7 @@
 
 #include <variant>
 
-namespace vk {
-namespace keyboard {
+namespace vk::keyboard {
 
 using any_button = std::variant<button::text, button::vk_pay, button::open_app, button::location>;
 
@@ -46,7 +45,6 @@ private:
     flag flags_ = vk::keyboard::flag::none;
 };
 
-}// namespace keyboard
-}// namespace vk
+}// namespace vk::keyboard
 
 #endif// VK_KEYBOARD_LAYOUT_HPP
