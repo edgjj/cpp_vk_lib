@@ -16,14 +16,16 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
 option(CPP_VK_LIB_STATIC_BUILD "Link cpp_vk_lib as static library" OFF)
-
-message("-- CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
+option(CPP_VK_LIB_BUILD_TESTS "Build tests" OFF)
+option(CPP_VK_LIB_BUILD_EXAMPLE "Build example long poll app" OFF)
 
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
 
-include(cmake/testing.cmake)
+if (CPP_VK_LIB_BUILD_TESTS)
+  include(cmake/build_tests.cmake)
+endif()
 
-include_directories(modules/asio/asio/include)
-add_executable(long_poll_example test/long_poll/long_poll.cpp)
-target_link_libraries(long_poll_example cpp_vk_lib)
+if (CPP_VK_LIB_BUILD_EXAMPLE)
+  include(cmake/build_example.cmake)
+endif()

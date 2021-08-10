@@ -22,6 +22,27 @@ constexpr char sample_config[] = R"__(
     }
 )__";
 
+/*!
+ *  int main()
+ *  {
+ *      vk::config::load_string(sample_config);
+ *      vk::log_level::trace();
+ *      const std::size_t lp_timeout_secs = 60;
+ *      asio::io_context io_context;
+ *
+ *      vk::group_long_poll group_lp(io_context);
+ *
+ *      group_lp.on_event<vk::event::message_new>([]{
+ *          vk::method::messages::send(message_event.peer_id(), "message_new");
+ *      });
+ *      group_lp.on_event<vk::event::wall_post_new>([]{
+ *          vk::method::messages::send(message_event.peer_id(), "wall_post_new");
+ *      });
+ *
+ *      return group_lp.run();
+ *  }
+ */
+
 int main()
 {
     vk::config::load_string(sample_config);
