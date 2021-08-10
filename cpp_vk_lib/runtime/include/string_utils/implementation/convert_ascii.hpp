@@ -4,8 +4,6 @@
 #include <codecvt>
 #include <locale>
 
-namespace runtime::string_utils::implementation {
-
 template <typename ExecutionPolicy>
 static inline std::string ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)
 {
@@ -18,6 +16,8 @@ static inline std::string ascii_convert_implementation(std::string_view data, Ex
 
     return converted;
 }
+
+namespace runtime::string_utils::implementation {
 
 inline std::string create_ascii_lower(std::string_view data)
 {

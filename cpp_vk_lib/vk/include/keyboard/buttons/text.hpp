@@ -20,7 +20,8 @@ public:
         return runtime::string_utils::format(
             R"__({"action":{"type":"text","payload":"{\"button\":\"1\"}","label":"{}"},"color":"{}"})__",
             payload_data_,
-            color);
+            color
+        );
     }
 
 private:

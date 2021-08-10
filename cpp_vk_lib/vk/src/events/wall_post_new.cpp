@@ -20,9 +20,9 @@ wall_post_new::wall_post_new(simdjson::dom::object event)
         has_repost_ = true;
     }
 
-    spdlog::info("create wall_post_new");
-    spdlog::info("\thas attachments? {}", has_attachments_);
-    spdlog::info("\thas repost?      {}", has_repost_);
+    spdlog::trace("create wall_post_new");
+    spdlog::trace("\thas attachments? {}", has_attachments_);
+    spdlog::trace("\thas repost?      {}", has_repost_);
 }
 
 int64_t wall_post_new::id() const noexcept

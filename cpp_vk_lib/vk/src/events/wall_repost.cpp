@@ -11,17 +11,17 @@ wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::str
     , text_(std::move(text))
     , attachments_()
 {
-    spdlog::info("create wall_repost");
-    spdlog::info("\tid           {}", id_);
-    spdlog::info("\tfrom_id      {}", from_id_);
-    spdlog::info("\towner_id     {}", owner_id_);
-    spdlog::info("\ttext         {}", text_);
-    spdlog::info("\tattachments: {}", attachments_.size());
+    spdlog::trace("create wall_repost");
+    spdlog::trace("\tid           {}", id_);
+    spdlog::trace("\tfrom_id      {}", from_id_);
+    spdlog::trace("\towner_id     {}", owner_id_);
+    spdlog::trace("\ttext         {}", text_);
+    spdlog::trace("\tattachments: {}", attachments_.size());
 }
 
 void wall_repost::construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
-    attachments_ = attachments;
+    attachments_ = std::move(attachments);
 }
 
 int64_t wall_repost::id() const noexcept

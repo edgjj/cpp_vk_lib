@@ -4,10 +4,6 @@
 #include <codecvt>
 #include <locale>
 
-namespace runtime::string_utils::implementation {
-
-const std::locale utf8("en_US.UTF-8");
-
 template <typename ExecutionPolicy>
 static inline std::string utf8_create(std::string_view data, ExecutionPolicy converter)
 {
@@ -17,6 +13,10 @@ static inline std::string utf8_create(std::string_view data, ExecutionPolicy con
     }
     return std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(wide_string);
 }
+
+namespace runtime::string_utils::implementation {
+
+static const std::locale utf8("en_US.UTF-8");
 
 inline std::string create_utf8_upper(std::string_view data)
 {

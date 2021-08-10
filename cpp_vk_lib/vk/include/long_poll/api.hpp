@@ -35,12 +35,12 @@ public:
     template <typename Task>
     void on_event(std::string_view event_type, const event::common& event, Task task);
 
-    template <typename Executor>
-    void enqueue(Executor executor);
-
     void run();
 
 private:
+    template <typename Executor>
+    void enqueue(Executor executor);
+
     std::unique_ptr<simdjson::dom::parser> parser_;
     mutable error_code errc_;
     asio::io_context& io_context_;
@@ -48,10 +48,10 @@ private:
 };
 
 template <typename Task>
-void long_poll::on_event(std::string_view event_type, const event::common& event, Task executor)
+void long_poll::on_event(std::string_view event_type, const event::common& event, Task task)
 {
     if (event.on_type(event_type)) {
-        enqueue(executor);
+        enqueue(task);
     }
 }
 

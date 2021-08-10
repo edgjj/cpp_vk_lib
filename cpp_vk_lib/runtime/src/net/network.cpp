@@ -8,11 +8,6 @@
 
 #include <sstream>
 
-static std::string escape(std::string_view url)
-{
-    return curlpp::escape(url.data());
-}
-
 static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb)
 {
     return fwrite(ptr, size, nmemb, file);
@@ -28,7 +23,7 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
     for (const auto& [key, value] : body) {
         result += key;
         result += '=';
-        result += escape(value);
+        result += curlpp::escape(value);
         result += '&';
     }
 

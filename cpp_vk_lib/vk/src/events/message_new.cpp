@@ -32,11 +32,11 @@ message_new::message_new(simdjson::dom::object event)
         try_get_actions();
     }
 
-    spdlog::info("create message_new");
-    spdlog::info("\thas action?        {}", has_action_);
-    spdlog::info("\thas reply?         {}", has_reply_);
-    spdlog::info("\thas fwd messages?  {}", has_fwd_messages_);
-    spdlog::info("\thas attachments?   {}", has_attachments_);
+    spdlog::trace("create message_new");
+    spdlog::trace("\thas action?        {}", has_action_);
+    spdlog::trace("\thas reply?         {}", has_reply_);
+    spdlog::trace("\thas fwd messages?  {}", has_fwd_messages_);
+    spdlog::trace("\thas attachments?   {}", has_attachments_);
 }
 
 void message_new::try_get_actions()

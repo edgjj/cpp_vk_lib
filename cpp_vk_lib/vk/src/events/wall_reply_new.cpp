@@ -16,8 +16,8 @@ wall_reply_new::wall_reply_new(simdjson::dom::object event)
         has_attachments_ = true;
     }
 
-    spdlog::info("create wall_reply_new");
-    spdlog::info("\thas attachments? {}", has_attachments_);
+    spdlog::trace("create wall_reply_new");
+    spdlog::trace("\thas attachments? {}", has_attachments_);
 }
 
 simdjson::dom::object& wall_reply_new::get_event() const
