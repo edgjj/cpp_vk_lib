@@ -20,7 +20,7 @@
 #include "vk/include/keyboard/colors.hpp"
 #include "vk/include/keyboard/flags.hpp"
 #include "vk/include/keyboard/layout.hpp"
-#include "vk/include/long_poll/api.hpp"
+#include "vk/include/long_poll/long_poll.hpp"
 #include "vk/include/oauth/client.hpp"
 
 #endif// VK_COMMON_HPP

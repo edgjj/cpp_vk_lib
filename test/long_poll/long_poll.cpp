@@ -1,9 +1,12 @@
-#include "vk/include/long_poll/api.hpp"
-#include "vk/include/methods/basic.hpp"
-#include "vk/include/events/message_new.hpp"
+#include "vk/include/long_poll/long_poll.hpp"
 
+#include "runtime/include/string_utils/string_utils.hpp"
 #include "vk/include/config/loader.hpp"
-#include "vk/include/log_level.hpp"
+#include "vk/include/events/message_new.hpp"
+#include "vk/include/methods/basic.hpp"
+#include "vk/include/setup_logger.hpp"
+
+#include <iostream>
 
 constexpr char sample_config[] = R"__(
     {
@@ -22,40 +25,45 @@ constexpr char sample_config[] = R"__(
     }
 )__";
 
-/*!
- *  int main()
- *  {
- *      vk::config::load_string(sample_config);
- *      vk::log_level::trace();
- *      const std::size_t lp_timeout_secs = 60;
- *      asio::io_context io_context;
- *
- *      vk::group_long_poll group_lp(io_context);
- *
- *      group_lp.on_event<vk::event::message_new>([]{
- *          vk::method::messages::send(message_event.peer_id(), "message_new");
- *      });
- *      group_lp.on_event<vk::event::wall_post_new>([]{
- *          vk::method::messages::send(message_event.peer_id(), "wall_post_new");
- *      });
- *
- *      return group_lp.run();
- *  }
- */
-
-int main()
+void parse_command_line_args(int argc, char** argv)
 {
+    for (size_t i = 0; i < argc; ++i) {
+        auto params = runtime::string_utils::split(argv[i], '=');
+        if (params.size() % 2 != 0) {
+            continue;
+        }
+
+        if (params[0] == "--log-level") {
+            for (const char* level : {"off", "critical", "error", "warn", "info", "debug", "trace"}) {
+                if (params[1] == level) {
+                    vk::setup_logger(level);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+int main(int argc, char** argv)
+{
+    if (argc == 2 && strcmp(argv[1], "--help") == 0) {
+        std::cerr <<
+            "Usage:\n" <<
+            "    long_poll_example (optional) --log-level=(off | critical | error | warn | info | debug | trace)\n" <<
+            "Example:\n" <<
+            "    long_poll_example --log-level=trace\n";
+        return EXIT_SUCCESS;
+    }
+
+    vk::setup_logger("info");
+    parse_command_line_args(argc, argv);
     vk::config::load_string(sample_config);
-    vk::log_level::trace();
 
-    const std::size_t lp_timeout_secs = 60;
     asio::io_context io_context;
-
     vk::long_poll api(io_context);
-    vk::long_poll_data data = api.server();
 
     while (true) {
-        auto events = api.listen(data, lp_timeout_secs);
+        auto events = api.listen(/*timeout=*/60);
 
         for (auto& event : events) {
             api.on_event("message_new", event, [&event] {
@@ -65,4 +73,5 @@ int main()
         }
         api.run();
     }
+    return EXIT_SUCCESS;
 }

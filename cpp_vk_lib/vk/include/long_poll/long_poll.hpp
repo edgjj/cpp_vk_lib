@@ -5,7 +5,6 @@
 
 #include "vk/include/events/common_event.hpp"
 #include "vk/include/exception/error_code.hpp"
-#include "vk/include/long_poll/data.hpp"
 
 #include "asio/io_context.hpp"
 #include "asio/post.hpp"
@@ -14,7 +13,6 @@
 
 namespace simdjson::dom {
 class object;
-class parser;
 }// namespace simdjson::dom
 
 namespace vk {
@@ -23,14 +21,21 @@ namespace vk {
  */
 class long_poll
 {
+    struct poll_payload
+    {
+        std::string key;
+        std::string server;
+        std::string ts;
+        time_t update_time = 0;
+    };
+
 public:
     long_poll(asio::io_context& io_context);
     ~long_poll();
 
     VK_DISABLE_COPY_MOVE(long_poll)
 
-    long_poll_data server() const;
-    std::vector<event::common> listen(long_poll_data& data, int8_t timeout = 60) const;
+    std::vector<event::common> listen(int8_t timeout = 60) const;
 
     template <typename Task>
     void on_event(std::string_view event_type, const event::common& event, Task task);
@@ -38,10 +43,12 @@ public:
     void run();
 
 private:
+    poll_payload server() const;
+
     template <typename Executor>
     void enqueue(Executor executor);
 
-    std::unique_ptr<simdjson::dom::parser> parser_;
+    mutable poll_payload poll_payload_;
     mutable error_code errc_;
     asio::io_context& io_context_;
     int64_t group_id_;

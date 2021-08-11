@@ -15,9 +15,12 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
-option(CPP_VK_LIB_STATIC_BUILD "Link cpp_vk_lib as static library" OFF)
-option(CPP_VK_LIB_BUILD_TESTS "Build tests" OFF)
-option(CPP_VK_LIB_BUILD_EXAMPLE "Build example long poll app" OFF)
+
+#if (NOT DEFINED CPP_VK_LIB_LOG_LEVEL)
+#  add_definitions(-DCPP_VK_LIB_LOG_LEVEL="trace")
+#else()
+#  add_definitions(-DCPP_VK_LIB_LOG_LEVEL="${CPP_VK_LIB_LOG_LEVEL}")
+#endif()
 
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
