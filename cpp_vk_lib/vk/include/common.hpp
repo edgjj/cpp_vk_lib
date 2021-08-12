@@ -7,7 +7,7 @@
 #ifndef VK_COMMON_HPP
 #define VK_COMMON_HPP
 
-#include "vk/include/attachment/attachment.hpp"
+#include "vk/include/attachment/base.hpp"
 #include "vk/include/config/loader.hpp"
 #include "vk/include/document/common.hpp"
 #include "vk/include/events/common_event.hpp"

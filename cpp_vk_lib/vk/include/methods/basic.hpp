@@ -1,7 +1,7 @@
 #ifndef VK_METHODS_BASIC_HPP
 #define VK_METHODS_BASIC_HPP
 
-#include "vk/include/attachment/attachment.hpp"
+#include "vk/include/attachment/base.hpp"
 #include "vk/include/exception/error_code.hpp"
 
 #include <vector>

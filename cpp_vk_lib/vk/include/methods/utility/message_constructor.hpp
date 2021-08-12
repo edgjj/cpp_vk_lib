@@ -1,7 +1,7 @@
 #ifndef VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP
 #define VK_METHODS_UTILITY_MESSAGE_CONSTRUCTOR_HPP
 
-#include "vk/include/attachment/attachment.hpp"
+#include "vk/include/attachment/base.hpp"
 #include "vk/include/methods/utility/constructor.hpp"
 
 #include <vector>

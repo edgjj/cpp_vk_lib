@@ -1,7 +1,7 @@
 #ifndef VK_EVENTS_WALL_REPOST_HPP
 #define VK_EVENTS_WALL_REPOST_HPP
 
-#include "vk/include/attachment/attachment.hpp"
+#include "vk/include/attachment/base.hpp"
 
 #include <vector>
 

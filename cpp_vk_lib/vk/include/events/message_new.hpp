@@ -1,7 +1,7 @@
 #ifndef VK_EVENTS_MESSAGE_NEW_HPP
 #define VK_EVENTS_MESSAGE_NEW_HPP
 
-#include "vk/include/attachment/attachment.hpp"
+#include "vk/include/attachment/base.hpp"
 #include "vk/include/events/action.hpp"
 
 #include <vector>
