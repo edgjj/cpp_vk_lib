@@ -2,6 +2,7 @@
 #define RUNTIME_NET_NETWORK_HPP
 
 #include <map>
+#include <string>
 #include <string_view>
 
 namespace runtime::network {
