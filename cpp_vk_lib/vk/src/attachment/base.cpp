@@ -1,4 +1,4 @@
-#include "vk/include/attachment/base.hpp"
+#include "vk/include/attachment/attachment.hpp"
 
 #include "runtime/include/string_utils/string_utils.hpp"
 
