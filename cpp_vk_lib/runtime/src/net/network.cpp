@@ -13,7 +13,7 @@ static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb)
     return fwrite(ptr, size, nmemb, file);
 }
 
-static std::string create_parameters(const std::map<std::string, std::string>& body)
+static std::string create_parameters(std::map<std::string, std::string>&& body)
 {
     static constexpr size_t average_word_length = 20;
 
@@ -32,12 +32,12 @@ static std::string create_parameters(const std::map<std::string, std::string>& b
 
 namespace runtime {
 
-std::string network::request(std::string_view host, const std::map<std::string, std::string>& target)
+std::string network::request(std::string_view host, std::map<std::string, std::string>&& target)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
 
-    std::string url = host.data() + create_parameters(target);
+    std::string url = host.data() + create_parameters(std::move(target));
 
     spdlog::trace("HTTP POST: {}", url);
 

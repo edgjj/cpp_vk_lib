@@ -21,13 +21,10 @@ public:
     utility(std::string_view user_token);
     ~utility();
 
-    std::map<std::string, std::string>& user_args(std::map<std::string, std::string>& params) const;
-    std::map<std::string, std::string>& group_args(std::map<std::string, std::string>& params) const;
-    /*!
-     * Move or copy is your choice.
-     */
-    std::string call(std::string_view method, std::map<std::string, std::string> params) const;
-    static std::string append_url(std::string_view method) ;
+    std::map<std::string, std::string>&& user_args(std::map<std::string, std::string>&& params) const;
+    std::map<std::string, std::string>&& group_args(std::map<std::string, std::string>&& params) const;
+    std::string call(std::string_view method, std::map<std::string, std::string>&& params) const;
+    static std::string append_url(std::string_view method);
 
     static inline const int64_t chat_id_constant = 2000000000;
 

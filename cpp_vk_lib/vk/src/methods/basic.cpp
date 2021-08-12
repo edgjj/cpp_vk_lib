@@ -38,7 +38,7 @@ void messages::send(int64_t peer_id, std::string_view text, std::vector<attachme
 void messages::send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag)
 {
     spdlog::trace("call messages::send: peer_id={}, text={}, keyboard={}, mentions_flag={}",
-                  peer_id, text, keyboard_layout, mentions_flag);
+        peer_id, text, keyboard_layout, mentions_flag);
 
     message_constructor constructor(mentions_flag);
 

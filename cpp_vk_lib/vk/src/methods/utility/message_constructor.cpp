@@ -1,5 +1,18 @@
 #include "vk/include/methods/utility/message_constructor.hpp"
 
+static std::string append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
+{
+    std::string result;
+    result.reserve(attachments.size() * 20);
+
+    for (auto& attachment : attachments) {
+        result += attachment->value();
+        result += ',';
+    }
+
+    return result;
+}
+
 namespace vk::method {
 
 message_constructor::message_constructor(bool disable_mentions_flag)
@@ -21,13 +34,7 @@ message_constructor& message_constructor::param(std::string_view lhs, std::strin
     return *this;
 }
 
-message_constructor& message_constructor::append_map(std::map<std::string, std::string> additional_params)
-{
-    constructor_.append_map(std::move(additional_params));
-    return *this;
-}
-
-message_constructor& message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t> attachments)
+message_constructor& message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
     param("attachment", append_attachments_impl(std::move(attachments)).data());
     return *this;
@@ -36,19 +43,6 @@ message_constructor& message_constructor::attachments(std::vector<vk::attachment
 std::string message_constructor::perform_request()
 {
     return constructor_.perform_request();
-}
-
-std::string message_constructor::append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t> attachments)
-{
-    std::string result;
-    result.reserve(attachments.size() * 20);
-
-    for (auto& attachment : attachments) {
-        result += attachment->value();
-        result += ',';
-    }
-
-    return result;
 }
 
 }// namespace vk::method

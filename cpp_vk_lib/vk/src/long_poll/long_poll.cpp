@@ -77,7 +77,8 @@ std::vector<event::common> long_poll::listen(int8_t timeout) const
 void long_poll::run()
 {
     std::vector<std::thread> threads;
-    for (size_t i = 0; i < config::num_workers(); ++i) {
+    const size_t num_workers = config::num_workers();
+    for (size_t i = 0; i < num_workers; ++i) {
         threads.emplace_back([this] {
             io_context_.run();
         });
@@ -86,7 +87,6 @@ void long_poll::run()
     for (auto& t : threads) {
         t.join();
     }
-//    threads.clear();
     io_context_.restart();
 }
 

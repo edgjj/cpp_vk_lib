@@ -21,19 +21,19 @@ std::string utility::append_url(std::string_view method)
     return runtime::string_utils::format("https://api.vk.com/method/{}?", method);
 }
 
-std::map<std::string, std::string>& utility::user_args(std::map<std::string, std::string>& params) const
+std::map<std::string, std::string>&& utility::user_args(std::map<std::string, std::string>&& params) const
 {
     params.insert({{"access_token", user_token_}, {"v", API_V}});
-    return params;
+    return std::move(params);
 }
 
-std::map<std::string, std::string>& utility::group_args(std::map<std::string, std::string>& params) const
+std::map<std::string, std::string>&& utility::group_args(std::map<std::string, std::string>&& params) const
 {
     params.insert({{"access_token", access_token_}, {"v", API_V}});
-    return params;
+    return std::move(params);
 }
 
-std::string utility::call(std::string_view method, std::map<std::string, std::string> params) const
+std::string utility::call(std::string_view method, std::map<std::string, std::string>&& params) const
 {
     return runtime::network::request(append_url(method), std::move(params));
 }

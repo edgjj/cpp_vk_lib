@@ -9,7 +9,7 @@ namespace runtime::network {
  * @brief Execute HTTP POST request.
  * @return response output.
  */
-std::string request(std::string_view host, const std::map<std::string, std::string>& target = {});
+std::string request(std::string_view host, std::map<std::string, std::string>&& target = {});
 /*!
  * @brief Download file from server to filename.
  * @return -1 in case, when file was not created or opened, 0 otherwise.
