@@ -29,24 +29,23 @@ Also, of course, you can make PR.
 ## Example reply bot
 
 ```
+#include "vk/include/long_poll/long_poll.hpp"
+
+#include "runtime/include/string_utils/string_utils.hpp"
 #include "vk/include/config/loader.hpp"
 #include "vk/include/events/message_new.hpp"
-#include "vk/include/long_poll/api.hpp"
-#include "vk/include/log_level.hpp"
 #include "vk/include/methods/basic.hpp"
-#include "vk/include/methods/utility/utility.hpp"
-
-#include <fstream>
+#include "vk/include/setup_logger.hpp"
 
 constexpr char sample_config[] = R"__(
     {
       "api": {
-        "access_token": "token",
-        "user_token": "not used here"
+        "access_token": "",
+        "user_token": ""
       },
       "oauth": {
-        "login": "not used here",
-        "password": "not used here"
+        "login": "",
+        "password": ""
       },
       "environment": {
         "num_workers": 8,
@@ -57,31 +56,29 @@ constexpr char sample_config[] = R"__(
 
 int main()
 {
+    vk::setup_logger("info");
     vk::config::load_string(sample_config);
-    vk::log_level::trace();
 
-    vk::long_poll api;
-    vk::long_poll_data data = api.server();
-    
+    asio::io_context io_context;
+    vk::long_poll api(io_context);
+
     while (true) {
-        auto events = api.listen(data, /*lp_timeout=*/lp_timeout_secs);
+        auto events = api.listen(/*timeout=*/60);
 
         for (auto& event : events) {
             api.on_event("message_new", event, [&event] {
                 vk::event::message_new message_event = event.get_message_new();
-                vk::method::messages::send(message_event.peer_id(), "Hello from cpp_vk_lib");
+                vk::method::messages::send(message_event.peer_id(), "response");
             });
         }
         api.run();
     }
 }
-
 ```
 
 ## TODO
 
 * User Long Poll
-* API for chat-bots with Python scripting
 * More examples
 * Windows build without external dependencies
 
