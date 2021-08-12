@@ -28,6 +28,7 @@ Also, of course, you can make PR.
 
 ## Example reply bot
 
+```
 #include "runtime/include/string_utils/string_utils.hpp"
 
 #include "vk/include/config/loader.hpp"
