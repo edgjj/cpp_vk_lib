@@ -28,12 +28,11 @@ Also, of course, you can make PR.
 
 ## Example reply bot
 
-```
-#include "vk/include/long_poll/long_poll.hpp"
-
 #include "runtime/include/string_utils/string_utils.hpp"
+
 #include "vk/include/config/loader.hpp"
 #include "vk/include/events/message_new.hpp"
+#include "vk/include/long_poll/long_poll.hpp"
 #include "vk/include/methods/basic.hpp"
 #include "vk/include/setup_logger.hpp"
 
