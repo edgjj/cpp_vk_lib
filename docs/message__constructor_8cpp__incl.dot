@@ -7,7 +7,7 @@ digraph "message_constructor.cpp"
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="vk/include/methods\l/utility/message_constructor.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$message__constructor_8hpp.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk/include/attachment\l/attachment.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$attachment_8hpp.html",tooltip=" "];
+  Node3 [label="vk/include/attachment\l/base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$base_8hpp.html",tooltip=" "];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="vk/include/exception\l/exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
   Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -26,11 +26,6 @@ digraph "message_constructor.cpp"
   Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node11 [label="map",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node10 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 [label="vk/include/methods\l/utility/utility.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utility_8hpp.html",tooltip=" "];
-  Node12 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node13 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

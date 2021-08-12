@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['param_178',['param',['../classvk_1_1method_1_1constructor.html#a8247d8368454d9b8601eb1d75ef1a6e2',1,'vk::method::constructor::param(std::string_view key, std::string_view value) &amp;'],['../classvk_1_1method_1_1constructor.html#a59297ee4369e595bc432961b43f865d8',1,'vk::method::constructor::param(std::string_view key, std::string_view value) &amp;&amp;'],['../classvk_1_1method_1_1message__constructor.html#af51a97a489cb4ec3536e528bbf01aece',1,'vk::method::message_constructor::param()']]],
-  ['password_179',['password',['../namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837',1,'vk::config']]],
-  ['peer_5fid_180',['peer_id',['../classvk_1_1event_1_1message__new.html#ab196650e1bfe8f98158d6e416e9a65b4',1,'vk::event::message_new']]],
-  ['perform_5frequest_181',['perform_request',['../classvk_1_1method_1_1constructor.html#ae51472f567c8cc8141a5a4eb9141f7b8',1,'vk::method::constructor::perform_request() &amp;'],['../classvk_1_1method_1_1constructor.html#a59402cfb539be38ad4ee1d843d2ec27d',1,'vk::method::constructor::perform_request() &amp;&amp;'],['../classvk_1_1method_1_1message__constructor.html#a7903ca16658ab3295a9cbbff1520b6cc',1,'vk::method::message_constructor::perform_request()']]],
-  ['photo_182',['photo',['../classvk_1_1attachment_1_1photo.html#ab3b8a835ad409093be2347252eb03d52',1,'vk::attachment::photo::photo()'],['../classvk_1_1attachment_1_1photo.html',1,'vk::attachment::photo']]],
-  ['post_5fid_183',['post_id',['../classvk_1_1event_1_1wall__reply__new.html#a6bbd2dfacd97a29acc07cb2c1cf2d6f3',1,'vk::event::wall_reply_new']]],
-  ['process_5ferror_184',['process_error',['../namespacevk_1_1exception.html#a72890d1594cdcf725d29b8b42e60a174',1,'vk::exception::process_error(size_t error_code)'],['../namespacevk_1_1exception.html#aa850a18a184cb46f9d0eaee2e84edaab',1,'vk::exception::process_error(const char *message, error_type err_type)']]],
-  ['pull_185',['pull',['../classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70',1,'vk::oauth::client']]]
+  ['implementation_178',['implementation',['../namespaceruntime_1_1string__utils_1_1implementation.html',1,'runtime::string_utils']]],
+  ['implementation_2ecpp_179',['implementation.cpp',['../runtime_2src_2implementation_8cpp.html',1,'']]],
+  ['network_180',['network',['../namespaceruntime_1_1network.html',1,'runtime']]],
+  ['ostream_5foperators_181',['ostream_operators',['../namespaceruntime_1_1string__utils_1_1ostream__operators.html',1,'runtime::string_utils']]],
+  ['raw_5fconstructor_182',['raw_constructor',['../namespacevk_1_1method.html#a5a2b57fa2e58981fd9a011420522723f',1,'vk::method']]],
+  ['raw_5fmp3_183',['raw_mp3',['../classvk_1_1attachment_1_1audio__message.html#abf271068bb5ab542d235e9beaf688ea8',1,'vk::attachment::audio_message']]],
+  ['raw_5fogg_184',['raw_ogg',['../classvk_1_1attachment_1_1audio__message.html#ae3c158009eeb002cf15bc876f08d679e',1,'vk::attachment::audio_message']]],
+  ['raw_5furl_185',['raw_url',['../classvk_1_1attachment_1_1document.html#a13be058fa76d1bac33d5ac3c99151d17',1,'vk::attachment::document']]],
+  ['red_186',['red',['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8acabda9643ac6601722a28f238714274da4',1,'vk::keyboard']]],
+  ['reply_187',['reply',['../classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e',1,'vk::event::message_new']]],
+  ['repost_188',['repost',['../classvk_1_1event_1_1wall__post__new.html#a4dbbbff58ea5e25b5db185ac5c71aae1',1,'vk::event::wall_post_new']]],
+  ['request_189',['request',['../namespaceruntime_1_1network.html#a22c149c51a43258f1bd657de0758c68b',1,'runtime::network']]],
+  ['request_5fdata_190',['request_data',['../namespaceruntime_1_1network.html#a8a2908670901c6cdbbc88442ccdb23b6',1,'runtime::network']]],
+  ['run_191',['run',['../classvk_1_1long__poll.html#a322e226435927bf8cc75aa5e1d8acd17',1,'vk::long_poll']]],
+  ['runtime_192',['runtime',['../namespaceruntime.html',1,'']]],
+  ['runtime_5ferror_193',['runtime_error',['../classvk_1_1exception_1_1runtime__error.html#a42a4dff24f25faec9b8761ad2edac545',1,'vk::exception::runtime_error::runtime_error()'],['../namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bca5b32065884bcc1f2ed126c47e6410808',1,'vk::exception::runtime_error()'],['../classvk_1_1exception_1_1runtime__error.html',1,'vk::exception::runtime_error']]],
+  ['string_5futils_194',['string_utils',['../namespaceruntime_1_1string__utils.html',1,'runtime']]]
 ];

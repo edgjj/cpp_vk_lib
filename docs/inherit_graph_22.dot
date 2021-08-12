@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="vk::long_poll_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structvk_1_1long__poll__data.html",tooltip="Wrapper for data returned by group long poll."];
+  Node0 [label="vk::method::constructor\l\< ExecutionPolicy \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1method_1_1constructor.html",tooltip=" "];
 }

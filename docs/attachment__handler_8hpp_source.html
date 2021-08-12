@@ -72,30 +72,26 @@ $(function() {
 <a href="attachment__handler_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="attachment_8hpp.html">vk/include/attachment/attachment.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="base_8hpp.html">vk/include/attachment/base.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacesimdjson.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesimdjson.html">simdjson</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacesimdjson_1_1dom.html">    9</a></span>&#160;<span class="keyword">namespace </span>dom {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>array;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}<span class="comment">// namespace dom</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}<span class="comment">// namespace simdjson</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacesimdjson.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesimdjson_1_1dom.html">simdjson::dom</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span>array;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}<span class="comment">// namespace simdjson::dom</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacevk_1_1event.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk_1_1event.html">vk::event</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacevk_1_1event.html">   15</a></span>&#160;<span class="keyword">namespace </span>event {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;std::vector&lt;attachment::attachment_ptr_t&gt; <a class="code" href="namespacevk_1_1event.html#a7761a4fc371f705106f3a0b78f9cc71d">get_attachments</a>(<span class="keyword">const</span> simdjson::dom::array&amp; attachments);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<span class="comment">// namespace event</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="ttc" id="aattachment_8hpp_html"><div class="ttname"><a href="attachment_8hpp.html">attachment.hpp</a></div></div>
-<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:8</div></div>
-<div class="ttc" id="anamespacevk_1_1event_html_a7761a4fc371f705106f3a0b78f9cc71d"><div class="ttname"><a href="namespacevk_1_1event.html#a7761a4fc371f705106f3a0b78f9cc71d">vk::event::get_attachments</a></div><div class="ttdeci">std::vector&lt; attachment::attachment_ptr_t &gt; get_attachments(const simdjson::dom::array &amp;attachments)</div><div class="ttdef"><b>Definition:</b> attachment_handler.cpp:42</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;std::vector&lt;attachment::attachment_ptr_t&gt; <a class="code" href="namespacevk_1_1event.html#a99a6cb05d95800d9a1f6b99216b1c0b4">get_attachments</a>(<span class="keyword">const</span> simdjson::dom::array&amp; attachments);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}<span class="comment">// namespace vk::event</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="ttc" id="abase_8hpp_html"><div class="ttname"><a href="base_8hpp.html">base.hpp</a></div></div>
+<div class="ttc" id="anamespacesimdjson_1_1dom_html"><div class="ttname"><a href="namespacesimdjson_1_1dom.html">simdjson::dom</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:8</div></div>
+<div class="ttc" id="anamespacevk_1_1event_html"><div class="ttname"><a href="namespacevk_1_1event.html">vk::event</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:12</div></div>
+<div class="ttc" id="anamespacevk_1_1event_html_a99a6cb05d95800d9a1f6b99216b1c0b4"><div class="ttname"><a href="namespacevk_1_1event.html#a99a6cb05d95800d9a1f6b99216b1c0b4">vk::event::get_attachments</a></div><div class="ttdeci">std::vector&lt; attachment::attachment_ptr_t &gt; get_attachments(const simdjson::dom::array &amp;attachments)</div><div class="ttdef"><b>Definition:</b> attachment_handler.cpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

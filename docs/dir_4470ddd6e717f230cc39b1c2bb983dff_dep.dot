@@ -8,5 +8,5 @@ digraph "cpp_vk_lib" {
   dir_ae58b8918dcb99903ff518e79eee4aff [shape=box label="runtime" fillcolor="white" style="filled" color="red" URL="dir_ae58b8918dcb99903ff518e79eee4aff.html"];
   dir_bfc5d6602c24fe620e9298c54e0ed106 [shape=box label="vk" fillcolor="white" style="filled" color="red" URL="dir_bfc5d6602c24fe620e9298c54e0ed106.html"];
   }
-  dir_bfc5d6602c24fe620e9298c54e0ed106->dir_ae58b8918dcb99903ff518e79eee4aff [headlabel="14", labeldistance=1.5 headhref="dir_000001_000017.html"];
+  dir_bfc5d6602c24fe620e9298c54e0ed106->dir_ae58b8918dcb99903ff518e79eee4aff [headlabel="10", labeldistance=1.5 headhref="dir_000001_000015.html"];
 }

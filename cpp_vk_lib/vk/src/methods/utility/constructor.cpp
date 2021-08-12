@@ -3,21 +3,48 @@
 #include "runtime/include/misc/cppdefs.hpp"
 #include "runtime/include/net/network.hpp"
 
+static std::string append_url(std::string_view method)
+{
+    return runtime::string_utils::format("https://api.vk.com/method/{}?", method);
+}
+
+static std::string call(std::string_view method, std::map<std::string, std::string>&& params)
+{
+    return runtime::network::request(append_url(method), std::move(params));
+}
+
 namespace vk::method::policy {
 
-std::string group_api::execute(const utility& method_util, std::string_view method, std::map<std::string, std::string>&& params)
-{
-    return method_util.call(method, method_util.group_args(std::move(params)));
+std::string group_api::execute(
+    std::map<std::string, std::string>&& params,
+    const std::string& method,
+    const std::string& access_token,
+    const std::string& user_token
+) {
+    VK_UNUSED(user_token);
+    params.insert({{"access_token", access_token}, {"v", API_V}});
+    return call(method, std::move(params));
 }
 
-std::string user_api::execute(const utility& method_util, std::string_view method, std::map<std::string, std::string>&& params)
-{
-    return method_util.call(method, method_util.user_args(std::move(params)));
+std::string user_api::execute(
+    std::map<std::string, std::string>&& params,
+    const std::string& method,
+    const std::string& access_token,
+    const std::string& user_token
+) {
+    VK_UNUSED(access_token);
+    params.insert({{"user_token", user_token}, {"v", API_V}});
+    return call(method, std::move(params));
 }
 
-std::string do_not_use_api_link::execute(const utility& method_util, std::string_view method, std::map<std::string, std::string>&& params)
-{
-    VK_UNUSED(method_util);
+std::string do_not_use_api_link::execute(
+    std::map<std::string, std::string>&& params,
+    const std::string& method,
+    const std::string& access_token,
+    const std::string& user_token
+) {
+    VK_UNUSED(user_token);
+    VK_UNUSED(access_token);
     return runtime::network::request(method, std::move(params));
 }
 
@@ -27,11 +54,13 @@ namespace vk::method {
 
 template<typename ExecutionPolicy>
 constructor<ExecutionPolicy>::constructor()
-    : method_util_() {}
+    : user_token_(config::user_token())
+    , access_token_(config::access_token()) {}
 
 template<typename ExecutionPolicy>
 constructor<ExecutionPolicy>::constructor(std::string_view user_token)
-   : method_util_(user_token) {}
+   : user_token_(user_token)
+   , access_token_(config::access_token()) {}
 
 template<typename ExecutionPolicy>
 constructor<ExecutionPolicy>& constructor<ExecutionPolicy>::method(std::string_view method)
@@ -57,8 +86,7 @@ constructor<ExecutionPolicy>& constructor<ExecutionPolicy>::append_map(std::map<
 template<typename ExecutionPolicy>
 std::string constructor<ExecutionPolicy>::perform_request()
 {
-    std::string result = ExecutionPolicy::execute(method_util_, method_, std::move(params_));
-    return result;
+    return ExecutionPolicy::execute(std::move(params_), method_, access_token_, user_token_);
 }
 
 }// namespace vk::method

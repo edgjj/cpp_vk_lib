@@ -1,0 +1,23 @@
+digraph "vk::event::get_attachments"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="vk::event::get_attachments",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="vk::event::message\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1message__new.html#a343a857cf8d39f6a4711030db14d4340",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$message__new_8hpp.html#a7f59c7c74068089b345e16e86f7913f7",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="vk::event::wall_post\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#ace68c2a8ea997e4a8c747c1649803bdc",tooltip="Get attachments vector."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__post__new_8hpp.html#a5aad18d6a9317dec5345951440b10ad3",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="vk::event::wall_reply\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__reply__new.html#abca90ec637d2edba7ca23848495ce60c",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__reply__new_8hpp.html#a1813a9a51eb9a39ac67cebc455664215",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="vk::event::wall_post\l_new::repost",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a4dbbbff58ea5e25b5db185ac5c71aae1",tooltip=" "];
+  Node8 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

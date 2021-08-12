@@ -75,74 +75,72 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesimdjson.html">simdjson</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>dom {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span>parser;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}<span class="comment">// namespace dom</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}<span class="comment">// namespace simdjson</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesimdjson_1_1dom.html">simdjson::dom</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>parser;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}<span class="comment">// namespace simdjson::dom</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacevk_1_1oauth.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk_1_1oauth_1_1context.html">vk::oauth::context</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacevk_1_1oauth.html">   14</a></span>&#160;<span class="keyword">namespace </span>oauth {</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacevk_1_1oauth_1_1context.html">   15</a></span>&#160;<span class="keyword">namespace </span>context {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view oauth_link = <span class="stringliteral">&quot;https://oauth.vk.com/&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view android_app_client_secret = <span class="stringliteral">&quot;hHbZxrka2uZ6jB1inYsH&quot;</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view iphone_app_client_secret = <span class="stringliteral">&quot;VeWdmVclDCtn6ihuP1nt&quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view windows_app_client_secret = <span class="stringliteral">&quot;AlVXZFMUqyrnABp8ncuU&quot;</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view oauth_link = <span class="stringliteral">&quot;https://oauth.vk.com/&quot;</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view android_app_client_secret = <span class="stringliteral">&quot;hHbZxrka2uZ6jB1inYsH&quot;</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view iphone_app_client_secret = <span class="stringliteral">&quot;VeWdmVclDCtn6ihuP1nt&quot;</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string_view windows_app_client_secret = <span class="stringliteral">&quot;AlVXZFMUqyrnABp8ncuU&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t android_app_client_id = 2274003;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t windows_app_client_id = 3697615;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t iphone_app_client_id = 3140623;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t android_app_client_id = 2274003;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t windows_app_client_id = 3697615;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int32_t iphone_app_client_id = 3140623;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<span class="comment">// namespace vk::oauth::context</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk_1_1oauth.html">vk::oauth</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}<span class="comment">// namespace context</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">   28</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> : uint8_t</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810ac31b32364ce19ca8fcd150a417ecce58">android</a> = (1 &lt;&lt; 0),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0b3f45b266a97d7029dde7c2ba372093">iphone</a>  = (1 &lt;&lt; 1),</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42">windows</a> = (1 &lt;&lt; 2)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classvk_1_1oauth_1_1client.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1oauth_1_1client.html">client</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa">client</a>(std::string_view <a class="code" href="namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2">username</a>, std::string_view <a class="code" href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">password</a>, <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> client_type);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">   53</a></span>&#160;    <a class="code" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">~client</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70">pull</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::string <a class="code" href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">token</a>() const noexcept;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    int64_t <a class="code" href="classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96">user_id</a>() const noexcept;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;private:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> client_type_;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::<span class="keywordtype">string</span> username_;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::<span class="keywordtype">string</span> password_;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::<span class="keywordtype">string</span> target_client_secret_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    int64_t target_client_id_;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::<span class="keywordtype">string</span> pulled_token_;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    int64_t pulled_user_id_;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">   26</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> : uint8_t</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810ac31b32364ce19ca8fcd150a417ecce58">android</a> = (1 &lt;&lt; 0),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0b3f45b266a97d7029dde7c2ba372093">iphone</a>  = (1 &lt;&lt; 1),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42">windows</a> = (1 &lt;&lt; 2)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classvk_1_1oauth_1_1client.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1oauth_1_1client.html">client</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa">client</a>(std::string_view <a class="code" href="namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2">username</a>, std::string_view <a class="code" href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">password</a>, <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> client_type);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">   51</a></span>&#160;    <a class="code" href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">~client</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70">pull</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string <a class="code" href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">token</a>() const noexcept;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    int64_t <a class="code" href="classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96">user_id</a>() const noexcept;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;private:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">target_client</a> client_type_;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::<span class="keywordtype">string</span> username_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::<span class="keywordtype">string</span> password_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::<span class="keywordtype">string</span> target_client_secret_;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    int64_t target_client_id_;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::<span class="keywordtype">string</span> pulled_token_;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    int64_t pulled_user_id_;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}<span class="comment">// namespace vk::oauth</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}<span class="comment">// namespace oauth</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_OAUTH_CLIENT_HPP</span></div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a></div><div class="ttdoc">VK Oauth client.</div><div class="ttdef"><b>Definition:</b> client.hpp:49</div></div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a4e076f3759181ee177f347fdbf36ec70"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70">vk::oauth::client::pull</a></div><div class="ttdeci">void pull()</div><div class="ttdoc">Try get user data.</div><div class="ttdef"><b>Definition:</b> client.cpp:41</div></div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a51703eb3d96a93350b7c4e6097b8fcc0"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">vk::oauth::client::token</a></div><div class="ttdeci">std::string token() const noexcept</div><div class="ttdef"><b>Definition:</b> client.cpp:65</div></div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a890622463c6e4f4841a5f485ef06ce96"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96">vk::oauth::client::user_id</a></div><div class="ttdeci">int64_t user_id() const noexcept</div><div class="ttdef"><b>Definition:</b> client.cpp:70</div></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_OAUTH_CLIENT_HPP</span></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a></div><div class="ttdoc">VK Oauth client.</div><div class="ttdef"><b>Definition:</b> client.hpp:47</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a4e076f3759181ee177f347fdbf36ec70"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70">vk::oauth::client::pull</a></div><div class="ttdeci">void pull()</div><div class="ttdoc">Try get user data.</div><div class="ttdef"><b>Definition:</b> client.cpp:44</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a51703eb3d96a93350b7c4e6097b8fcc0"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0">vk::oauth::client::token</a></div><div class="ttdeci">std::string token() const noexcept</div><div class="ttdef"><b>Definition:</b> client.cpp:71</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_a890622463c6e4f4841a5f485ef06ce96"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96">vk::oauth::client::user_id</a></div><div class="ttdeci">int64_t user_id() const noexcept</div><div class="ttdef"><b>Definition:</b> client.cpp:76</div></div>
 <div class="ttc" id="aclassvk_1_1oauth_1_1client_html_aaad35a11ae25c8839142f22e56c703c9"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#aaad35a11ae25c8839142f22e56c703c9">vk::oauth::client::~client</a></div><div class="ttdeci">~client()</div></div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_ab15386151e60f784016ef34e45ad19aa"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa">vk::oauth::client::client</a></div><div class="ttdeci">client(std::string_view username, std::string_view password, target_client client_type)</div><div class="ttdef"><b>Definition:</b> client.cpp:8</div></div>
-<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:8</div></div>
-<div class="ttc" id="anamespacevk_1_1config_html_aa074dc913d83634a3f0843a2b1d02837"><div class="ttname"><a href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">vk::config::password</a></div><div class="ttdeci">std::string password()</div><div class="ttdef"><b>Definition:</b> loader.cpp:97</div></div>
-<div class="ttc" id="anamespacevk_1_1config_html_afb7e0c89cfd77d946196e3e6f93f08d2"><div class="ttname"><a href="namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2">vk::config::username</a></div><div class="ttdeci">std::string username()</div><div class="ttdef"><b>Definition:</b> loader.cpp:98</div></div>
-<div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">vk::oauth::target_client</a></div><div class="ttdeci">target_client</div><div class="ttdef"><b>Definition:</b> client.hpp:29</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html_ab15386151e60f784016ef34e45ad19aa"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html#ab15386151e60f784016ef34e45ad19aa">vk::oauth::client::client</a></div><div class="ttdeci">client(std::string_view username, std::string_view password, target_client client_type)</div><div class="ttdef"><b>Definition:</b> client.cpp:11</div></div>
+<div class="ttc" id="anamespacesimdjson_1_1dom_html"><div class="ttname"><a href="namespacesimdjson_1_1dom.html">simdjson::dom</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:8</div></div>
+<div class="ttc" id="anamespacevk_1_1config_html_aa074dc913d83634a3f0843a2b1d02837"><div class="ttname"><a href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">vk::config::password</a></div><div class="ttdeci">std::string password()</div><div class="ttdef"><b>Definition:</b> loader.cpp:99</div></div>
+<div class="ttc" id="anamespacevk_1_1config_html_afb7e0c89cfd77d946196e3e6f93f08d2"><div class="ttname"><a href="namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2">vk::config::username</a></div><div class="ttdeci">std::string username()</div><div class="ttdef"><b>Definition:</b> loader.cpp:100</div></div>
+<div class="ttc" id="anamespacevk_1_1oauth_1_1context_html"><div class="ttname"><a href="namespacevk_1_1oauth_1_1context.html">vk::oauth::context</a></div><div class="ttdef"><b>Definition:</b> client.hpp:11</div></div>
+<div class="ttc" id="anamespacevk_1_1oauth_html"><div class="ttname"><a href="namespacevk_1_1oauth.html">vk::oauth</a></div><div class="ttdef"><b>Definition:</b> client.hpp:11</div></div>
+<div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810">vk::oauth::target_client</a></div><div class="ttdeci">target_client</div><div class="ttdef"><b>Definition:</b> client.hpp:27</div></div>
 <div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810a0b3f45b266a97d7029dde7c2ba372093"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0b3f45b266a97d7029dde7c2ba372093">vk::oauth::target_client::iphone</a></div><div class="ttdeci">@ iphone</div></div>
 <div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0f4137ed1502b5045d6083aa258b5c42">vk::oauth::target_client::windows</a></div><div class="ttdeci">@ windows</div></div>
 <div class="ttc" id="anamespacevk_1_1oauth_html_aacc3a8e41f63756f681a06740b2a8810ac31b32364ce19ca8fcd150a417ecce58"><div class="ttname"><a href="namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810ac31b32364ce19ca8fcd150a417ecce58">vk::oauth::target_client::android</a></div><div class="ttdeci">@ android</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

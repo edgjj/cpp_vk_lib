@@ -8,12 +8,12 @@ digraph "operator&lt;&lt;"
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="vk::event::wall_post\l_new::attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#ace68c2a8ea997e4a8c747c1649803bdc",tooltip="Get attachments vector."];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk::event::get_attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1event.html#a7761a4fc371f705106f3a0b78f9cc71d",tooltip=" "];
+  Node3 [label="vk::event::get_attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacevk_1_1event.html#a99a6cb05d95800d9a1f6b99216b1c0b4",tooltip=" "];
   Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="vk::event::wall_post\l_new::has_attachments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a28fc56faaf2750baf744d983ba1a6917",tooltip=" "];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="vk::event::wall_post\l_new::has_repost",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#ac870365959904c6108855c2b5da0ad6f",tooltip=" "];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="vk::event::wall_post\l_new::repost",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#ae841d14968b81c9e401a923e52c7c914",tooltip=" "];
+  Node6 [label="vk::event::wall_post\l_new::repost",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1wall__post__new.html#a4dbbbff58ea5e25b5db185ac5c71aae1",tooltip=" "];
   Node6 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

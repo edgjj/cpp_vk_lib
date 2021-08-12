@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['dom_201',['dom',['../namespacesimdjson_1_1dom.html',1,'simdjson']]],
-  ['send_202',['send',['../namespacevk_1_1method_1_1messages.html#a57ce97b5e958729204089c79d87f1253',1,'vk::method::messages::send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag=false)'],['../namespacevk_1_1method_1_1messages.html#ab83e2c858a2622a0f6346e9167c81aab',1,'vk::method::messages::send(int64_t peer_id, std::string_view text, std::vector&lt; attachment::attachment_ptr_t &gt; list, bool mentions_flag=false)'],['../namespacevk_1_1method_1_1messages.html#a2ec026fd5cbebeabae6f94e35f6c0894',1,'vk::method::messages::send(int64_t peer_id, std::string_view text, bool mentions_flag=false)']]],
-  ['serialize_203',['serialize',['../classvk_1_1keyboard_1_1button_1_1open__app.html#ad52aa852cc5c87802e4558d828e323e7',1,'vk::keyboard::button::open_app::serialize()'],['../classvk_1_1keyboard_1_1button_1_1vk__pay.html#aec7e3acc5ba1969cfa13338d43b941ec',1,'vk::keyboard::button::vk_pay::serialize()'],['../classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17',1,'vk::keyboard::layout::serialize()']]],
-  ['server_204',['server',['../structvk_1_1long__poll__data.html#a494aee9ab8f7fbe8d2f7063ba4c829e6',1,'vk::long_poll_data::server()'],['../classvk_1_1long__poll.html#a122882f81d41aadbb9c37799510830a2',1,'vk::long_poll::server()']]],
-  ['set_5fuser_5ftoken_205',['set_user_token',['../namespacevk_1_1config.html#abd89ccdde0a724e2e5dd2dd2aae22658',1,'vk::config']]],
-  ['simdjson_206',['simdjson',['../namespacesimdjson.html',1,'']]],
-  ['split_207',['split',['../namespaceruntime_1_1string__utils.html#a27caf7c5cde524f45b27c5a32606642a',1,'runtime::string_utils']]],
-  ['split_2ehpp_208',['split.hpp',['../split_8hpp.html',1,'']]],
-  ['split_5fimplementation_209',['split_implementation',['../namespaceruntime_1_1string__utils_1_1implementation.html#ad5e96e521e080a721ad489936c429684',1,'runtime::string_utils::implementation']]],
-  ['split_5fiterator_210',['split_iterator',['../classruntime_1_1string__utils_1_1split__iterator.html',1,'runtime::string_utils::split_iterator&lt; StringType &gt;'],['../classruntime_1_1string__utils_1_1split__iterator.html#a831151747c8a4d2b7e121cb45dc747c1',1,'runtime::string_utils::split_iterator::split_iterator()']]],
-  ['split_5frange_211',['split_range',['../classruntime_1_1string__utils_1_1split__range.html',1,'runtime::string_utils::split_range&lt; StringType &gt;'],['../classruntime_1_1string__utils_1_1split__range.html#a49c0c62ea2fa552f1f280b618703d422',1,'runtime::string_utils::split_range::split_range()']]],
-  ['string_5futils_2ehpp_212',['string_utils.hpp',['../string__utils_8hpp.html',1,'']]]
+  ['target_5fclient_208',['target_client',['../namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810',1,'vk::oauth']]],
+  ['text_209',['text',['../structvk_1_1action_1_1chat__title__update.html#a4d9071ff3c7f98cbcffac79ad355b7af',1,'vk::action::chat_title_update::text()'],['../classvk_1_1event_1_1message__new.html#afa506fded4967feff53937331d0ef560',1,'vk::event::message_new::text()'],['../classvk_1_1event_1_1wall__post__new.html#ad4f4f8e7cf6d63f711990beebe6d6381',1,'vk::event::wall_post_new::text()'],['../classvk_1_1event_1_1wall__reply__new.html#a586fbd21207405ffcc8c7f391271aca2',1,'vk::event::wall_reply_new::text()'],['../classvk_1_1event_1_1wall__repost.html#ab1cdaa45f02350e895eb65c6f143cd78',1,'vk::event::wall_repost::text()']]],
+  ['text_2ehpp_210',['text.hpp',['../text_8hpp.html',1,'']]],
+  ['token_211',['token',['../classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0',1,'vk::oauth::client']]],
+  ['translate_5ferror_212',['translate_error',['../namespacevk_1_1exception.html#afb8d67ac6364eda59c13c148647f8a8c',1,'vk::exception']]],
+  ['ts_213',['ts',['../classvk_1_1event_1_1common.html#aa6374a2fb52b35426ee3345b7d5c81ec',1,'vk::event::common']]],
+  ['type_214',['type',['../structvk_1_1exception_1_1error.html#aefe02d4c0ac3db4f7a95186f6c78f516',1,'vk::exception::error::type()'],['../classvk_1_1attachment_1_1base.html#a947fa21ae33fff1022b13c38c4327f09',1,'vk::attachment::base::type()'],['../classvk_1_1event_1_1common.html#a93d3f1b434b1ffebc7ce15fd2979e5d9',1,'vk::event::common::type()']]]
 ];

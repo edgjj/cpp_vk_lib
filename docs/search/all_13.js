@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['target_5fclient_213',['target_client',['../namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810',1,'vk::oauth']]],
-  ['text_214',['text',['../structvk_1_1action_1_1chat__title__update.html#a4d9071ff3c7f98cbcffac79ad355b7af',1,'vk::action::chat_title_update::text()'],['../classvk_1_1event_1_1message__new.html#afa506fded4967feff53937331d0ef560',1,'vk::event::message_new::text()'],['../classvk_1_1event_1_1wall__post__new.html#ad4f4f8e7cf6d63f711990beebe6d6381',1,'vk::event::wall_post_new::text()'],['../classvk_1_1event_1_1wall__reply__new.html#a586fbd21207405ffcc8c7f391271aca2',1,'vk::event::wall_reply_new::text()'],['../classvk_1_1event_1_1wall__repost.html#ab1cdaa45f02350e895eb65c6f143cd78',1,'vk::event::wall_repost::text()']]],
-  ['text_2ehpp_215',['text.hpp',['../text_8hpp.html',1,'']]],
-  ['token_216',['token',['../classvk_1_1oauth_1_1client.html#a51703eb3d96a93350b7c4e6097b8fcc0',1,'vk::oauth::client']]],
-  ['trace_217',['trace',['../namespacevk_1_1log__level.html#a906588d4e58ee7aa81e3f3c411eb260d',1,'vk::log_level']]],
-  ['translate_5ferror_218',['translate_error',['../namespacevk_1_1exception.html#afb8d67ac6364eda59c13c148647f8a8c',1,'vk::exception']]],
-  ['ts_219',['ts',['../structvk_1_1long__poll__data.html#aa9547ad108aa16ef5805b955660d9317',1,'vk::long_poll_data::ts()'],['../classvk_1_1event_1_1common.html#aa6374a2fb52b35426ee3345b7d5c81ec',1,'vk::event::common::ts()']]],
-  ['type_220',['type',['../structvk_1_1exception_1_1error.html#aefe02d4c0ac3db4f7a95186f6c78f516',1,'vk::exception::error::type()'],['../classvk_1_1attachment_1_1base.html#a947fa21ae33fff1022b13c38c4327f09',1,'vk::attachment::base::type()'],['../classvk_1_1event_1_1common.html#a93d3f1b434b1ffebc7ce15fd2979e5d9',1,'vk::event::common::type()']]]
+  ['upload_215',['upload',['../namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5',1,'runtime::network']]],
+  ['upload_5ferror_216',['upload_error',['../classvk_1_1exception_1_1upload__error.html#a2d84fba35e0bbb760c29038d62d91821',1,'vk::exception::upload_error::upload_error()'],['../namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bca10441ecf47cea4784782fbf1180e000b',1,'vk::exception::upload_error()'],['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception::upload_error']]],
+  ['user_5fapi_217',['user_api',['../structvk_1_1method_1_1policy_1_1user__api.html',1,'vk::method::policy']]],
+  ['user_5fconstructor_218',['user_constructor',['../namespacevk_1_1method.html#a9036669c58907e5e2db60680aafb368d',1,'vk::method']]],
+  ['user_5fid_219',['user_id',['../classvk_1_1oauth_1_1client.html#a890622463c6e4f4841a5f485ef06ce96',1,'vk::oauth::client']]],
+  ['user_5ftoken_220',['user_token',['../namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815',1,'vk::config']]],
+  ['username_221',['username',['../namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2',1,'vk::config']]],
+  ['utf8_5fto_5flower_222',['utf8_to_lower',['../namespaceruntime_1_1string__utils.html#adf7fdf7e7aa84620579e60876746ce70',1,'runtime::string_utils']]],
+  ['utf8_5fto_5fupper_223',['utf8_to_upper',['../namespaceruntime_1_1string__utils.html#a69e88c235fb9a596f756bccc34f454d3',1,'runtime::string_utils']]],
+  ['utility_2ehpp_224',['utility.hpp',['../utility_8hpp.html',1,'']]]
 ];

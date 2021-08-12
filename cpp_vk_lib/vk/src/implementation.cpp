@@ -8,6 +8,5 @@
 #include "vk/src/long_poll/long_poll.cpp"
 #include "vk/src/methods/utility/constructor.cpp"
 #include "vk/src/methods/utility/message_constructor.cpp"
-#include "vk/src/methods/utility/utility.cpp"
 #include "vk/src/methods/basic.cpp"
 #include "vk/src/oauth/client.cpp"

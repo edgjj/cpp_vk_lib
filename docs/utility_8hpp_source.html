@@ -69,56 +69,43 @@ $(function() {
 <div class="title">utility.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="utility_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_METHODS_UTILITY_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_METHODS_UTILITY_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesimdjson.html">simdjson</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>dom {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>object;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>parser;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}<span class="comment">// namespace dom</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}<span class="comment">// namespace simdjson</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk.html">vk</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>method {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1utility.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1method_1_1utility.html">utility</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvk_1_1method_1_1utility.html#abb72b36f3283dbb06599a8260a52c6bd">utility</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classvk_1_1method_1_1utility.html#abb72b36f3283dbb06599a8260a52c6bd">utility</a>(std::string_view <a class="code" href="namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815">user_token</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1utility.html#abe4ce1d67678ce83544eb84b1537e405">   25</a></span>&#160;    <a class="code" href="classvk_1_1method_1_1utility.html#abe4ce1d67678ce83544eb84b1537e405">~utility</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::map&lt;std::string, std::string&gt;&amp; <a class="code" href="classvk_1_1method_1_1utility.html#a27256dedb3916d18e446b26c120826f4">user_args</a>(std::map&lt;std::string, std::string&gt;&amp; params) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::map&lt;std::string, std::string&gt;&amp; <a class="code" href="classvk_1_1method_1_1utility.html#ac4e5bf79eafb8fe32284b3564cdb68b4">group_args</a>(std::map&lt;std::string, std::string&gt;&amp; params) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string <a class="code" href="classvk_1_1method_1_1utility.html#a815a7fb6e71510eedbd05eedaf68db84">call</a>(std::string_view method, std::map&lt;std::string, std::string&gt; params) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classvk_1_1method_1_1utility.html#a6d5433170ad30275e895e2f8ed34c9bc">append_url</a>(std::string_view method) ;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classvk_1_1method_1_1utility.html#aaf13e5dfd6edd748e57c0db0dc358977">   35</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> int64_t <a class="code" href="classvk_1_1method_1_1utility.html#aaf13e5dfd6edd748e57c0db0dc358977">chat_id_constant</a> = 2000000000;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string user_token_;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string access_token_;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}<span class="comment">// namespace method</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}<span class="comment">// namespace vk</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_METHODS_UTILITY_HPP</span></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html"><div class="ttname"><a href="classvk_1_1method_1_1utility.html">vk::method::utility</a></div><div class="ttdoc">The container of common functions and constants needed by various methods.</div><div class="ttdef"><b>Definition:</b> utility.hpp:21</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_a27256dedb3916d18e446b26c120826f4"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#a27256dedb3916d18e446b26c120826f4">vk::method::utility::user_args</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; &amp; user_args(std::map&lt; std::string, std::string &gt; &amp;params) const</div><div class="ttdef"><b>Definition:</b> utility.cpp:22</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_a6d5433170ad30275e895e2f8ed34c9bc"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#a6d5433170ad30275e895e2f8ed34c9bc">vk::method::utility::append_url</a></div><div class="ttdeci">static std::string append_url(std::string_view method)</div><div class="ttdef"><b>Definition:</b> utility.cpp:17</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_a815a7fb6e71510eedbd05eedaf68db84"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#a815a7fb6e71510eedbd05eedaf68db84">vk::method::utility::call</a></div><div class="ttdeci">std::string call(std::string_view method, std::map&lt; std::string, std::string &gt; params) const</div><div class="ttdef"><b>Definition:</b> utility.cpp:34</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_aaf13e5dfd6edd748e57c0db0dc358977"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#aaf13e5dfd6edd748e57c0db0dc358977">vk::method::utility::chat_id_constant</a></div><div class="ttdeci">static const int64_t chat_id_constant</div><div class="ttdef"><b>Definition:</b> utility.hpp:35</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_abb72b36f3283dbb06599a8260a52c6bd"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#abb72b36f3283dbb06599a8260a52c6bd">vk::method::utility::utility</a></div><div class="ttdeci">utility()</div><div class="ttdef"><b>Definition:</b> utility.cpp:7</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_abe4ce1d67678ce83544eb84b1537e405"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#abe4ce1d67678ce83544eb84b1537e405">vk::method::utility::~utility</a></div><div class="ttdeci">~utility()</div></div>
-<div class="ttc" id="aclassvk_1_1method_1_1utility_html_ac4e5bf79eafb8fe32284b3564cdb68b4"><div class="ttname"><a href="classvk_1_1method_1_1utility.html#ac4e5bf79eafb8fe32284b3564cdb68b4">vk::method::utility::group_args</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; &amp; group_args(std::map&lt; std::string, std::string &gt; &amp;params) const</div><div class="ttdef"><b>Definition:</b> utility.cpp:28</div></div>
-<div class="ttc" id="anamespacesimdjson_html"><div class="ttname"><a href="namespacesimdjson.html">simdjson</a></div><div class="ttdef"><b>Definition:</b> attachment_handler.hpp:8</div></div>
-<div class="ttc" id="anamespacevk_1_1config_html_a964f2b4776d0820396dd7de3f1503815"><div class="ttname"><a href="namespacevk_1_1config.html#a964f2b4776d0820396dd7de3f1503815">vk::config::user_token</a></div><div class="ttdeci">std::string user_token()</div><div class="ttdef"><b>Definition:</b> loader.cpp:99</div></div>
-<div class="ttc" id="anamespacevk_html"><div class="ttname"><a href="namespacevk.html">vk</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
+<a href="utility_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//#ifndef VK_METHODS_UTILITY_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//#define VK_METHODS_UTILITY_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//namespace simdjson::dom {</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//class object;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//class parser;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//}// namespace simdjson::dom</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//namespace vk::method {</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="comment">// * @brief The container of common functions and constants needed by various methods.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//class utility</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//public:</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//    utility();</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//    utility(std::string_view user_token);</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//    ~utility();</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//    std::map&lt;std::string, std::string&gt; user_args(std::map&lt;std::string, std::string&gt; params) const;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//    std::map&lt;std::string, std::string&gt; group_args(std::map&lt;std::string, std::string&gt; params) const;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//    std::string call(std::string_view method, std::map&lt;std::string, std::string&gt;&amp;&amp; params) const;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//    static std::string append_url(std::string_view method);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//    static inline const int64_t chat_id_constant = 2000000000;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//private:</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//    std::string user_token_;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//    std::string access_token_;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//};</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//}// namespace vk::method</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//#endif// VK_METHODS_UTILITY_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

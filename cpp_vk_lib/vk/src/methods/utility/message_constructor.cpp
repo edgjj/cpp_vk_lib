@@ -1,6 +1,6 @@
 #include "vk/include/methods/utility/message_constructor.hpp"
 
-static std::string append_attachments_impl(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
+static std::string serialize_attachments(const std::vector<vk::attachment::attachment_ptr_t>& attachments)
 {
     std::string result;
     result.reserve(attachments.size() * 20);
@@ -36,7 +36,7 @@ message_constructor& message_constructor::param(std::string_view lhs, std::strin
 
 message_constructor& message_constructor::attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
-    param("attachment", append_attachments_impl(std::move(attachments)).data());
+    param("attachment", serialize_attachments(attachments).data());
     return *this;
 }
 

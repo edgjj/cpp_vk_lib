@@ -64,7 +64,6 @@ int main(int argc, char** argv)
 
     while (true) {
         auto events = api.listen(/*timeout=*/60);
-
         for (auto& event : events) {
             api.on_event("message_new", event, [&event] {
                 vk::event::message_new message_event = event.get_message_new();
@@ -73,5 +72,4 @@ int main(int argc, char** argv)
         }
         api.run();
     }
-    return EXIT_SUCCESS;
 }

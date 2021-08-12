@@ -7,6 +7,4 @@ digraph "runtime::string_utils::utf8_to_lower"
   Node1 [label="runtime::string_utils\l::utf8_to_lower",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="runtime::string_utils\l::implementation::create\l_utf8_lower",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceruntime_1_1string__utils_1_1implementation.html#a4043866c535f1b0e25da20dc2e837a24",tooltip=" "];
-  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="runtime::string_utils\l::implementation::utf8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceruntime_1_1string__utils_1_1implementation.html#ac650c7a5247b8aad519fe290d0b920d2",tooltip=" "];
 }

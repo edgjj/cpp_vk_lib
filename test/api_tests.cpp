@@ -1,4 +1,5 @@
 #include "vk/include/methods/utility/message_constructor.hpp"
+#include "vk/include/api_constants.hpp"
 
 #include "vk/include/config/loader.hpp"
 #include "vk/include/setup_logger.hpp"
@@ -24,7 +25,7 @@ constexpr char sample_config[] = R"__(
     }
 )__";
 
-constexpr size_t test_chat_id = vk::method::utility::chat_id_constant + 1;
+constexpr size_t test_chat_id = vk::api_constants::chat_id_constant + 1;
 
 TEST(methods, method_construct)
 {

@@ -5,7 +5,7 @@ digraph "common.hpp"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="common.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk/include/attachment\l/attachment.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$attachment_8hpp.html",tooltip=" "];
+  Node2 [label="vk/include/attachment\l/base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$base_8hpp.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk/include/exception\l/exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -109,22 +109,19 @@ digraph "common.hpp"
   Node25 -> Node24 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node25 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node43 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node43 [label="vk/include/long_poll\l/api.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$api_8hpp.html",tooltip=" "];
+  Node43 [label="vk/include/long_poll\l/long_poll.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$long__poll_8hpp.html",tooltip=" "];
   Node43 -> Node40 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node43 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node43 -> Node44 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node44 [label="vk/include/exception\l/error_code.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$error__code_8hpp.html",tooltip=" "];
   Node44 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node43 -> Node45 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node45 [label="vk/include/long_poll\l/data.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$data_8hpp.html",tooltip=" "];
-  Node45 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node45 [label="asio/io_context.hpp",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node43 -> Node46 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node46 [label="asio/io_context.hpp",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node43 -> Node47 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node47 [label="asio/post.hpp",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node46 [label="asio/post.hpp",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node43 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 -> Node48 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node48 [label="vk/include/oauth/client.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$client_8hpp.html",tooltip=" "];
-  Node48 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node48 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node47 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node47 [label="vk/include/oauth/client.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$client_8hpp.html",tooltip=" "];
+  Node47 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node47 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

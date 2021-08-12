@@ -3,21 +3,34 @@
 
 #include "runtime/include/net/network.hpp"
 
-#include "vk/include/methods/utility/utility.hpp"
-
 namespace vk::method::policy {
 
 struct group_api
 {
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>&& params);
+    static std::string execute(
+        std::map<std::string, std::string>&& params,
+        const std::string& method,
+        const std::string& access_token,
+        const std::string& user_token
+    );
 };
 struct user_api
 {
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>&& params);
+    static std::string execute(
+        std::map<std::string, std::string>&& params,
+        const std::string& method,
+        const std::string& access_token,
+        const std::string& user_token
+    );
 };
 struct do_not_use_api_link
 {
-    static std::string execute(const vk::method::utility& method_util, std::string_view method, std::map<std::string, std::string>&& params);
+    static std::string execute(
+        std::map<std::string, std::string>&& params,
+        const std::string& method,
+        const std::string& access_token,
+        const std::string& user_token
+    );
 };
 
 }// namespace vk::method::policy
@@ -40,7 +53,8 @@ public:
     std::string perform_request();
 
 private:
-    vk::method::utility method_util_;
+    std::string user_token_;
+    std::string access_token_;
     std::string method_{};
     std::map<std::string, std::string> params_{};
 };

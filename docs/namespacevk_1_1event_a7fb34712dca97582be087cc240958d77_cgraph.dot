@@ -1,0 +1,14 @@
+digraph "vk::event::dispatch_events"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="vk::event::dispatch\l_events",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="vk::event::message\l_new::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1message__new.html#a749eb42ce73c6218c632f0cd3fd02ae6",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="vk::event::message\l_new::has_action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1message__new.html#a1b5c2d16241faa474a1d5c1aa66cadf4",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="vk::event::message\l_new::on_action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classvk_1_1event_1_1message__new.html#abb43f3c812808c5a30a72e746d024743",tooltip=" "];
+}
