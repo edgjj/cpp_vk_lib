@@ -10,13 +10,13 @@
 namespace vk {
 
 long_poll::long_poll(asio::io_context& io_context)
-    : poll_payload_()
+    : parser_(std::make_unique<simdjson::dom::parser>())
+    , poll_payload_()
     , errc_()
     , io_context_(io_context)
 {
     group_id_ = method::groups::get_by_id(errc_);
     if (errc_) { throw std::runtime_error("error retrieve group id"); }
-
     spdlog::info("long poll group: {}", group_id_);
 }
 
@@ -24,9 +24,8 @@ long_poll::~long_poll() = default;
 
 long_poll::poll_payload long_poll::server() const
 {
-    simdjson::dom::parser parser;
     const std::string data = method::groups::get_long_poll_server(group_id_);
-    const simdjson::dom::object server_object = parser.parse(data)["response"];
+    const simdjson::dom::object server_object = parser_->parse(data)["response"];
 
     return {
         std::string(server_object["key"]),
@@ -36,11 +35,17 @@ long_poll::poll_payload long_poll::server() const
     };
 }
 
+VK_REALLY_INLINE static bool server_expired(time_t time_point) noexcept
+{
+    return
+        time_point == 0 ||
+        std::chrono::seconds(std::time(nullptr)).count() - time_point >=
+        /*update_interval=*/600;
+}
+
 std::vector<event::common> long_poll::listen(int8_t timeout) const
 {
-    if (poll_payload_.update_time == 0 ||
-        (std::chrono::seconds(std::time(nullptr)).count() - poll_payload_.update_time)
-            >= /*update_interval=*/600) {
+    if (server_expired(poll_payload_.update_time)) {
         poll_payload_ = server();
         spdlog::info("get new long poll server: {}", poll_payload_.key);
     }
@@ -55,8 +60,7 @@ std::vector<event::common> long_poll::listen(int8_t timeout) const
         .param("wait", std::to_string(timeout))
         .perform_request();
 
-    simdjson::dom::parser parser;
-    simdjson::dom::object parsed_response = parser.parse(response);
+    const simdjson::dom::object parsed_response = parser_->parse(response);
 
     std::vector<event::common> event_list;
     std::string ts(parsed_response["ts"]);
@@ -82,7 +86,7 @@ void long_poll::run()
     for (auto& t : threads) {
         t.join();
     }
-    threads.clear();
+//    threads.clear();
     io_context_.restart();
 }
 

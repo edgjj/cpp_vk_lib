@@ -1,4 +1,5 @@
 #include "vk/include/exception/error_code.hpp"
+#include "vk/include/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 
@@ -14,6 +15,8 @@ TEST(error_code, error_code)
 
 int main(int argc, char* argv[])
 {
+    vk::setup_logger("trace");
+
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

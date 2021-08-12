@@ -16,8 +16,12 @@ wall_reply_new::wall_reply_new(simdjson::dom::object event)
         has_attachments_ = true;
     }
 
-    spdlog::trace("create wall_reply_new");
-    spdlog::trace("\thas attachments? {}", has_attachments_);
+    if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
+        std::ostringstream ostream;
+        ostream << "creating an event ";
+        ostream << *this;
+        spdlog::trace("{}", ostream.str());
+    }
 }
 
 simdjson::dom::object& wall_reply_new::get_event() const
@@ -64,7 +68,9 @@ std::vector<vk::attachment::attachment_ptr_t> wall_reply_new::attachments() cons
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const wall_reply_new& reply)
+}// namespace vk::event
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply)
 {
     ostream << "wall_reply_new:" << std::endl;
 
@@ -92,5 +98,3 @@ std::ostream& operator<<(std::ostream& ostream, const wall_reply_new& reply)
 
     return ostream;
 }
-
-}// namespace vk::event

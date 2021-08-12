@@ -20,9 +20,12 @@ wall_post_new::wall_post_new(simdjson::dom::object event)
         has_repost_ = true;
     }
 
-    spdlog::trace("create wall_post_new");
-    spdlog::trace("\thas attachments? {}", has_attachments_);
-    spdlog::trace("\thas repost?      {}", has_repost_);
+    if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
+        std::ostringstream ostream;
+        ostream << "creating an event ";
+        ostream << *this;
+        spdlog::trace("{}", ostream.str());
+    }
 }
 
 int64_t wall_post_new::id() const noexcept
@@ -110,7 +113,9 @@ std::shared_ptr<wall_repost> wall_post_new::repost() const
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const wall_post_new& event)
+}// namespace vk::event
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event)
 {
     ostream << "wall_post_new:" << std::endl;
 
@@ -144,9 +149,8 @@ std::ostream& operator<<(std::ostream& ostream, const wall_post_new& event)
     }
 
     if (event.has_repost()) {
-        ostream << "repost:" << std::endl;
-        ostream << std::setw(30)
-                << "from_id: " << event.repost()->from_id() << std::endl;
+        ostream << std::endl << std::setw(30) << "repost:";
+        ostream << "from_id: " << event.repost()->from_id() << std::endl;
         ostream << std::setw(30)
                 << "id: " << event.repost()->id() << std::endl;
         ostream << std::setw(30)
@@ -161,5 +165,3 @@ std::ostream& operator<<(std::ostream& ostream, const wall_post_new& event)
 
     return ostream;
 }
-
-}// namespace vk::event

@@ -2,6 +2,7 @@
 #include "vk/include/events/wall_post_new.hpp"
 #include "vk/include/events/wall_reply_new.hpp"
 #include "vk/include/events/common_event.hpp"
+#include "vk/include/setup_logger.hpp"
 
 #include "simdjson.h"
 
@@ -235,6 +236,8 @@ TEST(wall_reply_new, default_event)
 
 int main(int argc, char* argv[])
 {
+    vk::setup_logger("trace");
+
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

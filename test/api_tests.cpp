@@ -1,6 +1,7 @@
 #include "vk/include/methods/utility/message_constructor.hpp"
 
 #include "vk/include/config/loader.hpp"
+#include "vk/include/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 
@@ -37,8 +38,9 @@ TEST(methods, method_construct)
 
 int main(int argc, char* argv[])
 {
-    std::ofstream("config.json") << sample_config;
+    vk::setup_logger("trace");
 
+    std::ofstream("config.json") << sample_config;
     vk::config::load("config.json");
 
     testing::InitGoogleTest(&argc, argv);

@@ -2,6 +2,9 @@
 
 #include "spdlog/spdlog.h"
 
+#include <ostream>
+#include <iomanip>
+
 namespace vk::event {
 
 wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text)
@@ -11,17 +14,22 @@ wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::str
     , text_(std::move(text))
     , attachments_()
 {
-    spdlog::trace("create wall_repost");
-    spdlog::trace("\tid           {}", id_);
-    spdlog::trace("\tfrom_id      {}", from_id_);
-    spdlog::trace("\towner_id     {}", owner_id_);
-    spdlog::trace("\ttext         {}", text_);
-    spdlog::trace("\tattachments: {}", attachments_.size());
+    if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
+        std::ostringstream ostream;
+        ostream << "creating an event ";
+        ostream << *this;
+        spdlog::trace("{}", ostream.str());
+    }
 }
 
 void wall_repost::construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
     attachments_ = std::move(attachments);
+}
+
+bool wall_repost::has_attachments() const noexcept
+{
+    return !attachments_.empty();
 }
 
 int64_t wall_repost::id() const noexcept
@@ -50,3 +58,25 @@ const std::vector<vk::attachment::attachment_ptr_t>& wall_repost::attachments() 
 }
 
 }// namespace vk::event
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& event)
+{
+    ostream << "wall_repost:" << std::endl;
+    ostream << std::setw(30)
+            << "id: " << event.id() << std::endl;
+    ostream << std::setw(30)
+            << "from_id: " << event.from_id() << std::endl;
+    ostream << std::setw(30)
+            << "owner_id: " << event.owner_id() << std::endl;
+    ostream << std::setw(30)
+            << "text: " << event.text() << std::endl;
+    if (event.has_attachments()) {
+        for (auto& attachment : event.attachments()) {
+            ostream << std::setw(40)
+                    << "attachment: ";
+            ostream << attachment->value();
+            ostream << std::endl;
+        }
+    }
+    return ostream;
+}

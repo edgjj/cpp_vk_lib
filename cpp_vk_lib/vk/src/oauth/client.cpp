@@ -4,6 +4,7 @@
 #include "vk/include/methods/utility/constructor.hpp"
 
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 namespace vk::oauth {
 
@@ -62,6 +63,9 @@ void client::pull()
 
     pulled_token_ = response["access_token"].get_c_str().take_value();
     pulled_user_id_ = response["user_id"].get_int64();
+
+    spdlog::trace("oauth: get token: {}", pulled_token_);
+    spdlog::trace("oauth: get user_id: {}", pulled_user_id_);
 }
 
 std::string client::token() const noexcept

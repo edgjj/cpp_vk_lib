@@ -1,4 +1,5 @@
 #include "vk/include/keyboard/layout.hpp"
+#include "vk/include/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 
@@ -56,6 +57,8 @@ TEST(keyboard, vk_pay_button)
 
 int main(int argc, char* argv[])
 {
+    vk::setup_logger("trace");
+
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

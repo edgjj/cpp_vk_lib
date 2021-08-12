@@ -1,4 +1,5 @@
 #include "runtime/include/string_utils/string_utils.hpp"
+#include "vk/include/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 
@@ -139,6 +140,8 @@ TEST(split, whitespace_split)
 
 int main(int argc, char* argv[])
 {
+    vk::setup_logger("trace");
+
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

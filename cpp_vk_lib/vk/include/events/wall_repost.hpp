@@ -20,6 +20,7 @@ public:
 
     void construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments);
 
+    bool has_attachments() const noexcept;
     int64_t id() const noexcept;
     int64_t from_id() const noexcept;
     int64_t owner_id() const noexcept;
@@ -35,5 +36,7 @@ private:
 };
 
 }// namespace vk::event
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& event);
 
 #endif// VK_EVENTS_WALL_REPOST_HPP

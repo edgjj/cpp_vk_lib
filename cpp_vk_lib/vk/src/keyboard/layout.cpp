@@ -1,5 +1,7 @@
 #include "vk/include/keyboard/layout.hpp"
 
+#include "spdlog/spdlog.h"
+
 #include <algorithm>
 
 namespace vk::keyboard {
@@ -54,7 +56,13 @@ void layout::serialize()
     for (const auto& row : buttons_) {
         std::vector<std::string> serialized_buttons;
         std::transform(row.begin(), row.end(), std::back_inserter(serialized_buttons), [](const any_button& button){
-            return create_button(button);
+            if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
+                std::string payload_data = create_button(button);
+                spdlog::trace("create button: {}", payload_data);
+                return payload_data;
+            } else {
+                return create_button(button);
+            }
         });
 
         serialized_rows.push_back('[' + runtime::string_utils::join<std::string>(serialized_buttons, ',') + ']');

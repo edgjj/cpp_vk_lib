@@ -24,7 +24,7 @@ message_new::message_new(simdjson::dom::object event)
     }
 
     if (get_event()["fwd_messages"].is_array() && get_event()["fwd_messages"].get_array().size() != 0) {
-        has_attachments_ = true;
+        has_fwd_messages_ = true;
     }
 
     if (get_event()["action"].is_object()) {
@@ -32,11 +32,12 @@ message_new::message_new(simdjson::dom::object event)
         try_get_actions();
     }
 
-    spdlog::trace("create message_new");
-    spdlog::trace("\thas action?        {}", has_action_);
-    spdlog::trace("\thas reply?         {}", has_reply_);
-    spdlog::trace("\thas fwd messages?  {}", has_fwd_messages_);
-    spdlog::trace("\thas attachments?   {}", has_attachments_);
+    if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
+        std::ostringstream ostream;
+        ostream << "creating an event ";
+        ostream << *this;
+        spdlog::trace("{}", ostream.str());
+    }
 }
 
 void message_new::try_get_actions()
@@ -226,7 +227,9 @@ void dispatch_events(std::ostream& ostream, const message_new& event)
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const message_new& event)
+}// namespace vk::event
+
+std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event)
 {
     ostream << "message_new:" << std::endl;
 
@@ -246,8 +249,8 @@ std::ostream& operator<<(std::ostream& ostream, const message_new& event)
             << "has_fwd_messages: " << event.has_fwd_messages() << std::endl;
 
     if (event.has_reply()) {
-        ostream << std::setw(30)
-                << "reply: " << event.reply() << std::endl;
+        ostream << std::endl << std::setw(30)
+                << "reply: " << *event.reply() << std::endl;
     }
 
     dispatch_events(ostream, event);
@@ -261,14 +264,12 @@ std::ostream& operator<<(std::ostream& ostream, const message_new& event)
 
     if (event.has_fwd_messages()) {
         for (auto& message : event.fwd_messages()) {
-            ostream << std::setw(30)
+            ostream << std::endl << std::setw(30)
                     << "fwd_message: ";
-            ostream << message.get();
+            ostream << *message;
             ostream << std::endl;
         }
     }
 
     return ostream;
 }
-
-}// namespace vk::event

@@ -13,6 +13,7 @@
 
 namespace simdjson::dom {
 class object;
+class parser;
 }// namespace simdjson::dom
 
 namespace vk {
@@ -48,6 +49,7 @@ private:
     template <typename Executor>
     void enqueue(Executor executor);
 
+    std::unique_ptr<simdjson::dom::parser> parser_;
     mutable poll_payload poll_payload_;
     mutable error_code errc_;
     asio::io_context& io_context_;
