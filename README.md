@@ -21,11 +21,6 @@ High performance VK API library
 
 You should install libcurl and add it to PATH manually.
 
-## Note
-
-You can extend existing or create new method classes by inheritance to implement needed API methods.
-Also, of course, you can make PR.
-
 ## Example reply bot
 
 ```
