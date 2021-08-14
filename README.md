@@ -14,8 +14,8 @@ High performance VK API library
 * Buttons
 
 ## Dependencies
-	- curl
-	- cmake
+* curl
+* cmake
 
 ## Note for Windows users
 
