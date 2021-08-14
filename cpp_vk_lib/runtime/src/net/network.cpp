@@ -8,7 +8,7 @@
 
 #include <sstream>
 
-static size_t file_write(FILE* file, char* ptr, size_t size, size_t nmemb)
+static size_t file_write_callback(FILE* file, char* ptr, size_t size, size_t nmemb) noexcept
 {
     return fwrite(ptr, size, nmemb, file);
 }
@@ -27,6 +27,10 @@ static std::string create_parameters(std::map<std::string, std::string>&& body)
         result += '&';
     }
 
+    if (!body.empty()) {
+        result.pop_back();
+    }
+    result.shrink_to_fit();
     return result;
 }
 
@@ -82,13 +86,14 @@ size_t network::download(std::string_view filename, std::string_view server)
 
     auto* write_function =
         new curlpp::options::WriteFunction([fp](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
-            return file_write(fp,
+            return file_write_callback(fp,
                 std::forward<decltype(placeholder1)>(placeholder1),
                 std::forward<decltype(placeholder2)>(placeholder2),
                 std::forward<decltype(placeholder3)>(placeholder3));
         });
 
     curl_easy.setOpt(write_function);
+    curl_easy.setOpt(curlpp::options::FollowLocation(true));
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.perform();
     fclose(fp);

@@ -16,18 +16,12 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
 
-#if (NOT DEFINED CPP_VK_LIB_LOG_LEVEL)
-#  add_definitions(-DCPP_VK_LIB_LOG_LEVEL="trace")
-#else()
-#  add_definitions(-DCPP_VK_LIB_LOG_LEVEL="${CPP_VK_LIB_LOG_LEVEL}")
-#endif()
-
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
 
-if (CPP_VK_LIB_BUILD_TESTS)
+#if (CPP_VK_LIB_BUILD_TESTS)
   include(cmake/build_tests.cmake)
-endif()
+#endif()
 
 if (CPP_VK_LIB_BUILD_EXAMPLE)
   include(cmake/build_example.cmake)

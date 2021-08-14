@@ -3,8 +3,6 @@
 
 #include <gtest/gtest.h>
 
-#include <regex>
-
 TEST(curl, POST)
 {
     try {
@@ -19,6 +17,18 @@ TEST(curl, POST)
     } catch (...) {
         ASSERT_FALSE(true);
     }
+}
+
+TEST(curl, download)
+{
+    try {
+        runtime::network::download("buffer", "https://vk.com/doc499047616_610588168?hash=34afd2c8be4fd1867d&dl=GA:1628920721:b81d762eaaeeea9d8a&api=1&no_preview=1");
+    } catch (std::exception& err) {
+        printf("error: %s\n", err.what());
+        ASSERT_FALSE(true);
+    }
+    ASSERT_TRUE(true);
+    std::remove("buffer");
 }
 
 int main(int argc, char* argv[])
