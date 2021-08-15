@@ -33,7 +33,7 @@ std::string user_api::execute(
     const std::string& user_token
 ) {
     VK_UNUSED(access_token);
-    params.insert({{"user_token", user_token}, {"v", API_V}});
+    params.insert({{"access_token", user_token}, {"v", API_V}});
     return call(method, std::move(params));
 }
 
