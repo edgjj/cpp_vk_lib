@@ -227,9 +227,7 @@ void dispatch_events(std::ostream& ostream, const message_new& event)
     }
 }
 
-}// namespace vk::event
-
-std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event)
+std::ostream& operator<<(std::ostream& ostream, const message_new& event)
 {
     ostream << "message_new:" << std::endl;
 
@@ -273,3 +271,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& ev
 
     return ostream;
 }
+
+}// namespace vk::event

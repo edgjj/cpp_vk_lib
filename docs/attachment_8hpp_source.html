@@ -143,21 +143,21 @@ $(function() {
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::string raw_mp3_;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Attachment&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">   75</a></span>&#160;std::shared_ptr&lt;Attachment&gt; <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>(<span class="keyword">const</span> std::shared_ptr&lt;base&gt;&amp; pointer)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* casted = <span class="keyword">static_cast&lt;</span>Attachment*<span class="keyword">&gt;</span>(pointer.get())) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> std::shared_ptr&lt;Attachment&gt;(pointer, casted);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classvk_1_1exception_1_1bad__cast__error.html">exception::bad_cast_error&lt;base, Attachment&gt;</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Attachment&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">   78</a></span>&#160;std::shared_ptr&lt;Attachment&gt; <a class="code" href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">cast</a>(<span class="keyword">const</span> std::shared_ptr&lt;base&gt;&amp; pointer)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* casted = <span class="keyword">static_cast&lt;</span>Attachment*<span class="keyword">&gt;</span>(pointer.get())) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> std::shared_ptr&lt;Attachment&gt;(pointer, casted);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">   84</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">attachment_ptr_t</a> = std::shared_ptr&lt;base&gt;;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}<span class="comment">// namespace vk::attachment</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_HPP</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classvk_1_1exception_1_1bad__cast__error.html">exception::bad_cast_error&lt;base, Attachment&gt;</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">   87</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">attachment_ptr_t</a> = std::shared_ptr&lt;base&gt;;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}<span class="comment">// namespace vk::attachment</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_HPP</span></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html">vk::attachment::audio_message</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:62</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1audio_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html">vk::attachment::audio</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:39</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1base_html"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html">vk::attachment::base</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:12</div></div>
@@ -172,8 +172,8 @@ $(function() {
 <div class="ttc" id="aclassvk_1_1exception_1_1bad__cast__error_html"><div class="ttname"><a href="classvk_1_1exception_1_1bad__cast__error.html">vk::exception::bad_cast_error</a></div><div class="ttdef"><b>Definition:</b> exception.hpp:53</div></div>
 <div class="ttc" id="aexception_8hpp_html"><div class="ttname"><a href="exception_8hpp.html">exception.hpp</a></div></div>
 <div class="ttc" id="anamespacevk_1_1attachment_html"><div class="ttname"><a href="namespacevk_1_1attachment.html">vk::attachment</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:9</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_a86f208fdc190093aa6a83a1595771aa5"><div class="ttname"><a href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">vk::attachment::attachment_ptr_t</a></div><div class="ttdeci">std::shared_ptr&lt; base &gt; attachment_ptr_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:84</div></div>
-<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdef"><b>Definition:</b> attachment.hpp:75</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_a86f208fdc190093aa6a83a1595771aa5"><div class="ttname"><a href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">vk::attachment::attachment_ptr_t</a></div><div class="ttdeci">std::shared_ptr&lt; base &gt; attachment_ptr_t</div><div class="ttdef"><b>Definition:</b> attachment.hpp:87</div></div>
+<div class="ttc" id="anamespacevk_1_1attachment_html_ab24435f4b57a683a6851588e3485345e"><div class="ttname"><a href="namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e">vk::attachment::cast</a></div><div class="ttdeci">std::shared_ptr&lt; Attachment &gt; cast(const std::shared_ptr&lt; base &gt; &amp;pointer)</div><div class="ttdoc">Throw if bad template parameter provided.</div><div class="ttdef"><b>Definition:</b> attachment.hpp:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

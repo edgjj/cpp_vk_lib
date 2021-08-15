@@ -42,7 +42,7 @@ HTML_FILE_EXTENSION    = .html
 
 GENERATE_LATEX         = NO
 
-CLASS_DIAGRAMS         = NO
+CLASS_DIAGRAMS         = YES
 HAVE_DOT               = YES
 DOT_NUM_THREADS        = 2
 CLASS_GRAPH            = YES

@@ -31,7 +31,7 @@ You should install libcurl and add it to PATH manually.
 * More examples
 * Windows build without external dependencies
 
-## Contributors
+(## Contributors)
 
 * **[threadpoolexecutor](https://github.com/threadpoolexecutor)** - author
 * **[Sanceilaks](https://github.com/Sanceilaks)** - build under Windows

@@ -113,8 +113,6 @@ std::shared_ptr<wall_repost> wall_post_new::repost() const
     }
 }
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event)
 {
     ostream << "wall_post_new:" << std::endl;
@@ -126,19 +124,29 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
     ostream << std::setw(30)
             << "owner_id: " << event.owner_id() << std::endl;
     ostream << std::setw(30)
-            << "created_by: " << event.created_by() << std::endl;
-    ostream << std::setw(30)
             << "text: " << event.text() << std::endl;
-    ostream << std::setw(30)
-            << "can_edit? " << std::boolalpha << event.can_edit() << std::endl;
     ostream << std::setw(30)
             << "can_delete? " << std::boolalpha << event.can_delete() << std::endl;
     ostream << std::setw(30)
             << "marked_as_ads? " << std::boolalpha << event.marked_as_ads() << std::endl;
 
+    int64_t created_by;
+    if (auto error = event.get_event()["created_by"].get(created_by); !error) {
+        ostream << std::setw(30) << "created_by: " << created_by << std::endl;
+    } else {
+        /* Ignore it. */
+    }
+
+    int64_t can_edit;
+    if (auto error = event.get_event()["can_edit"].get(can_edit); !error) {
+        ostream << std::setw(30) << "can_edit: " << created_by << std::endl;
+    } else {
+        /* Ignore it. */
+    }
+
     auto append_attachments = [&ostream](const auto& attachments) {
         for (auto& attachment : attachments) {
-            ostream << std::setw(40) << "attachment: ";
+            ostream << std::setw(30) << "attachment: ";
             ostream << attachment->value();
             ostream << std::endl;
         }
@@ -165,3 +173,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
 
     return ostream;
 }
+
+}// namespace vk::event

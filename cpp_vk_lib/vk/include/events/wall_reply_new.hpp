@@ -37,8 +37,8 @@ private:
     bool has_attachments_ = false;
 };
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply);
+
+}// namespace vk::event
 
 #endif// VK_EVENTS_WALL_REPLY_NEW_HPP

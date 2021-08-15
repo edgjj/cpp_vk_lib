@@ -7,11 +7,10 @@
 
 namespace vk::event {
 /*!
- * @brief The `wall_post_new` repost representation.
+ * @brief The `wall_repost` event representation.
  *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access
- * it.
+ * It means, that no data is extracted from JSON until the user wants to access it.
  */
 class wall_repost
 {
@@ -35,8 +34,8 @@ private:
     std::vector<vk::attachment::attachment_ptr_t> attachments_;
 };
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& event);
+
+}// namespace vk::event
 
 #endif// VK_EVENTS_WALL_REPOST_HPP

@@ -3,6 +3,8 @@
 
 #include <gtest/gtest.h>
 
+#include <fstream>
+
 TEST(curl, POST)
 {
     try {

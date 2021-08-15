@@ -71,6 +71,9 @@ private:
     std::string raw_mp3_;
 };
 
+/*!
+ *  @brief Throw if bad template parameter provided.
+ */
 template <typename Attachment>
 std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)
 {

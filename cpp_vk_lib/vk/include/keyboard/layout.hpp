@@ -23,7 +23,8 @@ public:
     layout(keyboard::flag flags);
 
     /*!
-     * @brief Add row by passing `std::vector`.
+     * @brief Add row. Each `add_row` call adds
+     * new row to keyboard.
      */
     void add_row(const std::vector<any_button>& row);
     /*!
@@ -36,11 +37,6 @@ public:
 
 private:
     std::string serialized_{};
-    /*!
-     * @brief Button grid container.
-     *
-     * Example: for 2x2 layout: [[button1,button2],[button3,button4]].
-     */
     std::vector<std::vector<any_button>> buttons_{};
     flag flags_ = vk::keyboard::flag::none;
 };

@@ -1,4 +1,4 @@
-find_library(cpp_vk_lib HINTS "${CMAKE_CURRENT_SOURCE_DIR}/lib")
+find_library(cpp_vk_lib HINTS "${CMAKE_CURRENT_SOURCE_DIR}/cpp_vk_lib")
 include_directories(cpp_vk_lib)
 include_directories(modules/spdlog/include)
 

@@ -17,7 +17,7 @@ namespace vk::event {
  *
  * Internal information accessed in a "lazy way".
  * It means, that no data is extracted from JSON until the user wants to access
- * it, and there's meaningless to construct all attachment, reply and forwarded
+ * it, and there's meaningless to construct all attachments, reply and forwarded
  * messages objects in the case you only need message text.
  */
 class message_new
@@ -53,6 +53,8 @@ public:
     bool has_fwd_messages() const noexcept;
     bool has_action() const noexcept;
 
+    friend std::ostream& operator<<(std::ostream& ostream, const message_new& event);
+
 private:
     void try_get_actions();
     simdjson::dom::object& get_event() const;
@@ -65,8 +67,8 @@ private:
     bool has_attachments_ = false;
 };
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event);
+
+}// namespace vk::event
 
 #endif// VK_EVENTS_MESSAGE_NEW_HPP

@@ -89,13 +89,21 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code><a class="el" href="classvk_1_1event_1_1wall__reply__new.html" title="The wall_reply_new event representation.">wall_reply_new</a></code> event representation.  <a href="classvk_1_1event_1_1wall__reply__new.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1wall__repost.html">wall_repost</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code><a class="el" href="classvk_1_1event_1_1wall__post__new.html" title="The wall_post_new event representation.">wall_post_new</a></code> repost representation.  <a href="classvk_1_1event_1_1wall__repost.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code><a class="el" href="classvk_1_1event_1_1wall__repost.html" title="The wall_repost event representation.">wall_repost</a></code> event representation.  <a href="classvk_1_1event_1_1wall__repost.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a99a6cb05d95800d9a1f6b99216b1c0b4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">attachment::attachment_ptr_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#a99a6cb05d95800d9a1f6b99216b1c0b4">get_attachments</a> (const simdjson::dom::array &amp;attachments)</td></tr>
 <tr class="separator:a99a6cb05d95800d9a1f6b99216b1c0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53556990ecc29956d6c9b5d403292fd"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#ac53556990ecc29956d6c9b5d403292fd">operator&lt;&lt;</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a> &amp;event)</td></tr>
+<tr class="separator:ac53556990ecc29956d6c9b5d403292fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2f68b58f47a338f8290f8abd8389e12"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#ab2f68b58f47a338f8290f8abd8389e12">operator&lt;&lt;</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a> &amp;event)</td></tr>
+<tr class="separator:ab2f68b58f47a338f8290f8abd8389e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258dc6914cc08cc277e48bde72d4780d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#a258dc6914cc08cc277e48bde72d4780d">operator&lt;&lt;</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1wall__reply__new.html">vk::event::wall_reply_new</a> &amp;reply)</td></tr>
+<tr class="separator:a258dc6914cc08cc277e48bde72d4780d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad02d291d481e4ed358db2c14e2cd4c2"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#aad02d291d481e4ed358db2c14e2cd4c2">operator&lt;&lt;</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1wall__repost.html">vk::event::wall_repost</a> &amp;event)</td></tr>
+<tr class="separator:aad02d291d481e4ed358db2c14e2cd4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb34712dca97582be087cc240958d77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1event.html#a7fb34712dca97582be087cc240958d77">dispatch_events</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1message__new.html">message_new</a> &amp;event)</td></tr>
 <tr class="separator:a7fb34712dca97582be087cc240958d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -140,6 +148,118 @@ Functions</h2></td></tr>
           <td class="paramtype">const simdjson::dom::array &amp;&#160;</td>
           <td class="paramname"><em>attachments</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac53556990ecc29956d6c9b5d403292fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53556990ecc29956d6c9b5d403292fd">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; vk::event::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a258dc6914cc08cc277e48bde72d4780d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258dc6914cc08cc277e48bde72d4780d">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; vk::event::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1wall__reply__new.html">vk::event::wall_reply_new</a> &amp;&#160;</td>
+          <td class="paramname"><em>reply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad02d291d481e4ed358db2c14e2cd4c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad02d291d481e4ed358db2c14e2cd4c2">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; vk::event::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1wall__repost.html">vk::event::wall_repost</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2f68b58f47a338f8290f8abd8389e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2f68b58f47a338f8290f8abd8389e12">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; vk::event::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1wall__post__new.html">wall_post_new</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -68,8 +68,6 @@ std::vector<vk::attachment::attachment_ptr_t> wall_reply_new::attachments() cons
     }
 }
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply)
 {
     ostream << "wall_reply_new:" << std::endl;
@@ -98,3 +96,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new&
 
     return ostream;
 }
+
+}// namespace vk::event

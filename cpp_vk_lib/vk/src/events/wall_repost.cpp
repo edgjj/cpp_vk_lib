@@ -57,8 +57,6 @@ const std::vector<vk::attachment::attachment_ptr_t>& wall_repost::attachments() 
     return attachments_;
 }
 
-}// namespace vk::event
-
 std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& event)
 {
     ostream << "wall_repost:" << std::endl;
@@ -72,7 +70,7 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& ev
             << "text: " << event.text() << std::endl;
     if (event.has_attachments()) {
         for (auto& attachment : event.attachments()) {
-            ostream << std::setw(40)
+            ostream << std::setw(30)
                     << "attachment: ";
             ostream << attachment->value();
             ostream << std::endl;
@@ -80,3 +78,5 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& ev
     }
     return ostream;
 }
+
+}// namespace vk::event

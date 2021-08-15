@@ -41,6 +41,8 @@ public:
      */
     std::vector<vk::attachment::attachment_ptr_t> attachments() const;
 
+    friend std::ostream& operator<<(std::ostream&, const wall_post_new&);
+
 private:
     simdjson::dom::object& get_event() const;
 
@@ -49,8 +51,8 @@ private:
     bool has_repost_ = false;
 };
 
-}// namespace vk::event
+std::ostream& operator<<(std::ostream& ostream, const wall_post_new& event);
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event);
+}// namespace vk::event
 
 #endif// VK_EVENTS_WALL_POST_NEW_HPP

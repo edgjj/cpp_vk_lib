@@ -1,0 +1,15 @@
+find_library(cpp_vk_lib HINTS "${CMAKE_CURRENT_SOURCE_DIR}/cpp_vk_lib")
+include_directories(cpp_vk_lib)
+include_directories(modules/spdlog/include)
+include_directories(modules/asio/asio/include)
+
+function (add_vk_example name path)
+  add_executable(${name} ${path})
+  target_link_libraries(${name} cpp_vk_lib)
+endfunction()
+
+file (GLOB examples "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp")
+foreach (file ${examples})
+  get_filename_component(name ${file} NAME_WE)
+  add_vk_example(${name} ${file})
+endforeach()

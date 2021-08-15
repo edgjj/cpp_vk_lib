@@ -18,7 +18,7 @@ class parser;
 
 namespace vk {
 /*!
- * @brief Class to interact with long poll mechanism.
+ * @brief Event queue that implements group long polling.
  */
 class long_poll
 {

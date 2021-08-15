@@ -1,5 +1,0 @@
-include_directories(modules/spdlog/include)
-include_directories(cpp_vk_lib)
-include_directories(modules/asio/asio/include)
-add_executable(long_poll_example example/long_poll.cpp)
-target_link_libraries(long_poll_example cpp_vk_lib)

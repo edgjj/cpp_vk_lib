@@ -52,7 +52,7 @@ template <typename Base, typename Derived>
 class bad_cast_error : public common_exception
 {
 public:
-    explicit bad_cast_error()
+    bad_cast_error()
         : common_exception(create(0, "bad_cast_error", "Cast error")) {}
 };
 

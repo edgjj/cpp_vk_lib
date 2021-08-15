@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classvk_1_1event_1_1message__new-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vk::event::message_new Class Reference</div>  </div>
@@ -109,10 +110,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9f5b1b6ff772d3efb202ce948ac1bb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b5c2d16241faa474a1d5c1aa66cadf4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#a1b5c2d16241faa474a1d5c1aa66cadf4">has_action</a> () const noexcept</td></tr>
 <tr class="separator:a1b5c2d16241faa474a1d5c1aa66cadf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aafc0c19fcd5d0653bcc1491c90bac8f2"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1event_1_1message__new.html#aafc0c19fcd5d0653bcc1491c90bac8f2">operator&lt;&lt;</a> (std::ostream &amp;ostream, const <a class="el" href="classvk_1_1event_1_1message__new.html">message_new</a> &amp;event)</td></tr>
+<tr class="separator:aafc0c19fcd5d0653bcc1491c90bac8f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code><a class="el" href="classvk_1_1event_1_1message__new.html" title="The message_new event representation.">message_new</a></code> event representation. </p>
-<p>Internal information accessed in a "lazy way". It means, that no data is extracted from JSON until the user wants to access it, and there's meaningless to construct all attachment, reply and forwarded messages objects in the case you only need message text. </p>
+<p>Internal information accessed in a "lazy way". It means, that no data is extracted from JSON until the user wants to access it, and there's meaningless to construct all attachments, reply and forwarded messages objects in the case you only need message text. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab11fbb9f3d29750c21f0053c16214738"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab11fbb9f3d29750c21f0053c16214738">&#9670;&nbsp;</a></span>message_new()</h2>
@@ -446,6 +452,43 @@ Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="aafc0c19fcd5d0653bcc1491c90bac8f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc0c19fcd5d0653bcc1491c90bac8f2">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1message__new.html">message_new</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
