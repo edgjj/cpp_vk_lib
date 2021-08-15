@@ -4,14 +4,18 @@
 [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://threadpoolexecutor.github.io/cpp_vk_lib/index.html)
 
 # cpp_vk_lib
+
+![alt text](https://github.com/threadpoolexecutor/cpp_vk_lib/blob/main/images/cpp_vk_lib_logo.jpg?raw=true)
+
 High performance VK API library
 
 ## Overview
 
-* Multithreaded
+* Multithreading
 * Logging
-* OAuth-authorization
 * Buttons
+* OAuth-authorization
+* User friendly API
 
 ## Dependencies
 * curl
@@ -21,56 +25,6 @@ High performance VK API library
 
 You should install libcurl and add it to PATH manually.
 
-## Example reply bot
-
-```
-#include "runtime/include/string_utils/string_utils.hpp"
-
-#include "vk/include/config/loader.hpp"
-#include "vk/include/events/message_new.hpp"
-#include "vk/include/long_poll/long_poll.hpp"
-#include "vk/include/methods/basic.hpp"
-#include "vk/include/setup_logger.hpp"
-
-constexpr char sample_config[] = R"__(
-    {
-      "api": {
-        "access_token": "",
-        "user_token": ""
-      },
-      "oauth": {
-        "login": "",
-        "password": ""
-      },
-      "environment": {
-        "num_workers": 8,
-        "log_path": "logs.txt"
-      }
-    }
-)__";
-
-int main()
-{
-    vk::setup_logger("info");
-    vk::config::load_string(sample_config);
-
-    asio::io_context io_context;
-    vk::long_poll api(io_context);
-
-    while (true) {
-        auto events = api.listen(/*timeout=*/60);
-
-        for (auto& event : events) {
-            api.on_event("message_new", event, [&event] {
-                vk::event::message_new message_event = event.get_message_new();
-                vk::method::messages::send(message_event.peer_id(), "response");
-            });
-        }
-        api.run();
-    }
-}
-```
-
 ## TODO
 
 * User Long Poll
@@ -79,10 +33,10 @@ int main()
 
 ## Contributors
 
-* **threadpoolexecutor** - author
-* **Sanceilaks** - build under Windows
+* **[threadpoolexecutor](https://github.com/threadpoolexecutor)** - author
+* **[Sanceilaks](https://github.com/Sanceilaks)** - build under Windows
+* **[LvalueReference](https://github.com/LvalueReference)** - library logo :)
 
+## Note
 
-## Examples
-
-[Repo with examples](https://github.com/threadpoolexecutor/example_cpp_vk_bot)
+Please consider building your applications with [this template](https://github.com/threadpoolexecutor/template_cpp_vk_bot).

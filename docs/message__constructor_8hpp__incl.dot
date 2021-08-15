@@ -5,7 +5,7 @@ digraph "message_constructor.hpp"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="message_constructor.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk/include/attachment\l/base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$base_8hpp.html",tooltip=" "];
+  Node2 [label="vk/include/attachment\l/attachment.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$attachment_8hpp.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="vk/include/exception\l/exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -23,6 +23,7 @@ digraph "message_constructor.hpp"
   Node9 [label="runtime/include/net\l/network.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$network_8hpp.html",tooltip=" "];
   Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node10 [label="map",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node9 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node11 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];

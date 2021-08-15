@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['c_2b_2b_20vk_20library_32',['C++ VK library',['../index.html',1,'']]],
   ['can_5fdelete_33',['can_delete',['../classvk_1_1event_1_1wall__post__new.html#aa9e9f94a0d2e15d3ce70c393034df460',1,'vk::event::wall_post_new']]],
   ['can_5fedit_34',['can_edit',['../classvk_1_1event_1_1wall__post__new.html#a2124eb9a51552c5d406706c1718f9338',1,'vk::event::wall_post_new']]],
   ['cast_35',['cast',['../namespacevk_1_1attachment.html#ab24435f4b57a683a6851588e3485345e',1,'vk::attachment']]],
@@ -22,7 +21,7 @@ var searchData=
   ['common_5fevent_2ehpp_51',['common_event.hpp',['../common__event_8hpp.html',1,'']]],
   ['common_5fexception_52',['common_exception',['../classvk_1_1exception_1_1common__exception.html#a65a6af318ef3aaefb710c8cd10b343f5',1,'vk::exception::common_exception::common_exception()'],['../classvk_1_1exception_1_1common__exception.html',1,'vk::exception::common_exception']]],
   ['construct_5fattachments_53',['construct_attachments',['../classvk_1_1event_1_1wall__repost.html#a7123cd4a83acefd5e92680a59373b7ea',1,'vk::event::wall_repost']]],
-  ['constructor_54',['constructor',['../classvk_1_1method_1_1constructor.html#a11da862a01e2a3d3764db8a81b49caa4',1,'vk::method::constructor::constructor()'],['../classvk_1_1method_1_1constructor.html#aa26191ccc36721b6f57c87344fa66f2d',1,'vk::method::constructor::constructor(std::string_view user_token)'],['../classvk_1_1method_1_1constructor.html',1,'vk::method::constructor&lt; ExecutionPolicy &gt;']]],
+  ['constructor_54',['constructor',['../classvk_1_1method_1_1constructor.html#aa26191ccc36721b6f57c87344fa66f2d',1,'vk::method::constructor::constructor(std::string_view user_token)'],['../classvk_1_1method_1_1constructor.html#a11da862a01e2a3d3764db8a81b49caa4',1,'vk::method::constructor::constructor()'],['../classvk_1_1method_1_1constructor.html',1,'vk::method::constructor&lt; ExecutionPolicy &gt;']]],
   ['constructor_2ecpp_55',['constructor.cpp',['../constructor_8cpp.html',1,'']]],
   ['constructor_2ehpp_56',['constructor.hpp',['../constructor_8hpp.html',1,'']]],
   ['constructor_3c_20policy_3a_3agroup_5fapi_20_3e_57',['constructor&lt; policy::group_api &gt;',['../classvk_1_1method_1_1constructor.html',1,'vk::method']]],

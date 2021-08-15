@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get_97',['get',['../classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444',1,'vk::keyboard::layout']]],
+  ['get_97',['get',['../classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444',1,'vk::keyboard::layout::get()'],['../classanonymous__namespace_02loader_8cpp_03_1_1loader.html#a389c50f7f3e91b49061e6a4defe716e0',1,'anonymous_namespace{loader.cpp}::loader::get()']]],
   ['get_5fattachments_98',['get_attachments',['../namespacevk_1_1event.html#a99a6cb05d95800d9a1f6b99216b1c0b4',1,'vk::event']]],
   ['get_5fby_5fid_99',['get_by_id',['../namespacevk_1_1method_1_1groups.html#ac152ca34577555bd45b14cf56293a9ef',1,'vk::method::groups']]],
   ['get_5fcolor_100',['get_color',['../namespacevk_1_1keyboard.html#a7f7a4731b5037d36a5ec42af49bc0958',1,'vk::keyboard']]],
