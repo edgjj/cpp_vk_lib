@@ -19,9 +19,9 @@ set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
 
-#if (CPP_VK_LIB_BUILD_TESTS)
+if (CPP_VK_LIB_BUILD_TESTS)
   include(cmake/build_tests.cmake)
-#endif()
+endif()
 
 if (CPP_VK_LIB_BUILD_EXAMPLE)
   include(cmake/build_example.cmake)
