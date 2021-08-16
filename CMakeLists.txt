@@ -23,6 +23,6 @@ if (CPP_VK_LIB_BUILD_TESTS)
   include(cmake/build_tests.cmake)
 endif()
 
-#if (CPP_VK_LIB_BUILD_EXAMPLES)
+if (CPP_VK_LIB_BUILD_EXAMPLES)
   include(cmake/build_examples.cmake)
-#endif()
+endif()

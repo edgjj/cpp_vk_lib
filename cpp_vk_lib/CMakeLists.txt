@@ -1,5 +1,3 @@
-add_definitions(-DAPI_V="5.130")
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra -Werror -Wunused -Wwrite-strings -Wimplicit-fallthrough -pedantic -O3")
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
@@ -8,7 +6,7 @@ if (NOT DEFINED CPP_VK_LIB_CURL_VERBOSE)
   add_definitions(-DCPP_VK_LIB_CURL_VERBOSE)
 endif()
 
-set (SRC
+set(SRC
   ../cpp_vk_lib/vk/src/implementation.cpp
   ../cpp_vk_lib/runtime/src/implementation.cpp)
 
@@ -20,7 +18,7 @@ endif()
 
 target_link_libraries(cpp_vk_lib curl curlpp simdjson)
 
-set (CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_include_directories(cpp_vk_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(cpp_vk_lib PRIVATE ../modules/curlpp/include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/spdlog/include)

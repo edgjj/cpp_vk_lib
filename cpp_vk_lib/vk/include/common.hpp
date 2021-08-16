@@ -3,6 +3,8 @@
  *
  * C++ VK library
  *
+ * CMake options:
+ *
  * Sample code
  *
  * @code

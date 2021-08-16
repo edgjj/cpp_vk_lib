@@ -3,6 +3,8 @@
 #include "runtime/include/misc/cppdefs.hpp"
 #include "runtime/include/net/network.hpp"
 
+#include "vk/include/api_constants.hpp"
+
 static std::string append_url(std::string_view method)
 {
     return runtime::string_utils::format("https://api.vk.com/method/{}?", method);
@@ -22,7 +24,7 @@ std::string group_api::execute(
     const std::string& user_token
 ) {
     VK_UNUSED(user_token);
-    params.insert({{"access_token", access_token}, {"v", API_V}});
+    params.insert({{"access_token", access_token}, {"v", api_constants::api_version}});
     return call(method, std::move(params));
 }
 
@@ -33,7 +35,7 @@ std::string user_api::execute(
     const std::string& user_token
 ) {
     VK_UNUSED(access_token);
-    params.insert({{"access_token", user_token}, {"v", API_V}});
+    params.insert({{"access_token", user_token}, {"v", api_constants::api_version}});
     return call(method, std::move(params));
 }
 
