@@ -47,6 +47,9 @@ std::string network::request(std::string_view host, std::map<std::string, std::s
 
     curl_easy.setOpt(curlpp::options::Url(url));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
     curl_easy.perform();
 
     spdlog::trace("HTTP RESPONSE: {}", response.str());
@@ -65,6 +68,9 @@ std::string network::request_data(std::string_view host, std::string_view data)
     curl_easy.setOpt(curlpp::options::PostFields(data.data()));
     curl_easy.setOpt(curlpp::options::PostFieldSize(data.size()));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
     curl_easy.perform();
 
     spdlog::trace("HTTP RESPONSE: {}", response.str());
@@ -95,6 +101,9 @@ size_t network::download(std::string_view filename, std::string_view server)
     curl_easy.setOpt(write_function);
     curl_easy.setOpt(curlpp::options::FollowLocation(true));
     curl_easy.setOpt(curlpp::options::Url(server.data()));
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
     curl_easy.perform();
     fclose(fp);
 
@@ -114,6 +123,9 @@ std::string network::upload(std::string_view field_name, std::string_view filena
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
 
     try {
         curl_easy.perform();
