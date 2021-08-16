@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <string_view>
+#include <vector>
 
 namespace runtime::network {
 /*!
@@ -17,10 +18,20 @@ std::string request(std::string_view host, std::map<std::string, std::string>&& 
  */
 size_t download(std::string_view filename, std::string_view server);
 /*!
+ * @brief Download file from server to buffer.
+ * @return -1 if failed, 0 otherwise.
+ */
+size_t download(std::vector<char>* buf, std::string_view server);
+/*!
  * @brief Upload file from filename to server.
  * @return upload response.
  */
 std::string upload(std::string_view field_name, std::string_view filename, std::string_view server);
+/*!
+ * @brief Upload file from buffer to server.
+ * @return upload response.
+ */
+std::string upload(std::string_view field_name, const std::vector<char>& buf, std::string_view server, std::string_view type = "");
 /*!
  * @brief Execute HTTP POST request with text data.
  * @return response output.
