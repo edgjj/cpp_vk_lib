@@ -13,6 +13,13 @@ static size_t file_write_callback(FILE* file, char* ptr, size_t size, size_t nme
     return fwrite(ptr, size, nmemb, file);
 }
 
+static size_t buffer_write_callback (void* userp, char* contents, size_t size, size_t nmemb)
+{
+    auto vec = reinterpret_cast<std::vector<char>*> (userp);
+    vec->insert(vec->end(), contents, contents + size * nmemb);
+    return size * nmemb;
+}
+
 static std::string create_parameters(std::map<std::string, std::string>&& body)
 {
     static constexpr size_t average_word_length = 20;
@@ -110,6 +117,38 @@ size_t network::download(std::string_view filename, std::string_view server)
     return 0;
 }
 
+size_t network::download(std::vector<char>* buf, std::string_view server)
+{
+    curlpp::Easy curl_easy;
+
+    spdlog::trace("HTTP download: {}", server);
+
+    auto* write_function = new curlpp::options::WriteFunction([buf](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
+        return buffer_write_callback(buf,
+            std::forward<decltype(placeholder1)>(placeholder1),
+            std::forward<decltype(placeholder2)>(placeholder2),
+            std::forward<decltype(placeholder3)>(placeholder3));
+    });
+
+    curl_easy.setOpt(curlpp::options::FollowLocation(true));
+    curl_easy.setOpt(curlpp::options::Url(server.data()));
+    curl_easy.setOpt(write_function);
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
+    try
+    {
+        curl_easy.perform();
+    } catch (curlpp::RuntimeError& re)
+    {
+        spdlog::trace("HTTP download error");
+        return -1;
+    }
+
+    spdlog::trace("HTTP downloaded: {} bytes", buf->size());
+    return 0;
+}
+
 std::string network::upload(std::string_view field_name, std::string_view filename, std::string_view server)
 {
     std::ostringstream response;
@@ -131,6 +170,105 @@ std::string network::upload(std::string_view field_name, std::string_view filena
         curl_easy.perform();
     } catch (curlpp::RuntimeError& re) {
         spdlog::trace("HTTP upload error");
+    }
+
+    return response.str();
+}
+
+std::string network::upload(std::string_view field_name, const std::vector<char>& buf, std::string_view server, std::string_view type)
+{
+    class FormPartData : public curlpp::FormPart
+    {
+    public:
+        FormPartData(const char* name, const std::vector<char>& buffer)
+          : curlpp::FormPart(name)
+          , mVec(buffer)
+        {}
+
+        FormPartData(const char* name, const std::vector<char>& buffer, const char* type)
+          : curlpp::FormPart(name)
+          , mVec(buffer)
+          , mContentType(type)
+        {}
+
+        ~FormPartData() = default;
+
+        virtual FormPartData* clone() const
+        {
+            return new FormPartData(*this);
+        }
+
+    private:
+        void add(::curl_httppost** first, ::curl_httppost** last)
+        {
+            if (mContentType.empty())
+            {
+                curl_formadd(
+                    first,
+                    last,
+                    CURLFORM_BUFFER,
+                    "temp",
+                    CURLFORM_PTRNAME,
+                    mName.c_str(),
+                    CURLFORM_BUFFERPTR,
+                    mVec.data(),
+                    CURLFORM_BUFFERLENGTH,
+                    mVec.size(),
+                    CURLFORM_CONTENTSLENGTH,
+                    mVec.size(),
+                    CURLFORM_CONTENTTYPE,
+                    "application/octet-stream",
+                    CURLFORM_END);
+            }
+            else
+            {
+                curl_formadd(
+                    first,
+                    last,
+                    CURLFORM_BUFFER,
+                    "temp",
+                    CURLFORM_PTRNAME,
+                    mName.c_str(),
+                    CURLFORM_BUFFERPTR,
+                    mVec.data(),
+                    CURLFORM_BUFFERLENGTH,
+                    mVec.size(),
+                    CURLFORM_CONTENTSLENGTH,
+                    mVec.size(),
+                    CURLFORM_CONTENTTYPE,
+                    mContentType.c_str(),
+                    CURLFORM_END);
+            }
+        }
+
+        const std::vector<char>& mVec;
+        const std::string mContentType;
+    };
+
+    std::ostringstream response;
+    curlpp::Forms form_parts;
+    curlpp::Easy curl_easy;
+
+    if (type.empty())
+        form_parts.push_back(new FormPartData(field_name.data(), buf));
+    else
+        form_parts.push_back(new FormPartData(field_name.data(), buf, type.data()));
+
+    spdlog::trace("HTTP upload: buffer {}", buf.size());
+
+    curl_easy.setOpt(curlpp::options::Url(server.data()));
+    curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
+    curl_easy.setOpt(curlpp::options::WriteStream(&response));
+#ifndef CPP_VK_LIB_CURL_VERBOSE
+    curl_easy.setOpt(curlpp::options::Verbose(true));
+#endif
+
+    try
+    {
+        curl_easy.perform();
+    } catch (curlpp::RuntimeError& re)
+    {
+        spdlog::trace("HTTP upload error: {}", re.what());
     }
 
     return response.str();
