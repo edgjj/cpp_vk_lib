@@ -126,9 +126,14 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
     ostream << std::setw(30)
             << "text: " << event.text() << std::endl;
     ostream << std::setw(30)
-            << "can_delete? " << std::boolalpha << event.can_delete() << std::endl;
-    ostream << std::setw(30)
             << "marked_as_ads? " << std::boolalpha << event.marked_as_ads() << std::endl;
+
+    int64_t can_delete;
+    if (auto error = event.get_event()["can_delete"].get(can_delete); !error) {
+        ostream << std::setw(30) << "can_delete?: " << can_delete << std::endl;
+    } else {
+        /* Ignore it. */
+    }
 
     int64_t created_by;
     if (auto error = event.get_event()["created_by"].get(created_by); !error) {

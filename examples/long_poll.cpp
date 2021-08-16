@@ -31,4 +31,5 @@ int main(int argc, char* argv[])
         }
         api.run();
     }
+    return 0;
 }
