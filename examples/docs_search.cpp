@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     }
     std::mt19937 generator(std::random_device{}());
     std::uniform_int_distribution<> distribution(0, items.size() - 1);
-    for (size_t i = 0; i < items.size() && i < std::stol(count); ++i) {
+    for (size_t i = 0; i < items.size() && i < std::stoul(count); ++i) {
         const size_t index = distribution(generator);
         documents.push_back(std::make_shared<vk::attachment::document>(
             items.at(index)["owner_id"].get_int64(),

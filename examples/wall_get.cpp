@@ -15,16 +15,17 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    const char* log_path = argv[1];
     const char* group_id = argv[2];
-    const char* posts_to_find = argv[3];
+    const char* count_of_posts = argv[3];
     const char* out_path = argv[4];
-    vk::config::load(argv[1]);
+    vk::config::load(log_path);
     vk::setup_logger("trace");
 
     const std::string response = vk::method::user_constructor()
         .method("wall.get")
         .param("owner_id", group_id)
-        .param("count", posts_to_find)
+        .param("count",    count_of_posts)
         .perform_request();
     simdjson::dom::parser parser;
     const simdjson::dom::element parsed_posts = parser.parse(response);
