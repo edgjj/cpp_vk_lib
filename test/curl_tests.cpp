@@ -21,21 +21,53 @@ TEST(curl, POST)
     }
 }
 
-TEST(curl, download)
+TEST(curl, download_to_file)
 {
     try {
-        runtime::network::download("buffer", "https://vk.com/doc499047616_610588168?hash=34afd2c8be4fd1867d&dl=GA:1628920721:b81d762eaaeeea9d8a&api=1&no_preview=1");
+        if (runtime::network::download("file", "https://psv4.userapi.com/c536236/u561321493/docs/d33/14376ccebc45/Korone_Headbob_gif.gif?extra=UlatnP7Dsj1z7s6Zz1RS2muhsVPQI9Fs0DzMbbPzYgLWi2IcQz-hqnngTh2BZ612YrwwfOewAA9FbixszKWrwiTxDiKcf5r_LENuEGnhYMTf1kSvhTnPOIDhLk2gVp2oANjl615iDaYcIp90YkgzDhxp") != 0) {
+            FAIL() << "Failed to download to file";
+        }
+        std::remove("file");
     } catch (std::exception& err) {
-        printf("error: %s\n", err.what());
         ASSERT_FALSE(true);
     }
-    ASSERT_TRUE(true);
-    std::remove("buffer");
+}
+
+TEST(curl, download_to_buffer)
+{
+    try {
+        if (std::vector<char> raw_buffer; runtime::network::download(raw_buffer, "https://psv4.userapi.com/c536236/u561321493/docs/d33/14376ccebc45/Korone_Headbob_gif.gif?extra=UlatnP7Dsj1z7s6Zz1RS2muhsVPQI9Fs0DzMbbPzYgLWi2IcQz-hqnngTh2BZ612YrwwfOewAA9FbixszKWrwiTxDiKcf5r_LENuEGnhYMTf1kSvhTnPOIDhLk2gVp2oANjl615iDaYcIp90YkgzDhxp") != 0) {
+            FAIL() << "Failed to download to buffer";
+        }
+    } catch (std::exception& err) {
+        ASSERT_FALSE(true);
+    }
+}
+
+TEST(curl, download_compare)
+{
+    try {
+        const char url[] = "https://www.example.com";
+        runtime::network::download("file", url);
+        std::ostringstream ss;
+        ss << std::ifstream("file").rdbuf();
+        const std::string& streambuf = ss.str();
+        std::vector<char> file_buffer(streambuf.begin(), streambuf.end());
+
+        std::vector<char> raw_buffer;
+        runtime::network::download(raw_buffer, url);
+
+        ASSERT_EQ(file_buffer, raw_buffer);
+
+        std::remove("file");
+    } catch (std::exception& err) {
+        ASSERT_FALSE(true);
+    }
 }
 
 int main(int argc, char* argv[])
 {
-    vk::setup_logger("trace");
+    vk::setup_logger("info");
 
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
