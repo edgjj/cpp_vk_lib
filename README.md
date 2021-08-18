@@ -36,6 +36,7 @@ You should install libcurl and add it to PATH manually.
 * **[threadpoolexecutor](https://github.com/threadpoolexecutor)** - author
 * **[Sanceilaks](https://github.com/Sanceilaks)** - build under Windows
 * **[LvalueReference](https://github.com/LvalueReference)** - library logo :)
+* **[edgjj](https://github.com/edgjj)** - cURL download/upload using in-memory buffers
 
 ## Note
 
