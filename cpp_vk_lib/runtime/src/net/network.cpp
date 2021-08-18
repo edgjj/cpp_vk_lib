@@ -15,7 +15,7 @@ static size_t file_write_callback(FILE* file, char* ptr, size_t size, size_t nme
 
 static size_t buffer_write_callback(void* userp, char* contents, size_t size, size_t nmemb)
 {
-    auto vector = reinterpret_cast<std::vector<char>*>(userp);
+    auto vector = reinterpret_cast<std::vector<uint8_t>*>(userp);
     vector->insert(vector->end(), contents, contents + (size * nmemb));
     return size * nmemb;
 }
@@ -121,7 +121,7 @@ size_t network::download(std::string_view filename, std::string_view server)
     return 0;
 }
 
-size_t network::download(std::vector<char>& buffer, std::string_view server)
+size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
 {
     spdlog::trace("HTTP download: {}", server);
 
@@ -180,16 +180,16 @@ std::string network::upload(std::string_view field_name, std::string_view filena
     return response.str();
 }
 
-std::string network::upload(std::string_view field_name, const std::vector<char>& buffer, std::string_view server, std::string_view type)
+std::string network::upload(std::string_view field_name, const std::vector<uint8_t>& buffer, std::string_view server, std::string_view type)
 {
     class form_part_data : public curlpp::FormPart
     {
     public:
-        form_part_data(const char* name, const std::vector<char>& buffer)
+        form_part_data(const char* name, const std::vector<uint8_t>& buffer)
           : curlpp::FormPart(name)
           , buffer_(buffer) {}
 
-        form_part_data(const char* name, const std::vector<char>& buffer, const char* type)
+        form_part_data(const char* name, const std::vector<uint8_t>& buffer, const char* type)
           : curlpp::FormPart(name)
           , buffer_(buffer)
           , content_type_(type) {}
@@ -223,7 +223,7 @@ std::string network::upload(std::string_view field_name, const std::vector<char>
             }
         }
 
-        const std::vector<char>& buffer_;
+        const std::vector<uint8_t>& buffer_;
         const std::string content_type_;
     };
 

@@ -21,7 +21,7 @@ size_t download(std::string_view filename, std::string_view server);
  * @brief Download file from server to buffer.
  * @return -1 if failed, 0 otherwise.
  */
-size_t download(std::vector<char>& buffer, std::string_view server);
+size_t download(std::vector<uint8_t>& buffer, std::string_view server);
 /*!
  * @brief Upload file from filename to server.
  * @return upload response.
@@ -31,7 +31,7 @@ std::string upload(std::string_view field_name, std::string_view filename, std::
  * @brief Upload file from buffer to server.
  * @return upload response.
  */
-std::string upload(std::string_view field_name, const std::vector<char>& buffer, std::string_view server, std::string_view type = "");
+std::string upload(std::string_view field_name, const std::vector<uint8_t>& buffer, std::string_view server, std::string_view type = "");
 /*!
  * @brief Execute HTTP POST request with text data.
  * @return response output.

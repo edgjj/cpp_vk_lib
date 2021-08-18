@@ -36,7 +36,7 @@ TEST(curl, download_to_file)
 TEST(curl, download_to_buffer)
 {
     try {
-        if (std::vector<char> raw_buffer; runtime::network::download(raw_buffer, "https://psv4.userapi.com/c536236/u561321493/docs/d33/14376ccebc45/Korone_Headbob_gif.gif?extra=UlatnP7Dsj1z7s6Zz1RS2muhsVPQI9Fs0DzMbbPzYgLWi2IcQz-hqnngTh2BZ612YrwwfOewAA9FbixszKWrwiTxDiKcf5r_LENuEGnhYMTf1kSvhTnPOIDhLk2gVp2oANjl615iDaYcIp90YkgzDhxp") != 0) {
+        if (std::vector<uint8_t> raw_buffer; runtime::network::download(raw_buffer, "https://psv4.userapi.com/c536236/u561321493/docs/d33/14376ccebc45/Korone_Headbob_gif.gif?extra=UlatnP7Dsj1z7s6Zz1RS2muhsVPQI9Fs0DzMbbPzYgLWi2IcQz-hqnngTh2BZ612YrwwfOewAA9FbixszKWrwiTxDiKcf5r_LENuEGnhYMTf1kSvhTnPOIDhLk2gVp2oANjl615iDaYcIp90YkgzDhxp") != 0) {
             FAIL() << "Failed to download to buffer";
         }
     } catch (std::exception& err) {
@@ -52,9 +52,9 @@ TEST(curl, download_compare)
         std::ostringstream ss;
         ss << std::ifstream("file").rdbuf();
         const std::string& streambuf = ss.str();
-        std::vector<char> file_buffer(streambuf.begin(), streambuf.end());
+        std::vector<uint8_t> file_buffer(streambuf.begin(), streambuf.end());
 
-        std::vector<char> raw_buffer;
+        std::vector<uint8_t> raw_buffer;
         runtime::network::download(raw_buffer, url);
 
         ASSERT_EQ(file_buffer, raw_buffer);
