@@ -5,7 +5,7 @@
 
 # cpp_vk_lib
 
-![alt text](https://github.com/threadpoolexecutor/cpp_vk_lib/blob/master/images/cpp_vk_lib_logo.jpg?raw=true)
+![alt text](https://github.com/threadpoolexecutor/cpp_vk_lib/blob/master/images/cpp_vk_lib_logo_big.jpg?raw=true)
 
 High performance VK API library
 
