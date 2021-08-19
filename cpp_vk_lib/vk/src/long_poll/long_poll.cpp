@@ -14,6 +14,7 @@ long_poll::long_poll(asio::io_context& io_context)
     , poll_payload_()
     , errc_()
     , io_context_(io_context)
+    , started_(false)
 {
     group_id_ = method::groups::get_by_id(errc_);
     if (errc_) { throw std::runtime_error("error retrieve group id"); }
@@ -35,32 +36,32 @@ long_poll::poll_payload long_poll::server() const
     };
 }
 
-VK_REALLY_INLINE static bool server_expired(time_t time_point) noexcept
+std::vector<event::common> long_poll::listen(int8_t timeout)
 {
-    return
-        time_point == 0 ||
-        std::chrono::seconds(std::time(nullptr)).count() - time_point >=
-        /*update_interval=*/600;
-}
-
-std::vector<event::common> long_poll::listen(int8_t timeout) const
-{
-    if (server_expired(poll_payload_.update_time)) {
+    if (!started_) {
         poll_payload_ = server();
-        spdlog::info("get new long poll server: {}", poll_payload_.key);
+        started_ = true;
     }
 
     spdlog::info("long poll: ts {}, timeout {}", poll_payload_.ts, timeout);
 
     const std::string response = method::raw_constructor()
         .method(poll_payload_.server + "?")
-        .param("act", "a_check")
-        .param("key", poll_payload_.key)
-        .param("ts", poll_payload_.ts)
-        .param("wait", std::to_string(timeout))
+        .param("act",   "a_check")
+        .param("key",   poll_payload_.key)
+        .param("ts",    poll_payload_.ts)
+        .param("wait",  std::to_string(timeout))
         .perform_request();
 
     const simdjson::dom::object parsed_response = parser_->parse(response);
+
+    if (parsed_response.begin().key() == "failed") {
+        const int64_t code = parsed_response["failed"].get_int64();
+        if (code == 2 || code == 3) {
+            started_ = false;
+            listen(timeout);
+        }
+    }
 
     std::vector<event::common> event_list;
     std::string ts(parsed_response["ts"]);

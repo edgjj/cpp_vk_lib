@@ -86,16 +86,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0224e5d18cac631716eabe8cc09830ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac77b705c83cfe80c602cb6d85cd4a355"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#ac77b705c83cfe80c602cb6d85cd4a355">~long_poll</a> ()</td></tr>
 <tr class="separator:ac77b705c83cfe80c602cb6d85cd4a355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7114ab7aeab2c54658fe9d10caf6daf7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a7114ab7aeab2c54658fe9d10caf6daf7">listen</a> (int8_t timeout=60) const</td></tr>
-<tr class="separator:a7114ab7aeab2c54658fe9d10caf6daf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a78e5b95058b5b1c55ec4ea7f8bbf0e21">listen</a> (int8_t timeout=60)</td></tr>
+<tr class="separator:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad8dbc500124aac06a785c52ef25544e"><td class="memTemplParams" colspan="2">template&lt;typename Task &gt; </td></tr>
 <tr class="memitem:aad8dbc500124aac06a785c52ef25544e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#aad8dbc500124aac06a785c52ef25544e">on_event</a> (std::string_view event_type, const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;event, Task task)</td></tr>
 <tr class="separator:aad8dbc500124aac06a785c52ef25544e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a322e226435927bf8cc75aa5e1d8acd17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a322e226435927bf8cc75aa5e1d8acd17">run</a> ()</td></tr>
 <tr class="separator:a322e226435927bf8cc75aa5e1d8acd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef294dd281a951e4f129d04b0f4fddc0"><td class="memTemplParams" colspan="2">template&lt;typename Task &gt; </td></tr>
-<tr class="memitem:aef294dd281a951e4f129d04b0f4fddc0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#aef294dd281a951e4f129d04b0f4fddc0">enqueue</a> (Task executor)</td></tr>
-<tr class="separator:aef294dd281a951e4f129d04b0f4fddc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memTemplParams" colspan="2">template&lt;typename Executor &gt; </td></tr>
+<tr class="memitem:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a080d10a5e2f4cfbcc7ff01a2d812c130">on_event</a> (std::string_view event_type, const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;event, Executor executor)</td></tr>
+<tr class="separator:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Event queue that implements group long polling. </p>
@@ -144,28 +144,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aef294dd281a951e4f129d04b0f4fddc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef294dd281a951e4f129d04b0f4fddc0">&#9670;&nbsp;</a></span>enqueue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Task &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::long_poll::enqueue </td>
-          <td>(</td>
-          <td class="paramtype">Task&#160;</td>
-          <td class="paramname"><em>executor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7114ab7aeab2c54658fe9d10caf6daf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7114ab7aeab2c54658fe9d10caf6daf7">&#9670;&nbsp;</a></span>listen()</h2>
+<a id="a78e5b95058b5b1c55ec4ea7f8bbf0e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e5b95058b5b1c55ec4ea7f8bbf0e21">&#9670;&nbsp;</a></span>listen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +155,43 @@ template&lt;typename Task &gt; </div>
           <td>(</td>
           <td class="paramtype">int8_t&#160;</td>
           <td class="paramname"><em>timeout</em> = <code>60</code></td><td>)</td>
-          <td> const</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a080d10a5e2f4cfbcc7ff01a2d812c130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080d10a5e2f4cfbcc7ff01a2d812c130">&#9670;&nbsp;</a></span>on_event() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Executor &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::long_poll::on_event </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>event_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Executor&#160;</td>
+          <td class="paramname"><em>executor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -183,7 +199,7 @@ template&lt;typename Task &gt; </div>
 </div>
 </div>
 <a id="aad8dbc500124aac06a785c52ef25544e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad8dbc500124aac06a785c52ef25544e">&#9670;&nbsp;</a></span>on_event()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8dbc500124aac06a785c52ef25544e">&#9670;&nbsp;</a></span>on_event() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

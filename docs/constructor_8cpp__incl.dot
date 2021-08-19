@@ -17,4 +17,7 @@ digraph "constructor.cpp"
   Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 [label="runtime/include/misc\l/cppdefs.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$cppdefs_8hpp.html",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="vk/include/api_constants.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$api__constants_8hpp.html",tooltip=" "];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

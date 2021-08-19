@@ -36,7 +36,7 @@ public:
 
     VK_DISABLE_COPY_MOVE(long_poll)
 
-    std::vector<event::common> listen(int8_t timeout = 60) const;
+    std::vector<event::common> listen(int8_t timeout = 60);
 
     template <typename Task>
     void on_event(std::string_view event_type, const event::common& event, Task task);
@@ -50,22 +50,23 @@ private:
     void enqueue(Executor executor);
 
     std::unique_ptr<simdjson::dom::parser> parser_;
-    mutable poll_payload poll_payload_;
-    mutable error_code errc_;
+    poll_payload poll_payload_;
+    error_code errc_;
     asio::io_context& io_context_;
     int64_t group_id_;
+    bool started_;
 };
 
-template <typename Task>
-void long_poll::on_event(std::string_view event_type, const event::common& event, Task task)
+template <typename Executor>
+void long_poll::on_event(std::string_view event_type, const event::common& event, Executor executor)
 {
     if (event.on_type(event_type)) {
-        enqueue(task);
+        enqueue(executor);
     }
 }
 
-template <typename Task>
-void long_poll::enqueue(Task executor)
+template <typename Executor>
+void long_poll::enqueue(Executor executor)
 {
     asio::post(io_context_, executor);
 }
