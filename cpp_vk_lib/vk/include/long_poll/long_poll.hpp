@@ -27,7 +27,6 @@ class long_poll
         std::string key;
         std::string server;
         std::string ts;
-        time_t update_time = 0;
     };
 
 public:

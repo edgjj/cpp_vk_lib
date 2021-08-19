@@ -31,8 +31,7 @@ long_poll::poll_payload long_poll::server() const
     return {
         std::string(server_object["key"]),
         std::string(server_object["server"]),
-        std::string(server_object["ts"]),
-        std::chrono::seconds(std::time(nullptr)).count()
+        std::string(server_object["ts"])
     };
 }
 
