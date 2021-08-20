@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['upload_215',['upload',['../namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5',1,'runtime::network']]],
+  ['upload_215',['upload',['../namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5',1,'runtime::network::upload(std::string_view field_name, std::string_view filename, std::string_view server)'],['../namespaceruntime_1_1network.html#a564c5c0bbacc1bbac34a4cfbf40ebb94',1,'runtime::network::upload(std::string_view field_name, const std::vector&lt; uint8_t &gt; &amp;buffer, std::string_view server, std::string_view type=&quot;&quot;)']]],
   ['upload_5ferror_216',['upload_error',['../classvk_1_1exception_1_1upload__error.html#a2d84fba35e0bbb760c29038d62d91821',1,'vk::exception::upload_error::upload_error()'],['../namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bca10441ecf47cea4784782fbf1180e000b',1,'vk::exception::upload_error()'],['../classvk_1_1exception_1_1upload__error.html',1,'vk::exception::upload_error']]],
   ['user_5fapi_217',['user_api',['../structvk_1_1method_1_1policy_1_1user__api.html',1,'vk::method::policy']]],
   ['user_5fconstructor_218',['user_constructor',['../namespacevk_1_1method.html#a9036669c58907e5e2db60680aafb368d',1,'vk::method']]],

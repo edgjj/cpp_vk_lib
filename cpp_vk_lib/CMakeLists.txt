@@ -3,17 +3,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra -Werror -Wunused -Ww
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
 
 if (NOT DEFINED CPP_VK_LIB_CURL_VERBOSE)
-  add_definitions(-DCPP_VK_LIB_CURL_VERBOSE)
+    add_definitions(-DCPP_VK_LIB_CURL_VERBOSE)
 endif()
 
 set(SRC
-  ../cpp_vk_lib/vk/src/implementation.cpp
-  ../cpp_vk_lib/runtime/src/implementation.cpp)
+    ../cpp_vk_lib/vk/src/implementation.cpp
+    ../cpp_vk_lib/runtime/src/implementation.cpp)
 
 if (CPP_VK_LIB_STATIC_BUILD)
-  add_library(cpp_vk_lib STATIC ${SRC})
+    add_library(cpp_vk_lib STATIC ${SRC})
 else()
-  add_library(cpp_vk_lib SHARED ${SRC})
+    add_library(cpp_vk_lib SHARED ${SRC})
 endif()
 
 target_link_libraries(cpp_vk_lib curl curlpp simdjson)

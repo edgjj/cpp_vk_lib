@@ -14,7 +14,7 @@ template <typename StringType>
 class split_iterator
 {
 public:
-    split_iterator(StringType&& source, StringType&& delim)
+    split_iterator(StringType source, StringType delim)
         : src(std::forward<StringType>(source))
         , delimiter(std::forward<StringType>(delim))
         , first(0)
@@ -26,6 +26,7 @@ public:
         last = src.find(delimiter, first);
         return *this;
     }
+
     StringType operator*() const noexcept
     {
         if (last != StringType::npos) {
@@ -36,11 +37,13 @@ public:
 
         return src.substr(first, src.size() - first);
     }
-    friend bool operator!=(const split_iterator& iterator, end_split_iterator) noexcept
+
+    friend constexpr bool operator!=(const split_iterator& iterator, end_split_iterator) noexcept
     {
         return !iterator.finished;
     }
-    friend bool operator!=(end_split_iterator, const split_iterator& iterator) noexcept
+
+    friend constexpr bool operator!=(end_split_iterator, const split_iterator& iterator) noexcept
     {
         return !iterator.finished;
     }
@@ -58,23 +61,29 @@ class split_range
 {
 public:
     split_range(StringType source, StringType delim) noexcept
-        : src(source)
-        , delimiter(delim) {}
+        : src(std::forward<StringType>(source))
+        , delimiter(std::forward<StringType>(delim)) {}
 
     auto begin() const noexcept
     {
-        return split_iterator<StringType>(src, delimiter);
+        return split_iterator<StringType>{src, delimiter};
     }
 
     auto end() const noexcept
     {
-        return end_split_iterator();
+        return end_split_iterator{};
     }
 
 private:
     StringType src;
     StringType delimiter;
 };
+
+template <typename String>
+auto lazy_split(String&& str, String&& delim)
+{
+    return split_range<String>(str, delim);
+}
 
 }// namespace runtime::string_utils
 

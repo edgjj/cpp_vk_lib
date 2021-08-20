@@ -60,17 +60,18 @@ loader* loader::instance = nullptr;
 
 loader* loader::load(std::string_view path)
 {
-    if (!instance) {
-        instance = new loader(path);
-    }
-
+    delete instance;
+    instance = new loader(path);
     return instance;
 }
 
 loader* loader::load_string(std::string_view string)
 {
-    std::ofstream{"created_config.json"} << string;
-    return load("created_config.json");
+    std::ofstream{"tmp_config.json"} << string;
+    delete instance;
+    instance = new loader("tmp_config.json");
+    std::remove("tmp_config.json");
+    return instance;
 }
 
 loader* loader::get()
@@ -94,7 +95,7 @@ namespace vk {
 
 void config::load(std::string_view path) { loader::load(path); }
 void config::load_string(std::string_view string) { loader::load_string(string); }
-void config::set_user_token(std::string_view token) { loader::get()->user_token_instance() = token; }
+void config::override_user_token(std::string_view token) { loader::get()->user_token_instance() = token; }
 
 std::string config::password()     { return loader::get()->password(); }
 std::string config::username()     { return loader::get()->username(); }

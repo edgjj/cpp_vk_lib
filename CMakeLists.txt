@@ -1,10 +1,18 @@
 cmake_minimum_required(VERSION 3.19)
 
-project(cpp_vk_lib DESCRIPTION "C++ vk library" LANGUAGES CXX)
+project(
+    cpp_vk_lib
+    DESCRIPTION "C++ vk library"
+    LANGUAGES CXX
+)
 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../build)
-set(EXECUTABLE_OUTPUT_PATH ../build)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../build)
+string(
+    COMPARE EQUAL
+    "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}"
+    IS_TOP_PROJECT
+)
+
+message(STATUS "is top project? ${IS_TOP_PROJECT}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,10 +27,8 @@ set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
 
-if (CPP_VK_LIB_BUILD_TESTS)
-  include(cmake/build_tests.cmake)
-endif()
-
-if (CPP_VK_LIB_BUILD_EXAMPLES)
-  include(cmake/build_examples.cmake)
+if (IS_TOP_PROJECT)
+    enable_testing()
+    add_subdirectory(tests)
+    add_subdirectory(examples)
 endif()

@@ -1,0 +1,20 @@
+find_library(cpp_vk_lib HINTS "../cpp_vk_lib")
+link_libraries(cpp_vk_lib)
+include_directories(../cpp_vk_lib)
+include_directories(../modules/spdlog/include)
+include_directories(../modules/asio/asio/include)
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../)
+set(EXECUTABLE_OUTPUT_PATH ../)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../)
+
+function (add_vk_example name path)
+    add_executable(${name} ${path})
+    target_link_libraries(${name})
+endfunction()
+
+file (GLOB examples "*.cpp")
+foreach (file ${examples})
+    get_filename_component(name ${file} NAME_WE)
+    add_vk_example(${name} ${file})
+endforeach()

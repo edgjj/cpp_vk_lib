@@ -76,11 +76,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9e8d354fe7908d2826e2d9afb30e9624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#a9e8d354fe7908d2826e2d9afb30e9624">load</a> (std::string_view path)</td></tr>
+<tr class="memdesc:a9e8d354fe7908d2826e2d9afb30e9624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load config from file.  <a href="namespacevk_1_1config.html#a9e8d354fe7908d2826e2d9afb30e9624">More...</a><br /></td></tr>
 <tr class="separator:a9e8d354fe7908d2826e2d9afb30e9624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c24e836ffff12d40f4b6257922a345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#ab7c24e836ffff12d40f4b6257922a345">load_string</a> (std::string_view string)</td></tr>
+<tr class="memdesc:ab7c24e836ffff12d40f4b6257922a345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load config from string.  <a href="namespacevk_1_1config.html#ab7c24e836ffff12d40f4b6257922a345">More...</a><br /></td></tr>
 <tr class="separator:ab7c24e836ffff12d40f4b6257922a345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd89ccdde0a724e2e5dd2dd2aae22658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#abd89ccdde0a724e2e5dd2dd2aae22658">set_user_token</a> (std::string_view token)</td></tr>
-<tr class="separator:abd89ccdde0a724e2e5dd2dd2aae22658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0835e927ce86698e723b8c2d22196a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#ae0835e927ce86698e723b8c2d22196a4">override_user_token</a> (std::string_view token)</td></tr>
+<tr class="separator:ae0835e927ce86698e723b8c2d22196a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa074dc913d83634a3f0843a2b1d02837"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#aa074dc913d83634a3f0843a2b1d02837">password</a> ()</td></tr>
 <tr class="separator:aa074dc913d83634a3f0843a2b1d02837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb7e0c89cfd77d946196e3e6f93f08d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1config.html#afb7e0c89cfd77d946196e3e6f93f08d2">username</a> ()</td></tr>
@@ -128,6 +130,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Load config from file. </p>
+<dl class="section note"><dt>Note</dt><dd>If config already exists, it will be overridden. </dd></dl>
+
 </div>
 </div>
 <a id="ab7c24e836ffff12d40f4b6257922a345"></a>
@@ -145,6 +150,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Load config from string. </p>
+<dl class="section note"><dt>Note</dt><dd>If config already exists, it will be overridden. </dd></dl>
 
 </div>
 </div>
@@ -182,6 +190,24 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae0835e927ce86698e723b8c2d22196a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0835e927ce86698e723b8c2d22196a4">&#9670;&nbsp;</a></span>override_user_token()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vk::config::override_user_token </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa074dc913d83634a3f0843a2b1d02837"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa074dc913d83634a3f0843a2b1d02837">&#9670;&nbsp;</a></span>password()</h2>
 
@@ -192,24 +218,6 @@ Functions</h2></td></tr>
           <td class="memname">std::string vk::config::password </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abd89ccdde0a724e2e5dd2dd2aae22658"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd89ccdde0a724e2e5dd2dd2aae22658">&#9670;&nbsp;</a></span>set_user_token()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::config::set_user_token </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>token</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

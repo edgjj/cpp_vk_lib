@@ -93,6 +93,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a1b7c4b6a008b2685e491227286774e29"><td class="memTemplParams" colspan="2">template&lt;typename String &gt; </td></tr>
+<tr class="memitem:a1b7c4b6a008b2685e491227286774e29"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#a1b7c4b6a008b2685e491227286774e29">lazy_split</a> (String &amp;&amp;str, String &amp;&amp;delim)</td></tr>
+<tr class="separator:a1b7c4b6a008b2685e491227286774e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082b7ff8c43b6e09175e3a8ff3397918"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container &gt; </td></tr>
 <tr class="memitem:a082b7ff8c43b6e09175e3a8ff3397918"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#a082b7ff8c43b6e09175e3a8ff3397918">join</a> (Container &amp;&amp;elements, char delimiter)</td></tr>
 <tr class="separator:a082b7ff8c43b6e09175e3a8ff3397918"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +107,8 @@ Functions</h2></td></tr>
 <tr class="separator:a03fc1b4ead1c0943ca7a5a802e958d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27caf7c5cde524f45b27c5a32606642a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> std::vector&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#a27caf7c5cde524f45b27c5a32606642a">split</a> (std::string_view data, char delimiter)</td></tr>
 <tr class="separator:a27caf7c5cde524f45b27c5a32606642a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ae4e394c30fa733389757383e6db1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> std::vector&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#ad3ae4e394c30fa733389757383e6db1a">split</a> (std::string_view data, std::string_view delimiter)</td></tr>
+<tr class="separator:ad3ae4e394c30fa733389757383e6db1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addab48402b83e09b0ebca547542dd274"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> std::vector&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#addab48402b83e09b0ebca547542dd274">whitespace_split</a> (std::string_view data)</td></tr>
 <tr class="separator:addab48402b83e09b0ebca547542dd274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e466fc8d41729dc5f140ef2a51d5786"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> <a class="el" href="classruntime_1_1string__utils_1_1split__range.html">split_range</a>&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1string__utils.html#a6e466fc8d41729dc5f140ef2a51d5786">lazy_split</a> (std::string_view data, std::string_view delimiter)</td></tr>
@@ -245,7 +250,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a6e466fc8d41729dc5f140ef2a51d5786"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e466fc8d41729dc5f140ef2a51d5786">&#9670;&nbsp;</a></span>lazy_split()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e466fc8d41729dc5f140ef2a51d5786">&#9670;&nbsp;</a></span>lazy_split() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,8 +277,38 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a1b7c4b6a008b2685e491227286774e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7c4b6a008b2685e491227286774e29">&#9670;&nbsp;</a></span>lazy_split() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto runtime::string_utils::lazy_split </td>
+          <td>(</td>
+          <td class="paramtype">String &amp;&amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String &amp;&amp;&#160;</td>
+          <td class="paramname"><em>delim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a27caf7c5cde524f45b27c5a32606642a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27caf7c5cde524f45b27c5a32606642a">&#9670;&nbsp;</a></span>split()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a27caf7c5cde524f45b27c5a32606642a">&#9670;&nbsp;</a></span>split() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,6 +323,34 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delimiter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3ae4e394c30fa733389757383e6db1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3ae4e394c30fa733389757383e6db1a">&#9670;&nbsp;</a></span>split() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cppdefs_8hpp.html#a33ee45f49af3ecd5860a8345850443db">VK_REALLY_INLINE</a> std::vector&lt;std::string_view&gt; runtime::string_utils::split </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>delimiter</em>&#160;</td>
         </tr>
         <tr>
