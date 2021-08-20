@@ -1,6 +1,12 @@
 name: Ubuntu
 
-on: [push]
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+  pull_request:
 
 jobs:
   build-ubuntu:
@@ -14,7 +20,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install curl libcurl4-openssl-dev
 
     - name: run CMake
-      run: mkdir build && cd build && cmake -DCPP_VK_LIB_BUILD_TESTS=1 .. && make -j`nproc`
+      run: mkdir build && cd build && cmake -DCPP_VK_LIB_BUILD_TESTS=1 .. && cmake --build . --parallel
 
     - name: run tests
       run: cd build && make test

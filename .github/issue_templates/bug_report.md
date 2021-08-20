@@ -36,12 +36,12 @@ title: ''
 #### Which compiler and operating system are you using?
 
 <!-- Include as many relevant details about the environment you experienced the bug in. -->
-<!-- Make sure you use a supported compiler, see https://github.com/nlohmann/json#supported-compilers. -->
+<!-- Make sure you use a supported compiler -->
 
 - Compiler: ___
 - Operating system: ___
 
-#### If you experience a compilation error: can you [compile and run the unit tests](https://github.com/nlohmann/json#execute-unit-tests)?
+#### If you experience a compilation error: can you compile and run the unit tests?
 
 - [ ] yes
 - [ ] no - please copy/paste the error message below
