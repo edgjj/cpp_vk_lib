@@ -28,8 +28,8 @@ You should install libcurl and add it to PATH manually.
 ## TODO
 
 * User Long Poll
-* More examples
 * Windows build without external dependencies
+* Based on Boost Asio network module
 
 ## Our team
 
