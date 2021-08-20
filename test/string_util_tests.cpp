@@ -39,12 +39,12 @@ TEST(convert, ascii_to_lower)
 
 TEST(convert, ascii_to_upper)
 {
-    ASSERT_EQ(util::utf8_to_upper("aaa"), "AAA");
-    ASSERT_EQ(util::utf8_to_upper("zzz"), "ZZZ");
-    ASSERT_EQ(util::utf8_to_upper("fff"), "FFF");
-    ASSERT_EQ(util::utf8_to_upper("sss"), "SSS");
-    ASSERT_EQ(util::utf8_to_upper("111"), "111");
-    ASSERT_EQ(util::utf8_to_upper("{!}"), "{!}");
+    ASSERT_EQ(util::ascii_to_upper("aaa"), "AAA");
+    ASSERT_EQ(util::ascii_to_upper("zzz"), "ZZZ");
+    ASSERT_EQ(util::ascii_to_upper("fff"), "FFF");
+    ASSERT_EQ(util::ascii_to_upper("sss"), "SSS");
+    ASSERT_EQ(util::ascii_to_upper("111"), "111");
+    ASSERT_EQ(util::ascii_to_upper("{!}"), "{!}");
 }
 
 TEST(format, format)
