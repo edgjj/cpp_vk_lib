@@ -1,5 +1,5 @@
-#include "runtime/include/net/network.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/runtime/net/network.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

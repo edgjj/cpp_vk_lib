@@ -1,7 +1,7 @@
-#include "vk/include/config/loader.hpp"
-#include "vk/include/setup_logger.hpp"
-#include "vk/include/attachment/attachment.hpp"
-#include "vk/include/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
+#include "cpp_vk_lib/vk/attachment/attachment.hpp"
+#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
 
 #include <iostream>
 #include <random>

@@ -1,5 +1,5 @@
-#include "vk/include/keyboard/layout.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/vk/keyboard/layout.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

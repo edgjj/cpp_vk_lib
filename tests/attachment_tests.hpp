@@ -1,5 +1,5 @@
-#include "vk/include/attachment/attachment.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/vk/attachment/attachment.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

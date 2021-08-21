@@ -1,8 +1,8 @@
-#include "vk/include/methods/utility/message_constructor.hpp"
-#include "vk/include/api_constants.hpp"
+#include "cpp_vk_lib/vk/methods/utility/message_constructor.hpp"
+#include "cpp_vk_lib/vk/api_constants.hpp"
 
-#include "vk/include/config/loader.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

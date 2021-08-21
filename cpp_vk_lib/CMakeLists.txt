@@ -7,8 +7,8 @@ if (NOT DEFINED CPP_VK_LIB_CURL_VERBOSE)
 endif()
 
 set(SRC
-    ../cpp_vk_lib/vk/src/implementation.cpp
-    ../cpp_vk_lib/runtime/src/implementation.cpp)
+    ../cpp_vk_lib/src/vk/implementation.cpp
+    ../cpp_vk_lib/src/runtime/implementation.cpp)
 
 if (CPP_VK_LIB_STATIC_BUILD)
     add_library(cpp_vk_lib STATIC ${SRC})
@@ -18,8 +18,9 @@ endif()
 
 target_link_libraries(cpp_vk_lib curl curlpp simdjson)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-target_include_directories(cpp_vk_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+#set(CMAKE_INCLUDE_CURRENT_DIR ON)
+target_include_directories(cpp_vk_lib PRIVATE include)
+#target_include_directories(cpp_vk_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(cpp_vk_lib PRIVATE ../modules/curlpp/include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/spdlog/include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/asio/asio/include)

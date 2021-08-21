@@ -1,10 +1,10 @@
-#include "runtime/include/string_utils/string_utils.hpp"
+#include "cpp_vk_lib/runtime/string_utils/string_utils.hpp"
 
-#include "vk/include/long_poll/long_poll.hpp"
-#include "vk/include/config/loader.hpp"
-#include "vk/include/events/message_new.hpp"
-#include "vk/include/methods/basic.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/vk/long_poll/long_poll.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
+#include "cpp_vk_lib/vk/events/message_new.hpp"
+#include "cpp_vk_lib/vk/methods/basic.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <iostream>
 

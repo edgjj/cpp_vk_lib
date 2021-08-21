@@ -1,5 +1,5 @@
-#include "vk/include/exception/error_code.hpp"
-#include "vk/include/setup_logger.hpp"
+#include "cpp_vk_lib/vk/exception/error_code.hpp"
+#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 
