@@ -1,0 +1,7 @@
+#include "audio.cpp"
+#include "audio_message.cpp"
+#include "base.cpp"
+#include "document.cpp"
+#include "photo.cpp"
+#include "video.cpp"
+#include "wall.cpp"
