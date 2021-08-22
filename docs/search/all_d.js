@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['network_2ecpp_147',['network.cpp',['../network_8cpp.html',1,'']]],
-  ['network_2ehpp_148',['network.hpp',['../network_8hpp.html',1,'']]],
-  ['none_149',['none',['../namespacevk_1_1keyboard.html#a99e84c429aa7ee52c2be10ccb116f8aca334c4a4c42fdb79d7ebc3e73b517e6f8',1,'vk::keyboard::none()'],['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'vk::keyboard::none()']]],
-  ['num_5fworkers_150',['num_workers',['../classanonymous__namespace_02loader_8cpp_03_1_1loader.html#ac0a274252e31bdd26faf79922c69957e',1,'anonymous_namespace{loader.cpp}::loader::num_workers()'],['../namespacevk_1_1config.html#ad9dced59052cf589d39c8cd658afaae3',1,'vk::config::num_workers()']]]
+  ['serialize_51',['serialize',['../classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17',1,'vk::keyboard::layout']]],
+  ['server_52',['server',['../classvk_1_1long__poll.html#a1b8496ebf1f1fde5dd09b835725e0019',1,'vk::long_poll']]],
+  ['split_5fiterator_53',['split_iterator',['../classruntime_1_1string__utils_1_1split__iterator.html',1,'runtime::string_utils']]],
+  ['split_5frange_54',['split_range',['../classruntime_1_1string__utils_1_1split__range.html',1,'runtime::string_utils']]]
 ];

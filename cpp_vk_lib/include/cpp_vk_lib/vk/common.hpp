@@ -1,5 +1,5 @@
 /*!
- * @mainpage
+ * \mainpage
  *
  * C++ VK library
  *
@@ -7,16 +7,18 @@
  *
  * Sample code
  *
- * @code
-    #include "cpp_vk_lib/vk/include/config/loader.hpp"
-    #include "cpp_vk_lib/vk/include/events/message_new.hpp"
-    #include "cpp_vk_lib/vk/include/long_poll/long_poll.hpp"
-    #include "cpp_vk_lib/vk/include/methods/basic.hpp"
-    #include "cpp_vk_lib/vk/include/setup_logger.hpp"
+ * \code
+    #include "cpp_vk_lib/vk/config/config.hpp"
+    #include "cpp_vk_lib/vk/events/message_new.hpp"
+    #include "cpp_vk_lib/vk/long_poll/long_poll.hpp"
+    #include "cpp_vk_lib/vk/methods/basic.hpp"
+    #include "cpp_vk_lib/vk/setup_logger.hpp"
 
     int main(int argc, char* argv[]) {
       if (argc != 2) {
-        std::cerr << "Program requires path to config as the only argument." << std::endl;
+        std::cerr
+          << "usage: ./long_poll <config.json>"
+          << std::endl;
         return 1;
       }
 
@@ -36,7 +38,7 @@
         }
       }
     }
- * @endcode
+ * \endcode
  *
  * Please, check the
  * [README.md](https://github.com/threadpoolexecutor/cpp_vk_lib).
@@ -47,9 +49,9 @@
 
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
 #include "cpp_vk_lib/vk/config/loader.hpp"
-#include "cpp_vk_lib/vk/events/common_event.hpp"
-#include "cpp_vk_lib/vk/events/attachment_handler.hpp"
 #include "cpp_vk_lib/vk/events/action.hpp"
+#include "cpp_vk_lib/vk/events/attachment_handler.hpp"
+#include "cpp_vk_lib/vk/events/common.hpp"
 #include "cpp_vk_lib/vk/events/message_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_reply_new.hpp"

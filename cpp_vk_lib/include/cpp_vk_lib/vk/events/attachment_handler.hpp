@@ -10,10 +10,13 @@ class array;
 }// namespace simdjson::dom
 
 namespace vk::event {
-
-std::vector<attachment::attachment_ptr_t> get_attachments(const simdjson::dom::array& attachments);
+/*!
+ * \brief Extract all attachments from JSON
+ * \return Array of valid attachment pointers
+ */
+std::vector<attachment::attachment_ptr_t>
+    get_attachments(const simdjson::dom::array& attachments);
 
 }// namespace vk::event
 
 #endif// VK_EVENTS_HANDLERS_ATTACHMENT_HANDLER_HPP
-

@@ -61,7 +61,11 @@ public:
 class audio_message : public base
 {
 public:
-    explicit audio_message(int32_t owner_id, int32_t id, std::string_view raw_ogg, std::string_view raw_mp3);
+    explicit audio_message(
+        int32_t owner_id,
+        int32_t id,
+        std::string_view raw_ogg,
+        std::string_view raw_mp3);
 
     const std::string& raw_ogg() const noexcept;
     const std::string& raw_mp3() const noexcept;
@@ -72,7 +76,9 @@ private:
 };
 
 /*!
- *  @brief Throw if bad template parameter provided.
+ * \brief Try to cast base attachment to derived
+ *
+ * \throws exception::bad_cast_error
  */
 template <typename Attachment>
 std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)

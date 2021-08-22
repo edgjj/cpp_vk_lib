@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_ae58b8918dcb99903ff518e79eee4aff.html">runtime</a></li><li class="navelem"><a class="el" href="dir_6b3b46dacdabf3bc023188deee3b93c2.html">include</a></li><li class="navelem"><a class="el" href="dir_289c82d0fd140af061f5dc9762466b08.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_9f612a5a10a645d2929963d5bcb196f5.html">implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_9986c02ba0b5b8de78617cb7a0436aeb.html">include</a></li><li class="navelem"><a class="el" href="dir_65a3cc440443506bc95e40cce0db2f2d.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_1d64d0205a0b6d0ea77626b7c626c3e7.html">runtime</a></li><li class="navelem"><a class="el" href="dir_d5976796162e133a24e050010ce401eb.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_ba01560a084bb2cb849fb588f3f787dd.html">implementation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,7 +70,7 @@ $(function() {
 <div class="title">lazy_split.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="lazy__split_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Thanks some-coder366 for the idea.</span></div>
@@ -78,101 +78,95 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime_1_1string__utils.html">runtime::string_utils</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>runtime::string_utils {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1end__split__iterator.html">   11</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a> {};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html#a0288ef108032af8733c998169985122d">   17</a></span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html#a0288ef108032af8733c998169985122d">split_iterator</a>(StringType source, StringType delim)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        : src(std::forward&lt;StringType&gt;(source))</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        , delimiter(std::forward&lt;StringType&gt;(delim))</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        , first(0)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        , last(src.find(delimiter)) {}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html#aa9425e57af1611a691ee519423ad60ed">   23</a></span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html#aa9425e57af1611a691ee519423ad60ed">operator++</a>() noexcept</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        first = last + delimiter.size();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        last = src.find(delimiter, first);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html#a97d209c1ea3287e211c939861c69e936">   30</a></span>&#160;    StringType <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html#a97d209c1ea3287e211c939861c69e936">operator*</a>() const noexcept</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> (last != StringType::npos) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> src.substr(first, last - first);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        finished = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structruntime_1_1string__utils_1_1end__split__iterator.html">   11</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>(StringType source, StringType delimiter)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        : src_(std::forward&lt;StringType&gt;(source))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        , delimiter_(std::forward&lt;StringType&gt;(delimiter))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        , first_(0)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        , last_(src_.find(delimiter))</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; operator++() noexcept</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        first_ = last_ + delimiter_.size();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        last_ = src_.find(delimiter_, first_);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    StringType operator*() <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span> (last_ != StringType::npos) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> src_.substr(first_, last_ - first_);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> src.substr(first, src.size() - first);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html#a7d333896c3971d160a583d71ccac3172">   41</a></span>&#160;    <span class="keyword">friend</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html#a7d333896c3971d160a583d71ccac3172">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator, <a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> !iterator.finished;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__iterator.html#a6ea7fdda56b9d84182886de93b66ade5">   46</a></span>&#160;    <span class="keyword">friend</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html#a6ea7fdda56b9d84182886de93b66ade5">operator!=</a>(<a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, <span class="keyword">const</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator) noexcept</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> !iterator.finished;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    StringType src;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    StringType delimiter;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">size_t</span> first;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">size_t</span> last;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">mutable</span> <span class="keywordtype">bool</span> finished = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__range.html">   60</a></span>&#160;<span class="keyword">class </span><a class="code" href="classruntime_1_1string__utils_1_1split__range.html">split_range</a></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__range.html#a49c0c62ea2fa552f1f280b618703d422">   63</a></span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__range.html#a49c0c62ea2fa552f1f280b618703d422">split_range</a>(StringType source, StringType delim) noexcept</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        : src(std::forward&lt;StringType&gt;(source))</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        , delimiter(std::forward&lt;StringType&gt;(delim)) {}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__range.html#a3cf593a7cbc430218a6d2c3ab95e4e19">   67</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classruntime_1_1string__utils_1_1split__range.html#a3cf593a7cbc430218a6d2c3ab95e4e19">begin</a>() const noexcept</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator&lt;StringType&gt;</a>{src, delimiter};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        finished_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> src_.substr(first_, src_.size() - first_);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">friend</span> constexpr <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        operator!=(<span class="keyword">const</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator, <a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> !iterator.finished_;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">friend</span> constexpr <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        operator!=(<a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, <span class="keyword">const</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; iterator) noexcept</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> !iterator.finished_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    StringType src_;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    StringType delimiter_;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">size_t</span> first_;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">size_t</span> last_;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">mutable</span> <span class="keywordtype">bool</span> finished_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__range.html">   64</a></span>&#160;<span class="keyword">class </span><a class="code" href="classruntime_1_1string__utils_1_1split__range.html">split_range</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classruntime_1_1string__utils_1_1split__range.html">split_range</a>(StringType source, StringType delim) noexcept</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        : src_(std::forward&lt;StringType&gt;(source))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        , delimiter_(std::forward&lt;StringType&gt;(delim))</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classruntime_1_1string__utils_1_1split__range.html#a080073fb166d1f43fc82a94ecf19b678">   72</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="classruntime_1_1string__utils_1_1split__range.html#a080073fb166d1f43fc82a94ecf19b678">end</a>() const noexcept</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">auto</span> begin() <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>{};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator&lt;StringType&gt;</a>{src_, delimiter_};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    StringType src;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    StringType delimiter;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">auto</span> end() <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>{};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> String&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils.html#a1b7c4b6a008b2685e491227286774e29">   83</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceruntime_1_1string__utils.html#a1b7c4b6a008b2685e491227286774e29">lazy_split</a>(String&amp;&amp; str, String&amp;&amp; delim)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classruntime_1_1string__utils_1_1split__range.html">split_range&lt;String&gt;</a>(str, delim);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}<span class="comment">// namespace runtime::string_utils</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP</span></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html">runtime::string_utils::split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:15</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html_a0288ef108032af8733c998169985122d"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html#a0288ef108032af8733c998169985122d">runtime::string_utils::split_iterator::split_iterator</a></div><div class="ttdeci">split_iterator(StringType source, StringType delim)</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:17</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html_a6ea7fdda56b9d84182886de93b66ade5"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html#a6ea7fdda56b9d84182886de93b66ade5">runtime::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">constexpr friend bool operator!=(end_split_iterator, const split_iterator &amp;iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:46</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html_a7d333896c3971d160a583d71ccac3172"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html#a7d333896c3971d160a583d71ccac3172">runtime::string_utils::split_iterator::operator!=</a></div><div class="ttdeci">constexpr friend bool operator!=(const split_iterator &amp;iterator, end_split_iterator) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:41</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html_a97d209c1ea3287e211c939861c69e936"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html#a97d209c1ea3287e211c939861c69e936">runtime::string_utils::split_iterator::operator*</a></div><div class="ttdeci">StringType operator*() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:30</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html_aa9425e57af1611a691ee519423ad60ed"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html#aa9425e57af1611a691ee519423ad60ed">runtime::string_utils::split_iterator::operator++</a></div><div class="ttdeci">split_iterator &amp; operator++() noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:23</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__range_html"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__range.html">runtime::string_utils::split_range</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:61</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__range_html_a080073fb166d1f43fc82a94ecf19b678"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__range.html#a080073fb166d1f43fc82a94ecf19b678">runtime::string_utils::split_range::end</a></div><div class="ttdeci">auto end() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:72</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__range_html_a3cf593a7cbc430218a6d2c3ab95e4e19"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__range.html#a3cf593a7cbc430218a6d2c3ab95e4e19">runtime::string_utils::split_range::begin</a></div><div class="ttdeci">auto begin() const noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:67</div></div>
-<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__range_html_a49c0c62ea2fa552f1f280b618703d422"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__range.html#a49c0c62ea2fa552f1f280b618703d422">runtime::string_utils::split_range::split_range</a></div><div class="ttdeci">split_range(StringType source, StringType delim) noexcept</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:63</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_html"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html">runtime::string_utils</a></div><div class="ttdef"><b>Definition:</b> convert_ascii.hpp:20</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_html_a1b7c4b6a008b2685e491227286774e29"><div class="ttname"><a href="namespaceruntime_1_1string__utils.html#a1b7c4b6a008b2685e491227286774e29">runtime::string_utils::lazy_split</a></div><div class="ttdeci">auto lazy_split(String &amp;&amp;str, String &amp;&amp;delim)</div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:83</div></div>
-<div class="ttc" id="astructruntime_1_1string__utils_1_1end__split__iterator_html"><div class="ttname"><a href="structruntime_1_1string__utils_1_1end__split__iterator.html">runtime::string_utils::end_split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:11</div></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    StringType src_;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    StringType delimiter_;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">auto</span> lazy_split(std::string_view data, std::string_view delimiter)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classruntime_1_1string__utils_1_1split__range.html">split_range&lt;std::string_view&gt;</a>(data, delimiter);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}<span class="comment">// namespace runtime::string_utils</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_LAZY_SPLIT_HPP</span></div>
+<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__iterator_html"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__iterator.html">runtime::string_utils::split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:16</div></div>
+<div class="ttc" id="aclassruntime_1_1string__utils_1_1split__range_html"><div class="ttname"><a href="classruntime_1_1string__utils_1_1split__range.html">runtime::string_utils::split_range</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:65</div></div>
+<div class="ttc" id="astructruntime_1_1string__utils_1_1end__split__iterator_html"><div class="ttname"><a href="structruntime_1_1string__utils_1_1end__split__iterator.html">runtime::string_utils::end_split_iterator</a></div><div class="ttdef"><b>Definition:</b> lazy_split.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

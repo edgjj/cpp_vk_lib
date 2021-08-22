@@ -2,12 +2,16 @@
 
 #include "spdlog/spdlog.h"
 
-#include <ostream>
 #include <iomanip>
+#include <ostream>
 
 namespace vk::event {
 
-wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::string text)
+wall_repost::wall_repost(
+    int64_t id,
+    int64_t from_id,
+    int64_t owner_id,
+    std::string text)
     : id_(id)
     , from_id_(from_id)
     , owner_id_(owner_id)
@@ -22,7 +26,8 @@ wall_repost::wall_repost(int64_t id, int64_t from_id, int64_t owner_id, std::str
     }
 }
 
-void wall_repost::construct_attachments(std::vector<vk::attachment::attachment_ptr_t>&& attachments)
+void wall_repost::construct_attachments(
+    std::vector<vk::attachment::attachment_ptr_t>&& attachments)
 {
     attachments_ = std::move(attachments);
 }
@@ -52,26 +57,23 @@ const std::string& wall_repost::text() const noexcept
     return text_;
 }
 
-const std::vector<vk::attachment::attachment_ptr_t>& wall_repost::attachments() const noexcept
+const std::vector<vk::attachment::attachment_ptr_t>&
+    wall_repost::attachments() const noexcept
 {
     return attachments_;
 }
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_repost& event)
+std::ostream&
+    operator<<(std::ostream& ostream, const vk::event::wall_repost& event)
 {
     ostream << "wall_repost:" << std::endl;
-    ostream << std::setw(30)
-            << "id: " << event.id() << std::endl;
-    ostream << std::setw(30)
-            << "from_id: " << event.from_id() << std::endl;
-    ostream << std::setw(30)
-            << "owner_id: " << event.owner_id() << std::endl;
-    ostream << std::setw(30)
-            << "text: " << event.text() << std::endl;
+    ostream << std::setw(30) << "id: " << event.id() << std::endl;
+    ostream << std::setw(30) << "from_id: " << event.from_id() << std::endl;
+    ostream << std::setw(30) << "owner_id: " << event.owner_id() << std::endl;
+    ostream << std::setw(30) << "text: " << event.text() << std::endl;
     if (event.has_attachments()) {
         for (auto& attachment : event.attachments()) {
-            ostream << std::setw(30)
-                    << "attachment: ";
+            ostream << std::setw(30) << "attachment: ";
             ostream << attachment->value();
             ostream << std::endl;
         }

@@ -5,11 +5,11 @@ digraph "wall_repost.cpp"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="wall_repost.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="vk/include/events/wall\l_repost.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__repost_8hpp.html",tooltip=" "];
+  Node2 [label="cpp_vk_lib/vk/events\l/wall_repost.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wall__repost_8hpp.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="vk/include/attachment\l/attachment.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$attachment_8hpp.html",tooltip=" "];
+  Node3 [label="cpp_vk_lib/vk/attachment\l/attachment.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$attachment_8hpp.html",tooltip=" "];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="vk/include/exception\l/exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
+  Node4 [label="cpp_vk_lib/vk/exception\l/exception.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$exception_8hpp.html",tooltip=" "];
   Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="stdexcept",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -24,7 +24,7 @@ digraph "wall_repost.cpp"
   Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node10 [label="spdlog/spdlog.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node11 [label="ostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node11 [label="iomanip",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 [label="iomanip",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node12 [label="ostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

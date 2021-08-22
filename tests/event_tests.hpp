@@ -1,9 +1,8 @@
+#include "cpp_vk_lib/vk/events/common.hpp"
 #include "cpp_vk_lib/vk/events/message_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_reply_new.hpp"
-#include "cpp_vk_lib/vk/events/common_event.hpp"
 #include "cpp_vk_lib/vk/setup_logger.hpp"
-
 #include "simdjson.h"
 
 #include <gtest/gtest.h>

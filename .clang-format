@@ -28,15 +28,15 @@ BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: true
-  AfterControlStatement: true
+  AfterControlStatement: false
   AfterEnum: true
   AfterFunction: true
   AfterNamespace: false
   AfterStruct: true
   AfterUnion: true
-  AfterExternBlock: true
+  AfterExternBlock: false
   BeforeCatch: false
-  BeforeElse: true
+  BeforeElse: false
   #BeforeLambdaBody: false
   #BeforeWhile: false
   SplitEmptyFunction: false
@@ -45,20 +45,21 @@ BraceWrapping:
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakStringLiterals: false
-ColumnLimit: 140
-CompactNamespaces: false
-ConstructorInitializerIndentWidth: 2
+ColumnLimit: 80
+CompactNamespaces: true
+ConstructorInitializerIndentWidth: 4
 Cpp11BracedListStyle: true
 PointerAlignment: Left
-FixNamespaceComments: false
+FixNamespaceComments: true
 IncludeBlocks: Regroup
 #IndentCaseBlocks: false
 IndentCaseLabels: true
 IndentGotoLabels: false
-IndentPPDirectives: BeforeHash
+IndentPPDirectives: AfterHash
+IndentWrappedFunctionNames: true
 IndentWidth: 4
 KeepEmptyLinesAtTheStartOfBlocks: false
-MaxEmptyLinesToKeep: 2
+MaxEmptyLinesToKeep: 1
 NamespaceIndentation: None
 ReflowComments: true
 SortIncludes: true

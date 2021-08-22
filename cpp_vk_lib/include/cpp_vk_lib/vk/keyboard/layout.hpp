@@ -11,10 +11,11 @@
 
 namespace vk::keyboard {
 
-using any_button = std::variant<button::text, button::vk_pay, button::open_app, button::location>;
+using any_button = std::
+    variant<button::text, button::vk_pay, button::open_app, button::location>;
 
 /*!
- * @brief The buttons grid representation.
+ * \brief The buttons grid representation.
  */
 class layout
 {
@@ -22,16 +23,14 @@ public:
     layout() = default;
     layout(keyboard::flag flags);
 
-    /*!
-     * @brief Add row. Each `add_row` call adds
-     * new row to keyboard.
-     */
     void add_row(const std::vector<any_button>& row);
     /*!
-     * @brief Convert buttons data to JSON schema.
-     * @return JSON representation.
+     * Convert stored buttons data to JSON schema.
      */
     void serialize();
+    /*!
+     * \return reference to serialized layout.
+     */
     const std::string& get() const noexcept;
     bool has_flag(keyboard::flag flag) const noexcept;
 

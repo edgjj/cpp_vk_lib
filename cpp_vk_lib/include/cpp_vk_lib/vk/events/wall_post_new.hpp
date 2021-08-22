@@ -9,10 +9,9 @@ class object;
 
 namespace vk::event {
 /*!
- * @brief The `wall_post_new` event representation.
- *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access it.
+ * It means, that no data is extracted from JSON until the user
+ * wants to access it
  */
 class wall_post_new
 {
@@ -32,12 +31,11 @@ public:
     bool has_attachments() const noexcept;
     bool has_repost() const noexcept;
     /*!
-     * @throws vk::exception::access_error in case, when _repost pointer is not set.
+     * \throws vk::exception::access_error if repost doesn't exist
      */
     std::shared_ptr<wall_repost> repost() const;
     /*!
-     * @brief Get attachments vector.
-     * @note In case, when no attachments were provided, empty vector returned.
+     * throws vk::exception::access_error if no attachments were provided
      */
     std::vector<vk::attachment::attachment_ptr_t> attachments() const;
 

@@ -13,12 +13,11 @@ class array;
 
 namespace vk::event {
 /*!
- * @brief The `message_new` event representation.
- *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access
- * it, and there's meaningless to construct all attachments, reply and forwarded
- * messages objects in the case you only need message text.
+ * It means, that no data is extracted from JSON until the user
+ * wants to access it, and there's meaningless to construct all
+ * attachments, reply and forwarded messages objects in the case
+ * you only need message text
  */
 class message_new
 {
@@ -26,20 +25,20 @@ public:
     message_new(simdjson::dom::object event);
     ~message_new();
     /*!
-     * @throws vk::exception::access_error in case, when reply pointer is not set.
+     * \throws vk::exception::access_error if reply pointer is not set
      */
     std::shared_ptr<message_new> reply() const;
     /*!
-     * @throws vk::exception::access_error in case, when forward messages vector is empty.
+     * \throws vk::exception::access_error if forward messages vector is empty
      */
     std::vector<std::unique_ptr<message_new>> fwd_messages() const;
     /*!
-     * @throws vk::exception::access error in case, when there's no actions setted.
+     * \throws vk::exception::access error if there's no actions in event
      */
     action::any_action_t action() const;
     /*!
-     * @throws exception::access_error in case, when object hasn't attachments.
-     * @note In case, when no attachments were provided, empty vector returned.
+     * \throws exception::access_error if object hasn't attachments
+     * \note If no attachments were provided, empty vector returned
      */
     std::vector<attachment::attachment_ptr_t> attachments() const;
 
@@ -53,7 +52,8 @@ public:
     bool has_fwd_messages() const noexcept;
     bool has_action() const noexcept;
 
-    friend std::ostream& operator<<(std::ostream& ostream, const message_new& event);
+    friend std::ostream&
+        operator<<(std::ostream& ostream, const message_new& event);
 
 private:
     void try_get_actions();
@@ -67,7 +67,8 @@ private:
     bool has_attachments_ = false;
 };
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::message_new& event);
+std::ostream&
+    operator<<(std::ostream& ostream, const vk::event::message_new& event);
 
 }// namespace vk::event
 

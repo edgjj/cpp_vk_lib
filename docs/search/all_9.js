@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['id_113',['id',['../classvk_1_1event_1_1wall__post__new.html#ae84baf0429c32184c21dd36477fb8d66',1,'vk::event::wall_post_new::id()'],['../classvk_1_1event_1_1wall__reply__new.html#ad40118e05f1b527e617c283a21796f2d',1,'vk::event::wall_reply_new::id()'],['../classvk_1_1event_1_1wall__repost.html#a7a61220bf78353efba5cc73ada8edc21',1,'vk::event::wall_repost::id()']]],
-  ['in_5fline_114',['in_line',['../namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654afff85628d71d8bddbadb7c6fb2759339',1,'vk::keyboard']]],
-  ['invalid_5fparameter_5ferror_115',['invalid_parameter_error',['../classvk_1_1exception_1_1invalid__parameter__error.html#a82d5cfd18ccae223659c5546f45cdee6',1,'vk::exception::invalid_parameter_error::invalid_parameter_error()'],['../namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bcafd4eee94bf9c9c8b8d0c6a9b47c150bb',1,'vk::exception::invalid_parameter_error()'],['../classvk_1_1exception_1_1invalid__parameter__error.html',1,'vk::exception::invalid_parameter_error']]],
-  ['iphone_116',['iphone',['../namespacevk_1_1oauth.html#aacc3a8e41f63756f681a06740b2a8810a0b3f45b266a97d7029dde7c2ba372093',1,'vk::oauth']]]
+  ['message_5fconstructor_36',['message_constructor',['../classvk_1_1method_1_1message__constructor.html#ab0879fdc29699fade33dea42cbe8d351',1,'vk::method::message_constructor::message_constructor()'],['../classvk_1_1method_1_1message__constructor.html',1,'vk::method::message_constructor']]],
+  ['message_5fnew_37',['message_new',['../classvk_1_1event_1_1message__new.html',1,'vk::event']]],
+  ['method_38',['method',['../classvk_1_1method_1_1constructor.html#a62c1745a3b5bc38817aa9a57bdf9d5bc',1,'vk::method::constructor']]]
 ];

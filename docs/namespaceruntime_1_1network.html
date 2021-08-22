@@ -76,20 +76,20 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a22c149c51a43258f1bd657de0758c68b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#a22c149c51a43258f1bd657de0758c68b">request</a> (std::string_view host, std::map&lt; std::string, std::string &gt; &amp;&amp;target={})</td></tr>
-<tr class="memdesc:a22c149c51a43258f1bd657de0758c68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute HTTP POST request.  <a href="namespaceruntime_1_1network.html#a22c149c51a43258f1bd657de0758c68b">More...</a><br /></td></tr>
+<tr class="memdesc:a22c149c51a43258f1bd657de0758c68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform HTTP POST request.  <a href="namespaceruntime_1_1network.html#a22c149c51a43258f1bd657de0758c68b">More...</a><br /></td></tr>
 <tr class="separator:a22c149c51a43258f1bd657de0758c68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a443849cbb29a0cd6fb8664b009f8889a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#a443849cbb29a0cd6fb8664b009f8889a">download</a> (std::string_view filename, std::string_view server)</td></tr>
-<tr class="memdesc:a443849cbb29a0cd6fb8664b009f8889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download file from server to filename.  <a href="namespaceruntime_1_1network.html#a443849cbb29a0cd6fb8664b009f8889a">More...</a><br /></td></tr>
+<tr class="memdesc:a443849cbb29a0cd6fb8664b009f8889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download from server to filename.  <a href="namespaceruntime_1_1network.html#a443849cbb29a0cd6fb8664b009f8889a">More...</a><br /></td></tr>
 <tr class="separator:a443849cbb29a0cd6fb8664b009f8889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac204f4fc6dec03966ec08b345a80f254"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#ac204f4fc6dec03966ec08b345a80f254">download</a> (std::vector&lt; uint8_t &gt; &amp;buffer, std::string_view server)</td></tr>
-<tr class="memdesc:ac204f4fc6dec03966ec08b345a80f254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download file from server to buffer.  <a href="namespaceruntime_1_1network.html#ac204f4fc6dec03966ec08b345a80f254">More...</a><br /></td></tr>
+<tr class="memdesc:ac204f4fc6dec03966ec08b345a80f254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download from server to in-memory buffer.  <a href="namespaceruntime_1_1network.html#ac204f4fc6dec03966ec08b345a80f254">More...</a><br /></td></tr>
 <tr class="separator:ac204f4fc6dec03966ec08b345a80f254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad393d256993a5f1d57ab97ed05f9afe5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5">upload</a> (std::string_view field_name, std::string_view filename, std::string_view server)</td></tr>
 <tr class="memdesc:ad393d256993a5f1d57ab97ed05f9afe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload file from filename to server.  <a href="namespaceruntime_1_1network.html#ad393d256993a5f1d57ab97ed05f9afe5">More...</a><br /></td></tr>
 <tr class="separator:ad393d256993a5f1d57ab97ed05f9afe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564c5c0bbacc1bbac34a4cfbf40ebb94"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#a564c5c0bbacc1bbac34a4cfbf40ebb94">upload</a> (std::string_view field_name, const std::vector&lt; uint8_t &gt; &amp;buffer, std::string_view server, std::string_view type=&quot;&quot;)</td></tr>
-<tr class="memdesc:a564c5c0bbacc1bbac34a4cfbf40ebb94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload file from buffer to server.  <a href="namespaceruntime_1_1network.html#a564c5c0bbacc1bbac34a4cfbf40ebb94">More...</a><br /></td></tr>
-<tr class="separator:a564c5c0bbacc1bbac34a4cfbf40ebb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607cdab9ff4bd3d6347fcdfcf5e6f4c5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#a607cdab9ff4bd3d6347fcdfcf5e6f4c5">upload</a> (const std::vector&lt; uint8_t &gt; &amp;buffer, std::string_view field_name, std::string_view server, std::string_view content_type=&quot;application/octet-stream&quot;)</td></tr>
+<tr class="memdesc:a607cdab9ff4bd3d6347fcdfcf5e6f4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload file from buffer to server.  <a href="namespaceruntime_1_1network.html#a607cdab9ff4bd3d6347fcdfcf5e6f4c5">More...</a><br /></td></tr>
+<tr class="separator:a607cdab9ff4bd3d6347fcdfcf5e6f4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a2908670901c6cdbbc88442ccdb23b6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceruntime_1_1network.html#a8a2908670901c6cdbbc88442ccdb23b6">request_data</a> (std::string_view host, std::string_view data)</td></tr>
 <tr class="memdesc:a8a2908670901c6cdbbc88442ccdb23b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute HTTP POST request with text data.  <a href="namespaceruntime_1_1network.html#a8a2908670901c6cdbbc88442ccdb23b6">More...</a><br /></td></tr>
 <tr class="separator:a8a2908670901c6cdbbc88442ccdb23b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,8 +121,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Download file from server to filename. </p>
-<dl class="section return"><dt>Returns</dt><dd>-1 in case, when file was not created or opened, 0 otherwise. </dd></dl>
+<p>Download from server to filename. </p>
+<dl class="section note"><dt>Note</dt><dd>If file already exists, it will be overridden </dd>
+<dd>
+This function follows redirects </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 if file was not created or opened, 0 otherwise </dd></dl>
 
 </div>
 </div>
@@ -152,7 +155,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Download file from server to buffer. </p>
+<p>Download from server to in-memory buffer. </p>
+<dl class="section note"><dt>Note</dt><dd>This function follows redirects </dd>
+<dd>
+The buffer is flushing before writing </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>-1 if failed, 0 otherwise. </dd></dl>
 
 </div>
@@ -183,8 +189,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Execute HTTP POST request. </p>
-<dl class="section return"><dt>Returns</dt><dd>response output. </dd></dl>
+<p>Perform HTTP POST request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">host</td><td>part of URL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">target</td><td>list of arguments e.g {{"a", "1"}, {"b", "2"}} =&gt; a=1&amp;b=2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>response output </dd></dl>
 
 </div>
 </div>
@@ -215,12 +228,19 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Execute HTTP POST request with text data. </p>
-<dl class="section return"><dt>Returns</dt><dd>response output. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">host</td><td>part of URL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">URL</td><td>payload, e.g JSON </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>response output </dd></dl>
 
 </div>
 </div>
-<a id="a564c5c0bbacc1bbac34a4cfbf40ebb94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a564c5c0bbacc1bbac34a4cfbf40ebb94">&#9670;&nbsp;</a></span>upload() <span class="overload">[1/2]</span></h2>
+<a id="a607cdab9ff4bd3d6347fcdfcf5e6f4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607cdab9ff4bd3d6347fcdfcf5e6f4c5">&#9670;&nbsp;</a></span>upload() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,14 +248,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::string runtime::network::upload </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>field_name</em>, </td>
+          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>field_name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -247,7 +267,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>type</em> = <code>&quot;&quot;</code>&#160;</td>
+          <td class="paramname"><em>content_type</em> = <code>&quot;application/octet-stream&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -258,7 +278,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Upload file from buffer to server. </p>
-<dl class="section return"><dt>Returns</dt><dd>upload response. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_name</td><td>needed to correct file uploading </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">content_type</td><td>e.g <code>text/html</code> or <code>multipart/form-data</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>upload response </dd></dl>
 
 </div>
 </div>
@@ -295,7 +322,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Upload file from filename to server. </p>
-<dl class="section return"><dt>Returns</dt><dd>upload response. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_name</td><td>needed to correct file uploading </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>upload response </dd></dl>
 
 </div>
 </div>

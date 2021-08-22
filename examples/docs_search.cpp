@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     const char* query = argv[2];
     const char* count = argv[3];
     vk::config::load(argv[1]);
-    vk::setup_logger("info");
+    vk::setup_logger(spdlog::level::level_enum::trace);
 
     std::vector<vk::attachment::attachment_ptr_t> documents;
     const std::string raw_response = vk::method::group_constructor()

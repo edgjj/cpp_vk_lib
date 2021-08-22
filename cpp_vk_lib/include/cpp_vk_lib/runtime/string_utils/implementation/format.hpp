@@ -4,12 +4,14 @@
 #include <array>
 #include <sstream>
 
-namespace runtime::string_utils::implementation {
+namespace runtime::string_utils {
 
 template <typename... Args>
 static std::string format(std::string_view data, Args&&... args)
 {
-    if (data.empty()) { return {}; }
+    if (data.empty()) {
+        return {};
+    }
 
     static constexpr size_t average_word_size = 7;
     std::string formatted;
@@ -34,6 +36,6 @@ static std::string format(std::string_view data, Args&&... args)
     return formatted;
 }
 
-}// namespace runtime::string_utils::implementation
+}// namespace runtime::string_utils
 
 #endif// RUNTIME_STRING_UTILS_IMPLEMENTATION_FORMAT_HPP

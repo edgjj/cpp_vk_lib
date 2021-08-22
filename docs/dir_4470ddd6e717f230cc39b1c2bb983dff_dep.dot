@@ -5,8 +5,8 @@ digraph "cpp_vk_lib" {
   subgraph clusterdir_4470ddd6e717f230cc39b1c2bb983dff {
     graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_4470ddd6e717f230cc39b1c2bb983dff.html"];
     dir_4470ddd6e717f230cc39b1c2bb983dff [shape=plaintext label="cpp_vk_lib"];
-  dir_ae58b8918dcb99903ff518e79eee4aff [shape=box label="runtime" fillcolor="white" style="filled" color="red" URL="dir_ae58b8918dcb99903ff518e79eee4aff.html"];
-  dir_bfc5d6602c24fe620e9298c54e0ed106 [shape=box label="vk" fillcolor="white" style="filled" color="red" URL="dir_bfc5d6602c24fe620e9298c54e0ed106.html"];
+  dir_9986c02ba0b5b8de78617cb7a0436aeb [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_9986c02ba0b5b8de78617cb7a0436aeb.html"];
+  dir_7e5359c7c9ec77ad66139a0522c7840c [shape=box label="src" fillcolor="white" style="filled" color="red" URL="dir_7e5359c7c9ec77ad66139a0522c7840c.html"];
   }
-  dir_bfc5d6602c24fe620e9298c54e0ed106->dir_ae58b8918dcb99903ff518e79eee4aff [headlabel="10", labeldistance=1.5 headhref="dir_000001_000015.html"];
+  dir_7e5359c7c9ec77ad66139a0522c7840c->dir_9986c02ba0b5b8de78617cb7a0436aeb [headlabel="46", labeldistance=1.5 headhref="dir_000006_000001.html"];
 }

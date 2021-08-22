@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['disable_5fmentions_553',['disable_mentions',['../classvk_1_1method_1_1message__constructor.html#aa7651af229e09aaba09e7e4e42947ad7',1,'vk::method::message_constructor']]]
+  ['buttons_5f_615',['buttons_',['../classvk_1_1keyboard_1_1layout.html#a4d88d5454a3f4d13c896fafc24e6ba61',1,'vk::keyboard::layout']]]
 ];

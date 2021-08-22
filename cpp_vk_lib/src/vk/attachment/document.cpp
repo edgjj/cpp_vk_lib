@@ -1,11 +1,11 @@
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
-
 #include "spdlog/spdlog.h"
 
 namespace vk::attachment {
 
 document::document(int32_t owner_id, int32_t id, std::string_view url)
-  : base("doc", owner_id, id), raw_url_(url)
+    : base("doc", owner_id, id)
+    , raw_url_(url)
 {
     spdlog::trace("create attachment: {}", value());
 }

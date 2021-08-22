@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['join_117',['join',['../namespaceruntime_1_1string__utils.html#a082b7ff8c43b6e09175e3a8ff3397918',1,'runtime::string_utils::join(Container &amp;&amp;elements, char delimiter)'],['../namespaceruntime_1_1string__utils.html#a836e4685e637fb608ee997462a03ea58',1,'runtime::string_utils::join(std::initializer_list&lt; T &gt; elements, char delimiter)']]],
-  ['join_2ehpp_118',['join.hpp',['../join_8hpp.html',1,'']]]
+  ['on_5fevent_39',['on_event',['../classvk_1_1long__poll.html#a080d10a5e2f4cfbcc7ff01a2d812c130',1,'vk::long_poll']]],
+  ['open_5fapp_40',['open_app',['../classvk_1_1keyboard_1_1button_1_1open__app.html',1,'vk::keyboard::button']]],
+  ['operator_20bool_41',['operator bool',['../classvk_1_1error__code.html#a3b96b6b423c028a078ed6adabfccba60',1,'vk::error_code']]]
 ];
