@@ -3,7 +3,7 @@ name: MacOS
 on:
   push:
     branches:
-      - develop
+      - feature
       - master
       - release/*
   pull_request:
