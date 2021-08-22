@@ -1,7 +1,6 @@
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 
 #include "cpp_vk_lib/vk/events/attachment_handler.hpp"
-
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 
@@ -86,47 +85,49 @@ simdjson::dom::object& wall_post_new::get_event() const
 std::vector<vk::attachment::attachment_ptr_t> wall_post_new::attachments() const
 {
     if (has_attachments_) {
-        return event::get_attachments(get_event()["attachments"].get_array());
+        return event::get_attachments(get_event()["attachments"]);
     } else {
-        throw exception::access_error(-1 ,"Attempting accessing empty attachment list.");
+        throw exception::access_error(
+            -1,
+            "Attempting accessing empty attachment list.");
     }
 }
 
 std::shared_ptr<wall_repost> wall_post_new::repost() const
 {
-    simdjson::dom::object repost_json = get_event()["copy_history"].get_array().at(0).get_object();
+    simdjson::dom::object repost_json =
+        get_event()["copy_history"].get_array().at(0).get_object();
 
     if (has_repost_) {
         std::shared_ptr<wall_repost> repost = std::make_shared<wall_repost>(
-            repost_json["id"].get_int64(),
-            repost_json["from_id"].get_int64(),
-            repost_json["owner_id"].get_int64(),
+            repost_json["id"],
+            repost_json["from_id"],
+            repost_json["owner_id"],
             repost_json["text"].get_c_str().take_value());
 
-        if (repost_json["attachments"].is_array() && repost_json["attachments"].get_array().size() > 0) {
-            repost->construct_attachments(event::get_attachments(repost_json["attachments"].get_array()));
+        if (repost_json["attachments"].is_array() &&
+            repost_json["attachments"].get_array().size() > 0) {
+            repost->construct_attachments(
+                event::get_attachments(repost_json["attachments"]));
         }
 
         return repost;
     } else {
-        throw exception::access_error(-1 ,"Attempting accessing empty repost");
+        throw exception::access_error(-1, "Attempting accessing empty repost");
     }
 }
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& event)
+std::ostream&
+    operator<<(std::ostream& ostream, const vk::event::wall_post_new& event)
 {
     ostream << "wall_post_new:" << std::endl;
 
-    ostream << std::setw(30)
-            << "id: " << event.id() << std::endl;
-    ostream << std::setw(30)
-            << "from_id: " << event.from_id() << std::endl;
-    ostream << std::setw(30)
-            << "owner_id: " << event.owner_id() << std::endl;
-    ostream << std::setw(30)
-            << "text: " << event.text() << std::endl;
-    ostream << std::setw(30)
-            << "marked_as_ads? " << std::boolalpha << event.marked_as_ads() << std::endl;
+    ostream << std::setw(30) << "id: " << event.id() << std::endl;
+    ostream << std::setw(30) << "from_id: " << event.from_id() << std::endl;
+    ostream << std::setw(30) << "owner_id: " << event.owner_id() << std::endl;
+    ostream << std::setw(30) << "text: " << event.text() << std::endl;
+    ostream << std::setw(30) << "marked_as_ads? " << std::boolalpha
+            << event.marked_as_ads() << std::endl;
 
     int64_t can_delete;
     if (auto error = event.get_event()["can_delete"].get(can_delete); !error) {
@@ -164,12 +165,11 @@ std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_post_new& 
     if (event.has_repost()) {
         ostream << std::endl << std::setw(30) << "repost:";
         ostream << "from_id: " << event.repost()->from_id() << std::endl;
-        ostream << std::setw(30)
-                << "id: " << event.repost()->id() << std::endl;
-        ostream << std::setw(30)
-                << "owner_id: " << event.repost()->owner_id() << std::endl;
-        ostream << std::setw(30)
-                << "text: " << event.repost()->text() << std::endl;
+        ostream << std::setw(30) << "id: " << event.repost()->id() << std::endl;
+        ostream << std::setw(30) << "owner_id: " << event.repost()->owner_id()
+                << std::endl;
+        ostream << std::setw(30) << "text: " << event.repost()->text()
+                << std::endl;
 
         if (!event.repost()->attachments().empty()) {
             append_attachments(event.repost()->attachments());

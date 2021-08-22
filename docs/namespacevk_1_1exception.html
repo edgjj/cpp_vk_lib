@@ -107,10 +107,6 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:afb8d67ac6364eda59c13c148647f8a8c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#afb8d67ac6364eda59c13c148647f8a8c">translate_error</a> (size_t <a class="el" href="classvk_1_1error__code.html">error_code</a>)</td></tr>
 <tr class="separator:afb8d67ac6364eda59c13c148647f8a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72890d1594cdcf725d29b8b42e60a174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#a72890d1594cdcf725d29b8b42e60a174">process_error</a> (size_t <a class="el" href="classvk_1_1error__code.html">error_code</a>)</td></tr>
-<tr class="separator:a72890d1594cdcf725d29b8b42e60a174"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa850a18a184cb46f9d0eaee2e84edaab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevk_1_1exception.html#aa850a18a184cb46f9d0eaee2e84edaab">process_error</a> (const char *message, <a class="el" href="namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bc">error_type</a> err_type)</td></tr>
-<tr class="separator:aa850a18a184cb46f9d0eaee2e84edaab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -147,52 +143,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa850a18a184cb46f9d0eaee2e84edaab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa850a18a184cb46f9d0eaee2e84edaab">&#9670;&nbsp;</a></span>process_error() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::exception::process_error </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacevk_1_1exception.html#a45a9c6a6b355d5c76035876d635ff6bc">error_type</a>&#160;</td>
-          <td class="paramname"><em>err_type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a72890d1594cdcf725d29b8b42e60a174"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72890d1594cdcf725d29b8b42e60a174">&#9670;&nbsp;</a></span>process_error() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::exception::process_error </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>error_code</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="afb8d67ac6364eda59c13c148647f8a8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb8d67ac6364eda59c13c148647f8a8c">&#9670;&nbsp;</a></span>translate_error()</h2>
 
@@ -208,6 +158,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Detailed VK error description by its code </dd></dl>
 
 </div>
 </div>

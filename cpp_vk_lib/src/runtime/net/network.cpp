@@ -1,19 +1,26 @@
 #include "cpp_vk_lib/runtime/net/network.hpp"
 
-#include "spdlog/spdlog.h"
-
 #include "curlpp/Easy.hpp"
 #include "curlpp/Options.hpp"
 #include "curlpp/cURLpp.hpp"
+#include "spdlog/spdlog.h"
 
 #include <sstream>
 
-static size_t file_write_callback(FILE* file, char* ptr, size_t size, size_t nmemb) noexcept
+static size_t file_write_callback(
+    FILE* file,
+    char* ptr,
+    size_t size,
+    size_t nmemb) noexcept
 {
     return fwrite(ptr, size, nmemb, file);
 }
 
-static size_t buffer_write_callback(void* userp, char* contents, size_t size, size_t nmemb)
+static size_t buffer_write_callback(
+    void* userp,
+    char* contents,
+    size_t size,
+    size_t nmemb)
 {
     auto vector = reinterpret_cast<std::vector<uint8_t>*>(userp);
     vector->insert(vector->end(), contents, contents + (size * nmemb));
@@ -42,7 +49,9 @@ static std::string create_parameters(std::map<std::string, std::string>&& body)
 
 namespace runtime {
 
-std::string network::request(std::string_view host, std::map<std::string, std::string>&& target)
+std::string network::request(
+    std::string_view host,
+    std::map<std::string, std::string>&& target)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -94,9 +103,10 @@ size_t network::download(std::string_view filename, std::string_view server)
 
     spdlog::trace("HTTP download: {}", server);
 
-    auto* write_function =
-        new curlpp::options::WriteFunction([fp](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
-            return file_write_callback(fp,
+    auto* write_function = new curlpp::options::WriteFunction(
+        [fp](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
+            return file_write_callback(
+                fp,
                 std::forward<decltype(placeholder1)>(placeholder1),
                 std::forward<decltype(placeholder2)>(placeholder2),
                 std::forward<decltype(placeholder3)>(placeholder3));
@@ -117,7 +127,6 @@ size_t network::download(std::string_view filename, std::string_view server)
         return -1;
     }
     fclose(fp);
-
     return 0;
 }
 
@@ -127,8 +136,12 @@ size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
 
     buffer.clear();
     auto* write_function =
-        new curlpp::options::WriteFunction([&buffer](auto&& placeholder1, auto&& placeholder2, auto&& placeholder3) {
-            return buffer_write_callback(reinterpret_cast<void*>(&buffer),
+        new curlpp::options::WriteFunction([&buffer](
+                                               auto&& placeholder1,
+                                               auto&& placeholder2,
+                                               auto&& placeholder3) {
+            return buffer_write_callback(
+                reinterpret_cast<void*>(&buffer),
                 std::forward<decltype(placeholder1)>(placeholder1),
                 std::forward<decltype(placeholder2)>(placeholder2),
                 std::forward<decltype(placeholder3)>(placeholder3));
@@ -154,13 +167,17 @@ size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
     return 0;
 }
 
-std::string network::upload(std::string_view field_name, std::string_view filename, std::string_view server)
+std::string network::upload(
+    std::string_view field_name,
+    std::string_view filename,
+    std::string_view server)
 {
     std::ostringstream response;
     curlpp::Forms form_parts;
     curlpp::Easy curl_easy;
 
-    form_parts.push_back(new curlpp::FormParts::File(field_name.data(), filename.data()));
+    form_parts.push_back(
+        new curlpp::FormParts::File(field_name.data(), filename.data()));
 
     spdlog::trace("HTTP upload: {}", filename);
 
@@ -180,19 +197,28 @@ std::string network::upload(std::string_view field_name, std::string_view filena
     return response.str();
 }
 
-std::string network::upload(std::string_view field_name, const std::vector<uint8_t>& buffer, std::string_view server, std::string_view type)
+std::string network::upload(
+    const std::vector<uint8_t>& buffer,
+    std::string_view field_name,
+    std::string_view server,
+    std::string_view content_type)
 {
     class form_part_data : public curlpp::FormPart
     {
     public:
         form_part_data(const char* name, const std::vector<uint8_t>& buffer)
-          : curlpp::FormPart(name)
-          , buffer_(buffer) {}
+            : curlpp::FormPart(name)
+            , buffer_(buffer)
+        {}
 
-        form_part_data(const char* name, const std::vector<uint8_t>& buffer, const char* type)
-          : curlpp::FormPart(name)
-          , buffer_(buffer)
-          , content_type_(type) {}
+        form_part_data(
+            const char* name,
+            const std::vector<uint8_t>& buffer,
+            const char* type)
+            : curlpp::FormPart(name)
+            , buffer_(buffer)
+            , content_type_(type)
+        {}
 
         form_part_data* clone() const override
         {
@@ -202,25 +228,22 @@ std::string network::upload(std::string_view field_name, const std::vector<uint8
     private:
         void add(curl_httppost** first, curl_httppost** last) override
         {
-            if (content_type_.empty()) {
-                curl_formadd(first, last,
-                    CURLFORM_BUFFER,            "temp",
-                    CURLFORM_PTRNAME,           mName.c_str(),
-                    CURLFORM_BUFFERPTR,         buffer_.data(),
-                    CURLFORM_BUFFERLENGTH,      buffer_.size(),
-                    CURLFORM_CONTENTSLENGTH,    buffer_.size(),
-                    CURLFORM_CONTENTTYPE,       "application/octet-stream",
-                    CURLFORM_END);
-            } else {
-                curl_formadd(first, last,
-                    CURLFORM_BUFFER,            "temp",
-                    CURLFORM_PTRNAME,           mName.c_str(),
-                    CURLFORM_BUFFERPTR,         buffer_.data(),
-                    CURLFORM_BUFFERLENGTH,      buffer_.size(),
-                    CURLFORM_CONTENTSLENGTH,    buffer_.size(),
-                    CURLFORM_CONTENTTYPE,       content_type_.c_str(),
-                    CURLFORM_END);
-            }
+            curl_formadd(
+                first,
+                last,
+                CURLFORM_BUFFER,
+                "temp",
+                CURLFORM_PTRNAME,
+                mName.c_str(),
+                CURLFORM_BUFFERPTR,
+                buffer_.data(),
+                CURLFORM_BUFFERLENGTH,
+                buffer_.size(),
+                CURLFORM_CONTENTSLENGTH,
+                buffer_.size(),
+                CURLFORM_CONTENTTYPE,
+                content_type_.c_str(),
+                CURLFORM_END);
         }
 
         const std::vector<uint8_t>& buffer_;
@@ -231,11 +254,8 @@ std::string network::upload(std::string_view field_name, const std::vector<uint8
     curlpp::Forms form_parts;
     curlpp::Easy curl_easy;
 
-    if (type.empty()) {
-        form_parts.push_back(new form_part_data(field_name.data(), buffer));
-    } else {
-        form_parts.push_back(new form_part_data(field_name.data(), buffer, type.data()));
-    }
+    form_parts.push_back(
+        new form_part_data(field_name.data(), buffer, content_type.data()));
 
     spdlog::trace("HTTP upload: buffer {}", buffer.size());
 

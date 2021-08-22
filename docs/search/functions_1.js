@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['bad_5fcast_5ferror_424',['bad_cast_error',['../classvk_1_1exception_1_1bad__cast__error.html#ab7cdf89dbadea98a5d8b3d4b7ccd4a69',1,'vk::exception::bad_cast_error']]],
-  ['base_425',['base',['../classvk_1_1attachment_1_1base.html#a4c1d14496529bb5154c79b6161fa0fd2',1,'vk::attachment::base']]],
-  ['begin_426',['begin',['../classruntime_1_1string__utils_1_1split__range.html#a3cf593a7cbc430218a6d2c3ab95e4e19',1,'runtime::string_utils::split_range']]]
+  ['clear_109',['clear',['../classvk_1_1error__code.html#a208459babc53bfadd79db16b6dcfb8c1',1,'vk::error_code']]],
+  ['constructor_110',['constructor',['../classvk_1_1method_1_1constructor.html#a11da862a01e2a3d3764db8a81b49caa4',1,'vk::method::constructor::constructor()'],['../classvk_1_1method_1_1constructor.html#aa26191ccc36721b6f57c87344fa66f2d',1,'vk::method::constructor::constructor(std::string_view user_token)']]],
+  ['create_111',['create',['../classvk_1_1exception_1_1common__exception.html#af360aa6a69f495448882a6a6f53b713a',1,'vk::exception::common_exception']]]
 ];

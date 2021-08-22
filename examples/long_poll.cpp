@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    vk::setup_logger("trace");
+    vk::setup_logger(spdlog::level::level_enum::trace);
     vk::config::load(argv[1]);
 
     asio::io_context io_context;

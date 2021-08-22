@@ -20,8 +20,9 @@ ABBREVIATE_BRIEF       = "The $name class" \
                          the
 
 FULL_PATH_NAMES        = NO
+EXTRACT_PRIVATE        = YES
 TOC_INCLUDE_HEADINGS   = 5
-EXTRACT_ALL            = YES
+EXTRACT_ALL            = NO
 EXTRACT_ANON_NSPACES   = YES
 INPUT                  = cpp_vk_lib
 FILE_PATTERNS          = *.c \
@@ -42,9 +43,9 @@ HTML_FILE_EXTENSION    = .html
 
 GENERATE_LATEX         = NO
 
-CLASS_DIAGRAMS         = YES
-HAVE_DOT               = YES
+CLASS_DIAGRAMS         = NO
+HAVE_DOT               = NO
 DOT_NUM_THREADS        = 2
-CLASS_GRAPH            = YES
-COLLABORATION_GRAPH    = YES
-GROUP_GRAPHS           = YES
+CLASS_GRAPH            = NO
+COLLABORATION_GRAPH    = NO
+GROUP_GRAPHS           = NO

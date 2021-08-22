@@ -4,7 +4,9 @@
 #include <string>
 
 namespace vk {
-
+/*!
+ * Error code. Stores a message inside.
+ */
 class error_code
 {
 public:
@@ -15,11 +17,20 @@ public:
 
     error_code& operator=(const error_code&) = delete;
     error_code& operator=(error_code&&) = delete;
-
+    /*!
+     * \note If any error message already exists, it will be overridden
+     * \post operator bool() returns `true`
+     */
     void assign(std::string_view error);
+    /*!
+     * Clear error code
+     * \post operator bool() returns `true`
+     */
     void clear();
     const std::string& message() const noexcept;
-
+    /*!
+     * Check if error present
+     */
     explicit operator bool() const noexcept;
 
 private:

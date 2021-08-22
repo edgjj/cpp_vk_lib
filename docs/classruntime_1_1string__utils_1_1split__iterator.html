@@ -62,208 +62,59 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceruntime.html">runtime</a></li><li class="navelem"><a class="el" href="namespaceruntime_1_1string__utils.html">string_utils</a></li><li class="navelem"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a></li>  </ul>
+<li class="navelem"><b>runtime</b></li><li class="navelem"><b>string_utils</b></li><li class="navelem"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classruntime_1_1string__utils_1_1split__iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">runtime::string_utils::split_iterator&lt; StringType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="lazy__split_8hpp_source.html">lazy_split.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0288ef108032af8733c998169985122d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html#a0288ef108032af8733c998169985122d">split_iterator</a> (StringType source, StringType delim)</td></tr>
-<tr class="separator:a0288ef108032af8733c998169985122d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9425e57af1611a691ee519423ad60ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html#aa9425e57af1611a691ee519423ad60ed">operator++</a> () noexcept</td></tr>
+<tr class="memitem:abd2ee34feeb4cb29c482f13defcf6b7e"><td class="memItemLeft" align="right" valign="top"><a id="abd2ee34feeb4cb29c482f13defcf6b7e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>split_iterator</b> (StringType source, StringType delimiter)</td></tr>
+<tr class="separator:abd2ee34feeb4cb29c482f13defcf6b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9425e57af1611a691ee519423ad60ed"><td class="memItemLeft" align="right" valign="top"><a id="aa9425e57af1611a691ee519423ad60ed"></a>
+<a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> () noexcept</td></tr>
 <tr class="separator:aa9425e57af1611a691ee519423ad60ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97d209c1ea3287e211c939861c69e936"><td class="memItemLeft" align="right" valign="top">StringType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html#a97d209c1ea3287e211c939861c69e936">operator*</a> () const noexcept</td></tr>
+<tr class="memitem:a97d209c1ea3287e211c939861c69e936"><td class="memItemLeft" align="right" valign="top"><a id="a97d209c1ea3287e211c939861c69e936"></a>
+StringType&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const noexcept</td></tr>
 <tr class="separator:a97d209c1ea3287e211c939861c69e936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6018f0e50f6f516ca3a814d4b68bc786"><td class="memItemLeft" align="right" valign="top"><a id="a6018f0e50f6f516ca3a814d4b68bc786"></a>
+StringType&#160;</td><td class="memItemRight" valign="bottom"><b>src_</b></td></tr>
+<tr class="separator:a6018f0e50f6f516ca3a814d4b68bc786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d535389c0d9f9f067aafcb4ee9d28e1"><td class="memItemLeft" align="right" valign="top"><a id="a1d535389c0d9f9f067aafcb4ee9d28e1"></a>
+StringType&#160;</td><td class="memItemRight" valign="bottom"><b>delimiter_</b></td></tr>
+<tr class="separator:a1d535389c0d9f9f067aafcb4ee9d28e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bade4a8f14a3de539b54112adb829dc"><td class="memItemLeft" align="right" valign="top"><a id="a7bade4a8f14a3de539b54112adb829dc"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>first_</b></td></tr>
+<tr class="separator:a7bade4a8f14a3de539b54112adb829dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3dc89efcd638b4e00eef736bc3ef775"><td class="memItemLeft" align="right" valign="top"><a id="ad3dc89efcd638b4e00eef736bc3ef775"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>last_</b></td></tr>
+<tr class="separator:ad3dc89efcd638b4e00eef736bc3ef775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3658a2b6ec468bae77009c218e7b16e"><td class="memItemLeft" align="right" valign="top"><a id="ab3658a2b6ec468bae77009c218e7b16e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>finished_</b> = false</td></tr>
+<tr class="separator:ab3658a2b6ec468bae77009c218e7b16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a7d333896c3971d160a583d71ccac3172"><td class="memItemLeft" align="right" valign="top">constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html#a7d333896c3971d160a583d71ccac3172">operator!=</a> (const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;iterator, <a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept</td></tr>
+<tr class="memitem:a7d333896c3971d160a583d71ccac3172"><td class="memItemLeft" align="right" valign="top"><a id="a7d333896c3971d160a583d71ccac3172"></a>
+constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;iterator, <a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>) noexcept</td></tr>
 <tr class="separator:a7d333896c3971d160a583d71ccac3172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ea7fdda56b9d84182886de93b66ade5"><td class="memItemLeft" align="right" valign="top">constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html#a6ea7fdda56b9d84182886de93b66ade5">operator!=</a> (<a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;iterator) noexcept</td></tr>
+<tr class="memitem:a6ea7fdda56b9d84182886de93b66ade5"><td class="memItemLeft" align="right" valign="top"><a id="a6ea7fdda56b9d84182886de93b66ade5"></a>
+constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (<a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>, const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> &amp;iterator) noexcept</td></tr>
 <tr class="separator:a6ea7fdda56b9d84182886de93b66ade5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0288ef108032af8733c998169985122d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0288ef108032af8733c998169985122d">&#9670;&nbsp;</a></span>split_iterator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StringType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">runtime::string_utils::split_iterator</a>&lt; StringType &gt;::<a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a> </td>
-          <td>(</td>
-          <td class="paramtype">StringType&#160;</td>
-          <td class="paramname"><em>source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">StringType&#160;</td>
-          <td class="paramname"><em>delim</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a97d209c1ea3287e211c939861c69e936"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97d209c1ea3287e211c939861c69e936">&#9670;&nbsp;</a></span>operator*()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StringType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">StringType <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">runtime::string_utils::split_iterator</a>&lt; StringType &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9425e57af1611a691ee519423ad60ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9425e57af1611a691ee519423ad60ed">&#9670;&nbsp;</a></span>operator++()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StringType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&amp; <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">runtime::string_utils::split_iterator</a>&lt; StringType &gt;::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a7d333896c3971d160a583d71ccac3172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d333896c3971d160a583d71ccac3172">&#9670;&nbsp;</a></span>operator!= <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StringType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr friend bool operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&lt; StringType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>iterator</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>&lt; StringType &gt;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6ea7fdda56b9d84182886de93b66ade5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ea7fdda56b9d84182886de93b66ade5">&#9670;&nbsp;</a></span>operator!= <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StringType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr friend bool operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structruntime_1_1string__utils_1_1end__split__iterator.html">end_split_iterator</a>&lt; StringType &gt;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classruntime_1_1string__utils_1_1split__iterator.html">split_iterator</a>&lt; StringType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>iterator</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="lazy__split_8hpp_source.html">lazy_split.hpp</a></li>
 </ul>

@@ -69,20 +69,22 @@ $(function() {
 <div class="textblock"><p>C++ VK library</p>
 <p>CMake options:</p>
 <p>Sample code</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="loader_8hpp.html">cpp_vk_lib/vk/include/config/loader.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="message__new_8hpp.html">cpp_vk_lib/vk/include/events/message_new.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="long__poll_8hpp.html">cpp_vk_lib/vk/include/long_poll/long_poll.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="basic_8hpp.html">cpp_vk_lib/vk/include/methods/basic.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="setup__logger_8hpp.html">cpp_vk_lib/vk/include/setup_logger.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/config/config.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/events/message_new.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/long_poll/long_poll.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/methods/basic.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/setup_logger.hpp&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
 <div class="line">  <span class="keywordflow">if</span> (argc != 2) {</div>
-<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Program requires path to config as the only argument.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    std::cerr</div>
+<div class="line">      &lt;&lt; <span class="stringliteral">&quot;usage: ./long_poll &lt;config.json&gt;&quot;</span></div>
+<div class="line">      &lt;&lt; std::endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 1;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <a class="code" href="namespacevk_1_1config.html#a9e8d354fe7908d2826e2d9afb30e9624">vk::config::load</a>(argv[1]);</div>
-<div class="line">  <a class="code" href="namespacevk.html#ad852a9554a26347f17e376a254bb8433">vk::setup_logger</a>(<span class="stringliteral">&quot;trace&quot;</span>);</div>
+<div class="line">  vk::config::load(argv[1]);</div>
+<div class="line">  vk::setup_logger(<span class="stringliteral">&quot;trace&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">  asio::io_context io_context;</div>
 <div class="line">  <a class="code" href="classvk_1_1long__poll.html">vk::long_poll</a> api(io_context);</div>
@@ -92,21 +94,12 @@ $(function() {
 <div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; event : events) {</div>
 <div class="line">      api.on_event(<span class="stringliteral">&quot;message_new&quot;</span>, event, [&amp;event] {</div>
 <div class="line">        <span class="keyword">auto</span> message_event = <span class="keyword">event</span>.get_message_new();</div>
-<div class="line">        <a class="code" href="namespacevk_1_1method_1_1messages.html#a2ec026fd5cbebeabae6f94e35f6c0894">vk::method::messages::send</a>(message_event.peer_id(), <span class="stringliteral">&quot;response&quot;</span>);</div>
+<div class="line">        vk::method::messages::send(message_event.peer_id(), <span class="stringliteral">&quot;response&quot;</span>);</div>
 <div class="line">      });</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="abasic_8hpp_html"><div class="ttname"><a href="basic_8hpp.html">basic.hpp</a></div></div>
-<div class="ttc" id="aclassvk_1_1long__poll_html"><div class="ttname"><a href="classvk_1_1long__poll.html">vk::long_poll</a></div><div class="ttdoc">Event queue that implements group long polling.</div><div class="ttdef"><b>Definition:</b> long_poll.hpp:24</div></div>
-<div class="ttc" id="aloader_8hpp_html"><div class="ttname"><a href="loader_8hpp.html">loader.hpp</a></div></div>
-<div class="ttc" id="along__poll_8hpp_html"><div class="ttname"><a href="long__poll_8hpp.html">long_poll.hpp</a></div></div>
-<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> main.cpp:1</div></div>
-<div class="ttc" id="amessage__new_8hpp_html"><div class="ttname"><a href="message__new_8hpp.html">message_new.hpp</a></div></div>
-<div class="ttc" id="anamespacevk_1_1config_html_a9e8d354fe7908d2826e2d9afb30e9624"><div class="ttname"><a href="namespacevk_1_1config.html#a9e8d354fe7908d2826e2d9afb30e9624">vk::config::load</a></div><div class="ttdeci">void load(std::string_view path)</div><div class="ttdoc">Load config from file.</div><div class="ttdef"><b>Definition:</b> loader.cpp:96</div></div>
-<div class="ttc" id="anamespacevk_1_1method_1_1messages_html_a2ec026fd5cbebeabae6f94e35f6c0894"><div class="ttname"><a href="namespacevk_1_1method_1_1messages.html#a2ec026fd5cbebeabae6f94e35f6c0894">vk::method::messages::send</a></div><div class="ttdeci">void send(int64_t peer_id, std::string_view text, bool mentions_flag=false)</div><div class="ttdef"><b>Definition:</b> basic.cpp:11</div></div>
-<div class="ttc" id="anamespacevk_html_ad852a9554a26347f17e376a254bb8433"><div class="ttname"><a href="namespacevk.html#ad852a9554a26347f17e376a254bb8433">vk::setup_logger</a></div><div class="ttdeci">void setup_logger(std::string_view level)</div><div class="ttdef"><b>Definition:</b> setup_logger.hpp:8</div></div>
-<div class="ttc" id="asetup__logger_8hpp_html"><div class="ttname"><a href="setup__logger_8hpp.html">setup_logger.hpp</a></div></div>
+<div class="ttc" id="aclassvk_1_1long__poll_html"><div class="ttname"><a href="classvk_1_1long__poll.html">vk::long_poll</a></div><div class="ttdoc">Event queue that implements group long polling.</div><div class="ttdef"><b>Definition:</b> long_poll.hpp:22</div></div>
 </div><!-- fragment --><p>Please, check the <a href="https://github.com/threadpoolexecutor/cpp_vk_lib">README.md</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

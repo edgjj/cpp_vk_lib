@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_bfc5d6602c24fe620e9298c54e0ed106.html">vk</a></li><li class="navelem"><a class="el" href="dir_5a2e7e63c769be3e121e8a7cb4ca18ae.html">include</a></li><li class="navelem"><a class="el" href="dir_fbb33e17df5f069d7f17e07da9201121.html">keyboard</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_9986c02ba0b5b8de78617cb7a0436aeb.html">include</a></li><li class="navelem"><a class="el" href="dir_65a3cc440443506bc95e40cce0db2f2d.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_498c9ed181dbcca92216ca8e1e4de836.html">vk</a></li><li class="navelem"><a class="el" href="dir_0c9f8458c7dea04d52454e54c25cc1a0.html">keyboard</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,56 +70,45 @@ $(function() {
 <div class="title">layout.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="layout_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_KEYBOARD_LAYOUT_HPP</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VK_KEYBOARD_LAYOUT_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VK_KEYBOARD_LAYOUT_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="location_8hpp.html">vk/include/keyboard/buttons/location.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="open__app_8hpp.html">vk/include/keyboard/buttons/open_app.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8hpp.html">vk/include/keyboard/buttons/text.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vk__pay_8hpp.html">vk/include/keyboard/buttons/vk_pay.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flags_8hpp.html">vk/include/keyboard/flags.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/buttons/location.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/buttons/open_app.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/buttons/text.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/buttons/vk_pay.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/flags.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;variant&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacevk_1_1keyboard.html">vk::keyboard</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>vk::keyboard {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">   14</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">any_button</a> = std::variant&lt;button::text, button::vk_pay, button::open_app, button::location&gt;;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">   22</a></span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">layout</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">layout</a>(<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">keyboard::flag</a> flags);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a3bbca2c3ff31e0dcaf967e545814e82d">add_row</a>(<span class="keyword">const</span> std::vector&lt;any_button&gt;&amp; row);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">serialize</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::string <a class="code" href="classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444">get</a>() const noexcept;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#aace125e412669280da043d58938aad0a">has_flag</a>(keyboard::<a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a>) const noexcept;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;private:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::<span class="keywordtype">string</span> serialized_{};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; buttons_{};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">flag</a> flags_ = <a class="code" href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<span class="comment">// namespace vk::keyboard</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_LAYOUT_HPP</span></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a></div><div class="ttdoc">The buttons grid representation.</div><div class="ttdef"><b>Definition:</b> layout.hpp:20</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a3bbca2c3ff31e0dcaf967e545814e82d"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a3bbca2c3ff31e0dcaf967e545814e82d">vk::keyboard::layout::add_row</a></div><div class="ttdeci">void add_row(const std::vector&lt; any_button &gt; &amp;row)</div><div class="ttdoc">Add row. Each add_row call adds new row to keyboard.</div><div class="ttdef"><b>Definition:</b> layout.cpp:14</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a3d9029dac5d65e995667186014c1d444"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a3d9029dac5d65e995667186014c1d444">vk::keyboard::layout::get</a></div><div class="ttdeci">std::string get() const noexcept</div><div class="ttdef"><b>Definition:</b> layout.cpp:76</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a9c1a4c1fcb333d4c98e67cf097566c17"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">vk::keyboard::layout::serialize</a></div><div class="ttdeci">void serialize()</div><div class="ttdoc">Convert buttons data to JSON schema.</div><div class="ttdef"><b>Definition:</b> layout.cpp:40</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_aace125e412669280da043d58938aad0a"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#aace125e412669280da043d58938aad0a">vk::keyboard::layout::has_flag</a></div><div class="ttdeci">bool has_flag(keyboard::flag flag) const noexcept</div><div class="ttdef"><b>Definition:</b> layout.cpp:81</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_ac899d40e7d07a7a7ea955e77a5014dd6"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#ac899d40e7d07a7a7ea955e77a5014dd6">vk::keyboard::layout::layout</a></div><div class="ttdeci">layout()=default</div></div>
-<div class="ttc" id="aflags_8hpp_html"><div class="ttname"><a href="flags_8hpp.html">flags.hpp</a></div></div>
-<div class="ttc" id="alocation_8hpp_html"><div class="ttname"><a href="location_8hpp.html">location.hpp</a></div></div>
-<div class="ttc" id="anamespacevk_1_1keyboard_html"><div class="ttname"><a href="namespacevk_1_1keyboard.html">vk::keyboard</a></div><div class="ttdef"><b>Definition:</b> open_app.hpp:6</div></div>
-<div class="ttc" id="anamespacevk_1_1keyboard_html_a52a8e8c52b96c68addfd04eb41c5fc05"><div class="ttname"><a href="namespacevk_1_1keyboard.html#a52a8e8c52b96c68addfd04eb41c5fc05">vk::keyboard::any_button</a></div><div class="ttdeci">std::variant&lt; button::text, button::vk_pay, button::open_app, button::location &gt; any_button</div><div class="ttdef"><b>Definition:</b> layout.hpp:14</div></div>
-<div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654">vk::keyboard::flag</a></div><div class="ttdeci">flag</div><div class="ttdef"><b>Definition:</b> flags.hpp:7</div></div>
-<div class="ttc" id="anamespacevk_1_1keyboard_html_acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="namespacevk_1_1keyboard.html#acfaac25c7c91214c256cb65a52850654a334c4a4c42fdb79d7ebc3e73b517e6f8">vk::keyboard::flag::none</a></div><div class="ttdeci">@ none</div></div>
-<div class="ttc" id="aopen__app_8hpp_html"><div class="ttname"><a href="open__app_8hpp.html">open_app.hpp</a></div></div>
-<div class="ttc" id="atext_8hpp_html"><div class="ttname"><a href="text_8hpp.html">text.hpp</a></div></div>
-<div class="ttc" id="avk__pay_8hpp_html"><div class="ttname"><a href="vk__pay_8hpp.html">vk_pay.hpp</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> any_button = std::</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    variant&lt;button::text, button::vk_pay, button::open_app, button::location&gt;;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>(keyboard::flag flags);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> add_row(<span class="keyword">const</span> std::vector&lt;any_button&gt;&amp; row);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">serialize</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">get</a>() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> has_flag(keyboard::flag flag) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string serialized_{};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; buttons_{};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    flag flags_ = vk::keyboard::flag::none;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}<span class="comment">// namespace vk::keyboard</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_LAYOUT_HPP</span></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a></div><div class="ttdoc">The buttons grid representation.</div><div class="ttdef"><b>Definition:</b> layout.hpp:21</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a2927084b2567e0b7188a83c7285f0ffc"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">vk::keyboard::layout::get</a></div><div class="ttdeci">const std::string &amp; get() const noexcept</div><div class="ttdef"><b>Definition:</b> layout.cpp:83</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a9c1a4c1fcb333d4c98e67cf097566c17"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">vk::keyboard::layout::serialize</a></div><div class="ttdeci">void serialize()</div><div class="ttdef"><b>Definition:</b> layout.cpp:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

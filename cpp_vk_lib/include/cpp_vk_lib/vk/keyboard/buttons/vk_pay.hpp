@@ -9,11 +9,14 @@ class vk_pay
 {
 public:
     vk_pay(std::string_view hash)
-        : hash_(hash) {}
+        : hash_(hash)
+    {}
 
     std::string serialize() const
     {
-        return runtime::string_utils::format(R"__({"action":{"type":"vkpay","hash":"{}"}})__", hash_);
+        return runtime::string_utils::format(
+            R"__({"action":{"type":"vkpay","hash":"{}"}})__",
+            hash_);
     }
 
 private:

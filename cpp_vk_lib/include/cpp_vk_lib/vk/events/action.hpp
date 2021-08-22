@@ -45,8 +45,7 @@ using any_action_t = std::variant<
     chat_pin_message,
     chat_unpin_message,
     chat_photo_update,
-    chat_title_update
->;
+    chat_title_update>;
 
 }// namespace vk::action
 

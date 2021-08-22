@@ -13,8 +13,16 @@ class object;
 namespace vk::method::messages {
 
 void send(int64_t peer_id, std::string_view text, bool mentions_flag = false);
-void send(int64_t peer_id, std::string_view text, std::vector<attachment::attachment_ptr_t> list, bool mentions_flag = false);
-void send(int64_t peer_id, std::string_view text, std::string_view keyboard_layout, bool mentions_flag = false);
+void send(
+    int64_t peer_id,
+    std::string_view text,
+    std::vector<attachment::attachment_ptr_t> list,
+    bool mentions_flag = false);
+void send(
+    int64_t peer_id,
+    std::string_view text,
+    std::string_view keyboard_layout,
+    bool mentions_flag = false);
 
 }// namespace vk::method::messages
 

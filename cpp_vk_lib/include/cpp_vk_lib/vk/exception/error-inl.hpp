@@ -1,23 +1,15 @@
-#ifndef VK_EXCEPTION_ERROR_INL_HPP
-#define VK_EXCEPTION_ERROR_INL_HPP
+#ifndef VK_EXCEPTION_TRANSLATE_ERROR_HPP
+#define VK_EXCEPTION_TRANSLATE_ERROR_HPP
 
-#include <unordered_map>
 #include <cstddef>
+#include <unordered_map>
 
 namespace vk::exception {
-
-enum class error_type : size_t
-{
-    upload_error,
-    access_error,
-    invalid_parameter_error,
-    runtime_error,
-};
-
+/*!
+ * \return Detailed VK error description by its code
+ */
 const char* translate_error(size_t error_code);
-void process_error(size_t error_code);
-void process_error(const char* message, error_type err_type);
 
-} // namespace vk::exception
+}// namespace vk::exception
 
-#endif // VK_EXCEPTION_ERROR_INL_HPP
+#endif// VK_EXCEPTION_TRANSLATE_ERROR_HPP

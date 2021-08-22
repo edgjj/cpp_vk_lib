@@ -62,12 +62,13 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevk.html">vk</a></li><li class="navelem"><a class="el" href="namespacevk_1_1method.html">method</a></li><li class="navelem"><a class="el" href="classvk_1_1method_1_1constructor.html">constructor</a></li>  </ul>
+<li class="navelem"><b>vk</b></li><li class="navelem"><b>method</b></li><li class="navelem"><a class="el" href="classvk_1_1method_1_1constructor.html">constructor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classvk_1_1method_1_1constructor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vk::method::constructor&lt; ExecutionPolicy &gt; Class Template Reference</div>  </div>
@@ -86,12 +87,34 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a62c1745a3b5bc38817aa9a57bdf9d5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7c33c71c0b7bc4d02ac5a5a423af97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1constructor.html">constructor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1constructor.html#a4b7c33c71c0b7bc4d02ac5a5a423af97">param</a> (std::string_view key, std::string_view value)</td></tr>
 <tr class="separator:a4b7c33c71c0b7bc4d02ac5a5a423af97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80d4f48b47f61d8e55953236f1095b4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1constructor.html">constructor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1constructor.html#a80d4f48b47f61d8e55953236f1095b4f">append_map</a> (std::map&lt; std::string, std::string &gt; &amp;&amp;additional_params)</td></tr>
-<tr class="separator:a80d4f48b47f61d8e55953236f1095b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e8d220fd80c6a534a5df69722f01d93"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1constructor.html#a9e8d220fd80c6a534a5df69722f01d93">perform_request</a> ()</td></tr>
 <tr class="separator:a9e8d220fd80c6a534a5df69722f01d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab4a55401c431afa5ba07c7b1cad6806b"><td class="memItemLeft" align="right" valign="top"><a id="ab4a55401c431afa5ba07c7b1cad6806b"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>user_token_</b></td></tr>
+<tr class="separator:ab4a55401c431afa5ba07c7b1cad6806b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d2a81daffe688602d8e5ff66a409b7d"><td class="memItemLeft" align="right" valign="top"><a id="a9d2a81daffe688602d8e5ff66a409b7d"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>access_token_</b></td></tr>
+<tr class="separator:a9d2a81daffe688602d8e5ff66a409b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be6946a79d34212c4c3107cc179c534"><td class="memItemLeft" align="right" valign="top"><a id="a3be6946a79d34212c4c3107cc179c534"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>method_</b> {}</td></tr>
+<tr class="separator:a3be6946a79d34212c4c3107cc179c534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec439fdfc91946f8af368f36e1ffddb"><td class="memItemLeft" align="right" valign="top"><a id="a5ec439fdfc91946f8af368f36e1ffddb"></a>
+std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>params_</b> {}</td></tr>
+<tr class="separator:a5ec439fdfc91946f8af368f36e1ffddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ExecutionPolicy&gt;<br />
+class vk::method::constructor&lt; ExecutionPolicy &gt;</h3>
+
+<p>Basic class to construct VK API requests. Tokens and API version appends automatically.</p>
+<div class="fragment"><div class="line">constructor&lt;user_api&gt;()</div>
+<div class="line">  .method(<span class="stringliteral">&quot;utils.resolveScreenName&quot;</span>)</div>
+<div class="line">  .param(<span class="stringliteral">&quot;screen_name&quot;</span>, <span class="stringliteral">&quot;durov&quot;</span>)</div>
+<div class="line">  .perform_request();</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a11da862a01e2a3d3764db8a81b49caa4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11da862a01e2a3d3764db8a81b49caa4">&#9670;&nbsp;</a></span>constructor() <span class="overload">[1/2]</span></h2>
 
@@ -105,6 +128,7 @@ template&lt;typename ExecutionPolicy &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Loads user token from config. </p>
 
 </div>
 </div>
@@ -125,30 +149,11 @@ template&lt;typename ExecutionPolicy &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Loads user token from <code>user_token</code>. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a80d4f48b47f61d8e55953236f1095b4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80d4f48b47f61d8e55953236f1095b4f">&#9670;&nbsp;</a></span>append_map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ExecutionPolicy &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvk_1_1method_1_1constructor.html">constructor</a>&lt; ExecutionPolicy &gt; &amp; <a class="el" href="classvk_1_1method_1_1constructor.html">vk::method::constructor</a>&lt; ExecutionPolicy &gt;::append_map </td>
-          <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::string &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>additional_params</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a62c1745a3b5bc38817aa9a57bdf9d5bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62c1745a3b5bc38817aa9a57bdf9d5bc">&#9670;&nbsp;</a></span>method()</h2>
 
@@ -166,6 +171,7 @@ template&lt;typename ExecutionPolicy &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Setup VK API method name. </p>
 
 </div>
 </div>
@@ -196,6 +202,7 @@ template&lt;typename ExecutionPolicy &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Append <code>param=value</code> pair to parameters list. </p>
 
 </div>
 </div>
@@ -212,12 +219,14 @@ template&lt;typename ExecutionPolicy &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Execute HTTP POST request and return output.</p>
+<dl class="section note"><dt>Note</dt><dd>all params will be destroyed after request. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="constructor_8hpp_source.html">constructor.hpp</a></li>
-<li><a class="el" href="constructor_8cpp.html">constructor.cpp</a></li>
+<li>constructor.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

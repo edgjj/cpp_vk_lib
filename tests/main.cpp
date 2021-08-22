@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         }
     )__";
 
-    vk::setup_logger("trace");
+    vk::setup_logger(spdlog::level::level_enum::trace);
     vk::config::load_string(sample_config);
 
     testing::InitGoogleTest(&argc, argv);

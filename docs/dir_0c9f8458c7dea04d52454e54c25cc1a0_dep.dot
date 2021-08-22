@@ -1,0 +1,16 @@
+digraph "keyboard" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_498c9ed181dbcca92216ca8e1e4de836 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="vk" fontname="Helvetica", fontsize="10", URL="dir_498c9ed181dbcca92216ca8e1e4de836.html"]
+  subgraph clusterdir_0c9f8458c7dea04d52454e54c25cc1a0 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_0c9f8458c7dea04d52454e54c25cc1a0.html"];
+    dir_0c9f8458c7dea04d52454e54c25cc1a0 [shape=plaintext label="keyboard"];
+  dir_2d82d96373d15fbdd73ef68fcfc6db29 [shape=box label="buttons" fillcolor="white" style="filled" URL="dir_2d82d96373d15fbdd73ef68fcfc6db29.html"];
+  }
+  }
+  dir_1d64d0205a0b6d0ea77626b7c626c3e7 [shape=box label="runtime" fillcolor="white" style="filled" color="red" URL="dir_1d64d0205a0b6d0ea77626b7c626c3e7.html"];
+  dir_2d82d96373d15fbdd73ef68fcfc6db29->dir_1d64d0205a0b6d0ea77626b7c626c3e7 [headlabel="3", labeldistance=1.5 headhref="dir_000027_000019.html"];
+  dir_0c9f8458c7dea04d52454e54c25cc1a0->dir_2d82d96373d15fbdd73ef68fcfc6db29 [headlabel="4", labeldistance=1.5 headhref="dir_000014_000027.html"];
+}

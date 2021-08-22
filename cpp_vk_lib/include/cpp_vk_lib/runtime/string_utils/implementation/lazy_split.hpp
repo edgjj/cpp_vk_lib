@@ -8,52 +8,56 @@
 
 namespace runtime::string_utils {
 
-struct end_split_iterator {};
+struct end_split_iterator
+{};
 
 template <typename StringType>
 class split_iterator
 {
 public:
-    split_iterator(StringType source, StringType delim)
-        : src(std::forward<StringType>(source))
-        , delimiter(std::forward<StringType>(delim))
-        , first(0)
-        , last(src.find(delimiter)) {}
+    split_iterator(StringType source, StringType delimiter)
+        : src_(std::forward<StringType>(source))
+        , delimiter_(std::forward<StringType>(delimiter))
+        , first_(0)
+        , last_(src_.find(delimiter))
+    {}
 
     split_iterator& operator++() noexcept
     {
-        first = last + delimiter.size();
-        last = src.find(delimiter, first);
+        first_ = last_ + delimiter_.size();
+        last_ = src_.find(delimiter_, first_);
         return *this;
     }
 
     StringType operator*() const noexcept
     {
-        if (last != StringType::npos) {
-            return src.substr(first, last - first);
+        if (last_ != StringType::npos) {
+            return src_.substr(first_, last_ - first_);
         }
 
-        finished = true;
+        finished_ = true;
 
-        return src.substr(first, src.size() - first);
+        return src_.substr(first_, src_.size() - first_);
     }
 
-    friend constexpr bool operator!=(const split_iterator& iterator, end_split_iterator) noexcept
+    friend constexpr bool
+        operator!=(const split_iterator& iterator, end_split_iterator) noexcept
     {
-        return !iterator.finished;
+        return !iterator.finished_;
     }
 
-    friend constexpr bool operator!=(end_split_iterator, const split_iterator& iterator) noexcept
+    friend constexpr bool
+        operator!=(end_split_iterator, const split_iterator& iterator) noexcept
     {
-        return !iterator.finished;
+        return !iterator.finished_;
     }
 
 private:
-    StringType src;
-    StringType delimiter;
-    size_t first;
-    size_t last;
-    mutable bool finished = false;
+    StringType src_;
+    StringType delimiter_;
+    size_t first_;
+    size_t last_;
+    mutable bool finished_ = false;
 };
 
 template <typename StringType>
@@ -61,12 +65,13 @@ class split_range
 {
 public:
     split_range(StringType source, StringType delim) noexcept
-        : src(std::forward<StringType>(source))
-        , delimiter(std::forward<StringType>(delim)) {}
+        : src_(std::forward<StringType>(source))
+        , delimiter_(std::forward<StringType>(delim))
+    {}
 
     auto begin() const noexcept
     {
-        return split_iterator<StringType>{src, delimiter};
+        return split_iterator<StringType>{src_, delimiter_};
     }
 
     auto end() const noexcept
@@ -75,14 +80,13 @@ public:
     }
 
 private:
-    StringType src;
-    StringType delimiter;
+    StringType src_;
+    StringType delimiter_;
 };
 
-template <typename String>
-auto lazy_split(String&& str, String&& delim)
+auto lazy_split(std::string_view data, std::string_view delimiter)
 {
-    return split_range<String>(str, delim);
+    return split_range<std::string_view>(data, delimiter);
 }
 
 }// namespace runtime::string_utils

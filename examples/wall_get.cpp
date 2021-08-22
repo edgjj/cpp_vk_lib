@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     const char* count_of_posts = argv[3];
     const char* out_path = argv[4];
     vk::config::load(log_path);
-    vk::setup_logger("trace");
+    vk::setup_logger(spdlog::level::level_enum::trace);
 
     const std::string response = vk::method::user_constructor()
         .method("wall.get")

@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['has_5faction_461',['has_action',['../classvk_1_1event_1_1message__new.html#a1b5c2d16241faa474a1d5c1aa66cadf4',1,'vk::event::message_new']]],
-  ['has_5fattachments_462',['has_attachments',['../classvk_1_1event_1_1wall__post__new.html#a28fc56faaf2750baf744d983ba1a6917',1,'vk::event::wall_post_new::has_attachments()'],['../classvk_1_1event_1_1wall__reply__new.html#a68a080d9ad60de3c2b9f7fde1b98e09e',1,'vk::event::wall_reply_new::has_attachments()'],['../classvk_1_1event_1_1wall__repost.html#a8ecbaa8367380dd5481e533211169346',1,'vk::event::wall_repost::has_attachments()']]],
-  ['has_5fflag_463',['has_flag',['../classvk_1_1keyboard_1_1layout.html#aace125e412669280da043d58938aad0a',1,'vk::keyboard::layout']]],
-  ['has_5ffwd_5fmessages_464',['has_fwd_messages',['../classvk_1_1event_1_1message__new.html#a9f5b1b6ff772d3efb202ce948ac1bb5d',1,'vk::event::message_new']]],
-  ['has_5freply_465',['has_reply',['../classvk_1_1event_1_1message__new.html#a1dff1f6d7942903455faad4aa8343d0b',1,'vk::event::message_new']]],
-  ['has_5frepost_466',['has_repost',['../classvk_1_1event_1_1wall__post__new.html#ac870365959904c6108855c2b5da0ad6f',1,'vk::event::wall_post_new']]]
+  ['on_5fevent_119',['on_event',['../classvk_1_1long__poll.html#a080d10a5e2f4cfbcc7ff01a2d812c130',1,'vk::long_poll']]],
+  ['operator_20bool_120',['operator bool',['../classvk_1_1error__code.html#a3b96b6b423c028a078ed6adabfccba60',1,'vk::error_code']]]
 ];

@@ -8,18 +8,32 @@
 
 namespace vk::method {
 /*!
- * @brief Helper to work with message.send method.
+ * \brief constructor<policy::group_api> adapter.
  */
 class message_constructor
 {
 public:
     static inline bool disable_mentions = true;
     static inline bool enable_mentions = false;
-
-    explicit message_constructor(bool disable_mentions_flag);
-
+    /*!
+     * Create constructor with following parameters:
+     * - random_id=0
+     * - disable_mentions=0 or 1, depends on disable_mentions_flag
+     */
+    message_constructor(bool disable_mentions_flag);
+    /*!
+     * constructor<policy::group_api> proxy.
+     */
     message_constructor& param(std::string_view lhs, std::string_view rhs);
-    message_constructor& attachments(std::vector<attachment::attachment_ptr_t>&& attachments);
+    /*!
+     * Serialize and append attachment list to:
+     * - attachments=(serialized output)
+     */
+    message_constructor&
+        attachments(std::vector<attachment::attachment_ptr_t>&& attachments);
+    /*!
+     * constructor<policy::group_api> proxy.
+     */
     std::string perform_request();
 
 private:

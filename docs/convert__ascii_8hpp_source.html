@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_ae58b8918dcb99903ff518e79eee4aff.html">runtime</a></li><li class="navelem"><a class="el" href="dir_6b3b46dacdabf3bc023188deee3b93c2.html">include</a></li><li class="navelem"><a class="el" href="dir_289c82d0fd140af061f5dc9762466b08.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_9f612a5a10a645d2929963d5bcb196f5.html">implementation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4470ddd6e717f230cc39b1c2bb983dff.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_9986c02ba0b5b8de78617cb7a0436aeb.html">include</a></li><li class="navelem"><a class="el" href="dir_65a3cc440443506bc95e40cce0db2f2d.html">cpp_vk_lib</a></li><li class="navelem"><a class="el" href="dir_1d64d0205a0b6d0ea77626b7c626c3e7.html">runtime</a></li><li class="navelem"><a class="el" href="dir_d5976796162e133a24e050010ce401eb.html">string_utils</a></li><li class="navelem"><a class="el" href="dir_ba01560a084bb2cb849fb588f3f787dd.html">implementation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,55 +70,59 @@ $(function() {
 <div class="title">convert_ascii.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="convert__ascii_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;codecvt&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;locale&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ExecutionPolicy&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> std::string ascii_convert_implementation(std::string_view data, ExecutionPolicy policy)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::string converted;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    converted.reserve(data.length());</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; c : data) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        converted += policy(c);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> converted;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils.html">   20</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html">runtime::string_utils::implementation</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils_1_1implementation.html#a352f89adcda6f28fc25f552177b6383f">   22</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#a352f89adcda6f28fc25f552177b6383f">create_ascii_lower</a>(std::string_view data)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> ascii_convert_implementation(data, [](<span class="keyword">auto</span> c) -&gt; <span class="keywordtype">char</span> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (c &lt;= &#39;Z&#39; &amp;&amp; c &gt;= <span class="charliteral">&#39;A&#39;</span>) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> c - (<span class="charliteral">&#39;Z&#39;</span> - <span class="charliteral">&#39;z&#39;</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> c;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    });</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceruntime_1_1string__utils_1_1implementation.html#ae254582671a106eba34a1a34ef12d8b1">   33</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceruntime_1_1string__utils_1_1implementation.html#ae254582671a106eba34a1a34ef12d8b1">create_ascii_upper</a>(std::string_view data)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> ascii_convert_implementation(data, [](<span class="keyword">auto</span>&amp; c) -&gt; <span class="keywordtype">char</span> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (c &lt;= &#39;z&#39; &amp;&amp; c &gt;= <span class="charliteral">&#39;a&#39;</span>) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> c + (<span class="charliteral">&#39;Z&#39;</span> - <span class="charliteral">&#39;z&#39;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> c;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    });</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<span class="comment">// namespace runtime::string_utils::implementation</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP</span></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html">runtime::string_utils::implementation</a></div><div class="ttdef"><b>Definition:</b> convert_ascii.hpp:20</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html_a352f89adcda6f28fc25f552177b6383f"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html#a352f89adcda6f28fc25f552177b6383f">runtime::string_utils::implementation::create_ascii_lower</a></div><div class="ttdeci">std::string create_ascii_lower(std::string_view data)</div><div class="ttdef"><b>Definition:</b> convert_ascii.hpp:22</div></div>
-<div class="ttc" id="anamespaceruntime_1_1string__utils_1_1implementation_html_ae254582671a106eba34a1a34ef12d8b1"><div class="ttname"><a href="namespaceruntime_1_1string__utils_1_1implementation.html#ae254582671a106eba34a1a34ef12d8b1">runtime::string_utils::implementation::create_ascii_upper</a></div><div class="ttdeci">std::string create_ascii_upper(std::string_view data)</div><div class="ttdef"><b>Definition:</b> convert_ascii.hpp:33</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// template &lt;typename ExecutionPolicy&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// static inline std::string</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//    ascii_convert_impl(std::string_view data, ExecutionPolicy policy)</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//    std::string converted;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//    converted.reserve(data.length());</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//    for (auto&amp; c : data) {</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//        converted += policy(c);</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//    }</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//    return converted;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>runtime::string_utils {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">inline</span> std::string ascii_to_lower(std::string_view data)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string converted;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    converted.reserve(data.length());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : data) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> (c &lt;= &#39;Z&#39; &amp;&amp; c &gt;= <span class="charliteral">&#39;A&#39;</span>) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            converted.push_back(<span class="keywordtype">char</span>(c - (<span class="charliteral">&#39;Z&#39;</span> - <span class="charliteral">&#39;z&#39;</span>)));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            converted.push_back(c);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> converted;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">inline</span> std::string ascii_to_upper(std::string_view data)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string converted;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    converted.reserve(data.length());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : data) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span> (c &lt;= &#39;z&#39; &amp;&amp; c &gt;= <span class="charliteral">&#39;a&#39;</span>) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            converted.push_back(<span class="keywordtype">char</span>(c + (<span class="charliteral">&#39;Z&#39;</span> - <span class="charliteral">&#39;z&#39;</span>)));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            converted.push_back(c);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> converted;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}<span class="comment">// namespace runtime::string_utils</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// RUNTIME_STRING_UTILS_IMPLEMENTATION_CONVERT_ASCII_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

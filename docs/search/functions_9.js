@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['join_469',['join',['../namespaceruntime_1_1string__utils.html#a082b7ff8c43b6e09175e3a8ff3397918',1,'runtime::string_utils::join(Container &amp;&amp;elements, char delimiter)'],['../namespaceruntime_1_1string__utils.html#a836e4685e637fb608ee997462a03ea58',1,'runtime::string_utils::join(std::initializer_list&lt; T &gt; elements, char delimiter)']]]
+  ['reply_124',['reply',['../classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e',1,'vk::event::message_new']]],
+  ['repost_125',['repost',['../classvk_1_1event_1_1wall__post__new.html#a4dbbbff58ea5e25b5db185ac5c71aae1',1,'vk::event::wall_post_new']]],
+  ['run_126',['run',['../classvk_1_1long__poll.html#a322e226435927bf8cc75aa5e1d8acd17',1,'vk::long_poll']]]
 ];

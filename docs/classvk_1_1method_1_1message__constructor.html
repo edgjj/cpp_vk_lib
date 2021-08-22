@@ -62,20 +62,21 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacevk.html">vk</a></li><li class="navelem"><a class="el" href="namespacevk_1_1method.html">method</a></li><li class="navelem"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a></li>  </ul>
+<li class="navelem"><b>vk</b></li><li class="navelem"><b>method</b></li><li class="navelem"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classvk_1_1method_1_1message__constructor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">vk::method::message_constructor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Helper to work with message.send method.  
+<p><a class="el" href="classvk_1_1method_1_1constructor.html">constructor&lt;policy::group_api&gt;</a> adapter.  
  <a href="classvk_1_1method_1_1message__constructor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="message__constructor_8hpp_source.html">message_constructor.hpp</a>&gt;</code></p>
@@ -86,29 +87,34 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab0879fdc29699fade33dea42cbe8d351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70aad254155e49b14bd63df263055943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#a70aad254155e49b14bd63df263055943">param</a> (std::string_view lhs, std::string_view rhs)</td></tr>
 <tr class="separator:a70aad254155e49b14bd63df263055943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eba945f9891b891588c3479fb961812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#a8eba945f9891b891588c3479fb961812">attachments</a> (std::vector&lt; <a class="el" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">attachment::attachment_ptr_t</a> &gt; &amp;&amp;attachments)</td></tr>
+<tr class="memitem:a8eba945f9891b891588c3479fb961812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#a8eba945f9891b891588c3479fb961812">attachments</a> (std::vector&lt; attachment::attachment_ptr_t &gt; &amp;&amp;attachments)</td></tr>
 <tr class="separator:a8eba945f9891b891588c3479fb961812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7903ca16658ab3295a9cbbff1520b6cc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#a7903ca16658ab3295a9cbbff1520b6cc">perform_request</a> ()</td></tr>
 <tr class="separator:a7903ca16658ab3295a9cbbff1520b6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa7651af229e09aaba09e7e4e42947ad7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#aa7651af229e09aaba09e7e4e42947ad7">disable_mentions</a> = true</td></tr>
+<tr class="memitem:aa7651af229e09aaba09e7e4e42947ad7"><td class="memItemLeft" align="right" valign="top"><a id="aa7651af229e09aaba09e7e4e42947ad7"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>disable_mentions</b> = true</td></tr>
 <tr class="separator:aa7651af229e09aaba09e7e4e42947ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc75bb893ef8b949975081e06b8228d4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1method_1_1message__constructor.html#adc75bb893ef8b949975081e06b8228d4">enable_mentions</a> = false</td></tr>
+<tr class="memitem:adc75bb893ef8b949975081e06b8228d4"><td class="memItemLeft" align="right" valign="top"><a id="adc75bb893ef8b949975081e06b8228d4"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_mentions</b> = false</td></tr>
 <tr class="separator:adc75bb893ef8b949975081e06b8228d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1ab1d6d5a29f41a67d5cb4df3046a26e"><td class="memItemLeft" align="right" valign="top"><a id="a1ab1d6d5a29f41a67d5cb4df3046a26e"></a>
+<a class="el" href="classvk_1_1method_1_1constructor.html">group_constructor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constructor_</b></td></tr>
+<tr class="separator:a1ab1d6d5a29f41a67d5cb4df3046a26e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Helper to work with message.send method. </p>
+<div class="textblock"><p><a class="el" href="classvk_1_1method_1_1constructor.html">constructor&lt;policy::group_api&gt;</a> adapter. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab0879fdc29699fade33dea42cbe8d351"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0879fdc29699fade33dea42cbe8d351">&#9670;&nbsp;</a></span>message_constructor()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">vk::method::message_constructor::message_constructor </td>
@@ -118,12 +124,11 @@ Static Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>Create constructor with following parameters:</p><ul>
+<li>random_id=0</li>
+<li>disable_mentions=0 or 1, depends on disable_mentions_flag </li>
+</ul>
 
 </div>
 </div>
@@ -137,12 +142,15 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classvk_1_1method_1_1message__constructor.html">message_constructor</a> &amp; vk::method::message_constructor::attachments </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="namespacevk_1_1attachment.html#a86f208fdc190093aa6a83a1595771aa5">attachment::attachment_ptr_t</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; attachment::attachment_ptr_t &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>attachments</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Serialize and append attachment list to:</p><ul>
+<li>attachments=(serialized output) </li>
+</ul>
 
 </div>
 </div>
@@ -171,6 +179,7 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="el" href="classvk_1_1method_1_1constructor.html">constructor&lt;policy::group_api&gt;</a> proxy. </p>
 
 </div>
 </div>
@@ -188,57 +197,13 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa7651af229e09aaba09e7e4e42947ad7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7651af229e09aaba09e7e4e42947ad7">&#9670;&nbsp;</a></span>disable_mentions</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vk::method::message_constructor::disable_mentions = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc75bb893ef8b949975081e06b8228d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc75bb893ef8b949975081e06b8228d4">&#9670;&nbsp;</a></span>enable_mentions</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vk::method::message_constructor::enable_mentions = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p><a class="el" href="classvk_1_1method_1_1constructor.html">constructor&lt;policy::group_api&gt;</a> proxy. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="message__constructor_8hpp_source.html">message_constructor.hpp</a></li>
-<li><a class="el" href="message__constructor_8cpp.html">message_constructor.cpp</a></li>
+<li>message_constructor.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

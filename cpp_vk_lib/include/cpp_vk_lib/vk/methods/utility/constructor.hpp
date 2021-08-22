@@ -4,52 +4,79 @@
 #include "cpp_vk_lib/runtime/net/network.hpp"
 
 namespace vk::method::policy {
-
+/*!
+ * \brief Policy that uses group_token. user_token ignored.
+ */
 struct group_api
 {
     static std::string execute(
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
-        const std::string& user_token
-    );
+        const std::string& user_token);
 };
+/*!
+ * \brief Policy that uses user_token. group_token ignored.
+ */
 struct user_api
 {
     static std::string execute(
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
-        const std::string& user_token
-    );
+        const std::string& user_token);
 };
+/*!
+ * \brief Raw policy. All tokens are ignored.
+ */
 struct do_not_use_api_link
 {
     static std::string execute(
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
-        const std::string& user_token
-    );
+        const std::string& user_token);
 };
 
 }// namespace vk::method::policy
 
 namespace vk::method {
-
+/*!
+ * Basic class to construct VK API requests.
+ * Tokens and API version appends automatically.
+ *
+ * \code
+     constructor<user_api>()
+       .method("utils.resolveScreenName")
+       .param("screen_name", "durov")
+       .perform_request();
+ * \endcode
+ */
 template <typename ExecutionPolicy>
 class constructor
 {
 public:
+    /*!
+     * Loads user token from config.
+     */
     constructor();
+    /*!
+     * Loads user token from \c user_token.
+     */
     constructor(std::string_view user_token);
-
+    /*!
+     * Setup VK API method name.
+     */
     constructor& method(std::string_view method);
-
+    /*!
+     * Append \c param=value pair to parameters list.
+     */
     constructor& param(std::string_view key, std::string_view value);
-
-    constructor& append_map(std::map<std::string, std::string>&& additional_params);
-
+    /*!
+     * Execute HTTP POST request and return output.
+     *
+     * \note all params will be destroyed after request.
+     */
     std::string perform_request();
 
 private:

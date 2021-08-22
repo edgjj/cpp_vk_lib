@@ -64,6 +64,14 @@ TEST(string_utils, format)
     ASSERT_EQ(util::format("arg1: {}, arg2: {}, arg3: {}", text, text, text), "arg1: 1, arg2: 1, arg3: 1");
 }
 
+TEST(string_utils, join_by_string)
+{
+    ASSERT_EQ(util::join({1, 2, 3}, "__"), "1__2__3");
+    ASSERT_EQ(util::join({1ULL, 2ULL, 3ULL}, "???"), "1???2???3");
+    ASSERT_EQ(util::join({1, 2, 3}, "  "), "1  2  3");
+    ASSERT_EQ(util::join({"1", "2", "3"}, ""), "123");
+}
+
 TEST(string_utils, initializer_list_join)
 {
     ASSERT_EQ(util::join({1, 2, 3}, ','), "1,2,3");
@@ -155,18 +163,90 @@ TEST(string_utils, whitespace_split)
 
 TEST(string_utils, lazy_split)
 {
-    const std::array<const char*, 3> assertion_data_1 = {
+    const std::array<const char*, 3> assertion_output_1 = {
         "1", "2", "3"
     };
-    const std::array<const char*, 3> assertion_data_2 = {
+    const std::array<const char*, 3> assertion_output_2 = {
         "\x60", "\x60", "\x60"
     };
     size_t offset_1 = 0;
     size_t offset_2 = 0;
     for (auto word : util::lazy_split("1___2___3", "___")) {
-        ASSERT_EQ(word, assertion_data_1[offset_1++]);
+        ASSERT_EQ(word, assertion_output_1[offset_1++]);
     }
     for (auto word : util::lazy_split("\x60\x32\x60\x32\x60", "\x32")) {
-        ASSERT_EQ(word, assertion_data_2[offset_2++]);
+        ASSERT_EQ(word, assertion_output_2[offset_2++]);
     }
+}
+
+TEST(string_utils, split_equality)
+{
+    const std::vector<std::string_view> assertion_output = {
+        "\t\t\t\n", "\t\t\n\t", "\t\n\t\t"
+    };
+    constexpr std::string_view payload = "\t\t\t\n\v\t\t\n\t\v\t\n\t\t";
+    std::vector<std::string_view> lazy_split_output;
+    for (auto element : util::lazy_split(payload, "\v")) {
+        lazy_split_output.push_back(element);
+    }
+    std::vector<std::string_view> regular_split_output =
+        util::split(payload, "\v");
+    ASSERT_EQ(lazy_split_output, regular_split_output);
+    ASSERT_EQ(regular_split_output, assertion_output);
+}
+
+inline std::string create_split_buffer(size_t strings, size_t string_size, char payload)
+{
+    std::string output;
+    output.reserve(strings * string_size);
+    const std::string placeholder(string_size, payload);
+    for (size_t i = 0; i < strings; ++i) {
+        output += placeholder;
+        output += " ";
+    }
+    output.pop_back();
+    return output;
+}
+
+inline void dump_string_size(std::string_view input)
+{
+    std::cout << "             size: "
+              << (static_cast<double>(input.size() * sizeof(char)) / 1024.0 / 1024.0)
+              << " MiB." << std::endl;
+}
+
+TEST(string_utils, split_by_char_speed_test)
+{
+    const std::string buffer = create_split_buffer(5'000'000, 10, 'x');
+    dump_string_size(buffer);
+    util::split(buffer, ' ');
+}
+
+TEST(string_utils, split_by_string_speed_test)
+{
+    const std::string buffer = create_split_buffer(5'000'000, 10, 'x');
+    dump_string_size(buffer);
+    util::split(buffer, " ");
+}
+
+TEST(string_utils, lazy_split_speed_test)
+{
+    const std::string buffer = create_split_buffer(5'000'000, 10, 'x');
+    dump_string_size(buffer);
+    util::lazy_split(buffer, " ");
+}
+
+TEST(string_utils, format_speed_test)
+{
+    std::cout << "             format 60 MiB of data" << std::endl;
+    for (size_t i = 0; i < 5'000'000; ++i) {
+        util::format("params={}{}{}{}{}", "a", "b", "c", "d", "e");
+    }
+}
+
+TEST(string_utils, join_speed_test)
+{
+    std::cout << "             join 75 MiB of data\n";
+    const std::vector<std::string> elements(5'000'000, "frag mich warum");
+    util::join<std::string_view>(elements, ' ');
 }

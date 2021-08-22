@@ -1,8 +1,8 @@
-#ifndef VK_EVENTS_COMMON_EVENT_HPP
-#define VK_EVENTS_COMMON_EVENT_HPP
+#ifndef VK_EVENTS_COMMON_HPP
+#define VK_EVENTS_COMMON_HPP
 
-#include <string>
 #include <memory>
+#include <string>
 
 namespace vk::event {
 class message_new;
@@ -16,7 +16,9 @@ class object;
 
 namespace vk::event {
 /*!
- * @brief Temporary update container.
+ * Temporary update container used to store any event represented
+ * in raw JSON. Use the appropriate functions to get needed event
+ * types
  */
 class common
 {

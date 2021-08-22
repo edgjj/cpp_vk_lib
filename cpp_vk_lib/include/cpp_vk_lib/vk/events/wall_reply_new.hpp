@@ -3,7 +3,7 @@
 
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
 
-#include  <vector>
+#include <vector>
 
 namespace simdjson::dom {
 class object;
@@ -11,10 +11,9 @@ class object;
 
 namespace vk::event {
 /*!
- * @brief The `wall_reply_new` event representation.
- *
  * Internal information accessed in a "lazy way".
- * It means, that no data is extracted from JSON until the user wants to access it.
+ * It means, that no data is extracted from JSON
+ * until the user wants to access it
  */
 class wall_reply_new
 {
@@ -28,6 +27,9 @@ public:
     int64_t owner_id() const noexcept;
     std::string text() const noexcept;
     bool has_attachments() const noexcept;
+    /*!
+     * \note If no attachments were provided, empty vector returned
+     */
     std::vector<attachment::attachment_ptr_t> attachments() const;
 
 private:
@@ -37,7 +39,8 @@ private:
     bool has_attachments_ = false;
 };
 
-std::ostream& operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply);
+std::ostream&
+    operator<<(std::ostream& ostream, const vk::event::wall_reply_new& reply);
 
 }// namespace vk::event
 
