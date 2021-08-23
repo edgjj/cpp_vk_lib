@@ -84,7 +84,7 @@ private:
     StringType delimiter_;
 };
 
-auto lazy_split(std::string_view data, std::string_view delimiter)
+inline auto lazy_split(std::string_view data, std::string_view delimiter)
 {
     return split_range<std::string_view>(data, delimiter);
 }

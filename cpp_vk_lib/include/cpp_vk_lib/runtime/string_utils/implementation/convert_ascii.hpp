@@ -4,20 +4,6 @@
 #include <codecvt>
 #include <locale>
 
-// template <typename ExecutionPolicy>
-// static inline std::string
-//    ascii_convert_impl(std::string_view data, ExecutionPolicy policy)
-//{
-//    std::string converted;
-//    converted.reserve(data.length());
-//
-//    for (auto& c : data) {
-//        converted += policy(c);
-//    }
-//
-//    return converted;
-//}
-
 namespace runtime::string_utils {
 
 inline std::string ascii_to_lower(std::string_view data)
