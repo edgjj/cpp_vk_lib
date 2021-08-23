@@ -122,12 +122,19 @@ int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>pulled_user_id_</b
 <div class="textblock"><p>VK Oauth client. </p>
 <p>Example usage:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a class="code" href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a> client(<span class="stringliteral">&quot;phone number&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>,</div>
-<div class="line">      vk::oauth::target_client::windows);</div>
-<div class="line">    client.pull();</div>
-<div class="line">    vk::messages messages(client.token());</div>
+<div class="line">  <a class="code" href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a> client(<span class="stringliteral">&quot;phone number&quot;</span>, <span class="stringliteral">&quot;password&quot;</span>,</div>
+<div class="line">    vk::oauth::target_client::windows);</div>
+<div class="line">  client.pull();</div>
+<div class="line">  <a class="code" href="classvk_1_1method_1_1constructor.html">vk::method::constructor</a>(client.token())</div>
+<div class="line">    .<a class="code" href="classvk_1_1method_1_1constructor.html#a62c1745a3b5bc38817aa9a57bdf9d5bc">method</a>(...)</div>
+<div class="line">    .<a class="code" href="classvk_1_1method_1_1constructor.html#a4b7c33c71c0b7bc4d02ac5a5a423af97">param</a>(...)</div>
+<div class="line">    .<a class="code" href="classvk_1_1method_1_1constructor.html#a9e8d220fd80c6a534a5df69722f01d93">perform_request</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassvk_1_1oauth_1_1client_html"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a></div><div class="ttdoc">VK Oauth client.</div><div class="ttdef"><b>Definition:</b> client.hpp:35</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1constructor_html"><div class="ttname"><a href="classvk_1_1method_1_1constructor.html">vk::method::constructor</a></div><div class="ttdef"><b>Definition:</b> constructor.hpp:59</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1constructor_html_a4b7c33c71c0b7bc4d02ac5a5a423af97"><div class="ttname"><a href="classvk_1_1method_1_1constructor.html#a4b7c33c71c0b7bc4d02ac5a5a423af97">vk::method::constructor::param</a></div><div class="ttdeci">constructor &amp; param(std::string_view key, std::string_view value)</div><div class="ttdef"><b>Definition:</b> constructor.cpp:88</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1constructor_html_a62c1745a3b5bc38817aa9a57bdf9d5bc"><div class="ttname"><a href="classvk_1_1method_1_1constructor.html#a62c1745a3b5bc38817aa9a57bdf9d5bc">vk::method::constructor::method</a></div><div class="ttdeci">constructor &amp; method(std::string_view method)</div><div class="ttdef"><b>Definition:</b> constructor.cpp:81</div></div>
+<div class="ttc" id="aclassvk_1_1method_1_1constructor_html_a9e8d220fd80c6a534a5df69722f01d93"><div class="ttname"><a href="classvk_1_1method_1_1constructor.html#a9e8d220fd80c6a534a5df69722f01d93">vk::method::constructor::perform_request</a></div><div class="ttdeci">std::string perform_request()</div><div class="ttdef"><b>Definition:</b> constructor.cpp:97</div></div>
+<div class="ttc" id="aclassvk_1_1oauth_1_1client_html"><div class="ttname"><a href="classvk_1_1oauth_1_1client.html">vk::oauth::client</a></div><div class="ttdoc">VK Oauth client.</div><div class="ttdef"><b>Definition:</b> client.hpp:38</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4e076f3759181ee177f347fdbf36ec70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e076f3759181ee177f347fdbf36ec70">&#9670;&nbsp;</a></span>pull()</h2>
@@ -153,10 +160,6 @@ int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>pulled_user_id_</b
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="client_8hpp_source.html">client.hpp</a></li>
-<li>client.cpp</li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

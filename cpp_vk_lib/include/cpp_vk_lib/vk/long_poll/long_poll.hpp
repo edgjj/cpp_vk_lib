@@ -4,8 +4,8 @@
 #include "asio/io_context.hpp"
 #include "asio/post.hpp"
 #include "cpp_vk_lib/runtime/misc/cppdefs.hpp"
+#include "cpp_vk_lib/vk/error/error_code.hpp"
 #include "cpp_vk_lib/vk/events/common.hpp"
-#include "cpp_vk_lib/vk/exception/error_code.hpp"
 
 #include <vector>
 

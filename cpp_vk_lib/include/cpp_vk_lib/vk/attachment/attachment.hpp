@@ -1,7 +1,7 @@
 #ifndef VK_ATTACHMENT_HPP
 #define VK_ATTACHMENT_HPP
 
-#include "cpp_vk_lib/vk/exception/exception.hpp"
+#include "cpp_vk_lib/vk/error/exception.hpp"
 
 #include <memory>
 #include <string>

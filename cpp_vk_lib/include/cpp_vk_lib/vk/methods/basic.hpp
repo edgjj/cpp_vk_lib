@@ -2,7 +2,7 @@
 #define VK_METHODS_BASIC_HPP
 
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
-#include "cpp_vk_lib/vk/exception/error_code.hpp"
+#include "cpp_vk_lib/vk/error/error_code.hpp"
 
 #include <vector>
 

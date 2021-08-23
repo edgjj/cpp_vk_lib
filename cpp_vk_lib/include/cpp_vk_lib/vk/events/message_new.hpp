@@ -38,7 +38,7 @@ public:
     action::any_action_t action() const;
     /*!
      * \throws exception::access_error if object hasn't attachments
-     * \note If no attachments were provided, empty vector returned
+     * \return attachments from event if any, empty vector otherwise
      */
     std::vector<attachment::attachment_ptr_t> attachments() const;
 

@@ -1,9 +1,9 @@
 #include "cpp_vk_lib/vk/long_poll/long_poll.hpp"
 
 #include "cpp_vk_lib/vk/config/config.hpp"
-#include "cpp_vk_lib/vk/exception/error-inl.hpp"
+#include "cpp_vk_lib/vk/error/translate_error.hpp"
 #include "cpp_vk_lib/vk/methods/basic.hpp"
-#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/methods/constructor.hpp"
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 

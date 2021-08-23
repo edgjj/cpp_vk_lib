@@ -66,41 +66,18 @@ $(function() {
 <div class="title">cpp_vk_lib Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>C++ VK library</p>
-<p>CMake options:</p>
-<p>Sample code</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/config/config.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/events/message_new.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/long_poll/long_poll.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/methods/basic.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;cpp_vk_lib/vk/setup_logger.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
-<div class="line">  <span class="keywordflow">if</span> (argc != 2) {</div>
-<div class="line">    std::cerr</div>
-<div class="line">      &lt;&lt; <span class="stringliteral">&quot;usage: ./long_poll &lt;config.json&gt;&quot;</span></div>
-<div class="line">      &lt;&lt; std::endl;</div>
-<div class="line">    <span class="keywordflow">return</span> 1;</div>
-<div class="line">  }</div>
-<div class="line"> </div>
-<div class="line">  vk::config::load(argv[1]);</div>
-<div class="line">  vk::setup_logger(<span class="stringliteral">&quot;trace&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">  asio::io_context io_context;</div>
-<div class="line">  <a class="code" href="classvk_1_1long__poll.html">vk::long_poll</a> api(io_context);</div>
-<div class="line"> </div>
-<div class="line">  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">    <span class="keyword">auto</span> events = api.listen();</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; event : events) {</div>
-<div class="line">      api.on_event(<span class="stringliteral">&quot;message_new&quot;</span>, event, [&amp;event] {</div>
-<div class="line">        <span class="keyword">auto</span> message_event = <span class="keyword">event</span>.get_message_new();</div>
-<div class="line">        vk::method::messages::send(message_event.peer_id(), <span class="stringliteral">&quot;response&quot;</span>);</div>
-<div class="line">      });</div>
-<div class="line">    }</div>
-<div class="line">  }</div>
-<div class="line">}</div>
-<div class="ttc" id="aclassvk_1_1long__poll_html"><div class="ttname"><a href="classvk_1_1long__poll.html">vk::long_poll</a></div><div class="ttdoc">Event queue that implements group long polling.</div><div class="ttdef"><b>Definition:</b> long_poll.hpp:22</div></div>
-</div><!-- fragment --><p>Please, check the <a href="https://github.com/threadpoolexecutor/cpp_vk_lib">README.md</a>. </p>
+<div class="textblock"><h3><a class="anchor" id="autotoc_md0"></a>
+CMake opts:</h3>
+<p><b>-DCPP_VK_LIB_STATIC_BUILD</b></p><ul>
+<li>1 - build static library</li>
+<li>0 - build shared library (default)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Extern variables:</h3>
+<p><b>bool cpp_vk_lib_curl_verbose</b></p><ul>
+<li>Enable or disable detailed cURL logging</li>
+</ul>
+<p>Please, check the <a href="https://github.com/threadpoolexecutor/cpp_vk_lib">README.md</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,12 +1,14 @@
 #include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/vk/setup_logger.hpp"
-#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/methods/constructor.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 #include "cpp_vk_lib/vk/methods/basic.hpp"
 
 #include "simdjson.h"
 
 #include <iostream>
+
+bool cpp_vk_lib_curl_verbose = false;
 
 int main(int argc, char* argv[])
 {
@@ -39,13 +41,14 @@ int main(int argc, char* argv[])
         .param("file", file)
         .param("title", "voice")
         .perform_request();
-    const simdjson::dom::element uploaded_document = parser.parse(docs_save_response)["response"]["audio_message"];
+    const simdjson::dom::element uploaded_document = parser.parse(docs_save_response);
+    const simdjson::dom::element audio_message = uploaded_document["response"]["audio_message"];
     const std::shared_ptr<vk::attachment::audio_message> doc =
         std::make_shared<vk::attachment::audio_message>(
-            uploaded_document["owner_id"].get_int64(),
-            uploaded_document["id"].get_int64(),
-            uploaded_document["link_ogg"].get_string(),
-            uploaded_document["link_mp3"].get_string()
+            audio_message["owner_id"].get_int64(),
+            audio_message["id"].get_int64(),
+            audio_message["link_ogg"].get_string(),
+            audio_message["link_mp3"].get_string()
         );
     vk::method::messages::send(std::stol(peer_id), "", { doc });
     return 0;

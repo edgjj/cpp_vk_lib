@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+bool cpp_vk_lib_curl_verbose = false;
+
 int main(int argc, char* argv[])
 {
     if (argc != 2) {
@@ -22,8 +24,8 @@ int main(int argc, char* argv[])
     vk::long_poll api(io_context);
 
     while (true) {
-        auto events = api.listen(/*timeout=*/60);
-        for (auto& event : events) {
+        auto events = api.listen();
+        for (const auto& event : events) {
             api.on_event("message_new", event, [&event] {
                 vk::event::message_new message_event = event.get_message_new();
                 vk::method::messages::send(message_event.peer_id(), "response");

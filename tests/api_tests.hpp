@@ -1,4 +1,4 @@
-#include "cpp_vk_lib/vk/methods/utility/message_constructor.hpp"
+#include "cpp_vk_lib/vk/methods/message_constructor.hpp"
 #include "cpp_vk_lib/vk/api_constants.hpp"
 
 #include "cpp_vk_lib/vk/config/config.hpp"

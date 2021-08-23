@@ -1,8 +1,8 @@
 #include "cpp_vk_lib/vk/oauth/client.hpp"
 
 #include "cpp_vk_lib/vk/api_constants.hpp"
-#include "cpp_vk_lib/vk/exception/exception.hpp"
-#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/error/exception.hpp"
+#include "cpp_vk_lib/vk/methods/constructor.hpp"
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 

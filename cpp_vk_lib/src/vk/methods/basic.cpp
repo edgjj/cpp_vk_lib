@@ -1,7 +1,7 @@
 #include "cpp_vk_lib/vk/methods/basic.hpp"
 
-#include "cpp_vk_lib/vk/exception/error-inl.hpp"
-#include "cpp_vk_lib/vk/methods/utility/message_constructor.hpp"
+#include "cpp_vk_lib/vk/error/translate_error.hpp"
+#include "cpp_vk_lib/vk/methods/message_constructor.hpp"
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
 

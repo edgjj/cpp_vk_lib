@@ -1,13 +1,15 @@
 #include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/vk/setup_logger.hpp"
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
-#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/methods/constructor.hpp"
 
 #include <iostream>
 #include <random>
 #include <vector>
 
 #include "simdjson.h"
+
+bool cpp_vk_lib_curl_verbose = false;
 
 int main(int argc, char* argv[])
 {
@@ -19,7 +21,6 @@ int main(int argc, char* argv[])
     const char* query = argv[2];
     const char* count = argv[3];
     vk::config::load(argv[1]);
-    vk::setup_logger(spdlog::level::level_enum::trace);
 
     std::vector<vk::attachment::attachment_ptr_t> documents;
     const std::string raw_response = vk::method::group_constructor()

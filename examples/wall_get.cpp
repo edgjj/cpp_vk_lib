@@ -1,12 +1,14 @@
 #include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/vk/setup_logger.hpp"
-#include "cpp_vk_lib/vk/methods/utility/constructor.hpp"
+#include "cpp_vk_lib/vk/methods/constructor.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 
 #include "simdjson.h"
 
 #include <iostream>
 #include <fstream>
+
+bool cpp_vk_lib_curl_verbose = false;
 
 int main(int argc, char* argv[])
 {

@@ -23,12 +23,15 @@ enum class target_client : uint8_t
  *  Example usage:
  *
  *  \code
- *  int main() {
- *      vk::oauth::client client("phone number", "password",
- *        vk::oauth::target_client::windows);
- *      client.pull();
- *      vk::messages messages(client.token());
- *  }
+      int main() {
+        vk::oauth::client client("phone number", "password",
+          vk::oauth::target_client::windows);
+        client.pull();
+        vk::method::constructor(client.token())
+          .method(...)
+          .param(...)
+          .perform_request();
+      }
  *  \endcode
  */
 class client

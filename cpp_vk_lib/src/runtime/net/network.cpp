@@ -7,6 +7,8 @@
 
 #include <sstream>
 
+bool cpp_vk_lib_curl_verbose;
+
 static size_t file_write_callback(
     FILE* file,
     char* ptr,
@@ -62,9 +64,9 @@ std::string network::request(
 
     curl_easy.setOpt(curlpp::options::Url(url));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
     curl_easy.perform();
 
     spdlog::trace("HTTP RESPONSE: {}", response.str());
@@ -72,7 +74,9 @@ std::string network::request(
     return response.str();
 }
 
-std::string network::request_data(std::string_view host, std::string_view data)
+std::string network::request_data(
+    std::string_view host,
+    std::string_view data)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -83,9 +87,9 @@ std::string network::request_data(std::string_view host, std::string_view data)
     curl_easy.setOpt(curlpp::options::PostFields(data.data()));
     curl_easy.setOpt(curlpp::options::PostFieldSize(data.size()));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
     curl_easy.perform();
 
     spdlog::trace("HTTP RESPONSE: {}", response.str());
@@ -93,7 +97,9 @@ std::string network::request_data(std::string_view host, std::string_view data)
     return response.str();
 }
 
-size_t network::download(std::string_view filename, std::string_view server)
+size_t network::download(
+    std::string_view filename,
+    std::string_view server)
 {
     FILE* fp = fopen(filename.data(), "w");
     if (!fp) {
@@ -116,9 +122,9 @@ size_t network::download(std::string_view filename, std::string_view server)
     curl_easy.setOpt(write_function);
     curl_easy.setOpt(curlpp::options::FollowLocation(true));
     curl_easy.setOpt(curlpp::options::Url(server.data()));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
     try {
         curl_easy.perform();
     } catch (curlpp::RuntimeError& re) {
@@ -130,7 +136,9 @@ size_t network::download(std::string_view filename, std::string_view server)
     return 0;
 }
 
-size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
+size_t network::download(
+    std::vector<uint8_t>& buffer,
+    std::string_view server)
 {
     spdlog::trace("HTTP download: {}", server);
 
@@ -151,9 +159,9 @@ size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
     curl_easy.setOpt(write_function);
     curl_easy.setOpt(curlpp::options::FollowLocation(true));
     curl_easy.setOpt(curlpp::options::Url(server.data()));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
 
     try {
         curl_easy.perform();
@@ -184,9 +192,9 @@ std::string network::upload(
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
 
     try {
         curl_easy.perform();
@@ -262,9 +270,9 @@ std::string network::upload(
     curl_easy.setOpt(curlpp::options::Url(server.data()));
     curl_easy.setOpt(curlpp::options::HttpPost(form_parts));
     curl_easy.setOpt(curlpp::options::WriteStream(&response));
-#ifndef CPP_VK_LIB_CURL_VERBOSE
-    curl_easy.setOpt(curlpp::options::Verbose(true));
-#endif
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy.setOpt(curlpp::options::Verbose(true));
+    }
 
     try {
         curl_easy.perform();

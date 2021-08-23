@@ -8,10 +8,6 @@ endif()
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
 
-if (NOT DEFINED CPP_VK_LIB_CURL_VERBOSE)
-    add_definitions(-DCPP_VK_LIB_CURL_VERBOSE)
-endif()
-
 set(SRC
     ../cpp_vk_lib/src/vk/implementation.cpp
     ../cpp_vk_lib/src/runtime/implementation.cpp)
@@ -21,8 +17,6 @@ if (CPP_VK_LIB_STATIC_BUILD)
 else()
     add_library(cpp_vk_lib SHARED ${SRC})
 endif()
-
-# find_package(CURL REQUIRED)
 
 target_link_libraries(cpp_vk_lib curlpp simdjson)
 

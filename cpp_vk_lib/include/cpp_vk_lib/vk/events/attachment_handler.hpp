@@ -12,6 +12,7 @@ class array;
 namespace vk::event {
 /*!
  * \brief Extract all attachments from JSON
+ *
  * \return Array of valid attachment pointers
  */
 std::vector<attachment::attachment_ptr_t>
