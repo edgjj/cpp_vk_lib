@@ -12,8 +12,6 @@ string(
     IS_TOP_PROJECT
 )
 
-message(STATUS "is top project? ${IS_TOP_PROJECT}")
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_MACOSX_RPATH OFF)

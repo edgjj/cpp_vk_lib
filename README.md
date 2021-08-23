@@ -17,8 +17,10 @@ High performance VK API library
 * OAuth-authorization
 * User friendly API
 
+## Tested under
+* Linux, MacOS, FreeBSD, Windows
+
 ## Dependencies
-* curl
 * cmake
 
 ## Note for Windows users

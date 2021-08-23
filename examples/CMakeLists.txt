@@ -10,6 +10,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../)
 
 function (add_vk_example name path)
     add_executable(${name} ${path})
+    if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated -Wno-deprecated-declarations")
+    endif()
     target_link_libraries(${name})
 endfunction()
 
