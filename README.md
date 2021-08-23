@@ -18,7 +18,7 @@ High performance VK API library
 * User friendly API
 
 ## Tested under
-* Linux, MacOS, FreeBSD, Windows
+* Linux, MacOS, FreeBSD, Android, Windows
 
 ## Dependencies
 * cmake
