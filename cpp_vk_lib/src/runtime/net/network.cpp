@@ -11,6 +11,14 @@
 
 bool cpp_vk_lib_curl_verbose;
 
+static std::string escape(std::string_view url)
+{
+    char* encoded = curl_easy_escape(NULL, url.data(), url.length());
+    std::string res{encoded};
+    curl_free(encoded);
+    return res;
+}
+
 static size_t string_write_callback(void* contents, size_t size, size_t nmemb, void* userp)
 {
     (static_cast<std::string*>(userp))->append(static_cast<char*>(contents), size * nmemb);
@@ -38,7 +46,7 @@ static std::string create_parameters(std::map<std::string, std::string>&& body)
     for (const auto& [key, value] : body) {
         result += key;
         result += '=';
-        result += curlpp::escape(value);
+        result += escape(value);
         result += '&';
     }
 
