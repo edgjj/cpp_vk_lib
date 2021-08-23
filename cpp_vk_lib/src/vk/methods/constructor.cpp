@@ -90,6 +90,14 @@ constructor<ExecutionPolicy>& constructor<ExecutionPolicy>::param(
 }
 
 template <typename ExecutionPolicy>
+constructor<ExecutionPolicy>& constructor<ExecutionPolicy>::append_map(
+    std::map<std::string, std::string>&& additional_params)
+{
+    params_.merge(std::move(additional_params));
+    return *this;
+}
+
+template <typename ExecutionPolicy>
 std::string constructor<ExecutionPolicy>::perform_request()
 {
     return ExecutionPolicy::execute(

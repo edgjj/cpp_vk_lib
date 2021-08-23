@@ -73,6 +73,10 @@ public:
      */
     constructor& param(std::string_view key, std::string_view value);
     /*!
+     * Append map to parameters list.
+     */
+    constructor& append_map(std::map<std::string, std::string>&& additional_params);
+    /*!
      * Execute HTTP POST request and return output.
      *
      * \note all params will be destroyed after request.
