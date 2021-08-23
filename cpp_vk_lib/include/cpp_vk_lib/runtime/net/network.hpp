@@ -45,7 +45,8 @@ size_t download(std::vector<uint8_t>& buffer, std::string_view server);
 std::string upload(
     std::string_view field_name,
     std::string_view filename,
-    std::string_view server);
+    std::string_view server,
+    std::string_view content_type = "application/octet-stream");
 /*!
  * \brief Upload file from buffer to server
  *
