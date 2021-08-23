@@ -16,9 +16,7 @@ static std::string append_url(std::string_view method)
 static std::string
     call(std::string_view method, std::map<std::string, std::string>&& params)
 {
-    return runtime::network::request(
-        append_url(method),
-        std::move(params));
+    return runtime::network::request(append_url(method), std::move(params));
 }
 
 namespace vk::method::policy {
@@ -55,9 +53,7 @@ std::string do_not_use_api_link::execute(
 {
     VK_UNUSED(user_token);
     VK_UNUSED(access_token);
-    return runtime::network::request(
-        method,
-        std::move(params));
+    return runtime::network::request(method, std::move(params));
 }
 
 }// namespace vk::method::policy

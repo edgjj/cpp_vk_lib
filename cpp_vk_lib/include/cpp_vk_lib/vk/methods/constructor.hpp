@@ -3,8 +3,6 @@
 
 #include "cpp_vk_lib/runtime/net/network.hpp"
 
-extern bool cpp_vk_lib_curl_verbose;
-
 namespace vk::method::policy {
 /*!
  * \brief Policy that uses group_token. user_token ignored.

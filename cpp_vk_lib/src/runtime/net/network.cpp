@@ -74,9 +74,7 @@ std::string network::request(
     return response.str();
 }
 
-std::string network::request_data(
-    std::string_view host,
-    std::string_view data)
+std::string network::request_data(std::string_view host, std::string_view data)
 {
     std::ostringstream response;
     curlpp::Easy curl_easy;
@@ -97,9 +95,7 @@ std::string network::request_data(
     return response.str();
 }
 
-size_t network::download(
-    std::string_view filename,
-    std::string_view server)
+size_t network::download(std::string_view filename, std::string_view server)
 {
     FILE* fp = fopen(filename.data(), "w");
     if (!fp) {
@@ -136,9 +132,7 @@ size_t network::download(
     return 0;
 }
 
-size_t network::download(
-    std::vector<uint8_t>& buffer,
-    std::string_view server)
+size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
 {
     spdlog::trace("HTTP download: {}", server);
 

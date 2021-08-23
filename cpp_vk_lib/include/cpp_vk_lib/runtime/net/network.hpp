@@ -27,9 +27,7 @@ std::string request(
  * \note This function follows redirects
  * \return -1 if file was not created or opened, 0 otherwise
  */
-size_t download(
-    std::string_view filename,
-    std::string_view server);
+size_t download(std::string_view filename, std::string_view server);
 /*!
  * \brief Download from server to in-memory buffer
  *
@@ -67,9 +65,7 @@ std::string upload(
  * \param[in] URL payload, e.g JSON
  * \return response output
  */
-std::string request_data(
-    std::string_view host,
-    std::string_view data);
+std::string request_data(std::string_view host, std::string_view data);
 
 }// namespace runtime::network
 
