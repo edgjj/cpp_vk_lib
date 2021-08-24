@@ -8,7 +8,7 @@ namespace vk::keyboard::button {
 class location
 {
 public:
-    const char* serialize() const noexcept
+    std::string serialize() const noexcept
     {
         return R"__({"action":{"type":"location","payload":"{\"button\":\"1\"}"}})__";
     }

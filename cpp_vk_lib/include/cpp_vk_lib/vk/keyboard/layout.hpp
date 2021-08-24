@@ -7,13 +7,9 @@
 #include "cpp_vk_lib/vk/keyboard/buttons/vk_pay.hpp"
 #include "cpp_vk_lib/vk/keyboard/flags.hpp"
 
-#include <variant>
+#include <any>
 
 namespace vk::keyboard {
-
-using any_button = std::
-    variant<button::text, button::vk_pay, button::open_app, button::location>;
-
 /*!
  * \brief The buttons grid representation.
  */
@@ -23,9 +19,10 @@ public:
     layout() = default;
     layout(keyboard::flag flags);
 
-    void add_row(const std::vector<any_button>& row);
+    void add_row(std::vector<std::any>&& row);
     /*!
-     * Convert stored buttons data to JSON schema.
+     * Convert stored buttons data to JSON schema and store output to
+     * serialized_.
      */
     void serialize();
     /*!
@@ -36,7 +33,7 @@ public:
 
 private:
     std::string serialized_{};
-    std::vector<std::vector<any_button>> buttons_{};
+    std::vector<std::vector<std::any>> buttons_{};
     flag flags_ = vk::keyboard::flag::none;
 };
 

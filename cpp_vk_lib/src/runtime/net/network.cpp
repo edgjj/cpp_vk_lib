@@ -17,7 +17,10 @@ static std::string escape(std::string_view url)
 static size_t
     string_callback(void* contents, size_t size, size_t nmemb, void* userp)
 {
-    spdlog::trace("libcurl string callback called, size = {}, nmemb = {}", size, nmemb);
+    spdlog::trace(
+        "libcurl string callback called, size = {}, nmemb = {}",
+        size,
+        nmemb);
     (static_cast<std::string*>(userp))
         ->append(static_cast<char*>(contents), size * nmemb);
     return size * nmemb;
@@ -26,7 +29,10 @@ static size_t
 static size_t
     file_callback(void* contents, size_t nmemb, size_t size, FILE* stream)
 {
-    spdlog::trace("libcurl file callback called, size = {}, nmemb = {}", size, nmemb);
+    spdlog::trace(
+        "libcurl file callback called, size = {}, nmemb = {}",
+        size,
+        nmemb);
     return fwrite(contents, nmemb, size, stream);
 }
 
@@ -34,15 +40,21 @@ static size_t
     buffer_callback(char* contents, size_t nmemb, size_t size, void* userp)
 {
     auto vector = static_cast<std::vector<uint8_t>*>(userp);
-    spdlog::trace("libcurl buffer callback called, size = {}, nmemb = {}, buffer capacity = {}", size, nmemb, vector->capacity());
+    spdlog::trace(
+        "libcurl buffer callback called, size = {}, nmemb = {}, buffer capacity = {}",
+        size,
+        nmemb,
+        vector->capacity());
     std::copy(contents, contents + (size * nmemb), std::back_inserter(*vector));
     return size * nmemb;
 }
 
-static std::string create_url(std::string_view host, std::map<std::string, std::string>&& body)
+static std::string
+    create_url(std::string_view host, std::map<std::string, std::string>&& body)
 {
     static constexpr size_t average_word_length = 20;
-    const size_t estimated_params_length = average_word_length * body.size() * 2;
+    const size_t estimated_params_length =
+        average_word_length * body.size() * 2;
     std::string result;
     result.reserve(host.size() + estimated_params_length);
     result += host;

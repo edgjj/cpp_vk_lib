@@ -54,3 +54,10 @@ TEST(keyboard, vk_pay_button)
 
     ASSERT_EQ(l.get(), R"({"one_time":true,"buttons":[[{"action":{"type":"vkpay","hash":"hash"}}]]})");
 }
+
+TEST(keyboard, bad_cast)
+{
+    keyboard::layout l(keyboard::flag::one_time);
+    l.add_row({1, 2, 3});
+    ASSERT_ANY_THROW(l.serialize()); ///< Non-button types provided
+}

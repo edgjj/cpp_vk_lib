@@ -78,30 +78,41 @@ void message_new::try_get_actions()
     }
 }
 
+template <typename T>
+VK_REALLY_INLINE bool check_action(const std::any& action) noexcept
+{
+    try {
+        std::any_cast<T>(action);
+    } catch (std::bad_any_cast& err) {
+        return false;
+    }
+    return true;
+}
+
 bool message_new::on_action(std::string_view action_type) const noexcept
 {
     if (action_type == "chat_invite_user") {
-        return std::holds_alternative<action::chat_invite_user>(action_);
+        return check_action<action::chat_invite_user>(action_);
     }
 
     if (action_type == "chat_kick_user") {
-        return std::holds_alternative<action::chat_kick_user>(action_);
+        return check_action<action::chat_kick_user>(action_);
     }
 
     if (action_type == "chat_pin_message") {
-        return std::holds_alternative<action::chat_pin_message>(action_);
+        return check_action<action::chat_pin_message>(action_);
     }
 
     if (action_type == "chat_unpin_message") {
-        return std::holds_alternative<action::chat_unpin_message>(action_);
+        return check_action<action::chat_unpin_message>(action_);
     }
 
     if (action_type == "chat_photo_update") {
-        return std::holds_alternative<action::chat_photo_update>(action_);
+        return check_action<action::chat_photo_update>(action_);
     }
 
     if (action_type == "chat_title_update") {
-        return std::holds_alternative<action::chat_title_update>(action_);
+        return check_action<action::chat_title_update>(action_);
     }
 
     return false;
@@ -147,12 +158,12 @@ bool message_new::has_fwd_messages() const noexcept
     return has_fwd_messages_;
 }
 
-action::any_action_t message_new::action() const
+std::any message_new::action() const
 {
     if (has_action_) {
         return action_;
     } else {
-        throw exception::access_error(-1, "Attempting accessing empty action");
+        throw exception::access_error(-1, "attempting accessing empty action");
     }
 }
 
@@ -163,7 +174,7 @@ std::vector<attachment::attachment_ptr_t> message_new::attachments() const
     } else {
         throw exception::access_error(
             -1,
-            "Attempting accessing empty attachment list");
+            "attempting accessing empty attachment list");
     }
 }
 
@@ -182,7 +193,7 @@ std::vector<std::unique_ptr<message_new>> message_new::fwd_messages() const
     } else {
         throw exception::access_error(
             -1,
-            "Attempting accessing empty forward messages list");
+            "attempting accessing empty forward messages list");
     }
 }
 
@@ -192,7 +203,7 @@ std::shared_ptr<message_new> message_new::reply() const
         return std::make_unique<message_new>(
             get_event()["reply_message"].get_object());
     } else {
-        throw exception::access_error(-1, "Attempting accessing empty reply");
+        throw exception::access_error(-1, "attempting accessing empty reply");
     }
 }
 
@@ -201,28 +212,28 @@ void dispatch_events(std::ostream& ostream, const message_new& event)
     if (event.has_action()) {
         if (event.on_action("chat_invite_user")) {
             ostream << std::setw(40) << "chat_invite_user action: ";
-            ostream
-                << std::get<action::chat_invite_user>(event.action()).member_id;
+            ostream << std::any_cast<action::chat_invite_user>(event.action())
+                           .member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_kick_user")) {
             ostream << std::setw(40) << "chat_kick_user action: ";
-            ostream
-                << std::get<action::chat_kick_user>(event.action()).member_id;
+            ostream << std::any_cast<action::chat_kick_user>(event.action())
+                           .member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_pin_message")) {
             ostream << std::setw(40) << "chat_pin_message action: ";
-            ostream
-                << std::get<action::chat_pin_message>(event.action()).member_id;
+            ostream << std::any_cast<action::chat_pin_message>(event.action())
+                           .member_id;
             ostream << std::endl;
         }
 
         if (event.on_action("chat_unpin_message")) {
             ostream << std::setw(40) << "chat_unpin_message action: ";
-            ostream << std::get<action::chat_unpin_message>(event.action())
+            ostream << std::any_cast<action::chat_unpin_message>(event.action())
                            .member_id;
             ostream << std::endl;
         }
@@ -235,7 +246,8 @@ void dispatch_events(std::ostream& ostream, const message_new& event)
 
         if (event.on_action("chat_title_update")) {
             ostream << std::setw(30) << "chat_title_update action:  ";
-            ostream << std::get<action::chat_title_update>(event.action()).text;
+            ostream << std::any_cast<action::chat_title_update>(event.action())
+                           .text;
             ostream << std::endl;
         }
     }

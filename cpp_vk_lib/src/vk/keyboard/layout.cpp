@@ -1,5 +1,6 @@
 #include "cpp_vk_lib/vk/keyboard/layout.hpp"
 
+#include "cpp_vk_lib/runtime/result.hpp"
 #include "spdlog/spdlog.h"
 
 #include <algorithm>
@@ -12,55 +13,59 @@ layout::layout(flag flags)
     , flags_(flags)
 {}
 
-void layout::add_row(const std::vector<any_button>& row)
+void layout::add_row(std::vector<std::any>&& row)
 {
-    buttons_.push_back(row);
+    buttons_.push_back(std::move(row));
 }
 
-static std::string create_button(const any_button& any_button)
+template <typename T>
+VK_REALLY_INLINE runtime::result<std::string, int>
+    create_impl(const std::any& button) noexcept
 {
-    if (std::holds_alternative<button::text>(any_button)) {
-        return std::get<button::text>(any_button).serialize();
+    try {
+        return std::any_cast<T>(button).serialize();
+    } catch (std::bad_any_cast&) {
+        return runtime::result(std::string(), -1);
     }
+}
 
-    if (std::holds_alternative<button::vk_pay>(any_button)) {
-        return std::get<button::vk_pay>(any_button).serialize();
+static std::string create_button(const std::any& button)
+{
+    if (auto result = create_impl<button::text>(button); !result.error()) {
+        return result.value();
     }
-
-    if (std::holds_alternative<button::open_app>(any_button)) {
-        return std::get<button::open_app>(any_button).serialize();
+    if (auto result = create_impl<button::vk_pay>(button); !result.error()) {
+        return result.value();
     }
-
-    if (std::holds_alternative<button::location>(any_button)) {
-        return std::get<button::location>(any_button).serialize();
+    if (auto result = create_impl<button::open_app>(button); !result.error()) {
+        return result.value();
     }
-
-    return "";
+    if (auto result = create_impl<button::location>(button); !result.error()) {
+        return result.value();
+    }
+    throw exception::runtime_error(-1, "cannot create button: bad cast");
 }
 
 void layout::serialize()
 {
+    serialized_.clear();
+    serialized_.reserve(250);
     serialized_.push_back('{');
-
     if (has_flag(flag::in_line)) {
         serialized_.append("\"inline\":true,");
     }
-
     if (has_flag(flag::one_time)) {
         serialized_.append("\"one_time\":true,");
     }
-
     serialized_.append("\"buttons\":[");
-
     std::vector<std::string> serialized_rows;
-
     for (const auto& row : buttons_) {
         std::vector<std::string> serialized_buttons;
         std::transform(
             row.begin(),
             row.end(),
             std::back_inserter(serialized_buttons),
-            [](const any_button& button) {
+            [](const std::any& button) {
                 if (spdlog::get_level() == SPDLOG_LEVEL_TRACE) {
                     std::string payload_data = create_button(button);
                     spdlog::trace("create button: {}", payload_data);
@@ -74,10 +79,10 @@ void layout::serialize()
             runtime::string_utils::join<std::string>(serialized_buttons, ',') +
             ']');
     }
-
     serialized_ +=
         runtime::string_utils::join<std::string>(serialized_rows, ',');
     serialized_.append("]}");
+    serialized_.shrink_to_fit();
 }
 
 const std::string& layout::get() const noexcept

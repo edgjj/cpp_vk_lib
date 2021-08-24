@@ -18,9 +18,11 @@ else()
     add_library(cpp_vk_lib SHARED ${SRC})
 endif()
 
-target_link_libraries(cpp_vk_lib curl simdjson)
+target_link_libraries(cpp_vk_lib PRIVATE curl)
+target_link_libraries(cpp_vk_lib PRIVATE simdjson)
+#[[Must be linked as PUBLIC to be able change logging level from user code]]
+target_link_libraries(cpp_vk_lib PUBLIC spdlog)
 
 target_include_directories(cpp_vk_lib PRIVATE include)
- target_include_directories(cpp_vk_lib PRIVATE ../modules/curlpp/include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/spdlog/include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/asio/asio/include)

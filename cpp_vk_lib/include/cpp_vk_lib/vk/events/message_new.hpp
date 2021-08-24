@@ -4,6 +4,7 @@
 #include "cpp_vk_lib/vk/attachment/attachment.hpp"
 #include "cpp_vk_lib/vk/events/action.hpp"
 
+#include <any>
 #include <vector>
 
 namespace simdjson::dom {
@@ -35,7 +36,7 @@ public:
     /*!
      * \throws vk::exception::access error if there's no actions in event
      */
-    action::any_action_t action() const;
+    std::any action() const;
     /*!
      * \throws exception::access_error if object hasn't attachments
      * \return attachments from event if any, empty vector otherwise
@@ -60,7 +61,7 @@ private:
     simdjson::dom::object& get_event() const;
 
     std::shared_ptr<simdjson::dom::object> event_json_;
-    action::any_action_t action_;
+    std::any action_;
     bool has_action_ = false;
     bool has_reply_ = false;
     bool has_fwd_messages_ = false;
