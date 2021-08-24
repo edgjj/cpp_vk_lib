@@ -7,9 +7,6 @@
 [submodule "modules/googletest"]
 	path = modules/googletest
 	url = https://github.com/google/googletest.git
-[submodule "modules/curlpp"]
-	path = modules/curlpp
-	url = https://github.com/jpbarrette/curlpp.git
 [submodule "modules/asio"]
 	path = modules/asio
 	url = https://github.com/chriskohlhoff/asio.git
