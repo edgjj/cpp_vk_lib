@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-bool cpp_vk_lib_curl_verbose = false;
+bool cpp_vk_lib_curl_verbose = true;
 
 int main(int argc, char* argv[])
 {
@@ -30,8 +30,11 @@ int main(int argc, char* argv[])
         .perform_request();
     simdjson::dom::parser parser;
     const std::string upload_server(parser.parse(server)["response"]["upload_url"]);
-    const std::string upload_response(runtime::network::upload("file", file_path, upload_server));
-    const simdjson::dom::element parsed_upload = parser.parse(upload_response);
+    const auto upload_response(runtime::network::upload("file", file_path, upload_server));
+    if (upload_response.error()) {
+        spdlog::error("Upload error: {}", upload_response.error());
+    }
+    const simdjson::dom::element parsed_upload = parser.parse(upload_response.value());
     const std::string file(parsed_upload["file"]);
     if (file.empty()) {
         return 1;
@@ -48,8 +51,7 @@ int main(int argc, char* argv[])
             audio_message["owner_id"].get_int64(),
             audio_message["id"].get_int64(),
             audio_message["link_ogg"].get_string(),
-            audio_message["link_mp3"].get_string()
-        );
+            audio_message["link_mp3"].get_string());
     vk::method::messages::send(std::stol(peer_id), "", { doc });
     return 0;
 }

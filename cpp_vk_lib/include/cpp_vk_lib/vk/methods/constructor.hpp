@@ -75,7 +75,8 @@ public:
     /*!
      * Append map to parameters list.
      */
-    constructor& append_map(std::map<std::string, std::string>&& additional_params);
+    constructor&
+        append_map(std::map<std::string, std::string>&& additional_params);
     /*!
      * Execute HTTP POST request and return output.
      *

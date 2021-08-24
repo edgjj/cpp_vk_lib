@@ -1,13 +1,8 @@
 #include "cpp_vk_lib/runtime/net/network.hpp"
 
-#include <curl/curl.h>
-//#include "curlpp/Easy.hpp"
-//#include "curlpp/Options.hpp"
-//#include "curlpp/cURLpp.hpp"
 #include "spdlog/spdlog.h"
 
-#include <sstream>
-#include <fstream>
+#include <curl/curl.h>
 
 bool cpp_vk_lib_curl_verbose;
 
@@ -19,29 +14,38 @@ static std::string escape(std::string_view url)
     return res;
 }
 
-static size_t string_write_callback(void* contents, size_t size, size_t nmemb, void* userp)
+static size_t
+    string_callback(void* contents, size_t size, size_t nmemb, void* userp)
 {
-    (static_cast<std::string*>(userp))->append(static_cast<char*>(contents), size * nmemb);
+    spdlog::trace("libcurl string callback called, size = {}, nmemb = {}", size, nmemb);
+    (static_cast<std::string*>(userp))
+        ->append(static_cast<char*>(contents), size * nmemb);
     return size * nmemb;
 }
 
-static size_t file_write_callback(void* contents, size_t size, size_t nmemb, FILE* stream)
+static size_t
+    file_callback(void* contents, size_t nmemb, size_t size, FILE* stream)
 {
-    return fwrite(contents, size, nmemb, stream);
+    spdlog::trace("libcurl file callback called, size = {}, nmemb = {}", size, nmemb);
+    return fwrite(contents, nmemb, size, stream);
 }
 
-static size_t buffer_write_callback(char* contents, size_t size, size_t nmemb, void* userp)
+static size_t
+    buffer_callback(char* contents, size_t nmemb, size_t size, void* userp)
 {
-    auto vector = reinterpret_cast<std::vector<uint8_t>*>(userp);
-    vector->insert(vector->end(), contents, contents + (size * nmemb));
+    auto vector = static_cast<std::vector<uint8_t>*>(userp);
+    spdlog::trace("libcurl buffer callback called, size = {}, nmemb = {}, buffer capacity = {}", size, nmemb, vector->capacity());
+    std::copy(contents, contents + (size * nmemb), std::back_inserter(*vector));
     return size * nmemb;
 }
 
-static std::string create_parameters(std::map<std::string, std::string>&& body)
+static std::string create_url(std::string_view host, std::map<std::string, std::string>&& body)
 {
     static constexpr size_t average_word_length = 20;
+    const size_t estimated_params_length = average_word_length * body.size() * 2;
     std::string result;
-    result.reserve(average_word_length * body.size() * 2);
+    result.reserve(host.size() + estimated_params_length);
+    result += host;
 
     for (const auto& [key, value] : body) {
         result += key;
@@ -57,61 +61,103 @@ static std::string create_parameters(std::map<std::string, std::string>&& body)
     return result;
 }
 
+static void set_optional_verbose(CURL* curl) noexcept
+{
+    if (cpp_vk_lib_curl_verbose) {
+        curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+    }
+}
+
 namespace runtime {
 
-std::string network::request(
+result<std::string, size_t> network::request(
     std::string_view host,
     std::map<std::string, std::string>&& target)
 {
-    const std::string url = host.data() + create_parameters(std::move(target));
-    CURL* curl_handle = curl_easy_init();
-    if (!curl_handle) {
-        return /*implement result with error code*/"";
+    const std::string url = create_url(host, std::move(target));
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
+    if (!curl) {
+        spdlog::error("network::request(): failed to curl_easy_init()");
+        return result<std::string, size_t>(std::string(), -1);
     }
+    spdlog::trace("HTTP GET: {}", url);
     std::string response;
     response.reserve(100);
-    curl_easy_setopt(curl_handle, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, string_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, "cpp_vk_lib");
-    curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 600L);
-    curl_easy_perform(curl_handle);
+    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
+        return result<std::string, size_t>(std::string(), -1);
+    }
     response.shrink_to_fit();
     return response;
 }
 
-std::string network::request_data(std::string_view host, std::string_view data)
+result<std::string, size_t>
+    network::request_data(std::string_view host, std::string_view data)
 {
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
+    if (!curl) {
+        spdlog::error("network::request_data(): failed to curl_easy_init()");
+        return result<std::string, size_t>(std::string(), -1);
+    }
+    spdlog::trace("HTTP GET: host = {}, data = ", host, data);
     std::string response;
     response.reserve(100);
-    CURL* curl_handle = curl_easy_init();
-    if (!curl_handle) {
-        return /*implement result with error code*/"";
+    curl_easy_setopt(curl, CURLOPT_URL, host.data());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, data.size());
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.data());
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
+        return result<std::string, size_t>(std::string(), -1);
     }
-    curl_easy_setopt(curl_handle, CURLOPT_URL, host.data());
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, string_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_POSTFIELDSIZE, data.size());
-    curl_easy_setopt(curl_handle, CURLOPT_POSTFIELDS, data.data());
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &response);
-    curl_easy_perform(curl_handle);
+    response.shrink_to_fit();
     return response;
 }
 
 size_t network::download(std::string_view filename, std::string_view server)
 {
-    CURL* curl_handle = curl_easy_init();
-    if (!curl_handle) {
-        return /*implement result with error code*/-1;
+    spdlog::trace("HTTP Download from {} to {}", server, filename);
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
+    if (!curl) {
+        return -1;
     }
     FILE* fp = fopen(filename.data(), "wb");
     if (!fp) {
         return -1;
     }
-    curl_easy_setopt(curl_handle, CURLOPT_URL, server.data());
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, file_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, fp);
-    if (CURLcode res = curl_easy_perform(curl_handle); res != CURLE_OK) {
-        spdlog::error("HTTP download failed: {}", curl_easy_strerror(res));
+    curl_easy_setopt(curl, CURLOPT_URL, server.data());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, file_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
         fclose(fp);
         return -1;
     }
@@ -119,95 +165,122 @@ size_t network::download(std::string_view filename, std::string_view server)
     return 0;
 }
 
-size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
+size_t network::download(
+    std::vector<uint8_t>& buffer,
+    std::string_view server,
+    size_t estimated_capacity)
 {
-    CURL* curl_handle = curl_easy_init();
+    spdlog::trace("HTTP Download to buffer from {}", server);
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
     if (!curl_handle) {
-        return /*implement result with error code*/-1;
-    }
-    buffer.clear();
-    curl_easy_setopt(curl_handle, CURLOPT_URL, server.data());
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, buffer_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, reinterpret_cast<void*>(&buffer));
-    if (CURLcode res = curl_easy_perform(curl_handle); res != CURLE_OK) {
-        spdlog::error("HTTP download failed: {}", curl_easy_strerror(res));
         return -1;
     }
+    buffer.clear();
+    buffer.reserve(estimated_capacity);
+    curl_easy_setopt(curl, CURLOPT_URL, server.data());
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, buffer_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
+        buffer.shrink_to_fit();
+        return -1;
+    }
+    spdlog::trace("downloaded {} bytes", buffer.size());
+    buffer.shrink_to_fit();
     return 0;
 }
 
-std::string network::upload(
+result<std::string, size_t> network::upload(
     std::string_view field_name,
     std::string_view filename,
     std::string_view server,
     std::string_view content_type)
 {
-    CURL* curl_handle = curl_easy_init();
-    if (!curl_handle) {
-        return /*implement result with error code*/"";
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
+    if (!curl) {
+        return result<std::string, size_t>(std::string(), -1);
     }
-    CURLcode curl_result;
-    struct curl_httppost* formpost = NULL;
-    struct curl_httppost* lastptr = NULL;
+    struct curl_httppost* formpost = nullptr;
+    struct curl_httppost* lastptr = nullptr;
     std::string response;
     response.reserve(100);
-
-    curl_formadd(
-        &formpost,
-        &lastptr,
-        CURLFORM_COPYNAME, field_name,
-        CURLFORM_FILENAME, filename.data(),
-        CURLFORM_FILE, filename.data(),
+    // clang-format off
+    curl_formadd(&formpost,&lastptr,
+        CURLFORM_COPYNAME,    field_name.data(),
+        CURLFORM_FILENAME,    filename.data(),
+        CURLFORM_FILE,        filename.data(),
         CURLFORM_CONTENTTYPE, content_type.data(),
         CURLFORM_END);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, string_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl_handle, CURLOPT_URL, server.data());
-    curl_easy_setopt(curl_handle, CURLOPT_HTTPPOST, formpost);
-    curl_result = curl_easy_perform(curl_handle);
-
-    if (curl_result != CURLE_OK) {
-        return /*implement result with error code*/"";
+    // clang-format on
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_URL, server.data());
+    curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
     }
     curl_formfree(formpost);
     return response;
 }
 
-std::string network::upload(
+result<std::string, size_t> network::upload(
     const std::vector<uint8_t>& buffer,
     std::string_view field_name,
     std::string_view server,
     std::string_view content_type)
 {
-    CURL* curl_handle = curl_easy_init();
-    if (!curl_handle) {
-        return /*implement result with error code*/"";
+    spdlog::trace(
+        "HTTP Upload from buffer({} bytes) to {}",
+        buffer.size(),
+        server);
+    std::unique_ptr<CURL, curl_free_callback> curl_handle{
+        curl_easy_init(),
+        curl_easy_cleanup};
+    CURL* curl = curl_handle.get();
+    if (!curl) {
+        return result<std::string, size_t>(std::string(), -1);
     }
-    CURLcode curl_result;
-    struct curl_httppost* formpost = NULL;
-    struct curl_httppost* lastptr = NULL;
+    struct curl_httppost* formpost = nullptr;
+    struct curl_httppost* lastptr = nullptr;
     std::string response;
     response.reserve(100);
-
-    curl_formadd(
-        &formpost,
-        &lastptr,
-        CURLFORM_BUFFER, "temp",
-        CURLFORM_PTRNAME, "ptr",
-        CURLFORM_COPYNAME, field_name,
-        CURLFORM_BUFFERPTR, buffer.data(),
-        CURLFORM_BUFFERLENGTH, buffer.size(),
-        CURLFORM_CONTENTSLENGTH, buffer.size(),
-        CURLFORM_CONTENTTYPE, content_type.data(),
+    // clang-format off
+    curl_formadd(&formpost, &lastptr,
+        CURLFORM_BUFFER,        "temp",
+        CURLFORM_PTRNAME,       "ptr",
+        CURLFORM_COPYNAME,      field_name,
+        CURLFORM_BUFFERPTR,     buffer.data(),
+        CURLFORM_BUFFERLENGTH,  buffer.size(),
+        CURLFORM_CONTENTSLENGTH,buffer.size(),
+        CURLFORM_CONTENTTYPE,   content_type.data(),
         CURLFORM_END);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, buffer_write_callback);
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, reinterpret_cast<const void*>(&buffer));
-    curl_easy_setopt(curl_handle, CURLOPT_URL, server.data());
-    curl_easy_setopt(curl_handle, CURLOPT_HTTPPOST, formpost);
-    curl_result = curl_easy_perform(curl_handle);
-
-    if (curl_result != CURLE_OK) {
-        return /*implement result with error code*/"";
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, buffer_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+    curl_easy_setopt(curl, CURLOPT_URL, server);
+    curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    // clang-format on
+    set_optional_verbose(curl);
+    if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
+        spdlog::error(
+            "curl_easy_perform() failed: {}",
+            curl_easy_strerror(res));
+        return result<std::string, size_t>(std::string(), -1);
     }
     curl_formfree(formpost);
     return response;

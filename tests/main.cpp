@@ -6,6 +6,7 @@
 #include "event_tests.hpp"
 #include "exception_tests.hpp"
 #include "keyboard_tests.hpp"
+#include "result_tests.hpp"
 #include "string_util_tests.hpp"
 
 int main(int argc, char* argv[])

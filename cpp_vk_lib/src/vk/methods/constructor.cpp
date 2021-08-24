@@ -5,6 +5,7 @@
 #include "cpp_vk_lib/runtime/string_utils/string_utils.hpp"
 #include "cpp_vk_lib/vk/api_constants.hpp"
 #include "cpp_vk_lib/vk/config/config.hpp"
+#include "cpp_vk_lib/vk/error/exception.hpp"
 
 static std::string append_url(std::string_view method)
 {
@@ -16,7 +17,14 @@ static std::string append_url(std::string_view method)
 static std::string
     call(std::string_view method, std::map<std::string, std::string>&& params)
 {
-    return runtime::network::request(append_url(method), std::move(params));
+    auto response(
+        runtime::network::request(append_url(method), std::move(params)));
+    if (response.error()) {
+        throw vk::exception::runtime_error(
+            response.error(),
+            "Failed to execute HTTP GET");
+    }
+    return response.value();
 }
 
 namespace vk::method::policy {
@@ -53,7 +61,13 @@ std::string do_not_use_api_link::execute(
 {
     VK_UNUSED(user_token);
     VK_UNUSED(access_token);
-    return runtime::network::request(method, std::move(params));
+    auto response(runtime::network::request(method, std::move(params)));
+    if (response.error()) {
+        throw vk::exception::runtime_error(
+            response.error(),
+            "Failed to execute HTTP GET");
+    }
+    return response.value();
 }
 
 }// namespace vk::method::policy

@@ -1,6 +1,8 @@
 #ifndef RUNTIME_NET_NETWORK_HPP
 #define RUNTIME_NET_NETWORK_HPP
 
+#include "cpp_vk_lib/runtime/result.hpp"
+
 #include <map>
 #include <string>
 #include <string_view>
@@ -17,7 +19,7 @@ namespace runtime::network {
  *            e.g {{"a", "1"}, {"b", "2"}} => a=1&b=2
  * \return response output
  */
-std::string request(
+result<std::string, size_t> request(
     std::string_view host,
     std::map<std::string, std::string>&& target = {});
 /*!
@@ -35,14 +37,17 @@ size_t download(std::string_view filename, std::string_view server);
  * \note The buffer is flushing before writing
  * \return -1 if failed, 0 otherwise.
  */
-size_t download(std::vector<uint8_t>& buffer, std::string_view server);
+size_t download(
+    std::vector<uint8_t>& buffer,
+    std::string_view server,
+    size_t estimated_capacity);
 /*!
  * \brief Upload file from filename to server
  *
  * \param[in] field_name needed to correct file uploading
  * \return upload response
  */
-std::string upload(
+result<std::string, size_t> upload(
     std::string_view field_name,
     std::string_view filename,
     std::string_view server,
@@ -54,7 +59,7 @@ std::string upload(
  * \param[in] content_type e.g `text/html` or `multipart/form-data`
  * \return upload response
  */
-std::string upload(
+result<std::string, size_t> upload(
     const std::vector<uint8_t>& buffer,
     std::string_view field_name,
     std::string_view server,
@@ -66,7 +71,8 @@ std::string upload(
  * \param[in] URL payload, e.g JSON
  * \return response output
  */
-std::string request_data(std::string_view host, std::string_view data);
+result<std::string, size_t>
+    request_data(std::string_view host, std::string_view data);
 
 }// namespace runtime::network
 
