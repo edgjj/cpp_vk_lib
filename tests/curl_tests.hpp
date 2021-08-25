@@ -66,7 +66,6 @@ static std::string get_cat_url()
         std::cerr << "Failed to get cat URL\n";
         exit(-1);
     }
-    std::cout << "GOT " << received.value() << std::endl;
     simdjson::dom::parser parser;
     return std::string(parser.parse(received.value()).get_array().at(0)["url"]);
 }
