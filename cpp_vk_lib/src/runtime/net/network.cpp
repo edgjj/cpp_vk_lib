@@ -27,17 +27,17 @@ static size_t
 }
 
 static size_t
-    file_callback(void* contents, size_t nmemb, size_t size, FILE* stream)
+    file_callback(void* contents, size_t size, size_t nmemb, FILE* stream)
 {
     spdlog::trace(
         "libcurl file callback called, size = {}, nmemb = {}",
         size,
         nmemb);
-    return fwrite(contents, nmemb, size, stream);
+    return fwrite(contents, size, nmemb, stream);
 }
 
 static size_t
-    buffer_callback(char* contents, size_t nmemb, size_t size, void* userp)
+    buffer_callback(char* contents, size_t size, size_t nmemb, void* userp)
 {
     auto vector = static_cast<std::vector<uint8_t>*>(userp);
     spdlog::trace(

@@ -7,4 +7,6 @@ initialize_submodule(modules/asio)
 
 add_subdirectory(simdjson EXCLUDE_FROM_ALL)
 add_subdirectory(spdlog)
+
+set(BUILD_GMOCK OFF CACHE BOOL "Do not build gmock")
 add_subdirectory(googletest)

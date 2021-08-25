@@ -14,14 +14,14 @@ TEST(curl, POST)
 {
     const auto received = runtime::network::request("https://www.example.com");
     if (received.error()) {
-        ASSERT_FALSE(true);
+        FAIL() << "error while HTTP GET";
     }
     const auto result = received.value();
     if (result.empty()) {
-        ASSERT_FALSE(true);
+        FAIL() << "empty response got";
     } else {
         if (result.find("Example Domain") == std::string::npos) {
-            ASSERT_FALSE(true);
+            FAIL() << "HTTP output mismatch";
         }
     }
 }
@@ -43,7 +43,7 @@ TEST(curl, POST_multithreaded)
         std::thread thread([promise = std::move(promise)]() mutable {
             const auto received = runtime::network::request("https://www.example.com");
             if (received.error()) {
-                ASSERT_FALSE(true);
+                FAIL() << "error while HTTP GET";
             }
             promise.set_value(received.value());
         });
@@ -56,12 +56,24 @@ TEST(curl, POST_multithreaded)
         responses.emplace_back(future.get());
         thread.join();
     }
-    ASSERT_TRUE(std::adjacent_find(responses.begin(), responses.end(), std::not_equal_to<>()) == responses.end());
+    ASSERT_EQ(std::adjacent_find(responses.begin(), responses.end(), std::not_equal_to<>()), responses.end());
+}
+
+static std::string get_cat_url()
+{
+    static auto received = runtime::network::request("https://api.thecatapi.com/v1/images/search");
+    if (received.error() || received.value().empty()) {
+        std::cerr << "Failed to get cat URL\n";
+        exit(-1);
+    }
+    std::cout << "GOT " << received.value() << std::endl;
+    simdjson::dom::parser parser;
+    return std::string(parser.parse(received.value()).get_array().at(0)["url"]);
 }
 
 TEST(curl, download_to_file)
 {
-    if (runtime::network::download("buffer", "https://psv4.userapi.com/c536236/u561321493/docs/d33/f7cc086dba89/Korone_Headbob_gif.gif?extra=kghQXdwaja1KksbzxIbPteeCO2VFb4RdZLH2alAw1w_HNhwc9JZzw31uoVBp_Ntfo6jP1XB-A8i4KWPB9QKt8DdW_J4sB9gz2Fk6X-LMqxIiI2uYErb9ACbc2Ox7LCMY5H97zSf47nvCy27W9GTW2BQm") != 0) {
+    if (runtime::network::download("buffer", get_cat_url()) != 0) {
         FAIL() << "Failed to download to file";
     }
     std::remove("buffer");
@@ -69,16 +81,15 @@ TEST(curl, download_to_file)
 
 TEST(curl, download_to_buffer)
 {
-    const std::string_view url = "https://psv4.userapi.com/c536236/u561321493/docs/d33/f7cc086dba89/Korone_Headbob_gif.gif?extra=kghQXdwaja1KksbzxIbPteeCO2VFb4RdZLH2alAw1w_HNhwc9JZzw31uoVBp_Ntfo6jP1XB-A8i4KWPB9QKt8DdW_J4sB9gz2Fk6X-LMqxIiI2uYErb9ACbc2Ox7LCMY5H97zSf47nvCy27W9GTW2BQm";
     const size_t estimated_capacity = 700000;
-    if (std::vector<uint8_t> raw_buffer; runtime::network::download(raw_buffer, url, estimated_capacity) != 0) {
+    if (std::vector<uint8_t> raw_buffer; runtime::network::download(raw_buffer, get_cat_url(), estimated_capacity) != 0) {
         FAIL() << "Failed to download to buffer";
     }
 }
 
 TEST(curl, download_compare)
 {
-    const char url[] = "https://www.example.com";
+    const std::string url = get_cat_url();
     runtime::network::download("file", url);
     std::ostringstream ss;
     ss << std::ifstream("file").rdbuf();
@@ -86,7 +97,7 @@ TEST(curl, download_compare)
     std::vector<uint8_t> file_buffer(streambuf.begin(), streambuf.end());
 
     std::vector<uint8_t> raw_buffer;
-    const size_t estimated_capacity = 500;
+    const size_t estimated_capacity = 700000;
     runtime::network::download(raw_buffer, url, estimated_capacity);
 
     ASSERT_EQ(file_buffer, raw_buffer);
