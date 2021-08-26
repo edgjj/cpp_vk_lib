@@ -16,8 +16,7 @@ TEST(curl, POST)
     if (received.error()) {
         FAIL() << "error while HTTP GET";
     }
-    const auto result = received.value();
-    if (result.empty()) {
+    if (const auto result = received.value(); result.empty()) {
         FAIL() << "empty response got";
     } else {
         if (result.find("Example Domain") == std::string::npos) {

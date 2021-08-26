@@ -1,13 +1,13 @@
-#include "api_tests.hpp"
-#include "attachment_tests.hpp"
+//#include "api_tests.hpp"
+//#include "attachment_tests.hpp"
 #include "config_tests.hpp"
-#include "curl_tests.hpp"
-#include "error_code_tests.hpp"
+//#include "curl_tests.hpp"
+//#include "error_code_tests.hpp"
 #include "event_tests.hpp"
-#include "exception_tests.hpp"
-#include "keyboard_tests.hpp"
-#include "result_tests.hpp"
-#include "string_util_tests.hpp"
+//#include "exception_tests.hpp"
+//#include "keyboard_tests.hpp"
+//#include "result_tests.hpp"
+//#include "string_util_tests.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
         }
     )__";
 
-    vk::setup_logger(spdlog::level::level_enum::trace);
+    vk::setup_logger(spdlog::level::level_enum::info);
     vk::config::load_string(sample_config);
 
     testing::InitGoogleTest(&argc, argv);

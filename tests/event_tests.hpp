@@ -232,3 +232,36 @@ TEST(wall_reply_new, default_event)
     ASSERT_EQ(-192764727, event.owner_id());
     ASSERT_EQ("123", event.text());
 }
+
+template <typename Event>
+static void create_basic_event_speed_test(const char* event, size_t length)
+{
+    size_t iterations = 10'000'000;
+    simdjson::dom::parser parser;
+    const simdjson::dom::element event_object = parser.parse(event, length);
+    auto start = std::chrono::high_resolution_clock::now();
+    for (size_t i = 0; i < iterations; ++i) {
+        Event e{event_object};
+    }
+    auto time_spent = std::chrono::high_resolution_clock::now() - start;
+    const float seconds_elapsed = std::chrono::duration_cast<std::chrono::duration<float>>(time_spent).count();
+    const float mib = (iterations * length) / 1024.0 / 1024.0;
+    spdlog::info("total payload size: {} MiB", mib);
+    spdlog::info("creation speed: {} MiB/sec", mib / seconds_elapsed);
+}
+
+TEST(event, message_new_speed_test)
+{
+    create_basic_event_speed_test<vk::event::message_new>(message_new, strlen(message_new));
+}
+
+TEST(event, wall_reply_new_speed_test)
+{
+    create_basic_event_speed_test<vk::event::wall_reply_new>(wall_reply_new, strlen(wall_reply_new));
+}
+
+TEST(event, wall_post_new_speed_test)
+{
+    create_basic_event_speed_test<vk::event::wall_post_new>(wall_post_new, strlen(wall_post_new));
+}
+

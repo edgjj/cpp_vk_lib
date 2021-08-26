@@ -6,7 +6,7 @@
 
 #include <gtest/gtest.h>
 
-TEST(methods, method_construct)
+TEST(api, example_api_request)
 {
     constexpr size_t test_chat_id = vk::api_constants::chat_id_constant + 1;
 
