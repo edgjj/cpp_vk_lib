@@ -79,36 +79,32 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/buttons/vk_pay.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/keyboard/flags.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;any&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>vk::keyboard {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> any_button = std::</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    variant&lt;button::text, button::vk_pay, button::open_app, button::location&gt;;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>(keyboard::flag flags);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> add_row(<span class="keyword">const</span> std::vector&lt;any_button&gt;&amp; row);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">serialize</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">get</a>() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> has_flag(keyboard::flag flag) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string serialized_{};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;std::vector&lt;any_button&gt;&gt; buttons_{};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    flag flags_ = vk::keyboard::flag::none;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}<span class="comment">// namespace vk::keyboard</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_LAYOUT_HPP</span></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a></div><div class="ttdoc">The buttons grid representation.</div><div class="ttdef"><b>Definition:</b> layout.hpp:21</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a2927084b2567e0b7188a83c7285f0ffc"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">vk::keyboard::layout::get</a></div><div class="ttdeci">const std::string &amp; get() const noexcept</div><div class="ttdef"><b>Definition:</b> layout.cpp:83</div></div>
-<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a9c1a4c1fcb333d4c98e67cf097566c17"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">vk::keyboard::layout::serialize</a></div><div class="ttdeci">void serialize()</div><div class="ttdef"><b>Definition:</b> layout.cpp:41</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classvk_1_1keyboard_1_1layout.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classvk_1_1keyboard_1_1layout.html">layout</a>(keyboard::flag flags);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> add_row(std::vector&lt;std::any&gt;&amp;&amp; row);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">serialize</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">get</a>() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> has_flag(keyboard::flag flag) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::string serialized_{};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::vector&lt;std::vector&lt;std::any&gt;&gt; buttons_{};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    flag flags_ = vk::keyboard::flag::none;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}<span class="comment">// namespace vk::keyboard</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_KEYBOARD_LAYOUT_HPP</span></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html">vk::keyboard::layout</a></div><div class="ttdoc">The buttons grid representation.</div><div class="ttdef"><b>Definition:</b> layout.hpp:17</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a2927084b2567e0b7188a83c7285f0ffc"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc">vk::keyboard::layout::get</a></div><div class="ttdeci">const std::string &amp; get() const noexcept</div><div class="ttdef"><b>Definition:</b> layout.cpp:88</div></div>
+<div class="ttc" id="aclassvk_1_1keyboard_1_1layout_html_a9c1a4c1fcb333d4c98e67cf097566c17"><div class="ttname"><a href="classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17">vk::keyboard::layout::serialize</a></div><div class="ttdeci">void serialize()</div><div class="ttdef"><b>Definition:</b> layout.cpp:49</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['do_5fnot_5fuse_5fapi_5flink_79',['do_not_use_api_link',['../structvk_1_1method_1_1policy_1_1do__not__use__api__link.html',1,'vk::method::policy']]],
-  ['document_80',['document',['../classvk_1_1attachment_1_1document.html',1,'vk::attachment']]]
+  ['do_5fnot_5fuse_5fapi_5flink_81',['do_not_use_api_link',['../structvk_1_1method_1_1policy_1_1do__not__use__api__link.html',1,'vk::method::policy']]],
+  ['document_82',['document',['../classvk_1_1attachment_1_1document.html',1,'vk::attachment']]]
 ];

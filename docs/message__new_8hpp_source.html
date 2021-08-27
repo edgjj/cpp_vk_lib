@@ -76,60 +76,61 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/attachment/attachment.hpp&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;cpp_vk_lib/vk/events/action.hpp&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>simdjson::dom {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>object;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>array;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}<span class="comment">// namespace simdjson::dom</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>vk::event {</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1message__new.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>(simdjson::dom::object event);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ~<a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::shared_ptr&lt;message_new&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e">reply</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;std::unique_ptr&lt;message_new&gt;&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26">fwd_messages</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    action::any_action_t <a class="code" href="classvk_1_1event_1_1message__new.html#a749eb42ce73c6218c632f0cd3fd02ae6">action</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::vector&lt;attachment::attachment_ptr_t&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#a343a857cf8d39f6a4711030db14d4340">attachments</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> on_action(std::string_view action_type) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    int64_t conversation_message_id() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::string text() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    int64_t from_id() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    int64_t peer_id() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> has_reply() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> has_fwd_messages() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> has_action() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">friend</span> std::ostream&amp;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        operator&lt;&lt;(std::ostream&amp; ostream, <span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>&amp; event);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> try_get_actions();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    simdjson::dom::object&amp; get_event() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::shared_ptr&lt;simdjson::dom::object&gt; event_json_;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    action::any_action_t action_;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> has_action_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> has_reply_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> has_fwd_messages_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> has_attachments_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;std::ostream&amp;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    operator&lt;&lt;(std::ostream&amp; ostream, <span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a>&amp; event);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}<span class="comment">// namespace vk::event</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_EVENTS_MESSAGE_NEW_HPP</span></div>
-<div class="ttc" id="aclassvk_1_1event_1_1message__new_html"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a></div><div class="ttdef"><b>Definition:</b> message_new.hpp:23</div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_a343a857cf8d39f6a4711030db14d4340"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#a343a857cf8d39f6a4711030db14d4340">vk::event::message_new::attachments</a></div><div class="ttdeci">std::vector&lt; attachment::attachment_ptr_t &gt; attachments() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:159</div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_a749eb42ce73c6218c632f0cd3fd02ae6"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#a749eb42ce73c6218c632f0cd3fd02ae6">vk::event::message_new::action</a></div><div class="ttdeci">action::any_action_t action() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:150</div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_ac5bba5cd48552ff332bcfccff0822b26"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26">vk::event::message_new::fwd_messages</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; message_new &gt; &gt; fwd_messages() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:170</div></div>
-<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_adf74ae64132eb2599578a97dcd12353e"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e">vk::event::message_new::reply</a></div><div class="ttdeci">std::shared_ptr&lt; message_new &gt; reply() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:189</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;any&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>simdjson::dom {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>object;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span>array;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}<span class="comment">// namespace simdjson::dom</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>vk::event {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classvk_1_1event_1_1message__new.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>(simdjson::dom::object event);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::shared_ptr&lt;message_new&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e">reply</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;std::unique_ptr&lt;message_new&gt;&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26">fwd_messages</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::any <a class="code" href="classvk_1_1event_1_1message__new.html#a1ca8fb7f5733cbafe2e08a294c50c52e">action</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::vector&lt;attachment::attachment_ptr_t&gt; <a class="code" href="classvk_1_1event_1_1message__new.html#a343a857cf8d39f6a4711030db14d4340">attachments</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> on_action(std::string_view action_type) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    int64_t conversation_message_id() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::string text() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    int64_t from_id() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    int64_t peer_id() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> has_reply() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> has_fwd_messages() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> has_action() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">friend</span> std::ostream&amp;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        operator&lt;&lt;(std::ostream&amp; ostream, <span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1message__new.html">message_new</a>&amp; event);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> try_get_actions();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    simdjson::dom::object&amp; get_event() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::shared_ptr&lt;simdjson::dom::object&gt; event_json_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::any action_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> has_action_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> has_reply_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> has_fwd_messages_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> has_attachments_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;std::ostream&amp;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    operator&lt;&lt;(std::ostream&amp; ostream, <span class="keyword">const</span> <a class="code" href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a>&amp; event);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}<span class="comment">// namespace vk::event</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_EVENTS_MESSAGE_NEW_HPP</span></div>
+<div class="ttc" id="aclassvk_1_1event_1_1message__new_html"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html">vk::event::message_new</a></div><div class="ttdef"><b>Definition:</b> message_new.hpp:24</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_a1ca8fb7f5733cbafe2e08a294c50c52e"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#a1ca8fb7f5733cbafe2e08a294c50c52e">vk::event::message_new::action</a></div><div class="ttdeci">std::any action() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:161</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_a343a857cf8d39f6a4711030db14d4340"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#a343a857cf8d39f6a4711030db14d4340">vk::event::message_new::attachments</a></div><div class="ttdeci">std::vector&lt; attachment::attachment_ptr_t &gt; attachments() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:170</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_ac5bba5cd48552ff332bcfccff0822b26"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26">vk::event::message_new::fwd_messages</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; message_new &gt; &gt; fwd_messages() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:181</div></div>
+<div class="ttc" id="aclassvk_1_1event_1_1message__new_html_adf74ae64132eb2599578a97dcd12353e"><div class="ttname"><a href="classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e">vk::event::message_new::reply</a></div><div class="ttdeci">std::shared_ptr&lt; message_new &gt; reply() const</div><div class="ttdef"><b>Definition:</b> message_new.cpp:200</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
