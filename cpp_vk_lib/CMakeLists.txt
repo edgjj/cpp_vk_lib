@@ -1,21 +1,21 @@
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra -Werror -Wunused -Wwrite-strings -Wimplicit-fallthrough -pedantic -O3")
+add_compile_options(-Wall -Wextra -Werror -Wunused -Wwrite-strings -Wimplicit-fallthrough -pedantic)
+add_compile_options(-fPIC -O3)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated -Wno-deprecated-declarations")
-    include_directories(/usr/local/include)
-    link_directories(/usr/local/lib)
+    add_compile_options(-Wno-deprecated -Wno-deprecated-declarations)
+    #[[I don't know why these directories are not included in FreeBSD where i've tested this library]]
+    target_include_directories(cpp_vk_lib PRIVATE /usr/local/include)
+    target_link_directories(cpp_vk_lib PRIVATE /usr/local/lib)
 endif()
 
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS YES CACHE BOOL "Export all symbols")
-
-set(SRC
+set(CPP_VK_LIB_SOURCE
     ../cpp_vk_lib/src/vk/implementation.cpp
     ../cpp_vk_lib/src/runtime/implementation.cpp)
 
 if (CPP_VK_LIB_STATIC_BUILD)
-    add_library(cpp_vk_lib STATIC ${SRC})
+    add_library(cpp_vk_lib STATIC ${CPP_VK_LIB_SOURCE})
 else()
-    add_library(cpp_vk_lib SHARED ${SRC})
+    add_library(cpp_vk_lib SHARED ${CPP_VK_LIB_SOURCE})
 endif()
 
 target_link_libraries(cpp_vk_lib PRIVATE curl)

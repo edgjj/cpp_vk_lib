@@ -8,7 +8,9 @@
 #include <string_view>
 #include <vector>
 
+extern "C" {
 extern bool cpp_vk_lib_curl_verbose;
+}
 
 namespace runtime::network {
 /*!

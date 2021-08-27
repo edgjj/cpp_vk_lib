@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.9)
 
 project(
     cpp_vk_lib
     DESCRIPTION "C++ vk library"
+    HOMEPAGE_URL "https://github.com/threadpoolexecutor/cpp_vk_lib"
     LANGUAGES CXX
 )
 
@@ -14,12 +15,11 @@ string(
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_MACOSX_RPATH OFF)
 set(CMAKE_THREAD_PREFER_PTHREAD ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
-set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
+set(CPP_VK_LIB_STATIC_BUILD OFF CACHE BOOL "Link cpp_vk_lib as shaed library by default")
 
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)
