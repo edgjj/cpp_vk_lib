@@ -53,7 +53,7 @@ static void android_stacktrace_dump_implementation()
     for (size_t i = 0; i < stacktrace_size; ++i) {
         const void* address = buffer[i];
         const char* symbol = "";
-        DL_info info;
+        Dl_info info;
         if (dladdr(address, &info) && info.dli_sname) {
             symbol = info.dli_sname;
         }
