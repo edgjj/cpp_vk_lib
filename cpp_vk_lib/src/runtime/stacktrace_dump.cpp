@@ -2,7 +2,7 @@
 
 #include "spdlog/spdlog.h"
 
-#if defined(__unix__ ) || defined(__unix) || \
+#if defined(__FreeBSD__ ) || defined(__linux) || defined(__linux__) || \
    (defined(__APPLE__) && defined(__MACH__))
 #include <cxxabi.h>
 #include <execinfo.h>
@@ -61,7 +61,7 @@ static void unix_stacktrace_dump_implementation()
 }
 #endif // defined __unix__ || defined __APPLE__
 
-#if defined(__ANDROID__)
+#if  defined(__ANDROID__)
 struct backtrace_state
 {
     void** current;
