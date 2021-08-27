@@ -2,17 +2,18 @@
 
 #include "spdlog/spdlog.h"
 
-#if defined(__FreeBSD__ ) || defined(__linux) || defined(__linux__) || \
-   (defined(__APPLE__) && defined(__MACH__))
-#include <cxxabi.h>
-#include <execinfo.h>
-#elif defined(__ANDROID__)
+#if defined(__ANDROID__)
 #include <sstream>
 #include <iomanip>
 #include <android/log.h>
 #include <unwind.h>
 #include <dlfcn.h>
-#endif // defined __unix__ || defined __APPLE__
+#elif defined(__FreeBSD__) || defined(__linux__) || defined(__APPLE__)
+#include <cxxabi.h>
+#include <execinfo.h>
+#else
+#error Unknown platform
+#endif
 
 #if defined(__unix__ ) || defined(__unix) || \
    (defined(__APPLE__) && defined(__MACH__))
