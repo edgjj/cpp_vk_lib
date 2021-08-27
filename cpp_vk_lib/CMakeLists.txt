@@ -4,8 +4,8 @@ add_compile_options(-fPIC -O3)
 if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
     add_compile_options(-Wno-deprecated -Wno-deprecated-declarations)
     #[[I don't know why these directories are not included in FreeBSD where i've tested this library]]
-    target_include_directories(cpp_vk_lib PRIVATE /usr/local/include)
-    target_link_directories(cpp_vk_lib PRIVATE /usr/local/lib)
+    include_directories(/usr/local/include)
+    link_directories(/usr/local/lib)
 endif()
 
 set(CPP_VK_LIB_SOURCE
