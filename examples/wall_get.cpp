@@ -1,9 +1,11 @@
+#include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/runtime/signal_handlers.hpp"
 #include "cpp_vk_lib/vk/config/config.hpp"
-#include "cpp_vk_lib/vk/setup_logger.hpp"
 #include "cpp_vk_lib/vk/methods/constructor.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 #include <iostream>
 #include <fstream>
@@ -17,12 +19,13 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    const char* log_path = argv[1];
+    const char* config_path = argv[1];
     const char* group_id = argv[2];
     const char* count_of_posts = argv[3];
     const char* out_path = argv[4];
-    vk::config::load(log_path);
-    vk::setup_logger(spdlog::level::level_enum::trace);
+    vk::config::load(config_path);
+    runtime::setup_signal_handlers();
+    runtime::setup_logger(spdlog::level::level_enum::trace);
 
     const std::string response = vk::method::user_constructor()
         .method("wall.get")

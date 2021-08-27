@@ -1,8 +1,7 @@
+#include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/runtime/signal_handlers.hpp"
 #include "cpp_vk_lib/vk/methods/message_constructor.hpp"
 #include "cpp_vk_lib/vk/api_constants.hpp"
-
-#include "cpp_vk_lib/vk/config/config.hpp"
-#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

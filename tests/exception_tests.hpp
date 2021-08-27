@@ -1,5 +1,4 @@
 #include "cpp_vk_lib/vk/error/exception.hpp"
-#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

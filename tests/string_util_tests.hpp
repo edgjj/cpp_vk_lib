@@ -1,5 +1,4 @@
 #include "cpp_vk_lib/runtime/string_utils/string_utils.hpp"
-#include "cpp_vk_lib/vk/setup_logger.hpp"
 
 #include <gtest/gtest.h>
 

@@ -10,7 +10,8 @@ endif()
 
 set(CPP_VK_LIB_SOURCE
     ../cpp_vk_lib/src/vk/implementation.cpp
-    ../cpp_vk_lib/src/runtime/implementation.cpp)
+    ../cpp_vk_lib/src/runtime/implementation.cpp
+    ../cpp_vk_lib/src/)
 
 if (CPP_VK_LIB_STATIC_BUILD)
     add_library(cpp_vk_lib STATIC ${CPP_VK_LIB_SOURCE})

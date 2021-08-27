@@ -2,8 +2,9 @@
 #include "cpp_vk_lib/vk/events/message_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_post_new.hpp"
 #include "cpp_vk_lib/vk/events/wall_reply_new.hpp"
-#include "cpp_vk_lib/vk/setup_logger.hpp"
+
 #include "simdjson.h"
+#include "spdlog/spdlog.h"
 
 #include <gtest/gtest.h>
 
