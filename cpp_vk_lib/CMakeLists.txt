@@ -23,6 +23,9 @@ target_link_libraries(cpp_vk_lib PRIVATE curl)
 target_link_libraries(cpp_vk_lib PRIVATE simdjson)
 #[[Must be linked as PUBLIC to be able change logging level from user code]]
 target_link_libraries(cpp_vk_lib PUBLIC spdlog)
+if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+    target_link_libraries(cpp_vk_lib PUBLIC execinfo)
+endif()
 
 target_include_directories(cpp_vk_lib PRIVATE include)
 target_include_directories(cpp_vk_lib PRIVATE ../modules/spdlog/include)
