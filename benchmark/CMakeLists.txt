@@ -4,11 +4,15 @@ include_directories(../cpp_vk_lib/include)
 include_directories(../modules/spdlog/include)
 include_directories(../modules/asio/asio/include)
 
-set(EXECUTABLE_OUTPUT_PATH ../build)
+set(EXECUTABLE_OUTPUT_PATH ..)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
     add_compile_options(-Wno-deprecated -Wno-deprecated-declarations)
 endif()
 
-add_executable(tests main.cpp)
-target_link_libraries(tests simdjson gtest cpp_vk_lib)
+add_executable(sender sender.cpp)
+target_link_libraries(sender cpp_vk_lib)
+
+add_executable(receiver receiver.cpp)
+target_link_libraries(receiver cpp_vk_lib)
+

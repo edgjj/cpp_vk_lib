@@ -20,7 +20,10 @@ jobs:
       run: brew install curl
       
     - name: run CMake
-      run: mkdir build && cd build && cmake -DCPP_VK_LIB_BUILD_TESTS=1 .. && cmake --build . --parallel
+      run: mkdir build && cd build && cmake .. && cmake --build . --parallel
       
     - name: run tests
       run: cd build && ./build/tests
+      
+    - name: run benchmarks
+      run: cd build && ./receiver & disown && sleep 1 && cd build && ./sender

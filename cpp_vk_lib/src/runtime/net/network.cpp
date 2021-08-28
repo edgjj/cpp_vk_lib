@@ -110,6 +110,7 @@ result<std::string, size_t> network::request(
         return result<std::string, size_t>(std::string(), -1);
     }
     response.shrink_to_fit();
+    spdlog::trace("libcurl GET response: {}", response);
     return response;
 }
 
