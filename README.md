@@ -12,9 +12,14 @@ High performance VK API library
 * To develop expandable multithreaded bots. Example is [here](https://github.com/threadpoolexecutor/template_cpp_vk_bot).
 * To develop small one-function utilities. Please see **examples** directory.
 
+## Features
+* Async event processing
+* Cross-platform stacktrace dumps on crash
+* Multi-level logging
+
 ## Tested under
-* Linux, MacOS, FreeBSD, Android, Windows
-* 
+* Linux, MacOS, FreeBSD, Android
+
 ## TODO
 * User Long Poll
 * Based on Boost Asio network module
