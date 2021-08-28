@@ -39,10 +39,7 @@ size_t download(std::string_view filename, std::string_view server);
  * \note The buffer is flushing before writing
  * \return -1 if failed, 0 otherwise.
  */
-size_t download(
-    std::vector<uint8_t>& buffer,
-    std::string_view server,
-    size_t estimated_capacity);
+size_t download(std::vector<uint8_t>& buffer, std::string_view server);
 /*!
  * \brief Upload file from filename to server
  *

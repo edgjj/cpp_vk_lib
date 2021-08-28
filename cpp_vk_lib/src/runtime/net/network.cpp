@@ -17,34 +17,58 @@ static std::string escape(std::string_view url)
 static size_t
     string_callback(char* contents, size_t size, size_t nmemb, void* userp)
 {
-    spdlog::trace(
-        "libcurl string callback called, size = {}, nmemb = {}",
-        size,
-        nmemb);
-    (static_cast<std::string*>(userp))->append(contents, size * nmemb);
+    static_cast<std::string*>(userp)->append(contents, size * nmemb);
     return size * nmemb;
 }
 
 static size_t
     file_callback(char* contents, size_t size, size_t nmemb, void* stream)
 {
-    spdlog::trace(
-        "libcurl file callback called, size = {}, nmemb = {}",
-        size,
-        nmemb);
-    return fwrite(contents, size, nmemb, reinterpret_cast<FILE*>(stream));
+    return fwrite(contents, size, nmemb, static_cast<FILE*>(stream));
 }
 
 static size_t
     buffer_callback(char* contents, size_t size, size_t nmemb, void* userp)
 {
     auto vector = static_cast<std::vector<uint8_t>*>(userp);
-    spdlog::trace(
-        "libcurl buffer callback called, size = {}, nmemb = {}, buffer capacity = {}",
-        size,
-        nmemb,
-        vector->capacity());
     std::copy(contents, contents + (size * nmemb), std::back_inserter(*vector));
+    return size * nmemb;
+}
+
+static size_t string_header_callback(
+    char* contents,
+    size_t size,
+    size_t nmemb,
+    void* userp)
+{
+    if (!userp) {
+        return size * nmemb;
+    }
+    size_t bytes = 0;
+    sscanf(contents, "content-length: %zu\n", &bytes);
+    if (bytes > 0) {
+        static_cast<std::string*>(userp)->reserve(bytes);
+    }
+    return size * nmemb;
+}
+
+static size_t buffer_header_callback(
+    char* contents,
+    size_t size,
+    size_t nmemb,
+    void* userp)
+{
+    if (!userp) {
+        return size * nmemb;
+    }
+    size_t bytes = 0;
+    sscanf(contents, "content-length: %zu\n", &bytes);
+    if (bytes > 0) {
+        static_cast<std::vector<uint8_t>*>(userp)->reserve(bytes);
+        spdlog::trace(
+            "libcurl buffer header callback called, reserve {} bytes for buffer",
+            bytes);
+    }
     return size * nmemb;
 }
 
@@ -98,8 +122,10 @@ result<std::string, size_t> network::request(
     std::string response;
     response.reserve(100);
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
     set_optional_verbose(curl);
@@ -110,7 +136,7 @@ result<std::string, size_t> network::request(
         return result<std::string, size_t>(std::string(), -1);
     }
     response.shrink_to_fit();
-    spdlog::trace("libcurl GET response: {}", response);
+    //    spdlog::trace("libcurl GET response: {}", response);
     return response;
 }
 
@@ -130,10 +156,12 @@ result<std::string, size_t>
     std::string response;
     response.reserve(100);
     curl_easy_setopt(curl, CURLOPT_URL, host.data());
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
     curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, data.size());
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.data());
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
     set_optional_verbose(curl);
@@ -150,7 +178,9 @@ result<std::string, size_t>
 static size_t curl_download_impl(
     void* buffer,
     std::string_view server,
-    curl_write_callback write_cb) noexcept(noexcept(write_cb))
+    curl_write_callback write_cb,
+    curl_write_callback header_cb =
+        nullptr) noexcept(noexcept(write_cb) && noexcept(header_cb))
 {
     std::unique_ptr<CURL, curl_free_callback> curl_handle{
         curl_easy_init(),
@@ -165,6 +195,10 @@ static size_t curl_download_impl(
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, buffer);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    if (header_cb) {
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, buffer);
+        curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, header_cb);
+    }
     set_optional_verbose(curl);
     if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
         spdlog::error(
@@ -188,25 +222,18 @@ size_t network::download(std::string_view filename, std::string_view server)
     return res;
 }
 
-size_t network::download(
-    std::vector<uint8_t>& buffer,
-    std::string_view server,
-    size_t estimated_capacity)
+size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
 {
-    spdlog::trace(
-        "libcurl download to buffer, reserve capacity: {}",
-        estimated_capacity);
     spdlog::trace("libcurl download to buffer, src: {}", server);
     buffer.clear();
-    buffer.reserve(estimated_capacity);
 
-    size_t res = curl_download_impl(&buffer, server, buffer_callback);
+    size_t res = curl_download_impl(
+        &buffer,
+        server,
+        buffer_callback,
+        buffer_header_callback);
 
     buffer.shrink_to_fit();
-    spdlog::trace(
-        "libcurl successfully downloaded {} bytes from {}",
-        buffer.size(),
-        server);
     return res;
 }
 
@@ -225,8 +252,10 @@ result<std::string, size_t> curl_upload_impl(
     }
     std::string response;
     response.reserve(100);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
     curl_easy_setopt(curl, CURLOPT_URL, server.data());
     curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);

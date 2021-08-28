@@ -78,8 +78,7 @@ TEST(curl, download_to_file)
 
 TEST(curl, download_to_buffer)
 {
-    const size_t estimated_capacity = 700000;
-    if (std::vector<uint8_t> raw_buffer; runtime::network::download(raw_buffer, get_cat_url(), estimated_capacity) != 0) {
+    if (std::vector<uint8_t> raw_buffer; runtime::network::download(raw_buffer, get_cat_url()) != 0) {
         FAIL() << "Failed to download to buffer";
     }
 }
@@ -94,8 +93,7 @@ TEST(curl, download_compare)
     std::vector<uint8_t> file_buffer(streambuf.begin(), streambuf.end());
 
     std::vector<uint8_t> raw_buffer;
-    const size_t estimated_capacity = 700000;
-    runtime::network::download(raw_buffer, url, estimated_capacity);
+    runtime::network::download(raw_buffer, url);
 
     ASSERT_EQ(file_buffer, raw_buffer);
 

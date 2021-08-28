@@ -1,13 +1,17 @@
-#include "api_tests.hpp"
-#include "attachment_tests.hpp"
-#include "config_tests.hpp"
+//#include "api_tests.hpp"
+//#include "attachment_tests.hpp"
+//#include "config_tests.hpp"
 #include "curl_tests.hpp"
-#include "error_code_tests.hpp"
-#include "event_tests.hpp"
-#include "exception_tests.hpp"
-#include "keyboard_tests.hpp"
-#include "result_tests.hpp"
-#include "string_util_tests.hpp"
+//#include "error_code_tests.hpp"
+//#include "event_tests.hpp"
+//#include "exception_tests.hpp"
+//#include "keyboard_tests.hpp"
+//#include "result_tests.hpp"
+//#include "string_util_tests.hpp"
+
+#include "cpp_vk_lib/runtime/signal_handlers.hpp"
+#include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -30,7 +34,7 @@ int main(int argc, char* argv[])
 
     vk::config::load_string(sample_config);
     runtime::setup_signal_handlers();
-    runtime::setup_logger(spdlog::level::level_enum::info);
+    runtime::setup_logger(spdlog::level::level_enum::trace);
 
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

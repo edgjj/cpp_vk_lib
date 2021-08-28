@@ -68,8 +68,7 @@ static void unix_stacktrace_dump_implementation()
 {
     const size_t max_stacktrace_records = 25;
     void* buffer[max_stacktrace_records];
-    int addresses_got =
-        backtrace(buffer, sizeof(buffer) / sizeof(void*));
+    int addresses_got = backtrace(buffer, sizeof(buffer) / sizeof(void*));
     if (addresses_got == 0) {
         spdlog::critical("  empty stack trace, exiting...");
         return;
