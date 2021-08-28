@@ -36,13 +36,13 @@ int main()
 
     const size_t total_messages = 25;
     bool is_time_set = false;
-    std::chrono::system_clock::time_point start;
+    std::chrono::steady_clock::time_point start;
     std::atomic<size_t> messages_sent = 0;
 
     while (true) {
         auto events = api.listen();
         if (!is_time_set) {
-            start = std::chrono::high_resolution_clock::now();
+            start = std::chrono::steady_clock::now();
             is_time_set = true;
         }
         for (const auto& event : events) {
@@ -58,7 +58,7 @@ int main()
         }
     }
 
-    auto time_spent = std::chrono::high_resolution_clock::now() - start;
+    auto time_spent = std::chrono::steady_clock::now() - start;
     std::string info;
     info += std::to_string(std::chrono::duration_cast<std::chrono::duration<float>>(time_spent).count());
     info += " s., ";
