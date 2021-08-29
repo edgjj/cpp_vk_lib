@@ -10,8 +10,6 @@
 #elif defined(__FreeBSD__) || defined(__linux__) || defined(__APPLE__)
 #    include <cxxabi.h>
 #    include <execinfo.h>
-#else
-#    error Unknown platform
 #endif
 
 #if defined(__ANDROID__)
@@ -117,6 +115,11 @@ static void unix_stacktrace_dump_implementation()
     free(funcname);
     free(symbol_list);
 }
+#else
+static void unknown_platform_stacktrace_dump_implementation()
+{
+    spdlog::critical("sorry, stacktrace isn't supported for your platform yet");
+}
 #endif
 
 void runtime::stacktrace_dump()
@@ -125,5 +128,7 @@ void runtime::stacktrace_dump()
     android_stacktrace_dump_implementation();
 #elif defined(__FreeBSD__) || defined(__linux__) || defined(__APPLE__)
     unix_stacktrace_dump_implementation();
+#else
+    unknown_platform_stacktrace_dump_implementation();
 #endif
 }
