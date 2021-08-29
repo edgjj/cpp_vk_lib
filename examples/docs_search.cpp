@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     std::uniform_int_distribution<> distribution(0, items.size() - 1);
     for (size_t i = 0; i < items.size() && i < std::stoul(count); ++i) {
         const size_t index = distribution(generator);
-        documents.push_back(std::make_shared<vk::attachment::document>(
+        documents.push_back(std::make_unique<vk::attachment::document>(
             items.at(index)["owner_id"].get_int64(),
             items.at(index)["id"].get_int64(),
             items.at(index)["url"].get_string())

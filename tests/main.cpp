@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
     vk::config::load_string(sample_config);
     runtime::setup_signal_handlers();
-    runtime::setup_logger(spdlog::level::level_enum::trace);
+    runtime::setup_logger(spdlog::level::level_enum::info);
 
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

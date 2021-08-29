@@ -4,6 +4,8 @@
 
 namespace vk::exception {
 
+namespace {
+
 enum class error_type : size_t
 {
     upload_error,
@@ -18,7 +20,9 @@ struct error
     error_type type;
 };
 
-const std::unordered_map<size_t, error> errors = {
+}// anonymous namespaec
+
+static const std::unordered_map<size_t, error> errors = {
     {1, {"Unknown error occurred", error_type::runtime_error}},
     {2,
      {"Application is disabled. Enable your application or use test mode",

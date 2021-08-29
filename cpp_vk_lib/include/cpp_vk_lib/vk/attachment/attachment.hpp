@@ -75,22 +75,7 @@ private:
     std::string raw_mp3_;
 };
 
-/*!
- * \brief Try to cast base attachment to derived
- *
- * \throws exception::bad_cast_error
- */
-template <typename Attachment>
-std::shared_ptr<Attachment> cast(const std::shared_ptr<base>& pointer)
-{
-    if (auto* casted = static_cast<Attachment*>(pointer.get())) {
-        return std::shared_ptr<Attachment>(pointer, casted);
-    }
-
-    throw exception::bad_cast_error<base, Attachment>();
-}
-
-using attachment_ptr_t = std::shared_ptr<base>;
+using attachment_ptr_t = std::unique_ptr<base>;
 
 }// namespace vk::attachment
 

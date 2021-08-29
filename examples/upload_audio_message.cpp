@@ -49,12 +49,14 @@ int main(int argc, char* argv[])
         .perform_request();
     const simdjson::dom::element uploaded_document = parser.parse(docs_save_response);
     const simdjson::dom::element audio_message = uploaded_document["response"]["audio_message"];
-    const std::shared_ptr<vk::attachment::audio_message> doc =
-        std::make_shared<vk::attachment::audio_message>(
+    std::unique_ptr<vk::attachment::audio_message> doc =
+        std::make_unique<vk::attachment::audio_message>(
             audio_message["owner_id"].get_int64(),
             audio_message["id"].get_int64(),
             audio_message["link_ogg"].get_string(),
             audio_message["link_mp3"].get_string());
-    vk::method::messages::send(std::stol(peer_id), "", { doc });
+    std::vector<vk::attachment::attachment_ptr_t> atts;
+    atts.emplace_back(std::move(doc));
+    vk::method::messages::send(std::stol(peer_id), "", std::move(atts));
     return 0;
 }

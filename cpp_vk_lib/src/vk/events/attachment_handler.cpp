@@ -2,53 +2,53 @@
 
 #include "simdjson.h"
 
-static std::shared_ptr<vk::attachment::photo>
+static std::unique_ptr<vk::attachment::photo>
     get_photo(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::photo>(
+    return std::make_unique<vk::attachment::photo>(
         attachment["photo"]["owner_id"].get_int64(),
         attachment["photo"]["id"].get_int64());
 }
 
-static std::shared_ptr<vk::attachment::video>
+static std::unique_ptr<vk::attachment::video>
     get_video(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::video>(
+    return std::make_unique<vk::attachment::video>(
         attachment["video"]["owner_id"].get_int64(),
         attachment["video"]["id"].get_int64());
 }
 
-static std::shared_ptr<vk::attachment::document>
+static std::unique_ptr<vk::attachment::document>
     get_doc(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::document>(
+    return std::make_unique<vk::attachment::document>(
         attachment["doc"]["owner_id"].get_int64(),
         attachment["doc"]["id"].get_int64(),
         attachment["doc"]["url"].get_string());
 }
 
-static std::shared_ptr<vk::attachment::audio>
+static std::unique_ptr<vk::attachment::audio>
     get_audio(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::audio>(
+    return std::make_unique<vk::attachment::audio>(
         attachment["audio"]["owner_id"].get_int64(),
         attachment["audio"]["id"].get_int64());
 }
 
-static std::shared_ptr<vk::attachment::audio_message>
+static std::unique_ptr<vk::attachment::audio_message>
     get_audio_message(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::audio_message>(
+    return std::make_unique<vk::attachment::audio_message>(
         attachment["audio_message"]["owner_id"].get_int64(),
         attachment["audio_message"]["id"].get_int64(),
         attachment["audio_message"]["link_ogg"].get_string(),
         attachment["audio_message"]["link_mp3"].get_string());
 }
 
-static std::shared_ptr<vk::attachment::wall>
+static std::unique_ptr<vk::attachment::wall>
     get_wall(const simdjson::dom::element& attachment)
 {
-    return std::make_shared<vk::attachment::wall>(
+    return std::make_unique<vk::attachment::wall>(
         attachment["wall"]["from_id"].get_int64(),
         attachment["wall"]["id"].get_int64());
 }
