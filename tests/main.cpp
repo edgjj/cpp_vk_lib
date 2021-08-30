@@ -15,6 +15,8 @@
 
 int main(int argc, char* argv[])
 {
+    runtime::network::init_shared_curl();
+
     constexpr char sample_config[] = R"__(
         {
           "api": {

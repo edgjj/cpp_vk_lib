@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
         .perform_request();
     simdjson::dom::parser parser;
     const std::string upload_server(parser.parse(server)["response"]["upload_url"]);
-    const auto upload_response(runtime::network::upload("file", file_path, upload_server));
+    const auto upload_response(runtime::network::upload(runtime::network::require_data, "file", file_path, upload_server));
     if (upload_response.error()) {
         spdlog::error("Upload error: {}", upload_response.error());
     }

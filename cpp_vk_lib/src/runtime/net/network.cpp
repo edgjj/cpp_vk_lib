@@ -6,12 +6,56 @@
 
 bool cpp_vk_lib_curl_verbose;
 
+static pthread_mutex_t share_datalock[CURL_LOCK_DATA_LAST];
+static CURLSH* shared_handle = curl_share_init();
+
 static std::string escape(std::string_view url)
 {
     char* encoded = curl_easy_escape(NULL, url.data(), url.length());
     std::string res{encoded};
     curl_free(encoded);
     return res;
+}
+
+
+static void lock_cb(CURL *handle, curl_lock_data data, curl_lock_access access, void *userptr)
+{
+    (void)access; /* unused */
+    (void)userptr; /* unused */
+    (void)handle; /* unused */
+    pthread_mutex_lock(&share_datalock[data]);
+}
+
+static void unlock_cb(CURL *handle, curl_lock_data data, void *userptr)
+{
+    (void)userptr; /* unused */
+    (void)handle;  /* unused */
+    pthread_mutex_unlock(&share_datalock[data]);
+}
+
+void runtime::network::init_shared_curl()
+{
+    for(int i = 0; i < CURL_LOCK_DATA_LAST; i++)
+        pthread_mutex_init(&share_datalock[i], NULL);
+
+    shared_handle = curl_share_init();
+    curl_share_setopt(shared_handle, CURLSHOPT_LOCKFUNC, lock_cb);
+    curl_share_setopt(shared_handle, CURLSHOPT_UNLOCKFUNC, unlock_cb);
+
+    curl_share_setopt(shared_handle, CURLSHOPT_UNSHARE, CURL_LOCK_DATA_COOKIE);
+    curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_DNS);
+    curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_CONNECT);
+    curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_SSL_SESSION);
+}
+
+static size_t
+    omit_data_callback(char* contents, size_t size, size_t nmemb, void* userp)
+{
+    (void)contents;
+    (void)userp;
+    (void)size;
+    (void)nmemb;
+    return size * nmemb;
 }
 
 static size_t
@@ -106,6 +150,7 @@ static void set_optional_verbose(CURL* curl) noexcept
 namespace runtime {
 
 result<std::string, size_t> network::request(
+    bool output_needed,
     std::string_view host,
     std::map<std::string, std::string>&& target)
 {
@@ -119,15 +164,20 @@ result<std::string, size_t> network::request(
         return result<std::string, size_t>(std::string(), -1);
     }
     spdlog::trace("libcurl GET {}", url);
-    std::string response;
-    response.reserve(100);
+    std::string output;
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
-    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    curl_easy_setopt(curl, CURLOPT_SHARE, shared_handle);
+    if (output_needed) {
+        output.reserve(1024);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
+    } else {
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, omit_data_callback);
+    }
     set_optional_verbose(curl);
     if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
         spdlog::error(
@@ -135,13 +185,12 @@ result<std::string, size_t> network::request(
             curl_easy_strerror(res));
         return result<std::string, size_t>(std::string(), -1);
     }
-    response.shrink_to_fit();
-    //    spdlog::trace("libcurl GET response: {}", response);
-    return response;
+    output.shrink_to_fit();
+    return output;
 }
 
 result<std::string, size_t>
-    network::request_data(std::string_view host, std::string_view data)
+    network::request_data(bool output_needed, std::string_view host, std::string_view data)
 {
     std::unique_ptr<CURL, curl_free_callback> curl_handle{
         curl_easy_init(),
@@ -153,17 +202,21 @@ result<std::string, size_t>
     }
 
     spdlog::trace("libcurl GET DATA {} {}", host, data);
-    std::string response;
-    response.reserve(100);
+    std::string output;
     curl_easy_setopt(curl, CURLOPT_URL, host.data());
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
-    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
     curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, data.size());
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.data());
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    if (output_needed) {
+        output.reserve(1024);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
+    } else {
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, omit_data_callback);
+    }
     set_optional_verbose(curl);
     if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
         spdlog::error(
@@ -171,8 +224,8 @@ result<std::string, size_t>
             curl_easy_strerror(res));
         return result<std::string, size_t>(std::string(), -1);
     }
-    response.shrink_to_fit();
-    return response;
+    output.shrink_to_fit();
+    return output;
 }
 
 static size_t curl_download_impl(
@@ -238,6 +291,7 @@ size_t network::download(std::vector<uint8_t>& buffer, std::string_view server)
 }
 
 result<std::string, size_t> curl_upload_impl(
+    bool output_needed,
     struct curl_httppost* formpost,
     std::string_view server) noexcept(noexcept(string_callback))
 {
@@ -250,15 +304,19 @@ result<std::string, size_t> curl_upload_impl(
         curl_formfree(formpost);
         return result<std::string, size_t>(std::string(), -1);
     }
-    std::string response;
-    response.reserve(100);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
-    curl_easy_setopt(curl, CURLOPT_HEADERDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
+    std::string output;
     curl_easy_setopt(curl, CURLOPT_URL, server.data());
     curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    if (output_needed) {
+        output.reserve(1024);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, string_callback);
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, &output);
+        curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, string_header_callback);
+    } else {
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, omit_data_callback);
+    }
     set_optional_verbose(curl);
     if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
         spdlog::error(
@@ -268,10 +326,12 @@ result<std::string, size_t> curl_upload_impl(
         return result<std::string, size_t>(std::string(), -1);
     }
     curl_formfree(formpost);
-    return response;
+    output.shrink_to_fit();
+    return output;
 }
 
 result<std::string, size_t> network::upload(
+    bool output_needed,
     std::string_view field_name,
     std::string_view filename,
     std::string_view server,
@@ -290,10 +350,11 @@ result<std::string, size_t> network::upload(
         CURLFORM_CONTENTTYPE, content_type.data(),
         CURLFORM_END);
     // clang-format on
-    return curl_upload_impl(formpost, server);
+    return curl_upload_impl(output_needed, formpost, server);
 }
 
 result<std::string, size_t> network::upload(
+    bool output_needed,
     const std::vector<uint8_t>& buffer,
     std::string_view field_name,
     std::string_view server,
@@ -318,7 +379,7 @@ result<std::string, size_t> network::upload(
         CURLFORM_CONTENTTYPE,    content_type.data(),
         CURLFORM_END);
     // clang-format on
-    auto result = curl_upload_impl(formpost, server);
+    auto result = curl_upload_impl(output_needed, formpost, server);
     if (!result.error()) {
         spdlog::trace(
             "libcurl successfully uploaded {} bytes to {}",

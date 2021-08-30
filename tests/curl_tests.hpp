@@ -9,26 +9,42 @@
 #include <future>
 #include <filesystem>
 
-TEST(curl, POST)
+TEST(curl, POST_require_data)
 {
-    const auto received = runtime::network::request("https://www.example.com");
+    const auto received = runtime::network::request(runtime::network::require_data, "https://www.google.com");
     if (received.error()) {
         FAIL() << "error while HTTP GET";
     }
     if (const auto result = received.value(); result.empty()) {
         FAIL() << "empty response got";
     } else {
-        if (result.find("Example Domain") == std::string::npos) {
+        if (result.find("Google") == std::string::npos) {
             FAIL() << "HTTP output mismatch";
         }
     }
 }
 
-TEST(curl, POST_speed_test)
+TEST(curl, POST_omit_data)
+{
+    const auto received = runtime::network::request(runtime::network::omit_data, "https://www.google.com");
+    if (received.error()) {
+        FAIL() << "error while HTTP GET";
+    }
+}
+
+TEST(curl, GET_omit_data_speed_test)
 {
     constexpr std::string_view url = "https://www.example.com";
     for (size_t i = 0; i < 5; ++i) {
-        runtime::network::request(url);
+        runtime::network::request(runtime::network::omit_data, url);
+    }
+}
+
+TEST(curl, GET_require_data_speed_test)
+{
+    constexpr std::string_view url = "https://www.example.com";
+    for (size_t i = 0; i < 5; ++i) {
+        runtime::network::request(runtime::network::require_data, url);
     }
 }
 
@@ -39,7 +55,7 @@ TEST(curl, POST_multithreaded)
         std::promise<std::string> promise;
         std::future <std::string> future = promise.get_future();
         std::thread thread([promise = std::move(promise)]() mutable {
-            const auto received = runtime::network::request("https://www.example.com");
+            const auto received = runtime::network::request(runtime::network::require_data, "https://www.example.com");
             if (received.error()) {
                 FAIL() << "error while HTTP GET";
             }
@@ -59,7 +75,7 @@ TEST(curl, POST_multithreaded)
 
 static std::string get_cat_url()
 {
-    static auto received = runtime::network::request("https://api.thecatapi.com/v1/images/search");
+    static auto received = runtime::network::request(runtime::network::require_data, "https://api.thecatapi.com/v1/images/search");
     if (received.error() || received.value().empty()) {
         std::cerr << "Failed to get cat URL\n";
         exit(-1);

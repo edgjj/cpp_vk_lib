@@ -18,7 +18,7 @@ static std::string
     call(std::string_view method, std::map<std::string, std::string>&& params)
 {
     auto response(
-        runtime::network::request(append_url(method), std::move(params)));
+        runtime::network::request(runtime::network::require_data, append_url(method), std::move(params)));
     if (response.error()) {
         throw vk::exception::runtime_error(
             response.error(),
@@ -61,7 +61,7 @@ std::string do_not_use_api_link::execute(
 {
     VK_UNUSED(user_token);
     VK_UNUSED(access_token);
-    auto response(runtime::network::request(method, std::move(params)));
+    auto response(runtime::network::request(runtime::network::require_data, method, std::move(params)));
     if (response.error()) {
         throw vk::exception::runtime_error(
             response.error(),
