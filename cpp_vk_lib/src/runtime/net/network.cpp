@@ -17,8 +17,11 @@ static std::string escape(std::string_view url)
     return res;
 }
 
-
-static void lock_cb(CURL *handle, curl_lock_data data, curl_lock_access access, void *userptr)
+static void lock_cb(
+    CURL* handle,
+    curl_lock_data data,
+    curl_lock_access access,
+    void* userptr)
 {
     (void)access; /* unused */
     (void)userptr; /* unused */
@@ -26,16 +29,16 @@ static void lock_cb(CURL *handle, curl_lock_data data, curl_lock_access access, 
     pthread_mutex_lock(&share_datalock[data]);
 }
 
-static void unlock_cb(CURL *handle, curl_lock_data data, void *userptr)
+static void unlock_cb(CURL* handle, curl_lock_data data, void* userptr)
 {
     (void)userptr; /* unused */
-    (void)handle;  /* unused */
+    (void)handle; /* unused */
     pthread_mutex_unlock(&share_datalock[data]);
 }
 
 void runtime::network::init_shared_curl()
 {
-    for(int i = 0; i < CURL_LOCK_DATA_LAST; i++)
+    for (int i = 0; i < CURL_LOCK_DATA_LAST; i++)
         pthread_mutex_init(&share_datalock[i], NULL);
 
     shared_handle = curl_share_init();
@@ -45,7 +48,10 @@ void runtime::network::init_shared_curl()
     curl_share_setopt(shared_handle, CURLSHOPT_UNSHARE, CURL_LOCK_DATA_COOKIE);
     curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_DNS);
     curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_CONNECT);
-    curl_share_setopt(shared_handle, CURLSHOPT_SHARE, CURL_LOCK_DATA_SSL_SESSION);
+    curl_share_setopt(
+        shared_handle,
+        CURLSHOPT_SHARE,
+        CURL_LOCK_DATA_SSL_SESSION);
 }
 
 static size_t
@@ -189,8 +195,10 @@ result<std::string, size_t> network::request(
     return output;
 }
 
-result<std::string, size_t>
-    network::request_data(bool output_needed, std::string_view host, std::string_view data)
+result<std::string, size_t> network::request_data(
+    bool output_needed,
+    std::string_view host,
+    std::string_view data)
 {
     std::unique_ptr<CURL, curl_free_callback> curl_handle{
         curl_easy_init(),

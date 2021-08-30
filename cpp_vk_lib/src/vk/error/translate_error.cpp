@@ -20,7 +20,7 @@ struct error
     error_type type;
 };
 
-}// anonymous namespaec
+}// namespace
 
 static const std::unordered_map<size_t, error> errors = {
     {1, {"Unknown error occurred", error_type::runtime_error}},

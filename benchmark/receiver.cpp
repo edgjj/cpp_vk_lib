@@ -1,5 +1,6 @@
 #include "cpp_vk_lib/runtime/signal_handlers.hpp"
 #include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/runtime/net/network.hpp"
 #include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/vk/methods/basic.hpp"
 #include "cpp_vk_lib/vk/api_constants.hpp"
@@ -10,6 +11,8 @@
 
 int main()
 {
+    runtime::network::init_shared_curl();
+    
     constexpr char receiver_config[] = R"__(
         {
           "api": {

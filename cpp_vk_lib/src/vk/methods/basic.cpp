@@ -19,7 +19,7 @@ void messages::send(int64_t peer_id, std::string_view text, bool mentions_flag)
 
     constructor.param("peer_id", std::to_string(peer_id))
         .param("message", text)
-        .perform_request();
+        .request_without_output();
 }
 
 void messages::send(
@@ -40,7 +40,7 @@ void messages::send(
     constructor.param("peer_id", std::to_string(peer_id))
         .param("message", text)
         .attachments(std::move(list))
-        .perform_request();
+        .request_without_output();
 }
 
 void messages::send(
@@ -61,7 +61,7 @@ void messages::send(
     constructor.param("peer_id", std::to_string(peer_id))
         .param("message", text)
         .param("keyboard", keyboard_layout)
-        .perform_request();
+        .request_without_output();
 }
 
 int64_t groups::get_by_id(error_code& errc)

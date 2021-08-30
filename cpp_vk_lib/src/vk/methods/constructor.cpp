@@ -14,11 +14,15 @@ static std::string append_url(std::string_view method)
         method);
 }
 
-static std::string
-    call(std::string_view method, std::map<std::string, std::string>&& params)
+static std::string call(
+    bool output_needeed,
+    std::string_view method,
+    std::map<std::string, std::string>&& params)
 {
-    auto response(
-        runtime::network::request(runtime::network::require_data, append_url(method), std::move(params)));
+    auto response(runtime::network::request(
+        output_needeed,
+        append_url(method),
+        std::move(params)));
     if (response.error()) {
         throw vk::exception::runtime_error(
             response.error(),
@@ -30,6 +34,7 @@ static std::string
 namespace vk::method::policy {
 
 std::string group_api::execute(
+    bool output_needeed,
     std::map<std::string, std::string>&& params,
     const std::string& method,
     const std::string& access_token,
@@ -38,10 +43,11 @@ std::string group_api::execute(
     VK_UNUSED(user_token);
     params.insert(
         {{"access_token", access_token}, {"v", api_constants::api_version}});
-    return call(method, std::move(params));
+    return call(output_needeed, method, std::move(params));
 }
 
 std::string user_api::execute(
+    bool output_needeed,
     std::map<std::string, std::string>&& params,
     const std::string& method,
     const std::string& access_token,
@@ -50,10 +56,11 @@ std::string user_api::execute(
     VK_UNUSED(access_token);
     params.insert(
         {{"access_token", user_token}, {"v", api_constants::api_version}});
-    return call(method, std::move(params));
+    return call(output_needeed, method, std::move(params));
 }
 
 std::string do_not_use_api_link::execute(
+    bool output_needeed,
     std::map<std::string, std::string>&& params,
     const std::string& method,
     const std::string& access_token,
@@ -61,7 +68,8 @@ std::string do_not_use_api_link::execute(
 {
     VK_UNUSED(user_token);
     VK_UNUSED(access_token);
-    auto response(runtime::network::request(runtime::network::require_data, method, std::move(params)));
+    auto response(
+        runtime::network::request(output_needeed, method, std::move(params)));
     if (response.error()) {
         throw vk::exception::runtime_error(
             response.error(),
@@ -115,6 +123,18 @@ template <typename ExecutionPolicy>
 std::string constructor<ExecutionPolicy>::perform_request()
 {
     return ExecutionPolicy::execute(
+        runtime::network::require_data,
+        std::move(params_),
+        method_,
+        access_token_,
+        user_token_);
+}
+
+template <typename ExecutionPolicy>
+void constructor<ExecutionPolicy>::request_without_output()
+{
+    ExecutionPolicy::execute(
+        runtime::network::omit_data,
         std::move(params_),
         method_,
         access_token_,
