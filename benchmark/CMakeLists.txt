@@ -16,3 +16,5 @@ target_link_libraries(sender cpp_vk_lib)
 add_executable(receiver receiver.cpp)
 target_link_libraries(receiver cpp_vk_lib)
 
+add_executable(curl curl.cpp)
+target_link_libraries(curl cpp_vk_lib pthread)

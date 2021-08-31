@@ -19,7 +19,7 @@ set(CMAKE_THREAD_PREFER_PTHREAD ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Link simdjson as shared library")
-set(CPP_VK_LIB_STATIC_BUILD OFF CACHE BOOL "Link cpp_vk_lib as shaed library by default")
+set(CPP_VK_LIB_STATIC_BUILD OFF CACHE BOOL "Link cpp_vk_lib as shared library by default")
 
 add_subdirectory(modules)
 add_subdirectory(cpp_vk_lib)

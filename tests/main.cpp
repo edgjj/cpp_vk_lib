@@ -9,8 +9,14 @@
 #include "result_tests.hpp"
 #include "string_util_tests.hpp"
 
+#include "cpp_vk_lib/runtime/signal_handlers.hpp"
+#include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
+
 int main(int argc, char* argv[])
 {
+    runtime::network::init_shared_curl();
+
     constexpr char sample_config[] = R"__(
         {
           "api": {

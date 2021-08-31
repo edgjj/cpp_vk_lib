@@ -35,6 +35,10 @@ public:
      * constructor<policy::group_api> proxy.
      */
     std::string perform_request();
+    /*!
+     * constructor<policy::group_api> proxy.
+     */
+    void request_without_output();
 
 private:
     group_constructor constructor_;

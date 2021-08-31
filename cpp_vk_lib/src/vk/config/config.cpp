@@ -8,7 +8,7 @@
 
 namespace {
 
-class loader
+class VK_HIDDEN loader
 {
 public:
     VK_DISABLE_COPY_MOVE(loader)

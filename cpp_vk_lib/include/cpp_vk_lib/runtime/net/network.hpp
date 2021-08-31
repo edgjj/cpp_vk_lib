@@ -13,6 +13,11 @@ extern bool cpp_vk_lib_curl_verbose;
 }
 
 namespace runtime::network {
+
+static constexpr bool require_data = true;
+static constexpr bool omit_data = false;
+
+void init_shared_curl();
 /*!
  * \brief Perform HTTP POST request
  *
@@ -22,6 +27,7 @@ namespace runtime::network {
  * \return response output
  */
 result<std::string, size_t> request(
+    bool output_needed,
     std::string_view host,
     std::map<std::string, std::string>&& target = {});
 /*!
@@ -39,10 +45,7 @@ size_t download(std::string_view filename, std::string_view server);
  * \note The buffer is flushing before writing
  * \return -1 if failed, 0 otherwise.
  */
-size_t download(
-    std::vector<uint8_t>& buffer,
-    std::string_view server,
-    size_t estimated_capacity);
+size_t download(std::vector<uint8_t>& buffer, std::string_view server);
 /*!
  * \brief Upload file from filename to server
  *
@@ -50,6 +53,7 @@ size_t download(
  * \return upload response
  */
 result<std::string, size_t> upload(
+    bool output_needed,
     std::string_view field_name,
     std::string_view filename,
     std::string_view server,
@@ -62,6 +66,7 @@ result<std::string, size_t> upload(
  * \return upload response
  */
 result<std::string, size_t> upload(
+    bool output_needed,
     const std::vector<uint8_t>& buffer,
     std::string_view field_name,
     std::string_view server,
@@ -73,8 +78,10 @@ result<std::string, size_t> upload(
  * \param[in] URL payload, e.g JSON
  * \return response output
  */
-result<std::string, size_t>
-    request_data(std::string_view host, std::string_view data);
+result<std::string, size_t> request_data(
+    bool output_needed,
+    std::string_view host,
+    std::string_view data);
 
 }// namespace runtime::network
 

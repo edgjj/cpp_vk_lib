@@ -1,6 +1,7 @@
 #include "cpp_vk_lib/vk/keyboard/layout.hpp"
 
 #include "cpp_vk_lib/runtime/result.hpp"
+#include "cpp_vk_lib/vk/error/exception.hpp"
 #include "spdlog/spdlog.h"
 
 #include <algorithm>
@@ -19,7 +20,7 @@ void layout::add_row(std::vector<std::any>&& row)
 }
 
 template <typename T>
-VK_REALLY_INLINE runtime::result<std::string, int>
+static VK_REALLY_INLINE runtime::result<std::string, int>
     create_impl(const std::any& button) noexcept
 {
     try {

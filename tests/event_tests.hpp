@@ -200,7 +200,7 @@ TEST(message_new, event_attachments)
     simdjson::dom::parser parser;
     simdjson::dom::element event_object = parser.parse(message_new, strlen(message_new));
     vk::event::message_new event(event_object);
-    auto photo_attachment = event.attachments()[0];
+    auto photo_attachment = std::move(event.attachments()[0]);
     ASSERT_EQ(1, event.attachments().size());
     ASSERT_EQ("photo", photo_attachment->type());
     ASSERT_EQ("photo499047616_457273210", photo_attachment->value());
@@ -246,9 +246,9 @@ static void create_basic_event_speed_test(const char* event, size_t length)
     }
     auto time_spent = std::chrono::high_resolution_clock::now() - start;
     const float seconds_elapsed = std::chrono::duration_cast<std::chrono::duration<float>>(time_spent).count();
-    const float mib = (iterations * length) / 1024.0 / 1024.0;
+    const float mib = (iterations) / 1024.0 / 1024.0;
     spdlog::info("total payload size: {} MiB", mib);
-    spdlog::info("creation speed: {} MiB/sec", mib / seconds_elapsed);
+    spdlog::info("created {} event objects in {} seconds ", iterations, seconds_elapsed);
 }
 
 TEST(event, message_new_speed_test)

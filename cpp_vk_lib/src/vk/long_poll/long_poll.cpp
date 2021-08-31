@@ -46,13 +46,15 @@ std::vector<event::common> long_poll::listen(int8_t timeout)
 
     spdlog::info("long poll: ts {}, timeout {}", poll_payload_.ts, timeout);
 
+    // clang-format off
     const std::string response = method::raw_constructor()
-                                     .method(poll_payload_.server + "?")
-                                     .param("act", "a_check")
-                                     .param("key", poll_payload_.key)
-                                     .param("ts", poll_payload_.ts)
-                                     .param("wait", std::to_string(timeout))
-                                     .perform_request();
+        .method(poll_payload_.server + "?")
+        .param("act", "a_check")
+        .param("key", poll_payload_.key)
+        .param("ts", poll_payload_.ts)
+        .param("wait", std::to_string(timeout))
+        .perform_request();
+    // clang-format on
 
     const simdjson::dom::object parsed_response = parser_->parse(response);
 

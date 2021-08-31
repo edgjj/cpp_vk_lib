@@ -10,6 +10,7 @@ namespace vk::method::policy {
 struct group_api
 {
     static std::string execute(
+        bool output_needeed,
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
@@ -21,6 +22,7 @@ struct group_api
 struct user_api
 {
     static std::string execute(
+        bool output_needeed,
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
@@ -32,6 +34,7 @@ struct user_api
 struct do_not_use_api_link
 {
     static std::string execute(
+        bool output_needeed,
         std::map<std::string, std::string>&& params,
         const std::string& method,
         const std::string& access_token,
@@ -83,6 +86,12 @@ public:
      * \note all params will be destroyed after request.
      */
     std::string perform_request();
+    /*!
+     * Execute HTTP POST request and return output.
+     *
+     * \note all params will be destroyed after request.
+     */
+    void request_without_output();
 
 private:
     std::string user_token_;

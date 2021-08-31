@@ -48,4 +48,9 @@ std::string message_constructor::perform_request()
     return constructor_.perform_request();
 }
 
+void message_constructor::request_without_output()
+{
+    constructor_.request_without_output();
+}
+
 }// namespace vk::method

@@ -1,5 +1,6 @@
 ﻿#include "cpp_vk_lib/vk/events/message_new.hpp"
 
+#include "cpp_vk_lib/runtime/misc/cppdefs.hpp"
 #include "cpp_vk_lib/vk/events/attachment_handler.hpp"
 #include "simdjson.h"
 #include "spdlog/spdlog.h"
@@ -79,7 +80,7 @@ void message_new::try_get_actions()
 }
 
 template <typename T>
-VK_REALLY_INLINE bool check_action(const std::any& action) noexcept
+static VK_REALLY_INLINE bool check_action(const std::any& action) noexcept
 {
     try {
         std::any_cast<T>(action);
