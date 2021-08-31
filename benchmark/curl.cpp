@@ -1,4 +1,6 @@
 #include "cpp_vk_lib/runtime/net/network.hpp"
+#include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/runtime/string_utils/implementation/format.hpp"
 
 #include <functional>
@@ -16,11 +18,11 @@ float get_elapsed_seconds_for_executor(std::function<void()> executor)
     return std::chrono::duration_cast<std::chrono::duration<float>>(time_spent).count();
 }
 
-void create_curl_payload(std::vector<float>& outputs, std::function<void()> executor)
+void create_curl_payload(size_t thread_count, size_t iterations, std::vector<float>& outputs, std::function<void()> executor)
 {
-    for (size_t total = 0; total < 1; ++total) {
+    for (size_t total = 0; total < iterations; ++total) {
         std::vector<std::pair<std::thread, std::future<float>>> threads;
-        for (size_t i = 0; i < std::thread::hardware_concurrency(); ++i) {
+        for (size_t i = 0; i < thread_count; ++i) {
             std::promise<float> promise;
             std::future <float> future = promise.get_future();
             std::thread thread([p = std::move(promise), &executor]() mutable {
@@ -45,13 +47,16 @@ int main() {
     std::vector<float> omit_data_curl_times;
 
     net::init_shared_curl();
+    vk::config::load("/home/machen/text_data/configs/config.json");
 
-    std::cout << "execute " << std::thread::hardware_concurrency() * 8 << " require_data requests..." << std::endl;
-    create_curl_payload(require_data_curl_times, []{
+    const size_t threads = 2;
+    const size_t iterations = 10;
+    std::cout << "execute " << threads * iterations << " require_data requests..." << std::endl;
+    create_curl_payload(threads, iterations, require_data_curl_times, []{
         net::request(net::require_data, "https://www.google.com");
     });
-    std::cout << "execute " << std::thread::hardware_concurrency() * 8 << " omit_data requests..." << std::endl;
-    create_curl_payload(omit_data_curl_times, []{
+    std::cout << "execute " << threads * iterations << " omit_data requests..." << std::endl;
+    create_curl_payload(threads, iterations, omit_data_curl_times, []{
         net::request(net::omit_data, "https://www.google.com");
     });
 

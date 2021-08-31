@@ -59,8 +59,6 @@ static size_t
 {
     (void)contents;
     (void)userp;
-    (void)size;
-    (void)nmemb;
     return size * nmemb;
 }
 
@@ -216,6 +214,7 @@ result<std::string, size_t> network::request_data(
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.data());
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    curl_easy_setopt(curl, CURLOPT_SHARE, shared_handle);
     if (output_needed) {
         output.reserve(1024);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);
@@ -256,6 +255,7 @@ static size_t curl_download_impl(
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, buffer);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 600L);
+    curl_easy_setopt(curl, CURLOPT_SHARE, shared_handle);
     if (header_cb) {
         curl_easy_setopt(curl, CURLOPT_HEADERDATA, buffer);
         curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, header_cb);
@@ -316,6 +316,7 @@ result<std::string, size_t> curl_upload_impl(
     curl_easy_setopt(curl, CURLOPT_URL, server.data());
     curl_easy_setopt(curl, CURLOPT_HTTPPOST, formpost);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_SHARE, shared_handle);
     if (output_needed) {
         output.reserve(1024);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);
