@@ -4,6 +4,8 @@
 #include <memory>
 #include <string>
 
+#include "cpp_vk_lib/vk/events/type.hpp"
+
 namespace vk::event {
 class message_new;
 class wall_post_new;
@@ -26,11 +28,11 @@ public:
     common(std::string_view ts, simdjson::dom::object event);
     ~common();
 
-    std::string type() const noexcept;
+    event::type type() const noexcept;
     std::string ts() const noexcept;
     std::string dump() const noexcept;
 
-    bool on_type(std::string_view type) const noexcept;
+    bool on_type(event::type) const noexcept;
 
     explicit operator message_new() const;
     explicit operator wall_post_new() const;
@@ -44,7 +46,7 @@ private:
     simdjson::dom::object& get_event() const noexcept;
 
     std::string ts_;
-    std::string update_type_;
+    event::type underlying_event_type_;
     std::shared_ptr<simdjson::dom::object> event_;
 };
 

@@ -24,15 +24,10 @@ int main(int argc, char* argv[])
     asio::io_context io_context;
     vk::long_poll api(io_context);
 
-    while (true) {
-        auto events = api.listen();
-        for (const auto& event : events) {
-            api.on_event("message_new", event, [&event] {
-                vk::event::message_new message_event = event.get_message_new();
-                vk::method::messages::send(message_event.peer_id(), "response");
-            });
-        }
-        api.run();
-    }
+    api.on_event(vk::event::type::message_new, [](const vk::event::common& event) {
+        vk::event::message_new message = event.get_message_new();
+        vk::method::messages::send(message.peer_id(), "response");
+    });
+    api.run();
     return 0;
 }

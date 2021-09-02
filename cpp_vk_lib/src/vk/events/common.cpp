@@ -11,10 +11,22 @@ common::~common() = default;
 
 common::common(std::string_view ts, simdjson::dom::object event)
     : ts_(ts)
-    , update_type_()
+    , underlying_event_type_()
     , event_(std::make_shared<simdjson::dom::object>(event))
 {
-    update_type_ = (*event_)["type"].get_string().take_value().data();
+    std::string_view type((*event_)["type"]);
+    if (type == "message_new") {
+        underlying_event_type_ = event::type::message_new;
+    } else if (type == "wall_post_new") {
+        underlying_event_type_ = event::type::wall_post_new;
+    } else if (type == "wall_reply_new") {
+        underlying_event_type_ = event::type::wall_reply_new;
+    } else if (type == "wall_repost") {
+        underlying_event_type_ = event::type::wall_repost;
+    } else {
+        const std::string errmsg = "unknown event type: " + std::string(type);
+        throw exception::runtime_error(-1, errmsg.c_str());
+    }
 }
 
 simdjson::dom::object& common::get_event() const noexcept
@@ -22,9 +34,9 @@ simdjson::dom::object& common::get_event() const noexcept
     return *event_;
 }
 
-bool common::on_type(std::string_view type) const noexcept
+bool common::on_type(event::type type) const noexcept
 {
-    return update_type_ == type;
+    return underlying_event_type_ == type;
 }
 
 common::operator message_new() const
@@ -57,9 +69,9 @@ wall_reply_new common::get_wall_reply_new() const
     return this->operator wall_reply_new();
 }
 
-std::string common::type() const noexcept
+event::type common::type() const noexcept
 {
-    return update_type_;
+    return underlying_event_type_;
 }
 
 std::string common::ts() const noexcept

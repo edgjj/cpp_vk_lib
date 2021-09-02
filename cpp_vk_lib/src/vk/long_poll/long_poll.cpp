@@ -78,20 +78,26 @@ std::vector<event::common> long_poll::listen(int8_t timeout)
     return event_list;
 }
 
-void long_poll::run()
+void long_poll::run(int8_t timeout)
 {
-    std::vector<std::thread> threads;
-    const size_t num_workers = config::num_workers();
-    for (size_t i = 0; i < num_workers; ++i) {
-        threads.emplace_back([this] {
-            io_context_.run();
-        });
+    while (true) {
+        auto events = listen(timeout);
+        for (const auto& event : events) {
+            asio::post(io_context_, std::bind(executors_[event.type()], event));
+        }
+        std::vector<std::thread> threads;
+        const size_t num_workers = config::num_workers();
+        for (size_t i = 0; i < num_workers; ++i) {
+            threads.emplace_back([this] {
+                io_context_.run();
+            });
+        }
+        io_context_.run();
+        for (auto& t : threads) {
+            t.join();
+        }
+        io_context_.restart();
     }
-    io_context_.run();
-    for (auto& t : threads) {
-        t.join();
-    }
-    io_context_.restart();
 }
 
 }// namespace vk
