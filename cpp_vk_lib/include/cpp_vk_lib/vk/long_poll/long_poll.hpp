@@ -9,6 +9,7 @@
 #include "cpp_vk_lib/vk/events/common.hpp"
 
 #include <vector>
+#include <unordered_map>
 
 namespace simdjson::dom {
 class object;

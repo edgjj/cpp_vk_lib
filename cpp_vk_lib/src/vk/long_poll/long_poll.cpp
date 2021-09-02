@@ -11,6 +11,7 @@ namespace vk {
 
 long_poll::long_poll(asio::io_context& io_context)
     : parser_(std::make_unique<simdjson::dom::parser>())
+    , executors_()
     , poll_payload_()
     , errc_()
     , io_context_(io_context)

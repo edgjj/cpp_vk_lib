@@ -26,4 +26,4 @@ jobs:
       run: cd build && ./build/tests
 
     - name: run benchmarks
-      run: cd build && ./receiver & disown && sleep 1 && cd build && ./sender
+      run: cd build && ./curl_benchmark
