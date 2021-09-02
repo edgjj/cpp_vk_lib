@@ -82,12 +82,15 @@ std::vector<event::common> long_poll::listen(int8_t timeout)
 void long_poll::run(int8_t timeout)
 {
     while (true) {
-        auto events = listen(timeout);
+        std::vector<vk::event::common> events = listen(timeout);
         for (const auto& event : events) {
-            asio::post(io_context_, std::bind(executors_[event.type()], event));
+            asio::post(io_context_, [this, &event]() mutable {
+                executors_[event.type()](event);
+            });
         }
-        std::vector<std::thread> threads;
         const size_t num_workers = config::num_workers();
+        std::vector<std::thread> threads;
+        threads.reserve(num_workers);
         for (size_t i = 0; i < num_workers; ++i) {
             threads.emplace_back([this] {
                 io_context_.run();

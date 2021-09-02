@@ -54,7 +54,7 @@ public:
      *
      * After all tasks are completed, the queue returns to its original state.
      */
-    void run(int8_t timeout = 60);
+    [[noreturn]] void run(int8_t timeout = 60);
 
 private:
     /*!
