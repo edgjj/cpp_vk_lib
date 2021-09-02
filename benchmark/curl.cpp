@@ -1,5 +1,6 @@
 #include "cpp_vk_lib/runtime/net/network.hpp"
 #include "cpp_vk_lib/runtime/setup_logger.hpp"
+#include "cpp_vk_lib/runtime/signal_handlers.hpp"
 #include "cpp_vk_lib/vk/config/config.hpp"
 #include "cpp_vk_lib/runtime/string_utils/implementation/format.hpp"
 
@@ -29,7 +30,7 @@ void create_curl_payload(size_t thread_count, size_t iterations, std::vector<flo
                 float seconds = get_elapsed_seconds_for_executor(executor);
                 p.set_value(seconds);
             });
-            threads.push_back(std::make_pair(std::move(thread), std::move(future)));
+            threads.emplace_back(std::move(thread), std::move(future));
         }
 
         for (auto& el : threads) {
@@ -46,6 +47,7 @@ int main() {
     std::vector<float> require_data_curl_times;
     std::vector<float> omit_data_curl_times;
 
+    runtime::setup_signal_handlers();
     net::init_shared_curl();
 
     const size_t threads = 2;
@@ -62,10 +64,10 @@ int main() {
     std::cout << "require data average time: " << std::accumulate(
         require_data_curl_times.begin(),
         require_data_curl_times.end(),
-        0.0f) / require_data_curl_times.size() << std::endl;
+        0.0f) / static_cast<float>(require_data_curl_times.size()) << std::endl;
 
     std::cout << "omit data average time:    " << std::accumulate(
         omit_data_curl_times.begin(),
         omit_data_curl_times.end(),
-        0.0f) / omit_data_curl_times.size() << std::endl;
+        0.0f) / static_cast<float>(omit_data_curl_times.size()) << std::endl;
 }
