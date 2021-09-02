@@ -5,11 +5,11 @@
 #include "asio/post.hpp"
 #include "cpp_vk_lib/runtime/misc/cppdefs.hpp"
 #include "cpp_vk_lib/vk/error/error_code.hpp"
-#include "cpp_vk_lib/vk/events/type.hpp"
 #include "cpp_vk_lib/vk/events/common.hpp"
+#include "cpp_vk_lib/vk/events/type.hpp"
 
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 namespace simdjson::dom {
 class object;
@@ -48,9 +48,7 @@ public:
      * \note If invalid event type provided, nothing will happen.
      */
     template <typename Executor>
-    void on_event(
-        event::type,
-        Executor);
+    void on_event(event::type, Executor);
     /*!
      * Execute all existing tasks.
      *
@@ -87,9 +85,7 @@ private:
 };
 
 template <typename Executor>
-void long_poll::on_event(
-    event::type type,
-    Executor executor)
+void long_poll::on_event(event::type type, Executor executor)
 {
     executors_[type] = executor;
 }

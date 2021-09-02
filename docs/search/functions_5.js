@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['listen_119',['listen',['../classvk_1_1long__poll.html#a78e5b95058b5b1c55ec4ea7f8bbf0e21',1,'vk::long_poll']]],
-  ['long_5fpoll_120',['long_poll',['../classvk_1_1long__poll.html#a0224e5d18cac631716eabe8cc09830ea',1,'vk::long_poll']]]
+  ['message_5fconstructor_122',['message_constructor',['../classvk_1_1method_1_1message__constructor.html#ab0879fdc29699fade33dea42cbe8d351',1,'vk::method::message_constructor']]],
+  ['method_123',['method',['../classvk_1_1method_1_1constructor.html#a62c1745a3b5bc38817aa9a57bdf9d5bc',1,'vk::method::constructor']]]
 ];

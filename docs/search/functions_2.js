@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enqueue_116',['enqueue',['../classvk_1_1long__poll.html#affbeb2bc6c57dc85cb92882c797dbc0c',1,'vk::long_poll']]]
+  ['fwd_5fmessages_118',['fwd_messages',['../classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26',1,'vk::event::message_new']]]
 ];

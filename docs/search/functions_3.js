@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fwd_5fmessages_117',['fwd_messages',['../classvk_1_1event_1_1message__new.html#ac5bba5cd48552ff332bcfccff0822b26',1,'vk::event::message_new']]]
+  ['get_119',['get',['../classvk_1_1keyboard_1_1layout.html#a2927084b2567e0b7188a83c7285f0ffc',1,'vk::keyboard::layout']]]
 ];

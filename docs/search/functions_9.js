@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['reply_128',['reply',['../classvk_1_1event_1_1message__new.html#adf74ae64132eb2599578a97dcd12353e',1,'vk::event::message_new']]],
-  ['repost_129',['repost',['../classvk_1_1event_1_1wall__post__new.html#a4dbbbff58ea5e25b5db185ac5c71aae1',1,'vk::event::wall_post_new']]],
-  ['run_130',['run',['../classvk_1_1long__poll.html#a322e226435927bf8cc75aa5e1d8acd17',1,'vk::long_poll']]]
+  ['serialize_133',['serialize',['../classvk_1_1keyboard_1_1layout.html#a9c1a4c1fcb333d4c98e67cf097566c17',1,'vk::keyboard::layout']]],
+  ['server_134',['server',['../classvk_1_1long__poll.html#a1b8496ebf1f1fde5dd09b835725e0019',1,'vk::long_poll']]]
 ];

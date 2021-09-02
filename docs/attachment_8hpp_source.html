@@ -147,21 +147,11 @@ $(function() {
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::string raw_mp3_;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Attachment&gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;std::shared_ptr&lt;Attachment&gt; cast(<span class="keyword">const</span> std::shared_ptr&lt;base&gt;&amp; pointer)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* casted = <span class="keyword">static_cast&lt;</span>Attachment*<span class="keyword">&gt;</span>(pointer.get())) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> std::shared_ptr&lt;Attachment&gt;(pointer, casted);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classvk_1_1exception_1_1bad__cast__error.html">exception::bad_cast_error&lt;base, Attachment&gt;</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">using</span> attachment_ptr_t = std::shared_ptr&lt;base&gt;;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}<span class="comment">// namespace vk::attachment</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_HPP</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">using</span> attachment_ptr_t = std::unique_ptr&lt;base&gt;;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}<span class="comment">// namespace vk::attachment</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// VK_ATTACHMENT_HPP</span></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1audio__message_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio__message.html">vk::attachment::audio_message</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:62</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1audio_html"><div class="ttname"><a href="classvk_1_1attachment_1_1audio.html">vk::attachment::audio</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:39</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1base_html"><div class="ttname"><a href="classvk_1_1attachment_1_1base.html">vk::attachment::base</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:12</div></div>
@@ -169,7 +159,6 @@ $(function() {
 <div class="ttc" id="aclassvk_1_1attachment_1_1photo_html"><div class="ttname"><a href="classvk_1_1attachment_1_1photo.html">vk::attachment::photo</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:27</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1video_html"><div class="ttname"><a href="classvk_1_1attachment_1_1video.html">vk::attachment::video</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:33</div></div>
 <div class="ttc" id="aclassvk_1_1attachment_1_1wall_html"><div class="ttname"><a href="classvk_1_1attachment_1_1wall.html">vk::attachment::wall</a></div><div class="ttdef"><b>Definition:</b> attachment.hpp:56</div></div>
-<div class="ttc" id="aclassvk_1_1exception_1_1bad__cast__error_html"><div class="ttname"><a href="classvk_1_1exception_1_1bad__cast__error.html">vk::exception::bad_cast_error</a></div><div class="ttdef"><b>Definition:</b> exception.hpp:59</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

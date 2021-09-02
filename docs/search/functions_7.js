@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['on_5fevent_123',['on_event',['../classvk_1_1long__poll.html#a080d10a5e2f4cfbcc7ff01a2d812c130',1,'vk::long_poll']]],
-  ['operator_20bool_124',['operator bool',['../classvk_1_1error__code.html#a3b96b6b423c028a078ed6adabfccba60',1,'vk::error_code']]]
+  ['param_126',['param',['../classvk_1_1method_1_1constructor.html#a4b7c33c71c0b7bc4d02ac5a5a423af97',1,'vk::method::constructor::param()'],['../classvk_1_1method_1_1message__constructor.html#a70aad254155e49b14bd63df263055943',1,'vk::method::message_constructor::param()']]],
+  ['perform_5frequest_127',['perform_request',['../classvk_1_1method_1_1constructor.html#a9e8d220fd80c6a534a5df69722f01d93',1,'vk::method::constructor::perform_request()'],['../classvk_1_1method_1_1message__constructor.html#a7903ca16658ab3295a9cbbff1520b6cc',1,'vk::method::message_constructor::perform_request()']]],
+  ['pull_128',['pull',['../classvk_1_1oauth_1_1client.html#a4e076f3759181ee177f347fdbf36ec70',1,'vk::oauth::client']]]
 ];

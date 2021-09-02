@@ -83,18 +83,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a20a252766562adcac18c138a9be6961c"><td class="memItemLeft" align="right" valign="top"><a id="a20a252766562adcac18c138a9be6961c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>common</b> (std::string_view ts, simdjson::dom::object event)</td></tr>
 <tr class="separator:a20a252766562adcac18c138a9be6961c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93d3f1b434b1ffebc7ce15fd2979e5d9"><td class="memItemLeft" align="right" valign="top"><a id="a93d3f1b434b1ffebc7ce15fd2979e5d9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const noexcept</td></tr>
-<tr class="separator:a93d3f1b434b1ffebc7ce15fd2979e5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd4662e7b1e173a7e4c4c77903fa46f"><td class="memItemLeft" align="right" valign="top"><a id="a5bd4662e7b1e173a7e4c4c77903fa46f"></a>
+event::type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const noexcept</td></tr>
+<tr class="separator:a5bd4662e7b1e173a7e4c4c77903fa46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6374a2fb52b35426ee3345b7d5c81ec"><td class="memItemLeft" align="right" valign="top"><a id="aa6374a2fb52b35426ee3345b7d5c81ec"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ts</b> () const noexcept</td></tr>
 <tr class="separator:aa6374a2fb52b35426ee3345b7d5c81ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae822aea0c0ffa5c820273060b579e066"><td class="memItemLeft" align="right" valign="top"><a id="ae822aea0c0ffa5c820273060b579e066"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> () const noexcept</td></tr>
 <tr class="separator:ae822aea0c0ffa5c820273060b579e066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace7c10d6e49111c8c6f6e9d07b07f7d0"><td class="memItemLeft" align="right" valign="top"><a id="ace7c10d6e49111c8c6f6e9d07b07f7d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>on_type</b> (std::string_view type) const noexcept</td></tr>
-<tr class="separator:ace7c10d6e49111c8c6f6e9d07b07f7d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e98f6c9510b32908536c316ddaee9b3"><td class="memItemLeft" align="right" valign="top"><a id="a9e98f6c9510b32908536c316ddaee9b3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>on_type</b> (event::type) const noexcept</td></tr>
+<tr class="separator:a9e98f6c9510b32908536c316ddaee9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7039b32d03edc0f681201367c2bc976"><td class="memItemLeft" align="right" valign="top"><a id="ac7039b32d03edc0f681201367c2bc976"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator message_new</b> () const</td></tr>
 <tr class="separator:ac7039b32d03edc0f681201367c2bc976"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,9 +125,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a275f9a5c30839cc61ccd12e2a098fa8e"><td class="memItemLeft" align="right" valign="top"><a id="a275f9a5c30839cc61ccd12e2a098fa8e"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ts_</b></td></tr>
 <tr class="separator:a275f9a5c30839cc61ccd12e2a098fa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bf3e6696421d1b210256a93db1c71ac"><td class="memItemLeft" align="right" valign="top"><a id="a9bf3e6696421d1b210256a93db1c71ac"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>update_type_</b></td></tr>
-<tr class="separator:a9bf3e6696421d1b210256a93db1c71ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3fc33764c2df8291474e7d17e10c78"><td class="memItemLeft" align="right" valign="top"><a id="a1e3fc33764c2df8291474e7d17e10c78"></a>
+event::type&#160;</td><td class="memItemRight" valign="bottom"><b>underlying_event_type_</b></td></tr>
+<tr class="separator:a1e3fc33764c2df8291474e7d17e10c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed9ea7ffadecdd08b8ddd418581d2fa7"><td class="memItemLeft" align="right" valign="top"><a id="aed9ea7ffadecdd08b8ddd418581d2fa7"></a>
 std::shared_ptr&lt; simdjson::dom::object &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>event_</b></td></tr>
 <tr class="separator:aed9ea7ffadecdd08b8ddd418581d2fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -69,6 +69,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classvk_1_1long__poll-members.html">List of all members</a>  </div>
@@ -91,27 +92,33 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0224e5d18cac631716eabe8cc09830ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a0224e5d18cac631716eabe8cc09830ea">long_poll</a> (asio::io_context &amp;io_context)</td></tr>
 <tr class="separator:a0224e5d18cac631716eabe8cc09830ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a78e5b95058b5b1c55ec4ea7f8bbf0e21">listen</a> (int8_t timeout=60)</td></tr>
-<tr class="separator:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memTemplParams" colspan="2">template&lt;typename Executor &gt; </td></tr>
-<tr class="memitem:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a080d10a5e2f4cfbcc7ff01a2d812c130">on_event</a> (std::string_view event_type, const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;event, Executor executor)</td></tr>
-<tr class="separator:a080d10a5e2f4cfbcc7ff01a2d812c130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a322e226435927bf8cc75aa5e1d8acd17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a322e226435927bf8cc75aa5e1d8acd17">run</a> ()</td></tr>
-<tr class="separator:a322e226435927bf8cc75aa5e1d8acd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c14dfda6b12ac210b971842a48a7f42"><td class="memTemplParams" colspan="2">template&lt;typename Executor &gt; </td></tr>
+<tr class="memitem:a1c14dfda6b12ac210b971842a48a7f42"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a1c14dfda6b12ac210b971842a48a7f42">on_event</a> (event::type, Executor)</td></tr>
+<tr class="separator:a1c14dfda6b12ac210b971842a48a7f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a052c147defdb287a2ad8d603c3e0dc3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a052c147defdb287a2ad8d603c3e0dc3e">run</a> (int8_t timeout=60)</td></tr>
+<tr class="separator:a052c147defdb287a2ad8d603c3e0dc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:ae56ec2c977fa7b0f629f25b79490371d"><td class="memItemLeft" align="right" valign="top"><a id="ae56ec2c977fa7b0f629f25b79490371d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>long_poll_callback_t</b> = std::function&lt; void(const <a class="el" href="classvk_1_1event_1_1common.html">vk::event::common</a> &amp;)&gt;</td></tr>
+<tr class="separator:ae56ec2c977fa7b0f629f25b79490371d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a1b8496ebf1f1fde5dd09b835725e0019"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvk_1_1long__poll_1_1poll__payload.html">poll_payload</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a1b8496ebf1f1fde5dd09b835725e0019">server</a> () const</td></tr>
 <tr class="separator:a1b8496ebf1f1fde5dd09b835725e0019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affbeb2bc6c57dc85cb92882c797dbc0c"><td class="memTemplParams" colspan="2">template&lt;typename Executor &gt; </td></tr>
-<tr class="memitem:affbeb2bc6c57dc85cb92882c797dbc0c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#affbeb2bc6c57dc85cb92882c797dbc0c">enqueue</a> (Executor executor)</td></tr>
-<tr class="separator:affbeb2bc6c57dc85cb92882c797dbc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvk_1_1long__poll.html#a78e5b95058b5b1c55ec4ea7f8bbf0e21">listen</a> (int8_t timeout=60)</td></tr>
+<tr class="separator:a78e5b95058b5b1c55ec4ea7f8bbf0e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:afacd6a5ecf3b0edf5b8c5c228796e5c3"><td class="memItemLeft" align="right" valign="top"><a id="afacd6a5ecf3b0edf5b8c5c228796e5c3"></a>
 std::unique_ptr&lt; simdjson::dom::parser &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>parser_</b></td></tr>
 <tr class="separator:afacd6a5ecf3b0edf5b8c5c228796e5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5802355ca9fccff1f2a5b7a358b80cf"><td class="memItemLeft" align="right" valign="top"><a id="ad5802355ca9fccff1f2a5b7a358b80cf"></a>
+std::unordered_map&lt; event::type, long_poll_callback_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>executors_</b></td></tr>
+<tr class="separator:ad5802355ca9fccff1f2a5b7a358b80cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b66707e7d32549918490aba05b0a850"><td class="memItemLeft" align="right" valign="top"><a id="a2b66707e7d32549918490aba05b0a850"></a>
 <a class="el" href="structvk_1_1long__poll_1_1poll__payload.html">poll_payload</a>&#160;</td><td class="memItemRight" valign="bottom"><b>poll_payload_</b></td></tr>
 <tr class="separator:a2b66707e7d32549918490aba05b0a850"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,40 +164,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>started_</b></td></tr
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="affbeb2bc6c57dc85cb92882c797dbc0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affbeb2bc6c57dc85cb92882c797dbc0c">&#9670;&nbsp;</a></span>enqueue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Executor &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vk::long_poll::enqueue </td>
-          <td>(</td>
-          <td class="paramtype">Executor&#160;</td>
-          <td class="paramname"><em>executor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Push task to event queue. </p>
-
-</div>
-</div>
 <a id="a78e5b95058b5b1c55ec4ea7f8bbf0e21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78e5b95058b5b1c55ec4ea7f8bbf0e21">&#9670;&nbsp;</a></span>listen()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &gt; vk::long_poll::listen </td>
@@ -200,6 +181,11 @@ template&lt;typename Executor &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Execute "listening" with maximum delay = timeout.</p>
 <p>At first start, new Long Poll server retrieved.</p>
@@ -208,8 +194,8 @@ template&lt;typename Executor &gt; </div>
 
 </div>
 </div>
-<a id="a080d10a5e2f4cfbcc7ff01a2d812c130"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a080d10a5e2f4cfbcc7ff01a2d812c130">&#9670;&nbsp;</a></span>on_event()</h2>
+<a id="a1c14dfda6b12ac210b971842a48a7f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c14dfda6b12ac210b971842a48a7f42">&#9670;&nbsp;</a></span>on_event()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,14 +205,8 @@ template&lt;typename Executor &gt; </div>
         <tr>
           <td class="memname">void vk::long_poll::on_event </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>event_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classvk_1_1event_1_1common.html">event::common</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em>, </td>
+          <td class="paramtype">event::type&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -246,8 +226,8 @@ template&lt;typename Executor &gt; </div>
 
 </div>
 </div>
-<a id="a322e226435927bf8cc75aa5e1d8acd17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a322e226435927bf8cc75aa5e1d8acd17">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a052c147defdb287a2ad8d603c3e0dc3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a052c147defdb287a2ad8d603c3e0dc3e">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +235,8 @@ template&lt;typename Executor &gt; </div>
         <tr>
           <td class="memname">void vk::long_poll::run </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>60</code></td><td>)</td>
           <td></td>
         </tr>
       </table>

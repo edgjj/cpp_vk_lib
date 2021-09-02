@@ -1,10 +1,10 @@
 #ifndef VK_EVENTS_COMMON_HPP
 #define VK_EVENTS_COMMON_HPP
 
+#include "cpp_vk_lib/vk/events/type.hpp"
+
 #include <memory>
 #include <string>
-
-#include "cpp_vk_lib/vk/events/type.hpp"
 
 namespace vk::event {
 class message_new;

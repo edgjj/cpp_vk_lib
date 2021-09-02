@@ -13,4 +13,4 @@ enum struct type : unsigned char
 
 }// namespace vk::event
 
-#endif //VK_EVENTS_TYPE_HPP
+#endif// VK_EVENTS_TYPE_HPP
