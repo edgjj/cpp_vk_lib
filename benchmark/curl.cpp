@@ -47,7 +47,6 @@ int main() {
     std::vector<float> omit_data_curl_times;
 
     net::init_shared_curl();
-    vk::config::load("/home/machen/text_data/configs/config.json");
 
     const size_t threads = 2;
     const size_t iterations = 10;
